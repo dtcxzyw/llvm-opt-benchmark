@@ -464,7 +464,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9: ; preds = %_ZStls
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11 unwind label %22
 
 16:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9
-  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %0, i64 noundef %17)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11 unwind label %22
 
@@ -477,14 +477,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %_ZStl
           to label %21 unwind label %22
 
 21:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13
-  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #18
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11, %16, %8, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %5, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #18
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %23
 
@@ -524,7 +524,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9: ; preds = %_ZStls
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11 unwind label %22
 
 16:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9
-  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %0, i64 noundef %17)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11 unwind label %22
 
@@ -537,14 +537,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %_ZStl
           to label %21 unwind label %22
 
 21:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13
-  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #18
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11, %16, %8, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %5, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #18
+  call void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %23
 
@@ -566,13 +566,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
+  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %4
 
@@ -583,7 +583,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #20
   resume { ptr, i32 } %5
 }
 
@@ -591,8 +591,8 @@ declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 align 2 {
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #19
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #20
   ret void
 }
 
@@ -1245,7 +1245,7 @@ _ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm3
   br i1 %371, label %cdce.end.i.i, label %cdce.call, !prof !31
 
 cdce.call:                                        ; preds = %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %372 = call noundef float @log1pf(float noundef %370) #18, !tbaa !32
+  %372 = call noundef float @log1pf(float noundef %370) #19, !tbaa !32
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
@@ -1263,7 +1263,7 @@ cdce.end.i.i:                                     ; preds = %cdce.call, %_ZN12_G
   br i1 %382, label %cdce.end5.i.i, label %cdce.call1, !prof !31
 
 cdce.call1:                                       ; preds = %cdce.end.i.i
-  %383 = call double @log1p(double noundef %381) #18, !tbaa !32
+  %383 = call double @log1p(double noundef %381) #19, !tbaa !32
   br label %cdce.end5.i.i
 
 cdce.end5.i.i:                                    ; preds = %cdce.call1, %cdce.end.i.i
@@ -1301,7 +1301,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   br i1 %401, label %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %cdce.call3, !prof !31
 
 cdce.call3:                                       ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i
-  %402 = call double @log1p(double noundef %400) #18, !tbaa !32
+  %402 = call double @log1p(double noundef %400) #19, !tbaa !32
   br label %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i
@@ -1840,7 +1840,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #18, !tbaa !32
+  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
   %5 = fcmp ole double %4, %2
   %6 = fsub double %2, %4
   %7 = tail call double @llvm.fabs.f64(double %6)
@@ -1849,7 +1849,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpe
   br i1 %9, label %10, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
 
 10:                                               ; preds = %3
-  %11 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #18, !tbaa !32
+  %11 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
   %12 = fsub double %2, %11
   %13 = tail call i1 @llvm.is.fpclass.f64(double %12, i32 384)
   br i1 %13, label %.split.i.i, label %.split.us.i.i
@@ -1905,7 +1905,7 @@ _ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_(ptr noundef nonnull align 8 dereferenceable(2504) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = sitofp i32 %1 to double
-  %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #18, !tbaa !32
+  %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
   %6 = fcmp ole double %5, %2
   %7 = fsub double %2, %5
   %8 = tail call double @llvm.fabs.f64(double %7)
@@ -1914,7 +1914,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpe
   br i1 %10, label %11, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeEPS3_DpOT0_.exit
 
 11:                                               ; preds = %3
-  %12 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #18, !tbaa !32
+  %12 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
   %13 = fsub double %2, %12
   %14 = tail call i1 @llvm.is.fpclass.f64(double %13, i32 384)
   br i1 %14, label %.split.i.i, label %.split.us.i.i
@@ -1969,7 +1969,7 @@ _ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64E
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %5 = fcmp ole double %1, %4
   %6 = fsub double %4, %1
   %7 = tail call double @llvm.fabs.f64(double %6)
@@ -1978,7 +1978,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClo
   br i1 %9, label %10, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
 
 10:                                               ; preds = %3
-  %11 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %11 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %12 = fsub double %11, %1
   %13 = tail call i1 @llvm.is.fpclass.f64(double %12, i32 384)
   br i1 %13, label %.split.i.i, label %.split.us.i.i
@@ -2033,8 +2033,8 @@ _ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64E
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_21IntervalOpenClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #18, !tbaa !32
-  %5 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
+  %5 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %6 = fcmp ole double %4, %5
   %7 = fsub double %5, %4
   %8 = tail call double @llvm.fabs.f64(double %7)
@@ -2043,8 +2043,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_21IntervalOpe
   br i1 %10, label %11, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
 
 11:                                               ; preds = %3
-  %12 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #18, !tbaa !32
-  %13 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %12 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
+  %13 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %14 = fsub double %13, %12
   %15 = tail call i1 @llvm.is.fpclass.f64(double %14, i32 384)
   br i1 %15, label %.split.i.i, label %.split.us.i.i
@@ -2195,37 +2195,37 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   ret i64 %65
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @log1pf(float noundef) local_unnamed_addr #11
+declare float @log1pf(float noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log1p(double noundef) local_unnamed_addr #11
+declare double @log1p(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @exp(double noundef) local_unnamed_addr #11
+declare double @exp(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log(double noundef) local_unnamed_addr #11
+declare double @log(double noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -2462,7 +2462,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -3883,7 +3883,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(44) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4283,9 +4283,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #18, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #18, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -4312,9 +4312,9 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %95, %97
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #18, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #18, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
   %120 = fmul double %119, %17
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
@@ -4329,9 +4329,9 @@ _ZNK4absl17zipf_distributionIiE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #18, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
   %128 = fmul double %127, %23
-  %129 = tail call double @exp(double noundef %128) #18, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -4345,7 +4345,7 @@ _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %1
   ret i32 %134
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.rint.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -4496,9 +4496,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %100 = fmul double %96, %14
-  %101 = tail call double @log(double noundef %100) #18, !tbaa !32
+  %101 = tail call double @log(double noundef %100) #19, !tbaa !32
   %102 = fmul double %19, %101
-  %103 = tail call double @exp(double noundef %102) #18, !tbaa !32
+  %103 = tail call double @exp(double noundef %102) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %97, %99
@@ -4523,9 +4523,9 @@ _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %97, %99
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #18, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #18, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
   %120 = fmul double %119, %19
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
@@ -4540,9 +4540,9 @@ _ZNK4absl17zipf_distributionIaE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #18, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
   %128 = fmul double %127, %25
-  %129 = tail call double @exp(double noundef %128) #18, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -4704,9 +4704,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %100 = fmul double %96, %14
-  %101 = tail call double @log(double noundef %100) #18, !tbaa !32
+  %101 = tail call double @log(double noundef %100) #19, !tbaa !32
   %102 = fmul double %19, %101
-  %103 = tail call double @exp(double noundef %102) #18, !tbaa !32
+  %103 = tail call double @exp(double noundef %102) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %97, %99
@@ -4731,9 +4731,9 @@ _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %97, %99
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #18, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #18, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
   %120 = fmul double %119, %19
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
@@ -4748,9 +4748,9 @@ _ZNK4absl17zipf_distributionIsE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #18, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
   %128 = fmul double %127, %25
-  %129 = tail call double @exp(double noundef %128) #18, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -4912,9 +4912,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %100 = fmul double %96, %14
-  %101 = tail call double @log(double noundef %100) #18, !tbaa !32
+  %101 = tail call double @log(double noundef %100) #19, !tbaa !32
   %102 = fmul double %19, %101
-  %103 = tail call double @exp(double noundef %102) #18, !tbaa !32
+  %103 = tail call double @exp(double noundef %102) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %97, %99
@@ -4939,9 +4939,9 @@ _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %97, %99
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #18, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #18, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
   %120 = fmul double %119, %19
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
@@ -4956,9 +4956,9 @@ _ZNK4absl17zipf_distributionItE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #18, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
   %128 = fmul double %127, %25
-  %129 = tail call double @exp(double noundef %128) #18, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -5118,9 +5118,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #18, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #18, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -5147,9 +5147,9 @@ _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %95, %97
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #18, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #18, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
   %120 = fmul double %119, %17
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
@@ -5164,9 +5164,9 @@ _ZNK4absl17zipf_distributionIjE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #18, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
   %128 = fmul double %127, %23
-  %129 = tail call double @exp(double noundef %128) #18, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -5326,9 +5326,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #18, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #18, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -5355,9 +5355,9 @@ _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %95, %97
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #18, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #18, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
   %120 = fmul double %119, %17
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
@@ -5372,9 +5372,9 @@ _ZNK4absl17zipf_distributionIlE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #18, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
   %128 = fmul double %127, %23
-  %129 = tail call double @exp(double noundef %128) #18, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -5534,9 +5534,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #18, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #18, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -5563,9 +5563,9 @@ _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %95, %97
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #18, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #18, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
   %120 = fmul double %119, %17
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
@@ -5580,9 +5580,9 @@ _ZNK4absl17zipf_distributionImE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #18, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
   %128 = fmul double %127, %23
-  %129 = tail call double @exp(double noundef %128) #18, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -5746,9 +5746,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #18, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #18, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -5777,9 +5777,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %95
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 115:                                              ; preds = %110
-  %116 = tail call double @log(double noundef %112) #18, !tbaa !32
+  %116 = tail call double @log(double noundef %112) #19, !tbaa !32
   %117 = fmul double %14, %116
-  %118 = tail call double @exp(double noundef %117) #18, !tbaa !32
+  %118 = tail call double @exp(double noundef %117) #19, !tbaa !32
   %119 = fmul double %118, %17
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
@@ -5794,9 +5794,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit: ; preds = %113, 
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 125:                                              ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %126 = tail call double @log(double noundef %121) #18, !tbaa !32
+  %126 = tail call double @log(double noundef %121) #19, !tbaa !32
   %127 = fmul double %126, %23
-  %128 = tail call double @exp(double noundef %127) #18, !tbaa !32
+  %128 = tail call double @exp(double noundef %127) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %122, %125
@@ -5963,9 +5963,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 98:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %99 = fmul double %95, %15
-  %100 = tail call double @log(double noundef %99) #18, !tbaa !32
+  %100 = tail call double @log(double noundef %99) #19, !tbaa !32
   %101 = fmul double %18, %100
-  %102 = tail call double @exp(double noundef %101) #18, !tbaa !32
+  %102 = tail call double @exp(double noundef %101) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %96, %98
@@ -5995,9 +5995,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %9
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 118:                                              ; preds = %113
-  %119 = tail call double @log(double noundef %115) #18, !tbaa !32
+  %119 = tail call double @log(double noundef %115) #19, !tbaa !32
   %120 = fmul double %15, %119
-  %121 = tail call double @exp(double noundef %120) #18, !tbaa !32
+  %121 = tail call double @exp(double noundef %120) #19, !tbaa !32
   %122 = fmul double %121, %18
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
@@ -6012,9 +6012,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit: ; preds = %116,
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 128:                                              ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %129 = tail call double @log(double noundef %124) #18, !tbaa !32
+  %129 = tail call double @log(double noundef %124) #19, !tbaa !32
   %130 = fmul double %129, %24
-  %131 = tail call double @exp(double noundef %130) #18, !tbaa !32
+  %131 = tail call double @exp(double noundef %130) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %125, %128
@@ -6034,7 +6034,7 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ;
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   br label %3
 
 3:                                                ; preds = %182, %2
@@ -6308,7 +6308,7 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackISt23merse
   %197 = tail call double @llvm.fmuladd.f64(double %191, double %196, double %193)
   %198 = fmul double %22, -5.000000e-01
   %199 = fmul double %22, %198
-  %200 = tail call double @exp(double noundef %199) #18, !tbaa !32
+  %200 = tail call double @exp(double noundef %199) #19, !tbaa !32
   %201 = fcmp olt double %197, %200
   br i1 %201, label %select.unfold, label %3
 
@@ -6317,7 +6317,7 @@ select.unfold:                                    ; preds = %182, %3, %_ZN4absl1
   ret double %.1.ph
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -6388,7 +6388,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 39:                                               ; preds = %29
   %40 = sitofp i32 %32 to double
   %41 = sitofp i32 %30 to double
-  %42 = tail call noundef double @pow(double noundef %40, double noundef %41) #18, !tbaa !32
+  %42 = tail call noundef double @pow(double noundef %40, double noundef %41) #19, !tbaa !32
   %43 = load i32, ptr %31, align 4, !tbaa !153
   %44 = sitofp i32 %43 to double
   %45 = tail call double @llvm.fmuladd.f64(double %42, double %44, double -1.000000e+00)
@@ -6460,7 +6460,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #11
+declare double @pow(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 {
@@ -6532,7 +6532,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 41:                                               ; preds = %29
   %42 = sitofp i8 %32 to double
   %43 = sitofp i32 %30 to double
-  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #18, !tbaa !32
+  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !32
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %42, double -1.000000e+00)
   %.inv = fcmp oge double %44, 2.550000e+02
   %46 = select i1 %.inv, double 2.550000e+02, double %44
@@ -6675,7 +6675,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 41:                                               ; preds = %29
   %42 = sitofp i16 %32 to double
   %43 = sitofp i32 %30 to double
-  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #18, !tbaa !32
+  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !32
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %42, double -1.000000e+00)
   %.inv = fcmp oge double %44, 6.553500e+04
   %46 = select i1 %.inv, double 6.553500e+04, double %44
@@ -6818,7 +6818,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 41:                                               ; preds = %29
   %42 = uitofp i16 %32 to double
   %43 = sitofp i32 %30 to double
-  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #18, !tbaa !32
+  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !32
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %42, double -1.000000e+00)
   %.inv = fcmp oge double %44, 6.553500e+04
   %46 = select i1 %.inv, double 6.553500e+04, double %44
@@ -6959,7 +6959,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 39:                                               ; preds = %29
   %40 = uitofp i32 %32 to double
   %41 = sitofp i32 %30 to double
-  %42 = tail call noundef double @pow(double noundef %40, double noundef %41) #18, !tbaa !32
+  %42 = tail call noundef double @pow(double noundef %40, double noundef %41) #19, !tbaa !32
   %43 = load i32, ptr %31, align 4, !tbaa !177
   %44 = uitofp i32 %43 to double
   %45 = tail call double @llvm.fmuladd.f64(double %42, double %44, double -1.000000e+00)
@@ -7099,7 +7099,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 40:                                               ; preds = %29
   %41 = sitofp i64 %32 to double
   %42 = sitofp i32 %30 to double
-  %43 = tail call noundef double @pow(double noundef %41, double noundef %42) #18, !tbaa !32
+  %43 = tail call noundef double @pow(double noundef %41, double noundef %42) #19, !tbaa !32
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %41, double -1.000000e+00)
   %45 = fcmp ogt double %43, 0x43F0000000000000
   %46 = fptoui double %43 to i64
@@ -7237,7 +7237,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 40:                                               ; preds = %29
   %41 = uitofp i64 %32 to double
   %42 = sitofp i32 %30 to double
-  %43 = tail call noundef double @pow(double noundef %41, double noundef %42) #18, !tbaa !32
+  %43 = tail call noundef double @pow(double noundef %41, double noundef %42) #19, !tbaa !32
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %41, double -1.000000e+00)
   %45 = fcmp ogt double %43, 0x43F0000000000000
   %46 = fptoui double %43 to i64
@@ -7362,13 +7362,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
 
 19:                                               ; preds = %4
   %20 = sitofp i128 %.sroa.0.0.copyload11 to double
-  %21 = tail call double @log(double noundef %20) #18, !tbaa !32
+  %21 = tail call double @log(double noundef %20) #19, !tbaa !32
   %22 = fdiv double 1.000000e+00, %21
   %23 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %24 = uitofp i64 %.narrow.i.i.i to double
   %25 = tail call noundef double @llvm.fmuladd.f64(double %24, double 0x43F0000000000000, double %23)
   %26 = fadd double %25, 5.000000e-01
-  %27 = tail call double @log(double noundef %26) #18, !tbaa !32
+  %27 = tail call double @log(double noundef %26) #19, !tbaa !32
   %28 = fmul double %22, %27
   %29 = tail call double @llvm.ceil.f64(double %28)
   %30 = fptosi double %29 to i32
@@ -7489,7 +7489,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 44:                                               ; preds = %32
   %45 = sitofp i128 %.sroa.01.0.insert.insert.i to double
   %46 = sitofp i32 %33 to double
-  %47 = tail call noundef double @pow(double noundef %45, double noundef %46) #18, !tbaa !32
+  %47 = tail call noundef double @pow(double noundef %45, double noundef %46) #19, !tbaa !32
   %48 = tail call double @llvm.fmuladd.f64(double %47, double %45, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = fcmp ogt double %47, 0x47F0000000000000
@@ -7800,13 +7800,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %20 = uitofp i64 %.sroa.02.0.copyload.i.i to double
   %21 = uitofp i64 %.sroa.23.0.copyload.i.i to double
   %22 = tail call noundef double @llvm.fmuladd.f64(double %21, double 0x43F0000000000000, double %20)
-  %23 = tail call double @log(double noundef %22) #18, !tbaa !32
+  %23 = tail call double @log(double noundef %22) #19, !tbaa !32
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
   %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
   %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @log(double noundef %28) #18, !tbaa !32
+  %29 = tail call double @log(double noundef %28) #19, !tbaa !32
   %30 = fmul double %24, %29
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
@@ -7929,7 +7929,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %46 = uitofp i64 %.sroa.2.0.copyload.i to double
   %47 = tail call noundef double @llvm.fmuladd.f64(double %46, double 0x43F0000000000000, double %45)
   %48 = sitofp i32 %33 to double
-  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #18, !tbaa !32
+  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !32
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %47, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = fcmp ogt double %49, 0x47F0000000000000
@@ -8138,13 +8138,13 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125BitGen_Compatibility_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_125BitGen_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
+  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %4
 
@@ -8155,14 +8155,14 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #20
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 align 2 {
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #19
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #20
   ret void
 }
 
@@ -8391,7 +8391,7 @@ _ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureU
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store double 0.000000e+00, ptr %117, align 8, !tbaa !37
   store double 1.000000e+00, ptr %118, align 8, !tbaa !37
-  %165 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18, !tbaa !32
+  %165 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
   %166 = fcmp ole double %165, 1.000000e+00
   %167 = fsub double 1.000000e+00, %165
   %168 = call double @llvm.fabs.f64(double %167)
@@ -8424,7 +8424,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store double -1.000000e+00, ptr %112, align 8, !tbaa !37
   store double 1.000000e+00, ptr %113, align 8, !tbaa !37
-  %177 = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #18, !tbaa !32
+  %177 = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
   %178 = fcmp ole double %177, 1.000000e+00
   %179 = fsub double 1.000000e+00, %177
   %180 = call double @llvm.fabs.f64(double %179)
@@ -8441,7 +8441,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
-  %186 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18, !tbaa !32
+  %186 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
   %187 = fcmp ole double %186, 1.000000e+00
   %188 = fsub double 1.000000e+00, %186
   %189 = call double @llvm.fabs.f64(double %188)
@@ -8568,7 +8568,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store double 0.000000e+00, ptr %83, align 8, !tbaa !37
   store double 1.000000e+00, ptr %84, align 8, !tbaa !37
-  %213 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %213 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %214 = call i1 @llvm.is.fpclass.f64(double %213, i32 480)
   br i1 %214, label %215, label %217
 
@@ -8594,7 +8594,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store double 0.000000e+00, ptr %77, align 8, !tbaa !37
   store double 1.000000e+00, ptr %78, align 8, !tbaa !37
-  %219 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18, !tbaa !32
+  %219 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
   %220 = fcmp ole double %219, 1.000000e+00
   %221 = fsub double 1.000000e+00, %219
   %222 = call double @llvm.fabs.f64(double %221)
@@ -8615,8 +8615,8 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store double 0.000000e+00, ptr %74, align 8, !tbaa !37
   store double 1.000000e+00, ptr %75, align 8, !tbaa !37
-  %228 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18, !tbaa !32
-  %229 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %228 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
+  %229 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %230 = fcmp ole double %228, %229
   %231 = fsub double %229, %228
   %232 = call double @llvm.fabs.f64(double %231)
@@ -8637,7 +8637,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store double 0.000000e+00, ptr %71, align 8, !tbaa !37
   store double 1.000000e+00, ptr %72, align 8, !tbaa !37
-  %238 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %238 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %239 = call i1 @llvm.is.fpclass.f64(double %238, i32 480)
   br i1 %239, label %240, label %242
 
@@ -8654,7 +8654,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store double 0.000000e+00, ptr %68, align 8, !tbaa !37
   store double 1.000000e+00, ptr %69, align 8, !tbaa !37
-  %243 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18, !tbaa !32
+  %243 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
   %244 = fcmp ole double %243, 1.000000e+00
   %245 = fsub double 1.000000e+00, %243
   %246 = call double @llvm.fabs.f64(double %245)
@@ -8943,7 +8943,7 @@ _ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_eng
   br i1 %369, label %cdce.end.i.i, label %cdce.call, !prof !31
 
 cdce.call:                                        ; preds = %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %370 = call noundef float @log1pf(float noundef %368) #18, !tbaa !32
+  %370 = call noundef float @log1pf(float noundef %368) #19, !tbaa !32
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
@@ -8986,7 +8986,7 @@ _ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_eng
   br i1 %392, label %cdce.end5.i.i, label %cdce.call1, !prof !31
 
 cdce.call1:                                       ; preds = %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %393 = call double @log1p(double noundef %391) #18, !tbaa !32
+  %393 = call double @log1p(double noundef %391) #19, !tbaa !32
   br label %cdce.end5.i.i
 
 cdce.end5.i.i:                                    ; preds = %cdce.call1, %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
@@ -9038,7 +9038,7 @@ _ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engi
   br i1 %420, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !31
 
 cdce.call3:                                       ; preds = %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
-  %421 = call double @log1p(double noundef %419) #18, !tbaa !32
+  %421 = call double @log1p(double noundef %419) #19, !tbaa !32
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
@@ -10104,7 +10104,7 @@ _ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseI
 define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #18, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
   %8 = fsub double %6, %7
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 8
@@ -10298,7 +10298,7 @@ _ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseI
 define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #18, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
   %8 = fsub double %6, %7
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 8
@@ -10932,7 +10932,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
   %5 = load double, ptr %2, align 8, !tbaa !37
   %.fr3 = freeze double %5
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %8 = fsub double %7, %.fr3
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 8
@@ -11155,8 +11155,8 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #18, !tbaa !32
-  %8 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
+  %8 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %9 = fsub double %8, %7
   %10 = ptrtoint ptr %0 to i64
   %11 = and i64 %10, 8
@@ -13269,9 +13269,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !64
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #18, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #18, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13299,9 +13299,9 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #18, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #18, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
   %72 = load double, ptr %14, align 8, !tbaa !64
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
@@ -13319,10 +13319,10 @@ _ZNK4absl17zipf_distributionIiE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #18, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #18, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -13416,9 +13416,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !73
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #18, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #18, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13446,9 +13446,9 @@ _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #18, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #18, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
   %72 = load double, ptr %14, align 8, !tbaa !73
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
@@ -13466,10 +13466,10 @@ _ZNK4absl17zipf_distributionIaE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #18, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #18, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -13563,9 +13563,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !83
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #18, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #18, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13593,9 +13593,9 @@ _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #18, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #18, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
   %72 = load double, ptr %14, align 8, !tbaa !83
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
@@ -13613,10 +13613,10 @@ _ZNK4absl17zipf_distributionIsE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #18, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #18, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -13710,9 +13710,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !92
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #18, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #18, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13740,9 +13740,9 @@ _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #18, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #18, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
   %72 = load double, ptr %14, align 8, !tbaa !92
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
@@ -13760,10 +13760,10 @@ _ZNK4absl17zipf_distributionItE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #18, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #18, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -13857,9 +13857,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !101
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #18, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #18, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13887,9 +13887,9 @@ _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #18, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #18, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
   %72 = load double, ptr %14, align 8, !tbaa !101
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
@@ -13907,10 +13907,10 @@ _ZNK4absl17zipf_distributionIjE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #18, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #18, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -14004,9 +14004,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !110
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #18, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #18, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -14034,9 +14034,9 @@ _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #18, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #18, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
   %72 = load double, ptr %14, align 8, !tbaa !110
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
@@ -14054,10 +14054,10 @@ _ZNK4absl17zipf_distributionIlE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #18, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #18, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -14151,9 +14151,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !119
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #18, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #18, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -14181,9 +14181,9 @@ _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #18, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #18, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
   %72 = load double, ptr %14, align 8, !tbaa !119
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
@@ -14201,10 +14201,10 @@ _ZNK4absl17zipf_distributionImE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #18, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #18, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -14299,9 +14299,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 16, !tbaa !130
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #18, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #18, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -14334,9 +14334,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %45
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 67:                                               ; preds = %62
-  %68 = tail call double @log(double noundef %64) #18, !tbaa !32
+  %68 = tail call double @log(double noundef %64) #19, !tbaa !32
   %69 = fmul double %43, %68
-  %70 = tail call double @exp(double noundef %69) #18, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
   %71 = load double, ptr %14, align 16, !tbaa !130
   %72 = fmul double %70, %71
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
@@ -14354,10 +14354,10 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit: ; preds = %65, %
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 80:                                               ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %81 = tail call double @log(double noundef %74) #18, !tbaa !32
+  %81 = tail call double @log(double noundef %74) #19, !tbaa !32
   %82 = fneg double %75
   %83 = fmul double %81, %82
-  %84 = tail call double @exp(double noundef %83) #18, !tbaa !32
+  %84 = tail call double @exp(double noundef %83) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %77, %80
@@ -14458,9 +14458,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 48:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %49 = load double, ptr %15, align 16, !tbaa !139
   %50 = fmul double %42, %44
-  %51 = tail call double @log(double noundef %50) #18, !tbaa !32
+  %51 = tail call double @log(double noundef %50) #19, !tbaa !32
   %52 = fmul double %49, %51
-  %53 = tail call double @exp(double noundef %52) #18, !tbaa !32
+  %53 = tail call double @exp(double noundef %52) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %46, %48
@@ -14491,9 +14491,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %4
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 70:                                               ; preds = %65
-  %71 = tail call double @log(double noundef %67) #18, !tbaa !32
+  %71 = tail call double @log(double noundef %67) #19, !tbaa !32
   %72 = fmul double %44, %71
-  %73 = tail call double @exp(double noundef %72) #18, !tbaa !32
+  %73 = tail call double @exp(double noundef %72) #19, !tbaa !32
   %74 = load double, ptr %15, align 16, !tbaa !139
   %75 = fmul double %73, %74
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
@@ -14511,10 +14511,10 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit: ; preds = %68, 
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 83:                                               ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %84 = tail call double @log(double noundef %77) #18, !tbaa !32
+  %84 = tail call double @log(double noundef %77) #19, !tbaa !32
   %85 = fneg double %78
   %86 = fmul double %84, %85
-  %87 = tail call double @exp(double noundef %86) #18, !tbaa !32
+  %87 = tail call double @exp(double noundef %86) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %80, %83
@@ -14534,7 +14534,7 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ;
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -14647,7 +14647,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %76 = tail call double @llvm.fmuladd.f64(double %70, double %75, double %72)
   %77 = fmul double %39, -5.000000e-01
   %78 = fmul double %39, %77
-  %79 = tail call double @exp(double noundef %78) #18, !tbaa !32
+  %79 = tail call double @exp(double noundef %78) #19, !tbaa !32
   %80 = fcmp olt double %76, %79
   br i1 %80, label %select.unfold, label %9
 
@@ -14657,7 +14657,7 @@ select.unfold:                                    ; preds = %_ZN4absl15random_in
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_b(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i1 noundef zeroext %2) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEdRT_b(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i1 noundef zeroext %2) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
@@ -14853,7 +14853,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 58:                                               ; preds = %48
   %59 = sitofp i32 %51 to double
   %60 = sitofp i32 %49 to double
-  %61 = call noundef double @pow(double noundef %59, double noundef %60) #18, !tbaa !32
+  %61 = call noundef double @pow(double noundef %59, double noundef %60) #19, !tbaa !32
   %62 = load i32, ptr %50, align 4, !tbaa !153
   %63 = sitofp i32 %62 to double
   %64 = call double @llvm.fmuladd.f64(double %61, double %63, double -1.000000e+00)
@@ -15056,7 +15056,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 60:                                               ; preds = %48
   %61 = sitofp i8 %51 to double
   %62 = sitofp i32 %49 to double
-  %63 = call noundef double @pow(double noundef %61, double noundef %62) #18, !tbaa !32
+  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !32
   %64 = call double @llvm.fmuladd.f64(double %63, double %61, double -1.000000e+00)
   %.inv = fcmp oge double %63, 2.550000e+02
   %65 = select i1 %.inv, double 2.550000e+02, double %63
@@ -15198,7 +15198,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 60:                                               ; preds = %48
   %61 = sitofp i16 %51 to double
   %62 = sitofp i32 %49 to double
-  %63 = call noundef double @pow(double noundef %61, double noundef %62) #18, !tbaa !32
+  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !32
   %64 = call double @llvm.fmuladd.f64(double %63, double %61, double -1.000000e+00)
   %.inv = fcmp oge double %63, 6.553500e+04
   %65 = select i1 %.inv, double 6.553500e+04, double %63
@@ -15340,7 +15340,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 60:                                               ; preds = %48
   %61 = uitofp i16 %51 to double
   %62 = sitofp i32 %49 to double
-  %63 = call noundef double @pow(double noundef %61, double noundef %62) #18, !tbaa !32
+  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !32
   %64 = call double @llvm.fmuladd.f64(double %63, double %61, double -1.000000e+00)
   %.inv = fcmp oge double %63, 6.553500e+04
   %65 = select i1 %.inv, double 6.553500e+04, double %63
@@ -15480,7 +15480,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 58:                                               ; preds = %48
   %59 = uitofp i32 %51 to double
   %60 = sitofp i32 %49 to double
-  %61 = call noundef double @pow(double noundef %59, double noundef %60) #18, !tbaa !32
+  %61 = call noundef double @pow(double noundef %59, double noundef %60) #19, !tbaa !32
   %62 = load i32, ptr %50, align 4, !tbaa !177
   %63 = uitofp i32 %62 to double
   %64 = call double @llvm.fmuladd.f64(double %61, double %63, double -1.000000e+00)
@@ -15682,7 +15682,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 59:                                               ; preds = %48
   %60 = sitofp i64 %51 to double
   %61 = sitofp i32 %49 to double
-  %62 = call noundef double @pow(double noundef %60, double noundef %61) #18, !tbaa !32
+  %62 = call noundef double @pow(double noundef %60, double noundef %61) #19, !tbaa !32
   %63 = call double @llvm.fmuladd.f64(double %62, double %60, double -1.000000e+00)
   %64 = fcmp ogt double %62, 0x43F0000000000000
   %65 = fptoui double %62 to i64
@@ -15818,7 +15818,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 59:                                               ; preds = %48
   %60 = uitofp i64 %51 to double
   %61 = sitofp i32 %49 to double
-  %62 = call noundef double @pow(double noundef %60, double noundef %61) #18, !tbaa !32
+  %62 = call noundef double @pow(double noundef %60, double noundef %61) #19, !tbaa !32
   %63 = call double @llvm.fmuladd.f64(double %62, double %60, double -1.000000e+00)
   %64 = fcmp ogt double %62, 0x43F0000000000000
   %65 = fptoui double %62 to i64
@@ -15907,13 +15907,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
 
 19:                                               ; preds = %4
   %20 = sitofp i128 %.sroa.0.0.copyload11 to double
-  %21 = tail call double @log(double noundef %20) #18, !tbaa !32
+  %21 = tail call double @log(double noundef %20) #19, !tbaa !32
   %22 = fdiv double 1.000000e+00, %21
   %23 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %24 = uitofp i64 %.narrow.i.i.i to double
   %25 = tail call noundef double @llvm.fmuladd.f64(double %24, double 0x43F0000000000000, double %23)
   %26 = fadd double %25, 5.000000e-01
-  %27 = tail call double @log(double noundef %26) #18, !tbaa !32
+  %27 = tail call double @log(double noundef %26) #19, !tbaa !32
   %28 = fmul double %22, %27
   %29 = tail call double @llvm.ceil.f64(double %28)
   %30 = fptosi double %29 to i32
@@ -16067,7 +16067,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 62:                                               ; preds = %50
   %63 = sitofp i128 %.sroa.01.0.insert.insert.i to double
   %64 = sitofp i32 %51 to double
-  %65 = call noundef double @pow(double noundef %63, double noundef %64) #18, !tbaa !32
+  %65 = call noundef double @pow(double noundef %63, double noundef %64) #19, !tbaa !32
   %66 = call double @llvm.fmuladd.f64(double %65, double %63, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %67 = fcmp ogt double %65, 0x47F0000000000000
@@ -16461,13 +16461,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %20 = uitofp i64 %.sroa.02.0.copyload.i.i to double
   %21 = uitofp i64 %.sroa.23.0.copyload.i.i to double
   %22 = tail call noundef double @llvm.fmuladd.f64(double %21, double 0x43F0000000000000, double %20)
-  %23 = tail call double @log(double noundef %22) #18, !tbaa !32
+  %23 = tail call double @log(double noundef %22) #19, !tbaa !32
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
   %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
   %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @log(double noundef %28) #18, !tbaa !32
+  %29 = tail call double @log(double noundef %28) #19, !tbaa !32
   %30 = fmul double %24, %29
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
@@ -16623,7 +16623,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %64 = uitofp i64 %.sroa.2.0.copyload.i to double
   %65 = call noundef double @llvm.fmuladd.f64(double %64, double 0x43F0000000000000, double %63)
   %66 = sitofp i32 %51 to double
-  %67 = call noundef double @pow(double noundef %65, double noundef %66) #18, !tbaa !32
+  %67 = call noundef double @pow(double noundef %65, double noundef %66) #19, !tbaa !32
   %68 = call double @llvm.fmuladd.f64(double %67, double %65, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = fcmp ogt double %67, 0x47F0000000000000
@@ -16896,13 +16896,13 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseD2Ev(pt
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
+  %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %4
 
@@ -16913,7 +16913,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #20
   resume { ptr, i32 } %5
 }
 
@@ -16922,8 +16922,8 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 align 2 {
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #19
+  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #20
   ret void
 }
 
@@ -17824,8 +17824,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store double 0.000000e+00, ptr %53, align 8, !tbaa !37
   store double 1.000000e+00, ptr %54, align 8, !tbaa !37
-  %352 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #18, !tbaa !32
-  %353 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %352 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
+  %353 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %354 = fcmp ole double %352, %353
   %355 = fsub double %353, %352
   %356 = call double @llvm.fabs.f64(double %355)
@@ -18163,7 +18163,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %475, label %cdce.end.i.i, label %cdce.call, !prof !31
 
 cdce.call:                                        ; preds = %.noexc629.i.i
-  %476 = call noundef float @log1pf(float noundef %474) #18, !tbaa !32
+  %476 = call noundef float @log1pf(float noundef %474) #19, !tbaa !32
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %.noexc629.i.i
@@ -18195,7 +18195,7 @@ cdce.end.i.i:                                     ; preds = %cdce.call, %.noexc6
   br i1 %489, label %cdce.end29.i.i, label %cdce.call1, !prof !31
 
 cdce.call1:                                       ; preds = %cdce.end.i.i
-  %490 = call double @log1p(double noundef %488) #18, !tbaa !32
+  %490 = call double @log1p(double noundef %488) #19, !tbaa !32
   br label %cdce.end29.i.i
 
 cdce.end29.i.i:                                   ; preds = %cdce.call1, %cdce.end.i.i
@@ -18269,7 +18269,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br i1 %516, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !31
 
 cdce.call3:                                       ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
-  %517 = call double @log1p(double noundef %515) #18, !tbaa !32
+  %517 = call double @log1p(double noundef %515) #19, !tbaa !32
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
@@ -18939,7 +18939,7 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #18, !tbaa !32
+  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
   %5 = fcmp ole double %4, %2
   %6 = fsub double %2, %4
   %7 = tail call double @llvm.fabs.f64(double %6)
@@ -18948,7 +18948,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpe
   br i1 %9, label %10, label %43
 
 10:                                               ; preds = %3
-  %11 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #18, !tbaa !32
+  %11 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
   %12 = fsub double %2, %11
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = tail call i1 @llvm.is.fpclass.f64(double %12, i32 384)
@@ -19041,7 +19041,7 @@ _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSC_IXsr4absl11disjunctionINS2_23is_widening_convertibleIT2_T3_EENSE_ISG_SF_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISF_SG_EE5valueESG_SF_E4typeEE4typeEE4typeET0_OT1_SF_SG_(ptr noundef nonnull align 16 dereferenceable(16) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = sitofp i32 %1 to double
-  %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #18, !tbaa !32
+  %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
   %6 = fcmp ole double %5, %2
   %7 = fsub double %2, %5
   %8 = tail call double @llvm.fabs.f64(double %7)
@@ -19050,7 +19050,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpe
   br i1 %10, label %11, label %44
 
 11:                                               ; preds = %3
-  %12 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #18, !tbaa !32
+  %12 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
   %13 = fsub double %2, %12
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = tail call i1 @llvm.is.fpclass.f64(double %13, i32 384)
@@ -19142,7 +19142,7 @@ _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %5 = fcmp ole double %1, %4
   %6 = fsub double %4, %1
   %7 = tail call double @llvm.fabs.f64(double %6)
@@ -19151,7 +19151,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClo
   br i1 %9, label %10, label %43
 
 10:                                               ; preds = %3
-  %11 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %11 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %12 = fsub double %11, %1
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = tail call i1 @llvm.is.fpclass.f64(double %12, i32 384)
@@ -19245,8 +19245,8 @@ _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_
 define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #18, !tbaa !32
-  %8 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #18, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
+  %8 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
   %9 = fsub double %8, %7
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i1 @llvm.is.fpclass.f64(double %9, i32 384)
@@ -20991,9 +20991,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #18, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #18, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21020,9 +21020,9 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %36, %38
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #18, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #18, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
   %61 = fmul double %60, %14
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
@@ -21037,9 +21037,9 @@ _ZNK4absl17zipf_distributionIiE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #18, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
   %69 = fmul double %68, %20
-  %70 = tail call double @exp(double noundef %69) #18, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21127,9 +21127,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 40:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %41 = fmul double %37, %11
-  %42 = tail call double @log(double noundef %41) #18, !tbaa !32
+  %42 = tail call double @log(double noundef %41) #19, !tbaa !32
   %43 = fmul double %16, %42
-  %44 = tail call double @exp(double noundef %43) #18, !tbaa !32
+  %44 = tail call double @exp(double noundef %43) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %38, %40
@@ -21154,9 +21154,9 @@ _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %38, %40
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #18, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #18, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
   %61 = fmul double %60, %16
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
@@ -21171,9 +21171,9 @@ _ZNK4absl17zipf_distributionIaE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #18, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
   %69 = fmul double %68, %22
-  %70 = tail call double @exp(double noundef %69) #18, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21261,9 +21261,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 40:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %41 = fmul double %37, %11
-  %42 = tail call double @log(double noundef %41) #18, !tbaa !32
+  %42 = tail call double @log(double noundef %41) #19, !tbaa !32
   %43 = fmul double %16, %42
-  %44 = tail call double @exp(double noundef %43) #18, !tbaa !32
+  %44 = tail call double @exp(double noundef %43) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %38, %40
@@ -21288,9 +21288,9 @@ _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %38, %40
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #18, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #18, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
   %61 = fmul double %60, %16
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
@@ -21305,9 +21305,9 @@ _ZNK4absl17zipf_distributionIsE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #18, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
   %69 = fmul double %68, %22
-  %70 = tail call double @exp(double noundef %69) #18, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21395,9 +21395,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 40:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %41 = fmul double %37, %11
-  %42 = tail call double @log(double noundef %41) #18, !tbaa !32
+  %42 = tail call double @log(double noundef %41) #19, !tbaa !32
   %43 = fmul double %16, %42
-  %44 = tail call double @exp(double noundef %43) #18, !tbaa !32
+  %44 = tail call double @exp(double noundef %43) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %38, %40
@@ -21422,9 +21422,9 @@ _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %38, %40
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #18, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #18, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
   %61 = fmul double %60, %16
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
@@ -21439,9 +21439,9 @@ _ZNK4absl17zipf_distributionItE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #18, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
   %69 = fmul double %68, %22
-  %70 = tail call double @exp(double noundef %69) #18, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21527,9 +21527,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #18, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #18, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21556,9 +21556,9 @@ _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %36, %38
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #18, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #18, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
   %61 = fmul double %60, %14
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
@@ -21573,9 +21573,9 @@ _ZNK4absl17zipf_distributionIjE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #18, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
   %69 = fmul double %68, %20
-  %70 = tail call double @exp(double noundef %69) #18, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21663,9 +21663,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #18, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #18, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21692,9 +21692,9 @@ _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %36, %38
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #18, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #18, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
   %61 = fmul double %60, %14
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
@@ -21709,9 +21709,9 @@ _ZNK4absl17zipf_distributionIlE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #18, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
   %69 = fmul double %68, %20
-  %70 = tail call double @exp(double noundef %69) #18, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21797,9 +21797,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #18, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #18, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21826,9 +21826,9 @@ _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %36, %38
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #18, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #18, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
   %61 = fmul double %60, %14
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
@@ -21843,9 +21843,9 @@ _ZNK4absl17zipf_distributionImE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #18, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
   %69 = fmul double %68, %20
-  %70 = tail call double @exp(double noundef %69) #18, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21935,9 +21935,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #18, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #18, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21966,9 +21966,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %36
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 56:                                               ; preds = %51
-  %57 = tail call double @log(double noundef %53) #18, !tbaa !32
+  %57 = tail call double @log(double noundef %53) #19, !tbaa !32
   %58 = fmul double %11, %57
-  %59 = tail call double @exp(double noundef %58) #18, !tbaa !32
+  %59 = tail call double @exp(double noundef %58) #19, !tbaa !32
   %60 = fmul double %59, %14
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
@@ -21983,9 +21983,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit: ; preds = %54, %
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 66:                                               ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %67 = tail call double @log(double noundef %62) #18, !tbaa !32
+  %67 = tail call double @log(double noundef %62) #19, !tbaa !32
   %68 = fmul double %67, %20
-  %69 = tail call double @exp(double noundef %68) #18, !tbaa !32
+  %69 = tail call double @exp(double noundef %68) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %63, %66
@@ -22078,9 +22078,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 39:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %40 = fmul double %36, %12
-  %41 = tail call double @log(double noundef %40) #18, !tbaa !32
+  %41 = tail call double @log(double noundef %40) #19, !tbaa !32
   %42 = fmul double %15, %41
-  %43 = tail call double @exp(double noundef %42) #18, !tbaa !32
+  %43 = tail call double @exp(double noundef %42) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %37, %39
@@ -22110,9 +22110,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %3
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 59:                                               ; preds = %54
-  %60 = tail call double @log(double noundef %56) #18, !tbaa !32
+  %60 = tail call double @log(double noundef %56) #19, !tbaa !32
   %61 = fmul double %12, %60
-  %62 = tail call double @exp(double noundef %61) #18, !tbaa !32
+  %62 = tail call double @exp(double noundef %61) #19, !tbaa !32
   %63 = fmul double %62, %15
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
@@ -22127,9 +22127,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit: ; preds = %57, 
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 69:                                               ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %70 = tail call double @log(double noundef %65) #18, !tbaa !32
+  %70 = tail call double @log(double noundef %65) #19, !tbaa !32
   %71 = fmul double %70, %21
-  %72 = tail call double @exp(double noundef %71) #18, !tbaa !32
+  %72 = tail call double @exp(double noundef %71) #19, !tbaa !32
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %66, %69
@@ -22149,7 +22149,7 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ;
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i64, ptr %1, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx.i.i.i.i.promoted = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !20
@@ -22297,7 +22297,7 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17Non
   %87 = tail call double @llvm.fmuladd.f64(double %81, double %86, double %83)
   %88 = fmul double %25, -5.000000e-01
   %89 = fmul double %25, %88
-  %90 = tail call double @exp(double noundef %89) #18, !tbaa !32
+  %90 = tail call double @exp(double noundef %89) #19, !tbaa !32
   %91 = fcmp olt double %87, %90
   br i1 %91, label %select.unfold.loopexit, label %3
 
@@ -22421,7 +22421,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 45:                                               ; preds = %35
   %46 = sitofp i32 %38 to double
   %47 = sitofp i32 %36 to double
-  %48 = tail call noundef double @pow(double noundef %46, double noundef %47) #18, !tbaa !32
+  %48 = tail call noundef double @pow(double noundef %46, double noundef %47) #19, !tbaa !32
   %49 = load i32, ptr %37, align 4, !tbaa !153
   %50 = sitofp i32 %49 to double
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %50, double -1.000000e+00)
@@ -22635,7 +22635,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 47:                                               ; preds = %35
   %48 = sitofp i8 %38 to double
   %49 = sitofp i32 %36 to double
-  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #18, !tbaa !32
+  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !32
   %51 = tail call double @llvm.fmuladd.f64(double %50, double %48, double -1.000000e+00)
   %.inv = fcmp oge double %50, 2.550000e+02
   %52 = select i1 %.inv, double 2.550000e+02, double %50
@@ -22851,7 +22851,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 47:                                               ; preds = %35
   %48 = sitofp i16 %38 to double
   %49 = sitofp i32 %36 to double
-  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #18, !tbaa !32
+  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !32
   %51 = tail call double @llvm.fmuladd.f64(double %50, double %48, double -1.000000e+00)
   %.inv = fcmp oge double %50, 6.553500e+04
   %52 = select i1 %.inv, double 6.553500e+04, double %50
@@ -23067,7 +23067,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 47:                                               ; preds = %35
   %48 = uitofp i16 %38 to double
   %49 = sitofp i32 %36 to double
-  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #18, !tbaa !32
+  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !32
   %51 = tail call double @llvm.fmuladd.f64(double %50, double %48, double -1.000000e+00)
   %.inv = fcmp oge double %50, 6.553500e+04
   %52 = select i1 %.inv, double 6.553500e+04, double %50
@@ -23281,7 +23281,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 45:                                               ; preds = %35
   %46 = uitofp i32 %38 to double
   %47 = sitofp i32 %36 to double
-  %48 = tail call noundef double @pow(double noundef %46, double noundef %47) #18, !tbaa !32
+  %48 = tail call noundef double @pow(double noundef %46, double noundef %47) #19, !tbaa !32
   %49 = load i32, ptr %37, align 4, !tbaa !177
   %50 = uitofp i32 %49 to double
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %50, double -1.000000e+00)
@@ -23494,7 +23494,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 46:                                               ; preds = %35
   %47 = sitofp i64 %38 to double
   %48 = sitofp i32 %36 to double
-  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #18, !tbaa !32
+  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !32
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %47, double -1.000000e+00)
   %51 = fcmp ogt double %49, 0x43F0000000000000
   %52 = fptoui double %49 to i64
@@ -23702,7 +23702,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 46:                                               ; preds = %35
   %47 = uitofp i64 %38 to double
   %48 = sitofp i32 %36 to double
-  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #18, !tbaa !32
+  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !32
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %47, double -1.000000e+00)
   %51 = fcmp ogt double %49, 0x43F0000000000000
   %52 = fptoui double %49 to i64
@@ -23857,13 +23857,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
 
 19:                                               ; preds = %4
   %20 = sitofp i128 %.sroa.0.0.copyload11 to double
-  %21 = tail call double @log(double noundef %20) #18, !tbaa !32
+  %21 = tail call double @log(double noundef %20) #19, !tbaa !32
   %22 = fdiv double 1.000000e+00, %21
   %23 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %24 = uitofp i64 %.narrow.i.i.i to double
   %25 = tail call noundef double @llvm.fmuladd.f64(double %24, double 0x43F0000000000000, double %23)
   %26 = fadd double %25, 5.000000e-01
-  %27 = tail call double @log(double noundef %26) #18, !tbaa !32
+  %27 = tail call double @log(double noundef %26) #19, !tbaa !32
   %28 = fmul double %22, %27
   %29 = tail call double @llvm.ceil.f64(double %28)
   %30 = fptosi double %29 to i32
@@ -24020,7 +24020,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 50:                                               ; preds = %38
   %51 = sitofp i128 %.sroa.01.0.insert.insert.i to double
   %52 = sitofp i32 %39 to double
-  %53 = tail call noundef double @pow(double noundef %51, double noundef %52) #18, !tbaa !32
+  %53 = tail call noundef double @pow(double noundef %51, double noundef %52) #19, !tbaa !32
   %54 = tail call double @llvm.fmuladd.f64(double %53, double %51, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = fcmp ogt double %53, 0x47F0000000000000
@@ -24362,13 +24362,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %20 = uitofp i64 %.sroa.02.0.copyload.i.i to double
   %21 = uitofp i64 %.sroa.23.0.copyload.i.i to double
   %22 = tail call noundef double @llvm.fmuladd.f64(double %21, double 0x43F0000000000000, double %20)
-  %23 = tail call double @log(double noundef %22) #18, !tbaa !32
+  %23 = tail call double @log(double noundef %22) #19, !tbaa !32
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
   %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
   %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @log(double noundef %28) #18, !tbaa !32
+  %29 = tail call double @log(double noundef %28) #19, !tbaa !32
   %30 = fmul double %24, %29
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
@@ -24527,7 +24527,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %52 = uitofp i64 %.sroa.2.0.copyload.i to double
   %53 = tail call noundef double @llvm.fmuladd.f64(double %52, double 0x43F0000000000000, double %51)
   %54 = sitofp i32 %39 to double
-  %55 = tail call noundef double @pow(double noundef %53, double noundef %54) #18, !tbaa !32
+  %55 = tail call noundef double @pow(double noundef %53, double noundef %54) #19, !tbaa !32
   %56 = tail call double @llvm.fmuladd.f64(double %55, double %53, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = fcmp ogt double %55, 0x47F0000000000000
@@ -24768,7 +24768,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl24uniform_int_distributionIN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
@@ -24786,7 +24786,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_generators_test.cc() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_generators_test.cc() #16 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"struct.testing::internal::CodeLocation", align 8
@@ -24800,7 +24800,7 @@ define internal void @_GLOBAL__sub_I_generators_test.cc() #15 section ".text.sta
   %11 = alloca %"struct.testing::internal::CodeLocation", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -24870,7 +24870,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %38 unwind label %57
 
 38:                                               ; preds = %36
-  %39 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
+  %39 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %40 unwind label %57
 
 40:                                               ; preds = %38
@@ -24886,7 +24886,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %42
   %45 = load i64, ptr %22, align 8, !tbaa !412
   %46 = add i64 %45, 1
-  call void @_ZdlPvm(ptr noundef %43, i64 noundef %46) #19
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef %46) #20
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit.i
 
 _ZN7testing8internal12CodeLocationD2Ev.exit.i:    ; preds = %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
@@ -24897,7 +24897,7 @@ _ZN7testing8internal12CodeLocationD2Ev.exit.i:    ; preds = %42, %_ZNKSt7__cxx11
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i
   %49 = load i64, ptr %17, align 8, !tbaa !412
   %50 = add i64 %49, 1
-  call void @_ZdlPvm(ptr noundef %47, i64 noundef %50) #19
+  call void @_ZdlPvm(ptr noundef %47, i64 noundef %50) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i
@@ -24908,7 +24908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   %53 = load i64, ptr %14, align 8, !tbaa !412
   %54 = add i64 %53, 1
-  call void @_ZdlPvm(ptr noundef %51, i64 noundef %54) #19
+  call void @_ZdlPvm(ptr noundef %51, i64 noundef %54) #20
   br label %__cxx_global_var_init.1.exit
 
 55:                                               ; preds = %0
@@ -24926,7 +24926,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i15.i: ; preds = %57
   %61 = load i64, ptr %22, align 8, !tbaa !412
   %62 = add i64 %61, 1
-  call void @_ZdlPvm(ptr noundef %59, i64 noundef %62) #19
+  call void @_ZdlPvm(ptr noundef %59, i64 noundef %62) #20
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit17.i
 
 _ZN7testing8internal12CodeLocationD2Ev.exit17.i:  ; preds = %57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i15.i
@@ -24937,7 +24937,7 @@ _ZN7testing8internal12CodeLocationD2Ev.exit17.i:  ; preds = %57, %_ZNKSt7__cxx11
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18.i: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit17.i
   %65 = load i64, ptr %17, align 8, !tbaa !412
   %66 = add i64 %65, 1
-  call void @_ZdlPvm(ptr noundef %63, i64 noundef %66) #19
+  call void @_ZdlPvm(ptr noundef %63, i64 noundef %66) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit17.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18.i, %55
@@ -24955,7 +24955,7 @@ common.resume.sink.split:                         ; preds = %_ZNKSt7__cxx1112bas
   %.sink = phi ptr [ %182, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19.i11 ], [ %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19.i ], [ %67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21.i ]
   %common.resume.op.ph = phi { ptr, i32 } [ %.pn.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19.i11 ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19.i ], [ %.pn.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21.i ]
   %70 = add i64 %.sink73, 1
-  call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %70) #19
+  call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %70) #20
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i
@@ -25037,7 +25037,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %96 unwind label %115
 
 96:                                               ; preds = %94
-  %97 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
+  %97 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %98 unwind label %115
 
 98:                                               ; preds = %96
@@ -25053,7 +25053,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i4: ; preds = %100
   %103 = load i64, ptr %80, align 8, !tbaa !412
   %104 = add i64 %103, 1
-  call void @_ZdlPvm(ptr noundef %101, i64 noundef %104) #19
+  call void @_ZdlPvm(ptr noundef %101, i64 noundef %104) #20
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit.i5
 
 _ZN7testing8internal12CodeLocationD2Ev.exit.i5:   ; preds = %100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i4
@@ -25064,7 +25064,7 @@ _ZN7testing8internal12CodeLocationD2Ev.exit.i5:   ; preds = %100, %_ZNKSt7__cxx1
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.i: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i5
   %107 = load i64, ptr %75, align 8, !tbaa !412
   %108 = add i64 %107, 1
-  call void @_ZdlPvm(ptr noundef %105, i64 noundef %108) #19
+  call void @_ZdlPvm(ptr noundef %105, i64 noundef %108) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.i
@@ -25075,7 +25075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6: ; preds = %_Z
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i6
   %111 = load i64, ptr %72, align 8, !tbaa !412
   %112 = add i64 %111, 1
-  call void @_ZdlPvm(ptr noundef %109, i64 noundef %112) #19
+  call void @_ZdlPvm(ptr noundef %109, i64 noundef %112) #20
   br label %__cxx_global_var_init.4.exit
 
 113:                                              ; preds = %__cxx_global_var_init.1.exit
@@ -25093,7 +25093,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13.i: ; preds = %115
   %119 = load i64, ptr %80, align 8, !tbaa !412
   %120 = add i64 %119, 1
-  call void @_ZdlPvm(ptr noundef %117, i64 noundef %120) #19
+  call void @_ZdlPvm(ptr noundef %117, i64 noundef %120) #20
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit15.i
 
 _ZN7testing8internal12CodeLocationD2Ev.exit15.i:  ; preds = %115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13.i
@@ -25104,7 +25104,7 @@ _ZN7testing8internal12CodeLocationD2Ev.exit15.i:  ; preds = %115, %_ZNKSt7__cxx1
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16.i: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit15.i
   %123 = load i64, ptr %75, align 8, !tbaa !412
   %124 = add i64 %123, 1
-  call void @_ZdlPvm(ptr noundef %121, i64 noundef %124) #19
+  call void @_ZdlPvm(ptr noundef %121, i64 noundef %124) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit15.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16.i, %113
@@ -25192,7 +25192,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %153 unwind label %172
 
 153:                                              ; preds = %151
-  %154 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
+  %154 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %155 unwind label %172
 
 155:                                              ; preds = %153
@@ -25208,7 +25208,7 @@ _ZN7testing8internal12CodeLocationC2ENSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i23: ; preds = %157
   %160 = load i64, ptr %137, align 8, !tbaa !412
   %161 = add i64 %160, 1
-  call void @_ZdlPvm(ptr noundef %158, i64 noundef %161) #19
+  call void @_ZdlPvm(ptr noundef %158, i64 noundef %161) #20
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit.i24
 
 _ZN7testing8internal12CodeLocationD2Ev.exit.i24:  ; preds = %157, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i23
@@ -25219,7 +25219,7 @@ _ZN7testing8internal12CodeLocationD2Ev.exit.i24:  ; preds = %157, %_ZNKSt7__cxx1
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.i25: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i24
   %164 = load i64, ptr %132, align 8, !tbaa !412
   %165 = add i64 %164, 1
-  call void @_ZdlPvm(ptr noundef %162, i64 noundef %165) #19
+  call void @_ZdlPvm(ptr noundef %162, i64 noundef %165) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i26: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit.i24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.i25
@@ -25230,7 +25230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i26: ; preds = %_
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10.i27: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i26
   %168 = load i64, ptr %129, align 8, !tbaa !412
   %169 = add i64 %168, 1
-  call void @_ZdlPvm(ptr noundef %166, i64 noundef %169) #19
+  call void @_ZdlPvm(ptr noundef %166, i64 noundef %169) #20
   br label %__cxx_global_var_init.6.exit
 
 170:                                              ; preds = %__cxx_global_var_init.4.exit
@@ -25248,7 +25248,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13.i18: ; preds = %172
   %176 = load i64, ptr %137, align 8, !tbaa !412
   %177 = add i64 %176, 1
-  call void @_ZdlPvm(ptr noundef %174, i64 noundef %177) #19
+  call void @_ZdlPvm(ptr noundef %174, i64 noundef %177) #20
   br label %_ZN7testing8internal12CodeLocationD2Ev.exit15.i19
 
 _ZN7testing8internal12CodeLocationD2Ev.exit15.i19: ; preds = %172, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i13.i18
@@ -25259,7 +25259,7 @@ _ZN7testing8internal12CodeLocationD2Ev.exit15.i19: ; preds = %172, %_ZNKSt7__cxx
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16.i20: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit15.i19
   %180 = load i64, ptr %132, align 8, !tbaa !412
   %181 = add i64 %180, 1
-  call void @_ZdlPvm(ptr noundef %178, i64 noundef %181) #19
+  call void @_ZdlPvm(ptr noundef %178, i64 noundef %181) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit15.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16.i20, %170
@@ -25288,25 +25288,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log.f64(double) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshr.i64(i64, i64, i64) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umin.i8(i8, i8) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -25318,17 +25318,18 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nounwind }
-attributes #19 = { builtin nounwind }
-attributes #20 = { builtin allocsize(0) }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

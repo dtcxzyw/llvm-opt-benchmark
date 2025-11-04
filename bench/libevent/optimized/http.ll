@@ -237,7 +237,7 @@ define ptr @evhttp_htmlescape(ptr noundef readonly captures(address_is_null) %0)
   br i1 %2, label %31, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %.not54 = icmp eq i64 %4, 0
   br i1 %.not54, label %.thread65, label %.lr.ph
 
@@ -270,7 +270,7 @@ html_replace.exit:                                ; preds = %7, %8, %.lr.ph, %.s
   br i1 %.not, label %.thread, label %10
 
 .thread:                                          ; preds = %html_replace.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.evhttp_htmlescape) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.evhttp_htmlescape) #19
   br label %31
 
 10:                                               ; preds = %html_replace.exit
@@ -285,18 +285,18 @@ html_replace.exit:                                ; preds = %7, %8, %.lr.ph, %.s
 
 14:                                               ; preds = %._crit_edge
   %15 = add nuw i64 %11, 1
-  %16 = tail call ptr @event_mm_malloc_(i64 noundef %15) #18
+  %16 = tail call ptr @event_mm_malloc_(i64 noundef %15) #19
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %.lr.ph51
 
 .thread65:                                        ; preds = %3
-  %18 = tail call ptr @event_mm_malloc_(i64 noundef 1) #18
+  %18 = tail call ptr @event_mm_malloc_(i64 noundef 1) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %._crit_edge52
 
 20:                                               ; preds = %.thread65, %14
   %21 = phi i64 [ 1, %.thread65 ], [ %15, %14 ]
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_htmlescape, i64 noundef %21) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_htmlescape, i64 noundef %21) #19
   br label %31
 
 .lr.ph51:                                         ; preds = %14, %html_replace.exit43
@@ -375,13 +375,13 @@ define void @evhttp_connection_set_max_body_size(ptr noundef writeonly captures(
 
 ; Function Attrs: nounwind uwtable
 define void @evhttp_connection_fail_(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @__errno_location() #19
+  %3 = tail call ptr @__errno_location() #20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @bufferevent_disable(ptr noundef %8, i16 noundef signext 6) #18
+  %9 = tail call i32 @bufferevent_disable(ptr noundef %8, i16 noundef signext 6) #19
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 168
@@ -446,7 +446,7 @@ define void @evhttp_connection_fail_(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not26.i, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void @event_mm_free_(ptr noundef nonnull %39) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %39) #19
   store ptr null, ptr %38, align 8
   br label %41
 
@@ -465,7 +465,7 @@ evhttp_connection_incoming_fail.exit:             ; preds = %41, %44
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %12, align 8
-  tail call void %46(ptr noundef nonnull %6, ptr noundef %47) #18
+  tail call void %46(ptr noundef nonnull %6, ptr noundef %47) #19
   br label %49
 
 48:                                               ; preds = %34, %20
@@ -477,7 +477,7 @@ evhttp_connection_incoming_fail.exit:             ; preds = %41, %44
   br i1 %.not38, label %80, label %50
 
 50:                                               ; preds = %49
-  tail call void %11(i32 noundef %1, ptr noundef %13) #18
+  tail call void %11(i32 noundef %1, ptr noundef %13) #19
   br label %80
 
 51:                                               ; preds = %2
@@ -547,7 +547,7 @@ evhttp_request_free_.exit:                        ; preds = %63, %68
   br i1 %.not36, label %78, label %77
 
 77:                                               ; preds = %76
-  tail call void %11(i32 noundef %1, ptr noundef %13) #18
+  tail call void %11(i32 noundef %1, ptr noundef %13) #19
   br label %78
 
 78:                                               ; preds = %77, %76
@@ -555,7 +555,7 @@ evhttp_request_free_.exit:                        ; preds = %63, %68
   br i1 %.not37, label %80, label %79
 
 79:                                               ; preds = %78
-  tail call void %.0(ptr noundef null, ptr noundef %.030) #18
+  tail call void %.0(ptr noundef null, ptr noundef %.030) #19
   br label %80
 
 80:                                               ; preds = %78, %79, %49, %50
@@ -583,7 +583,7 @@ define void @evhttp_connection_free(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %8 = load ptr, ptr %7, align 8
-  tail call void %5(ptr noundef nonnull %0, ptr noundef %8) #18
+  tail call void %5(ptr noundef nonnull %0, ptr noundef %8) #19
   br label %9
 
 9:                                                ; preds = %6, %3, %1
@@ -665,27 +665,27 @@ evhttp_request_free_.exit:                        ; preds = %21, %26
 
 43:                                               ; preds = %38, %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = tail call i32 @event_initialized(ptr noundef nonnull %44) #18
+  %45 = tail call i32 @event_initialized(ptr noundef nonnull %44) #19
   %.not43 = icmp eq i32 %45, 0
   br i1 %.not43, label %48, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @event_del(ptr noundef nonnull %44) #18
-  tail call void @event_debug_unassign(ptr noundef nonnull %44) #18
+  %47 = tail call i32 @event_del(ptr noundef nonnull %44) #19
+  tail call void @event_debug_unassign(ptr noundef nonnull %44) #19
   br label %48
 
 48:                                               ; preds = %46, %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  tail call void @event_deferred_cb_cancel_(ptr noundef %50, ptr noundef nonnull %51) #18
+  tail call void @event_deferred_cb_cancel_(ptr noundef %50, ptr noundef nonnull %51) #19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
   %.not44 = icmp eq ptr %53, null
   br i1 %.not44, label %55, label %54
 
 54:                                               ; preds = %48
-  tail call void @bufferevent_free(ptr noundef nonnull %53) #18
+  tail call void @bufferevent_free(ptr noundef nonnull %53) #19
   br label %55
 
 55:                                               ; preds = %54, %48
@@ -695,7 +695,7 @@ evhttp_request_free_.exit:                        ; preds = %21, %26
   br i1 %.not45, label %59, label %58
 
 58:                                               ; preds = %55
-  tail call void @event_mm_free_(ptr noundef nonnull %57) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %57) #19
   br label %59
 
 59:                                               ; preds = %58, %55
@@ -705,7 +705,7 @@ evhttp_request_free_.exit:                        ; preds = %21, %26
   br i1 %.not46, label %63, label %62
 
 62:                                               ; preds = %59
-  tail call void @event_mm_free_(ptr noundef nonnull %61) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %61) #19
   br label %63
 
 63:                                               ; preds = %62, %59
@@ -715,11 +715,11 @@ evhttp_request_free_.exit:                        ; preds = %21, %26
   br i1 %.not47, label %67, label %66
 
 66:                                               ; preds = %63
-  tail call void @event_mm_free_(ptr noundef nonnull %65) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %65) #19
   br label %67
 
 67:                                               ; preds = %66, %63
-  tail call void @event_mm_free_(ptr noundef nonnull %0) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -727,13 +727,13 @@ evhttp_request_free_.exit:                        ; preds = %21, %26
 define hidden void @evhttp_connection_reset_(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void @bufferevent_setcb(ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  tail call void @bufferevent_setcb(ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %23, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %3, align 8
-  %7 = tail call i32 @bufferevent_disable_hard_(ptr noundef %6, i16 noundef signext 6) #18
+  %7 = tail call i32 @bufferevent_disable_hard_(ptr noundef %6, i16 noundef signext 6) #19
   %8 = getelementptr i8, ptr %0, i64 280
   %.val.i = load i32, ptr %8, align 8
   %switch.i.i = icmp ult i32 %.val.i, 2
@@ -748,18 +748,18 @@ define hidden void @evhttp_connection_reset_(ptr noundef %0, i32 noundef %1) loc
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %14 = load ptr, ptr %13, align 8
-  tail call void %11(ptr noundef nonnull %0, ptr noundef %14) #18
+  tail call void %11(ptr noundef nonnull %0, ptr noundef %14) #19
   br label %evhttp_connection_reset_hard_.exit
 
 evhttp_connection_reset_hard_.exit:               ; preds = %5, %9, %12
   %15 = load ptr, ptr %3, align 8
-  %16 = tail call i32 @bufferevent_replacefd(ptr noundef %15, i32 noundef -1) #18
+  %16 = tail call i32 @bufferevent_replacefd(ptr noundef %15, i32 noundef -1) #19
   %17 = load ptr, ptr %3, align 8
-  %18 = tail call ptr @bufferevent_get_output(ptr noundef %17) #18
-  %19 = tail call i32 @evbuffer_drain(ptr noundef %18, i64 noundef -1) #18
+  %18 = tail call ptr @bufferevent_get_output(ptr noundef %17) #19
+  %19 = tail call i32 @evbuffer_drain(ptr noundef %18, i64 noundef -1) #19
   %20 = load ptr, ptr %3, align 8
-  %21 = tail call ptr @bufferevent_get_input(ptr noundef %20) #18
-  %22 = tail call i32 @evbuffer_drain(ptr noundef %21, i64 noundef -1) #18
+  %21 = tail call ptr @bufferevent_get_input(ptr noundef %20) #19
+  %22 = tail call i32 @evbuffer_drain(ptr noundef %21, i64 noundef -1) #19
   br label %23
 
 23:                                               ; preds = %evhttp_connection_reset_hard_.exit, %2
@@ -781,14 +781,14 @@ define hidden range(i32 -1, 1) i32 @evhttp_connection_connect_(ptr noundef %0) l
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @bufferevent_socket_get_conn_address_(ptr noundef %8) #18
+  %9 = tail call ptr @bufferevent_socket_get_conn_address_(ptr noundef %8) #19
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %7, align 8
-  tail call void @bufferevent_setcb(ptr noundef %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  tail call void @bufferevent_setcb(ptr noundef %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, -2097155
@@ -816,23 +816,23 @@ define hidden range(i32 -1, 1) i32 @evhttp_connection_connect_(ptr noundef %0) l
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %18, align 8
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.evhttp_connection_connect_, ptr noundef %27) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.evhttp_connection_connect_, ptr noundef %27) #19
   br label %.critedge
 
 28:                                               ; preds = %._crit_edge
   %29 = load ptr, ptr %7, align 8
-  %30 = tail call i32 @bufferevent_replacefd(ptr noundef %29, i32 noundef %22) #18
+  %30 = tail call i32 @bufferevent_replacefd(ptr noundef %29, i32 noundef %22) #19
   %.not51 = icmp eq i32 %30, 0
   br i1 %.not51, label %31, label %.critedge
 
 31:                                               ; preds = %12, %28
   %32 = load ptr, ptr %7, align 8
-  tail call void @bufferevent_setcb(ptr noundef %32, ptr noundef null, ptr noundef null, ptr noundef nonnull @evhttp_connection_cb, ptr noundef nonnull %0) #18
+  tail call void @bufferevent_setcb(ptr noundef %32, ptr noundef null, ptr noundef null, ptr noundef nonnull @evhttp_connection_cb, ptr noundef nonnull %0) #19
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %35 = tail call i32 @bufferevent_set_timeouts(ptr noundef %33, ptr noundef nonnull %34, ptr noundef nonnull %34) #18
+  %35 = tail call i32 @bufferevent_set_timeouts(ptr noundef %33, ptr noundef nonnull %34, ptr noundef nonnull %34) #19
   %36 = load ptr, ptr %7, align 8
-  %37 = tail call i32 @bufferevent_enable(ptr noundef %36, i16 noundef signext 4) #18
+  %37 = tail call i32 @bufferevent_enable(ptr noundef %36, i16 noundef signext 4) #19
   %.not53 = icmp eq i32 %37, 0
   br i1 %.not53, label %38, label %.critedge
 
@@ -856,7 +856,7 @@ define hidden range(i32 -1, 1) i32 @evhttp_connection_connect_(ptr noundef %0) l
   %46 = icmp eq i16 %44, 10
   %spec.store.select = select i1 %46, i32 28, i32 16
   %47 = load ptr, ptr %7, align 8
-  %48 = tail call i32 @bufferevent_socket_connect(ptr noundef %47, ptr noundef nonnull %9, i32 noundef %spec.store.select) #18
+  %48 = tail call i32 @bufferevent_socket_connect(ptr noundef %47, ptr noundef nonnull %9, i32 noundef %spec.store.select) #19
   br label %67
 
 49:                                               ; preds = %43, %38
@@ -869,9 +869,9 @@ define hidden range(i32 -1, 1) i32 @evhttp_connection_connect_(ptr noundef %0) l
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 1, ptr %2, align 2
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %54 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %51) #18
+  %54 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %51) #19
   %55 = load ptr, ptr %7, align 8
-  %56 = call i32 @bufferevent_socket_connect(ptr noundef %55, ptr noundef nonnull %2, i32 noundef 110) #18
+  %56 = call i32 @bufferevent_socket_connect(ptr noundef %55, ptr noundef nonnull %2, i32 noundef 110) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %67
 
@@ -884,7 +884,7 @@ define hidden range(i32 -1, 1) i32 @evhttp_connection_connect_(ptr noundef %0) l
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %64 = load i16, ptr %63, align 8
   %65 = zext i16 %64 to i32
-  %66 = tail call i32 @bufferevent_socket_connect_hostname(ptr noundef %58, ptr noundef %60, i32 noundef %62, ptr noundef %6, i32 noundef %65) #18
+  %66 = tail call i32 @bufferevent_socket_connect_hostname(ptr noundef %58, ptr noundef %60, i32 noundef %62, ptr noundef %6, i32 noundef %65) #19
   br label %67
 
 67:                                               ; preds = %52, %57, %45
@@ -895,9 +895,9 @@ define hidden range(i32 -1, 1) i32 @evhttp_connection_connect_(ptr noundef %0) l
 69:                                               ; preds = %67
   store i32 %4, ptr %3, align 8
   %70 = load ptr, ptr %7, align 8
-  %71 = call i32 @bufferevent_getfd(ptr noundef %70) #18
+  %71 = call i32 @bufferevent_getfd(ptr noundef %70) #19
   %72 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @event_sock_warn(i32 noundef %71, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.evhttp_connection_connect_, ptr noundef %72) #18
+  call void (i32, ptr, ...) @event_sock_warn(i32 noundef %71, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.evhttp_connection_connect_, ptr noundef %72) #19
   call fastcc void @evhttp_connection_cb_cleanup(ptr noundef nonnull %0)
   br label %.critedge
 
@@ -935,17 +935,17 @@ define void @evhttp_connection_set_local_address(ptr noundef captures(none) %0, 
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @event_mm_free_(ptr noundef nonnull %4) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %4) #19
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = tail call ptr @event_mm_strdup_(ptr noundef %1) #18
+  %7 = tail call ptr @event_mm_strdup_(ptr noundef %1) #19
   store ptr %7, ptr %3, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_connection_set_local_address) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_connection_set_local_address) #19
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -976,7 +976,7 @@ define ptr @evhttp_find_header(ptr noundef readonly captures(none) %0, ptr nound
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %6, ptr noundef %1) #18
+  %7 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %6, ptr noundef %1) #19
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %3, !llvm.loop !7
 
@@ -1024,11 +1024,11 @@ define void @evhttp_clear_headers(ptr noundef captures(none) %0) local_unnamed_a
   store ptr %11, ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %.017, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void @event_mm_free_(ptr noundef %13) #18
+  tail call void @event_mm_free_(ptr noundef %13) #19
   %14 = getelementptr inbounds nuw i8, ptr %.017, i64 24
   %15 = load ptr, ptr %14, align 8
-  tail call void @event_mm_free_(ptr noundef %15) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %.017) #18
+  tail call void @event_mm_free_(ptr noundef %15) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %.017) #19
   %.0 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %3, !llvm.loop !8
@@ -1050,7 +1050,7 @@ define range(i32 -1, 1) i32 @evhttp_remove_header(ptr noundef captures(none) %0,
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %6, ptr noundef %1) #18
+  %7 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %6, ptr noundef %1) #19
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %3, !llvm.loop !9
 
@@ -1066,11 +1066,11 @@ define range(i32 -1, 1) i32 @evhttp_remove_header(ptr noundef captures(none) %0,
   %15 = load ptr, ptr %.0, align 8
   store ptr %15, ptr %13, align 8
   %16 = load ptr, ptr %10, align 8
-  tail call void @event_mm_free_(ptr noundef %16) #18
+  tail call void @event_mm_free_(ptr noundef %16) #19
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %18 = load ptr, ptr %17, align 8
-  tail call void @event_mm_free_(ptr noundef %18) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %.0) #18
+  tail call void @event_mm_free_(ptr noundef %18) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %.0) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %9
@@ -1085,16 +1085,16 @@ define range(i32 -1, 1) i32 @evhttp_add_header(ptr noundef captures(none) %0, pt
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.evhttp_add_header, ptr noundef %1, ptr noundef %2) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.evhttp_add_header, ptr noundef %1, ptr noundef %2) #19
   br label %6
 
 6:                                                ; preds = %3, %5
-  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 13) #17
+  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 13) #18
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %8, label %13
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #17
+  %9 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #18
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %10, label %13
 
@@ -1109,17 +1109,17 @@ define range(i32 -1, 1) i32 @evhttp_add_header(ptr noundef captures(none) %0, pt
   br i1 %.not13, label %27, label %15
 
 15:                                               ; preds = %13
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.evhttp_add_header) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.evhttp_add_header) #19
   br label %27
 
 16:                                               ; preds = %10
-  %17 = tail call ptr @strpbrk(ptr noundef readonly %2, ptr noundef nonnull @.str.19) #17
+  %17 = tail call ptr @strpbrk(ptr noundef readonly %2, ptr noundef nonnull @.str.19) #18
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %22
   %18 = phi ptr [ %23, %22 ], [ %17, %16 ]
-  %19 = tail call i64 @strspn(ptr noundef nonnull %18, ptr noundef nonnull @.str.19) #17
+  %19 = tail call i64 @strspn(ptr noundef nonnull %18, ptr noundef nonnull @.str.19) #18
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %evhttp_header_is_valid_value.exit [
@@ -1128,7 +1128,7 @@ define range(i32 -1, 1) i32 @evhttp_add_header(ptr noundef captures(none) %0, pt
   ]
 
 22:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %23 = tail call ptr @strpbrk(ptr noundef nonnull %20, ptr noundef nonnull @.str.19) #17
+  %23 = tail call ptr @strpbrk(ptr noundef nonnull %20, ptr noundef nonnull @.str.19) #18
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
 
@@ -1138,7 +1138,7 @@ evhttp_header_is_valid_value.exit:                ; preds = %.lr.ph.i
   br i1 %.not12, label %27, label %25
 
 25:                                               ; preds = %evhttp_header_is_valid_value.exit
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.evhttp_add_header) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.evhttp_add_header) #19
   br label %27
 
 .loopexit:                                        ; preds = %22, %16
@@ -1157,28 +1157,28 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @evhttp_add_header_internal(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 32) #18
+  %4 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 32) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_add_header_internal) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_add_header_internal) #19
   br label %22
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @event_mm_strdup_(ptr noundef %1) #18
+  %8 = tail call ptr @event_mm_strdup_(ptr noundef %1) #19
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void @event_mm_free_(ptr noundef nonnull %4) #18
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_add_header_internal) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %4) #19
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_add_header_internal) #19
   br label %22
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @event_mm_strdup_(ptr noundef %2) #18
+  %13 = tail call ptr @event_mm_strdup_(ptr noundef %2) #19
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
@@ -1186,9 +1186,9 @@ define internal fastcc range(i32 -1, 1) i32 @evhttp_add_header_internal(ptr noun
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %9, align 8
-  tail call void @event_mm_free_(ptr noundef %17) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %4) #18
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_add_header_internal) #18
+  tail call void @event_mm_free_(ptr noundef %17) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %4) #19
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_add_header_internal) #19
   br label %22
 
 18:                                               ; preds = %12
@@ -1219,7 +1219,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_firstline_(ptr noundef %0, ptr noundef
   %11 = alloca %struct.evhttp_ext_method, align 8
   %12 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %13 = call ptr @evbuffer_readln(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 1) #18
+  %13 = call ptr @evbuffer_readln(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 1) #19
   %14 = icmp eq ptr %13, null
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -1230,7 +1230,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_firstline_(ptr noundef %0, ptr noundef
   br i1 %.not19, label %24, label %18
 
 18:                                               ; preds = %17
-  %19 = call i64 @evbuffer_get_length(ptr noundef %1) #18
+  %19 = call i64 @evbuffer_get_length(ptr noundef %1) #19
   %20 = load ptr, ptr %15, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %22 = load i64, ptr %21, align 8
@@ -1251,7 +1251,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_firstline_(ptr noundef %0, ptr noundef
   br i1 %29, label %30, label %thread-pre-split
 
 30:                                               ; preds = %26
-  call void @event_mm_free_(ptr noundef nonnull %13) #18
+  call void @event_mm_free_(ptr noundef nonnull %13) #19
   br label %436
 
 thread-pre-split:                                 ; preds = %25, %26
@@ -1294,13 +1294,13 @@ thread-pre-split:                                 ; preds = %25, %26
   br i1 %42, label %394, label %43
 
 43:                                               ; preds = %.critedge.i
-  %44 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.7) #18
+  %44 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.7) #19
   %45 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %394, label %46
 
 46:                                               ; preds = %43
-  %47 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 32) #17
+  %47 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 32) #18
   %.not121.i = icmp eq ptr %47, null
   %48 = icmp eq ptr %45, %47
   %or.cond130.i = or i1 %.not121.i, %48
@@ -1788,13 +1788,13 @@ thread-pre-split:                                 ; preds = %25, %26
   br i1 %.not126.i, label %336, label %325
 
 325:                                              ; preds = %.thread.i
-  %326 = call i32 %324(ptr noundef nonnull %11) #18
+  %326 = call i32 %324(ptr noundef nonnull %11) #19
   %327 = icmp eq i32 %326, 0
   br i1 %327, label %328, label %336
 
 328:                                              ; preds = %325
   %329 = load ptr, ptr %11, align 8
-  %330 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %329, ptr noundef nonnull dereferenceable(1) %44) #17
+  %330 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %329, ptr noundef nonnull dereferenceable(1) %44) #18
   %.not127.i = icmp eq i32 %330, 0
   br i1 %.not127.i, label %331, label %335
 
@@ -1809,7 +1809,7 @@ thread-pre-split:                                 ; preds = %25, %26
 
 335:                                              ; preds = %331, %328
   %.str.53.sink.i = phi ptr [ @.str.52, %328 ], [ @.str.53, %331 ]
-  call void (ptr, ...) @event_warn(ptr noundef nonnull %.str.53.sink.i, ptr noundef nonnull @__func__.evhttp_parse_request_line) #18
+  call void (ptr, ...) @event_warn(ptr noundef nonnull %.str.53.sink.i, ptr noundef nonnull @__func__.evhttp_parse_request_line) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %394
 
@@ -1825,7 +1825,7 @@ thread-pre-split:                                 ; preds = %25, %26
 340:                                              ; preds = %336
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %342 = load ptr, ptr %341, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.54, ptr noundef nonnull @__func__.evhttp_parse_request_line, ptr noundef %44, ptr noundef nonnull %0, ptr noundef %342) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.54, ptr noundef nonnull @__func__.evhttp_parse_request_line, ptr noundef %44, ptr noundef nonnull %0, ptr noundef %342) #19
   br label %.thread199.i
 
 .thread199.i:                                     ; preds = %284, %255, %232, %207, %188, %167, %152, %137, %120, %109, %98, %87, %76, %63, %317, %340, %336, %60
@@ -1835,7 +1835,7 @@ thread-pre-split:                                 ; preds = %25, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %344 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %50, ptr noundef nonnull @.str.56, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
+  %344 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %50, ptr noundef nonnull @.str.56, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #19
   %345 = icmp ne i32 %344, 2
   %346 = load i8, ptr %7, align 1
   %347 = add i8 %346, -50
@@ -1855,7 +1855,7 @@ thread-pre-split:                                 ; preds = %25, %26
 354:                                              ; preds = %352
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %356 = load ptr, ptr %355, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.evhttp_parse_http_version, ptr noundef nonnull %50, ptr noundef nonnull %0, ptr noundef %356) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.evhttp_parse_http_version, ptr noundef nonnull %50, ptr noundef nonnull %0, ptr noundef %356) #19
   br label %evhttp_parse_http_version.exit.thread.i
 
 evhttp_parse_http_version.exit.thread.i:          ; preds = %354, %352
@@ -1874,7 +1874,7 @@ evhttp_parse_http_version.exit.thread.i:          ; preds = %354, %352
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %362 = call ptr @event_mm_strdup_(ptr noundef nonnull %45) #18
+  %362 = call ptr @event_mm_strdup_(ptr noundef nonnull %45) #19
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %362, ptr %363, align 8
   %364 = icmp eq ptr %362, null
@@ -1886,7 +1886,7 @@ evhttp_parse_http_version.exit.thread.i:          ; preds = %354, %352
   br i1 %.not129.i, label %394, label %367
 
 367:                                              ; preds = %365
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.evhttp_parse_request_line) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.evhttp_parse_request_line) #19
   br label %394
 
 368:                                              ; preds = %357
@@ -1894,7 +1894,7 @@ evhttp_parse_http_version.exit.thread.i:          ; preds = %354, %352
   br i1 %369, label %370, label %390
 
 370:                                              ; preds = %368
-  %371 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 72) #18
+  %371 = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 72) #19
   %372 = icmp eq ptr %371, null
   br i1 %372, label %386, label %373
 
@@ -1924,18 +1924,18 @@ end_of_authority.exit.i.i:                        ; preds = %375, %375, %375, %3
   br i1 %380, label %387, label %381
 
 381:                                              ; preds = %end_of_authority.exit.i.i
-  %382 = call ptr @event_mm_strdup_(ptr noundef nonnull @.str.14) #18
+  %382 = call ptr @event_mm_strdup_(ptr noundef nonnull @.str.14) #19
   %383 = getelementptr inbounds nuw i8, ptr %371, i64 48
   store ptr %382, ptr %383, align 8
   %384 = icmp eq ptr %382, null
   br i1 %384, label %385, label %evhttp_uri_parse_authority.exit.i
 
 385:                                              ; preds = %381
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_authority) #18
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_authority) #19
   br label %387
 
 386:                                              ; preds = %370
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_uri_parse_authority) #18
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_uri_parse_authority) #19
   br label %evhttp_uri_parse_authority.exit.thread.i
 
 387:                                              ; preds = %385, %end_of_authority.exit.i.i
@@ -1970,20 +1970,20 @@ evhttp_parse_request_line.exit:                   ; preds = %evhttp_uri_parse_au
 395:                                              ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %13, ptr %6, align 8
-  %396 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.7) #18
+  %396 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.7) #19
   %397 = load ptr, ptr %6, align 8
   %398 = icmp eq ptr %397, null
   br i1 %398, label %434, label %399
 
 399:                                              ; preds = %395
-  %400 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.7) #18
+  %400 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.7) #19
   %401 = load ptr, ptr %6, align 8
   %.not.i21 = icmp eq ptr %401, null
   %spec.select.i = select i1 %.not.i21, ptr @.str.14, ptr %401
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %402 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %396, ptr noundef nonnull @.str.56, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
+  %402 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %396, ptr noundef nonnull @.str.56, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %403 = icmp ne i32 %402, 2
   %404 = load i8, ptr %3, align 1
   %405 = add i8 %404, -50
@@ -2003,7 +2003,7 @@ evhttp_parse_request_line.exit:                   ; preds = %evhttp_uri_parse_au
 412:                                              ; preds = %410
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %414 = load ptr, ptr %413, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.evhttp_parse_http_version, ptr noundef %396, ptr noundef nonnull %0, ptr noundef %414) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.evhttp_parse_http_version, ptr noundef %396, ptr noundef nonnull %0, ptr noundef %414) #19
   br label %evhttp_parse_http_version.exit.thread.i25
 
 evhttp_parse_http_version.exit.thread.i25:        ; preds = %412, %410
@@ -2022,7 +2022,7 @@ evhttp_parse_http_version.exit.thread.i25:        ; preds = %412, %410
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %420 = call i64 @strtol(ptr noundef nonnull captures(none) %400, ptr noundef null, i32 noundef 10) #18
+  %420 = call i64 @strtol(ptr noundef nonnull captures(none) %400, ptr noundef null, i32 noundef 10) #19
   %421 = trunc i64 %420 to i32
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %421, ptr %422, align 4
@@ -2035,7 +2035,7 @@ evhttp_parse_http_version.exit.thread.i25:        ; preds = %412, %410
   br i1 %.not14.i, label %434, label %425
 
 425:                                              ; preds = %423
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.58, ptr noundef nonnull @__func__.evhttp_parse_response_line, ptr noundef nonnull %400) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.58, ptr noundef nonnull @__func__.evhttp_parse_response_line, ptr noundef nonnull %400) #19
   br label %434
 
 426:                                              ; preds = %415
@@ -2045,17 +2045,17 @@ evhttp_parse_http_version.exit.thread.i25:        ; preds = %412, %410
   br i1 %.not15.i, label %430, label %429
 
 429:                                              ; preds = %426
-  call void @event_mm_free_(ptr noundef nonnull %428) #18
+  call void @event_mm_free_(ptr noundef nonnull %428) #19
   br label %430
 
 430:                                              ; preds = %429, %426
-  %431 = call ptr @event_mm_strdup_(ptr noundef nonnull %spec.select.i) #18
+  %431 = call ptr @event_mm_strdup_(ptr noundef nonnull %spec.select.i) #19
   store ptr %431, ptr %427, align 8
   %432 = icmp eq ptr %431, null
   br i1 %432, label %433, label %evhttp_parse_response_line.exit
 
 433:                                              ; preds = %430
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_parse_response_line) #18
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_parse_response_line) #19
   br label %434
 
 evhttp_parse_response_line.exit:                  ; preds = %430
@@ -2068,7 +2068,7 @@ evhttp_parse_response_line.exit:                  ; preds = %430
 
 435:                                              ; preds = %434, %evhttp_parse_response_line.exit, %394, %evhttp_parse_request_line.exit, %thread-pre-split
   %.0 = phi i32 [ -1, %thread-pre-split ], [ -1, %394 ], [ 1, %evhttp_parse_request_line.exit ], [ -1, %434 ], [ 1, %evhttp_parse_response_line.exit ]
-  call void @event_mm_free_(ptr noundef nonnull %13) #18
+  call void @event_mm_free_(ptr noundef nonnull %13) #19
   br label %436
 
 436:                                              ; preds = %18, %435, %30, %24
@@ -2088,7 +2088,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = call ptr @evbuffer_readln(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 1) #18
+  %7 = call ptr @evbuffer_readln(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 1) #19
   %.not50 = icmp eq ptr %7, null
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
@@ -2124,7 +2124,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
   ]
 
 .thread45:                                        ; preds = %21
-  call void @event_mm_free_(ptr noundef nonnull %12) #18
+  call void @event_mm_free_(ptr noundef nonnull %12) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %65
 
@@ -2152,13 +2152,13 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
 28:                                               ; preds = %.preheader.i
   %29 = getelementptr inbounds nuw i8, ptr %.val.val.val, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #17
-  call void @evutil_rtrim_lws_(ptr noundef nonnull %.020.i) #18
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.020.i) #17
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #18
+  call void @evutil_rtrim_lws_(ptr noundef nonnull %.020.i) #19
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.020.i) #18
   %33 = load ptr, ptr %29, align 8
   %34 = add i64 %31, 2
   %35 = add i64 %34, %32
-  %36 = call ptr @event_mm_realloc_(ptr noundef %33, i64 noundef %35) #18
+  %36 = call ptr @event_mm_realloc_(ptr noundef %33, i64 noundef %35) #19
   %37 = icmp eq ptr %36, null
   br i1 %37, label %evhttp_append_to_last_header.exit.thread, label %38
 
@@ -2173,25 +2173,25 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
 
 42:                                               ; preds = %21
   store ptr %12, ptr %4, align 8
-  %43 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.6) #18
+  %43 = call ptr @strsep(ptr noundef nonnull %4, ptr noundef nonnull @.str.6) #19
   %44 = load ptr, ptr %4, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %evhttp_append_to_last_header.exit.thread, label %46
 
 46:                                               ; preds = %42
-  %47 = call i64 @strspn(ptr noundef nonnull %44, ptr noundef nonnull @.str.7) #17
+  %47 = call i64 @strspn(ptr noundef nonnull %44, ptr noundef nonnull @.str.7) #18
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
   store ptr %48, ptr %4, align 8
-  call void @evutil_rtrim_lws_(ptr noundef nonnull %48) #18
+  call void @evutil_rtrim_lws_(ptr noundef nonnull %48) #19
   %49 = load ptr, ptr %4, align 8
   %50 = call i32 @evhttp_add_header(ptr noundef %6, ptr noundef %43, ptr noundef %49)
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %evhttp_append_to_last_header.exit.thread, label %52
 
 52:                                               ; preds = %46, %38
-  call void @event_mm_free_(ptr noundef nonnull %12) #18
+  call void @event_mm_free_(ptr noundef nonnull %12) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %53 = call ptr @evbuffer_readln(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 1) #18
+  %53 = call ptr @evbuffer_readln(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 1) #19
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %._crit_edge, label %11
 
@@ -2204,7 +2204,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
 56:                                               ; preds = %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load i64, ptr %57, align 8
-  %59 = call i64 @evbuffer_get_length(ptr noundef %1) #18
+  %59 = call i64 @evbuffer_get_length(ptr noundef %1) #19
   %60 = add i64 %59, %58
   %61 = load ptr, ptr %54, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
@@ -2216,7 +2216,7 @@ define range(i32 -3, 2) i32 @evhttp_parse_headers_(ptr noundef captures(none) %0
 evhttp_append_to_last_header.exit.thread:         ; preds = %28, %23, %17, %42, %46
   %.1.ph = phi i32 [ -1, %46 ], [ -1, %42 ], [ -3, %17 ], [ -1, %23 ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @event_mm_free_(ptr noundef nonnull %12) #18
+  call void @event_mm_free_(ptr noundef nonnull %12) #19
   br label %65
 
 65:                                               ; preds = %56, %._crit_edge, %.thread45, %evhttp_append_to_last_header.exit.thread
@@ -2241,7 +2241,7 @@ define ptr @evhttp_connection_new(ptr noundef %0, i16 noundef zeroext %1) local_
 
 4:                                                ; preds = %2
   %5 = zext i16 %1 to i32
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.10, ptr noundef %0, i32 noundef %5) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.10, ptr noundef %0, i32 noundef %5) #19
   br label %6
 
 6:                                                ; preds = %4, %2
@@ -2250,7 +2250,7 @@ define ptr @evhttp_connection_new(ptr noundef %0, i16 noundef zeroext %1) local_
   br i1 %cond.i.i, label %evhttp_connection_base_new.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @event_mm_strdup_(ptr noundef %0) #18
+  %9 = tail call ptr @event_mm_strdup_(ptr noundef %0) #19
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
@@ -2264,7 +2264,7 @@ define ptr @evhttp_connection_new(ptr noundef %0, i16 noundef zeroext %1) local_
   br label %evhttp_connection_base_new.exit
 
 15:                                               ; preds = %8
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_new) #19
   tail call void @evhttp_connection_free(ptr noundef nonnull %7)
   br label %evhttp_connection_base_new.exit
 
@@ -2281,7 +2281,7 @@ define ptr @evhttp_connection_base_new(ptr noundef %0, ptr noundef %1, ptr nound
 
 6:                                                ; preds = %4
   %7 = zext i16 %3 to i32
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.10, ptr noundef %2, i32 noundef %7) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.10, ptr noundef %2, i32 noundef %7) #19
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -2290,7 +2290,7 @@ define ptr @evhttp_connection_base_new(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %cond.i, label %evhttp_connection_base_bufferevent_new.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @event_mm_strdup_(ptr noundef %2) #18
+  %11 = tail call ptr @event_mm_strdup_(ptr noundef %2) #19
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store ptr %11, ptr %12, align 8
   %13 = icmp eq ptr %11, null
@@ -2304,7 +2304,7 @@ define ptr @evhttp_connection_base_new(ptr noundef %0, ptr noundef %1, ptr nound
   br label %evhttp_connection_base_bufferevent_new.exit
 
 17:                                               ; preds = %10
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_new) #19
   tail call void @evhttp_connection_free(ptr noundef nonnull %9)
   br label %evhttp_connection_base_bufferevent_new.exit
 
@@ -2347,12 +2347,12 @@ define ptr @evhttp_connection_base_bufferevent_reuse_new(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @evhttp_connection_new_(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 416) #18
+  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 416) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
 
 .thread:                                          ; preds = %2
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.evhttp_connection_new_) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.evhttp_connection_new_) #19
   br label %33
 
 5:                                                ; preds = %2
@@ -2374,13 +2374,13 @@ define internal fastcc ptr @evhttp_connection_new_(ptr noundef %0, ptr noundef %
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %5
-  %15 = tail call ptr @bufferevent_socket_new(ptr noundef %0, i32 noundef -1, i32 noundef 1) #18
+  %15 = tail call ptr @bufferevent_socket_new(ptr noundef %0, i32 noundef -1, i32 noundef 1) #19
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %32, label %16
 
 16:                                               ; preds = %14, %5
   %.033 = phi ptr [ %15, %14 ], [ %1, %5 ]
-  tail call void @bufferevent_setcb(ptr noundef nonnull %.033, ptr noundef nonnull @evhttp_read_cb, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %3) #18
+  tail call void @bufferevent_setcb(ptr noundef nonnull %.033, ptr noundef nonnull @evhttp_read_cb, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %3) #19
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.033, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 280
@@ -2395,26 +2395,26 @@ define internal fastcc ptr @evhttp_connection_new_(ptr noundef %0, ptr noundef %
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 384
   store ptr %0, ptr %22, align 8
-  %23 = tail call ptr @bufferevent_get_base(ptr noundef nonnull %.033) #18
+  %23 = tail call ptr @bufferevent_get_base(ptr noundef nonnull %.033) #19
   %.not39 = icmp eq ptr %23, %0
   br i1 %.not39, label %27, label %24
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %17, align 8
-  %26 = tail call i32 @bufferevent_base_set(ptr noundef nonnull %0, ptr noundef %25) #18
+  %26 = tail call i32 @bufferevent_base_set(ptr noundef nonnull %0, ptr noundef %25) #19
   br label %27
 
 27:                                               ; preds = %21, %24, %16
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 344
-  %29 = tail call i32 @bufferevent_get_priority(ptr noundef nonnull %.033) #18
+  %29 = tail call i32 @bufferevent_get_priority(ptr noundef nonnull %.033) #19
   %30 = trunc i32 %29 to i8
-  tail call void @event_deferred_cb_init_(ptr noundef nonnull %28, i8 noundef zeroext %30, ptr noundef nonnull @evhttp_deferred_read_cb, ptr noundef nonnull %3) #18
+  tail call void @event_deferred_cb_init_(ptr noundef nonnull %28, i8 noundef zeroext %30, ptr noundef nonnull @evhttp_deferred_read_cb, ptr noundef nonnull %3) #19
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 400
   store i32 0, ptr %31, align 8
   br label %33
 
 32:                                               ; preds = %14
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__.evhttp_connection_new_) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__.evhttp_connection_new_) #19
   tail call void @evhttp_connection_free(ptr noundef nonnull %3)
   br label %33
 
@@ -2425,12 +2425,12 @@ define internal fastcc ptr @evhttp_connection_new_(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_connection_base_bufferevent_unix_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %5 = icmp ugt i64 %4, 107
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_unix_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_unix_new) #19
   br label %16
 
 7:                                                ; preds = %3
@@ -2439,7 +2439,7 @@ define ptr @evhttp_connection_base_bufferevent_unix_new(ptr noundef %0, ptr noun
   br i1 %cond, label %16, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %2) #18
+  %10 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %2) #19
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 176
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
@@ -2451,7 +2451,7 @@ define ptr @evhttp_connection_base_bufferevent_unix_new(ptr noundef %0, ptr noun
   br label %16
 
 15:                                               ; preds = %9
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_unix_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_unix_new) #19
   tail call void @evhttp_connection_free(ptr noundef nonnull %8)
   br label %16
 
@@ -2468,7 +2468,7 @@ define ptr @evhttp_connection_base_bufferevent_new(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %5
   %8 = zext i16 %4 to i32
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.10, ptr noundef %3, i32 noundef %8) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.10, ptr noundef %3, i32 noundef %8) #19
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -2477,7 +2477,7 @@ define ptr @evhttp_connection_base_bufferevent_new(ptr noundef %0, ptr noundef %
   br i1 %cond, label %19, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @event_mm_strdup_(ptr noundef %3) #18
+  %12 = tail call ptr @event_mm_strdup_(ptr noundef %3) #19
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 160
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
@@ -2491,7 +2491,7 @@ define ptr @evhttp_connection_base_bufferevent_new(ptr noundef %0, ptr noundef %
   br label %19
 
 18:                                               ; preds = %11
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_new) #19
   tail call void @evhttp_connection_free(ptr noundef nonnull %10)
   br label %19
 
@@ -2555,7 +2555,7 @@ define void @evhttp_connection_set_base(ptr noundef captures(none) initializes((
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @bufferevent_base_set(ptr noundef %1, ptr noundef %5) #18
+  %6 = tail call i32 @bufferevent_base_set(ptr noundef %1, ptr noundef %5) #19
   ret void
 }
 
@@ -2591,7 +2591,7 @@ define void @evhttp_connection_set_timeout(ptr noundef initializes((224, 256)) %
   store i64 %.sink15, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @bufferevent_set_timeouts(ptr noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %10) #18
+  %14 = tail call i32 @bufferevent_set_timeouts(ptr noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %10) #19
   ret void
 }
 
@@ -2629,7 +2629,7 @@ evhttp_set_timeout_tv_.exit12:                    ; preds = %2
   %13 = phi ptr [ %7, %evhttp_set_timeout_tv_.exit12 ], [ %10, %.split11 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @bufferevent_set_timeouts(ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %13) #18
+  %16 = tail call i32 @bufferevent_set_timeouts(ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %13) #19
   ret void
 }
 
@@ -2660,7 +2660,7 @@ evhttp_set_timeout_tv_.exit:                      ; preds = %8, %9
 13:                                               ; preds = %evhttp_set_timeout_tv_.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @bufferevent_set_timeouts(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %6) #18
+  %16 = tail call i32 @bufferevent_set_timeouts(ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %6) #19
   br label %17
 
 17:                                               ; preds = %13, %evhttp_set_timeout_tv_.exit
@@ -2695,7 +2695,7 @@ evhttp_set_timeout_tv_.exit:                      ; preds = %8, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %16 = tail call i32 @bufferevent_set_timeouts(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %15) #18
+  %16 = tail call i32 @bufferevent_set_timeouts(ptr noundef %14, ptr noundef nonnull %6, ptr noundef nonnull %15) #19
   br label %17
 
 17:                                               ; preds = %12, %evhttp_set_timeout_tv_.exit
@@ -2730,7 +2730,7 @@ evhttp_set_timeout_tv_.exit:                      ; preds = %8, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %16 = tail call i32 @bufferevent_set_timeouts(ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %6) #18
+  %16 = tail call i32 @bufferevent_set_timeouts(ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %6) #19
   br label %17
 
 17:                                               ; preds = %12, %evhttp_set_timeout_tv_.exit
@@ -2788,7 +2788,7 @@ define void @evhttp_connection_get_peer(ptr noundef readonly captures(none) %0, 
 define ptr @evhttp_connection_get_addr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @bufferevent_socket_get_conn_address_(ptr noundef %3) #18
+  %4 = tail call ptr @bufferevent_socket_get_conn_address_(ptr noundef %3) #19
   ret ptr %4
 }
 
@@ -2805,23 +2805,23 @@ define internal fastcc i32 @bind_socket(ptr noundef %0, i16 noundef zeroext %1, 
   br i1 %or.cond, label %9, label %20
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @evutil_socket_(i32 noundef 2, i32 noundef 526337, i32 noundef 0) #18
+  %10 = tail call i32 @evutil_socket_(i32 noundef 2, i32 noundef 526337, i32 noundef 0) #19
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void (i32, ptr, ...) @event_sock_warn(i32 noundef -1, ptr noundef nonnull @.str.160) #18
+  tail call void (i32, ptr, ...) @event_sock_warn(i32 noundef -1, ptr noundef nonnull @.str.160) #19
   br label %create_bind_socket_nonblock.exit
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @evutil_set_tcp_keepalive(i32 noundef %10, i32 noundef 1, i32 noundef 300) #18
+  %14 = tail call i32 @evutil_set_tcp_keepalive(i32 noundef %10, i32 noundef 1, i32 noundef 300) #19
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %create_bind_socket_nonblock.exit
 
 16:                                               ; preds = %13
-  %17 = tail call ptr @__errno_location() #19
+  %17 = tail call ptr @__errno_location() #20
   %18 = load i32, ptr %17, align 4
-  %19 = tail call i32 @evutil_closesocket(i32 noundef %10) #18
+  %19 = tail call i32 @evutil_closesocket(i32 noundef %10) #19
   store i32 %18, ptr %17, align 4
   br label %create_bind_socket_nonblock.exit
 
@@ -2835,20 +2835,20 @@ define internal fastcc i32 @bind_socket(ptr noundef %0, i16 noundef zeroext %1, 
   store i32 1, ptr %21, align 8
   store i32 33, ptr %5, align 8
   %22 = zext i16 %1 to i32
-  %23 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.161, i32 noundef %22) #18
-  %24 = call i32 @evutil_getaddrinfo(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #18
+  %23 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.161, i32 noundef %22) #19
+  %24 = call i32 @evutil_getaddrinfo(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #19
   switch i32 %24, label %26 [
     i32 0, label %make_addrinfo.exit
     i32 -11, label %25
   ]
 
 25:                                               ; preds = %20
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.162) #18
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.162) #19
   br label %make_addrinfo.exit.thread
 
 26:                                               ; preds = %20
-  %27 = call ptr @evutil_gai_strerror(i32 noundef %24) #18
-  call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.163, ptr noundef %27) #18
+  %27 = call ptr @evutil_gai_strerror(i32 noundef %24) #19
+  call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.163, ptr noundef %27) #19
   br label %make_addrinfo.exit.thread
 
 make_addrinfo.exit.thread:                        ; preds = %26, %25
@@ -2868,16 +2868,16 @@ make_addrinfo.exit:                               ; preds = %20
 30:                                               ; preds = %make_addrinfo.exit
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = call i32 @evutil_socket_(i32 noundef %32, i32 noundef 526337, i32 noundef 0) #18
+  %33 = call i32 @evutil_socket_(i32 noundef %32, i32 noundef 526337, i32 noundef 0) #19
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %30
-  call void (i32, ptr, ...) @event_sock_warn(i32 noundef -1, ptr noundef nonnull @.str.160) #18
+  call void (i32, ptr, ...) @event_sock_warn(i32 noundef -1, ptr noundef nonnull @.str.160) #19
   br label %create_bind_socket_nonblock.exit14
 
 36:                                               ; preds = %30
-  %37 = call i32 @evutil_set_tcp_keepalive(i32 noundef %33, i32 noundef 1, i32 noundef 300) #18
+  %37 = call i32 @evutil_set_tcp_keepalive(i32 noundef %33, i32 noundef 1, i32 noundef 300) #19
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %50, label %39
 
@@ -2886,7 +2886,7 @@ make_addrinfo.exit:                               ; preds = %20
   br i1 %.not16.i, label %43, label %40
 
 40:                                               ; preds = %39
-  %41 = call i32 @evutil_make_listen_socket_reuseable(i32 noundef %33) #18
+  %41 = call i32 @evutil_make_listen_socket_reuseable(i32 noundef %33) #19
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %50, label %43
 
@@ -2895,20 +2895,20 @@ make_addrinfo.exit:                               ; preds = %20
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %47 = load i32, ptr %46, align 8
-  %48 = call i32 @bind(i32 noundef %33, ptr %45, i32 noundef %47) #18
+  %48 = call i32 @bind(i32 noundef %33, ptr %45, i32 noundef %47) #19
   %49 = icmp eq i32 %48, -1
   br i1 %49, label %50, label %create_bind_socket_nonblock.exit14
 
 50:                                               ; preds = %43, %40, %36
-  %51 = tail call ptr @__errno_location() #19
+  %51 = tail call ptr @__errno_location() #20
   %52 = load i32, ptr %51, align 4
-  %53 = call i32 @evutil_closesocket(i32 noundef %33) #18
+  %53 = call i32 @evutil_closesocket(i32 noundef %33) #19
   store i32 %52, ptr %51, align 4
   br label %create_bind_socket_nonblock.exit14
 
 create_bind_socket_nonblock.exit14:               ; preds = %35, %43, %50
   %.0.i13 = phi i32 [ -1, %35 ], [ -1, %50 ], [ %33, %43 ]
-  call void @evutil_freeaddrinfo(ptr noundef nonnull %28) #18
+  call void @evutil_freeaddrinfo(ptr noundef nonnull %28) #19
   br label %create_bind_socket_nonblock.exit
 
 create_bind_socket_nonblock.exit:                 ; preds = %make_addrinfo.exit.thread, %16, %12, %13, %make_addrinfo.exit, %create_bind_socket_nonblock.exit14
@@ -2925,7 +2925,7 @@ define internal void @evhttp_connection_cb(ptr noundef %0, i16 noundef signext %
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @__errno_location() #19
+  %6 = tail call ptr @__errno_location() #20
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 111
   br i1 %8, label %28, label %9
@@ -2945,8 +2945,8 @@ define internal void @evhttp_connection_cb(ptr noundef %0, i16 noundef signext %
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %16 = load i16, ptr %15, align 8
   %17 = zext i16 %16 to i32
-  %18 = tail call i32 @bufferevent_getfd(ptr noundef %0) #18
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.evhttp_connection_cb, ptr noundef %14, i32 noundef %17, i32 noundef %18) #18
+  %18 = tail call i32 @bufferevent_getfd(ptr noundef %0) #19
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.evhttp_connection_cb, ptr noundef %14, i32 noundef %17, i32 noundef %18) #19
   br label %19
 
 19:                                               ; preds = %12, %10
@@ -2956,11 +2956,11 @@ define internal void @evhttp_connection_cb(ptr noundef %0, i16 noundef signext %
   store i32 2, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8
-  tail call void @bufferevent_setcb(ptr noundef %23, ptr noundef nonnull @evhttp_read_cb, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %2) #18
+  tail call void @bufferevent_setcb(ptr noundef %23, ptr noundef nonnull @evhttp_read_cb, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %2) #19
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %27 = tail call i32 @bufferevent_set_timeouts(ptr noundef %24, ptr noundef nonnull %25, ptr noundef nonnull %26) #18
+  %27 = tail call i32 @bufferevent_set_timeouts(ptr noundef %24, ptr noundef nonnull %25, ptr noundef nonnull %26) #19
   tail call fastcc void @evhttp_request_dispatch(ptr noundef %2)
   br label %29
 
@@ -3009,7 +3009,7 @@ define internal fastcc void @evhttp_connection_cb_cleanup(ptr noundef %0) unname
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @event_assign(ptr noundef nonnull %13, ptr noundef %15, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @evhttp_connection_retry, ptr noundef nonnull %0) #18
+  %16 = tail call i32 @event_assign(ptr noundef nonnull %13, ptr noundef %15, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @evhttp_connection_retry, ptr noundef nonnull %0) #19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = load i32, ptr %17, align 8
   %.promoted = load i64, ptr %3, align 8
@@ -3046,7 +3046,7 @@ thread-pre-split:                                 ; preds = %.lr.ph58, %thread-p
 32:                                               ; preds = %._crit_edge59, %11
   %.pr53.lcssa = phi i64 [ %.pr54, %._crit_edge59 ], [ %.promoted, %11 ]
   store i64 %.pr53.lcssa, ptr %3, align 8
-  %33 = call i32 @event_add(ptr noundef nonnull %13, ptr noundef nonnull %3) #18
+  %33 = call i32 @event_add(ptr noundef nonnull %13, ptr noundef nonnull %3) #19
   %34 = load i32, ptr %17, align 8
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %17, align 8
@@ -3127,7 +3127,7 @@ thread-pre-split:                                 ; preds = %.lr.ph58, %thread-p
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 168
   %67 = load ptr, ptr %66, align 8
-  call void %65(ptr noundef nonnull %54, ptr noundef %67) #18
+  call void %65(ptr noundef nonnull %54, ptr noundef %67) #19
   %68 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 4
@@ -3176,17 +3176,17 @@ define range(i32 -1, 1) i32 @evhttp_make_request(ptr noundef %0, ptr noundef ini
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call void @event_mm_free_(ptr noundef nonnull %8) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %8) #19
   br label %10
 
 10:                                               ; preds = %9, %4
-  %11 = tail call ptr @event_mm_strdup_(ptr noundef %3) #18
+  %11 = tail call ptr @event_mm_strdup_(ptr noundef %3) #19
   store ptr %11, ptr %7, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %10
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_make_request) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_make_request) #19
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 4
@@ -3289,7 +3289,7 @@ define internal fastcc void @evhttp_request_dispatch(ptr noundef %0) unnamed_add
   store i32 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @bufferevent_disable(ptr noundef %10, i16 noundef signext 2) #18
+  %11 = tail call i32 @bufferevent_disable(ptr noundef %10, i16 noundef signext 2) #19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 7, ptr %12, align 8
   tail call fastcc void @evhttp_make_header(ptr noundef nonnull %0, ptr noundef nonnull %3)
@@ -3298,7 +3298,7 @@ define internal fastcc void @evhttp_request_dispatch(ptr noundef %0) unnamed_add
   br i1 %.not.i, label %evhttp_write_buffer.exit, label %14
 
 14:                                               ; preds = %5
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_write_buffer.exit
 
 evhttp_write_buffer.exit:                         ; preds = %5, %14
@@ -3307,9 +3307,9 @@ evhttp_write_buffer.exit:                         ; preds = %5, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
-  tail call void @bufferevent_setcb(ptr noundef %17, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %0) #18
+  tail call void @bufferevent_setcb(ptr noundef %17, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %0) #19
   %18 = load ptr, ptr %9, align 8
-  %19 = tail call i32 @bufferevent_enable(ptr noundef %18, i16 noundef signext 6) #18
+  %19 = tail call i32 @bufferevent_enable(ptr noundef %18, i16 noundef signext 6) #19
   br label %20
 
 20:                                               ; preds = %1, %evhttp_write_buffer.exit
@@ -3374,16 +3374,16 @@ evhttp_request_free_auto.exit:                    ; preds = %23, %19, %8
 define hidden void @evhttp_start_read_(ptr noundef initializes((280, 284)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @bufferevent_disable(ptr noundef %3, i16 noundef signext 4) #18
+  %4 = tail call i32 @bufferevent_disable(ptr noundef %3, i16 noundef signext 4) #19
   %5 = load ptr, ptr %2, align 8
-  %6 = tail call i32 @bufferevent_enable(ptr noundef %5, i16 noundef signext 2) #18
+  %6 = tail call i32 @bufferevent_enable(ptr noundef %5, i16 noundef signext 2) #19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 3, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
-  tail call void @bufferevent_setcb(ptr noundef %8, ptr noundef nonnull @evhttp_read_cb, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %0) #18
+  tail call void @bufferevent_setcb(ptr noundef %8, ptr noundef nonnull @evhttp_read_cb, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %0) #19
   %9 = load ptr, ptr %2, align 8
-  %10 = tail call ptr @bufferevent_get_input(ptr noundef %9) #18
-  %11 = tail call i64 @evbuffer_get_length(ptr noundef %10) #18
+  %10 = tail call ptr @bufferevent_get_input(ptr noundef %9) #19
+  %11 = tail call i64 @evbuffer_get_length(ptr noundef %10) #19
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %17, label %12
 
@@ -3391,7 +3391,7 @@ define hidden void @evhttp_start_read_(ptr noundef initializes((280, 284)) %0) l
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %16 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %14, ptr noundef nonnull %15) #18
+  %16 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %14, ptr noundef nonnull %15) #19
   br label %17
 
 17:                                               ; preds = %12, %1
@@ -3405,7 +3405,7 @@ define internal void @evhttp_read_cb(ptr readnone captures(none) %0, ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  tail call void @event_deferred_cb_cancel_(ptr noundef %6, ptr noundef nonnull %7) #18
+  tail call void @event_deferred_cb_cancel_(ptr noundef %6, ptr noundef nonnull %7) #19
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %37 [
@@ -3419,7 +3419,7 @@ define internal void @evhttp_read_cb(ptr readnone captures(none) %0, ptr noundef
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @bufferevent_get_input(ptr noundef %12) #18
+  %13 = tail call ptr @bufferevent_get_input(ptr noundef %12) #19
   %14 = tail call i32 @evhttp_parse_firstline_(ptr noundef %4, ptr noundef %13)
   %15 = and i32 %14, -3
   %or.cond.i = icmp eq i32 %15, -3
@@ -3432,8 +3432,8 @@ define internal void @evhttp_read_cb(ptr readnone captures(none) %0, ptr noundef
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %11, align 8
-  %20 = tail call i32 @bufferevent_getfd(ptr noundef %19) #18
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.63, ptr noundef nonnull @__func__.evhttp_read_firstline, i32 noundef %20) #18
+  %20 = tail call i32 @bufferevent_getfd(ptr noundef %19) #19
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.63, ptr noundef nonnull @__func__.evhttp_read_firstline, i32 noundef %20) #19
   br label %21
 
 21:                                               ; preds = %18, %16
@@ -3460,7 +3460,7 @@ define internal void @evhttp_read_cb(ptr readnone captures(none) %0, ptr noundef
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @bufferevent_get_input(ptr noundef %29) #18
+  %30 = tail call ptr @bufferevent_get_input(ptr noundef %29) #19
   %31 = tail call i32 @evhttp_parse_headers_(ptr noundef %4, ptr noundef %30)
   switch i32 %31, label %evhttp_read_firstline.exit [
     i32 -1, label %32
@@ -3474,7 +3474,7 @@ define internal void @evhttp_read_cb(ptr readnone captures(none) %0, ptr noundef
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %28, align 8
-  %35 = tail call i32 @bufferevent_disable(ptr noundef %34, i16 noundef signext 2) #18
+  %35 = tail call i32 @bufferevent_disable(ptr noundef %34, i16 noundef signext 2) #19
   tail call fastcc void @evhttp_connection_done(ptr noundef nonnull %1)
   br label %evhttp_read_firstline.exit
 
@@ -3483,7 +3483,7 @@ define internal void @evhttp_read_cb(ptr readnone captures(none) %0, ptr noundef
   br label %evhttp_read_firstline.exit
 
 37:                                               ; preds = %2
-  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.62, ptr noundef nonnull @__func__.evhttp_read_cb, i32 noundef %9) #20
+  tail call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.62, ptr noundef nonnull @__func__.evhttp_read_cb, i32 noundef %9) #21
   unreachable
 
 evhttp_read_firstline.exit:                       ; preds = %33, %32, %27, %24, %22, %21, %36, %26, %25
@@ -3500,7 +3500,7 @@ define internal void @evhttp_write_cb(ptr readnone captures(none) %0, ptr nounde
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %7 = load ptr, ptr %6, align 8
-  tail call void %4(ptr noundef nonnull %1, ptr noundef %7) #18
+  tail call void %4(ptr noundef nonnull %1, ptr noundef %7) #19
   br label %8
 
 8:                                                ; preds = %5, %2
@@ -3534,8 +3534,8 @@ define internal void @evhttp_error_cb(ptr noundef %0, i16 noundef signext %1, pt
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %16 = load i16, ptr %15, align 8
   %17 = zext i16 %16 to i32
-  %18 = tail call i32 @bufferevent_getfd(ptr noundef %0) #18
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.94, ptr noundef nonnull @__func__.evhttp_error_cb, ptr noundef %14, i32 noundef %17, i32 noundef %18) #18
+  %18 = tail call i32 @bufferevent_getfd(ptr noundef %0) #19
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.94, ptr noundef nonnull @__func__.evhttp_error_cb, ptr noundef %14, i32 noundef %17, i32 noundef %18) #19
   br label %19
 
 19:                                               ; preds = %12, %10
@@ -3624,11 +3624,11 @@ define internal void @evhttp_error_cb(ptr noundef %0, i16 noundef signext %1, pt
   store i32 1, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call ptr @bufferevent_get_output(ptr noundef %57) #18
-  %59 = tail call i32 @evbuffer_unfreeze(ptr noundef %58, i32 noundef 1) #18
-  %60 = tail call i64 @evbuffer_get_length(ptr noundef %58) #18
-  %61 = tail call i32 @evbuffer_drain(ptr noundef %58, i64 noundef %60) #18
-  %62 = tail call i32 @evbuffer_freeze(ptr noundef %58, i32 noundef 1) #18
+  %58 = tail call ptr @bufferevent_get_output(ptr noundef %57) #19
+  %59 = tail call i32 @evbuffer_unfreeze(ptr noundef %58, i32 noundef 1) #19
+  %60 = tail call i64 @evbuffer_get_length(ptr noundef %58) #19
+  %61 = tail call i32 @evbuffer_drain(ptr noundef %58, i64 noundef %60) #19
+  %62 = tail call i32 @evbuffer_freeze(ptr noundef %58, i32 noundef 1) #19
   tail call void @evhttp_start_read_(ptr noundef nonnull %2)
   %63 = load i32, ptr %31, align 8
   %64 = or i32 %63, 2097152
@@ -3642,8 +3642,8 @@ define internal void @evhttp_error_cb(ptr noundef %0, i16 noundef signext %1, pt
   br i1 %brmerge, label %75, label %67
 
 67:                                               ; preds = %65
-  %68 = tail call ptr @bufferevent_get_input(ptr noundef %0) #18
-  %69 = tail call i64 @evbuffer_get_length(ptr noundef %68) #18
+  %68 = tail call ptr @bufferevent_get_input(ptr noundef %0) #19
+  %69 = tail call i64 @evbuffer_get_length(ptr noundef %68) #19
   %.not44 = icmp eq i64 %69, 0
   br i1 %.not44, label %75, label %70
 
@@ -3651,7 +3651,7 @@ define internal void @evhttp_error_cb(ptr noundef %0, i16 noundef signext %1, pt
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 344
-  %74 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %72, ptr noundef nonnull %73) #18
+  %74 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %72, ptr noundef nonnull %73) #19
   br label %evhttp_connection_read_on_write_error.exit
 
 75:                                               ; preds = %65, %67
@@ -3678,9 +3678,9 @@ declare i32 @event_deferred_cb_schedule_(ptr noundef, ptr noundef) local_unnamed
 define hidden void @evhttp_start_write_(ptr noundef initializes((280, 284), (312, 328)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @bufferevent_disable(ptr noundef %3, i16 noundef signext 4) #18
+  %4 = tail call i32 @bufferevent_disable(ptr noundef %3, i16 noundef signext 4) #19
   %5 = load ptr, ptr %2, align 8
-  %6 = tail call i32 @bufferevent_enable(ptr noundef %5, i16 noundef signext 2) #18
+  %6 = tail call i32 @bufferevent_enable(ptr noundef %5, i16 noundef signext 2) #19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 7, ptr %7, align 8
   %8 = load i32, ptr @event_debug_logging_mask_, align 4
@@ -3688,7 +3688,7 @@ define hidden void @evhttp_start_write_(ptr noundef initializes((280, 284), (312
   br i1 %.not.i, label %evhttp_write_buffer.exit, label %9
 
 9:                                                ; preds = %1
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_write_buffer.exit
 
 evhttp_write_buffer.exit:                         ; preds = %1, %9
@@ -3697,9 +3697,9 @@ evhttp_write_buffer.exit:                         ; preds = %1, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr null, ptr %11, align 8
   %12 = load ptr, ptr %2, align 8
-  tail call void @bufferevent_setcb(ptr noundef %12, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %0) #18
+  tail call void @bufferevent_setcb(ptr noundef %12, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %0) #19
   %13 = load ptr, ptr %2, align 8
-  %14 = tail call i32 @bufferevent_enable(ptr noundef %13, i16 noundef signext 6) #18
+  %14 = tail call i32 @bufferevent_enable(ptr noundef %13, i16 noundef signext 6) #19
   ret void
 }
 
@@ -3709,8 +3709,8 @@ define internal void @evhttp_write_connectioncb(ptr noundef %0, ptr readnone cap
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @bufferevent_get_output(ptr noundef %6) #18
-  %8 = tail call i64 @evbuffer_get_length(ptr noundef %7) #18
+  %7 = tail call ptr @bufferevent_get_output(ptr noundef %6) #19
+  %8 = tail call i64 @evbuffer_get_length(ptr noundef %7) #19
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %9, label %11
 
@@ -3726,7 +3726,7 @@ define internal void @evhttp_write_connectioncb(ptr noundef %0, ptr readnone cap
 
 ; Function Attrs: nounwind uwtable
 define void @evhttp_send_error(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @evbuffer_new() #18
+  %4 = tail call ptr @evbuffer_new() #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 288
@@ -3749,7 +3749,7 @@ define void @evhttp_send_error(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br i1 %.not.i, label %17, label %16
 
 16:                                               ; preds = %11
-  tail call void @event_mm_free_(ptr noundef nonnull %15) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %15) #19
   br label %17
 
 17:                                               ; preds = %16, %11
@@ -3788,13 +3788,13 @@ define void @evhttp_send_error(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
 
 evhttp_response_phrase_internal.exit.i:           ; preds = %32, %29, %19, %17
   %.0.i = phi ptr [ %2, %17 ], [ %31, %29 ], [ %37, %32 ], [ @.str.105, %19 ]
-  %38 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #18
+  %38 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #19
   store ptr %38, ptr %14, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %evhttp_response_code_.exit
 
 40:                                               ; preds = %evhttp_response_phrase_internal.exit.i
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #19
   br label %evhttp_response_code_.exit
 
 evhttp_response_code_.exit:                       ; preds = %evhttp_response_phrase_internal.exit.i, %40
@@ -3806,7 +3806,7 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
 44:                                               ; preds = %evhttp_response_code_.exit
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %1, ptr noundef %2, ptr noundef %46) #18
+  %47 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %1, ptr noundef %2, ptr noundef %46) #19
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %72
 
@@ -3842,15 +3842,15 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
 
 evhttp_response_phrase_internal.exit:             ; preds = %49, %59, %62
   %.0.i27 = phi ptr [ %61, %59 ], [ %67, %62 ], [ @.str.105, %49 ]
-  %68 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %4) #18
-  %69 = tail call i32 @evbuffer_drain(ptr noundef nonnull %4, i64 noundef %68) #18
+  %68 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %4) #19
+  %69 = tail call i32 @evbuffer_drain(ptr noundef nonnull %4, i64 noundef %68) #19
   %70 = select i1 %18, ptr @.str.14, ptr %2
-  %71 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.13, i32 noundef %1, ptr noundef %.0.i27, i32 noundef %1, ptr noundef %.0.i27, ptr noundef nonnull %70) #18
+  %71 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.13, i32 noundef %1, ptr noundef %.0.i27, i32 noundef %1, ptr noundef %.0.i27, ptr noundef nonnull %70) #19
   br label %72
 
 72:                                               ; preds = %evhttp_response_phrase_internal.exit, %44
   tail call void @evhttp_send_page_(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  tail call void @evbuffer_free(ptr noundef nonnull %4) #18
+  tail call void @evbuffer_free(ptr noundef nonnull %4) #19
   br label %73
 
 73:                                               ; preds = %72, %10
@@ -3871,7 +3871,7 @@ define hidden void @evhttp_response_code_(ptr noundef captures(none) initializes
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @event_mm_free_(ptr noundef nonnull %7) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %7) #19
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -3910,13 +3910,13 @@ define hidden void @evhttp_response_code_(ptr noundef captures(none) initializes
 
 evhttp_response_phrase_internal.exit:             ; preds = %24, %21, %11, %9
   %.0 = phi ptr [ %2, %9 ], [ %23, %21 ], [ %29, %24 ], [ @.str.105, %11 ]
-  %30 = tail call ptr @event_mm_strdup_(ptr noundef %.0) #18
+  %30 = tail call ptr @event_mm_strdup_(ptr noundef %.0) #19
   store ptr %30, ptr %6, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %evhttp_response_phrase_internal.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #19
   br label %33
 
 33:                                               ; preds = %32, %evhttp_response_phrase_internal.exit
@@ -3962,17 +3962,17 @@ define hidden void @evhttp_send_page_(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not.i, label %18, label %17
 
 17:                                               ; preds = %13
-  tail call void @event_mm_free_(ptr noundef nonnull %16) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %16) #19
   br label %18
 
 18:                                               ; preds = %17, %13
-  %19 = tail call ptr @event_mm_strdup_(ptr noundef nonnull @.str.22) #18
+  %19 = tail call ptr @event_mm_strdup_(ptr noundef nonnull @.str.22) #19
   store ptr %19, ptr %15, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %evhttp_response_code_.exit
 
 21:                                               ; preds = %18
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #19
   br label %evhttp_response_code_.exit
 
 evhttp_response_code_.exit:                       ; preds = %21, %18, %10
@@ -4008,11 +4008,11 @@ evhttp_response_code_.exit:                       ; preds = %21, %18, %10
   store ptr %33, ptr %28, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
   %35 = load ptr, ptr %34, align 8
-  tail call void @event_mm_free_(ptr noundef %35) #18
+  tail call void @event_mm_free_(ptr noundef %35) #19
   %36 = getelementptr inbounds nuw i8, ptr %.017.i, i64 24
   %37 = load ptr, ptr %36, align 8
-  tail call void @event_mm_free_(ptr noundef %37) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %.017.i) #18
+  tail call void @event_mm_free_(ptr noundef %37) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %.017.i) #19
   %.0.i = load ptr, ptr %23, align 8
   %.not.i13 = icmp eq ptr %.0.i, null
   br i1 %.not.i13, label %evhttp_clear_headers.exit.loopexit, label %25, !llvm.loop !8
@@ -4046,7 +4046,7 @@ evhttp_clear_headers.exit:                        ; preds = %evhttp_clear_header
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 @evbuffer_add_buffer(ptr noundef %52, ptr noundef nonnull %1) #18
+  %53 = tail call i32 @evbuffer_add_buffer(ptr noundef %52, ptr noundef nonnull %1) #19
   br label %54
 
 54:                                               ; preds = %50, %46
@@ -4056,7 +4056,7 @@ evhttp_clear_headers.exit:                        ; preds = %evhttp_clear_header
   br i1 %.not.i.i, label %evhttp_write_buffer.exit.i, label %56
 
 56:                                               ; preds = %54
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_write_buffer.exit.i
 
 evhttp_write_buffer.exit.i:                       ; preds = %56, %54
@@ -4066,9 +4066,9 @@ evhttp_write_buffer.exit.i:                       ; preds = %56, %54
   store ptr null, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %60 = load ptr, ptr %59, align 8
-  tail call void @bufferevent_setcb(ptr noundef %60, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %43) #18
+  tail call void @bufferevent_setcb(ptr noundef %60, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %43) #19
   %61 = load ptr, ptr %59, align 8
-  %62 = tail call i32 @bufferevent_enable(ptr noundef %61, i16 noundef signext 6) #18
+  %62 = tail call i32 @bufferevent_enable(ptr noundef %61, i16 noundef signext 6) #19
   br label %evhttp_send.exit
 
 evhttp_send.exit:                                 ; preds = %45, %evhttp_write_buffer.exit.i
@@ -4089,7 +4089,7 @@ define void @evhttp_send_reply(ptr noundef initializes((72, 76), (116, 120)) %0,
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call void @event_mm_free_(ptr noundef nonnull %8) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %8) #19
   br label %10
 
 10:                                               ; preds = %9, %4
@@ -4128,13 +4128,13 @@ define void @evhttp_send_reply(ptr noundef initializes((72, 76), (116, 120)) %0,
 
 evhttp_response_phrase_internal.exit.i:           ; preds = %25, %22, %12, %10
   %.0.i = phi ptr [ %2, %10 ], [ %24, %22 ], [ %30, %25 ], [ @.str.105, %12 ]
-  %31 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #18
+  %31 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #19
   store ptr %31, ptr %7, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %evhttp_response_code_.exit
 
 33:                                               ; preds = %evhttp_response_phrase_internal.exit.i
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #19
   br label %evhttp_response_code_.exit
 
 evhttp_response_code_.exit:                       ; preds = %evhttp_response_phrase_internal.exit.i, %33
@@ -4158,7 +4158,7 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @evbuffer_add_buffer(ptr noundef %44, ptr noundef nonnull %3) #18
+  %45 = tail call i32 @evbuffer_add_buffer(ptr noundef %44, ptr noundef nonnull %3) #19
   br label %46
 
 46:                                               ; preds = %42, %38
@@ -4168,7 +4168,7 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
   br i1 %.not.i.i5, label %evhttp_write_buffer.exit.i, label %48
 
 48:                                               ; preds = %46
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_write_buffer.exit.i
 
 evhttp_write_buffer.exit.i:                       ; preds = %48, %46
@@ -4178,9 +4178,9 @@ evhttp_write_buffer.exit.i:                       ; preds = %48, %46
   store ptr null, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %52 = load ptr, ptr %51, align 8
-  tail call void @bufferevent_setcb(ptr noundef %52, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %35) #18
+  tail call void @bufferevent_setcb(ptr noundef %52, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %35) #19
   %53 = load ptr, ptr %51, align 8
-  %54 = tail call i32 @bufferevent_enable(ptr noundef %53, i16 noundef signext 6) #18
+  %54 = tail call i32 @bufferevent_enable(ptr noundef %53, i16 noundef signext 6) #19
   br label %evhttp_send.exit
 
 evhttp_send.exit:                                 ; preds = %37, %evhttp_write_buffer.exit.i
@@ -4199,7 +4199,7 @@ define void @evhttp_send_reply_start(ptr noundef captures(none) initializes((72,
   br i1 %.not.i, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @event_mm_free_(ptr noundef nonnull %7) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %7) #19
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -4238,13 +4238,13 @@ define void @evhttp_send_reply_start(ptr noundef captures(none) initializes((72,
 
 evhttp_response_phrase_internal.exit.i:           ; preds = %24, %21, %11, %9
   %.0.i = phi ptr [ %2, %9 ], [ %23, %21 ], [ %29, %24 ], [ @.str.105, %11 ]
-  %30 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #18
+  %30 = tail call ptr @event_mm_strdup_(ptr noundef %.0.i) #19
   store ptr %30, ptr %6, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %evhttp_response_code_.exit
 
 32:                                               ; preds = %evhttp_response_phrase_internal.exit.i
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #19
   br label %evhttp_response_code_.exit
 
 evhttp_response_code_.exit:                       ; preds = %evhttp_response_phrase_internal.exit.i, %32
@@ -4267,7 +4267,7 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %42, ptr noundef nonnull @.str.15) #18
+  %43 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %42, ptr noundef nonnull @.str.15) #19
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %evhttp_find_header.exit, label %39, !llvm.loop !7
 
@@ -4338,7 +4338,7 @@ evhttp_response_needs_body.exit.thread:           ; preds = %61, %61, %59, %57, 
   br i1 %.not.i16, label %evhttp_write_buffer.exit, label %77
 
 77:                                               ; preds = %73
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_write_buffer.exit
 
 evhttp_write_buffer.exit:                         ; preds = %73, %77
@@ -4346,9 +4346,9 @@ evhttp_write_buffer.exit:                         ; preds = %73, %77
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
   %80 = load ptr, ptr %79, align 8
-  tail call void @bufferevent_setcb(ptr noundef %80, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %75) #18
+  tail call void @bufferevent_setcb(ptr noundef %80, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %75) #19
   %81 = load ptr, ptr %79, align 8
-  %82 = tail call i32 @bufferevent_enable(ptr noundef %81, i16 noundef signext 6) #18
+  %82 = tail call i32 @bufferevent_enable(ptr noundef %81, i16 noundef signext 6) #19
   br label %83
 
 83:                                               ; preds = %evhttp_response_code_.exit, %evhttp_write_buffer.exit
@@ -4363,7 +4363,7 @@ define internal fastcc void @evhttp_make_header(ptr noundef readonly captures(no
   %6 = alloca [22 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @bufferevent_get_output(ptr noundef %8) #18
+  %9 = tail call ptr @bufferevent_get_output(ptr noundef %8) #19
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
@@ -4378,7 +4378,7 @@ define internal fastcc void @evhttp_make_header(ptr noundef readonly captures(no
   %.not.i = icmp eq ptr %16, null
   %spec.store.select.i = select i1 %.not.i, ptr @.str.97, ptr %16
   %17 = load ptr, ptr %7, align 8
-  %18 = tail call ptr @bufferevent_get_output(ptr noundef %17) #18
+  %18 = tail call ptr @bufferevent_get_output(ptr noundef %17) #19
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -4387,7 +4387,7 @@ define internal fastcc void @evhttp_make_header(ptr noundef readonly captures(no
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 113
   %25 = load i8, ptr %24, align 1
   %26 = sext i8 %25 to i32
-  %27 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %18, ptr noundef nonnull @.str.98, ptr noundef nonnull %spec.store.select.i, ptr noundef %20, i32 noundef %23, i32 noundef %26) #18
+  %27 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %18, ptr noundef nonnull @.str.98, ptr noundef nonnull %spec.store.select.i, ptr noundef %20, i32 noundef %23, i32 noundef %26) #19
   %28 = load i16, ptr %5, align 2
   %29 = and i16 %28, 1
   %.not13.i = icmp eq i16 %29, 0
@@ -4396,7 +4396,7 @@ define internal fastcc void @evhttp_make_header(ptr noundef readonly captures(no
 30:                                               ; preds = %13
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i64 @evbuffer_get_length(ptr noundef %32) #18
+  %33 = tail call i64 @evbuffer_get_length(ptr noundef %32) #19
   %.not14.i = icmp eq i64 %33, 0
   br i1 %.not14.i, label %34, label %36
 
@@ -4421,7 +4421,7 @@ define internal fastcc void @evhttp_make_header(ptr noundef readonly captures(no
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %42, ptr noundef nonnull @.str.15) #18
+  %43 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %42, ptr noundef nonnull @.str.15) #19
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %evhttp_find_header.exit.i, label %39, !llvm.loop !7
 
@@ -4434,8 +4434,8 @@ evhttp_find_header.exit.i:                        ; preds = %40
 evhttp_find_header.exit.thread.i:                 ; preds = %39, %evhttp_find_header.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = load ptr, ptr %31, align 8
-  %49 = tail call i64 @evbuffer_get_length(ptr noundef %48) #18
-  %50 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %6, i64 noundef 22, ptr noundef nonnull @.str.99, i64 noundef %49) #18
+  %49 = tail call i64 @evbuffer_get_length(ptr noundef %48) #19
+  %50 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %6, i64 noundef 22, ptr noundef nonnull @.str.99, i64 noundef %49) #19
   %51 = load ptr, ptr %37, align 8
   %52 = call i32 @evhttp_add_header(ptr noundef %51, ptr noundef nonnull @.str.15, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4459,7 +4459,7 @@ evhttp_make_header_request.exit:                  ; preds = %13, %34, %evhttp_fi
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %59, ptr noundef nonnull @.str.25) #18
+  %60 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %59, ptr noundef nonnull @.str.25) #19
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %evhttp_find_header.exit.i.i, label %56, !llvm.loop !7
 
@@ -4470,7 +4470,7 @@ evhttp_find_header.exit.i.i:                      ; preds = %57
   br i1 %.not.i.i19, label %evhttp_is_connection_keepalive.exit.i, label %64
 
 64:                                               ; preds = %evhttp_find_header.exit.i.i
-  %65 = tail call i32 @evutil_ascii_strncasecmp(ptr noundef nonnull %63, ptr noundef nonnull @.str.101, i64 noundef 10) #18
+  %65 = tail call i32 @evutil_ascii_strncasecmp(ptr noundef nonnull %63, ptr noundef nonnull @.str.101, i64 noundef 10) #19
   %66 = icmp eq i32 %65, 0
   br label %evhttp_is_connection_keepalive.exit.i
 
@@ -4502,7 +4502,7 @@ evhttp_is_connection_keepalive.exit.i:            ; preds = %56, %64, %evhttp_fi
 evhttp_response_needs_body.exit.i:                ; preds = %75, %72, %70, %evhttp_is_connection_keepalive.exit.i, %evhttp_is_connection_keepalive.exit.i
   %78 = phi i32 [ 0, %72 ], [ 0, %evhttp_is_connection_keepalive.exit.i ], [ %77, %75 ], [ 0, %evhttp_is_connection_keepalive.exit.i ], [ 0, %70 ]
   %79 = load ptr, ptr %7, align 8
-  %80 = tail call ptr @bufferevent_get_output(ptr noundef %79) #18
+  %80 = tail call ptr @bufferevent_get_output(ptr noundef %79) #19
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %82 = load i8, ptr %81, align 8
   %83 = sext i8 %82 to i32
@@ -4512,7 +4512,7 @@ evhttp_response_needs_body.exit.i:                ; preds = %75, %72, %70, %evht
   %87 = load i32, ptr %68, align 4
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %80, ptr noundef nonnull @.str.100, i32 noundef %83, i32 noundef %86, i32 noundef %87, ptr noundef %89) #18
+  %90 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %80, ptr noundef nonnull @.str.100, i32 noundef %83, i32 noundef %86, i32 noundef %87, ptr noundef %89) #19
   %91 = load i8, ptr %81, align 8
   %92 = icmp eq i8 %91, 1
   br i1 %92, label %93, label %evhttp_maybe_add_content_length_header.exit.i
@@ -4536,7 +4536,7 @@ evhttp_response_needs_body.exit.i:                ; preds = %75, %72, %70, %evht
 100:                                              ; preds = %99
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i34.i, i64 16
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %102, ptr noundef nonnull @.str.102) #18
+  %103 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %102, ptr noundef nonnull @.str.102) #19
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %evhttp_find_header.exit.i36.i, label %99, !llvm.loop !7
 
@@ -4548,7 +4548,7 @@ evhttp_find_header.exit.i36.i:                    ; preds = %100
 
 evhttp_find_header.exit.thread.i.i:               ; preds = %99, %evhttp_find_header.exit.i36.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %108 = call i32 @evutil_date_rfc1123(ptr noundef nonnull %4, i64 noundef 50, ptr noundef null) #18
+  %108 = call i32 @evutil_date_rfc1123(ptr noundef nonnull %4, i64 noundef 50, ptr noundef null) #19
   %109 = icmp slt i32 %108, 50
   br i1 %109, label %110, label %112
 
@@ -4586,7 +4586,7 @@ evhttp_maybe_add_date_header.exit.i:              ; preds = %112, %evhttp_find_h
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %127 = load ptr, ptr %126, align 8
-  %128 = call i64 @evbuffer_get_length(ptr noundef %127) #18
+  %128 = call i64 @evbuffer_get_length(ptr noundef %127) #19
   br label %129
 
 129:                                              ; preds = %130, %123
@@ -4598,7 +4598,7 @@ evhttp_maybe_add_date_header.exit.i:              ; preds = %112, %evhttp_find_h
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i38.i, i64 16
   %132 = load ptr, ptr %131, align 8
-  %133 = call i32 @evutil_ascii_strcasecmp(ptr noundef %132, ptr noundef nonnull @.str.16) #18
+  %133 = call i32 @evutil_ascii_strcasecmp(ptr noundef %132, ptr noundef nonnull @.str.16) #19
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %evhttp_find_header.exit.i40.i, label %129, !llvm.loop !7
 
@@ -4620,7 +4620,7 @@ evhttp_find_header.exit.thread.i41.i:             ; preds = %evhttp_find_header.
 138:                                              ; preds = %evhttp_find_header.exit.thread.i41.i
   %139 = getelementptr inbounds nuw i8, ptr %.0.i4.i.i, i64 16
   %140 = load ptr, ptr %139, align 8
-  %141 = call i32 @evutil_ascii_strcasecmp(ptr noundef %140, ptr noundef nonnull @.str.15) #18
+  %141 = call i32 @evutil_ascii_strcasecmp(ptr noundef %140, ptr noundef nonnull @.str.15) #19
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %evhttp_find_header.exit7.i.i, label %evhttp_find_header.exit.thread.i41.i, !llvm.loop !7
 
@@ -4632,7 +4632,7 @@ evhttp_find_header.exit7.i.i:                     ; preds = %138
 
 evhttp_find_header.exit7.thread.i.i:              ; preds = %evhttp_find_header.exit.thread.i41.i, %evhttp_find_header.exit7.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %146 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %3, i64 noundef 22, ptr noundef nonnull @.str.99, i64 noundef %128) #18
+  %146 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %3, i64 noundef 22, ptr noundef nonnull @.str.99, i64 noundef %128) #19
   %147 = call i32 @evhttp_add_header(ptr noundef %125, ptr noundef nonnull @.str.15, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %evhttp_maybe_add_content_length_header.exit.i
@@ -4655,7 +4655,7 @@ evhttp_maybe_add_content_length_header.exit.i:    ; preds = %evhttp_find_header.
 152:                                              ; preds = %151
   %153 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 16
   %154 = load ptr, ptr %153, align 8
-  %155 = call i32 @evutil_ascii_strcasecmp(ptr noundef %154, ptr noundef nonnull @.str.23) #18
+  %155 = call i32 @evutil_ascii_strcasecmp(ptr noundef %154, ptr noundef nonnull @.str.23) #19
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %evhttp_find_header.exit.i23, label %151, !llvm.loop !7
 
@@ -4691,7 +4691,7 @@ evhttp_find_header.exit.thread.i24:               ; preds = %151, %evhttp_find_h
 170:                                              ; preds = %169
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i44.i, i64 16
   %172 = load ptr, ptr %171, align 8
-  %173 = call i32 @evutil_ascii_strcasecmp(ptr noundef %172, ptr noundef nonnull @.str.25) #18
+  %173 = call i32 @evutil_ascii_strcasecmp(ptr noundef %172, ptr noundef nonnull @.str.25) #19
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %evhttp_find_header.exit.i46.i, label %169, !llvm.loop !7
 
@@ -4702,7 +4702,7 @@ evhttp_find_header.exit.i46.i:                    ; preds = %170
   br i1 %.not.i47.i, label %evhttp_make_header_response.exit, label %evhttp_is_connection_close.exit.i
 
 evhttp_is_connection_close.exit.i:                ; preds = %evhttp_find_header.exit.i46.i
-  %177 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %176, ptr noundef nonnull @.str.26) #18
+  %177 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %176, ptr noundef nonnull @.str.26) #19
   %.not53.i = icmp eq i32 %177, 0
   br i1 %.not53.i, label %178, label %evhttp_make_header_response.exit
 
@@ -4720,7 +4720,7 @@ evhttp_is_connection_close.exit.i:                ; preds = %evhttp_find_header.
 182:                                              ; preds = %181
   %183 = getelementptr inbounds nuw i8, ptr %.0.i50.i, i64 16
   %184 = load ptr, ptr %183, align 8
-  %185 = call i32 @evutil_ascii_strcasecmp(ptr noundef %184, ptr noundef nonnull @.str.25) #18
+  %185 = call i32 @evutil_ascii_strcasecmp(ptr noundef %184, ptr noundef nonnull @.str.25) #19
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %187, label %181, !llvm.loop !9
 
@@ -4736,11 +4736,11 @@ evhttp_is_connection_close.exit.i:                ; preds = %evhttp_find_header.
   %193 = load ptr, ptr %.0.i50.i, align 8
   store ptr %193, ptr %191, align 8
   %194 = load ptr, ptr %188, align 8
-  call void @event_mm_free_(ptr noundef %194) #18
+  call void @event_mm_free_(ptr noundef %194) #19
   %195 = getelementptr inbounds nuw i8, ptr %.0.i50.i, i64 24
   %196 = load ptr, ptr %195, align 8
-  call void @event_mm_free_(ptr noundef %196) #18
-  call void @event_mm_free_(ptr noundef nonnull %.0.i50.i) #18
+  call void @event_mm_free_(ptr noundef %196) #19
+  call void @event_mm_free_(ptr noundef nonnull %.0.i50.i) #19
   br label %evhttp_remove_header.exit.i
 
 evhttp_remove_header.exit.i:                      ; preds = %181, %187
@@ -4761,13 +4761,13 @@ evhttp_make_header_response.exit:                 ; preds = %169, %evhttp_remove
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %.044, i64 24
   %204 = load ptr, ptr %203, align 8
-  %205 = call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %9, ptr noundef nonnull @.str.96, ptr noundef %202, ptr noundef %204) #18
+  %205 = call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %9, ptr noundef nonnull @.str.96, ptr noundef %202, ptr noundef %204) #19
   %.0 = load ptr, ptr %.044, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %evhttp_make_header_response.exit
-  %206 = call i32 @evbuffer_add(ptr noundef %9, ptr noundef nonnull @.str.19, i64 noundef 2) #18
+  %206 = call i32 @evbuffer_add(ptr noundef %9, ptr noundef nonnull @.str.19, i64 noundef 2) #19
   %207 = load ptr, ptr %199, align 8
   %208 = load i32, ptr %10, align 8
   %209 = icmp eq i32 %208, 0
@@ -4801,7 +4801,7 @@ evhttp_make_header_response.exit:                 ; preds = %169, %evhttp_remove
 221:                                              ; preds = %220
   %222 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 16
   %223 = load ptr, ptr %222, align 8
-  %224 = call i32 @evutil_ascii_strcasecmp(ptr noundef %223, ptr noundef nonnull @.str.89) #18
+  %224 = call i32 @evutil_ascii_strcasecmp(ptr noundef %223, ptr noundef nonnull @.str.89) #19
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %evhttp_find_header.exit.i29, label %220, !llvm.loop !7
 
@@ -4812,20 +4812,20 @@ evhttp_find_header.exit.i29:                      ; preds = %221
   br i1 %.not12.i, label %.loopexit, label %228
 
 228:                                              ; preds = %evhttp_find_header.exit.i29
-  %229 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %227, ptr noundef nonnull @.str.90) #18
+  %229 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %227, ptr noundef nonnull @.str.90) #19
   %.not13.i30 = icmp eq i32 %229, 0
   br i1 %.not13.i30, label %evhttp_have_expect.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %220, %228, %216, %214, %._crit_edge, %evhttp_find_header.exit.i29
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %231 = load ptr, ptr %230, align 8
-  %232 = call i64 @evbuffer_get_length(ptr noundef %231) #18
+  %232 = call i64 @evbuffer_get_length(ptr noundef %231) #19
   %.not18 = icmp eq i64 %232, 0
   br i1 %.not18, label %evhttp_have_expect.exit, label %233
 
 233:                                              ; preds = %.loopexit
   %234 = load ptr, ptr %230, align 8
-  %235 = call i32 @evbuffer_add_buffer(ptr noundef %9, ptr noundef %234) #18
+  %235 = call i32 @evbuffer_add_buffer(ptr noundef %9, ptr noundef %234) #19
   br label %evhttp_have_expect.exit
 
 evhttp_have_expect.exit:                          ; preds = %228, %233, %.loopexit
@@ -4842,8 +4842,8 @@ define void @evhttp_send_reply_chunk_with_cb(ptr noundef readonly captures(none)
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @bufferevent_get_output(ptr noundef %10) #18
-  %12 = tail call i64 @evbuffer_get_length(ptr noundef %1) #18
+  %11 = tail call ptr @bufferevent_get_output(ptr noundef %10) #19
+  %12 = tail call i64 @evbuffer_get_length(ptr noundef %1) #19
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %evhttp_response_needs_body.exit.thread, label %14
 
@@ -4876,20 +4876,20 @@ define void @evhttp_send_reply_chunk_with_cb(ptr noundef readonly captures(none)
   br i1 %.not15, label %30, label %26
 
 26:                                               ; preds = %22
-  %27 = tail call i64 @evbuffer_get_length(ptr noundef %1) #18
+  %27 = tail call i64 @evbuffer_get_length(ptr noundef %1) #19
   %28 = trunc i64 %27 to i32
-  %29 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %11, ptr noundef nonnull @.str.18, i32 noundef %28) #18
+  %29 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %11, ptr noundef nonnull @.str.18, i32 noundef %28) #19
   br label %30
 
 30:                                               ; preds = %26, %22
-  %31 = tail call i32 @evbuffer_add_buffer(ptr noundef %11, ptr noundef %1) #18
+  %31 = tail call i32 @evbuffer_add_buffer(ptr noundef %11, ptr noundef %1) #19
   %32 = load i8, ptr %23, align 8
   %33 = and i8 %32, 1
   %.not16 = icmp eq i8 %33, 0
   br i1 %.not16, label %36, label %34
 
 34:                                               ; preds = %30
-  %35 = tail call i32 @evbuffer_add(ptr noundef %11, ptr noundef nonnull @.str.19, i64 noundef 2) #18
+  %35 = tail call i32 @evbuffer_add(ptr noundef %11, ptr noundef nonnull @.str.19, i64 noundef 2) #19
   br label %36
 
 36:                                               ; preds = %34, %30
@@ -4898,7 +4898,7 @@ define void @evhttp_send_reply_chunk_with_cb(ptr noundef readonly captures(none)
   br i1 %.not.i, label %evhttp_write_buffer.exit, label %38
 
 38:                                               ; preds = %36
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_write_buffer.exit
 
 evhttp_write_buffer.exit:                         ; preds = %36, %38
@@ -4907,9 +4907,9 @@ evhttp_write_buffer.exit:                         ; preds = %36, %38
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 320
   store ptr %3, ptr %40, align 8
   %41 = load ptr, ptr %9, align 8
-  tail call void @bufferevent_setcb(ptr noundef %41, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %6) #18
+  tail call void @bufferevent_setcb(ptr noundef %41, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %6) #19
   %42 = load ptr, ptr %9, align 8
-  %43 = tail call i32 @bufferevent_enable(ptr noundef %42, i16 noundef signext 6) #18
+  %43 = tail call i32 @bufferevent_enable(ptr noundef %42, i16 noundef signext 6) #19
   br label %evhttp_response_needs_body.exit.thread
 
 evhttp_response_needs_body.exit.thread:           ; preds = %19, %19, %17, %14, %14, %8, %4, %evhttp_write_buffer.exit
@@ -4936,17 +4936,17 @@ define hidden ptr @evhttp_start_ws_(ptr noundef initializes((72, 76), (116, 120)
   br i1 %.not.i, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call void @event_mm_free_(ptr noundef nonnull %7) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %7) #19
   br label %9
 
 9:                                                ; preds = %8, %1
-  %10 = tail call ptr @event_mm_strdup_(ptr noundef nonnull @.str.20) #18
+  %10 = tail call ptr @event_mm_strdup_(ptr noundef nonnull @.str.20) #19
   store ptr %10, ptr %6, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %evhttp_response_code_.exit
 
 12:                                               ; preds = %9
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_response_code_) #19
   br label %evhttp_response_code_.exit
 
 evhttp_response_code_.exit:                       ; preds = %9, %12
@@ -4962,7 +4962,7 @@ evhttp_response_code_.exit:                       ; preds = %9, %12
   br i1 %.not.i22, label %evhttp_write_buffer.exit, label %18
 
 18:                                               ; preds = %15
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_write_buffer.exit
 
 evhttp_write_buffer.exit:                         ; preds = %15, %18
@@ -4970,9 +4970,9 @@ evhttp_write_buffer.exit:                         ; preds = %15, %18
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %20, align 8
-  tail call void @bufferevent_setcb(ptr noundef %21, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %16) #18
+  tail call void @bufferevent_setcb(ptr noundef %21, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %16) #19
   %22 = load ptr, ptr %20, align 8
-  %23 = tail call i32 @bufferevent_enable(ptr noundef %22, i16 noundef signext 6) #18
+  %23 = tail call i32 @bufferevent_enable(ptr noundef %22, i16 noundef signext 6) #19
   %24 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %24, null
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5026,7 +5026,7 @@ define void @evhttp_request_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not27, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @event_mm_free_(ptr noundef nonnull %9) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %9) #19
   br label %11
 
 11:                                               ; preds = %10, %7
@@ -5036,7 +5036,7 @@ define void @evhttp_request_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not28, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @event_mm_free_(ptr noundef nonnull %13) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %13) #19
   br label %15
 
 15:                                               ; preds = %14, %11
@@ -5056,7 +5056,7 @@ define void @evhttp_request_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not30, label %23, label %22
 
 22:                                               ; preds = %19
-  tail call void @event_mm_free_(ptr noundef nonnull %21) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %21) #19
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -5066,7 +5066,7 @@ define void @evhttp_request_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not31, label %27, label %26
 
 26:                                               ; preds = %23
-  tail call void @event_mm_free_(ptr noundef nonnull %25) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %25) #19
   br label %27
 
 27:                                               ; preds = %26, %23
@@ -5102,11 +5102,11 @@ define void @evhttp_request_free(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %39, ptr %34, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
   %41 = load ptr, ptr %40, align 8
-  tail call void @event_mm_free_(ptr noundef %41) #18
+  tail call void @event_mm_free_(ptr noundef %41) #19
   %42 = getelementptr inbounds nuw i8, ptr %.017.i, i64 24
   %43 = load ptr, ptr %42, align 8
-  tail call void @event_mm_free_(ptr noundef %43) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %.017.i) #18
+  tail call void @event_mm_free_(ptr noundef %43) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %.017.i) #19
   %.0.i = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %evhttp_clear_headers.exit.loopexit, label %31, !llvm.loop !8
@@ -5117,7 +5117,7 @@ evhttp_clear_headers.exit.loopexit:               ; preds = %38
 
 evhttp_clear_headers.exit:                        ; preds = %evhttp_clear_headers.exit.loopexit, %27
   %44 = phi ptr [ %.pre, %evhttp_clear_headers.exit.loopexit ], [ %29, %27 ]
-  tail call void @event_mm_free_(ptr noundef %44) #18
+  tail call void @event_mm_free_(ptr noundef %44) #19
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8
   %.015.i34 = load ptr, ptr %46, align 8
@@ -5150,11 +5150,11 @@ evhttp_clear_headers.exit:                        ; preds = %evhttp_clear_header
   store ptr %56, ptr %51, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.017.i37, i64 16
   %58 = load ptr, ptr %57, align 8
-  tail call void @event_mm_free_(ptr noundef %58) #18
+  tail call void @event_mm_free_(ptr noundef %58) #19
   %59 = getelementptr inbounds nuw i8, ptr %.017.i37, i64 24
   %60 = load ptr, ptr %59, align 8
-  tail call void @event_mm_free_(ptr noundef %60) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %.017.i37) #18
+  tail call void @event_mm_free_(ptr noundef %60) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %.017.i37) #19
   %.0.i39 = load ptr, ptr %46, align 8
   %.not.i40 = icmp eq ptr %.0.i39, null
   br i1 %.not.i40, label %evhttp_clear_headers.exit41.loopexit, label %48, !llvm.loop !8
@@ -5165,14 +5165,14 @@ evhttp_clear_headers.exit41.loopexit:             ; preds = %55
 
 evhttp_clear_headers.exit41:                      ; preds = %evhttp_clear_headers.exit41.loopexit, %evhttp_clear_headers.exit
   %61 = phi ptr [ %.pre42, %evhttp_clear_headers.exit41.loopexit ], [ %46, %evhttp_clear_headers.exit ]
-  tail call void @event_mm_free_(ptr noundef %61) #18
+  tail call void @event_mm_free_(ptr noundef %61) #19
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %63 = load ptr, ptr %62, align 8
   %.not32 = icmp eq ptr %63, null
   br i1 %.not32, label %65, label %64
 
 64:                                               ; preds = %evhttp_clear_headers.exit41
-  tail call void @evbuffer_free(ptr noundef nonnull %63) #18
+  tail call void @evbuffer_free(ptr noundef nonnull %63) #19
   br label %65
 
 65:                                               ; preds = %64, %evhttp_clear_headers.exit41
@@ -5182,11 +5182,11 @@ evhttp_clear_headers.exit41:                      ; preds = %evhttp_clear_header
   br i1 %.not33, label %69, label %68
 
 68:                                               ; preds = %65
-  tail call void @evbuffer_free(ptr noundef nonnull %67) #18
+  tail call void @evbuffer_free(ptr noundef nonnull %67) #19
   br label %69
 
 69:                                               ; preds = %68, %65
-  tail call void @event_mm_free_(ptr noundef nonnull %0) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %0) #19
   br label %70
 
 70:                                               ; preds = %69, %5
@@ -5213,7 +5213,7 @@ define void @evhttp_send_reply_end(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @bufferevent_get_output(ptr noundef %8) #18
+  %9 = tail call ptr @bufferevent_get_output(ptr noundef %8) #19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load i8, ptr %10, align 8
   %12 = or i8 %11, 2
@@ -5223,14 +5223,14 @@ define void @evhttp_send_reply_end(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %27, label %14
 
 14:                                               ; preds = %6
-  %15 = tail call i32 @evbuffer_add(ptr noundef %9, ptr noundef nonnull @.str.21, i64 noundef 5) #18
+  %15 = tail call i32 @evbuffer_add(ptr noundef %9, ptr noundef nonnull @.str.21, i64 noundef 5) #19
   %16 = load ptr, ptr %2, align 8
   %17 = load i32, ptr @event_debug_logging_mask_, align 4
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %evhttp_write_buffer.exit, label %18
 
 18:                                               ; preds = %14
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_write_buffer.exit
 
 evhttp_write_buffer.exit:                         ; preds = %14, %18
@@ -5240,16 +5240,16 @@ evhttp_write_buffer.exit:                         ; preds = %14, %18
   store ptr null, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  tail call void @bufferevent_setcb(ptr noundef %22, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %16) #18
+  tail call void @bufferevent_setcb(ptr noundef %22, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef %16) #19
   %23 = load ptr, ptr %21, align 8
-  %24 = tail call i32 @bufferevent_enable(ptr noundef %23, i16 noundef signext 6) #18
+  %24 = tail call i32 @bufferevent_enable(ptr noundef %23, i16 noundef signext 6) #19
   %25 = load i8, ptr %10, align 8
   %26 = and i8 %25, -2
   store i8 %26, ptr %10, align 8
   br label %34
 
 27:                                               ; preds = %6
-  %28 = tail call i64 @evbuffer_get_length(ptr noundef %9) #18
+  %28 = tail call i64 @evbuffer_get_length(ptr noundef %9) #19
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %31
 
@@ -5299,7 +5299,7 @@ define internal void @evhttp_send_done(ptr noundef %0, ptr readnone captures(non
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %18 = load ptr, ptr %17, align 8
-  tail call void %15(ptr noundef nonnull %4, ptr noundef %18) #18
+  tail call void %15(ptr noundef nonnull %4, ptr noundef %18) #19
   br label %19
 
 19:                                               ; preds = %16, %12
@@ -5332,7 +5332,7 @@ define internal void @evhttp_send_done(ptr noundef %0, ptr readnone captures(non
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %35, ptr noundef nonnull @.str.25) #18
+  %36 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %35, ptr noundef nonnull @.str.25) #19
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %evhttp_find_header.exit.i, label %32, !llvm.loop !7
 
@@ -5343,7 +5343,7 @@ evhttp_find_header.exit.i:                        ; preds = %33
   br i1 %.not.i, label %.critedge, label %evhttp_is_connection_keepalive.exit
 
 evhttp_is_connection_keepalive.exit:              ; preds = %evhttp_find_header.exit.i
-  %40 = tail call i32 @evutil_ascii_strncasecmp(ptr noundef nonnull %39, ptr noundef nonnull @.str.101, i64 noundef 10) #18
+  %40 = tail call i32 @evutil_ascii_strncasecmp(ptr noundef nonnull %39, ptr noundef nonnull @.str.101, i64 noundef 10) #19
   %.not26 = icmp eq i32 %40, 0
   br i1 %.not26, label %41, label %.critedge
 
@@ -5372,7 +5372,7 @@ evhttp_is_connection_keepalive.exit:              ; preds = %evhttp_find_header.
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @evbuffer_new() #18
+  %4 = tail call ptr @evbuffer_new() #19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %46, label %5
 
@@ -5381,7 +5381,7 @@ define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %9 = icmp ugt i64 %8, 9223372036854775806
   br i1 %9, label %45, label %10
 
@@ -5405,12 +5405,12 @@ define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   br i1 %.not50.us, label %17, label %15
 
 15:                                               ; preds = %.lr.ph.split.us
-  %16 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull %.04054.us, i64 noundef 1) #18
+  %16 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull %.04054.us, i64 noundef 1) #19
   br label %20
 
 17:                                               ; preds = %.lr.ph.split.us
   %18 = zext i8 %11 to i32
-  %19 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.28, i32 noundef %18) #18
+  %19 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.28, i32 noundef %18) #19
   br label %20
 
 20:                                               ; preds = %17, %15
@@ -5428,7 +5428,7 @@ define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   br i1 %.not50, label %29, label %27
 
 27:                                               ; preds = %.lr.ph.split
-  %28 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull %.04054, i64 noundef 1) #18
+  %28 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull %.04054, i64 noundef 1) #19
   br label %36
 
 29:                                               ; preds = %.lr.ph.split
@@ -5436,12 +5436,12 @@ define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, i64 noundef 1) #18
+  %32 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, i64 noundef 1) #19
   br label %36
 
 33:                                               ; preds = %29
   %34 = zext i8 %23 to i32
-  %35 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.28, i32 noundef %34) #18
+  %35 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.28, i32 noundef %34) #19
   br label %36
 
 36:                                               ; preds = %27, %33, %31
@@ -5450,20 +5450,20 @@ define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %36, %20, %10
-  %39 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i64 noundef 1) #18
-  %40 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %4) #18
-  %41 = tail call ptr @event_mm_malloc_(i64 noundef %40) #18
+  %39 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i64 noundef 1) #19
+  %40 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %4) #19
+  %41 = tail call ptr @event_mm_malloc_(i64 noundef %40) #19
   %.not49 = icmp eq ptr %41, null
   br i1 %.not49, label %45, label %42
 
 42:                                               ; preds = %._crit_edge
-  %43 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %4) #18
-  %44 = tail call i32 @evbuffer_remove(ptr noundef nonnull %4, ptr noundef nonnull %41, i64 noundef %43) #18
+  %43 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %4) #19
+  %44 = tail call i32 @evbuffer_remove(ptr noundef nonnull %4, ptr noundef nonnull %41, i64 noundef %43) #19
   br label %45
 
 45:                                               ; preds = %7, %._crit_edge, %42
   %.038.ph = phi ptr [ null, %7 ], [ null, %._crit_edge ], [ %41, %42 ]
-  tail call void @evbuffer_free(ptr noundef nonnull %4) #18
+  tail call void @evbuffer_free(ptr noundef nonnull %4) #19
   br label %46
 
 46:                                               ; preds = %3, %45
@@ -5522,14 +5522,14 @@ define i32 @evhttp_decode_uri_internal(ptr noundef readonly captures(none) %0, i
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
   %27 = load i8, ptr %26, align 1
-  %28 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %27) #18
+  %28 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %27) #19
   %.not.us = icmp eq i32 %28, 0
   br i1 %.not.us, label %38, label %29
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %20
   %31 = load i8, ptr %30, align 1
-  %32 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %31) #18
+  %32 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %31) #19
   %.not39.us = icmp eq i32 %32, 0
   br i1 %.not39.us, label %38, label %33
 
@@ -5540,7 +5540,7 @@ define i32 @evhttp_decode_uri_internal(ptr noundef readonly captures(none) %0, i
   %35 = load i8, ptr %30, align 1
   store i8 %35, ptr %8, align 1
   store i8 0, ptr %9, align 1
-  %36 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #18
+  %36 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #19
   %37 = trunc i64 %36 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
@@ -5586,14 +5586,14 @@ define i32 @evhttp_decode_uri_internal(ptr noundef readonly captures(none) %0, i
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 %57
   %59 = load i8, ptr %58, align 1
-  %60 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %59) #18
+  %60 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %59) #19
   %.not = icmp eq i32 %60, 0
   br i1 %.not, label %70, label %61
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 %52
   %63 = load i8, ptr %62, align 1
-  %64 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %63) #18
+  %64 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %63) #19
   %.not39 = icmp eq i32 %64, 0
   br i1 %.not39, label %70, label %65
 
@@ -5604,7 +5604,7 @@ define i32 @evhttp_decode_uri_internal(ptr noundef readonly captures(none) %0, i
   %67 = load i8, ptr %62, align 1
   store i8 %67, ptr %8, align 1
   store i8 0, ptr %9, align 1
-  %68 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #18
+  %68 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #19
   %69 = trunc i64 %68 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %70
@@ -5645,16 +5645,16 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_decode_uri(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [3 x i8], align 1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %4 = add i64 %3, 1
-  %5 = tail call ptr @event_mm_malloc_(i64 noundef %4) #18
+  %5 = tail call ptr @event_mm_malloc_(i64 noundef %4) #19
   %6 = icmp eq ptr %5, null
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   br i1 %6, label %8, label %10
 
 8:                                                ; preds = %1
   %9 = add i64 %7, 1
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_decode_uri, i64 noundef %9) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_decode_uri, i64 noundef %9) #19
   br label %47
 
 10:                                               ; preds = %1
@@ -5695,14 +5695,14 @@ define ptr @evhttp_decode_uri(ptr noundef readonly captures(none) %0) local_unna
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
   %29 = load i8, ptr %28, align 1
-  %30 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %29) #18
+  %30 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %29) #19
   %.not.us.i = icmp eq i32 %30, 0
   br i1 %.not.us.i, label %40, label %31
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %33 = load i8, ptr %32, align 1
-  %34 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %33) #18
+  %34 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %33) #19
   %.not39.us.i = icmp eq i32 %34, 0
   br i1 %.not39.us.i, label %40, label %35
 
@@ -5713,7 +5713,7 @@ define ptr @evhttp_decode_uri(ptr noundef readonly captures(none) %0) local_unna
   %37 = load i8, ptr %32, align 1
   store i8 %37, ptr %11, align 1
   store i8 0, ptr %12, align 1
-  %38 = call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #18
+  %38 = call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #19
   %39 = trunc i64 %38 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %40
@@ -5746,16 +5746,16 @@ evhttp_decode_uri_internal.exit:                  ; preds = %10, %._crit_edge.lo
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_uridecode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %5 = add i64 %4, 1
-  %6 = tail call ptr @event_mm_malloc_(i64 noundef %5) #18
+  %6 = tail call ptr @event_mm_malloc_(i64 noundef %5) #19
   %7 = icmp eq ptr %6, null
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   br i1 %7, label %9, label %11
 
 9:                                                ; preds = %3
   %10 = add i64 %8, 1
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_uridecode, i64 noundef %10) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_uridecode, i64 noundef %10) #19
   br label %17
 
 11:                                               ; preds = %3
@@ -5814,12 +5814,12 @@ define internal fastcc range(i32 -1, 1) i32 @evhttp_parse_query_impl(ptr noundef
   br i1 %.not47, label %.critedge.thread, label %16
 
 16:                                               ; preds = %15
-  %17 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.035) #18
+  %17 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.035) #19
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_parse_query_impl) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_parse_query_impl) #19
   br label %102
 
 20:                                               ; preds = %16
@@ -5846,9 +5846,9 @@ thread-pre-split:                                 ; preds = %evhttp_remove_heade
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %29 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.150) #18
+  %29 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.150) #19
   store ptr %29, ptr %7, align 8
-  %30 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.151) #18
+  %30 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.151) #19
   %31 = load ptr, ptr %7, align 8
   %32 = icmp eq ptr %31, null
   br i1 %.not50, label %39, label %33
@@ -5876,19 +5876,19 @@ thread-pre-split:                                 ; preds = %evhttp_remove_heade
 
 43:                                               ; preds = %40, %35
   %44 = phi ptr [ %31, %40 ], [ %36, %35 ]
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #17
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #18
   %46 = add i64 %45, 1
-  %47 = call ptr @event_mm_malloc_(i64 noundef %46) #18
+  %47 = call ptr @event_mm_malloc_(i64 noundef %46) #19
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %43
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.152, ptr noundef nonnull @__func__.evhttp_parse_query_impl) #18
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.152, ptr noundef nonnull @__func__.evhttp_parse_query_impl) #19
   br label %.thread
 
 50:                                               ; preds = %43
   %51 = load ptr, ptr %7, align 8
-  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #17
+  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #18
   %.not43.i = icmp eq i64 %52, 0
   br i1 %.not43.i, label %evhttp_decode_uri_internal.exit, label %.lr.ph.split.i
 
@@ -5916,14 +5916,14 @@ thread-pre-split:                                 ; preds = %evhttp_remove_heade
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %51, i64 %63
   %65 = load i8, ptr %64, align 1
-  %66 = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %65) #18
+  %66 = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %65) #19
   %.not.i = icmp eq i32 %66, 0
   br i1 %.not.i, label %76, label %67
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 %58
   %69 = load i8, ptr %68, align 1
-  %70 = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %69) #18
+  %70 = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %69) #19
   %.not39.i = icmp eq i32 %70, 0
   br i1 %.not39.i, label %76, label %71
 
@@ -5934,7 +5934,7 @@ thread-pre-split:                                 ; preds = %evhttp_remove_heade
   %73 = load i8, ptr %68, align 1
   store i8 %73, ptr %22, align 1
   store i8 0, ptr %23, align 1
-  %74 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #18
+  %74 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #19
   %75 = trunc i64 %74 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %76
@@ -5966,7 +5966,7 @@ evhttp_decode_uri_internal.exit:                  ; preds = %50, %._crit_edge.lo
   br i1 %.not51, label %85, label %84
 
 84:                                               ; preds = %evhttp_decode_uri_internal.exit
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.153, ptr noundef %30, ptr noundef nonnull %47) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.153, ptr noundef %30, ptr noundef nonnull %47) #19
   br label %85
 
 85:                                               ; preds = %84, %evhttp_decode_uri_internal.exit
@@ -5981,7 +5981,7 @@ evhttp_decode_uri_internal.exit:                  ; preds = %50, %._crit_edge.lo
 86:                                               ; preds = %.preheader
   %87 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %88 = load ptr, ptr %87, align 8
-  %89 = call i32 @evutil_ascii_strcasecmp(ptr noundef %88, ptr noundef %30) #18
+  %89 = call i32 @evutil_ascii_strcasecmp(ptr noundef %88, ptr noundef %30) #19
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %.preheader, !llvm.loop !9
 
@@ -5997,16 +5997,16 @@ evhttp_decode_uri_internal.exit:                  ; preds = %50, %._crit_edge.lo
   %97 = load ptr, ptr %.0.i, align 8
   store ptr %97, ptr %95, align 8
   %98 = load ptr, ptr %92, align 8
-  call void @event_mm_free_(ptr noundef %98) #18
+  call void @event_mm_free_(ptr noundef %98) #19
   %99 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %100 = load ptr, ptr %99, align 8
-  call void @event_mm_free_(ptr noundef %100) #18
-  call void @event_mm_free_(ptr noundef nonnull %.0.i) #18
+  call void @event_mm_free_(ptr noundef %100) #19
+  call void @event_mm_free_(ptr noundef nonnull %.0.i) #19
   br label %evhttp_remove_header.exit
 
 evhttp_remove_header.exit:                        ; preds = %.preheader, %91, %85
   %101 = call fastcc i32 @evhttp_add_header_internal(ptr noundef nonnull %1, ptr noundef %30, ptr noundef nonnull %47)
-  call void @event_mm_free_(ptr noundef nonnull %47) #18
+  call void @event_mm_free_(ptr noundef nonnull %47) #19
   %.not53 = icmp eq i32 %101, 0
   br i1 %.not53, label %thread-pre-split, label %.thread
 
@@ -6043,11 +6043,11 @@ evhttp_remove_header.exit:                        ; preds = %.preheader, %91, %8
   store ptr %110, ptr %105, align 8
   %111 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
   %112 = load ptr, ptr %111, align 8
-  call void @event_mm_free_(ptr noundef %112) #18
+  call void @event_mm_free_(ptr noundef %112) #19
   %113 = getelementptr inbounds nuw i8, ptr %.017.i, i64 24
   %114 = load ptr, ptr %113, align 8
-  call void @event_mm_free_(ptr noundef %114) #18
-  call void @event_mm_free_(ptr noundef nonnull %.017.i) #18
+  call void @event_mm_free_(ptr noundef %114) #19
+  call void @event_mm_free_(ptr noundef nonnull %.017.i) #19
   %.0.i57 = load ptr, ptr %1, align 8
   %.not.i58 = icmp eq ptr %.0.i57, null
   br i1 %.not.i58, label %.critedge, label %.lr.ph.i56, !llvm.loop !8
@@ -6060,7 +6060,7 @@ evhttp_remove_header.exit:                        ; preds = %.preheader, %91, %8
   br i1 %.not54, label %.critedge.thread, label %115
 
 115:                                              ; preds = %.critedge
-  call void @event_mm_free_(ptr noundef nonnull %.1) #18
+  call void @event_mm_free_(ptr noundef nonnull %.1) #19
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %14, %15, %115, %.critedge
@@ -6105,32 +6105,32 @@ define ptr @evhttp_bind_socket_with_handle(ptr noundef %0, ptr noundef %1, i16 n
   br i1 %5, label %evhttp_accept_socket_with_handle.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @listen(i32 noundef %4, i32 noundef 128) #18
+  %7 = tail call i32 @listen(i32 noundef %4, i32 noundef 128) #19
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @__errno_location() #19
+  %10 = tail call ptr @__errno_location() #20
   %11 = load i32, ptr %10, align 4
-  tail call void (i32, ptr, ...) @event_sock_warn(i32 noundef %4, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.evhttp_bind_socket_with_handle) #18
-  %12 = tail call i32 @evutil_closesocket(i32 noundef %4) #18
+  tail call void (i32, ptr, ...) @event_sock_warn(i32 noundef %4, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.evhttp_bind_socket_with_handle) #19
+  %12 = tail call i32 @evutil_closesocket(i32 noundef %4) #19
   store i32 %11, ptr %10, align 4
   br label %evhttp_accept_socket_with_handle.exit.thread
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @evconnlistener_new(ptr noundef %15, ptr noundef null, ptr noundef null, i32 noundef 14, i32 noundef 0, i32 noundef %4) #18
+  %16 = tail call ptr @evconnlistener_new(ptr noundef %15, ptr noundef null, ptr noundef null, i32 noundef 14, i32 noundef 0, i32 noundef %4) #19
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %evhttp_accept_socket_with_handle.exit.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @event_mm_malloc_(i64 noundef 48) #18
+  %18 = tail call ptr @event_mm_malloc_(i64 noundef 48) #19
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  tail call void @evconnlistener_free(ptr noundef nonnull %16) #18
+  tail call void @evconnlistener_free(ptr noundef nonnull %16) #19
   br label %evhttp_accept_socket_with_handle.exit.thread
 
 21:                                               ; preds = %17
@@ -6147,14 +6147,14 @@ define ptr @evhttp_bind_socket_with_handle(ptr noundef %0, ptr noundef %1, i16 n
   store ptr %26, ptr %27, align 8
   store ptr %18, ptr %26, align 8
   store ptr %18, ptr %25, align 8
-  tail call void @evconnlistener_set_cb(ptr noundef nonnull %16, ptr noundef nonnull @accept_socket_cb, ptr noundef nonnull %18) #18
+  tail call void @evconnlistener_set_cb(ptr noundef nonnull %16, ptr noundef nonnull @accept_socket_cb, ptr noundef nonnull %18) #19
   %28 = load i32, ptr @event_debug_logging_mask_, align 4
   %.not13 = icmp eq i32 %28, 0
   br i1 %.not13, label %evhttp_accept_socket_with_handle.exit.thread, label %29
 
 29:                                               ; preds = %21
   %30 = zext i16 %2 to i32
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.30, i32 noundef %30) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.30, i32 noundef %30) #19
   br label %evhttp_accept_socket_with_handle.exit.thread
 
 evhttp_accept_socket_with_handle.exit.thread:     ; preds = %13, %20, %21, %29, %3, %9
@@ -6171,12 +6171,12 @@ declare i32 @evutil_closesocket(i32 noundef) local_unnamed_addr #2
 define ptr @evhttp_accept_socket_with_handle(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @evconnlistener_new(ptr noundef %4, ptr noundef null, ptr noundef null, i32 noundef 14, i32 noundef 0, i32 noundef %1) #18
+  %5 = tail call ptr @evconnlistener_new(ptr noundef %4, ptr noundef null, ptr noundef null, i32 noundef 14, i32 noundef 0, i32 noundef %1) #19
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @event_mm_malloc_(i64 noundef 48) #18
+  %7 = tail call ptr @event_mm_malloc_(i64 noundef 48) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %evhttp_bind_listener.exit
 
@@ -6194,11 +6194,11 @@ evhttp_bind_listener.exit:                        ; preds = %6
   store ptr %13, ptr %14, align 8
   store ptr %7, ptr %13, align 8
   store ptr %7, ptr %12, align 8
-  tail call void @evconnlistener_set_cb(ptr noundef nonnull %5, ptr noundef nonnull @accept_socket_cb, ptr noundef nonnull %7) #18
+  tail call void @evconnlistener_set_cb(ptr noundef nonnull %5, ptr noundef nonnull @accept_socket_cb, ptr noundef nonnull %7) #19
   br label %16
 
 15:                                               ; preds = %6
-  tail call void @evconnlistener_free(ptr noundef nonnull %5) #18
+  tail call void @evconnlistener_free(ptr noundef nonnull %5) #19
   br label %16
 
 16:                                               ; preds = %evhttp_bind_listener.exit, %2, %15
@@ -6210,12 +6210,12 @@ evhttp_bind_listener.exit:                        ; preds = %6
 define range(i32 -1, 1) i32 @evhttp_accept_socket(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @evconnlistener_new(ptr noundef %4, ptr noundef null, ptr noundef null, i32 noundef 14, i32 noundef 0, i32 noundef %1) #18
+  %5 = tail call ptr @evconnlistener_new(ptr noundef %4, ptr noundef null, ptr noundef null, i32 noundef 14, i32 noundef 0, i32 noundef %1) #19
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %evhttp_accept_socket_with_handle.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @event_mm_malloc_(i64 noundef 48) #18
+  %7 = tail call ptr @event_mm_malloc_(i64 noundef 48) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %evhttp_bind_listener.exit.i
 
@@ -6233,11 +6233,11 @@ evhttp_bind_listener.exit.i:                      ; preds = %6
   store ptr %13, ptr %14, align 8
   store ptr %7, ptr %13, align 8
   store ptr %7, ptr %12, align 8
-  tail call void @evconnlistener_set_cb(ptr noundef nonnull %5, ptr noundef nonnull @accept_socket_cb, ptr noundef nonnull %7) #18
+  tail call void @evconnlistener_set_cb(ptr noundef nonnull %5, ptr noundef nonnull @accept_socket_cb, ptr noundef nonnull %7) #19
   br label %evhttp_accept_socket_with_handle.exit
 
 15:                                               ; preds = %6
-  tail call void @evconnlistener_free(ptr noundef nonnull %5) #18
+  tail call void @evconnlistener_free(ptr noundef nonnull %5) #19
   br label %evhttp_accept_socket_with_handle.exit
 
 evhttp_accept_socket_with_handle.exit:            ; preds = %2, %evhttp_bind_listener.exit.i, %15
@@ -6254,7 +6254,7 @@ define void @evhttp_foreach_bound_socket(ptr noundef readonly captures(none) %0,
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.08 = phi ptr [ %.0, %.lr.ph ], [ %.06, %3 ]
-  tail call void %1(ptr noundef nonnull %.08, ptr noundef %2) #18
+  tail call void %1(ptr noundef nonnull %.08, ptr noundef %2) #19
   %.0 = load ptr, ptr %.08, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -6267,7 +6267,7 @@ declare ptr @evconnlistener_new(ptr noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_bind_listener(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @event_mm_malloc_(i64 noundef 48) #18
+  %3 = tail call ptr @event_mm_malloc_(i64 noundef 48) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
 
@@ -6285,7 +6285,7 @@ define ptr @evhttp_bind_listener(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store ptr %10, ptr %11, align 8
   store ptr %3, ptr %10, align 8
   store ptr %3, ptr %9, align 8
-  tail call void @evconnlistener_set_cb(ptr noundef %1, ptr noundef nonnull @accept_socket_cb, ptr noundef nonnull %3) #18
+  tail call void @evconnlistener_set_cb(ptr noundef %1, ptr noundef nonnull @accept_socket_cb, ptr noundef nonnull %3) #19
   br label %12
 
 12:                                               ; preds = %2, %5
@@ -6312,7 +6312,7 @@ define internal void @accept_socket_cb(ptr readnone captures(none) %0, i32 nound
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr %11(ptr noundef %14, ptr noundef %16) #18
+  %17 = tail call ptr %11(ptr noundef %14, ptr noundef %16) #19
   br label %18
 
 18:                                               ; preds = %12, %5
@@ -6329,7 +6329,7 @@ define internal void @accept_socket_cb(ptr readnone captures(none) %0, i32 nound
   br i1 %.not63.i.i, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.155, ptr noundef nonnull @__func__.evhttp_get_request_connection, i32 noundef %1) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.155, ptr noundef nonnull @__func__.evhttp_get_request_connection, i32 noundef %1) #19
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -6347,17 +6347,17 @@ define internal void @accept_socket_cb(ptr readnone captures(none) %0, i32 nound
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call ptr %28(ptr noundef %31, ptr noundef %33) #18
+  %34 = tail call ptr %28(ptr noundef %31, ptr noundef %33) #19
   br label %35
 
 35:                                               ; preds = %29, %26, %25
   %.045.i.i = phi ptr [ %.0, %25 ], [ %34, %29 ], [ null, %26 ]
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #17
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #18
   %37 = icmp ugt i64 %36, 107
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %35
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_unix_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_unix_new) #19
   br label %118
 
 39:                                               ; preds = %35
@@ -6368,7 +6368,7 @@ define internal void @accept_socket_cb(ptr readnone captures(none) %0, i32 nound
   br i1 %cond.i.i.i, label %118, label %43
 
 43:                                               ; preds = %39
-  %44 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %22) #18
+  %44 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %22) #19
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 176
   store ptr %44, ptr %45, align 8
   %46 = icmp eq ptr %44, null
@@ -6380,31 +6380,31 @@ evhttp_connection_base_bufferevent_unix_new.exit.thread81.i.i: ; preds = %43
   br label %._crit_edge.i.i
 
 48:                                               ; preds = %43
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_unix_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_unix_new) #19
   tail call void @evhttp_connection_free(ptr noundef nonnull %42)
   br label %118
 
 49:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %50 = call i32 @getnameinfo(ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 1025, ptr noundef nonnull %7, i32 noundef 32, i32 noundef 3) #18
+  %50 = call i32 @getnameinfo(ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 1025, ptr noundef nonnull %7, i32 noundef 32, i32 noundef 3) #19
   switch i32 %50, label %52 [
     i32 0, label %name_from_addr.exit.i.i
     i32 -11, label %51
   ]
 
 51:                                               ; preds = %49
-  call void (i32, ptr, ...) @event_err(i32 noundef 1, ptr noundef nonnull @.str.157) #20
+  call void (i32, ptr, ...) @event_err(i32 noundef 1, ptr noundef nonnull @.str.157) #21
   unreachable
 
 52:                                               ; preds = %49
-  %53 = call ptr @gai_strerror(i32 noundef %50) #18
-  call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.158, ptr noundef %53) #20
+  %53 = call ptr @gai_strerror(i32 noundef %50) #19
+  call void (i32, ptr, ...) @event_errx(i32 noundef 1, ptr noundef nonnull @.str.158, ptr noundef %53) #21
   unreachable
 
 name_from_addr.exit.i.i:                          ; preds = %49
-  %54 = call ptr @event_mm_strdup_(ptr noundef nonnull %6) #18
-  %55 = call ptr @event_mm_strdup_(ptr noundef nonnull %7) #18
+  %54 = call ptr @event_mm_strdup_(ptr noundef nonnull %6) #19
+  %55 = call ptr @event_mm_strdup_(ptr noundef nonnull %7) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = icmp ne ptr %54, null
@@ -6417,7 +6417,7 @@ name_from_addr.exit.i.i:                          ; preds = %49
   br i1 %.not59.i.i, label %60, label %59
 
 59:                                               ; preds = %58
-  call void @event_mm_free_(ptr noundef nonnull %54) #18
+  call void @event_mm_free_(ptr noundef nonnull %54) #19
   br label %60
 
 60:                                               ; preds = %59, %58
@@ -6425,7 +6425,7 @@ name_from_addr.exit.i.i:                          ; preds = %49
   br i1 %.not60.i.i, label %118, label %61
 
 61:                                               ; preds = %60
-  call void @event_mm_free_(ptr noundef nonnull %55) #18
+  call void @event_mm_free_(ptr noundef nonnull %55) #19
   br label %118
 
 62:                                               ; preds = %name_from_addr.exit.i.i
@@ -6434,7 +6434,7 @@ name_from_addr.exit.i.i:                          ; preds = %49
   br i1 %.not.i.i, label %65, label %64
 
 64:                                               ; preds = %62
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.156, ptr noundef nonnull @__func__.evhttp_get_request_connection, ptr noundef nonnull %54, ptr noundef nonnull %55, i32 noundef %1) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.156, ptr noundef nonnull @__func__.evhttp_get_request_connection, ptr noundef nonnull %54, ptr noundef nonnull %55, i32 noundef %1) #19
   br label %65
 
 65:                                               ; preds = %64, %62
@@ -6452,14 +6452,14 @@ name_from_addr.exit.i.i:                          ; preds = %49
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %73 = load ptr, ptr %72, align 8
-  %74 = call ptr %68(ptr noundef %71, ptr noundef %73) #18
+  %74 = call ptr %68(ptr noundef %71, ptr noundef %73) #19
   br label %75
 
 75:                                               ; preds = %69, %66, %65
   %.146.i.i = phi ptr [ %.0, %65 ], [ %74, %69 ], [ null, %66 ]
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %77 = load ptr, ptr %76, align 8
-  %78 = call i64 @strtol(ptr noundef nonnull captures(none) %55, ptr noundef null, i32 noundef 10) #18
+  %78 = call i64 @strtol(ptr noundef nonnull captures(none) %55, ptr noundef null, i32 noundef 10) #19
   %79 = trunc i64 %78 to i16
   %80 = load i32, ptr @event_debug_logging_mask_, align 4
   %.not.i.i.i = icmp eq i32 %80, 0
@@ -6468,7 +6468,7 @@ name_from_addr.exit.i.i:                          ; preds = %49
 81:                                               ; preds = %75
   %82 = trunc i64 %78 to i32
   %83 = and i32 %82, 65535
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.10, ptr noundef nonnull %54, i32 noundef %83) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.10, ptr noundef nonnull %54, i32 noundef %83) #19
   br label %84
 
 84:                                               ; preds = %81, %75
@@ -6477,7 +6477,7 @@ name_from_addr.exit.i.i:                          ; preds = %49
   br i1 %cond.i70.i.i, label %evhttp_connection_base_bufferevent_unix_new.exit.i.i, label %86
 
 86:                                               ; preds = %84
-  %87 = call ptr @event_mm_strdup_(ptr noundef nonnull %54) #18
+  %87 = call ptr @event_mm_strdup_(ptr noundef nonnull %54) #19
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 160
   store ptr %87, ptr %88, align 8
   %89 = icmp eq ptr %87, null
@@ -6491,14 +6491,14 @@ name_from_addr.exit.i.i:                          ; preds = %49
   br label %evhttp_connection_base_bufferevent_unix_new.exit.i.i
 
 93:                                               ; preds = %86
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_new) #18
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.evhttp_connection_base_bufferevent_new) #19
   call void @evhttp_connection_free(ptr noundef nonnull %85)
   br label %evhttp_connection_base_bufferevent_unix_new.exit.i.i
 
 evhttp_connection_base_bufferevent_unix_new.exit.i.i: ; preds = %93, %90, %84
   %.0.i71.i.i = phi ptr [ %85, %90 ], [ null, %84 ], [ null, %93 ]
-  call void @event_mm_free_(ptr noundef nonnull %54) #18
-  call void @event_mm_free_(ptr noundef nonnull %55) #18
+  call void @event_mm_free_(ptr noundef nonnull %54) #19
+  call void @event_mm_free_(ptr noundef nonnull %55) #19
   %94 = icmp eq ptr %.0.i71.i.i, null
   br i1 %94, label %118, label %._crit_edge.i.i
 
@@ -6525,19 +6525,19 @@ evhttp_connection_base_bufferevent_unix_new.exit.i.i: ; preds = %93, %90, %84
   store i32 3, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %.04783.i.i, i64 16
   %109 = load ptr, ptr %108, align 8
-  %110 = call i32 @bufferevent_replacefd(ptr noundef %109, i32 noundef %1) #18
+  %110 = call i32 @bufferevent_replacefd(ptr noundef %109, i32 noundef %1) #19
   %.not67.i.i = icmp eq i32 %110, 0
   br i1 %.not67.i.i, label %111, label %117
 
 111:                                              ; preds = %._crit_edge.i.i
   %112 = load ptr, ptr %108, align 8
-  %113 = call i32 @bufferevent_enable(ptr noundef %112, i16 noundef signext 2) #18
+  %113 = call i32 @bufferevent_enable(ptr noundef %112, i16 noundef signext 2) #19
   %.not68.i.i = icmp eq i32 %113, 0
   br i1 %.not68.i.i, label %114, label %117
 
 114:                                              ; preds = %111
   %115 = load ptr, ptr %108, align 8
-  %116 = call i32 @bufferevent_disable(ptr noundef %115, i16 noundef signext 4) #18
+  %116 = call i32 @bufferevent_disable(ptr noundef %115, i16 noundef signext 4) #19
   %.not69.i.i = icmp eq i32 %116, 0
   br i1 %.not69.i.i, label %120, label %117
 
@@ -6546,14 +6546,14 @@ evhttp_connection_base_bufferevent_unix_new.exit.i.i: ; preds = %93, %90, %84
   br label %118
 
 118:                                              ; preds = %117, %evhttp_connection_base_bufferevent_unix_new.exit.i.i, %61, %60, %48, %39, %38
-  call void (i32, ptr, ...) @event_sock_warn(i32 noundef %1, ptr noundef nonnull @.str.154, ptr noundef nonnull @__func__.evhttp_get_request, i32 noundef %1) #18
-  %119 = call i32 @evutil_closesocket(i32 noundef %1) #18
+  call void (i32, ptr, ...) @event_sock_warn(i32 noundef %1, ptr noundef nonnull @.str.154, ptr noundef nonnull @__func__.evhttp_get_request, i32 noundef %1) #19
+  %119 = call i32 @evutil_closesocket(i32 noundef %1) #19
   br label %evhttp_get_request.exit
 
 120:                                              ; preds = %114
   %121 = load ptr, ptr %108, align 8
   %122 = zext i32 %3 to i64
-  call void @bufferevent_socket_set_conn_address_(ptr noundef %121, ptr noundef nonnull %2, i64 noundef %122) #18
+  call void @bufferevent_socket_set_conn_address_(ptr noundef %121, ptr noundef nonnull %2, i64 noundef %122) #19
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %124 = load i64, ptr %123, align 8
   %.not.i = icmp eq i64 %124, 0
@@ -6578,7 +6578,7 @@ evhttp_connection_base_bufferevent_unix_new.exit.i.i: ; preds = %93, %90, %84
 133:                                              ; preds = %128
   %134 = load ptr, ptr %108, align 8
   %135 = getelementptr inbounds nuw i8, ptr %.04783.i.i, i64 240
-  %136 = call i32 @bufferevent_set_timeouts(ptr noundef %134, ptr noundef nonnull %131, ptr noundef nonnull %135) #18
+  %136 = call i32 @bufferevent_set_timeouts(ptr noundef %134, ptr noundef nonnull %131, ptr noundef nonnull %135) #19
   br label %evhttp_connection_set_read_timeout_tv.exit.i
 
 evhttp_connection_set_read_timeout_tv.exit.i:     ; preds = %133, %128, %125
@@ -6606,7 +6606,7 @@ evhttp_connection_set_read_timeout_tv.exit.i:     ; preds = %133, %128, %125
 147:                                              ; preds = %142
   %148 = load ptr, ptr %108, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.04783.i.i, i64 224
-  %150 = call i32 @bufferevent_set_timeouts(ptr noundef %148, ptr noundef nonnull %149, ptr noundef nonnull %145) #18
+  %150 = call i32 @bufferevent_set_timeouts(ptr noundef %148, ptr noundef nonnull %149, ptr noundef nonnull %145) #19
   br label %evhttp_connection_set_write_timeout_tv.exit.i
 
 evhttp_connection_set_write_timeout_tv.exit.i:    ; preds = %147, %142, %139
@@ -6661,7 +6661,7 @@ evhttp_connection_set_write_timeout_tv.exit.i:    ; preds = %147, %142, %139
   store ptr %164, ptr %172, align 8
   store i32 7, ptr %107, align 8
   %175 = load ptr, ptr %108, align 8
-  %176 = call i32 @bufferevent_enable(ptr noundef %175, i16 noundef signext 2) #18
+  %176 = call i32 @bufferevent_enable(ptr noundef %175, i16 noundef signext 2) #19
   call void @evhttp_send_error(ptr noundef nonnull %164, i32 noundef 503, ptr noundef null)
   br label %evhttp_get_request.exit
 
@@ -6682,7 +6682,7 @@ evhttp_get_request.exit:                          ; preds = %118, %165, %166, %1
 define i32 @evhttp_bound_socket_get_fd(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @evconnlistener_get_fd(ptr noundef %3) #18
+  %4 = tail call i32 @evconnlistener_get_fd(ptr noundef %3) #19
   ret i32 %4
 }
 
@@ -6727,19 +6727,19 @@ define void @evhttp_del_accept_socket(ptr noundef writeonly captures(none) %0, p
   store ptr %11, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
-  tail call void @evconnlistener_free(ptr noundef %13) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %1) #18
+  tail call void @evconnlistener_free(ptr noundef %13) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %1) #19
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_new(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 280) #18
+  %2 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 280) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %evhttp_new_object.exit.thread, label %4
 
 evhttp_new_object.exit.thread:                    ; preds = %1
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_new_object) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_new_object) #19
   br label %22
 
 4:                                                ; preds = %1
@@ -6785,12 +6785,12 @@ evhttp_new_object.exit.thread:                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_start(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 280) #18
+  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 280) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %evhttp_new_object.exit.thread, label %5
 
 evhttp_new_object.exit.thread:                    ; preds = %2
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_new_object) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_new_object) #19
   br label %25
 
 5:                                                ; preds = %2
@@ -6831,7 +6831,7 @@ evhttp_new_object.exit.thread:                    ; preds = %2
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %5
-  tail call void @event_mm_free_(ptr noundef nonnull %3) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %3) #19
   br label %25
 
 25:                                               ; preds = %evhttp_new_object.exit.thread, %5, %24
@@ -6878,8 +6878,8 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %16, ptr %11, align 8
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %18 = load ptr, ptr %17, align 8
-  tail call void @evconnlistener_free(ptr noundef %18) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %8) #18
+  tail call void @evconnlistener_free(ptr noundef %18) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %8) #19
   %19 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.preheader68, label %7, !llvm.loop !23
@@ -6909,7 +6909,7 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph73:                                         ; preds = %.preheader67, %.lr.ph73
   %27 = phi ptr [ %28, %.lr.ph73 ], [ %21, %.preheader67 ]
-  tail call void @evws_connection_free(ptr noundef nonnull %27) #18
+  tail call void @evws_connection_free(ptr noundef nonnull %27) #19
   %28 = load ptr, ptr %20, align 8
   %.not57 = icmp eq ptr %28, null
   br i1 %.not57, label %.preheader66, label %.lr.ph73, !llvm.loop !25
@@ -6946,8 +6946,8 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %41, ptr %36, align 8
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %43 = load ptr, ptr %42, align 8
-  tail call void @event_mm_free_(ptr noundef %43) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %33) #18
+  tail call void @event_mm_free_(ptr noundef %43) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %33) #19
   %44 = load ptr, ptr %24, align 8
   %.not58 = icmp eq ptr %44, null
   br i1 %.not58, label %.preheader, label %32, !llvm.loop !26
@@ -6984,7 +6984,7 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not60, label %59, label %58
 
 58:                                               ; preds = %._crit_edge
-  tail call void @event_mm_free_(ptr noundef nonnull %57) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %57) #19
   br label %59
 
 59:                                               ; preds = %58, %._crit_edge
@@ -7019,14 +7019,14 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %72, ptr %67, align 8
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %74 = load ptr, ptr %73, align 8
-  tail call void @event_mm_free_(ptr noundef %74) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %64) #18
+  tail call void @event_mm_free_(ptr noundef %74) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %64) #19
   %75 = load ptr, ptr %60, align 8
   %.not61 = icmp eq ptr %75, null
   br i1 %.not61, label %._crit_edge81, label %63, !llvm.loop !28
 
 ._crit_edge81:                                    ; preds = %71, %59
-  tail call void @event_mm_free_(ptr noundef nonnull %0) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -7046,7 +7046,7 @@ define range(i32 -1, 1) i32 @evhttp_add_virtual_host(ptr noundef captures(none) 
   br i1 %.not12, label %9, label %16
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @event_mm_strdup_(ptr noundef %1) #18
+  %10 = tail call ptr @event_mm_strdup_(ptr noundef %1) #19
   store ptr %10, ptr %4, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
@@ -7094,7 +7094,7 @@ define range(i32 -1, 1) i32 @evhttp_remove_virtual_host(ptr noundef writeonly ca
   %15 = load ptr, ptr %1, align 8
   store ptr %15, ptr %9, align 8
   %16 = load ptr, ptr %3, align 8
-  tail call void @event_mm_free_(ptr noundef %16) #18
+  tail call void @event_mm_free_(ptr noundef %16) #19
   store ptr null, ptr %3, align 8
   br label %17
 
@@ -7105,19 +7105,19 @@ define range(i32 -1, 1) i32 @evhttp_remove_virtual_host(ptr noundef writeonly ca
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evhttp_add_server_alias(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 24) #18
+  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 24) #19
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @event_mm_strdup_(ptr noundef %1) #18
+  %5 = tail call ptr @event_mm_strdup_(ptr noundef %1) #19
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %6, align 8
   %.not13 = icmp eq ptr %5, null
   br i1 %.not13, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @event_mm_free_(ptr noundef nonnull %3) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %3) #19
   br label %12
 
 8:                                                ; preds = %4
@@ -7151,7 +7151,7 @@ define range(i32 -1, 1) i32 @evhttp_remove_server_alias(ptr noundef captures(non
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %7, ptr noundef %1) #18
+  %8 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %7, ptr noundef %1) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %4, !llvm.loop !29
 
@@ -7177,8 +7177,8 @@ define range(i32 -1, 1) i32 @evhttp_remove_server_alias(ptr noundef captures(non
   %20 = load ptr, ptr %.0, align 8
   store ptr %20, ptr %14, align 8
   %21 = load ptr, ptr %11, align 8
-  tail call void @event_mm_free_(ptr noundef %21) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %.0) #18
+  tail call void @event_mm_free_(ptr noundef %21) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %.0) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %19
@@ -7342,29 +7342,29 @@ define range(i32 -3, 1) i32 @evhttp_set_cb(ptr noundef captures(none) %0, ptr no
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #17
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #18
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.loopexit, label %6, !llvm.loop !30
 
 12:                                               ; preds = %6
-  %13 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 40) #18
+  %13 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 40) #19
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %12
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_set_cb) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_set_cb) #19
   br label %.loopexit
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @event_mm_strdup_(ptr noundef %1) #18
+  %17 = tail call ptr @event_mm_strdup_(ptr noundef %1) #19
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %17, ptr %18, align 8
   %19 = icmp eq ptr %17, null
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_set_cb) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %13) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_set_cb) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %13) #19
   br label %.loopexit
 
 21:                                               ; preds = %16
@@ -7403,7 +7403,7 @@ define range(i32 -1, 1) i32 @evhttp_del_cb(ptr noundef captures(none) %0, ptr no
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #17
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #18
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %4, !llvm.loop !31
 
@@ -7429,8 +7429,8 @@ define range(i32 -1, 1) i32 @evhttp_del_cb(ptr noundef captures(none) %0, ptr no
   %20 = load ptr, ptr %.0, align 8
   store ptr %20, ptr %14, align 8
   %21 = load ptr, ptr %11, align 8
-  tail call void @event_mm_free_(ptr noundef %21) #18
-  tail call void @event_mm_free_(ptr noundef nonnull %.0) #18
+  tail call void @event_mm_free_(ptr noundef %21) #19
+  tail call void @event_mm_free_(ptr noundef nonnull %.0) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %19
@@ -7476,7 +7476,7 @@ define void @evhttp_set_errorcb(ptr noundef writeonly captures(none) initializes
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_request_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 216) #18
+  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 216) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %30, label %5
 
@@ -7485,7 +7485,7 @@ define ptr @evhttp_request_new(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %7, align 8
-  %8 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 16) #18
+  %8 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 16) #19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
@@ -7496,7 +7496,7 @@ define ptr @evhttp_request_new(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 16) #18
+  %14 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 16) #19
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
@@ -7507,14 +7507,14 @@ define ptr @evhttp_request_new(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %18, ptr %19, align 8
-  %20 = tail call ptr @evbuffer_new() #18
+  %20 = tail call ptr @evbuffer_new() #19
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call ptr @evbuffer_new() #18
+  %24 = tail call ptr @evbuffer_new() #19
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
@@ -7528,12 +7528,12 @@ define ptr @evhttp_request_new(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %32
 
 30:                                               ; preds = %2
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_request_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_request_new) #19
   br label %32
 
 31:                                               ; preds = %23, %17, %11, %5
   %.str.32.sink = phi ptr [ @.str.31, %5 ], [ @.str.31, %11 ], [ @.str.32, %17 ], [ @.str.32, %23 ]
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull %.str.32.sink, ptr noundef nonnull @__func__.evhttp_request_new) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull %.str.32.sink, ptr noundef nonnull @__func__.evhttp_request_new) #19
   tail call void @evhttp_request_free(ptr noundef nonnull %3)
   br label %32
 
@@ -7550,7 +7550,7 @@ define void @evhttp_uri_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @event_mm_free_(ptr noundef nonnull %3) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %3) #19
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -7560,7 +7560,7 @@ define void @evhttp_uri_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not21, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @event_mm_free_(ptr noundef nonnull %7) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %7) #19
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -7570,7 +7570,7 @@ define void @evhttp_uri_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not22, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @event_mm_free_(ptr noundef nonnull %11) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %11) #19
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -7580,7 +7580,7 @@ define void @evhttp_uri_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not23, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @event_mm_free_(ptr noundef nonnull %15) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %15) #19
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -7590,7 +7590,7 @@ define void @evhttp_uri_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not24, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @event_mm_free_(ptr noundef nonnull %19) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %19) #19
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -7600,7 +7600,7 @@ define void @evhttp_uri_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not25, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @event_mm_free_(ptr noundef nonnull %23) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %23) #19
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -7610,11 +7610,11 @@ define void @evhttp_uri_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void @event_mm_free_(ptr noundef nonnull %27) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %27) #19
   br label %29
 
 29:                                               ; preds = %28, %25
-  tail call void @event_mm_free_(ptr noundef nonnull %0) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -7691,7 +7691,7 @@ define ptr @evhttp_request_get_uri(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.evhttp_request_get_uri, ptr noundef nonnull %0) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.evhttp_request_get_uri, ptr noundef nonnull %0) #19
   %.pre = load ptr, ptr %2, align 8
   br label %8
 
@@ -7711,7 +7711,7 @@ define ptr @evhttp_request_get_evhttp_uri(ptr noundef %0) local_unnamed_addr #0 
   br i1 %or.cond, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.evhttp_request_get_evhttp_uri, ptr noundef nonnull %0) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.evhttp_request_get_evhttp_uri, ptr noundef nonnull %0) #19
   %.pre = load ptr, ptr %2, align 8
   br label %8
 
@@ -7754,7 +7754,7 @@ define ptr @evhttp_request_get_host(ptr noundef captures(none) %0) local_unnamed
 12:                                               ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %14, ptr noundef nonnull @.str.35) #18
+  %15 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %14, ptr noundef nonnull @.str.35) #19
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %evhttp_find_header.exit, label %.preheader, !llvm.loop !7
 
@@ -7765,7 +7765,7 @@ evhttp_find_header.exit:                          ; preds = %12
   br i1 %.not42, label %.critedge45, label %19
 
 19:                                               ; preds = %evhttp_find_header.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #17
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #18
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
   br label %22
 
@@ -7777,7 +7777,7 @@ evhttp_find_header.exit:                          ; preds = %12
 
 24:                                               ; preds = %22
   %25 = load i8, ptr %.030, align 1
-  %26 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %25) #18
+  %26 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %25) #19
   %.not43 = icmp eq i32 %26, 0
   br i1 %.not43, label %.critedge, label %22, !llvm.loop !32
 
@@ -7791,13 +7791,13 @@ evhttp_find_header.exit:                          ; preds = %12
   %31 = ptrtoint ptr %18 to i64
   %32 = sub i64 %30, %31
   %33 = add i64 %32, 1
-  %34 = tail call ptr @event_mm_malloc_(i64 noundef %33) #18
+  %34 = tail call ptr @event_mm_malloc_(i64 noundef %33) #19
   store ptr %34, ptr %2, align 8
   %.not44 = icmp eq ptr %34, null
   br i1 %.not44, label %.critedge46, label %35
 
 .critedge46:                                      ; preds = %29
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.evhttp_request_get_host) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.evhttp_request_get_host) #19
   br label %.critedge45
 
 35:                                               ; preds = %29
@@ -7873,7 +7873,7 @@ define ptr @evhttp_request_get_output_buffer(ptr noundef readonly captures(none)
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_uri_new() local_unnamed_addr #0 {
-  %1 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 72) #18
+  %1 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 72) #19
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
@@ -7900,29 +7900,29 @@ define ptr @evhttp_uri_parse(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @evhttp_uri_parse_with_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 72) #18
+  %3 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 72) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread105, label %5
 
 .thread105:                                       ; preds = %2
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_uri_parse_with_flags) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.evhttp_uri_parse_with_flags) #19
   br label %87
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %6, align 8
   store i32 %1, ptr %3, align 8
-  %7 = tail call ptr @event_mm_strdup_(ptr noundef %0) #18
+  %7 = tail call ptr @event_mm_strdup_(ptr noundef %0) #19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.thread, label %9
 
 .thread.thread:                                   ; preds = %5
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_with_flags) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_with_flags) #19
   tail call void @evhttp_uri_free(ptr noundef nonnull %3)
   br label %87
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 58) #17
+  %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 58) #18
   %.not = icmp eq ptr %10, null
   %11 = icmp eq ptr %7, %10
   %or.cond = or i1 %.not, %11
@@ -7930,7 +7930,7 @@ define ptr @evhttp_uri_parse_with_flags(ptr noundef %0, i32 noundef %1) local_un
 
 12:                                               ; preds = %9
   %13 = load i8, ptr %7, align 1
-  %14 = tail call i32 @EVUTIL_ISALPHA_(i8 noundef signext %13) #18
+  %14 = tail call i32 @EVUTIL_ISALPHA_(i8 noundef signext %13) #19
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %scheme_ok.exit.thread, label %.preheader.i
 
@@ -7942,7 +7942,7 @@ define ptr @evhttp_uri_parse_with_flags(ptr noundef %0, i32 noundef %1) local_un
 .lr.ph.i:                                         ; preds = %.preheader.i, %22
   %17 = phi ptr [ %23, %22 ], [ %15, %.preheader.i ]
   %18 = load i8, ptr %17, align 1
-  %19 = tail call i32 @EVUTIL_ISALNUM_(i8 noundef signext %18) #18
+  %19 = tail call i32 @EVUTIL_ISALNUM_(i8 noundef signext %18) #19
   %.not14.i = icmp eq i32 %19, 0
   br i1 %.not14.i, label %20, label %22
 
@@ -7961,7 +7961,7 @@ define ptr @evhttp_uri_parse_with_flags(ptr noundef %0, i32 noundef %1) local_un
 
 scheme_ok.exit:                                   ; preds = %22, %.preheader.i
   store i8 0, ptr %10, align 1
-  %24 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %7) #18
+  %24 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %7) #19
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
@@ -8083,7 +8083,7 @@ end_of_authority.exit:                            ; preds = %37, %37, %37, %37
   br label %.preheader, !llvm.loop !34
 
 path_matches_noscheme.exit:                       ; preds = %.preheader, %.preheader, %66
-  %73 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.174) #18
+  %73 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.174) #19
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %73, ptr %74, align 8
   %75 = icmp eq ptr %73, null
@@ -8094,7 +8094,7 @@ path_matches_noscheme.exit:                       ; preds = %.preheader, %.prehe
   br i1 %.not88, label %81, label %77
 
 77:                                               ; preds = %76
-  %78 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.072) #18
+  %78 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.072) #19
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %78, ptr %79, align 8
   %80 = icmp eq ptr %78, null
@@ -8105,23 +8105,23 @@ path_matches_noscheme.exit:                       ; preds = %.preheader, %.prehe
   br i1 %.not89, label %86, label %82
 
 82:                                               ; preds = %81
-  %83 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.071) #18
+  %83 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.071) #19
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %83, ptr %84, align 8
   %85 = icmp eq ptr %83, null
   br i1 %85, label %.thread.sink.split122, label %86
 
 86:                                               ; preds = %82, %81
-  tail call void @event_mm_free_(ptr noundef nonnull %7) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %7) #19
   br label %87
 
 .thread.sink.split122:                            ; preds = %path_matches_noscheme.exit, %77, %82, %scheme_ok.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_with_flags) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_uri_parse_with_flags) #19
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %.thread.sink.split122, %end_of_authority.exit, %.critedge, %62, %56
   tail call void @evhttp_uri_free(ptr noundef nonnull %3)
-  tail call void @event_mm_free_(ptr noundef nonnull %7) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %7) #19
   br label %87
 
 87:                                               ; preds = %.thread.thread, %.thread105, %.thread, %86
@@ -8135,18 +8135,18 @@ define internal fastcc range(i32 -1, 1) i32 @parse_authority(ptr noundef nonnull
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @event_mm_strdup_(ptr noundef nonnull @.str.14) #18
+  %7 = tail call ptr @event_mm_strdup_(ptr noundef nonnull @.str.14) #19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %8, align 8
   %9 = icmp eq ptr %7, null
   br i1 %9, label %10, label %userinfo_ok.exit.thread
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.parse_authority) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.parse_authority) #19
   br label %userinfo_ok.exit.thread
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 64) #17
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 64) #18
   %.not = icmp ne ptr %12, null
   %13 = icmp ult ptr %12, %2
   %or.cond = and i1 %.not, %13
@@ -8187,13 +8187,13 @@ define internal fastcc range(i32 -1, 1) i32 @parse_authority(ptr noundef nonnull
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 1
   %31 = load i8, ptr %30, align 1
-  %32 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %31) #18
+  %32 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %31) #19
   %.not18.i = icmp eq i32 %32, 0
   br i1 %.not18.i, label %userinfo_ok.exit.thread, label %33
 
 33:                                               ; preds = %29
   %34 = load i8, ptr %27, align 1
-  %35 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %34) #18
+  %35 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %34) #19
   %.not19.i = icmp eq i32 %35, 0
   br i1 %.not19.i, label %userinfo_ok.exit.thread, label %36
 
@@ -8206,14 +8206,14 @@ define internal fastcc range(i32 -1, 1) i32 @parse_authority(ptr noundef nonnull
 userinfo_ok.exit:                                 ; preds = %36, %14
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 0, ptr %12, align 1
-  %40 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #18
+  %40 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #19
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %40, ptr %41, align 8
   %42 = icmp eq ptr %40, null
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %userinfo_ok.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.parse_authority) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.parse_authority) #19
   br label %userinfo_ok.exit.thread
 
 44:                                               ; preds = %11, %userinfo_ok.exit
@@ -8227,19 +8227,19 @@ userinfo_ok.exit:                                 ; preds = %36, %14
   br label %55
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.065, ptr noundef nonnull dereferenceable(6) @.str.164, i64 noundef 5) #17
+  %48 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.065, ptr noundef nonnull dereferenceable(6) @.str.164, i64 noundef 5) #18
   %.not76 = icmp eq i32 %48, 0
   br i1 %.not76, label %49, label %.preheader
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %.065, i64 5
-  %51 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %50, i32 noundef 58) #17
+  %51 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %50, i32 noundef 58) #18
   %.not77 = icmp eq ptr %51, null
   br i1 %.not77, label %userinfo_ok.exit.thread, label %52
 
 52:                                               ; preds = %49
   store i8 0, ptr %51, align 1
-  %53 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %50) #18
+  %53 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %50) #19
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %53, ptr %54, align 8
   br label %userinfo_ok.exit.thread
@@ -8252,7 +8252,7 @@ userinfo_ok.exit:                                 ; preds = %36, %14
 
 56:                                               ; preds = %55
   %57 = load i8, ptr %.064, align 1
-  %58 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %57) #18
+  %58 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %57) #19
   %.not79 = icmp eq i32 %58, 0
   br i1 %.not79, label %.critedge, label %55, !llvm.loop !36
 
@@ -8278,7 +8278,7 @@ userinfo_ok.exit:                                 ; preds = %36, %14
   %.013.i = phi i32 [ %74, %65 ], [ 0, %63 ]
   %.01012.i = phi ptr [ %66, %65 ], [ %.pn, %63 ]
   %67 = load i8, ptr %.01012.i, align 1
-  %68 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %67) #18
+  %68 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %67) #19
   %.not.i88 = icmp eq i32 %68, 0
   br i1 %.not.i88, label %parse_port.exit.thread, label %69
 
@@ -8361,14 +8361,14 @@ parse_port.exit.thread:                           ; preds = %69, %.lr.ph.i87
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 1
   %106 = load i8, ptr %105, align 1
-  %107 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %106) #18
+  %107 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %106) #19
   %.not13.i = icmp eq i32 %107, 0
   br i1 %.not13.i, label %userinfo_ok.exit.thread, label %108
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 2
   %110 = load i8, ptr %109, align 1
-  %111 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %110) #18
+  %111 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %110) #19
   %.not14.i = icmp eq i32 %111, 0
   br i1 %.not14.i, label %userinfo_ok.exit.thread, label %112
 
@@ -8381,14 +8381,14 @@ parse_port.exit.thread:                           ; preds = %69, %.lr.ph.i87
 regname_ok.exit:                                  ; preds = %112, %93, %89
   %.066 = phi i64 [ %spec.select, %89 ], [ %79, %93 ], [ %79, %112 ]
   %115 = add i64 %.066, 1
-  %116 = tail call ptr @event_mm_malloc_(i64 noundef %115) #18
+  %116 = tail call ptr @event_mm_malloc_(i64 noundef %115) #19
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %116, ptr %117, align 8
   %118 = icmp eq ptr %116, null
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %regname_ok.exit
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.parse_authority) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.parse_authority) #19
   br label %userinfo_ok.exit.thread
 
 120:                                              ; preds = %regname_ok.exit
@@ -8470,14 +8470,14 @@ switch.early.test.us:                             ; preds = %9
 12:                                               ; preds = %switch.early.test.us
   %13 = getelementptr inbounds nuw i8, ptr %.358.us, i64 1
   %14 = load i8, ptr %13, align 1
-  %15 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %14) #18
+  %15 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %14) #19
   %.not40.us = icmp eq i32 %15, 0
   br i1 %.not40.us, label %.critedge, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %.358.us, i64 2
   %18 = load i8, ptr %17, align 1
-  %19 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %18) #18
+  %19 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %18) #19
   %.not41.us = icmp eq i32 %19, 0
   br i1 %.not41.us, label %.critedge, label %20
 
@@ -8522,7 +8522,7 @@ switch.early.test.us:                             ; preds = %9
   br label %.preheader54, !llvm.loop !41
 
 30:                                               ; preds = %23
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
   br label %.critedge
 
@@ -8558,14 +8558,14 @@ switch.early.test:                                ; preds = %36
 39:                                               ; preds = %switch.early.test
   %40 = getelementptr inbounds nuw i8, ptr %.358, i64 1
   %41 = load i8, ptr %40, align 1
-  %42 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %41) #18
+  %42 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %41) #19
   %.not40 = icmp eq i32 %42, 0
   br i1 %.not40, label %47, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %.358, i64 2
   %45 = load i8, ptr %44, align 1
-  %46 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %45) #18
+  %46 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %45) #19
   %.not41 = icmp eq i32 %46, 0
   br i1 %.not41, label %47, label %50
 
@@ -8597,7 +8597,7 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %or.cond3, label %7, label %89
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @evbuffer_new() #18
+  %8 = tail call ptr @evbuffer_new() #19
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %89, label %9
 
@@ -8608,9 +8608,9 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %.not77, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #17
-  %14 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %11, i64 noundef %13) #18
-  %15 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.6, i64 noundef 1) #18
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #18
+  %14 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %11, i64 noundef %13) #19
+  %15 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.6, i64 noundef 1) #19
   br label %16
 
 16:                                               ; preds = %12, %9
@@ -8620,19 +8620,19 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %.not78, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.37, i64 noundef 2) #18
+  %20 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.37, i64 noundef 2) #19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not85 = icmp eq ptr %22, null
   br i1 %.not85, label %25, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.38, ptr noundef nonnull %22) #18
+  %24 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.38, ptr noundef nonnull %22) #19
   br label %25
 
 25:                                               ; preds = %23, %19
   %26 = load ptr, ptr %17, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.39, ptr noundef %26) #18
+  %27 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.39, ptr noundef %26) #19
   br label %61
 
 28:                                               ; preds = %16
@@ -8642,14 +8642,14 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %.not79, label %61, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.37, i64 noundef 2) #18
+  %32 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.37, i64 noundef 2) #19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not80 = icmp eq ptr %34, null
   br i1 %.not80, label %37, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.38, ptr noundef nonnull %34) #18
+  %36 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.38, ptr noundef nonnull %34) #19
   br label %37
 
 37:                                               ; preds = %35, %31
@@ -8659,17 +8659,17 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %.not81, label %46, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.40, i64 noundef 1) #18
+  %41 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.40, i64 noundef 1) #19
   %42 = load ptr, ptr %29, align 8
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #17
-  %44 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %42, i64 noundef %43) #18
-  %45 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.41, i64 noundef 1) #18
+  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #18
+  %44 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %42, i64 noundef %43) #19
+  %45 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.41, i64 noundef 1) #19
   br label %50
 
 46:                                               ; preds = %37
   %47 = load ptr, ptr %29, align 8
-  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #17
-  %49 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %47, i64 noundef %48) #18
+  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #18
+  %49 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %47, i64 noundef %48) #19
   br label %50
 
 50:                                               ; preds = %46, %40
@@ -8679,7 +8679,7 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %50
-  %55 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.42, i32 noundef %52) #18
+  %55 = tail call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.42, i32 noundef %52) #19
   br label %56
 
 56:                                               ; preds = %54, %50
@@ -8702,8 +8702,8 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %.not86, label %67, label %64
 
 64:                                               ; preds = %61
-  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #17
-  %66 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %63, i64 noundef %65) #18
+  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #18
+  %66 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %63, i64 noundef %65) #19
   br label %67
 
 67:                                               ; preds = %64, %61
@@ -8713,10 +8713,10 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %.not87, label %75, label %70
 
 70:                                               ; preds = %67
-  %71 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.43, i64 noundef 1) #18
+  %71 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.43, i64 noundef 1) #19
   %72 = load ptr, ptr %68, align 8
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #17
-  %74 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %72, i64 noundef %73) #18
+  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #18
+  %74 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %72, i64 noundef %73) #19
   br label %75
 
 75:                                               ; preds = %70, %67
@@ -8726,25 +8726,25 @@ define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_nul
   br i1 %.not88, label %83, label %78
 
 78:                                               ; preds = %75
-  %79 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.44, i64 noundef 1) #18
+  %79 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.44, i64 noundef 1) #19
   %80 = load ptr, ptr %76, align 8
-  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #17
-  %82 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %80, i64 noundef %81) #18
+  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #18
+  %82 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull %80, i64 noundef %81) #19
   br label %83
 
 83:                                               ; preds = %78, %75
-  %84 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.45, i64 noundef 1) #18
-  %85 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %8) #18
+  %84 = tail call i32 @evbuffer_add(ptr noundef nonnull %8, ptr noundef nonnull @.str.45, i64 noundef 1) #19
+  %85 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %8) #19
   %86 = icmp ugt i64 %85, %2
   br i1 %86, label %.sink.split, label %87
 
 87:                                               ; preds = %83
-  %88 = tail call i32 @evbuffer_remove(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef %85) #18
+  %88 = tail call i32 @evbuffer_remove(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef %85) #19
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %59, %83
   %.064.ph = phi ptr [ null, %83 ], [ %1, %87 ], [ null, %59 ]
-  tail call void @evbuffer_free(ptr noundef nonnull %8) #18
+  tail call void @evbuffer_free(ptr noundef nonnull %8) #19
   br label %89
 
 89:                                               ; preds = %.sink.split, %7, %3
@@ -8807,14 +8807,14 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_scheme(ptr noundef captures(none) %0
   br i1 %.not, label %scheme_ok.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %6 = icmp samesign eq i64 %4, 0
   br i1 %6, label %scheme_ok.exit.thread, label %7
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %1, align 1
-  %9 = tail call i32 @EVUTIL_ISALPHA_(i8 noundef signext %8) #18
+  %9 = tail call i32 @EVUTIL_ISALPHA_(i8 noundef signext %8) #19
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %scheme_ok.exit.thread, label %.preheader.i
 
@@ -8829,7 +8829,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_scheme(ptr noundef captures(none) %0
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %16
   %11 = phi ptr [ %17, %16 ], [ %10, %.lr.ph.i.preheader ]
   %12 = load i8, ptr %11, align 1
-  %13 = tail call i32 @EVUTIL_ISALNUM_(i8 noundef signext %12) #18
+  %13 = tail call i32 @EVUTIL_ISALNUM_(i8 noundef signext %12) #19
   %.not14.i = icmp eq i32 %13, 0
   br i1 %.not14.i, label %14, label %16
 
@@ -8853,20 +8853,20 @@ scheme_ok.exit:                                   ; preds = %16, %.preheader.i, 
   br i1 %.not13, label %21, label %20
 
 20:                                               ; preds = %scheme_ok.exit
-  tail call void @event_mm_free_(ptr noundef nonnull %19) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %19) #19
   br label %21
 
 21:                                               ; preds = %20, %scheme_ok.exit
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %21
-  %23 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #18
+  %23 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #19
   store ptr %23, ptr %18, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %scheme_ok.exit.thread
 
 25:                                               ; preds = %22
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_scheme) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_scheme) #19
   br label %scheme_ok.exit.thread
 
 26:                                               ; preds = %21
@@ -8884,7 +8884,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_userinfo(ptr noundef captures(none) 
   br i1 %.not, label %userinfo_ok.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %.not16 = icmp eq i64 %4, 0
   br i1 %.not16, label %userinfo_ok.exit, label %.lr.ph.i
@@ -8920,13 +8920,13 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_userinfo(ptr noundef captures(none) 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 1
   %21 = load i8, ptr %20, align 1
-  %22 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %21) #18
+  %22 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %21) #19
   %.not18.i = icmp eq i32 %22, 0
   br i1 %.not18.i, label %userinfo_ok.exit.thread, label %23
 
 23:                                               ; preds = %19
   %24 = load i8, ptr %17, align 1
-  %25 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %24) #18
+  %25 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %24) #19
   %.not19.i = icmp eq i32 %25, 0
   br i1 %.not19.i, label %userinfo_ok.exit.thread, label %26
 
@@ -8943,20 +8943,20 @@ userinfo_ok.exit:                                 ; preds = %26, %3, %2
   br i1 %.not13, label %32, label %31
 
 31:                                               ; preds = %userinfo_ok.exit
-  tail call void @event_mm_free_(ptr noundef nonnull %30) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %30) #19
   br label %32
 
 32:                                               ; preds = %31, %userinfo_ok.exit
   br i1 %.not, label %37, label %33
 
 33:                                               ; preds = %32
-  %34 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #18
+  %34 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #19
   store ptr %34, ptr %29, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %userinfo_ok.exit.thread
 
 36:                                               ; preds = %33
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_userinfo) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_userinfo) #19
   br label %userinfo_ok.exit.thread
 
 37:                                               ; preds = %32
@@ -8974,7 +8974,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_host(ptr noundef captures(none) %0, 
   br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq i8 %5, 91
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -9017,14 +9017,14 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_host(ptr noundef captures(none) %0, 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 1
   %22 = load i8, ptr %21, align 1
-  %23 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %22) #18
+  %23 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %22) #19
   %.not13.i = icmp eq i32 %23, 0
   br i1 %.not13.i, label %regname_ok.exit.thread, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 2
   %26 = load i8, ptr %25, align 1
-  %27 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %26) #18
+  %27 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %26) #19
   %.not14.i = icmp eq i32 %27, 0
   br i1 %.not14.i, label %regname_ok.exit.thread, label %28
 
@@ -9049,13 +9049,13 @@ regname_ok.exit:                                  ; preds = %28, %8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = add i64 %4, -1
-  %39 = tail call ptr @event_mm_realloc_(ptr noundef %37, i64 noundef %38) #18
+  %39 = tail call ptr @event_mm_realloc_(ptr noundef %37, i64 noundef %38) #19
   %.not41 = icmp eq ptr %39, null
   br i1 %.not41, label %40, label %42
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %36, align 8
-  tail call void @free(ptr noundef %41) #18
+  tail call void @free(ptr noundef %41) #19
   br label %46
 
 42:                                               ; preds = %35
@@ -9079,20 +9079,20 @@ regname_ok.exit:                                  ; preds = %28, %8
   br i1 %.not40, label %52, label %51
 
 51:                                               ; preds = %.critedge
-  tail call void @event_mm_free_(ptr noundef nonnull %50) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %50) #19
   br label %52
 
 52:                                               ; preds = %51, %.critedge
   br i1 %.not, label %57, label %53
 
 53:                                               ; preds = %52
-  %54 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #18
+  %54 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #19
   store ptr %54, ptr %49, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %53
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_host) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_host) #19
   br label %regname_ok.exit.thread
 
 57:                                               ; preds = %52
@@ -9144,7 +9144,7 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 1
-  %21 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %20) #18
+  %21 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %20) #19
   %.not32 = icmp eq i32 %21, 0
   br i1 %.not32, label %.loopexit, label %.preheader
 
@@ -9163,7 +9163,7 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
   br i1 %.not33, label %.critedge40.preheader, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %23) #18
+  %25 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %23) #19
   %.not38 = icmp eq i32 %25, 0
   br i1 %.not38, label %.loopexit, label %26
 
@@ -9224,7 +9224,7 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %15, i64 %42, i1 false)
   %43 = getelementptr inbounds i8, ptr %5, i64 %42
   store i8 0, ptr %43, align 1
-  %44 = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
+  %44 = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %45 = icmp eq i32 %44, 1
   %46 = zext i1 %45 to i32
   br label %47
@@ -9253,7 +9253,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_unixsocket(ptr noundef captures(none
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @event_mm_free_(ptr noundef nonnull %4) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %4) #19
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -9261,13 +9261,13 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_unixsocket(ptr noundef captures(none
   br i1 %.not8, label %11, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #18
+  %8 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #19
   store ptr %8, ptr %3, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_unixsocket) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_unixsocket) #19
   br label %12
 
 11:                                               ; preds = %6
@@ -9302,7 +9302,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_path(ptr noundef captures(none) %0, 
 3:                                                ; preds = %2
   %4 = load i32, ptr %0, align 8
   %5 = tail call fastcc ptr @end_of_path(ptr noundef %1, i32 noundef 0, i32 noundef %4)
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %.not13 = icmp eq ptr %5, %7
   br i1 %.not13, label %8, label %18
@@ -9314,20 +9314,20 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_path(ptr noundef captures(none) %0, 
   br i1 %.not14, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @event_mm_free_(ptr noundef nonnull %10) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %10) #19
   br label %12
 
 12:                                               ; preds = %11, %8
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #18
+  %14 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #19
   store ptr %14, ptr %9, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_path) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_path) #19
   br label %18
 
 17:                                               ; preds = %12
@@ -9347,7 +9347,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_query(ptr noundef captures(none) %0,
 3:                                                ; preds = %2
   %4 = load i32, ptr %0, align 8
   %5 = tail call fastcc ptr @end_of_path(ptr noundef %1, i32 noundef 1, i32 noundef %4)
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %.not13 = icmp eq ptr %5, %7
   br i1 %.not13, label %8, label %18
@@ -9359,20 +9359,20 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_query(ptr noundef captures(none) %0,
   br i1 %.not14, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @event_mm_free_(ptr noundef nonnull %10) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %10) #19
   br label %12
 
 12:                                               ; preds = %11, %8
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #18
+  %14 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #19
   store ptr %14, ptr %9, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_query) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_query) #19
   br label %18
 
 17:                                               ; preds = %12
@@ -9392,7 +9392,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_fragment(ptr noundef captures(none) 
 3:                                                ; preds = %2
   %4 = load i32, ptr %0, align 8
   %5 = tail call fastcc ptr @end_of_path(ptr noundef %1, i32 noundef 2, i32 noundef %4)
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %.not13 = icmp eq ptr %5, %7
   br i1 %.not13, label %8, label %18
@@ -9404,20 +9404,20 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_fragment(ptr noundef captures(none) 
   br i1 %.not14, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @event_mm_free_(ptr noundef nonnull %10) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %10) #19
   br label %12
 
 12:                                               ; preds = %11, %8
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #18
+  %14 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %1) #19
   store ptr %14, ptr %9, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_fragment) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.evhttp_uri_set_fragment) #19
   br label %18
 
 17:                                               ; preds = %12
@@ -9458,7 +9458,7 @@ define internal void @evhttp_deferred_read_cb(ptr readnone captures(none) %0, pt
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void %6(ptr noundef nonnull %4, ptr noundef nonnull %1) #18
+  tail call void %6(ptr noundef nonnull %4, ptr noundef nonnull %1) #19
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -9481,9 +9481,9 @@ declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc void @evhttp_read_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @bufferevent_getfd(ptr noundef %4) #18
+  %5 = tail call i32 @bufferevent_getfd(ptr noundef %4) #19
   %6 = load ptr, ptr %3, align 8
-  %7 = tail call ptr @bufferevent_get_input(ptr noundef %6) #18
+  %7 = tail call ptr @bufferevent_get_input(ptr noundef %6) #19
   %8 = tail call i32 @evhttp_parse_headers_(ptr noundef %1, ptr noundef %7)
   %9 = and i32 %8, -3
   %or.cond = icmp eq i32 %9, -3
@@ -9495,7 +9495,7 @@ define internal fastcc void @evhttp_read_header(ptr noundef %0, ptr noundef %1) 
   br i1 %.not36, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.63, ptr noundef nonnull @__func__.evhttp_read_header, i32 noundef %5) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.63, ptr noundef nonnull @__func__.evhttp_read_header, i32 noundef %5) #19
   br label %13
 
 13:                                               ; preds = %12, %10
@@ -9515,7 +9515,7 @@ define internal fastcc void @evhttp_read_header(ptr noundef %0, ptr noundef %1) 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %18(ptr noundef nonnull %1, ptr noundef %21) #18
+  %22 = tail call i32 %18(ptr noundef nonnull %1, ptr noundef %21) #19
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %25
 
@@ -9537,7 +9537,7 @@ define internal fastcc void @evhttp_read_header(ptr noundef %0, ptr noundef %1) 
   br i1 %.not35, label %31, label %30
 
 30:                                               ; preds = %28
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.64, ptr noundef nonnull @__func__.evhttp_read_header, i32 noundef %5) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.64, ptr noundef nonnull @__func__.evhttp_read_header, i32 noundef %5) #19
   br label %31
 
 31:                                               ; preds = %30, %28
@@ -9555,14 +9555,14 @@ define internal fastcc void @evhttp_read_header(ptr noundef %0, ptr noundef %1) 
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %3, align 8
-  %37 = tail call ptr @bufferevent_get_output(ptr noundef %36) #18
+  %37 = tail call ptr @bufferevent_get_output(ptr noundef %36) #19
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @evbuffer_add_buffer(ptr noundef %37, ptr noundef %39) #18
+  %40 = tail call i32 @evbuffer_add_buffer(ptr noundef %37, ptr noundef %39) #19
   %41 = load ptr, ptr %3, align 8
-  %42 = tail call i32 @bufferevent_disable(ptr noundef %41, i16 noundef signext 4) #18
+  %42 = tail call i32 @bufferevent_disable(ptr noundef %41, i16 noundef signext 4) #19
   %43 = load ptr, ptr %3, align 8
-  %44 = tail call i32 @bufferevent_enable(ptr noundef %43, i16 noundef signext 2) #18
+  %44 = tail call i32 @bufferevent_enable(ptr noundef %43, i16 noundef signext 2) #19
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 7, ptr %45, align 8
   %46 = load i32, ptr @event_debug_logging_mask_, align 4
@@ -9570,7 +9570,7 @@ define internal fastcc void @evhttp_read_header(ptr noundef %0, ptr noundef %1) 
   br i1 %.not.i.i, label %evhttp_start_write_.exit, label %47
 
 47:                                               ; preds = %35
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__.evhttp_write_buffer) #19
   br label %evhttp_start_write_.exit
 
 evhttp_start_write_.exit:                         ; preds = %35, %47
@@ -9579,9 +9579,9 @@ evhttp_start_write_.exit:                         ; preds = %35, %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr null, ptr %49, align 8
   %50 = load ptr, ptr %3, align 8
-  tail call void @bufferevent_setcb(ptr noundef %50, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %0) #18
+  tail call void @bufferevent_setcb(ptr noundef %50, ptr noundef null, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %0) #19
   %51 = load ptr, ptr %3, align 8
-  %52 = tail call i32 @bufferevent_enable(ptr noundef %51, i16 noundef signext 6) #18
+  %52 = tail call i32 @bufferevent_enable(ptr noundef %51, i16 noundef signext 6) #19
   br label %68
 
 53:                                               ; preds = %32
@@ -9603,7 +9603,7 @@ evhttp_response_needs_body.exit.thread:           ; preds = %55, %55, %32, %32, 
   br i1 %.not33, label %60, label %59
 
 59:                                               ; preds = %evhttp_response_needs_body.exit.thread
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.65, ptr noundef nonnull @__func__.evhttp_read_header, i32 noundef %34) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.65, ptr noundef nonnull @__func__.evhttp_read_header, i32 noundef %34) #19
   br label %60
 
 60:                                               ; preds = %59, %evhttp_response_needs_body.exit.thread
@@ -9618,7 +9618,7 @@ evhttp_response_needs_body.exit.thread:           ; preds = %55, %55, %32, %32, 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %65 = load ptr, ptr %64, align 8
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.66, ptr noundef nonnull @__func__.evhttp_read_header, ptr noundef %65, i32 noundef %5) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.66, ptr noundef nonnull @__func__.evhttp_read_header, ptr noundef %65, i32 noundef %5) #19
   br label %66
 
 66:                                               ; preds = %63, %61
@@ -9626,7 +9626,7 @@ evhttp_response_needs_body.exit.thread:           ; preds = %55, %55, %32, %32, 
   br label %68
 
 67:                                               ; preds = %25
-  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.67, ptr noundef nonnull @__func__.evhttp_read_header, i32 noundef %5) #18
+  tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.67, ptr noundef nonnull @__func__.evhttp_read_header, i32 noundef %5) #19
   tail call void @evhttp_connection_fail_(ptr noundef nonnull %0, i32 noundef 2)
   br label %68
 
@@ -9639,7 +9639,7 @@ define internal fastcc void @evhttp_read_body(ptr noundef %0, ptr noundef %1) un
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @bufferevent_get_input(ptr noundef %5) #18
+  %6 = tail call ptr @bufferevent_get_input(ptr noundef %5) #19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
@@ -9651,7 +9651,7 @@ define internal fastcc void @evhttp_read_body(ptr noundef %0, ptr noundef %1) un
   br i1 %11, label %evhttp_handle_chunked_read.exit.thread70, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10
-  %12 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %6) #18
+  %12 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %6) #19
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %evhttp_handle_chunked_read.exit.thread, label %.lr.ph.i
 
@@ -9676,7 +9676,7 @@ define internal fastcc void @evhttp_read_body(ptr noundef %0, ptr noundef %1) un
   br i1 %26, label %27, label %70
 
 27:                                               ; preds = %24
-  %28 = call ptr @evbuffer_readln(ptr noundef nonnull %6, ptr noundef null, i32 noundef 1) #18
+  %28 = call ptr @evbuffer_readln(ptr noundef nonnull %6, ptr noundef null, i32 noundef 1) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = icmp eq ptr %28, null
   br i1 %29, label %evhttp_handle_chunked_read.exit.thread80, label %30
@@ -9686,16 +9686,16 @@ evhttp_handle_chunked_read.exit.thread80:         ; preds = %27
   br label %evhttp_handle_chunked_read.exit.thread
 
 30:                                               ; preds = %27
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #17
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #18
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  call void @event_mm_free_(ptr noundef nonnull %28) #18
+  call void @event_mm_free_(ptr noundef nonnull %28) #19
   br label %..si.unfold.false.jt2.i
 
 34:                                               ; preds = %30
-  %35 = tail call ptr @__ctype_b_loc() #19
+  %35 = tail call ptr @__ctype_b_loc() #20
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %28, align 1
   %38 = sext i8 %37 to i64
@@ -9727,7 +9727,7 @@ switch.early.test.i:                              ; preds = %34
   ]
 
 .critedge75.i:                                    ; preds = %44, %42
-  %47 = call i64 @evutil_strtoll(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef 16) #18
+  %47 = call i64 @evutil_strtoll(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef 16) #19
   %48 = load i8, ptr %28, align 1
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %evhttp_handle_chunked_read.exit.thread75.sink.split, label %50
@@ -9742,7 +9742,7 @@ switch.early.test.i:                              ; preds = %34
 
 53:                                               ; preds = %50, %50
   %54 = icmp slt i64 %47, 0
-  call void @event_mm_free_(ptr noundef nonnull %28) #18
+  call void @event_mm_free_(ptr noundef nonnull %28) #19
   br i1 %54, label %evhttp_handle_chunked_read.exit.thread75, label %55
 
 55:                                               ; preds = %53
@@ -9765,7 +9765,7 @@ switch.early.test.i:                              ; preds = %34
   br i1 %.not70.i, label %97, label %67
 
 67:                                               ; preds = %65
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.93) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.93) #19
   br label %97
 
 68:                                               ; preds = %59
@@ -9784,7 +9784,7 @@ switch.early.test.i:                              ; preds = %34
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %15, align 8
-  %74 = call i32 @evbuffer_remove_buffer(ptr noundef nonnull %6, ptr noundef %73, i64 noundef %25) #18
+  %74 = call i32 @evbuffer_remove_buffer(ptr noundef nonnull %6, ptr noundef %73, i64 noundef %25) #19
   store i64 -1, ptr %14, align 8
   %75 = load ptr, ptr %16, align 8
   %.not64.i = icmp eq ptr %75, null
@@ -9795,10 +9795,10 @@ switch.early.test.i:                              ; preds = %34
   %78 = or i32 %77, 8
   store i32 %78, ptr %17, align 8
   %79 = load ptr, ptr %18, align 8
-  call void %75(ptr noundef nonnull %1, ptr noundef %79) #18
+  call void %75(ptr noundef nonnull %1, ptr noundef %79) #19
   %80 = load ptr, ptr %15, align 8
-  %81 = call i64 @evbuffer_get_length(ptr noundef %80) #18
-  %82 = call i32 @evbuffer_drain(ptr noundef %80, i64 noundef %81) #18
+  %81 = call i64 @evbuffer_get_length(ptr noundef %80) #19
+  %82 = call i32 @evbuffer_drain(ptr noundef %80, i64 noundef %81) #19
   %83 = load i32, ptr %17, align 8
   %84 = and i32 %83, -9
   store i32 %84, ptr %17, align 8
@@ -9807,12 +9807,12 @@ switch.early.test.i:                              ; preds = %34
   br i1 %.not65.i, label %.backedge.i, label %98
 
 .backedge.i:                                      ; preds = %76, %72, %..si.unfold.false.jt2.i
-  %86 = call i64 @evbuffer_get_length(ptr noundef nonnull %6) #18
+  %86 = call i64 @evbuffer_get_length(ptr noundef nonnull %6) #19
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %evhttp_handle_chunked_read.exit.thread, label %21
 
 evhttp_handle_chunked_read.exit.thread75.sink.split: ; preds = %.critedge75.i, %50, %34, %switch.early.test.i, %switch.early.test.i, %44, %44
-  call void @event_mm_free_(ptr noundef nonnull %28) #18
+  call void @event_mm_free_(ptr noundef nonnull %28) #19
   br label %evhttp_handle_chunked_read.exit.thread75
 
 evhttp_handle_chunked_read.exit.thread75:         ; preds = %55, %53, %evhttp_handle_chunked_read.exit.thread75.sink.split
@@ -9824,7 +9824,7 @@ evhttp_handle_chunked_read.exit.thread75:         ; preds = %55, %53, %evhttp_ha
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 6, ptr %89, align 8
   %90 = load ptr, ptr %4, align 8
-  %91 = call ptr @bufferevent_get_input(ptr noundef %90) #18
+  %91 = call ptr @bufferevent_get_input(ptr noundef %90) #19
   %92 = call i32 @evhttp_parse_headers_(ptr noundef nonnull %1, ptr noundef %91)
   switch i32 %92, label %evhttp_read_trailer.exit [
     i32 -1, label %93
@@ -9838,7 +9838,7 @@ evhttp_handle_chunked_read.exit.thread75:         ; preds = %55, %53, %evhttp_ha
 
 94:                                               ; preds = %88
   %95 = load ptr, ptr %4, align 8
-  %96 = call i32 @bufferevent_disable(ptr noundef %95, i16 noundef signext 2) #18
+  %96 = call i32 @bufferevent_disable(ptr noundef %95, i16 noundef signext 2) #19
   call fastcc void @evhttp_connection_done(ptr noundef nonnull %0)
   br label %evhttp_read_trailer.exit
 
@@ -9869,7 +9869,7 @@ evhttp_handle_chunked_read.exit.thread70:         ; preds = %21, %10, %evhttp_ha
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %107 = load i64, ptr %106, align 8
-  %108 = tail call i64 @evbuffer_get_length(ptr noundef %6) #18
+  %108 = tail call i64 @evbuffer_get_length(ptr noundef %6) #19
   %109 = add i64 %108, %107
   %110 = load i64, ptr %106, align 8
   %111 = icmp ult i64 %109, %110
@@ -9880,13 +9880,13 @@ evhttp_handle_chunked_read.exit.thread70:         ; preds = %21, %10, %evhttp_ha
   br label %evhttp_read_trailer.exit
 
 113:                                              ; preds = %105
-  %114 = tail call i64 @evbuffer_get_length(ptr noundef %6) #18
+  %114 = tail call i64 @evbuffer_get_length(ptr noundef %6) #19
   %115 = load i64, ptr %106, align 8
   %116 = add i64 %115, %114
   store i64 %116, ptr %106, align 8
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %118 = load ptr, ptr %117, align 8
-  %119 = tail call i32 @evbuffer_add_buffer(ptr noundef %118, ptr noundef %6) #18
+  %119 = tail call i32 @evbuffer_add_buffer(ptr noundef %118, ptr noundef %6) #19
   br label %evhttp_handle_chunked_read.exit.thread
 
 120:                                              ; preds = %101
@@ -9896,13 +9896,13 @@ evhttp_handle_chunked_read.exit.thread70:         ; preds = %21, %10, %evhttp_ha
   br i1 %.not58, label %123, label %126
 
 123:                                              ; preds = %120
-  %124 = tail call i64 @evbuffer_get_length(ptr noundef %6) #18
+  %124 = tail call i64 @evbuffer_get_length(ptr noundef %6) #19
   %125 = load i64, ptr %102, align 8
   %.not59 = icmp ult i64 %124, %125
   br i1 %.not59, label %evhttp_handle_chunked_read.exit.thread, label %126
 
 126:                                              ; preds = %123, %120
-  %127 = tail call i64 @evbuffer_get_length(ptr noundef %6) #18
+  %127 = tail call i64 @evbuffer_get_length(ptr noundef %6) #19
   %128 = load i64, ptr %102, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %127, i64 %128)
   %129 = sub i64 %128, %spec.select
@@ -9913,7 +9913,7 @@ evhttp_handle_chunked_read.exit.thread70:         ; preds = %21, %10, %evhttp_ha
   store i64 %132, ptr %130, align 8
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call i32 @evbuffer_remove_buffer(ptr noundef %6, ptr noundef %134, i64 noundef %spec.select) #18
+  %135 = tail call i32 @evbuffer_remove_buffer(ptr noundef %6, ptr noundef %134, i64 noundef %spec.select) #19
   br label %evhttp_handle_chunked_read.exit.thread
 
 evhttp_handle_chunked_read.exit.thread:           ; preds = %70, %.backedge.i, %.preheader.i, %evhttp_handle_chunked_read.exit.thread80, %113, %126, %123
@@ -9949,8 +9949,8 @@ evhttp_handle_chunked_read.exit.thread:           ; preds = %70, %.backedge.i, %
 
 155:                                              ; preds = %151
   %156 = load ptr, ptr %4, align 8
-  %157 = call ptr @bufferevent_get_input(ptr noundef %156) #18
-  %158 = call i64 @evbuffer_get_length(ptr noundef %157) #18
+  %157 = call ptr @bufferevent_get_input(ptr noundef %156) #19
+  %158 = call i64 @evbuffer_get_length(ptr noundef %157) #19
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %160 = load i64, ptr %159, align 8
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %158, i64 %160)
@@ -9964,11 +9964,11 @@ evhttp_handle_chunked_read.exit.thread:           ; preds = %70, %.backedge.i, %
   br i1 %.not.i.i, label %166, label %165
 
 165:                                              ; preds = %155
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.91, i64 noundef %161) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.91, i64 noundef %161) #19
   br label %166
 
 166:                                              ; preds = %165, %155
-  %167 = call i32 @evbuffer_drain(ptr noundef %157, i64 noundef %spec.select.i.i) #18
+  %167 = call i32 @evbuffer_drain(ptr noundef %157, i64 noundef %spec.select.i.i) #19
   %168 = load i64, ptr %159, align 8
   %.not15.i.i = icmp eq i64 %168, 0
   br i1 %.not15.i.i, label %evhttp_lingering_close.exit.sink.split.i, label %evhttp_read_trailer.exit
@@ -9980,7 +9980,7 @@ evhttp_lingering_close.exit.sink.split.i:         ; preds = %166, %151
 169:                                              ; preds = %146, %143
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %171 = load ptr, ptr %170, align 8
-  %172 = call i64 @evbuffer_get_length(ptr noundef %171) #18
+  %172 = call i64 @evbuffer_get_length(ptr noundef %171) #19
   %.not61 = icmp eq i64 %172, 0
   br i1 %.not61, label %192, label %173
 
@@ -9997,13 +9997,13 @@ evhttp_lingering_close.exit.sink.split.i:         ; preds = %166, %151
   store i32 %179, ptr %177, align 8
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %181 = load ptr, ptr %180, align 8
-  call void %175(ptr noundef nonnull %1, ptr noundef %181) #18
+  call void %175(ptr noundef nonnull %1, ptr noundef %181) #19
   %182 = load i32, ptr %177, align 8
   %183 = and i32 %182, -9
   store i32 %183, ptr %177, align 8
   %184 = load ptr, ptr %170, align 8
-  %185 = call i64 @evbuffer_get_length(ptr noundef %184) #18
-  %186 = call i32 @evbuffer_drain(ptr noundef %184, i64 noundef %185) #18
+  %185 = call i64 @evbuffer_get_length(ptr noundef %184) #19
+  %186 = call i32 @evbuffer_drain(ptr noundef %184, i64 noundef %185) #19
   %187 = load i32, ptr %177, align 8
   %188 = and i32 %187, 16
   %.not63 = icmp eq i32 %188, 0
@@ -10026,7 +10026,7 @@ evhttp_lingering_close.exit.sink.split.i:         ; preds = %166, %151
 
 195:                                              ; preds = %192
   %196 = load ptr, ptr %4, align 8
-  %197 = call i32 @bufferevent_disable(ptr noundef %196, i16 noundef signext 2) #18
+  %197 = call i32 @bufferevent_disable(ptr noundef %196, i16 noundef signext 2) #19
   call fastcc void @evhttp_connection_done(ptr noundef %0)
   br label %evhttp_read_trailer.exit
 
@@ -10078,7 +10078,7 @@ define internal fastcc void @evhttp_get_body(ptr noundef %0, ptr noundef %1) unn
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.16) #18
+  %23 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.16) #19
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %evhttp_find_header.exit, label %19, !llvm.loop !7
 
@@ -10089,7 +10089,7 @@ evhttp_find_header.exit:                          ; preds = %20
   br i1 %.not30, label %evhttp_find_header.exit.thread, label %27
 
 27:                                               ; preds = %evhttp_find_header.exit
-  %28 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.17) #18
+  %28 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.17) #19
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %90, label %evhttp_find_header.exit.thread
 
@@ -10106,7 +10106,7 @@ evhttp_find_header.exit.thread:                   ; preds = %19, %27, %evhttp_fi
 32:                                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %34, ptr noundef nonnull @.str.15) #18
+  %35 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %34, ptr noundef nonnull @.str.15) #19
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %31, !llvm.loop !7
 
@@ -10128,7 +10128,7 @@ evhttp_find_header.exit.i:                        ; preds = %31, %37
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %.0.i31.i, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %43, ptr noundef nonnull @.str.25) #18
+  %44 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %43, ptr noundef nonnull @.str.25) #19
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %40, !llvm.loop !7
 
@@ -10153,7 +10153,7 @@ evhttp_find_header.exit34.i:                      ; preds = %40, %46
   br i1 %49, label %54, label %.critedge.i
 
 54:                                               ; preds = %53
-  %55 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %.07.i33.i, ptr noundef nonnull @.str.86) #18
+  %55 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %.07.i33.i, ptr noundef nonnull @.str.86) #19
   %.not.i32 = icmp eq i32 %55, 0
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br i1 %.not.i32, label %58, label %57
@@ -10168,7 +10168,7 @@ evhttp_find_header.exit34.i:                      ; preds = %40, %46
 
 .critedge.i:                                      ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %59 = call i64 @evutil_strtoll(ptr noundef nonnull %.07.i.i, ptr noundef nonnull %3, i32 noundef 10) #18
+  %59 = call i64 @evutil_strtoll(ptr noundef nonnull %.07.i.i, ptr noundef nonnull %3, i32 noundef 10) #19
   %60 = load i8, ptr %.07.i.i, align 1
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %67, label %62
@@ -10187,7 +10187,7 @@ evhttp_find_header.exit34.i:                      ; preds = %40, %46
   br i1 %.not26.i, label %81, label %69
 
 69:                                               ; preds = %67
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.87, ptr noundef nonnull @__func__.evhttp_get_body_length, ptr noundef nonnull %.07.i.i) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.87, ptr noundef nonnull @__func__.evhttp_get_body_length, ptr noundef nonnull %.07.i.i) #19
   br label %81
 
 .critedge29.i:                                    ; preds = %62
@@ -10207,9 +10207,9 @@ evhttp_find_header.exit34.i:                      ; preds = %40, %46
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = call ptr @bufferevent_get_input(ptr noundef %78) #18
-  %80 = call i64 @evbuffer_get_length(ptr noundef %79) #18
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.88, ptr noundef nonnull @__func__.evhttp_get_body_length, i64 noundef %72, i64 noundef %80) #18
+  %79 = call ptr @bufferevent_get_input(ptr noundef %78) #19
+  %80 = call i64 @evbuffer_get_length(ptr noundef %79) #19
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.88, ptr noundef nonnull @__func__.evhttp_get_body_length, i64 noundef %72, i64 noundef %80) #19
   br label %82
 
 81:                                               ; preds = %69, %67
@@ -10272,7 +10272,7 @@ evhttp_find_header.exit34.i:                      ; preds = %40, %46
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %.0.i.i35, i64 16
   %109 = load ptr, ptr %108, align 8
-  %110 = call i32 @evutil_ascii_strcasecmp(ptr noundef %109, ptr noundef nonnull @.str.89) #18
+  %110 = call i32 @evutil_ascii_strcasecmp(ptr noundef %109, ptr noundef nonnull @.str.89) #19
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %evhttp_find_header.exit.i37, label %106, !llvm.loop !7
 
@@ -10283,7 +10283,7 @@ evhttp_find_header.exit.i37:                      ; preds = %107
   br i1 %.not12.i, label %evhttp_have_expect.exit.thread, label %114
 
 114:                                              ; preds = %evhttp_find_header.exit.i37
-  %115 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %113, ptr noundef nonnull @.str.90) #18
+  %115 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %113, ptr noundef nonnull @.str.90) #19
   %.not13.i = icmp eq i32 %115, 0
   br i1 %.not13.i, label %116, label %evhttp_have_expect.exit
 
@@ -10313,8 +10313,8 @@ evhttp_find_header.exit.i37:                      ; preds = %107
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load ptr, ptr %132, align 8
-  %134 = call ptr @bufferevent_get_input(ptr noundef %133) #18
-  %135 = call i64 @evbuffer_get_length(ptr noundef %134) #18
+  %134 = call ptr @bufferevent_get_input(ptr noundef %133) #19
+  %135 = call i64 @evbuffer_get_length(ptr noundef %134) #19
   %136 = load i64, ptr %117, align 8
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %135, i64 %136)
   %137 = sub i64 %136, %spec.select.i.i
@@ -10328,11 +10328,11 @@ evhttp_find_header.exit.i37:                      ; preds = %107
   br i1 %.not.i.i39, label %143, label %142
 
 142:                                              ; preds = %131
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.91, i64 noundef %137) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.91, i64 noundef %137) #19
   br label %143
 
 143:                                              ; preds = %142, %131
-  %144 = call i32 @evbuffer_drain(ptr noundef %134, i64 noundef %spec.select.i.i) #18
+  %144 = call i32 @evbuffer_drain(ptr noundef %134, i64 noundef %spec.select.i.i) #19
   %145 = load i64, ptr %117, align 8
   %.not15.i.i = icmp eq i64 %145, 0
   br i1 %.not15.i.i, label %evhttp_lingering_close.exit.sink.split.i, label %evhttp_lingering_fail.exit
@@ -10344,28 +10344,28 @@ evhttp_lingering_close.exit.sink.split.i:         ; preds = %143, %127
 146:                                              ; preds = %120, %116
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %148 = load ptr, ptr %147, align 8
-  %149 = call ptr @bufferevent_get_input(ptr noundef %148) #18
-  %150 = call i64 @evbuffer_get_length(ptr noundef %149) #18
+  %149 = call ptr @bufferevent_get_input(ptr noundef %148) #19
+  %150 = call i64 @evbuffer_get_length(ptr noundef %149) #19
   %.not31 = icmp eq i64 %150, 0
   br i1 %.not31, label %151, label %evhttp_have_expect.exit.thread
 
 151:                                              ; preds = %146
   %152 = load ptr, ptr %147, align 8
-  %153 = call i32 @bufferevent_enable(ptr noundef %152, i16 noundef signext 4) #18
+  %153 = call i32 @bufferevent_enable(ptr noundef %152, i16 noundef signext 4) #19
   %154 = load ptr, ptr %147, align 8
-  %155 = call ptr @bufferevent_get_output(ptr noundef %154) #18
+  %155 = call ptr @bufferevent_get_output(ptr noundef %154) #19
   %156 = load i8, ptr %97, align 8
   %157 = sext i8 %156 to i32
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 113
   %159 = load i8, ptr %158, align 1
   %160 = sext i8 %159 to i32
-  %161 = call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %155, ptr noundef nonnull @.str.92, i32 noundef %157, i32 noundef %160) #18
+  %161 = call i32 (ptr, ptr, ...) @evbuffer_add_printf(ptr noundef %155, ptr noundef nonnull @.str.92, i32 noundef %157, i32 noundef %160) #19
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr @evhttp_send_continue_done, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr null, ptr %163, align 8
   %164 = load ptr, ptr %147, align 8
-  call void @bufferevent_setcb(ptr noundef %164, ptr noundef nonnull @evhttp_read_cb, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %0) #18
+  call void @bufferevent_setcb(ptr noundef %164, ptr noundef nonnull @evhttp_read_cb, ptr noundef nonnull @evhttp_write_cb, ptr noundef nonnull @evhttp_error_cb, ptr noundef nonnull %0) #19
   br label %evhttp_have_expect.exit.thread
 
 evhttp_have_expect.exit:                          ; preds = %114
@@ -10448,7 +10448,7 @@ define internal fastcc void @evhttp_connection_done(ptr noundef initializes((280
   store i32 %29, ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @bufferevent_enable(ptr noundef %31, i16 noundef signext 2) #18
+  %32 = tail call i32 @bufferevent_enable(ptr noundef %31, i16 noundef signext 2) #19
   br label %41
 
 33:                                               ; preds = %.thread
@@ -10464,7 +10464,7 @@ evhttp_request_free_auto.exit.thread:             ; preds = %1
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %40 = load ptr, ptr %39, align 8
-  tail call void %38(ptr noundef %3, ptr noundef %40) #18
+  tail call void %38(ptr noundef %3, ptr noundef %40) #19
   br label %54
 
 41:                                               ; preds = %33, %.thread45, %25, %27
@@ -10473,7 +10473,7 @@ evhttp_request_free_auto.exit.thread:             ; preds = %1
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %45 = load ptr, ptr %44, align 8
-  tail call void %43(ptr noundef nonnull %3, ptr noundef %45) #18
+  tail call void %43(ptr noundef nonnull %3, ptr noundef %45) #19
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 4
@@ -10527,7 +10527,7 @@ define internal fastcc ptr @evhttp_method_(ptr noundef readonly captures(none) %
   br i1 %.not, label %27, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 %13(ptr noundef nonnull %4) #18
+  %15 = call i32 %13(ptr noundef nonnull %4) #19
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %27
 
@@ -10542,7 +10542,7 @@ define internal fastcc ptr @evhttp_method_(ptr noundef readonly captures(none) %
   br i1 %.not25, label %32, label %21
 
 21:                                               ; preds = %19
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.84, ptr noundef nonnull @__func__.evhttp_method_, i32 noundef %1, i32 noundef %18) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.84, ptr noundef nonnull @__func__.evhttp_method_, i32 noundef %1, i32 noundef %18) #19
   br label %32
 
 22:                                               ; preds = %17
@@ -10568,7 +10568,7 @@ switch.lookup:                                    ; preds = %.split
 
 29:                                               ; preds = %27
   %30 = zext i16 %.0 to i32
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__.evhttp_method_, i32 noundef %1, ptr noundef %.017, i32 noundef %30) #18
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__.evhttp_method_, i32 noundef %1, ptr noundef %.017, i32 noundef %30) #19
   br label %31
 
 31:                                               ; preds = %27, %29
@@ -10587,7 +10587,7 @@ declare i64 @evutil_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 define internal void @evhttp_send_continue_done(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @bufferevent_disable(ptr noundef %4, i16 noundef signext 4) #18
+  %5 = tail call i32 @bufferevent_disable(ptr noundef %4, i16 noundef signext 4) #19
   ret void
 }
 
@@ -10612,7 +10612,7 @@ define internal fastcc range(i32 0, 2) i32 @evhttp_is_request_connection_close(p
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %11, ptr noundef nonnull @.str.25) #18
+  %12 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %11, ptr noundef nonnull @.str.25) #19
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %evhttp_find_header.exit.i, label %8, !llvm.loop !7
 
@@ -10623,7 +10623,7 @@ evhttp_find_header.exit.i:                        ; preds = %9
   br i1 %.not.i, label %evhttp_is_connection_close.exit.thread, label %evhttp_is_connection_close.exit
 
 evhttp_is_connection_close.exit:                  ; preds = %evhttp_find_header.exit.i
-  %16 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.26) #18
+  %16 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.26) #19
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %evhttp_is_connection_close.exit10, label %evhttp_is_connection_close.exit.thread
 
@@ -10641,7 +10641,7 @@ evhttp_is_connection_close.exit.thread:           ; preds = %8, %evhttp_find_hea
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.25) #18
+  %23 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.25) #19
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %evhttp_find_header.exit.i8, label %19, !llvm.loop !7
 
@@ -10652,7 +10652,7 @@ evhttp_find_header.exit.i8:                       ; preds = %20
   br i1 %.not.i9, label %evhttp_is_connection_close.exit10, label %27
 
 27:                                               ; preds = %evhttp_find_header.exit.i8
-  %28 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.26) #18
+  %28 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.26) #19
   %29 = icmp eq i32 %28, 0
   %30 = zext i1 %29 to i32
   br label %evhttp_is_connection_close.exit10
@@ -10692,14 +10692,14 @@ define internal fastcc range(i32 -1, 1) i32 @evhttp_associate_new_request_with_c
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %8) #18
+  %10 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %8) #19
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
-  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_associate_new_request_with_connection) #18
+  tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_associate_new_request_with_connection) #19
   tail call void @evhttp_request_free(ptr noundef nonnull %4)
   br label %38
 
@@ -10728,7 +10728,7 @@ define internal fastcc range(i32 -1, 1) i32 @evhttp_associate_new_request_with_c
 28:                                               ; preds = %14
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 %27(ptr noundef nonnull %4, ptr noundef %30) #18
+  %31 = tail call i32 %27(ptr noundef nonnull %4, ptr noundef %30) #19
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %33, label %34
 
@@ -10766,7 +10766,7 @@ define internal void @evhttp_handle_request(ptr noundef %0, ptr noundef %1) #0 {
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @bufferevent_disable(ptr noundef %11, i16 noundef signext 2) #18
+  %12 = tail call i32 @bufferevent_disable(ptr noundef %11, i16 noundef signext 2) #19
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -10793,7 +10793,7 @@ define internal void @evhttp_handle_request(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not22, label %29, label %28
 
 28:                                               ; preds = %26
-  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.103, i32 noundef %23, i32 noundef %21) #18
+  tail call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.103, i32 noundef %23, i32 noundef %21) #19
   br label %29
 
 29:                                               ; preds = %28, %26
@@ -10844,9 +10844,9 @@ evhttp_find_vhost.exit:                           ; preds = %40, %.evhttp_find_v
   %.val = load ptr, ptr %43, align 8
   %44 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %44, align 8
-  %45 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val.val) #17
+  %45 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val.val) #18
   %46 = add i64 %45, 1
-  %47 = tail call ptr @event_mm_malloc_(i64 noundef %46) #18
+  %47 = tail call ptr @event_mm_malloc_(i64 noundef %46) #19
   %48 = icmp eq ptr %47, null
   br i1 %48, label %evhttp_dispatch_callback.exit.thread, label %49
 
@@ -10881,14 +10881,14 @@ evhttp_find_vhost.exit:                           ; preds = %40, %.evhttp_find_v
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %.val.val, i64 %63
   %65 = load i8, ptr %64, align 1
-  %66 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %65) #18
+  %66 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %65) #19
   %.not.i.i = icmp eq i32 %66, 0
   br i1 %.not.i.i, label %76, label %67
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %.val.val, i64 %58
   %69 = load i8, ptr %68, align 1
-  %70 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %69) #18
+  %70 = tail call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %69) #19
   %.not39.i.i = icmp eq i32 %70, 0
   br i1 %.not39.i.i, label %76, label %71
 
@@ -10899,7 +10899,7 @@ evhttp_find_vhost.exit:                           ; preds = %40, %.evhttp_find_v
   %73 = load i8, ptr %68, align 1
   store i8 %73, ptr %50, align 1
   store i8 0, ptr %51, align 1
-  %74 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 16) #18
+  %74 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 16) #19
   %75 = trunc i64 %74 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %76
@@ -10932,23 +10932,23 @@ evhttp_decode_uri_internal.exit.i:                ; preds = %._crit_edge.loopexi
   br i1 %.not.i23, label %evhttp_dispatch_callback.exit.thread30, label %84
 
 evhttp_dispatch_callback.exit.thread30:           ; preds = %83
-  tail call void @event_mm_free_(ptr noundef nonnull %47) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %47) #19
   br label %evhttp_dispatch_callback.exit.thread
 
 84:                                               ; preds = %83
   %85 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %47) #17
+  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %47) #18
   %.not16.i = icmp eq i32 %87, 0
   br i1 %.not16.i, label %88, label %83, !llvm.loop !46
 
 88:                                               ; preds = %84
-  tail call void @event_mm_free_(ptr noundef nonnull %47) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %47) #19
   %89 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
   %92 = load ptr, ptr %91, align 8
-  tail call void %90(ptr noundef nonnull %0, ptr noundef %92) #18
+  tail call void %90(ptr noundef nonnull %0, ptr noundef %92) #19
   br label %evhttp_send_notfound.exit
 
 evhttp_dispatch_callback.exit.thread:             ; preds = %evhttp_find_vhost.exit, %evhttp_dispatch_callback.exit.thread30
@@ -10960,7 +10960,7 @@ evhttp_dispatch_callback.exit.thread:             ; preds = %evhttp_find_vhost.e
 95:                                               ; preds = %evhttp_dispatch_callback.exit.thread
   %96 = getelementptr inbounds nuw i8, ptr %41, i64 208
   %97 = load ptr, ptr %96, align 8
-  tail call void %94(ptr noundef nonnull %0, ptr noundef %97) #18
+  tail call void %94(ptr noundef nonnull %0, ptr noundef %97) #19
   br label %evhttp_send_notfound.exit
 
 98:                                               ; preds = %evhttp_dispatch_callback.exit.thread
@@ -10974,16 +10974,16 @@ evhttp_dispatch_callback.exit.thread:             ; preds = %evhttp_find_vhost.e
   br i1 %.not21.i26, label %.thread.i, label %102
 
 102:                                              ; preds = %100
-  %103 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #17
+  %103 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #18
   %104 = add i64 %103, 58
-  %105 = tail call ptr @event_mm_malloc_(i64 noundef %104) #18
+  %105 = tail call ptr @event_mm_malloc_(i64 noundef %104) #19
   %.not22.i27 = icmp eq ptr %105, null
   br i1 %.not22.i27, label %108, label %106
 
 106:                                              ; preds = %102
-  %107 = tail call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %105, i64 noundef %104, ptr noundef nonnull @.str.104, ptr noundef nonnull %101) #18
+  %107 = tail call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %105, i64 noundef %104, ptr noundef nonnull @.str.104, ptr noundef nonnull %101) #19
   tail call void @evhttp_send_error(ptr noundef nonnull %0, i32 noundef 404, ptr noundef nonnull %105)
-  tail call void @event_mm_free_(ptr noundef nonnull %105) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %105) #19
   br label %109
 
 108:                                              ; preds = %102
@@ -10995,7 +10995,7 @@ evhttp_dispatch_callback.exit.thread:             ; preds = %evhttp_find_vhost.e
   br label %evhttp_send_notfound.exit
 
 109:                                              ; preds = %108, %106
-  tail call void @event_mm_free_(ptr noundef nonnull %101) #18
+  tail call void @event_mm_free_(ptr noundef nonnull %101) #19
   br label %evhttp_send_notfound.exit
 
 evhttp_send_notfound.exit:                        ; preds = %109, %.thread.i, %95, %88, %29, %16
@@ -11017,7 +11017,7 @@ define internal fastcc range(i32 0, 2) i32 @evhttp_find_alias(ptr noundef %0, pt
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %8, ptr noundef nonnull %2) #18
+  %9 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %8, ptr noundef nonnull %2) #19
   %.not19 = icmp eq i32 %9, 0
   br i1 %.not19, label %10, label %5, !llvm.loop !47
 
@@ -11086,9 +11086,9 @@ define internal fastcc range(i32 0, 2) i32 @prefix_suffix_match(ptr noundef read
   br i1 %.not16, label %19, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call signext i8 @EVUTIL_TOLOWER_(i8 noundef signext %5) #18
+  %16 = tail call signext i8 @EVUTIL_TOLOWER_(i8 noundef signext %5) #19
   %17 = load i8, ptr %.014, align 1
-  %18 = tail call signext i8 @EVUTIL_TOLOWER_(i8 noundef signext %17) #18
+  %18 = tail call signext i8 @EVUTIL_TOLOWER_(i8 noundef signext %17) #19
   %.not17 = icmp eq i8 %16, %18
   br i1 %.not17, label %19, label %.loopexit
 
@@ -11146,22 +11146,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11180,11 +11180,12 @@ attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-bu
 attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(none) }
-attributes #20 = { noreturn nounwind }
+attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

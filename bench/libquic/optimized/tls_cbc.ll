@@ -214,7 +214,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @EVP_tls_cbc_record_digest_supported(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = tail call i32 @EVP_MD_type(ptr noundef %0) #9
+  %2 = tail call i32 @EVP_MD_type(ptr noundef %0) #10
   switch i32 %2, label %3 [
     i32 64, label %4
     i32 672, label %4
@@ -248,7 +248,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %18 = tail call i32 @EVP_MD_type(ptr noundef %0) #9
+  %18 = tail call i32 @EVP_MD_type(ptr noundef %0) #10
   switch i32 %18, label %25 [
     i32 64, label %19
     i32 672, label %21
@@ -256,15 +256,15 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   ]
 
 19:                                               ; preds = %9
-  %20 = call i32 @SHA1_Init(ptr noundef nonnull %10) #9
+  %20 = call i32 @SHA1_Init(ptr noundef nonnull %10) #10
   br label %26
 
 21:                                               ; preds = %9
-  %22 = call i32 @SHA256_Init(ptr noundef nonnull %10) #9
+  %22 = call i32 @SHA256_Init(ptr noundef nonnull %10) #10
   br label %26
 
 23:                                               ; preds = %9
-  %24 = call i32 @SHA384_Init(ptr noundef nonnull %10) #9
+  %24 = call i32 @SHA384_Init(ptr noundef nonnull %10) #10
   br label %26
 
 25:                                               ; preds = %9
@@ -317,7 +317,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %.0124 = call i32 @llvm.usub.sat.i32(i32 %41, i32 6)
   %53 = add i32 %45, %.0123
   %54 = shl i32 %53, 3
-  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %12) #9, !callees !18
+  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %12) #10, !callees !18
   %55 = add nsw i32 %.0118, -4
   %56 = zext nneg i32 %55 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %11, i8 0, i64 %56, i1 false)
@@ -347,7 +347,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %72 = add nsw i32 %.0123, -13
   %73 = zext nneg i32 %72 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %73, i1 false)
-  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %13) #9, !callees !18
+  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %13) #10, !callees !18
   %74 = lshr i32 %.0125, %40
   %75 = icmp samesign ugt i32 %74, 1
   br i1 %75, label %.lr.ph.preheader, label %.loopexit
@@ -363,7 +363,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 %78
   %80 = getelementptr inbounds i8, ptr %79, i64 -13
-  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %80) #9, !callees !18
+  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %80) #10, !callees !18
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
@@ -452,8 +452,8 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   br i1 %exitcond152.not, label %131, label %99, !llvm.loop !20
 
 131:                                              ; preds = %129
-  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %17) #9, !callees !18
-  call void %.0114(ptr noundef nonnull %10, ptr noundef nonnull %17) #9, !callees !21
+  call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %17) #10, !callees !18
+  call void %.0114(ptr noundef nonnull %10, ptr noundef nonnull %17) #10, !callees !21
   br label %132
 
 132:                                              ; preds = %131, %132
@@ -476,13 +476,13 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   br i1 %.not130.not, label %85, label %141, !llvm.loop !23
 
 141:                                              ; preds = %139
-  call void @EVP_MD_CTX_init(ptr noundef nonnull %16) #9
-  %142 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %16, ptr noundef %0, ptr noundef null) #9
+  call void @EVP_MD_CTX_init(ptr noundef nonnull %16) #10
+  %142 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %16, ptr noundef %0, ptr noundef null) #10
   %.not131 = icmp eq i32 %142, 0
   br i1 %.not131, label %143, label %.preheader
 
 143:                                              ; preds = %141
-  %144 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %16) #9
+  %144 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %16) #10
   br label %155
 
 .preheader:                                       ; preds = %141, %.preheader
@@ -496,13 +496,13 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   br i1 %exitcond162.not, label %148, label %.preheader, !llvm.loop !24
 
 148:                                              ; preds = %.preheader
-  %149 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %12, i64 noundef %27) #9
-  %150 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %14, i64 noundef %42) #9
-  %151 = call i32 @EVP_DigestFinal(ptr noundef nonnull %16, ptr noundef %1, ptr noundef nonnull %15) #9
+  %149 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %12, i64 noundef %27) #10
+  %150 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %14, i64 noundef %42) #10
+  %151 = call i32 @EVP_DigestFinal(ptr noundef nonnull %16, ptr noundef %1, ptr noundef nonnull %15) #10
   %152 = load i32, ptr %15, align 4, !tbaa !11
   %153 = zext i32 %152 to i64
   store i64 %153, ptr %2, align 8, !tbaa !15
-  %154 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %16) #9
+  %154 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %16) #10
   br label %155
 
 155:                                              ; preds = %148, %143, %25
@@ -741,16 +741,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -761,8 +761,9 @@ attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

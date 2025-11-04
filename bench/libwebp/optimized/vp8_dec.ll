@@ -72,7 +72,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @VP8New() local_unnamed_addr #3 {
-  %1 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 3024) #13
+  %1 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 3024) #14
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %InitGetCoeffs.exit, label %2
 
@@ -80,15 +80,15 @@ define hidden ptr @VP8New() local_unnamed_addr #3 {
   store i32 0, ptr %1, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.1, ptr %3, align 8, !tbaa !23
-  %4 = tail call ptr @WebPGetWorkerInterface() #13
+  %4 = tail call ptr @WebPGetWorkerInterface() #14
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  tail call void %5(ptr noundef nonnull %6) #13
+  tail call void %5(ptr noundef nonnull %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %7, align 4, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 432
   store i32 0, ptr %8, align 8, !tbaa !27
-  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @InitGetCoeffs.InitGetCoeffs_body_lock) #13
+  %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @InitGetCoeffs.InitGetCoeffs_body_lock) #14
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %InitGetCoeffs.exit
 
@@ -103,7 +103,7 @@ define hidden ptr @VP8New() local_unnamed_addr #3 {
   br i1 %.not.i.i, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call i32 %12(i32 noundef 2) #13
+  %15 = tail call i32 %12(i32 noundef 2) #14
   %.not1.i.i = icmp eq i32 %15, 0
   br i1 %.not1.i.i, label %16, label %InitGetCoeffs_body.exit.i
 
@@ -119,7 +119,7 @@ InitGetCoeffs_body.exit.i:                        ; preds = %16, %14
 17:                                               ; preds = %InitGetCoeffs_body.exit.i, %10
   %18 = phi ptr [ %.pre.i, %InitGetCoeffs_body.exit.i ], [ %12, %10 ]
   store volatile ptr %18, ptr @InitGetCoeffs.InitGetCoeffs_body_last_cpuinfo_used, align 8, !tbaa !28
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @InitGetCoeffs.InitGetCoeffs_body_lock) #13
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @InitGetCoeffs.InitGetCoeffs_body_lock) #14
   br label %InitGetCoeffs.exit
 
 InitGetCoeffs.exit:                               ; preds = %17, %2, %0
@@ -167,21 +167,21 @@ define hidden void @VP8Delete(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not, label %10, label %VP8Clear.exit
 
 VP8Clear.exit:                                    ; preds = %1
-  %2 = tail call ptr @WebPGetWorkerInterface() #13
+  %2 = tail call ptr @WebPGetWorkerInterface() #14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  tail call void %4(ptr noundef nonnull %5) #13
-  tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #13
+  tail call void %4(ptr noundef nonnull %5) #14
+  tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %7 = load ptr, ptr %6, align 8, !tbaa !30
-  tail call void @WebPSafeFree(ptr noundef %7) #13
+  tail call void @WebPSafeFree(ptr noundef %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %9, align 4, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  tail call void @WebPSafeFree(ptr noundef nonnull %0) #13
+  tail call void @WebPSafeFree(ptr noundef nonnull %0) #14
   br label %10
 
 10:                                               ; preds = %VP8Clear.exit, %1
@@ -194,15 +194,15 @@ define hidden void @VP8Clear(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @WebPGetWorkerInterface() #13
+  %4 = tail call ptr @WebPGetWorkerInterface() #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  tail call void %6(ptr noundef nonnull %7) #13
-  tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #13
+  tail call void %6(ptr noundef nonnull %7) #14
+  tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %9 = load ptr, ptr %8, align 8, !tbaa !30
-  tail call void @WebPSafeFree(ptr noundef %9) #13
+  tail call void @WebPSafeFree(ptr noundef %9) #14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -522,7 +522,7 @@ VP8SetError.exit130:                              ; preds = %40, %43, %VP8CheckS
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %79, ptr %93, align 8, !tbaa !56
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  tail call void @VP8ResetProba(ptr noundef nonnull %94) #13
+  tail call void @VP8ResetProba(ptr noundef nonnull %94) #14
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 0, ptr %95, align 4, !tbaa !57
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -556,7 +556,7 @@ VP8SetError.exit130:                              ; preds = %40, %43, %VP8CheckS
 
 108:                                              ; preds = %100
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @VP8InitBitReader(ptr noundef nonnull %109, ptr noundef nonnull %.1110, i64 noundef %102) #13
+  tail call void @VP8InitBitReader(ptr noundef nonnull %109, ptr noundef nonnull %.1110, i64 noundef %102) #14
   %110 = load i32, ptr %31, align 4, !tbaa !38
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw i8, ptr %.1110, i64 %111
@@ -566,11 +566,11 @@ VP8SetError.exit130:                              ; preds = %40, %43, %VP8CheckS
   br i1 %.not121, label %122, label %115
 
 115:                                              ; preds = %108
-  %116 = tail call i32 @VP8GetValue(ptr noundef nonnull %109, i32 noundef 1) #13
+  %116 = tail call i32 @VP8GetValue(ptr noundef nonnull %109, i32 noundef 1) #14
   %117 = trunc i32 %116 to i8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i8 %117, ptr %118, align 2, !tbaa !60
-  %119 = tail call i32 @VP8GetValue(ptr noundef nonnull %109, i32 noundef 1) #13
+  %119 = tail call i32 @VP8GetValue(ptr noundef nonnull %109, i32 noundef 1) #14
   %120 = trunc i32 %119 to i8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 %120, ptr %121, align 1, !tbaa !61
@@ -624,7 +624,7 @@ VP8SetError.exit130:                              ; preds = %40, %43, %VP8CheckS
   br label %.critedge.sink.split
 
 142:                                              ; preds = %136
-  tail call void @VP8ParseQuant(ptr noundef nonnull %0) #13
+  tail call void @VP8ParseQuant(ptr noundef nonnull %0) #14
   %143 = load i8, ptr %21, align 4, !tbaa !35
   %.not125 = icmp eq i8 %143, 0
   br i1 %.not125, label %144, label %148
@@ -640,8 +640,8 @@ VP8SetError.exit130:                              ; preds = %40, %43, %VP8CheckS
   br label %.critedge.sink.split
 
 148:                                              ; preds = %142
-  %149 = tail call i32 @VP8GetValue(ptr noundef nonnull %109, i32 noundef 1) #13
-  tail call void @VP8ParseProba(ptr noundef nonnull %109, ptr noundef nonnull %0) #13
+  %149 = tail call i32 @VP8GetValue(ptr noundef nonnull %109, i32 noundef 1) #14
+  tail call void @VP8ParseProba(ptr noundef nonnull %109, ptr noundef nonnull %0) #14
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %VP8SetError.exit, %VP8SetError.exit126, %VP8SetError.exit129, %VP8SetError.exit130, %148, %VP8SetError.exit128, %VP8SetError.exit127, %107, %129, %135, %141, %147
@@ -663,21 +663,21 @@ declare i32 @VP8GetValue(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnull %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #3 {
-  %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   store i32 %4, ptr %1, align 4, !tbaa !57
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %38, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %6 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %6, ptr %7, align 4, !tbaa !58
-  %8 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %8 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %.not29 = icmp eq i32 %8, 0
   br i1 %.not29, label %.loopexit36, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %10 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %10, ptr %11, align 4, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -689,12 +689,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 14:                                               ; preds = %9, %19
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %19 ]
-  %15 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %15 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %.not34 = icmp eq i32 %15, 0
   br i1 %.not34, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 7) #13
+  %17 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 7) #14
   %18 = trunc i32 %17 to i8
   br label %19
 
@@ -708,12 +708,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 22:                                               ; preds = %.preheader35, %27
   %indvars.iv41 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next42, %27 ]
-  %23 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %23 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %.not33 = icmp eq i32 %23, 0
   br i1 %.not33, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
+  %25 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #14
   %26 = trunc i32 %25 to i8
   br label %27
 
@@ -732,12 +732,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 .preheader:                                       ; preds = %.loopexit36, %35
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %35 ], [ 0, %.loopexit36 ]
-  %31 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %31 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %.not32 = icmp eq i32 %31, 0
   br i1 %.not32, label %35, label %32
 
 32:                                               ; preds = %.preheader
-  %33 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #13
+  %33 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #14
   %34 = trunc i32 %33 to i8
   br label %35
 
@@ -765,22 +765,22 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnull %0, ptr noundef nonnull captures(none) initializes((84, 100)) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   store i32 %4, ptr %3, align 4, !tbaa !67
-  %5 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 6) #13
+  %5 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 6) #14
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 %5, ptr %6, align 4, !tbaa !68
-  %7 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 3) #13
+  %7 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 3) #14
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store i32 %7, ptr %8, align 4, !tbaa !69
-  %9 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %9 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 %9, ptr %10, align 4, !tbaa !70
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %12 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %.not26 = icmp eq i32 %12, 0
   br i1 %.not26, label %.loopexit, label %.preheader31
 
@@ -794,12 +794,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 15:                                               ; preds = %.preheader31, %20
   %indvars.iv = phi i64 [ 0, %.preheader31 ], [ %indvars.iv.next, %20 ]
-  %16 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %16 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %.not30 = icmp eq i32 %16, 0
   br i1 %.not30, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
+  %18 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #14
   %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !32
   br label %20
@@ -811,12 +811,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 21:                                               ; preds = %.preheader, %26
   %indvars.iv35 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next36, %26 ]
-  %22 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
+  %22 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #14
   %.not29 = icmp eq i32 %22, 0
   br i1 %.not29, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
+  %24 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #14
   %25 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv35
   store i32 %24, ptr %25, align 4, !tbaa !32
   br label %26
@@ -852,7 +852,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %6 = tail call i32 @VP8GetValue(ptr noundef nonnull %4, i32 noundef 2) #13
+  %6 = tail call i32 @VP8GetValue(ptr noundef nonnull %4, i32 noundef 2) #14
   %notmask = shl nsw i32 -1, %6
   %7 = xor i32 %notmask, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -887,7 +887,7 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull 
   %23 = or disjoint i64 %22, %18
   %spec.select = tail call i64 @llvm.umin.i64(i64 %23, i64 %.04150)
   %24 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %15, i64 %.03951
-  tail call void @VP8InitBitReader(ptr noundef nonnull %24, ptr noundef %.04249, i64 noundef %spec.select) #13
+  tail call void @VP8InitBitReader(ptr noundef nonnull %24, ptr noundef %.04249, i64 noundef %spec.select) #14
   %25 = getelementptr inbounds nuw i8, ptr %.04249, i64 %spec.select
   %26 = sub i64 %.04150, %spec.select
   %27 = getelementptr inbounds nuw i8, ptr %.04348, i64 3
@@ -900,7 +900,7 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull 
   %.041.lcssa = phi i64 [ %14, %12 ], [ %26, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %30 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %29, i64 %9
-  tail call void @VP8InitBitReader(ptr noundef nonnull %30, ptr noundef %.042.lcssa, i64 noundef %.041.lcssa) #13
+  tail call void @VP8InitBitReader(ptr noundef nonnull %30, ptr noundef %.042.lcssa, i64 noundef %.041.lcssa) #14
   %31 = icmp ult ptr %.042.lcssa, %5
   br i1 %31, label %36, label %32
 
@@ -970,7 +970,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %36 = load volatile ptr, ptr @GetCoeffs, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %39 = call i32 %36(ptr noundef %1, ptr noundef nonnull %37, i32 noundef %35, ptr noundef nonnull %38, i32 noundef 0, ptr noundef nonnull %3) #13
+  %39 = call i32 %36(ptr noundef %1, ptr noundef nonnull %37, i32 noundef %35, ptr noundef nonnull %38, i32 noundef 0, ptr noundef nonnull %3) #14
   %40 = icmp sgt i32 %39, 0
   %41 = zext i1 %40 to i8
   store i8 %41, ptr %32, align 1, !tbaa !84
@@ -980,7 +980,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
 
 43:                                               ; preds = %28
   %44 = load ptr, ptr @VP8TransformWHT, align 8, !tbaa !28
-  call void %44(ptr noundef nonnull %3, ptr noundef nonnull %13) #13
+  call void %44(ptr noundef nonnull %3, ptr noundef nonnull %13) #14
   br label %.loopexit.i
 
 45:                                               ; preds = %28
@@ -1036,7 +1036,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %66 = zext nneg i8 %65 to i32
   %67 = add nuw nsw i32 %.0117134.i, %66
   %68 = load volatile ptr, ptr @GetCoeffs, align 8, !tbaa !28
-  %69 = call i32 %68(ptr noundef %1, ptr noundef nonnull %.0.i, i32 noundef %67, ptr noundef nonnull %25, i32 noundef %.0123.i, ptr noundef nonnull %.1137.i) #13
+  %69 = call i32 %68(ptr noundef %1, ptr noundef nonnull %.0.i, i32 noundef %67, ptr noundef nonnull %25, i32 noundef %.0123.i, ptr noundef nonnull %.1137.i) #14
   %70 = icmp sgt i32 %69, %.0123.i
   %71 = zext i1 %70 to i32
   %72 = lshr i8 %.1111136.i, 1
@@ -1108,7 +1108,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %112 = and i32 %.3113.in144.i, 1
   %113 = add nuw nsw i32 %112, %.0107146.i
   %114 = load volatile ptr, ptr @GetCoeffs, align 8, !tbaa !28
-  %115 = call i32 %114(ptr noundef %1, ptr noundef nonnull %96, i32 noundef %113, ptr noundef nonnull %97, i32 noundef 0, ptr noundef nonnull %.4147.i) #13
+  %115 = call i32 %114(ptr noundef %1, ptr noundef nonnull %96, i32 noundef %113, ptr noundef nonnull %97, i32 noundef 0, ptr noundef nonnull %.4147.i) #14
   %116 = icmp sgt i32 %115, 0
   %117 = zext i1 %116 to i32
   %118 = lshr i32 %.3113.in144.i, 1
@@ -1281,12 +1281,12 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not26, label %VP8SetError.exit, label %17
 
 17:                                               ; preds = %15, %12
-  %18 = tail call i32 @VP8EnterCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  %18 = tail call i32 @VP8EnterCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #14
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %VP8Clear.exit
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @VP8InitFrame(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  %21 = tail call i32 @VP8InitFrame(ptr noundef nonnull %0, ptr noundef nonnull %1) #14
   %.not27 = icmp eq i32 %21, 0
   br i1 %.not27, label %82, label %22
 
@@ -1314,7 +1314,7 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   %36 = and i32 %35, %storemerge32.i
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %27, i64 %37
-  %39 = tail call i32 @VP8ParseIntraModeRow(ptr noundef nonnull %29, ptr noundef nonnull %0) #13
+  %39 = tail call i32 @VP8ParseIntraModeRow(ptr noundef nonnull %29, ptr noundef nonnull %0) #14
   %.not25.i = icmp eq i32 %39, 0
   br i1 %.not25.i, label %43, label %.preheader.i
 
@@ -1369,7 +1369,7 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   store i8 0, ptr %61, align 1, !tbaa !84
   store i32 0, ptr %33, align 8
   store i32 0, ptr %30, align 8, !tbaa !77
-  %62 = tail call i32 @VP8ProcessRow(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  %62 = tail call i32 @VP8ProcessRow(ptr noundef nonnull %0, ptr noundef nonnull %1) #14
   %.not26.i = icmp eq i32 %62, 0
   br i1 %.not26.i, label %63, label %VP8SetError.exit.i
 
@@ -1400,11 +1400,11 @@ VP8SetError.exit.i:                               ; preds = %._crit_edge.i
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %._crit_edge35.i
-  %76 = tail call ptr @WebPGetWorkerInterface() #13
+  %76 = tail call ptr @WebPGetWorkerInterface() #14
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !107
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %80 = tail call i32 %78(ptr noundef nonnull %79) #13
+  %80 = tail call i32 %78(ptr noundef nonnull %79) #14
   %.not.i = icmp eq i32 %80, 0
   br i1 %.not.i, label %82, label %81
 
@@ -1413,21 +1413,21 @@ VP8SetError.exit.i:                               ; preds = %._crit_edge.i
 
 82:                                               ; preds = %20, %43, %46, %49, %52, %63, %66, %75, %81
   %.2 = phi i32 [ 0, %20 ], [ 1, %81 ], [ 0, %75 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %52 ], [ 0, %63 ], [ 0, %66 ]
-  %83 = tail call i32 @VP8ExitCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
+  %83 = tail call i32 @VP8ExitCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #14
   %84 = and i32 %83, %.2
   %.not28 = icmp eq i32 %84, 0
   br i1 %.not28, label %VP8Clear.exit, label %92
 
 VP8Clear.exit:                                    ; preds = %17, %82
-  %85 = tail call ptr @WebPGetWorkerInterface() #13
+  %85 = tail call ptr @WebPGetWorkerInterface() #14
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !29
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  tail call void %87(ptr noundef nonnull %88) #13
-  tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #13
+  tail call void %87(ptr noundef nonnull %88) #14
+  tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #14
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %90 = load ptr, ptr %89, align 8, !tbaa !30
-  tail call void @WebPSafeFree(ptr noundef %90) #13
+  tail call void @WebPSafeFree(ptr noundef %90) #14
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %91, i8 0, i64 48, i1 false)
   store i32 0, ptr %13, align 4, !tbaa !26
@@ -1509,7 +1509,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr
   br label %VP8LoadNewBytes.exit.i
 
 33:                                               ; preds = %23
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i = load i32, ptr %14, align 4, !tbaa !112, !alias.scope !109
   br label %VP8LoadNewBytes.exit.i
 
@@ -1593,7 +1593,7 @@ VP8GetBitAlt.exit:                                ; preds = %47, %50
   br label %VP8LoadNewBytes.exit.i34
 
 77:                                               ; preds = %68
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i38 = load i32, ptr %14, align 4, !tbaa !112, !alias.scope !120
   %.pre66 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !120
   br label %VP8LoadNewBytes.exit.i34
@@ -1682,7 +1682,7 @@ VP8GetBitAlt.exit40:                              ; preds = %91, %94
   br label %VP8LoadNewBytes.exit.i41
 
 128:                                              ; preds = %119
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i45 = load i32, ptr %14, align 4, !tbaa !112, !alias.scope !128
   %.pre67 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !128
   br label %VP8LoadNewBytes.exit.i41
@@ -1767,7 +1767,7 @@ VP8GetBitAlt.exit47:                              ; preds = %142, %144
   br label %VP8GetSigned.exit
 
 172:                                              ; preds = %162
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i49 = load i32, ptr %14, align 4, !tbaa !112, !alias.scope !135
   br label %VP8GetSigned.exit
 
@@ -1864,7 +1864,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsFast(ptr noundef %0, pt
   br label %VP8LoadNewBytes.exit.i
 
 33:                                               ; preds = %23
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i = load i32, ptr %14, align 4, !tbaa !112, !alias.scope !143
   br label %VP8LoadNewBytes.exit.i
 
@@ -1939,7 +1939,7 @@ VP8GetBit.exit:                                   ; preds = %41, %47
   br label %VP8LoadNewBytes.exit.i34
 
 72:                                               ; preds = %63
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i36 = load i32, ptr %14, align 4, !tbaa !112, !alias.scope !150
   %.pre66 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !150
   br label %VP8LoadNewBytes.exit.i34
@@ -2018,7 +2018,7 @@ VP8GetBit.exit38:                                 ; preds = %80, %86
   br label %VP8LoadNewBytes.exit.i39
 
 117:                                              ; preds = %108
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i41 = load i32, ptr %14, align 4, !tbaa !112, !alias.scope !158
   %.pre67 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !158
   br label %VP8LoadNewBytes.exit.i39
@@ -2095,7 +2095,7 @@ VP8GetBit.exit43:                                 ; preds = %125, %131
   br label %VP8GetSigned.exit
 
 156:                                              ; preds = %146
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i45 = load i32, ptr %14, align 4, !tbaa !112, !alias.scope !165
   br label %VP8GetSigned.exit
 
@@ -2177,7 +2177,7 @@ define internal fastcc range(i32 -2147483637, -2147483648) i32 @GetLargeValue(pt
   br label %VP8LoadNewBytes.exit.i
 
 23:                                               ; preds = %11
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !173
   br label %VP8LoadNewBytes.exit.i
 
@@ -2245,7 +2245,7 @@ VP8GetBit.exit:                                   ; preds = %31, %37
   br label %VP8LoadNewBytes.exit.i36
 
 61:                                               ; preds = %50
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i38 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !180
   %.pre = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !180
   br label %VP8LoadNewBytes.exit.i36
@@ -2314,7 +2314,7 @@ VP8GetBit.exit40:                                 ; preds = %69, %75
   br label %VP8LoadNewBytes.exit.i41
 
 99:                                               ; preds = %88
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i43 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !187
   %.pre92 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !187
   br label %VP8LoadNewBytes.exit.i41
@@ -2382,7 +2382,7 @@ VP8GetBit.exit45:                                 ; preds = %108, %114
   br label %VP8LoadNewBytes.exit.i46
 
 137:                                              ; preds = %126
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i48 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !194
   %.pre93 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !194
   br label %VP8LoadNewBytes.exit.i46
@@ -2451,7 +2451,7 @@ VP8GetBit.exit50:                                 ; preds = %145, %151
   br label %VP8LoadNewBytes.exit.i51
 
 175:                                              ; preds = %164
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i53 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !201
   %.pre94 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !201
   br label %VP8LoadNewBytes.exit.i51
@@ -2517,7 +2517,7 @@ VP8GetBit.exit55:                                 ; preds = %183, %189
   br label %VP8LoadNewBytes.exit.i56
 
 210:                                              ; preds = %199
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i58 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !208
   %.pre95 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !208
   br label %VP8LoadNewBytes.exit.i56
@@ -2582,7 +2582,7 @@ VP8GetBit.exit60:                                 ; preds = %219, %225
   br label %VP8LoadNewBytes.exit.i61
 
 245:                                              ; preds = %234
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i63 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !215
   %.pre96 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !215
   br label %VP8LoadNewBytes.exit.i61
@@ -2646,7 +2646,7 @@ VP8GetBit.exit65:                                 ; preds = %254, %260
   br label %VP8LoadNewBytes.exit.i66
 
 281:                                              ; preds = %270
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i68 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !222
   %.pre97 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !222
   br label %VP8LoadNewBytes.exit.i66
@@ -2715,7 +2715,7 @@ VP8GetBit.exit70:                                 ; preds = %290, %296
   br label %VP8LoadNewBytes.exit.i71
 
 320:                                              ; preds = %309
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i73 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !229
   %.pre98 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !229
   br label %VP8LoadNewBytes.exit.i71
@@ -2783,7 +2783,7 @@ VP8GetBit.exit75:                                 ; preds = %329, %335
   br label %VP8LoadNewBytes.exit.i76
 
 360:                                              ; preds = %349
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i78 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !236
   %.pre99 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !236
   br label %VP8LoadNewBytes.exit.i76
@@ -2867,7 +2867,7 @@ VP8GetBit.exit80:                                 ; preds = %369, %375
   br label %VP8LoadNewBytes.exit.i81
 
 408:                                              ; preds = %399
-  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #13
+  tail call void @VP8LoadFinalBytes(ptr noundef nonnull %0) #14
   %.pre.i83 = load i32, ptr %8, align 4, !tbaa !112, !alias.scope !244
   %.pre100 = load i64, ptr %0, align 8, !tbaa !119, !alias.scope !244
   br label %VP8LoadNewBytes.exit.i81
@@ -2928,33 +2928,33 @@ VP8GetBit.exit85:                                 ; preds = %417, %423
 
 declare void @VP8LoadFinalBytes(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 declare i32 @VP8ParseIntraModeRow(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @VP8ProcessRow(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2965,11 +2965,12 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nounwind }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

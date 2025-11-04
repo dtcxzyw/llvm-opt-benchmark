@@ -389,8 +389,8 @@ if.then.i.i:                                      ; preds = %_ZN5boost9intrusive
   br label %_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEED2Ev.exit
 
 _ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEED2Ev.exit: ; preds = %_ZN5boost9intrusive4listIN8proxygen18HTTP2PriorityQueue4NodeEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_13enqueuedHook_EEEEENS0_18constant_time_sizeILb0EEEEED2Ev.exit, %if.then.i.i
-  call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #30
-  call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #30
+  call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #31
+  call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
   resume { ptr, i32 } %1
 }
 
@@ -426,11 +426,11 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(200) %2) #30
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(200) %2) #31
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i, %while.body.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #32
   %cmp.not.i.i = icmp eq ptr %1, %this
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i, !llvm.loop !6
 
@@ -588,30 +588,30 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(200) %19) #30
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(200) %19) #31
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #32
   %cmp.not.i.i.i = icmp eq ptr %18, %children_
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i, %_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEED2Ev.exit
-  tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #30
+  tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr) #31
   ret void
 
 terminate.lpad:                                   ; preds = %if.then6.i.i.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #32
+  tail call void @__clang_call_terminate(ptr %22) #33
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #30
-  tail call void @_ZSt9terminatev() #32
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #31
+  tail call void @_ZSt9terminatev() #33
   unreachable
 }
 
@@ -624,15 +624,15 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 define void @_ZThn8_N8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef %this) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #30
+  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen18HTTP2PriorityQueue4NodeD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #6 align 2 {
 entry:
-  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) #30
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
+  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
 
@@ -643,8 +643,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 define void @_ZThn8_N8proxygen18HTTP2PriorityQueue4NodeD0Ev(ptr noundef %this) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #30
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(200) %0) #31
+  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #31
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(200) %0) #32
   ret void
 }
 
@@ -674,13 +674,13 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp4) #33
   unreachable
 
 cleanup.done:                                     ; preds = %entry
@@ -726,11 +726,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %.noexc
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   br label %ehcleanup
 
 invoke.cont21:                                    ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
@@ -749,7 +749,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %invoke.cont31 unwind label %lpad28
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp26) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp26) #33
   unreachable
 
 lpad13:                                           ; preds = %land.lhs.true, %if.then, %if.else.i, %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit, %if.then39, %while.body
@@ -760,7 +760,7 @@ lpad13:                                           ; preds = %land.lhs.true, %if.
 lpad28:                                           ; preds = %invoke.cont29, %invoke.cont27
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp26) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp26) #33
   unreachable
 
 while.end:                                        ; preds = %invoke.cont21.thread, %invoke.cont21
@@ -768,7 +768,7 @@ while.end:                                        ; preds = %invoke.cont21.threa
 
 if.then:                                          ; preds = %while.end
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %children_) #30
+  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %children_) #31
   %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %10 = load i64, ptr %_M_size.i.i.i, align 8
   %11 = load i64, ptr %_M_size.i.i.i.i.i, align 8
@@ -823,7 +823,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i: ; pr
   %vtable.i.i = load ptr, ptr %19, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %20 = load ptr, ptr %vfn.i.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(200) %19) #30
+  call void %20(ptr noundef nonnull align 8 dereferenceable(200) %19) #31
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont43, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i
@@ -847,11 +847,11 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %23, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %24 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(200) %23) #30
+  call void %24(ptr noundef nonnull align 8 dereferenceable(200) %23) #31
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #32
   %cmp.not.i.i.i = icmp eq ptr %22, %children
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
@@ -869,12 +869,12 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i13: ; 
   %vtable.i.i14 = load ptr, ptr %26, align 8
   %vfn.i.i15 = getelementptr inbounds nuw i8, ptr %vtable.i.i14, i64 8
   %27 = load ptr, ptr %vfn.i.i15, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(200) %26) #30
+  call void %27(ptr noundef nonnull align 8 dereferenceable(200) %26) #31
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i13, %lpad42, %lpad13, %lpad.i.i
   %.pn = phi { ptr, i32 } [ %8, %lpad13 ], [ %7, %lpad.i.i ], [ %25, %lpad42 ], [ %25, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i13 ]
-  call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children) #30
+  call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children) #31
   resume { ptr, i32 } %.pn
 }
 
@@ -938,11 +938,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   resume { ptr, i32 } %7
 
 _ZN6google12Check_GEImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i11.not = icmp eq ptr %call5.i.i, null
@@ -960,13 +960,13 @@ while.body8:                                      ; preds = %_ZN6google12Check_G
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body8
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #33
   unreachable
 
 lpad:                                             ; preds = %while.body8
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #33
   unreachable
 
 while.end:                                        ; preds = %_ZN6google12Check_GEImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, %_ZN6google12Check_GEImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
@@ -992,13 +992,13 @@ invoke.cont.i:                                    ; preds = %cond.false.i
           to label %cleanup.action.i unwind label %lpad.i
 
 cleanup.action.i:                                 ; preds = %invoke.cont.i
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #33
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont.i, %cond.false.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #33
   unreachable
 
 _ZN8proxygen18HTTP2PriorityQueue4Node19removeEnqueuedChildEPS1_.exit: ; preds = %while.end
@@ -1062,11 +1062,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   resume { ptr, i32 } %4
 
 _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
@@ -1086,13 +1086,13 @@ invoke.cont:                                      ; preds = %while.body
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %while.body
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #33
   unreachable
 
 while.end:                                        ; preds = %entry, %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge
@@ -1109,12 +1109,12 @@ while.end:                                        ; preds = %entry, %_ZN6google1
   store i64 %add, ptr %totalChildWeight_, align 8
   %10 = load ptr, ptr %child, align 8
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
+  %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
   %.cast = ptrtoint ptr %10 to i64
   store i64 %.cast, ptr %_M_storage.i.i.i.i, align 8
   store ptr null, ptr %child, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %children_) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %children_) #31
   %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %11 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %11, 1
@@ -1193,13 +1193,13 @@ invoke.cont.i:                                    ; preds = %.noexc
           to label %cleanup.action.i unwind label %lpad.i
 
 cleanup.action.i:                                 ; preds = %invoke.cont.i
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #33
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont.i, %.noexc
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #33
   unreachable
 
 invoke.cont11:                                    ; preds = %if.then
@@ -1231,7 +1231,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
           to label %cleanup.action unwind label %lpad19
 
 cleanup.action:                                   ; preds = %invoke.cont20
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #33
   unreachable
 
 lpad.loopexit:                                    ; preds = %for.body
@@ -1247,7 +1247,7 @@ lpad.loopexit.split-lp:                           ; preds = %cond.false, %cond.f
 lpad19:                                           ; preds = %invoke.cont20, %invoke.cont18
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #33
   unreachable
 
 _ZN8proxygen18HTTP2PriorityQueue4Node16addEnqueuedChildEPS1_.exit: ; preds = %invoke.cont11
@@ -1282,13 +1282,13 @@ invoke.cont44:                                    ; preds = %invoke.cont41
           to label %cleanup.action51 unwind label %lpad43
 
 cleanup.action51:                                 ; preds = %invoke.cont44
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp40) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp40) #33
   unreachable
 
 lpad43:                                           ; preds = %invoke.cont44, %invoke.cont41
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp40) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp40) #33
   unreachable
 
 if.end:                                           ; preds = %_ZN8proxygen18HTTP2PriorityQueue4Node16addEnqueuedChildEPS1_.exit, %if.else
@@ -1308,7 +1308,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i: ; pr
   %vtable.i.i = load ptr, ptr %20, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %21 = load ptr, ptr %vfn.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(200) %20) #30
+  call void %21(ptr noundef nonnull align 8 dereferenceable(200) %20) #31
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont57, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i
@@ -1328,12 +1328,12 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i27: ; 
   %vtable.i.i28 = load ptr, ptr %23, align 8
   %vfn.i.i29 = getelementptr inbounds nuw i8, ptr %vtable.i.i28, i64 8
   %24 = load ptr, ptr %vfn.i.i29, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(200) %23) #30
+  call void %24(ptr noundef nonnull align 8 dereferenceable(200) %23) #31
   br label %ehcleanup
 
 for.end:                                          ; preds = %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit, %entry
   %totalEnqueuedWeight.0.lcssa = phi i64 [ 0, %entry ], [ %totalEnqueuedWeight.1, %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit ]
-  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %emptyChilden) #30
+  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %emptyChilden) #31
   %25 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %_M_size.i4.i.i = getelementptr inbounds nuw i8, ptr %children, i64 16
   %26 = load i64, ptr %_M_size.i4.i.i, align 8
@@ -1387,11 +1387,11 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %33, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %34 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(200) %33) #30
+  call void %34(ptr noundef nonnull align 8 dereferenceable(200) %33) #31
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #32
   %cmp.not.i.i.i = icmp eq ptr %32, %emptyChilden
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !6
 
@@ -1400,7 +1400,7 @@ _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14defaul
 
 ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i27, %lpad56, %lpad.loopexit, %lpad.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.loopexit39, %lpad.loopexit ], [ %lpad.loopexit.split-lp40, %lpad.loopexit.split-lp ], [ %22, %lpad56 ], [ %22, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i27 ]
-  call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %emptyChilden) #30
+  call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %emptyChilden) #31
   resume { ptr, i32 } %.pn
 }
 
@@ -1425,13 +1425,13 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #33
   unreachable
 
 cleanup.done:                                     ; preds = %entry
@@ -1465,13 +1465,13 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #33
   unreachable
 
 cleanup.done:                                     ; preds = %entry
@@ -1531,13 +1531,13 @@ invoke.cont.i:                                    ; preds = %cond.false.i
           to label %cleanup.action.i unwind label %lpad.i
 
 cleanup.action.i:                                 ; preds = %invoke.cont.i
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3.i) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3.i) #33
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont.i, %cond.false.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3.i) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3.i) #33
   unreachable
 
 _ZN8proxygen18HTTP2PriorityQueue4Node16addEnqueuedChildEPS1_.exit: ; preds = %while.body
@@ -1587,13 +1587,13 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #33
   unreachable
 
 cleanup.done:                                     ; preds = %entry
@@ -1616,7 +1616,7 @@ cleanup.done:                                     ; preds = %entry
   %7 = load i64, ptr %_M_size.i.i.i, align 8
   %sub.i.i.i = add i64 %7, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #30
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #31
   %8 = load ptr, ptr %_M_storage.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
   %9 = inttoptr i64 %6 to ptr
@@ -1626,11 +1626,11 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(200) %8) #30
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(200) %8) #31
   br label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5eraseESt20_List_const_iteratorIS7_E.exit
 
 _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5eraseESt20_List_const_iteratorIS7_E.exit: ; preds = %cleanup.done, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #32
   %parent_ = getelementptr inbounds nuw i8, ptr %node, i64 80
   store ptr null, ptr %parent_, align 8
   %11 = load ptr, ptr %children_, align 8
@@ -1661,7 +1661,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i: ; pr
   %vtable.i.i = load ptr, ptr %9, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %16 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(200) %9) #30
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(200) %9) #31
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %lpad19, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i
@@ -1710,13 +1710,13 @@ invoke.cont8:                                     ; preds = %invoke.cont
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont8
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #31
   br label %while.end31
 
 lpad:                                             ; preds = %invoke.cont8, %invoke.cont, %cond.false5
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #31
   resume { ptr, i32 } %3
 
 while.end31:                                      ; preds = %cond.true, %cond.end, %cleanup.action
@@ -1773,7 +1773,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i: ; pr
   %vtable.i.i = load ptr, ptr %6, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(200) %6) #30
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(200) %6) #31
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i
@@ -1795,7 +1795,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i4: ; p
   %vtable.i.i5 = load ptr, ptr %9, align 8
   %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %10 = load ptr, ptr %vfn.i.i6, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(200) %9) #30
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(200) %9) #31
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit17
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit12: ; preds = %if.then13, %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit
@@ -1860,13 +1860,13 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #33
   unreachable
 
 cleanup.done:                                     ; preds = %entry
@@ -1996,11 +1996,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   resume { ptr, i32 } %6
 
 _ZN6google12Check_LEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i6.not = icmp eq ptr %call5.i.i, null
@@ -2018,13 +2018,13 @@ while.body:                                       ; preds = %_ZN6google12Check_L
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp22) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp22) #33
   unreachable
 
 lpad:                                             ; preds = %while.body
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp22) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp22) #33
   unreachable
 
 while.end:                                        ; preds = %_ZN6google12Check_LEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, %_ZN6google12Check_LEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
@@ -2105,13 +2105,13 @@ invoke.cont35:                                    ; preds = %cond.false
           to label %cleanup.action unwind label %lpad34
 
 cleanup.action:                                   ; preds = %invoke.cont35
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #33
   unreachable
 
 lpad34:                                           ; preds = %invoke.cont35, %cond.false
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp33) #33
   unreachable
 
 cleanup.done:                                     ; preds = %if.end
@@ -2144,7 +2144,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i: ; pr
   %vtable.i.i11 = load ptr, ptr %29, align 8
   %vfn.i.i12 = getelementptr inbounds nuw i8, ptr %vtable.i.i11, i64 8
   %30 = load ptr, ptr %vfn.i.i12, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(200) %29) #30
+  call void %30(ptr noundef nonnull align 8 dereferenceable(200) %29) #31
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end45, %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i
@@ -2163,7 +2163,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFbvEEclEv.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #34
+  tail call void @_ZSt25__throw_bad_function_callv() #35
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit:                   ; preds = %entry
@@ -2233,7 +2233,7 @@ _ZNK8proxygen18HTTP2PriorityQueue4Node17getRelativeWeightEv.exit: ; preds = %if.
   br i1 %tobool.not.i.i8, label %if.then.i11, label %_ZNKSt8functionIFbmPN8proxygen15HTTPTransactionEdEEclEmS2_d.exit
 
 if.then.i11:                                      ; preds = %_ZNK8proxygen18HTTP2PriorityQueue4Node17getRelativeWeightEv.exit
-  tail call void @_ZSt25__throw_bad_function_callv() #34
+  tail call void @_ZSt25__throw_bad_function_callv() #35
   unreachable
 
 _ZNKSt8functionIFbmPN8proxygen15HTTPTransactionEdEEclEmS2_d.exit: ; preds = %_ZNK8proxygen18HTTP2PriorityQueue4Node17getRelativeWeightEv.exit
@@ -2264,7 +2264,7 @@ lor.lhs.false15:                                  ; preds = %for.body
   br i1 %tobool.not.i.i13, label %if.then.i17, label %_ZNKSt8functionIFbvEEclEv.exit18
 
 if.then.i17:                                      ; preds = %lor.lhs.false15
-  call void @_ZSt25__throw_bad_function_callv() #34
+  call void @_ZSt25__throw_bad_function_callv() #35
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit18:                 ; preds = %lor.lhs.false15
@@ -2456,7 +2456,7 @@ land.lhs.true34:                                  ; preds = %if.end32
   br i1 %tobool.not.i.i, label %if.then.i35, label %_ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclES2_mS4_d.exit
 
 if.then.i35:                                      ; preds = %land.lhs.true34
-  call void @_ZSt25__throw_bad_function_callv() #34
+  call void @_ZSt25__throw_bad_function_callv() #35
   unreachable
 
 _ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclES2_mS4_d.exit: ; preds = %land.lhs.true34
@@ -2534,13 +2534,13 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #33
   unreachable
 
 cleanup.done:                                     ; preds = %entry
@@ -2559,13 +2559,13 @@ invoke.cont19:                                    ; preds = %cond.false14
           to label %cleanup.action26 unwind label %lpad18
 
 cleanup.action26:                                 ; preds = %invoke.cont19
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #33
   unreachable
 
 lpad18:                                           ; preds = %invoke.cont19, %cond.false14
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp16) #33
   unreachable
 
 while.cond:                                       ; preds = %cleanup.done
@@ -2598,11 +2598,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   resume { ptr, i32 } %7
 
 _ZN6google12Check_GTImplIjiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i1.not = icmp eq ptr %call5.i.i, null
@@ -2620,13 +2620,13 @@ while.body:                                       ; preds = %_ZN6google12Check_G
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37) #33
   unreachable
 
 lpad38:                                           ; preds = %while.body
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37) #33
   unreachable
 
 while.end:                                        ; preds = %while.cond, %_ZN6google12Check_GTImplIjiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge
@@ -2679,7 +2679,7 @@ entry:
   %_M_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %oldChildren_, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 136
-  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %oldChildren_, ptr noundef nonnull align 8 dereferenceable(24) %children_) #30
+  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(24) %oldChildren_, ptr noundef nonnull align 8 dereferenceable(24) %children_) #31
   %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %_M_size.i.i.i, align 8
   %1 = load i64, ptr %_M_size.i.i.i.i.i, align 8
@@ -2717,11 +2717,11 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(200) %7) #30
+  call void %8(ptr noundef nonnull align 8 dereferenceable(200) %7) #31
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #32
   %cmp.not.i.i.i = icmp eq ptr %6, %children_.i
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !6
 
@@ -2737,13 +2737,13 @@ _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14defaul
   store i16 16, ptr %weight_.i, align 8
   %totalEnqueuedWeight_.i = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %totalEnqueuedWeight_.i, i8 0, i64 16, i1 false)
-  %call5.i.i.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
+  %call5.i.i.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
           to label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit9
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i
   %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i4, i64 16
   store i64 %3, ptr %_M_storage.i.i.i.i.i, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4, ptr noundef nonnull %children_) #30
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4, ptr noundef nonnull %children_) #31
   %9 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i.i = add i64 %9, 1
   store i64 %add.i.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -2764,7 +2764,7 @@ _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2
   %vtable.i.i7 = load ptr, ptr %4, align 8
   %vfn.i.i8 = getelementptr inbounds nuw i8, ptr %vtable.i.i7, i64 8
   %12 = load ptr, ptr %vfn.i.i8, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(200) %4) #30
+  call void %12(ptr noundef nonnull align 8 dereferenceable(200) %4) #31
   br label %ehcleanup
 
 for.end:                                          ; preds = %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit, %entry
@@ -2823,11 +2823,11 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i16 = load ptr, ptr %24, align 8
   %vfn.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i16, i64 8
   %25 = load ptr, ptr %vfn.i.i.i.i.i.i.i17, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(200) %24) #30
+  call void %25(ptr noundef nonnull align 8 dereferenceable(200) %24) #31
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i18
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i18: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i15, %while.body.i.i.i11
-  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i12) #31
+  call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i12) #32
   %cmp.not.i.i.i19 = icmp eq ptr %23, %oldChildren_
   br i1 %cmp.not.i.i.i19, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %while.body.i.i.i11, !llvm.loop !6
 
@@ -2836,7 +2836,7 @@ _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14defaul
 
 ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit9, %lpad
   %.pn = phi { ptr, i32 } [ %11, %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit9 ], [ %10, %lpad ]
-  call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %oldChildren_) #30
+  call void @_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %oldChildren_) #31
   resume { ptr, i32 } %.pn
 }
 
@@ -2878,11 +2878,11 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(200) %5) #30
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(200) %5) #31
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i.i, %while.body.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #32
   %cmp.not.i.i.i = icmp eq ptr %4, %children_.i
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i, label %while.body.i.i.i, !llvm.loop !6
 
@@ -2898,13 +2898,13 @@ _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14defaul
   store i16 16, ptr %weight_.i, align 8
   %totalEnqueuedWeight_.i = getelementptr inbounds nuw i8, ptr %2, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %totalEnqueuedWeight_.i, i8 0, i64 16, i1 false)
-  %call5.i.i.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
+  %call5.i.i.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
           to label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit9
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit.i
   %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i4, i64 16
   store i64 %1, ptr %_M_storage.i.i.i.i.i, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4, ptr noundef nonnull %children_6.i) #30
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i4, ptr noundef nonnull %children_6.i) #31
   %7 = load i64, ptr %_M_size.i.i.i3.i, align 8
   %add.i.i.i.i = add i64 %7, 1
   store i64 %add.i.i.i.i, ptr %_M_size.i.i.i3.i, align 8
@@ -2920,7 +2920,7 @@ _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2
   %vtable.i.i7 = load ptr, ptr %2, align 8
   %vfn.i.i8 = getelementptr inbounds nuw i8, ptr %vtable.i.i7, i64 8
   %9 = load ptr, ptr %vfn.i.i8, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(200) %2) #30
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(200) %2) #31
   resume { ptr, i32 } %8
 
 for.end:                                          ; preds = %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit, %entry
@@ -2948,11 +2948,11 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(200) %3) #30
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(200) %3) #31
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EEEEE7destroyIS7_EEvRS9_PT_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i.i.i.i.i, %while.body.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #32
   %cmp.not.i.i = icmp eq ptr %2, %children_
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !6
 
@@ -2976,12 +2976,12 @@ _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14defaul
   store i64 0, ptr %totalEnqueuedWeight_, align 8
   %9 = load ptr, ptr %child, align 8
   %children_6 = getelementptr inbounds nuw i8, ptr %subtreeRoot, i64 136
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #34
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
   %.cast = ptrtoint ptr %9 to i64
   store i64 %.cast, ptr %_M_storage.i.i.i.i, align 8
   store ptr null, ptr %child, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %children_6) #30
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %children_6) #31
   %_M_size.i.i.i3 = getelementptr inbounds nuw i8, ptr %subtreeRoot, i64 152
   %10 = load i64, ptr %_M_size.i.i.i3, align 8
   %add.i.i.i = add i64 %10, 1
@@ -3116,13 +3116,13 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp3) #33
   unreachable
 
 cleanup.done:                                     ; preds = %if.then
@@ -3297,11 +3297,11 @@ common.resume:                                    ; preds = %lpad238, %_ZNKSt14d
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   br label %common.resume
 
 _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
@@ -3313,13 +3313,13 @@ while.body:                                       ; preds = %_ZN6google12Check_N
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #33
   unreachable
 
 lpad:                                             ; preds = %while.body
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #33
   unreachable
 
 while.cond8:                                      ; preds = %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -3348,11 +3348,11 @@ invoke.cont3.i.i35:                               ; preds = %invoke.cont1.i.i33
 lpad.i.i30:                                       ; preds = %invoke.cont3.i.i35, %invoke.cont1.i.i33, %invoke.cont.i.i31, %if.else.i28
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i25) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i25) #31
   br label %common.resume
 
 _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit38: ; preds = %invoke.cont3.i.i35
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i25) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i25) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i25)
   store ptr %call5.i.i36, ptr %_result9, align 8
   %cmp.i39.not = icmp eq ptr %call5.i.i36, null
@@ -3368,13 +3368,13 @@ invoke.cont19:                                    ; preds = %while.body16
           to label %invoke.cont21 unwind label %lpad18
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #33
   unreachable
 
 lpad18:                                           ; preds = %invoke.cont19, %while.body16
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #33
   unreachable
 
 while.end23:                                      ; preds = %while.cond8, %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit38
@@ -3392,13 +3392,13 @@ invoke.cont29:                                    ; preds = %cond.false
           to label %cleanup.action unwind label %lpad28
 
 cleanup.action:                                   ; preds = %invoke.cont29
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp27) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp27) #33
   unreachable
 
 lpad28:                                           ; preds = %invoke.cont29, %cond.false
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp27) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp27) #33
   unreachable
 
 cleanup.done:                                     ; preds = %while.end23
@@ -3519,13 +3519,13 @@ invoke.cont52:                                    ; preds = %cond.false47
           to label %cleanup.action59 unwind label %lpad51
 
 cleanup.action59:                                 ; preds = %invoke.cont52
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp49) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp49) #33
   unreachable
 
 lpad51:                                           ; preds = %invoke.cont52, %cond.false47
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp49) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp49) #33
   unreachable
 
 cleanup.done60:                                   ; preds = %if.then42
@@ -3692,7 +3692,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %cleanup.action110 unwind label %lpad100
 
 cleanup.action110:                                ; preds = %invoke.cont103
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp98) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp98) #31
   br label %cleanup.done111
 
 cleanup.done111:                                  ; preds = %cond.true88, %cond.end92, %cleanup.action110
@@ -3727,7 +3727,7 @@ if.then131:                                       ; preds = %if.then118
 lpad100:                                          ; preds = %invoke.cont103, %invoke.cont101, %cond.false96
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp98) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp98) #31
   br label %common.resume
 
 if.else133:                                       ; preds = %cleanup.done111
@@ -3766,13 +3766,13 @@ invoke.cont158:                                   ; preds = %invoke.cont156
           to label %cleanup.action165 unwind label %lpad150
 
 cleanup.action165:                                ; preds = %invoke.cont158
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp148) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp148) #31
   br label %if.end177
 
 lpad150:                                          ; preds = %invoke.cont158, %invoke.cont156, %invoke.cont153, %invoke.cont151, %cond.false146
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp148) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp148) #31
   br label %common.resume
 
 if.then173:                                       ; preds = %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit101.thread153
@@ -3830,18 +3830,18 @@ invoke.cont207:                                   ; preds = %invoke.cont205
           to label %cleanup.action217 unwind label %lpad194
 
 cleanup.action217:                                ; preds = %invoke.cont207
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp192) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp192) #31
   br label %cleanup.done218
 
 cleanup.done218:                                  ; preds = %cond.true181, %cond.end185, %cleanup.action217
-  %call.i = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #33, !noalias !25
+  %call.i = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #34, !noalias !25
   invoke void @_ZN8proxygen18HTTP2PriorityQueue4NodeC1ERS0_PS1_mhPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %parent.0, i64 noundef %id, i8 noundef zeroext %pri.sroa.9.8.extract.trunc, ptr noundef %txn)
           to label %_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad.i, !noalias !25
 
 lpad.i:                                           ; preds = %cleanup.done218
   %56 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call.i) #31, !noalias !25
+  call void @_ZdlPv(ptr noundef nonnull %call.i) #32, !noalias !25
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %cleanup.done218
@@ -3855,7 +3855,7 @@ if.then224:                                       ; preds = %_ZSt11make_uniqueIN
 lpad194:                                          ; preds = %invoke.cont207, %invoke.cont205, %invoke.cont201, %invoke.cont199, %invoke.cont197, %invoke.cont195, %cond.false190
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp192) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp192) #31
   br label %common.resume
 
 if.else228:                                       ; preds = %_ZSt11make_uniqueIN8proxygen18HTTP2PriorityQueue4NodeEJRS1_RPS2_RmRhRPNS0_15HTTPTransactionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -3881,7 +3881,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i: ; pr
   %vtable.i.i = load ptr, ptr %59, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %60 = load ptr, ptr %vfn.i.i, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(200) %59) #30
+  call void %60(ptr noundef nonnull align 8 dereferenceable(200) %59) #31
   br label %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit109
 
 _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit109: ; preds = %_ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i, %invoke.cont239
@@ -3900,7 +3900,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i111: ;
   %vtable.i.i112 = load ptr, ptr %62, align 8
   %vfn.i.i113 = getelementptr inbounds nuw i8, ptr %vtable.i.i112, i64 8
   %63 = load ptr, ptr %vfn.i.i113, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(200) %62) #30
+  call void %63(ptr noundef nonnull align 8 dereferenceable(200) %62) #31
   br label %common.resume
 
 _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i117: ; preds = %if.then230
@@ -3909,7 +3909,7 @@ _ZNKSt14default_deleteIN8proxygen18HTTP2PriorityQueue4NodeEEclEPS2_.exit.i117: ;
   %vtable.i.i118 = load ptr, ptr %call.i, align 8
   %vfn.i.i119 = getelementptr inbounds nuw i8, ptr %vtable.i.i118, i64 8
   %65 = load ptr, ptr %vfn.i.i119, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(200) %call.i) #30
+  call void %65(ptr noundef nonnull align 8 dereferenceable(200) %call.i) #31
   br label %common.resume
 
 return:                                           ; preds = %if.then70, %_ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2Ev.exit109, %cleanup.done60
@@ -3928,8 +3928,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #30
+  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #31
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %names, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont unwind label %cleanup.action
 
@@ -3939,20 +3939,20 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp.ensured) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp.ensured) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #30
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #31
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #30
-  call void @_ZdlPv(ptr noundef nonnull %call) #31
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #31
+  call void @_ZdlPv(ptr noundef nonnull %call) #32
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -4034,7 +4034,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont18
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #31
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
@@ -4122,11 +4122,11 @@ common.resume:                                    ; preds = %lpad, %lpad86, %lpa
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   br label %common.resume
 
 _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
@@ -4142,19 +4142,19 @@ invoke.cont39:                                    ; preds = %while.body
           to label %invoke.cont41 unwind label %lpad38
 
 invoke.cont41:                                    ; preds = %invoke.cont39
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37) #33
   unreachable
 
 lpad:                                             ; preds = %invoke.cont18, %invoke.cont16, %invoke.cont14, %invoke.cont12, %invoke.cont8, %invoke.cont, %cond.false5
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #31
   br label %common.resume
 
 lpad38:                                           ; preds = %invoke.cont39, %while.body
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp37) #33
   unreachable
 
 while.end:                                        ; preds = %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit, %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -4317,13 +4317,13 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %cleanup.action104 unwind label %lpad86
 
 cleanup.action104:                                ; preds = %invoke.cont95
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp84) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp84) #31
   br label %if.end110
 
 lpad86:                                           ; preds = %invoke.cont95, %invoke.cont93, %invoke.cont89, %invoke.cont87, %cond.false82
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp84) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp84) #31
   br label %common.resume
 
 if.end110:                                        ; preds = %cond.true73, %cond.end77, %if.then58, %cleanup.action104, %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit
@@ -4440,7 +4440,7 @@ invoke.cont15:                                    ; preds = %invoke.cont
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont15
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13) #31
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
@@ -4450,7 +4450,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 lpad:                                             ; preds = %invoke.cont15, %invoke.cont, %cond.false12
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13) #31
   resume { ptr, i32 } %10
 
 if.end26:                                         ; preds = %cleanup.done, %if.then6
@@ -4516,11 +4516,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   resume { ptr, i32 } %2
 
 _ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i1.not = icmp eq ptr %call5.i.i, null
@@ -4532,13 +4532,13 @@ while.body:                                       ; preds = %_ZN6google12Check_G
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #33
   unreachable
 
 lpad:                                             ; preds = %while.body
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #33
   unreachable
 
 while.end:                                        ; preds = %entry, %_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -4558,13 +4558,13 @@ invoke.cont.i:                                    ; preds = %cond.false.i
           to label %cleanup.action.i unwind label %lpad.i
 
 cleanup.action.i:                                 ; preds = %invoke.cont.i
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #33
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont.i, %cond.false.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2.i) #33
   unreachable
 
 _ZN8proxygen18HTTP2PriorityQueue4Node18clearPendingEgressEv.exit: ; preds = %while.end
@@ -4613,7 +4613,7 @@ entry:
 lpad.i:                                           ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes) #30
+  call void @_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes) #31
   br label %eh.resume
 
 while.cond.preheader:                             ; preds = %.noexc1.i
@@ -4645,7 +4645,7 @@ land.lhs.true:                                    ; preds = %while.cond.preheade
   br i1 %tobool.not.i.i, label %if.then.i.invoke, label %if.end.i
 
 if.then.i.invoke:                                 ; preds = %land.lhs.true, %land.lhs.true34.i
-  invoke void @_ZSt25__throw_bad_function_callv() #34
+  invoke void @_ZSt25__throw_bad_function_callv() #35
           to label %if.then.i.cont unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.then.i.cont:                                   ; preds = %if.then.i.invoke
@@ -4684,7 +4684,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
           to label %cleanup.action unwind label %lpad15
 
 cleanup.action:                                   ; preds = %invoke.cont16
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13) #33
   unreachable
 
 lpad3:                                            ; preds = %.noexc1.i
@@ -4714,13 +4714,13 @@ lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.
 
 lpad5:                                            ; preds = %lpad5.loopexit.split-lp.loopexit, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad5.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit84, %lpad5.loopexit.split-lp.loopexit ], [ %lpad.loopexit87, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %newPendingNodes) #30
+  call void @_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %newPendingNodes) #31
   br label %ehcleanup41
 
 lpad15:                                           ; preds = %invoke.cont16, %invoke.cont14
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp13) #33
   unreachable
 
 land.rhs26:                                       ; preds = %while.body, %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE9pop_frontEv.exit
@@ -4925,7 +4925,7 @@ if.else.i31.i:                                    ; preds = %for.body21.i
   br i1 %cmp.i52, label %if.then.i58, label %if.end.i53
 
 if.then.i58:                                      ; preds = %if.else.i31.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #34
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #35
           to label %.noexc59 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc59:                                         ; preds = %if.then.i58
@@ -4991,14 +4991,14 @@ if.then.i.i.i.i:                                  ; preds = %if.else31.i
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #34
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #35
           to label %.noexc71 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc71:                                         ; preds = %if.then3.i.i.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
-  invoke void @_ZSt17__throw_bad_allocv() #34
+  invoke void @_ZSt17__throw_bad_allocv() #35
           to label %.noexc72 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc72:                                         ; preds = %if.end.i.i.i.i
@@ -5006,7 +5006,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE15_M_allocate_mapEm.exit.i: ; preds = %if.else31.i
   %mul.i.i.i.i = shl nuw nsw i64 %add38.i, 3
-  %call5.i.i2.i.i73 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #33
+  %call5.i.i2.i.i73 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #34
           to label %call5.i.i2.i.i.noexc unwind label %lpad5.loopexit
 
 call5.i.i2.i.i.noexc:                             ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE15_M_allocate_mapEm.exit.i
@@ -5024,7 +5024,7 @@ if.then.i.i.i.i.i28.i:                            ; preds = %call5.i.i2.i.i.noex
   br label %_ZSt4copyIPPN8proxygen18HTTP2PriorityQueue4Node11PendingNodeES5_ET0_T_S7_S6_.exit30.i
 
 _ZSt4copyIPPN8proxygen18HTTP2PriorityQueue4Node11PendingNodeES5_ET0_T_S7_S6_.exit30.i: ; preds = %if.then.i.i.i.i.i28.i, %call5.i.i2.i.i.noexc
-  call void @_ZdlPv(ptr noundef %43) #31
+  call void @_ZdlPv(ptr noundef %43) #32
   store ptr %call5.i.i2.i.i73, ptr %newPendingNodes, align 8
   store i64 %add38.i, ptr %_M_map_size.i.i, align 8
   br label %.noexc60
@@ -5047,7 +5047,7 @@ _ZSt4copyIPPN8proxygen18HTTP2PriorityQueue4Node11PendingNodeES5_ET0_T_S7_S6_.exi
 
 invoke.cont.i:                                    ; preds = %.noexc60, %if.end.i53
   %46 = phi ptr [ %add.ptr71.i, %.noexc60 ], [ %37, %if.end.i53 ]
-  %call5.i.i.i.i61 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #33
+  %call5.i.i.i.i61 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #34
           to label %.noexc22 unwind label %lpad5.loopexit
 
 .noexc22:                                         ; preds = %invoke.cont.i
@@ -5125,7 +5125,7 @@ if.then.i27:                                      ; preds = %if.end
 
 if.else.i:                                        ; preds = %if.end
   %58 = load ptr, ptr %_M_first.i.i29, align 8
-  call void @_ZdlPv(ptr noundef %58) #31
+  call void @_ZdlPv(ptr noundef %58) #32
   %59 = load ptr, ptr %_M_node.i.i, align 8
   %add.ptr.i.i31 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %add.ptr.i.i31, ptr %_M_node.i.i, align 8
@@ -5184,7 +5184,7 @@ if.then.i.i:                                      ; preds = %while.end40
 for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.body.i.i.i
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %71, %if.then.i.i ]
   %73 = load ptr, ptr %__n.04.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %73) #31
+  call void @_ZdlPv(ptr noundef %73) #32
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %72
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !30
@@ -5195,7 +5195,7 @@ _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, %if.then.i.i
   %74 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i ], [ %70, %if.then.i.i ]
-  call void @_ZdlPv(ptr noundef %74) #31
+  call void @_ZdlPv(ptr noundef %74) #32
   br label %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit
 
 _ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit: ; preds = %while.end40, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
@@ -5213,7 +5213,7 @@ if.then.i.i35:                                    ; preds = %_ZNSt5dequeIN8proxy
 for.body.i.i.i41:                                 ; preds = %if.then.i.i35, %for.body.i.i.i41
   %__n.04.i.i.i42 = phi ptr [ %incdec.ptr.i.i.i43, %for.body.i.i.i41 ], [ %76, %if.then.i.i35 ]
   %78 = load ptr, ptr %__n.04.i.i.i42, align 8
-  call void @_ZdlPv(ptr noundef %78) #31
+  call void @_ZdlPv(ptr noundef %78) #32
   %incdec.ptr.i.i.i43 = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i42, i64 8
   %cmp.i.i.i44 = icmp ult ptr %__n.04.i.i.i42, %77
   br i1 %cmp.i.i.i44, label %for.body.i.i.i41, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i45, !llvm.loop !30
@@ -5224,7 +5224,7 @@ _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i40: ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i45, %if.then.i.i35
   %79 = phi ptr [ %.pre.i.i46, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i45 ], [ %75, %if.then.i.i35 ]
-  call void @_ZdlPv(ptr noundef %79) #31
+  call void @_ZdlPv(ptr noundef %79) #32
   br label %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit47
 
 _ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit47: ; preds = %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i40
@@ -5232,7 +5232,7 @@ _ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit47
 
 ehcleanup41:                                      ; preds = %lpad5, %lpad3
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad5 ], [ %9, %lpad3 ]
-  call void @_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes) #30
+  call void @_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes) #31
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad.i, %ehcleanup41
@@ -5265,7 +5265,7 @@ if.then.i:                                        ; preds = %entry
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %1, %if.then.i ]
   %3 = load ptr, ptr %__n.04.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %3) #31
+  tail call void @_ZdlPv(ptr noundef %3) #32
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %2
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, !llvm.loop !30
@@ -5276,7 +5276,7 @@ _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i: ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i, %if.then.i
   %4 = phi ptr [ %.pre.i, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i ], [ %0, %if.then.i ]
-  tail call void @_ZdlPv(ptr noundef %4) #31
+  tail call void @_ZdlPv(ptr noundef %4) #32
   br label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
@@ -5313,7 +5313,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.54) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.54) #35
   unreachable
 
 _ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -5326,7 +5326,7 @@ _ZNKSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE12_M_check_lenEmPKc
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #33
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #34
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %txn, ptr %add.ptr.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
@@ -5350,7 +5350,7 @@ _ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE17_M_realloc_insertIJRS3_RdEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i27.i.i
 
 if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #32
   br label %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE17_M_realloc_insertIJRS3_RdEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE17_M_realloc_insertIJRS3_RdEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i27.i.i, %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i
@@ -5386,7 +5386,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.55) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.55) #35
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -5406,7 +5406,7 @@ _ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_M_allocate
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %0, 4
-  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #33
+  %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #34
   %cmp.not5.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %for.body.i.i.i.i
 
@@ -5424,7 +5424,7 @@ _ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE13_M_deallocateEPS4_m.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #32
   br label %_ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE13_M_deallocateEPS4_m.exit.i
 
 _ZNSt12_Vector_baseISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
@@ -5615,7 +5615,7 @@ if.else.i.i:                                      ; preds = %for.body.i
   br i1 %cmp.i94, label %if.then.i108, label %if.end.i95
 
 if.then.i108:                                     ; preds = %if.else.i.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #34
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #35
           to label %.noexc109 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp
 
 .noexc109:                                        ; preds = %if.then.i108
@@ -5681,14 +5681,14 @@ if.then.i.i.i.i:                                  ; preds = %if.else31.i
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #34
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #35
           to label %.noexc122 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp
 
 .noexc122:                                        ; preds = %if.then3.i.i.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
-  invoke void @_ZSt17__throw_bad_allocv() #34
+  invoke void @_ZSt17__throw_bad_allocv() #35
           to label %.noexc123 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp
 
 .noexc123:                                        ; preds = %if.end.i.i.i.i
@@ -5696,7 +5696,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE15_M_allocate_mapEm.exit.i: ; preds = %if.else31.i
   %mul.i.i.i.i114 = shl nuw nsw i64 %add38.i, 3
-  %call5.i.i2.i.i124 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i114) #33
+  %call5.i.i2.i.i124 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i114) #34
           to label %call5.i.i2.i.i.noexc unwind label %lpad11.loopexit
 
 call5.i.i2.i.i.noexc:                             ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE15_M_allocate_mapEm.exit.i
@@ -5714,7 +5714,7 @@ if.then.i.i.i.i.i28.i:                            ; preds = %call5.i.i2.i.i.noex
   br label %_ZSt4copyIPPN8proxygen18HTTP2PriorityQueue4Node11PendingNodeES5_ET0_T_S7_S6_.exit30.i
 
 _ZSt4copyIPPN8proxygen18HTTP2PriorityQueue4Node11PendingNodeES5_ET0_T_S7_S6_.exit30.i: ; preds = %if.then.i.i.i.i.i28.i, %call5.i.i2.i.i.noexc
-  call void @_ZdlPv(ptr noundef %29) #31
+  call void @_ZdlPv(ptr noundef %29) #32
   store ptr %call5.i.i2.i.i124, ptr %pendingNodesTmp, align 8
   store i64 %add38.i, ptr %_M_map_size.i.i, align 8
   br label %.noexc110
@@ -5737,7 +5737,7 @@ _ZSt4copyIPPN8proxygen18HTTP2PriorityQueue4Node11PendingNodeES5_ET0_T_S7_S6_.exi
 
 invoke.cont.i:                                    ; preds = %.noexc110, %if.end.i95
   %32 = phi ptr [ %add.ptr71.i, %.noexc110 ], [ %23, %if.end.i95 ]
-  %call5.i.i.i.i100111 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #33
+  %call5.i.i.i.i100111 = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #34
           to label %.noexc27 unwind label %lpad11.loopexit
 
 .noexc27:                                         ; preds = %invoke.cont.i
@@ -5788,7 +5788,7 @@ land.lhs.true34.i:                                ; preds = %if.end32.i
   br i1 %tobool.not.i.i.i, label %if.then.i35.i, label %_ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclES2_mS4_d.exit.i
 
 if.then.i35.i:                                    ; preds = %land.lhs.true34.i
-  invoke void @_ZSt25__throw_bad_function_callv() #34
+  invoke void @_ZSt25__throw_bad_function_callv() #35
           to label %.noexc28 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp
 
 .noexc28:                                         ; preds = %if.then.i35.i
@@ -5822,7 +5822,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i32
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #32
+  call void @__clang_call_terminate(ptr %44) #33
   unreachable
 
 lpad:                                             ; preds = %_ZNSt6vectorISt4pairIPN8proxygen15HTTPTransactionEdESaIS4_EE7reserveEm.exit
@@ -5864,7 +5864,7 @@ terminate.lpad.i.i37:                             ; preds = %if.then.i.i35
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #32
+  call void @__clang_call_terminate(ptr %49) #33
   unreachable
 
 if.end:                                           ; preds = %if.then.i.i32, %invoke.cont12, %while.body
@@ -5881,7 +5881,7 @@ if.then.i43:                                      ; preds = %if.end
 
 if.else.i46:                                      ; preds = %if.end
   %52 = load ptr, ptr %_M_first.i.i, align 8
-  call void @_ZdlPv(ptr noundef %52) #31
+  call void @_ZdlPv(ptr noundef %52) #32
   %53 = load ptr, ptr %_M_node.i.i, align 8
   %add.ptr.i.i47 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %add.ptr.i.i47, ptr %_M_node.i.i, align 8
@@ -5946,13 +5946,13 @@ invoke.cont39:                                    ; preds = %while.body37
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont39
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38) #33
   unreachable
 
 lpad40:                                           ; preds = %invoke.cont39
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38) #33
   unreachable
 
 while.end43:                                      ; preds = %invoke.cont32
@@ -6229,7 +6229,7 @@ if.then.i.i69:                                    ; preds = %invoke.cont75
 for.body.i.i.i:                                   ; preds = %if.then.i.i69, %for.body.i.i.i
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i71, %for.body.i.i.i ], [ %99, %if.then.i.i69 ]
   %101 = load ptr, ptr %__n.04.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %101) #31
+  call void @_ZdlPv(ptr noundef %101) #32
   %incdec.ptr.i.i.i71 = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i72 = icmp ult ptr %__n.04.i.i.i, %100
   br i1 %cmp.i.i.i72, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !30
@@ -6240,7 +6240,7 @@ _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, %if.then.i.i69
   %102 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i ], [ %98, %if.then.i.i69 ]
-  call void @_ZdlPv(ptr noundef %102) #31
+  call void @_ZdlPv(ptr noundef %102) #32
   br label %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit
 
 _ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit: ; preds = %invoke.cont75, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
@@ -6258,7 +6258,7 @@ if.then.i.i74:                                    ; preds = %_ZNSt5dequeIN8proxy
 for.body.i.i.i80:                                 ; preds = %if.then.i.i74, %for.body.i.i.i80
   %__n.04.i.i.i81 = phi ptr [ %incdec.ptr.i.i.i82, %for.body.i.i.i80 ], [ %104, %if.then.i.i74 ]
   %106 = load ptr, ptr %__n.04.i.i.i81, align 8
-  call void @_ZdlPv(ptr noundef %106) #31
+  call void @_ZdlPv(ptr noundef %106) #32
   %incdec.ptr.i.i.i82 = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i81, i64 8
   %cmp.i.i.i83 = icmp ult ptr %__n.04.i.i.i81, %105
   br i1 %cmp.i.i.i83, label %for.body.i.i.i80, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i84, !llvm.loop !30
@@ -6269,7 +6269,7 @@ _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i79: ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i84, %if.then.i.i74
   %107 = phi ptr [ %.pre.i.i85, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i84 ], [ %103, %if.then.i.i74 ]
-  call void @_ZdlPv(ptr noundef %107) #31
+  call void @_ZdlPv(ptr noundef %107) #32
   br label %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit86
 
 _ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit86: ; preds = %_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i79
@@ -6277,12 +6277,12 @@ _ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev.exit86
 
 ehcleanup:                                        ; preds = %if.then.i.i35, %lpad11, %lpad3
   %.pn = phi { ptr, i32 } [ %46, %lpad3 ], [ %lpad.phi, %lpad11 ], [ %lpad.phi, %if.then.i.i35 ]
-  call void @_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingNodesTmp) #30
+  call void @_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingNodesTmp) #31
   br label %ehcleanup77
 
 ehcleanup77:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %45, %lpad ]
-  call void @_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes) #30
+  call void @_ZNSt5dequeIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes) #31
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -6320,11 +6320,11 @@ invoke.cont3.i:                                   ; preds = %invoke.cont1.i
 lpad.i:                                           ; preds = %invoke.cont3.i, %invoke.cont1.i, %invoke.cont.i, %if.else
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i) #31
   resume { ptr, i32 } %5
 
 _ZN6google17MakeCheckOpStringIdiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i)
   br label %return
 
@@ -6368,11 +6368,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   resume { ptr, i32 } %3
 
 _ZN6google12Check_LEImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
@@ -6384,13 +6384,13 @@ while.body:                                       ; preds = %_ZN6google12Check_L
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #33
   unreachable
 
 lpad:                                             ; preds = %while.body
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #33
   unreachable
 
 while.end:                                        ; preds = %entry, %_ZN6google12Check_LEImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -6407,7 +6407,7 @@ define linkonce_odr void @_ZN8proxygen18HTTP2PriorityQueueD2Ev(ptr noundef nonnu
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 16), ptr %this, align 8
   %root_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_) #30
+  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_) #31
   %nodes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %nodes_, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %0, @_ZN5folly3f146detail15kEmptyTagVectorE
@@ -6427,7 +6427,7 @@ if.end24.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
 invoke.cont48.i.i.i.i.i.i:                        ; preds = %if.end24.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %nodes_, align 8
   store i64 0, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %0) #31
+  tail call void @_ZdlPv(ptr noundef %0) #32
   br label %_ZN5folly10F14FastMapImPN8proxygen18HTTP2PriorityQueue4NodeENS_23HeterogeneousAccessHashImvEENS_26HeterogeneousAccessEqualToImvEESaISt4pairIKmS4_EEED2Ev.exit
 
 _ZN5folly10F14FastMapImPN8proxygen18HTTP2PriorityQueue4NodeENS_23HeterogeneousAccessHashImvEENS_26HeterogeneousAccessEqualToImvEESaISt4pairIKmS4_EEED2Ev.exit: ; preds = %entry, %invoke.cont48.i.i.i.i.i.i
@@ -6439,7 +6439,7 @@ define linkonce_odr void @_ZN8proxygen18HTTP2PriorityQueueD0Ev(ptr noundef nonnu
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 16), ptr %this, align 8
   %root_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_.i) #30
+  tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_.i) #31
   %nodes_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %nodes_.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %0, @_ZN5folly3f146detail15kEmptyTagVectorE
@@ -6459,11 +6459,11 @@ if.end24.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
 invoke.cont48.i.i.i.i.i.i.i:                      ; preds = %if.end24.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %nodes_.i, align 8
   store i64 0, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %0) #31
+  tail call void @_ZdlPv(ptr noundef %0) #32
   br label %_ZN8proxygen18HTTP2PriorityQueueD2Ev.exit
 
 _ZN8proxygen18HTTP2PriorityQueueD2Ev.exit:        ; preds = %entry, %invoke.cont48.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
 
@@ -6534,7 +6534,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %cleanup.action unwind label %terminate.lpad
 
 cleanup.action:                                   ; preds = %invoke.cont12
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #30
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #31
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
@@ -6556,7 +6556,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %cleanup.action31 unwind label %terminate.lpad
 
 cleanup.action31:                                 ; preds = %invoke.cont25
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp22) #32
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp22) #33
   unreachable
 
 cleanup.done32:                                   ; preds = %cleanup.done
@@ -6574,7 +6574,7 @@ terminate.lpad:                                   ; preds = %cleanup.done32, %in
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #32
+  call void @__clang_call_terminate(ptr %6) #33
   unreachable
 }
 
@@ -6582,7 +6582,7 @@ terminate.lpad:                                   ; preds = %cleanup.done32, %in
 define linkonce_odr void @_ZThn8_N8proxygen18HTTP2PriorityQueue4Node14timeoutExpiredEv(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZN8proxygen18HTTP2PriorityQueue4Node14timeoutExpiredEv(ptr noundef nonnull align 8 dereferenceable(200) %0) #30
+  tail call void @_ZN8proxygen18HTTP2PriorityQueue4Node14timeoutExpiredEv(ptr noundef nonnull align 8 dereferenceable(200) %0) #31
   ret void
 }
 
@@ -6598,7 +6598,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen22HTTP2PriorityQueueBase8BaseNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #32
+  tail call void @llvm.trap() #33
   unreachable
 }
 
@@ -6638,7 +6638,7 @@ entry:
   %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
-  %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #33
+  %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #34
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
@@ -6649,7 +6649,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
   %__cur.08.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %entry ]
-  %call5.i.i.i5.i = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #33
+  %call5.i.i.i5.i = invoke noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #34
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body.i
@@ -6662,20 +6662,20 @@ lpad.i:                                           ; preds = %for.body.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  %3 = tail call ptr @__cxa_begin_catch(ptr %2) #30
+  %3 = tail call ptr @__cxa_begin_catch(ptr %2) #31
   %cmp3.i.i = icmp ult ptr %add.ptr, %__cur.08.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %4) #31
+  tail call void @_ZdlPv(ptr noundef %4) #32
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i, !llvm.loop !30
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i: ; preds = %for.body.i.i, %lpad.i
-  invoke void @__cxa_rethrow() #34
+  invoke void @__cxa_rethrow() #35
           to label %unreachable.i unwind label %lpad2.i
 
 lpad2.i:                                          ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
@@ -6688,7 +6688,7 @@ terminate.lpad.i:                                 ; preds = %lpad2.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #32
+  tail call void @__clang_call_terminate(ptr %7) #33
   unreachable
 
 unreachable.i:                                    ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
@@ -6696,11 +6696,11 @@ unreachable.i:                                    ; preds = %_ZNSt11_Deque_baseI
 
 lpad.body:                                        ; preds = %lpad2.i
   %8 = extractvalue { ptr, i32 } %5, 0
-  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #30
+  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #31
   %10 = load ptr, ptr %this, align 8
-  tail call void @_ZdlPv(ptr noundef %10) #31
+  tail call void @_ZdlPv(ptr noundef %10) #32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  invoke void @__cxa_rethrow() #34
+  invoke void @__cxa_rethrow() #35
           to label %unreachable unwind label %lpad23
 
 lpad23:                                           ; preds = %lpad.body
@@ -6741,7 +6741,7 @@ terminate.lpad:                                   ; preds = %lpad23
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #32
+  tail call void @__clang_call_terminate(ptr %15) #33
   unreachable
 
 unreachable:                                      ; preds = %lpad.body
@@ -6963,7 +6963,7 @@ if.end21:                                         ; preds = %do.end, %_ZN5folly3
   br i1 %cmp.i61, label %_ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE6setTagEmm.exit, label %if.then.i62
 
 if.then.i62:                                      ; preds = %if.end21
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.47) #35
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.47) #36
   unreachable
 
 _ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE6setTagEmm.exit: ; preds = %if.end21
@@ -7053,11 +7053,11 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN5folly3f146detail10BasePolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvSt4pairIKmS6_EE12beforeRehashEmmmmRPh.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZSt17__throw_bad_allocv() #34
+  tail call void @_ZSt17__throw_bad_allocv() #35
   unreachable
 
 _ZN5folly3f146detail10BasePolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvSt4pairIKmS6_EE12beforeRehashEmmmmRPh.exit: ; preds = %entry
-  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %retval.0.i32) #33
+  %call5.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %retval.0.i32) #34
   store ptr %call5.i.i2.i.i1.i, ptr %rawAllocation, align 8
   store i8 0, ptr %undoState, align 1
   %cmp5.not.i = icmp ne i64 %newChunkCount, 0
@@ -7134,7 +7134,7 @@ if.then14:                                        ; preds = %while.body
   br i1 %cmp.i36, label %invoke.cont20, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then14
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.47) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.47) #36
   unreachable
 
 invoke.cont20:                                    ; preds = %if.then14
@@ -7177,20 +7177,20 @@ invoke.cont34:                                    ; preds = %if.else28
   br i1 %cmp.i.i42, label %if.end.i.i, label %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i
 
 if.end.i.i:                                       ; preds = %invoke.cont34
-  invoke void @_ZSt17__throw_bad_allocv() #34
+  invoke void @_ZSt17__throw_bad_allocv() #35
           to label %.noexc unwind label %lpad36
 
 .noexc:                                           ; preds = %if.end.i.i
   unreachable
 
 _ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %invoke.cont34
-  %call5.i.i43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %newChunkCount) #33
+  %call5.i.i43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %newChunkCount) #34
           to label %if.end39 unwind label %lpad36
 
 lpad36:                                           ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %if.end.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %SCOPE_EXIT_STATE3) #30
+  call void @_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %SCOPE_EXIT_STATE3) #31
   resume { ptr, i32 } %9
 
 if.end39:                                         ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %if.else28
@@ -7254,7 +7254,7 @@ while.body53:                                     ; preds = %while.body53.lr.ph,
   br i1 %cmp65, label %do.end, label %if.then66
 
 if.then66:                                        ; preds = %while.body53
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.47) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.47) #36
   unreachable
 
 do.end:                                           ; preds = %while.body53
@@ -7319,7 +7319,7 @@ while.end.i:                                      ; preds = %_ZN5folly3f146detai
   br i1 %cmp.i.i67, label %invoke.cont68, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %while.end.i
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.47) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE6setTagEmmE30__folly_detail_safe_assert_arg_0, ptr noundef nonnull @.str.47) #36
   unreachable
 
 invoke.cont68:                                    ; preds = %while.end.i
@@ -7369,7 +7369,7 @@ if.then.i81:                                      ; preds = %while.cond78
   br i1 %cmp30.not, label %invoke.cont4.i.i.i85, label %if.end97
 
 invoke.cont4.i.i.i85:                             ; preds = %if.then.i81
-  call void @_ZdlPv(ptr noundef nonnull %fullness.0) #31
+  call void @_ZdlPv(ptr noundef nonnull %fullness.0) #32
   br label %if.end97
 
 if.end97:                                         ; preds = %invoke.cont4.i.i.i85, %if.then.i81, %invoke.cont24, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE16initializeChunksEPhmm.exit.loopexit
@@ -7412,7 +7412,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i88
   %conv.i.i.i.i.i = select i1 %iszero.i.i.i.i.i.i, i64 4294967295, i64 %48
   %or.i.i.i.i.i = or i64 %shr.i.i.i.i.i.i, %conv.i.i.i.i.i
   store i64 %or.i.i.i.i.i, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i90, align 8
-  call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE1EE5checkEv() #30
+  call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE1EE5checkEv() #31
   br label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %invoke.cont.i.i.i, %if.then2.i.i.i
@@ -7421,7 +7421,7 @@ if.end3.i.i.i:                                    ; preds = %invoke.cont.i.i.i, 
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.end3.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %finishedRawAllocation.0.i.i.i) #31
+  call void @_ZdlPv(ptr noundef nonnull %finishedRawAllocation.0.i.i.i) #32
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit
 
 _ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %if.end97, %if.then.i.i.i, %if.end3.i.i.i, %invoke.cont.i.i.i.i
@@ -7445,16 +7445,16 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #30
+  call void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #31
   resume { ptr, i32 } %0
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #23 comdat {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #30
+  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #31
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #34
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #35
   unreachable
 }
 
@@ -7509,7 +7509,7 @@ invoke.cont.i.i:                                  ; preds = %if.then
   %conv.i.i.i.i = select i1 %iszero.i.i.i.i.i, i64 4294967295, i64 %20
   %or.i.i.i.i = or i64 %shr.i.i.i.i.i, %conv.i.i.i.i
   store i64 %or.i.i.i.i, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
-  tail call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE1EE5checkEv() #30
+  tail call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE1EE5checkEv() #31
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %invoke.cont.i.i, %if.then2.i.i
@@ -7518,7 +7518,7 @@ if.end3.i.i:                                      ; preds = %invoke.cont.i.i, %i
   br i1 %cmp.not.i.i.i, label %if.end, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.end3.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %finishedRawAllocation.0.i.i) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %finishedRawAllocation.0.i.i) #32
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont.i.i.i, %if.end3.i.i, %if.then.i.i, %entry
@@ -7619,7 +7619,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2Prio
   br i1 %cmp.not.i.i, label %if.then.i.i, label %_ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE8clearTagEm.exit.i
 
 if.then.i.i:                                      ; preds = %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkISt4pairIKmS7_EEEEE.exit
-  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE8clearTagEmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.47) #35
+  tail call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef nonnull @_ZZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE8clearTagEmE30__folly_detail_safe_assert_arg, ptr noundef nonnull @.str.47) #36
   unreachable
 
 _ZN5folly3f146detail8F14ChunkISt4pairIKmPN8proxygen18HTTP2PriorityQueue4NodeEEE8clearTagEm.exit.i: ; preds = %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImPN8proxygen18HTTP2PriorityQueue4NodeEvvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkISt4pairIKmS7_EEEEE.exit
@@ -7738,7 +7738,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #35
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -7759,7 +7759,7 @@ if.then.i:                                        ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
-  %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #33
+  %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #34
   %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
@@ -7851,16 +7851,16 @@ if.then.i.i.i:                                    ; preds = %if.else31
   br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.end.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #34
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #35
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  tail call void @_ZSt17__throw_bad_allocv() #34
+  tail call void @_ZSt17__throw_bad_allocv() #35
   unreachable
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE15_M_allocate_mapEm.exit: ; preds = %if.else31
   %mul.i.i.i = shl nuw nsw i64 %add38, 3
-  %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #33
+  %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #34
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
   %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
@@ -7878,7 +7878,7 @@ if.then.i.i.i.i.i28:                              ; preds = %_ZNSt11_Deque_baseI
 
 _ZSt4copyIPPN8proxygen18HTTP2PriorityQueue4Node11PendingNodeES5_ET0_T_S7_S6_.exit30: ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE15_M_allocate_mapEm.exit, %if.then.i.i.i.i.i28
   %4 = load ptr, ptr %this, align 8
-  tail call void @_ZdlPv(ptr noundef %4) #31
+  tail call void @_ZdlPv(ptr noundef %4) #32
   store ptr %call5.i.i2.i, ptr %this, align 8
   store i64 %add38, ptr %_M_map_size, align 8
   br label %if.end65
@@ -7921,7 +7921,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.53) #34
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.53) #35
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -7930,11 +7930,11 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #30
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #31
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #30
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #31
   %add.ptr = getelementptr inbounds i8, ptr %__s, i64 %call.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__s, ptr noundef nonnull %add.ptr)
           to label %invoke.cont4 unwind label %lpad
@@ -7980,7 +7980,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #32
+  tail call void @__clang_call_terminate(ptr %2) #33
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -7989,7 +7989,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #31
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -8001,7 +8001,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #30
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #31
   resume { ptr, i32 } %4
 }
 
@@ -8039,7 +8039,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #32
+  tail call void @__clang_call_terminate(ptr %2) #33
   unreachable
 }
 
@@ -8067,7 +8067,7 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %__n.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %1, %if.then ]
   %3 = load ptr, ptr %__n.04.i, align 8
-  tail call void @_ZdlPv(ptr noundef %3) #31
+  tail call void @_ZdlPv(ptr noundef %3) #32
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__n.04.i, i64 8
   %cmp.i = icmp ult ptr %__n.04.i, %2
   br i1 %cmp.i, label %for.body.i, label %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit, !llvm.loop !30
@@ -8078,7 +8078,7 @@ _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M
 
 _ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit: ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit, %if.then
   %4 = phi ptr [ %.pre, %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit ], [ %0, %if.then ]
-  tail call void @_ZdlPv(ptr noundef %4) #31
+  tail call void @_ZdlPv(ptr noundef %4) #32
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt11_Deque_baseIN8proxygen18HTTP2PriorityQueue4Node11PendingNodeESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit, %entry
@@ -8122,7 +8122,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #34
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #35
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -8143,7 +8143,7 @@ if.then.i:                                        ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
-  %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #33
+  %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #34
   %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
@@ -8580,23 +8580,23 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 define internal void @_GLOBAL__sub_I_HTTP2PriorityQueue.cpp() #27 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #30
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #31
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #28
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8627,14 +8627,15 @@ attributes #24 = { cold noreturn nounwind "frame-pointer"="all" "no-trapping-mat
 attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #30 = { nounwind }
-attributes #31 = { builtin nounwind }
-attributes #32 = { noreturn nounwind }
-attributes #33 = { builtin allocsize(0) }
-attributes #34 = { noreturn }
-attributes #35 = { cold noreturn nounwind }
+attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #31 = { nounwind }
+attributes #32 = { builtin nounwind }
+attributes #33 = { noreturn nounwind }
+attributes #34 = { builtin allocsize(0) }
+attributes #35 = { noreturn }
+attributes #36 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

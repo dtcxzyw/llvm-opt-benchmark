@@ -87,7 +87,7 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   br i1 %14, label %15, label %._crit_edge
 
 15:                                               ; preds = %11
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.27) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.27) #16
   br label %.critedge
 
 ._crit_edge:                                      ; preds = %1, %11
@@ -128,8 +128,8 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 576
   %34 = load i32, ptr %32, align 8, !tbaa !76
-  tail call void @ff_hpeldsp_init(ptr noundef nonnull %33, i32 noundef %34) #14
-  %35 = tail call i32 @ff_snow_common_init(ptr noundef nonnull %0) #14
+  tail call void @ff_hpeldsp_init(ptr noundef nonnull %33, i32 noundef %34) #16
+  %35 = tail call i32 @ff_snow_common_init(ptr noundef nonnull %0) #16
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.critedge, label %37
 
@@ -327,16 +327,16 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   %165 = getelementptr inbounds nuw i8, ptr %3, i64 2142208
   store ptr %163, ptr %165, align 8, !tbaa !88
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 2142840
-  tail call void @ff_me_cmp_init(ptr noundef nonnull %166, ptr noundef nonnull %0) #14
+  tail call void @ff_me_cmp_init(ptr noundef nonnull %166, ptr noundef nonnull %0) #16
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 2148656
-  %168 = tail call i32 @ff_me_init(ptr noundef nonnull %167, ptr noundef nonnull %0, ptr noundef nonnull %166, i32 noundef 0) #14
+  %168 = tail call i32 @ff_me_init(ptr noundef nonnull %167, ptr noundef nonnull %0, ptr noundef nonnull %166, i32 noundef 0) #16
   %169 = icmp slt i32 %168, 0
   br i1 %169, label %.critedge, label %170
 
 170:                                              ; preds = %37
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 2142728
-  tail call void @ff_mpegvideoencdsp_init(ptr noundef nonnull %171, ptr noundef nonnull %0) #14
-  %172 = tail call i32 @ff_snow_alloc_blocks(ptr noundef nonnull %3) #14
+  tail call void @ff_mpegvideoencdsp_init(ptr noundef nonnull %171, ptr noundef nonnull %0) #16
+  %172 = tail call i32 @ff_snow_alloc_blocks(ptr noundef nonnull %3) #16
   %173 = getelementptr inbounds nuw i8, ptr %3, i64 6408
   store i32 0, ptr %173, align 8, !tbaa !89
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 2144104
@@ -364,7 +364,7 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   store i32 %190, ptr %191, align 4, !tbaa !99
   %192 = add nsw i32 %185, 64
   %193 = sext i32 %192 to i64
-  %194 = tail call noalias ptr @av_calloc(i64 noundef %193, i64 noundef 64) #14
+  %194 = tail call noalias ptr @av_calloc(i64 noundef %193, i64 noundef 64) #16
   %195 = getelementptr inbounds nuw i8, ptr %3, i64 2148736
   store ptr %194, ptr %195, align 8, !tbaa !100
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 2148744
@@ -373,7 +373,7 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   br i1 %.not211, label %.critedge, label %197
 
 197:                                              ; preds = %170
-  %198 = tail call ptr @ff_h263_get_mv_penalty() #14
+  %198 = tail call ptr @ff_h263_get_mv_penalty() #16
   %199 = getelementptr inbounds nuw i8, ptr %3, i64 2149400
   store ptr %198, ptr %199, align 8, !tbaa !102
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -394,7 +394,7 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   br i1 %.not213, label %210, label %.thread
 
 210:                                              ; preds = %207
-  %211 = tail call noalias ptr @av_mallocz(i64 noundef 256) #14
+  %211 = tail call noalias ptr @av_mallocz(i64 noundef 256) #16
   store ptr %211, ptr %208, align 8, !tbaa !105
   %.not214 = icmp eq ptr %211, null
   br i1 %.not214, label %.critedge, label %..thread_crit_edge
@@ -410,7 +410,7 @@ define internal i32 @encode_init(ptr noundef %0) #0 {
   br i1 %or.cond.not, label %219, label %214
 
 214:                                              ; preds = %.thread
-  %215 = tail call i32 @ff_rate_control_init(ptr noundef nonnull %4) #14
+  %215 = tail call i32 @ff_rate_control_init(ptr noundef nonnull %4) #16
   %216 = icmp slt i32 %215, 0
   br i1 %216, label %.critedge, label %._crit_edge237
 
@@ -450,12 +450,12 @@ switch.lookup:                                    ; preds = %219
 228:                                              ; preds = %219, %switch.lookup
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 6620
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 6624
-  %231 = tail call i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef %222, ptr noundef nonnull %229, ptr noundef nonnull %230) #14
+  %231 = tail call i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef %222, ptr noundef nonnull %229, ptr noundef nonnull %230) #16
   %.not218 = icmp eq i32 %231, 0
   br i1 %.not218, label %232, label %.critedge
 
 232:                                              ; preds = %228
-  %233 = tail call ptr @av_frame_alloc() #14
+  %233 = tail call ptr @av_frame_alloc() #16
   %234 = getelementptr inbounds nuw i8, ptr %3, i64 2056
   store ptr %233, ptr %234, align 8, !tbaa !110
   %.not219 = icmp eq ptr %233, null
@@ -474,7 +474,7 @@ switch.lookup:                                    ; preds = %219
   %244 = add nsw i32 %243, 32
   %245 = getelementptr inbounds nuw i8, ptr %233, i64 108
   store i32 %244, ptr %245, align 4, !tbaa !117
-  %246 = tail call i32 @ff_encode_alloc_frame(ptr noundef %237, ptr noundef nonnull %233) #14
+  %246 = tail call i32 @ff_encode_alloc_frame(ptr noundef %237, ptr noundef nonnull %233) #16
   %247 = icmp slt i32 %246, 0
   br i1 %247, label %.critedge, label %.preheader.i
 
@@ -563,10 +563,10 @@ switch.lookup:                                    ; preds = %219
 
 295:                                              ; preds = %.lr.ph, %292
   %indvars.iv233 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next234, %292 ]
-  %296 = tail call noalias ptr @av_calloc(i64 noundef %289, i64 noundef 4) #14
+  %296 = tail call noalias ptr @av_calloc(i64 noundef %289, i64 noundef 4) #16
   %297 = getelementptr inbounds nuw ptr, ptr %290, i64 %indvars.iv233
   store ptr %296, ptr %297, align 8, !tbaa !127
-  %298 = tail call noalias ptr @av_calloc(i64 noundef %289, i64 noundef 4) #14
+  %298 = tail call noalias ptr @av_calloc(i64 noundef %289, i64 noundef 4) #16
   %299 = getelementptr inbounds nuw ptr, ptr %291, i64 %indvars.iv233
   store ptr %298, ptr %299, align 8, !tbaa !128
   %300 = load ptr, ptr %297, align 8, !tbaa !127
@@ -606,7 +606,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %24 = mul i32 %23, %22
   %25 = add nsw i32 %24, 16384
   %26 = sext i32 %25 to i64
-  %27 = tail call i32 @ff_alloc_packet(ptr noundef %0, ptr noundef %1, i64 noundef %26) #14
+  %27 = tail call i32 @ff_alloc_packet(ptr noundef %0, ptr noundef %1, i64 noundef %26) #16
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %get_encode_buffer.exit.thread, label %29
 
@@ -615,8 +615,8 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %31 = load ptr, ptr %30, align 8, !tbaa !130
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !132
-  tail call void @ff_init_range_encoder(ptr noundef nonnull %10, ptr noundef %31, i32 noundef %33) #14
-  tail call void @ff_build_rac_states(ptr noundef nonnull %10, i32 noundef 214748364, i32 noundef 248) #14
+  tail call void @ff_init_range_encoder(ptr noundef nonnull %10, ptr noundef %31, i32 noundef %33) #16
+  tail call void @ff_build_rac_states(ptr noundef nonnull %10, i32 noundef 214748364, i32 noundef 248) #16
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 6672
   %35 = load i32, ptr %34, align 8, !tbaa !108
   %36 = icmp sgt i32 %35, 0
@@ -690,7 +690,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %81 = sext i32 %80 to i64
   %82 = lshr i32 16, %48
   %83 = lshr i32 16, %49
-  tail call void %74(ptr noundef %77, i64 noundef %81, i32 noundef %55, i32 noundef %51, i32 noundef %82, i32 noundef %83, i32 noundef 3) #14
+  tail call void %74(ptr noundef %77, i64 noundef %81, i32 noundef %55, i32 noundef %51, i32 noundef %82, i32 noundef %83, i32 noundef 3) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i32, ptr %34, align 8, !tbaa !108
   %85 = sext i32 %84 to i64
@@ -738,7 +738,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   br i1 %.not534, label %113, label %132
 
 113:                                              ; preds = %102
-  %114 = tail call nsz float @ff_rate_estimate_qscale(ptr noundef nonnull %9, i32 noundef 0) #14
+  %114 = tail call nsz float @ff_rate_estimate_qscale(ptr noundef nonnull %9, i32 noundef 0) #16
   %115 = fptosi float %114 to i32
   store i32 %115, ptr %94, align 8, !tbaa !137
   %116 = icmp slt i32 %115, 0
@@ -854,7 +854,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %175 = getelementptr inbounds nuw i8, ptr %165, i64 64
   %176 = load i32, ptr %175, align 8, !tbaa !119
   %177 = sext i32 %176 to i64
-  tail call void %174(ptr noundef nonnull %166, i64 noundef %177, i32 noundef %170, i32 noundef %172, i32 noundef 16, i32 noundef 16, i32 noundef 3) #14
+  tail call void %174(ptr noundef nonnull %166, i64 noundef %177, i32 noundef %170, i32 noundef %172, i32 noundef 16, i32 noundef 16, i32 noundef 3) #16
   %178 = load ptr, ptr %164, align 8, !tbaa !148
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %180 = load ptr, ptr %179, align 8, !tbaa !118
@@ -876,7 +876,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %193 = ashr i32 %172, %192
   %194 = lshr i32 16, %189
   %195 = lshr i32 16, %192
-  tail call void %182(ptr noundef %184, i64 noundef %187, i32 noundef %190, i32 noundef %193, i32 noundef %194, i32 noundef %195, i32 noundef 3) #14
+  tail call void %182(ptr noundef %184, i64 noundef %187, i32 noundef %190, i32 noundef %193, i32 noundef %194, i32 noundef %195, i32 noundef 3) #16
   %196 = load ptr, ptr %173, align 8, !tbaa !134
   %197 = load ptr, ptr %164, align 8, !tbaa !148
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
@@ -890,11 +890,11 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %206 = ashr i32 %172, %205
   %207 = lshr i32 16, %203
   %208 = lshr i32 16, %205
-  tail call void %196(ptr noundef %199, i64 noundef %202, i32 noundef %204, i32 noundef %206, i32 noundef %207, i32 noundef %208, i32 noundef 3) #14
+  tail call void %196(ptr noundef %199, i64 noundef %202, i32 noundef %204, i32 noundef %206, i32 noundef %207, i32 noundef %208, i32 noundef 3) #16
   br label %209
 
 209:                                              ; preds = %181, %167, %.thread1370
-  %210 = tail call i32 @ff_snow_frames_prepare(ptr noundef nonnull %8) #14
+  %210 = tail call i32 @ff_snow_frames_prepare(ptr noundef nonnull %8) #16
   %211 = load ptr, ptr %164, align 8, !tbaa !148
   %212 = load ptr, ptr %13, align 8, !tbaa !111
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 112
@@ -907,7 +907,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %219 = add nsw i32 %218, 32
   %220 = getelementptr inbounds nuw i8, ptr %211, i64 108
   store i32 %219, ptr %220, align 4, !tbaa !117
-  %221 = tail call i32 @ff_encode_alloc_frame(ptr noundef %212, ptr noundef %211) #14
+  %221 = tail call i32 @ff_encode_alloc_frame(ptr noundef %212, ptr noundef %211) #16
   %222 = icmp slt i32 %221, 0
   br i1 %222, label %get_encode_buffer.exit.thread, label %.preheader.i
 
@@ -990,8 +990,8 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   br i1 %.not541, label %269, label %270
 
 269:                                              ; preds = %261
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 1851) #14
-  tail call void @abort() #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 1851) #16
+  tail call void @abort() #17
   unreachable
 
 270:                                              ; preds = %261
@@ -1002,8 +1002,8 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   br i1 %.not542, label %274, label %275
 
 274:                                              ; preds = %270
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.30, i32 noundef 1852) #14
-  tail call void @abort() #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.30, i32 noundef 1852) #16
+  tail call void @abort() #17
   unreachable
 
 275:                                              ; preds = %270
@@ -1083,7 +1083,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %324 = getelementptr inbounds nuw i8, ptr %8, i64 2145224
   %325 = getelementptr inbounds nuw i8, ptr %8, i64 576
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %324, ptr noundef nonnull align 8 dereferenceable(416) %325, i64 416, i1 false), !tbaa.struct !175
-  tail call void @ff_me_init_pic(ptr noundef nonnull %9) #14
+  tail call void @ff_me_init_pic(ptr noundef nonnull %9) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %325, ptr noundef nonnull align 8 dereferenceable(416) %324, i64 416, i1 false), !tbaa.struct !175
   br label %326
 
@@ -1167,7 +1167,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   br i1 %380, label %381, label %382
 
 381:                                              ; preds = %379
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.32) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.32) #16
   br label %get_encode_buffer.exit.thread
 
 382:                                              ; preds = %379
@@ -1176,7 +1176,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %384 = icmp eq i32 %383, 2
   %385 = select i1 %384, i32 2, i32 0
   store i32 %385, ptr %336, align 8, !tbaa !178
-  %386 = tail call i32 @ff_snow_common_init_after_header(ptr noundef %0) #14
+  %386 = tail call i32 @ff_snow_common_init_after_header(ptr noundef %0) #16
   %387 = load i32, ptr %337, align 4, !tbaa !179
   %388 = load i32, ptr %334, align 8, !tbaa !177
   %.not546 = icmp eq i32 %387, %388
@@ -1243,7 +1243,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %427 = load ptr, ptr %340, align 8, !tbaa !191
   %428 = load i32, ptr %341, align 4, !tbaa !78
   %429 = load i32, ptr %334, align 8, !tbaa !177
-  tail call void @ff_spatial_idwt(ptr noundef %426, ptr noundef %427, i32 noundef %394, i32 noundef %396, i32 noundef %394, i32 noundef %428, i32 noundef %429) #14
+  tail call void @ff_spatial_idwt(ptr noundef %426, ptr noundef %427, i32 noundef %394, i32 noundef %396, i32 noundef %394, i32 noundef %428, i32 noundef %429) #16
   br i1 %brmerge.i, label %._crit_edge57.i, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %409
@@ -1620,7 +1620,7 @@ calculate_visual_weight.exit:                     ; preds = %calculate_visual_we
   %621 = getelementptr inbounds i16, ptr %498, i64 %620
   %622 = getelementptr inbounds i8, ptr %604, i64 %557
   %623 = getelementptr inbounds i8, ptr %622, i64 %558
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %622, ptr noundef %604, i64 noundef %559, i32 noundef %.0223.i.i691, i32 noundef %.0228.i.i695, i32 noundef %spec.select264.i.i693, i32 noundef %spec.select265.i.i697, ptr noundef %.1238.i.i686, i32 noundef %502, i32 noundef %529, i32 noundef %530) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %622, ptr noundef %604, i64 noundef %559, i32 noundef %.0223.i.i691, i32 noundef %.0228.i.i695, i32 noundef %spec.select264.i.i693, i32 noundef %spec.select265.i.i697, ptr noundef %.1238.i.i686, i32 noundef %502, i32 noundef %529, i32 noundef %530) #16
   %624 = getelementptr inbounds nuw i8, ptr %.1238.i.i686, i64 8
   %625 = load i8, ptr %624, align 2, !tbaa !210
   %626 = and i8 %625, 1
@@ -1683,7 +1683,7 @@ same_block.exit300.i.i702:                        ; preds = %618
 
 670:                                              ; preds = %628, %same_block.exit300.i.i702
   %671 = getelementptr inbounds i8, ptr %623, i64 %558
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %623, ptr noundef %604, i64 noundef %559, i32 noundef %.0223.i.i691, i32 noundef %.0228.i.i695, i32 noundef %spec.select264.i.i693, i32 noundef %spec.select265.i.i697, ptr noundef nonnull %.1236.i.i687, i32 noundef %502, i32 noundef %529, i32 noundef %530) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %623, ptr noundef %604, i64 noundef %559, i32 noundef %.0223.i.i691, i32 noundef %.0228.i.i695, i32 noundef %spec.select264.i.i693, i32 noundef %spec.select265.i.i697, ptr noundef nonnull %.1236.i.i687, i32 noundef %502, i32 noundef %529, i32 noundef %530) #16
   %.pre1275 = load i8, ptr %624, align 2, !tbaa !210
   br label %672
 
@@ -1810,7 +1810,7 @@ same_block.exit286.i.i745:                        ; preds = %718
 
 765:                                              ; preds = %723, %same_block.exit286.i.i745
   %766 = getelementptr inbounds i8, ptr %.0226.i.i706, i64 %558
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.0226.i.i706, ptr noundef %604, i64 noundef %559, i32 noundef %.0223.i.i691, i32 noundef %.0228.i.i695, i32 noundef %spec.select264.i.i693, i32 noundef %spec.select265.i.i697, ptr noundef nonnull %.1234.i.i688, i32 noundef %502, i32 noundef %529, i32 noundef %530) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.0226.i.i706, ptr noundef %604, i64 noundef %559, i32 noundef %.0223.i.i691, i32 noundef %.0228.i.i695, i32 noundef %spec.select264.i.i693, i32 noundef %spec.select265.i.i697, ptr noundef nonnull %.1234.i.i688, i32 noundef %502, i32 noundef %529, i32 noundef %530) #16
   %.pre1279 = load i8, ptr %624, align 2, !tbaa !210
   br label %767
 
@@ -1995,7 +1995,7 @@ same_block.exit.i.i735:                           ; preds = %860
   br i1 %.not17.i.i.i739, label %.lr.ph1007.us.preheader, label %907
 
 907:                                              ; preds = %865, %same_block.exit.i.i735
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.1227.i.i714, ptr noundef %604, i64 noundef %559, i32 noundef %.0223.i.i691, i32 noundef %.0228.i.i695, i32 noundef %spec.select264.i.i693, i32 noundef %spec.select265.i.i697, ptr noundef nonnull %.1232.i.i689, i32 noundef %502, i32 noundef %529, i32 noundef %530) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.1227.i.i714, ptr noundef %604, i64 noundef %559, i32 noundef %.0223.i.i691, i32 noundef %.0228.i.i695, i32 noundef %spec.select264.i.i693, i32 noundef %spec.select265.i.i697, ptr noundef nonnull %.1232.i.i689, i32 noundef %502, i32 noundef %529, i32 noundef %530) #16
   br label %.lr.ph1007.us.preheader
 
 .lr.ph1007.us.preheader:                          ; preds = %865, %818, %771, %same_block.exit.i.i735, %same_block.exit272.i.i728, %same_block.exit279.i.i718, %907
@@ -2180,7 +2180,7 @@ predict_plane.exit:                               ; preds = %predict_slice.exit7
   %996 = load ptr, ptr %355, align 8, !tbaa !226
   %997 = load i32, ptr %341, align 4, !tbaa !78
   %998 = load i32, ptr %334, align 8, !tbaa !177
-  tail call void @ff_spatial_dwt(ptr noundef %995, ptr noundef %996, i32 noundef %476, i32 noundef %478, i32 noundef %476, i32 noundef %997, i32 noundef %998) #14
+  tail call void @ff_spatial_dwt(ptr noundef %995, ptr noundef %996, i32 noundef %476, i32 noundef %478, i32 noundef %476, i32 noundef %997, i32 noundef %998) #16
   %999 = load i32, ptr %133, align 8, !tbaa !106
   %1000 = icmp ne i32 %999, 0
   %or.cond = and i1 %956, %1000
@@ -2413,8 +2413,8 @@ decorrelate.exit.i:                               ; preds = %.lr.ph.split.us.spl
   br i1 %1097, label %._crit_edge.thread.i, label %1098
 
 1098:                                             ; preds = %._crit_edge.i769
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.30, i32 noundef 1706) #14
-  tail call void @abort() #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.30, i32 noundef 1706) #16
+  tail call void @abort() #17
   unreachable
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i769, %1001
@@ -2429,7 +2429,7 @@ decorrelate.exit.i:                               ; preds = %.lr.ph.split.us.spl
   %.151.i = select i1 %1103, i64 0, i64 %1104
   store i64 %..i766, ptr %357, align 8, !tbaa !234
   store i64 %.151.i, ptr %358, align 8, !tbaa !235
-  %1105 = tail call nsz float @ff_rate_estimate_qscale(ptr noundef nonnull %9, i32 noundef 1) #14
+  %1105 = tail call nsz float @ff_rate_estimate_qscale(ptr noundef nonnull %9, i32 noundef 1) #16
   %1106 = fptosi float %1105 to i32
   store i32 %1106, ptr %94, align 8, !tbaa !137
   %1107 = icmp slt i32 %1106, 0
@@ -2458,7 +2458,7 @@ ratecontrol_1pass.exit:                           ; preds = %._crit_edge.thread.
 1120:                                             ; preds = %ratecontrol_1pass.exit
   %1121 = load ptr, ptr %30, align 8, !tbaa !130
   %1122 = load i32, ptr %32, align 8, !tbaa !132
-  tail call void @ff_init_range_encoder(ptr noundef nonnull %10, ptr noundef %1121, i32 noundef %1122) #14
+  tail call void @ff_init_range_encoder(ptr noundef nonnull %10, ptr noundef %1121, i32 noundef %1122) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %360, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4224) %361, ptr noundef nonnull align 16 dereferenceable(4224) %6, i64 4224, i1 false)
   tail call fastcc void @encode_header(ptr noundef nonnull %8)
@@ -3511,7 +3511,7 @@ put_rac.exit256.us.i.i:                           ; preds = %renorm_encoder.exit
 
 .split.us.i.i:                                    ; preds = %.lr.ph295.split.us.i.i, %.lr.ph295.split.i.i
   %1638 = load ptr, ptr %13, align 8, !tbaa !111
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1638, i32 noundef 16, ptr noundef nonnull @.str.34) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1638, i32 noundef 16, ptr noundef nonnull @.str.34) #16
   br label %encode_subband.exit
 
 encode_subband.exit:                              ; preds = %._crit_edge.us296.i.i, %.split.us.i.i, %.lr.ph295.split.i.i, %1395, %decorrelate.exit
@@ -3529,8 +3529,8 @@ encode_subband.exit:                              ; preds = %._crit_edge.us296.i
   br i1 %1647, label %1649, label %1648
 
 1648:                                             ; preds = %1642
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.30, i32 noundef 1986) #14
-  tail call void @abort() #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.30, i32 noundef 1986) #16
+  tail call void @abort() #17
   unreachable
 
 1649:                                             ; preds = %1642, %encode_subband.exit
@@ -3767,7 +3767,7 @@ dequantize.exit:                                  ; preds = %._crit_edge.us.i823
   %1750 = load ptr, ptr %339, align 8, !tbaa !186
   %1751 = load ptr, ptr %340, align 8, !tbaa !191
   %1752 = load i32, ptr %341, align 4, !tbaa !78
-  tail call void @ff_spatial_idwt(ptr noundef %1750, ptr noundef %1751, i32 noundef %476, i32 noundef %478, i32 noundef %476, i32 noundef %1752, i32 noundef %.lcssa9341373) #14
+  tail call void @ff_spatial_idwt(ptr noundef %1750, ptr noundef %1751, i32 noundef %476, i32 noundef %478, i32 noundef %476, i32 noundef %1752, i32 noundef %.lcssa9341373) #16
   %1753 = load i32, ptr %163, align 8, !tbaa !146
   %1754 = icmp eq i32 %1753, -128
   %or.cond1101 = select i1 %1754, i1 %483, i1 false
@@ -4040,7 +4040,7 @@ dequantize.exit:                                  ; preds = %._crit_edge.us.i823
   %1898 = getelementptr inbounds i8, ptr %1794, i64 %1897
   %1899 = getelementptr inbounds i8, ptr %1878, i64 %1824
   %1900 = getelementptr inbounds i8, ptr %1899, i64 %1825
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %1899, ptr noundef %1878, i64 noundef %1826, i32 noundef %.0223.i.i604, i32 noundef %.0228.i.i608, i32 noundef %spec.select264.i.i606, i32 noundef %spec.select265.i.i610, ptr noundef %.1238.i.i599, i32 noundef %1766, i32 noundef %1795, i32 noundef %1796) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %1899, ptr noundef %1878, i64 noundef %1826, i32 noundef %.0223.i.i604, i32 noundef %.0228.i.i608, i32 noundef %spec.select264.i.i606, i32 noundef %spec.select265.i.i610, ptr noundef %.1238.i.i599, i32 noundef %1766, i32 noundef %1795, i32 noundef %1796) #16
   %1901 = getelementptr inbounds nuw i8, ptr %.1238.i.i599, i64 8
   %1902 = load i8, ptr %1901, align 2, !tbaa !210
   %1903 = and i8 %1902, 1
@@ -4103,7 +4103,7 @@ same_block.exit300.i.i615:                        ; preds = %1892
 
 1947:                                             ; preds = %1905, %same_block.exit300.i.i615
   %1948 = getelementptr inbounds i8, ptr %1900, i64 %1825
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %1900, ptr noundef %1878, i64 noundef %1826, i32 noundef %.0223.i.i604, i32 noundef %.0228.i.i608, i32 noundef %spec.select264.i.i606, i32 noundef %spec.select265.i.i610, ptr noundef nonnull %.1236.i.i600, i32 noundef %1766, i32 noundef %1795, i32 noundef %1796) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %1900, ptr noundef %1878, i64 noundef %1826, i32 noundef %.0223.i.i604, i32 noundef %.0228.i.i608, i32 noundef %spec.select264.i.i606, i32 noundef %spec.select265.i.i610, ptr noundef nonnull %.1236.i.i600, i32 noundef %1766, i32 noundef %1795, i32 noundef %1796) #16
   %.pre1286 = load i8, ptr %1901, align 2, !tbaa !210
   br label %1949
 
@@ -4230,7 +4230,7 @@ same_block.exit286.i.i660:                        ; preds = %1995
 
 2042:                                             ; preds = %2000, %same_block.exit286.i.i660
   %2043 = getelementptr inbounds i8, ptr %.0226.i.i619, i64 %1825
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.0226.i.i619, ptr noundef %1878, i64 noundef %1826, i32 noundef %.0223.i.i604, i32 noundef %.0228.i.i608, i32 noundef %spec.select264.i.i606, i32 noundef %spec.select265.i.i610, ptr noundef nonnull %.1234.i.i601, i32 noundef %1766, i32 noundef %1795, i32 noundef %1796) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.0226.i.i619, ptr noundef %1878, i64 noundef %1826, i32 noundef %.0223.i.i604, i32 noundef %.0228.i.i608, i32 noundef %spec.select264.i.i606, i32 noundef %spec.select265.i.i610, ptr noundef nonnull %.1234.i.i601, i32 noundef %1766, i32 noundef %1795, i32 noundef %1796) #16
   %.pre1290 = load i8, ptr %1901, align 2, !tbaa !210
   br label %2044
 
@@ -4415,7 +4415,7 @@ same_block.exit.i.i650:                           ; preds = %2137
   br i1 %.not17.i.i.i654, label %.lr.ph1056.us.preheader, label %2184
 
 2184:                                             ; preds = %2142, %same_block.exit.i.i650
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.1227.i.i627, ptr noundef %1878, i64 noundef %1826, i32 noundef %.0223.i.i604, i32 noundef %.0228.i.i608, i32 noundef %spec.select264.i.i606, i32 noundef %spec.select265.i.i610, ptr noundef nonnull %.1232.i.i602, i32 noundef %1766, i32 noundef %1795, i32 noundef %1796) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.1227.i.i627, ptr noundef %1878, i64 noundef %1826, i32 noundef %.0223.i.i604, i32 noundef %.0228.i.i608, i32 noundef %spec.select264.i.i606, i32 noundef %spec.select265.i.i610, ptr noundef nonnull %.1232.i.i602, i32 noundef %1766, i32 noundef %1795, i32 noundef %1796) #16
   br label %.lr.ph1056.us.preheader
 
 .lr.ph1056.us.preheader:                          ; preds = %2142, %2095, %2048, %same_block.exit.i.i650, %same_block.exit272.i.i643, %same_block.exit279.i.i631, %2184
@@ -4793,7 +4793,7 @@ predict_slice.exit667:                            ; preds = %._crit_edge1052.us,
   %2407 = getelementptr inbounds i8, ptr %2303, i64 %2406
   %2408 = getelementptr inbounds i8, ptr %2387, i64 %2333
   %2409 = getelementptr inbounds i8, ptr %2408, i64 %2334
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %2408, ptr noundef %2387, i64 noundef %2335, i32 noundef %.0223.i.i, i32 noundef %.0228.i.i, i32 noundef %spec.select264.i.i, i32 noundef %spec.select265.i.i, ptr noundef %.1238.i.i, i32 noundef %2275, i32 noundef %2304, i32 noundef %2305) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %2408, ptr noundef %2387, i64 noundef %2335, i32 noundef %.0223.i.i, i32 noundef %.0228.i.i, i32 noundef %spec.select264.i.i, i32 noundef %spec.select265.i.i, ptr noundef %.1238.i.i, i32 noundef %2275, i32 noundef %2304, i32 noundef %2305) #16
   %2410 = getelementptr inbounds nuw i8, ptr %.1238.i.i, i64 8
   %2411 = load i8, ptr %2410, align 2, !tbaa !210
   %2412 = and i8 %2411, 1
@@ -4856,7 +4856,7 @@ same_block.exit300.i.i:                           ; preds = %2401
 
 2456:                                             ; preds = %2414, %same_block.exit300.i.i
   %2457 = getelementptr inbounds i8, ptr %2409, i64 %2334
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %2409, ptr noundef %2387, i64 noundef %2335, i32 noundef %.0223.i.i, i32 noundef %.0228.i.i, i32 noundef %spec.select264.i.i, i32 noundef %spec.select265.i.i, ptr noundef nonnull %.1236.i.i, i32 noundef %2275, i32 noundef %2304, i32 noundef %2305) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %2409, ptr noundef %2387, i64 noundef %2335, i32 noundef %.0223.i.i, i32 noundef %.0228.i.i, i32 noundef %spec.select264.i.i, i32 noundef %spec.select265.i.i, ptr noundef nonnull %.1236.i.i, i32 noundef %2275, i32 noundef %2304, i32 noundef %2305) #16
   %.pre1264 = load i8, ptr %2410, align 2, !tbaa !210
   br label %2458
 
@@ -4983,7 +4983,7 @@ same_block.exit286.i.i:                           ; preds = %2504
 
 2551:                                             ; preds = %2509, %same_block.exit286.i.i
   %2552 = getelementptr inbounds i8, ptr %.0226.i.i, i64 %2334
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.0226.i.i, ptr noundef %2387, i64 noundef %2335, i32 noundef %.0223.i.i, i32 noundef %.0228.i.i, i32 noundef %spec.select264.i.i, i32 noundef %spec.select265.i.i, ptr noundef nonnull %.1234.i.i, i32 noundef %2275, i32 noundef %2304, i32 noundef %2305) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.0226.i.i, ptr noundef %2387, i64 noundef %2335, i32 noundef %.0223.i.i, i32 noundef %.0228.i.i, i32 noundef %spec.select264.i.i, i32 noundef %spec.select265.i.i, ptr noundef nonnull %.1234.i.i, i32 noundef %2275, i32 noundef %2304, i32 noundef %2305) #16
   %.pre1268 = load i8, ptr %2410, align 2, !tbaa !210
   br label %2553
 
@@ -5168,7 +5168,7 @@ same_block.exit.i.i:                              ; preds = %2646
   br i1 %.not17.i.i.i, label %.lr.ph980.us.preheader, label %2693
 
 2693:                                             ; preds = %2651, %same_block.exit.i.i
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.1227.i.i, ptr noundef %2387, i64 noundef %2335, i32 noundef %.0223.i.i, i32 noundef %.0228.i.i, i32 noundef %spec.select264.i.i, i32 noundef %spec.select265.i.i, ptr noundef nonnull %.1232.i.i, i32 noundef %2275, i32 noundef %2304, i32 noundef %2305) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %8, ptr noundef %.1227.i.i, ptr noundef %2387, i64 noundef %2335, i32 noundef %.0223.i.i, i32 noundef %.0228.i.i, i32 noundef %spec.select264.i.i, i32 noundef %spec.select265.i.i, ptr noundef nonnull %.1232.i.i, i32 noundef %2275, i32 noundef %2304, i32 noundef %2305) #16
   br label %.lr.ph980.us.preheader
 
 .lr.ph980.us.preheader:                           ; preds = %2651, %2604, %2557, %same_block.exit.i.i, %same_block.exit272.i.i, %same_block.exit279.i.i, %2693
@@ -5335,8 +5335,8 @@ predict_plane.exit570:                            ; preds = %predict_slice.exit,
 .critedge567:                                     ; preds = %963
   %2784 = load ptr, ptr %30, align 8, !tbaa !130
   %2785 = load i32, ptr %32, align 8, !tbaa !132
-  tail call void @ff_init_range_encoder(ptr noundef nonnull %10, ptr noundef %2784, i32 noundef %2785) #14
-  tail call void @ff_build_rac_states(ptr noundef nonnull %10, i32 noundef 214748364, i32 noundef 248) #14
+  tail call void @ff_init_range_encoder(ptr noundef nonnull %10, ptr noundef %2784, i32 noundef %2785) #16
+  tail call void @ff_build_rac_states(ptr noundef nonnull %10, i32 noundef 214748364, i32 noundef 248) #16
   store i32 1, ptr %91, align 8, !tbaa !136
   store i32 1, ptr %348, align 8, !tbaa !144
   %2786 = load ptr, ptr %164, align 8, !tbaa !148
@@ -5401,7 +5401,7 @@ update_last_header_values.exit:                   ; preds = %.preheader.i825, %.
   %2821 = getelementptr ptr, ptr %8, i64 %2820
   %2822 = getelementptr i8, ptr %2821, i64 2064
   %2823 = load ptr, ptr %2822, align 8, !tbaa !152
-  tail call void @av_frame_unref(ptr noundef %2823) #14
+  tail call void @av_frame_unref(ptr noundef %2823) #16
   %2824 = load i32, ptr %91, align 8, !tbaa !136
   %2825 = load ptr, ptr %164, align 8, !tbaa !148
   %2826 = getelementptr inbounds nuw i8, ptr %2825, i64 120
@@ -5443,7 +5443,7 @@ update_last_header_values.exit:                   ; preds = %.preheader.i825, %.
   br i1 %.not549, label %2856, label %2852
 
 2852:                                             ; preds = %update_last_header_values.exit
-  %2853 = tail call nsz float @ff_rate_estimate_qscale(ptr noundef nonnull %9, i32 noundef 0) #14
+  %2853 = tail call nsz float @ff_rate_estimate_qscale(ptr noundef nonnull %9, i32 noundef 0) #16
   %2854 = fptosi float %2853 to i32
   %2855 = icmp slt i32 %2854, 0
   br i1 %2855, label %get_encode_buffer.exit.thread, label %2856
@@ -5455,7 +5455,7 @@ update_last_header_values.exit:                   ; preds = %.preheader.i825, %.
   br i1 %.not550, label %2860, label %2859
 
 2859:                                             ; preds = %2856
-  tail call void @ff_write_pass1_stats(ptr noundef nonnull %9) #14
+  tail call void @ff_write_pass1_stats(ptr noundef nonnull %9) #16
   br label %2860
 
 2860:                                             ; preds = %2859, %2856
@@ -5472,7 +5472,7 @@ update_last_header_values.exit:                   ; preds = %.preheader.i825, %.
   %2870 = and i32 %2869, 4
   %2871 = getelementptr inbounds nuw i8, ptr %2863, i64 120
   %2872 = load i32, ptr %2871, align 8, !tbaa !136
-  %2873 = tail call i32 @ff_side_data_set_encoder_stats(ptr noundef %1, i32 noundef %2865, ptr noundef nonnull %368, i32 noundef %2870, i32 noundef %2872) #14
+  %2873 = tail call i32 @ff_side_data_set_encoder_stats(ptr noundef %1, i32 noundef %2865, ptr noundef nonnull %368, i32 noundef %2870, i32 noundef %2872) #16
   %2874 = load ptr, ptr %13, align 8, !tbaa !111
   %2875 = getelementptr inbounds nuw i8, ptr %2874, i64 64
   %2876 = load i32, ptr %2875, align 8, !tbaa !76
@@ -5484,11 +5484,11 @@ update_last_header_values.exit:                   ; preds = %.preheader.i825, %.
   %2879 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %2880 = load ptr, ptr %2879, align 8, !tbaa !291
   %2881 = load ptr, ptr %164, align 8, !tbaa !148
-  %2882 = tail call i32 @av_frame_replace(ptr noundef %2880, ptr noundef %2881) #14
+  %2882 = tail call i32 @av_frame_replace(ptr noundef %2880, ptr noundef %2881) #16
   br label %2883
 
 2883:                                             ; preds = %2878, %2860
-  %2884 = tail call i32 @ff_rac_terminate(ptr noundef nonnull %10, i32 noundef 0) #14
+  %2884 = tail call i32 @ff_rac_terminate(ptr noundef nonnull %10, i32 noundef 0) #16
   store i32 %2884, ptr %32, align 8, !tbaa !132
   %2885 = load ptr, ptr %164, align 8, !tbaa !148
   %2886 = getelementptr inbounds nuw i8, ptr %2885, i64 276
@@ -5519,11 +5519,11 @@ get_encode_buffer.exit.thread:                    ; preds = %ratecontrol_1pass.e
 define internal noundef i32 @encode_end(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  tail call void @ff_snow_common_end(ptr noundef %3) #14
+  tail call void @ff_snow_common_end(ptr noundef %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2151224
-  tail call void @ff_rate_control_uninit(ptr noundef nonnull %4) #14
+  tail call void @ff_rate_control_uninit(ptr noundef nonnull %4) #16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2056
-  tail call void @av_frame_free(ptr noundef nonnull %5) #14
+  tail call void @av_frame_free(ptr noundef nonnull %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 6448
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 6512
   br label %12
@@ -5532,17 +5532,17 @@ define internal noundef i32 @encode_end(ptr noundef %0) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 2148744
   store ptr null, ptr %9, align 8, !tbaa !297
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 2148736
-  tail call void @av_freep(ptr noundef nonnull %10) #14
+  tail call void @av_freep(ptr noundef nonnull %10) #16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  tail call void @av_freep(ptr noundef nonnull %11) #14
+  tail call void @av_freep(ptr noundef nonnull %11) #16
   ret i32 0
 
 12:                                               ; preds = %1, %12
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  tail call void @av_freep(ptr noundef nonnull %13) #14
+  tail call void @av_freep(ptr noundef nonnull %13) #16
   %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  tail call void @av_freep(ptr noundef nonnull %14) #14
+  tail call void @av_freep(ptr noundef nonnull %14) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %8, label %12, !llvm.loop !298
@@ -5702,7 +5702,7 @@ put_rac.exit:                                     ; preds = %12, %renorm_encoder
   br i1 %.not128, label %.loopexit219..critedge.preheader_crit_edge, label %.loopexit219.critedge
 
 .loopexit219.critedge:                            ; preds = %52, %put_rac.exit
-  tail call void @ff_snow_reset_contexts(ptr noundef nonnull %0) #14
+  tail call void @ff_snow_reset_contexts(ptr noundef nonnull %0) #16
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 6668
   store i32 0, ptr %55, align 4, !tbaa !283
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 6644
@@ -8164,7 +8164,7 @@ check_block_inter.exit534.us.us.us.i:             ; preds = %774, %765, %check_b
 936:                                              ; preds = %930
   %937 = getelementptr inbounds i8, ptr %904, i64 %841
   %938 = getelementptr inbounds i8, ptr %937, i64 %842
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %937, ptr noundef %904, i64 noundef %843, i32 noundef %.0223.i.i.us.us.us.i, i32 noundef %.0228.i.i.us.us.us.i, i32 noundef %spec.select264.i.i.us.us.us.i, i32 noundef %spec.select265.i.i.us.us.us.i, ptr noundef %.1238.i.i.us.us.us.i, i32 noundef %810, i32 noundef %818, i32 noundef %820) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %937, ptr noundef %904, i64 noundef %843, i32 noundef %.0223.i.i.us.us.us.i, i32 noundef %.0228.i.i.us.us.us.i, i32 noundef %spec.select264.i.i.us.us.us.i, i32 noundef %spec.select265.i.i.us.us.us.i, ptr noundef %.1238.i.i.us.us.us.i, i32 noundef %810, i32 noundef %818, i32 noundef %820) #16
   %939 = getelementptr inbounds nuw i8, ptr %.1238.i.i.us.us.us.i, i64 8
   %940 = load i8, ptr %939, align 2, !tbaa !210
   %941 = and i8 %940, 1
@@ -8227,7 +8227,7 @@ same_block.exit300.i.i.us.us.us.i:                ; preds = %936
 
 985:                                              ; preds = %same_block.exit300.i.i.us.us.us.i, %943
   %986 = getelementptr inbounds i8, ptr %938, i64 %842
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %938, ptr noundef %904, i64 noundef %843, i32 noundef %.0223.i.i.us.us.us.i, i32 noundef %.0228.i.i.us.us.us.i, i32 noundef %spec.select264.i.i.us.us.us.i, i32 noundef %spec.select265.i.i.us.us.us.i, ptr noundef nonnull %.1236.i.i.us.us.us.i, i32 noundef %810, i32 noundef %818, i32 noundef %820) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %938, ptr noundef %904, i64 noundef %843, i32 noundef %.0223.i.i.us.us.us.i, i32 noundef %.0228.i.i.us.us.us.i, i32 noundef %spec.select264.i.i.us.us.us.i, i32 noundef %spec.select265.i.i.us.us.us.i, ptr noundef nonnull %.1236.i.i.us.us.us.i, i32 noundef %810, i32 noundef %818, i32 noundef %820) #16
   %.pre289.i.us.us.us.i = load i8, ptr %939, align 2, !tbaa !210
   %.pre1011.i = and i8 %.pre289.i.us.us.us.i, 1
   br label %987
@@ -8352,7 +8352,7 @@ same_block.exit286.i.i.us.us.us.i:                ; preds = %1032
 
 1077:                                             ; preds = %same_block.exit286.i.i.us.us.us.i, %1035
   %1078 = getelementptr inbounds i8, ptr %.0226.i.i.us.us.us.i, i64 %842
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %.0226.i.i.us.us.us.i, ptr noundef %904, i64 noundef %843, i32 noundef %.0223.i.i.us.us.us.i, i32 noundef %.0228.i.i.us.us.us.i, i32 noundef %spec.select264.i.i.us.us.us.i, i32 noundef %spec.select265.i.i.us.us.us.i, ptr noundef nonnull %.1234.i.i.us.us.us.i, i32 noundef %810, i32 noundef %818, i32 noundef %820) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %.0226.i.i.us.us.us.i, ptr noundef %904, i64 noundef %843, i32 noundef %.0223.i.i.us.us.us.i, i32 noundef %.0228.i.i.us.us.us.i, i32 noundef %spec.select264.i.i.us.us.us.i, i32 noundef %spec.select265.i.i.us.us.us.i, ptr noundef nonnull %.1234.i.i.us.us.us.i, i32 noundef %810, i32 noundef %818, i32 noundef %820) #16
   %.pre293.i.us.us.us.i = load i8, ptr %939, align 2, !tbaa !210
   %.pre1013.i = and i8 %.pre293.i.us.us.us.i, 1
   br label %1079
@@ -8532,7 +8532,7 @@ same_block.exit.i.i.us.us.us.i:                   ; preds = %1169
   br i1 %.not17.i.i.i.us.us.us.i, label %.lr.ph.us.preheader.i.us.us.us.i, label %1214
 
 1214:                                             ; preds = %same_block.exit.i.i.us.us.us.i, %1172
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %.1227.i.i.us.us.us.i, ptr noundef %904, i64 noundef %843, i32 noundef %.0223.i.i.us.us.us.i, i32 noundef %.0228.i.i.us.us.us.i, i32 noundef %spec.select264.i.i.us.us.us.i, i32 noundef %spec.select265.i.i.us.us.us.i, ptr noundef nonnull %.1232.i.i.us.us.us.i, i32 noundef %810, i32 noundef %818, i32 noundef %820) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %.1227.i.i.us.us.us.i, ptr noundef %904, i64 noundef %843, i32 noundef %.0223.i.i.us.us.us.i, i32 noundef %.0228.i.i.us.us.us.i, i32 noundef %spec.select264.i.i.us.us.us.i, i32 noundef %spec.select265.i.i.us.us.us.i, ptr noundef nonnull %.1232.i.i.us.us.us.i, i32 noundef %810, i32 noundef %818, i32 noundef %820) #16
   br label %.lr.ph.us.preheader.i.us.us.us.i
 
 .lr.ph.us.preheader.i.us.us.us.i:                 ; preds = %1214, %same_block.exit.i.i.us.us.us.i, %1172, %same_block.exit272.i.i.us.us.us.i, %1127, %same_block.exit279.i.i.us.us.us.i, %1082
@@ -9545,7 +9545,7 @@ get_dc.exit.us.us.us.i:                           ; preds = %._crit_edge198.i.us
 
 ._crit_edge757.split.us.us.us.i:                  ; preds = %._crit_edge754.us.us.us.i
   %1832 = load ptr, ptr %57, align 8, !tbaa !111
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1832, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef %.0805.us.us.i, i32 noundef %.2432.us.us.us.i) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1832, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef %.0805.us.us.i, i32 noundef %.2432.us.us.us.i) #16
   %.not.us.us.i = icmp ne i32 %.2432.us.us.us.i, 0
   %1833 = add nuw nsw i32 %.0805.us.us.i, 1
   %1834 = icmp samesign ult i32 %.0805.us.us.i, 24
@@ -9594,14 +9594,14 @@ get_dc.exit.us.us.us.i:                           ; preds = %._crit_edge198.i.us
 
 .split821.us.thread1088.i:                        ; preds = %.split.us.i
   %1863 = load ptr, ptr %57, align 8, !tbaa !111
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1863, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef 0, i32 noundef 0) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1863, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef 0, i32 noundef 0) #16
   %1864 = load i32, ptr %38, align 8, !tbaa !80
   %1865 = icmp eq i32 %1864, 1
   br i1 %1865, label %._crit_edge830.i, label %iterative_me.exit
 
 .split821.us.thread.i:                            ; preds = %._crit_edge654.i
   %1866 = load ptr, ptr %57, align 8, !tbaa !111
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1866, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef 0, i32 noundef 0) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1866, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef 0, i32 noundef 0) #16
   %1867 = load i32, ptr %38, align 8, !tbaa !80
   %1868 = icmp eq i32 %1867, 1
   br i1 %1868, label %._crit_edge830.i, label %iterative_me.exit
@@ -10069,7 +10069,7 @@ check_4block_inter.exit561.us.i:                  ; preds = %2135, %2128, %2091
 ._crit_edge830.i:                                 ; preds = %._crit_edge830.loopexit.i, %.split821.us.thread.i, %.split821.us.thread1088.i
   %.0424.lcssa.i = phi i32 [ %2142, %._crit_edge830.loopexit.i ], [ 0, %.split821.us.thread1088.i ], [ 0, %.split821.us.thread.i ]
   %2143 = load ptr, ptr %57, align 8, !tbaa !111
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2143, i32 noundef 16, ptr noundef nonnull @.str.36, i32 noundef %.0424.lcssa.i) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2143, i32 noundef 16, ptr noundef nonnull @.str.36, i32 noundef %.0424.lcssa.i) #16
   br label %iterative_me.exit
 
 iterative_me.exit:                                ; preds = %.split821.us.i, %.split821.us.thread1088.i, %.split821.us.thread.i, %._crit_edge830.i
@@ -10160,7 +10160,7 @@ iterative_me.exit:                                ; preds = %.split821.us.i, %.s
 .split.us:                                        ; preds = %.lr.ph72.split.us.split.us, %.lr.ph72.split.us.split, %.lr.ph72.split
   %2178 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2179 = load ptr, ptr %2178, align 8, !tbaa !111
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2179, i32 noundef 16, ptr noundef nonnull @.str.34) #14
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2179, i32 noundef 16, ptr noundef nonnull @.str.34) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.split.us74.us, %._crit_edge.split.us.us, %.lr.ph72.split, %2144, %.split.us
@@ -10184,16 +10184,16 @@ declare i32 @av_frame_replace(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @ff_rac_terminate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log2.f64(double) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f64(double) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 declare void @ff_snow_reset_contexts(ptr noundef) local_unnamed_addr #2
@@ -13098,12 +13098,12 @@ mid_pred.exit501:                                 ; preds = %386, %388, %389, %3
 
 init_ref.exit:                                    ; preds = %424
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %435 = call i32 @ff_epzs_motion_search(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %14, i32 noundef %405, i32 noundef %1, i32 noundef %37) #14
+  %435 = call i32 @ff_epzs_motion_search(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %14, i32 noundef %405, i32 noundef %1, i32 noundef %37) #16
   %436 = load ptr, ptr %406, align 8, !tbaa !378
-  %437 = call i32 %436(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %16, i32 noundef %435, i32 noundef 0, i32 noundef 0, i32 noundef %1, i32 noundef %37) #14
+  %437 = call i32 %436(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %16, i32 noundef %435, i32 noundef 0, i32 noundef 0, i32 noundef %1, i32 noundef %37) #16
   %438 = load i32, ptr %15, align 4, !tbaa !119
   %439 = load i32, ptr %16, align 4, !tbaa !119
-  %440 = call i32 @ff_get_mb_score(ptr noundef nonnull %17, i32 noundef %438, i32 noundef %439, i32 noundef 0, i32 noundef 0, i32 noundef %1, i32 noundef %37, i32 noundef 0) #14
+  %440 = call i32 @ff_get_mb_score(ptr noundef nonnull %17, i32 noundef %438, i32 noundef %439, i32 noundef 0, i32 noundef 0, i32 noundef %1, i32 noundef %37, i32 noundef 0) #16
   %.not.i = icmp samesign ult i64 %indvars.iv, 32768
   %441 = trunc nuw nsw i64 %indvars.iv to i32
   %442 = lshr i32 %441, 15
@@ -14855,7 +14855,7 @@ get_penalty_factor.exit:                          ; preds = %3, %32, %34, %37, %
   %131 = getelementptr inbounds i8, ptr %16, i64 %130
   %132 = getelementptr inbounds i8, ptr %103, i64 %55
   %133 = getelementptr inbounds i8, ptr %132, i64 %56
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %132, ptr noundef %103, i64 noundef %57, i32 noundef %.0223.i, i32 noundef %.0228.i, i32 noundef %spec.select264.i, i32 noundef %spec.select265.i, ptr noundef %.1238.i, i32 noundef 0, i32 noundef %23, i32 noundef %25) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %132, ptr noundef %103, i64 noundef %57, i32 noundef %.0223.i, i32 noundef %.0228.i, i32 noundef %spec.select264.i, i32 noundef %spec.select265.i, ptr noundef %.1238.i, i32 noundef 0, i32 noundef %23, i32 noundef %25) #16
   %134 = getelementptr inbounds nuw i8, ptr %.1238.i, i64 8
   %135 = load i8, ptr %134, align 2, !tbaa !210
   %136 = and i8 %135, 1
@@ -14918,7 +14918,7 @@ same_block.exit300.i:                             ; preds = %127
 
 180:                                              ; preds = %138, %same_block.exit300.i
   %181 = getelementptr inbounds i8, ptr %133, i64 %56
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %133, ptr noundef %103, i64 noundef %57, i32 noundef %.0223.i, i32 noundef %.0228.i, i32 noundef %spec.select264.i, i32 noundef %spec.select265.i, ptr noundef nonnull %.1236.i, i32 noundef 0, i32 noundef %23, i32 noundef %25) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %133, ptr noundef %103, i64 noundef %57, i32 noundef %.0223.i, i32 noundef %.0228.i, i32 noundef %spec.select264.i, i32 noundef %spec.select265.i, ptr noundef nonnull %.1236.i, i32 noundef 0, i32 noundef %23, i32 noundef %25) #16
   %.pre256 = load i8, ptr %134, align 2, !tbaa !210
   br label %182
 
@@ -15045,7 +15045,7 @@ same_block.exit286.i:                             ; preds = %228
 
 275:                                              ; preds = %233, %same_block.exit286.i
   %276 = getelementptr inbounds i8, ptr %.0226.i, i64 %56
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %.0226.i, ptr noundef %103, i64 noundef %57, i32 noundef %.0223.i, i32 noundef %.0228.i, i32 noundef %spec.select264.i, i32 noundef %spec.select265.i, ptr noundef nonnull %.1234.i, i32 noundef 0, i32 noundef %23, i32 noundef %25) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %.0226.i, ptr noundef %103, i64 noundef %57, i32 noundef %.0223.i, i32 noundef %.0228.i, i32 noundef %spec.select264.i, i32 noundef %spec.select265.i, ptr noundef nonnull %.1234.i, i32 noundef 0, i32 noundef %23, i32 noundef %25) #16
   %.pre260 = load i8, ptr %134, align 2, !tbaa !210
   br label %277
 
@@ -15230,7 +15230,7 @@ same_block.exit.i:                                ; preds = %370
   br i1 %.not17.i.i, label %.lr.ph.us.preheader, label %417
 
 417:                                              ; preds = %375, %same_block.exit.i
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %.1227.i, ptr noundef %103, i64 noundef %57, i32 noundef %.0223.i, i32 noundef %.0228.i, i32 noundef %spec.select264.i, i32 noundef %spec.select265.i, ptr noundef nonnull %.1232.i, i32 noundef 0, i32 noundef %23, i32 noundef %25) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %.1227.i, ptr noundef %103, i64 noundef %57, i32 noundef %.0223.i, i32 noundef %.0228.i, i32 noundef %spec.select264.i, i32 noundef %spec.select265.i, ptr noundef nonnull %.1232.i, i32 noundef 0, i32 noundef %23, i32 noundef %25) #16
   br label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %375, %328, %281, %same_block.exit.i, %same_block.exit272.i, %same_block.exit279.i, %417
@@ -15391,7 +15391,7 @@ add_yblock.exit:                                  ; preds = %._crit_edge.us, %10
   %509 = getelementptr inbounds i8, ptr %506, i64 %508
   %510 = getelementptr inbounds i8, ptr %16, i64 %111
   %511 = getelementptr inbounds i8, ptr %510, i64 %508
-  %512 = tail call i32 %505(ptr noundef nonnull %64, ptr noundef %509, ptr noundef %511, i64 noundef %57, i32 noundef %7) #14
+  %512 = tail call i32 %505(ptr noundef nonnull %64, ptr noundef %509, ptr noundef %511, i64 noundef %57, i32 noundef %7) #16
   %513 = add nsw i32 %512, %.0163228
   %514 = add nuw nsw i32 %.0229, 1
   %exitcond.not = icmp eq i32 %514, 9
@@ -15752,7 +15752,7 @@ get_penalty_factor.exit:                          ; preds = %4, %38, %40, %43, %
   %70 = add nsw i32 %69, %1
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds %struct.BlockNode, ptr %68, i64 %71
-  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %22, i64 noundef %66, i32 noundef %55, i32 noundef %57, i32 noundef %9, i32 noundef %9, ptr noundef %72, i32 noundef 0, i32 noundef %29, i32 noundef %31) #14
+  tail call void @ff_snow_pred_block(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %22, i64 noundef %66, i32 noundef %55, i32 noundef %57, i32 noundef %9, i32 noundef %9, ptr noundef %72, i32 noundef 0, i32 noundef %29, i32 noundef %31) #16
   %73 = icmp slt i32 %61, %65
   br i1 %73, label %.lr.ph231, label %._crit_edge232
 
@@ -15890,7 +15890,7 @@ get_penalty_factor.exit:                          ; preds = %4, %38, %40, %43, %
   %146 = getelementptr inbounds i8, ptr %143, i64 %145
   %147 = getelementptr inbounds i8, ptr %14, i64 %142
   %148 = getelementptr inbounds i8, ptr %147, i64 %145
-  %149 = tail call i32 @ff_w97_32_c(ptr noundef nonnull %139, ptr noundef %146, ptr noundef %148, i64 noundef %66, i32 noundef 32) #14
+  %149 = tail call i32 @ff_w97_32_c(ptr noundef nonnull %139, ptr noundef %146, ptr noundef %148, i64 noundef %66, i32 noundef 32) #16
   br label %.loopexit
 
 150:                                              ; preds = %135
@@ -15901,7 +15901,7 @@ get_penalty_factor.exit:                          ; preds = %4, %38, %40, %43, %
   %155 = getelementptr inbounds i8, ptr %152, i64 %154
   %156 = getelementptr inbounds i8, ptr %14, i64 %151
   %157 = getelementptr inbounds i8, ptr %156, i64 %154
-  %158 = tail call i32 @ff_w53_32_c(ptr noundef nonnull %139, ptr noundef %155, ptr noundef %157, i64 noundef %66, i32 noundef 32) #14
+  %158 = tail call i32 @ff_w53_32_c(ptr noundef nonnull %139, ptr noundef %155, ptr noundef %157, i64 noundef %66, i32 noundef 32) #16
   br label %.loopexit
 
 159:                                              ; preds = %.preheader, %159
@@ -15919,7 +15919,7 @@ get_penalty_factor.exit:                          ; preds = %4, %38, %40, %43, %
   %169 = sext i32 %167 to i64
   %170 = getelementptr inbounds i8, ptr %17, i64 %169
   %171 = getelementptr inbounds i8, ptr %14, i64 %169
-  %172 = tail call i32 %168(ptr noundef nonnull %139, ptr noundef %170, ptr noundef %171, i64 noundef %66, i32 noundef 16) #14
+  %172 = tail call i32 %168(ptr noundef nonnull %139, ptr noundef %170, ptr noundef %171, i64 noundef %66, i32 noundef 16) #16
   %173 = add nsw i32 %172, %.0235
   %174 = add nuw nsw i32 %.0212234, 1
   %exitcond251.not = icmp eq i32 %174, 4
@@ -15936,7 +15936,7 @@ get_penalty_factor.exit:                          ; preds = %4, %38, %40, %43, %
   %183 = getelementptr inbounds i8, ptr %180, i64 %182
   %184 = getelementptr inbounds i8, ptr %14, i64 %179
   %185 = getelementptr inbounds i8, ptr %184, i64 %182
-  %186 = tail call i32 %178(ptr noundef nonnull %176, ptr noundef %183, ptr noundef %185, i64 noundef %66, i32 noundef %9) #14
+  %186 = tail call i32 %178(ptr noundef nonnull %176, ptr noundef %183, ptr noundef %185, i64 noundef %66, i32 noundef %9) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %159, %175, %150, %141
@@ -16320,7 +16320,7 @@ declare i32 @ff_epzs_motion_search(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @ff_get_mb_score(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @put_symbol2(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef range(i32 -4, 276) %3) unnamed_addr #7 {
@@ -16666,37 +16666,37 @@ declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
 declare void @av_freep(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #12
+declare i16 @llvm.abs.i16(i16, i1 immarg) #13
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #14
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #14
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #14
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #14
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.abs.i8(i8, i1 immarg) #12
+declare i8 @llvm.abs.i8(i8, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -16704,16 +16704,18 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

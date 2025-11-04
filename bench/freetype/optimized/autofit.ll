@@ -419,7 +419,7 @@ define internal noundef i32 @af_cjk_metrics_init(ptr noundef captures(none) init
   %11 = zext i16 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %11, ptr %12, align 8, !tbaa !26
-  %13 = tail call i32 @FT_Select_Charmap(ptr noundef %1, i32 noundef 1970170211) #20
+  %13 = tail call i32 @FT_Select_Charmap(ptr noundef %1, i32 noundef 1970170211) #21
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %169
 
@@ -432,7 +432,7 @@ define internal noundef i32 @af_cjk_metrics_init(ptr noundef captures(none) init
   %17 = load i32, ptr %16, align 4, !tbaa !34
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw %struct.AF_Blue_StringRec_, ptr @af_blue_stringsets, i64 %18
-  %20 = tail call ptr @hb_buffer_create() #20
+  %20 = tail call ptr @hb_buffer_create() #21
   %21 = load i32, ptr %19, align 8, !tbaa !36
   %.not253.i = icmp eq i32 %21, 5531
   br i1 %.not253.i, label %af_cjk_metrics_init_blues.exit, label %.lr.ph256.i
@@ -495,8 +495,8 @@ define internal noundef i32 @af_cjk_metrics_init(ptr noundef captures(none) init
 
 45:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %46 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %20, ptr noundef nonnull %3) #20
-  %47 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %20, ptr noundef nonnull %3) #20
+  %46 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %20, ptr noundef nonnull %3) #21
+  %47 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %20, ptr noundef nonnull %3) #21
   %48 = load i32, ptr %3, align 4, !tbaa !43
   %.not.i.not.i = icmp eq i32 %48, 0
   br i1 %.not.i.not.i, label %af_shaper_get_elem.exit.thread.i, label %af_shaper_get_elem.exit.i
@@ -512,7 +512,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %45
   br i1 %50, label %101, label %51, !llvm.loop !42
 
 51:                                               ; preds = %af_shaper_get_elem.exit.i
-  %52 = call i32 @FT_Load_Glyph(ptr noundef nonnull %1, i32 noundef %49, i32 noundef 1) #20
+  %52 = call i32 @FT_Load_Glyph(ptr noundef nonnull %1, i32 noundef %49, i32 noundef 1) #21
   %53 = load ptr, ptr %22, align 8, !tbaa !46
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %53, i64 202
   %.sroa.4.0.copyload.i = load i16, ptr %.sroa.4.0..sroa_idx.i, align 2, !tbaa !47
@@ -902,7 +902,7 @@ af_sort_pos.exit189.i:                            ; preds = %af_sort_pos.exit.i
   br i1 %.not.i, label %af_cjk_metrics_init_blues.exit, label %23, !llvm.loop !65
 
 af_cjk_metrics_init_blues.exit:                   ; preds = %166, %14
-  call void @hb_buffer_destroy(ptr noundef %20) #20
+  call void @hb_buffer_destroy(ptr noundef %20) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @af_cjk_metrics_check_digits(ptr noundef nonnull %0)
@@ -1400,7 +1400,7 @@ define internal noundef i32 @af_indic_metrics_init(ptr noundef captures(none) in
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %7, ptr %8, align 8, !tbaa !26
-  %9 = tail call i32 @FT_Select_Charmap(ptr noundef %1, i32 noundef 1970170211) #20
+  %9 = tail call i32 @FT_Select_Charmap(ptr noundef %1, i32 noundef 1970170211) #21
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %11
 
@@ -1522,7 +1522,7 @@ define internal range(i32 -1, 1) i32 @af_latin_metrics_init(ptr noundef initiali
   %20 = zext i16 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %20, ptr %21, align 8, !tbaa !118
-  %22 = tail call i32 @FT_Select_Charmap(ptr noundef %1, i32 noundef 1970170211) #20
+  %22 = tail call i32 @FT_Select_Charmap(ptr noundef %1, i32 noundef 1970170211) #21
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %518
 
@@ -1548,13 +1548,13 @@ define internal range(i32 -1, 1) i32 @af_latin_metrics_init(ptr noundef initiali
   %36 = load ptr, ptr %35, align 8, !tbaa !126
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !128
-  %39 = tail call ptr @hb_buffer_create() #20
+  %39 = tail call ptr @hb_buffer_create() #21
   %40 = load i8, ptr %38, align 1, !tbaa !39
   %.not113.i = icmp eq i8 %40, 0
   br i1 %.not113.i, label %.loopexit110.thread.i, label %.lr.ph117.i
 
 .loopexit110.thread.i:                            ; preds = %23
-  tail call void @hb_buffer_destroy(ptr noundef %39) #20
+  tail call void @hb_buffer_destroy(ptr noundef %39) #21
   br label %.loopexit.i.preheader
 
 .lr.ph117.i:                                      ; preds = %23, %54
@@ -1580,8 +1580,8 @@ define internal range(i32 -1, 1) i32 @af_latin_metrics_init(ptr noundef initiali
 
 48:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %49 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %39, ptr noundef nonnull %11) #20
-  %50 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %39, ptr noundef nonnull %11) #20
+  %49 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %39, ptr noundef nonnull %11) #21
+  %50 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %39, ptr noundef nonnull %11) #21
   %51 = load i32, ptr %11, align 4, !tbaa !43
   %.not.i.not.i = icmp eq i32 %51, 0
   br i1 %.not.i.not.i, label %af_shaper_get_elem.exit.thread.i, label %af_shaper_get_elem.exit.i
@@ -1599,8 +1599,8 @@ af_shaper_get_elem.exit.i:                        ; preds = %48
 
 .loopexit110.thread143.i:                         ; preds = %af_shaper_get_elem.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @hb_buffer_destroy(ptr noundef %39) #20
-  %53 = call i32 @FT_Load_Glyph(ptr noundef %1, i32 noundef %.fr.i, i32 noundef 1) #20
+  call void @hb_buffer_destroy(ptr noundef %39) #21
+  %53 = call i32 @FT_Load_Glyph(ptr noundef %1, i32 noundef %.fr.i, i32 noundef 1) #21
   %.not93.i = icmp eq i32 %53, 0
   br i1 %.not93.i, label %56, label %.loopexit.i.preheader
 
@@ -1611,7 +1611,7 @@ af_shaper_get_elem.exit.i:                        ; preds = %48
   br i1 %.not.i, label %.loopexit110.i, label %.lr.ph117.i
 
 .loopexit110.i:                                   ; preds = %54
-  call void @hb_buffer_destroy(ptr noundef %39) #20
+  call void @hb_buffer_destroy(ptr noundef %39) #21
   br label %.loopexit.i.preheader
 
 56:                                               ; preds = %.loopexit110.thread143.i
@@ -1783,7 +1783,7 @@ af_latin_metrics_init_widths.exit:                ; preds = %131
   %142 = load i32, ptr %21, align 8, !tbaa !118
   %143 = udiv i32 %142, 14
   %144 = zext nneg i32 %143 to i64
-  %145 = call ptr @hb_buffer_create() #20
+  %145 = call ptr @hb_buffer_create() #21
   %146 = load i32, ptr %141, align 8, !tbaa !36
   %.not848.i = icmp eq i32 %146, 5531
   br i1 %.not848.i, label %._crit_edge852.i, label %.lr.ph851.i
@@ -1853,8 +1853,8 @@ af_latin_metrics_init_widths.exit:                ; preds = %131
   %.1560832.i = phi i64 [ %..i, %163 ], [ %.2561.i, %.thread750.i ]
   %.0587830.i = phi i8 [ 0, %163 ], [ %.1588.i, %.thread750.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %170 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %145, ptr noundef nonnull %6) #20
-  %171 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %145, ptr noundef nonnull %6) #20
+  %170 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %145, ptr noundef nonnull %6) #21
+  %171 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %145, ptr noundef nonnull %6) #21
   %172 = load i32, ptr %6, align 4, !tbaa !43
   %173 = zext i32 %172 to i64
   %.not.i.i = icmp samesign ult i64 %indvars.iv889.i, %173
@@ -1876,7 +1876,7 @@ af_shaper_get_elem.exit.i18:                      ; preds = %169
   br i1 %180, label %.thread750.i, label %181
 
 181:                                              ; preds = %af_shaper_get_elem.exit.i18
-  %182 = call i32 @FT_Load_Glyph(ptr noundef %1, i32 noundef %179, i32 noundef 1) #20
+  %182 = call i32 @FT_Load_Glyph(ptr noundef %1, i32 noundef %179, i32 noundef 1) #21
   %183 = load ptr, ptr %147, align 8, !tbaa !46
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %183, i64 202
   %.sroa.4.0.copyload.i = load i16, ptr %.sroa.4.0..sroa_idx.i, align 2, !tbaa !47
@@ -2561,7 +2561,7 @@ af_sort_pos.exit697.i:                            ; preds = %af_sort_pos.exit.i
   br i1 %.not.i16, label %._crit_edge852.i, label %150, !llvm.loop !174
 
 ._crit_edge852.i:                                 ; preds = %._crit_edge843.thread.i, %af_latin_metrics_init_widths.exit
-  call void @hb_buffer_destroy(ptr noundef %145) #20
+  call void @hb_buffer_destroy(ptr noundef %145) #21
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 1532
   %457 = load i32, ptr %456, align 4, !tbaa !169
   %.not630.i = icmp eq i32 %457, 0
@@ -2708,7 +2708,7 @@ af_latin_metrics_init_blues.exit.thread:          ; preds = %502, %487
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, ptr noundef nonnull align 16 dereferenceable(20) @__const.af_latin_metrics_check_digits.digits, i64 20, i1 false)
-  %503 = call ptr @hb_buffer_create() #20
+  %503 = call ptr @hb_buffer_create() #21
   br label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %select.unfold.i, %.loopexit
@@ -2723,8 +2723,8 @@ af_latin_metrics_init_blues.exit.thread:          ; preds = %502, %487
 
 507:                                              ; preds = %.lr.ph.i24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %508 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %503, ptr noundef nonnull %3) #20
-  %509 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %503, ptr noundef nonnull %3) #20
+  %508 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %503, ptr noundef nonnull %3) #21
+  %509 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %503, ptr noundef nonnull %3) #21
   %510 = load i32, ptr %3, align 4, !tbaa !43
   %.not.i.not.i25 = icmp eq i32 %510, 0
   br i1 %.not.i.not.i25, label %af_shaper_get_elem.exit.thread.i30, label %af_shaper_get_elem.exit.i26
@@ -2763,7 +2763,7 @@ select.unfold.i:                                  ; preds = %515, %514, %af_shap
 
 af_latin_metrics_check_digits.exit:               ; preds = %select.unfold.i, %.thread.i
   %.117.i = phi i8 [ 0, %.thread.i ], [ 1, %select.unfold.i ]
-  call void @hb_buffer_destroy(ptr noundef %503) #20
+  call void @hb_buffer_destroy(ptr noundef %503) #21
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.117.i, ptr %517, align 8, !tbaa !192
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3390,7 +3390,7 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr noundef readon
   %77 = load ptr, ptr %76, align 8, !tbaa !120
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %79 = load i64, ptr %78, align 8, !tbaa !249
-  %80 = call ptr @ft_mem_alloc(ptr noundef %77, i64 noundef %79, ptr noundef nonnull %6) #20
+  %80 = call ptr @ft_mem_alloc(ptr noundef %77, i64 noundef %79, ptr noundef nonnull %6) #21
   %81 = load i32, ptr %6, align 4, !tbaa !43
   %.not46.i.i = icmp eq i32 %81, 0
   br i1 %.not46.i.i, label %82, label %af_face_globals_get_metrics.exit.thread233.i
@@ -3406,7 +3406,7 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr noundef readon
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %59, align 8, !tbaa !248
-  %88 = call i32 %85(ptr noundef nonnull %80, ptr noundef %87) #20
+  %88 = call i32 %85(ptr noundef nonnull %80, ptr noundef %87) #21
   store i32 %88, ptr %6, align 4, !tbaa !43
   %.not48.i.i = icmp eq i32 %88, 0
   br i1 %.not48.i.i, label %96, label %89
@@ -3418,11 +3418,11 @@ define internal i32 @af_autofitter_load_glyph(ptr noundef %0, ptr noundef readon
   br i1 %.not49.i.i, label %93, label %92
 
 92:                                               ; preds = %89
-  call void %91(ptr noundef nonnull %80) #20
+  call void %91(ptr noundef nonnull %80) #21
   br label %93
 
 93:                                               ; preds = %92, %89
-  call void @ft_mem_free(ptr noundef %77, ptr noundef nonnull %80) #20
+  call void @ft_mem_free(ptr noundef %77, ptr noundef nonnull %80) #21
   %94 = load i32, ptr %6, align 4, !tbaa !43
   %95 = icmp eq i32 %94, -1
   br i1 %95, label %98, label %af_face_globals_get_metrics.exit.i
@@ -3475,7 +3475,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
   br i1 %.not194.i, label %116, label %115
 
 115:                                              ; preds = %105
-  call void %114(ptr noundef nonnull %.037.i230.i, ptr noundef nonnull %7) #20
+  call void %114(ptr noundef nonnull %.037.i230.i, ptr noundef nonnull %7) #21
   br label %118
 
 116:                                              ; preds = %105
@@ -3490,14 +3490,14 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
   br i1 %.not195.i, label %123, label %121
 
 121:                                              ; preds = %118
-  %122 = call i32 %120(ptr noundef nonnull %11, ptr noundef nonnull %.037.i230.i) #20
+  %122 = call i32 %120(ptr noundef nonnull %11, ptr noundef nonnull %.037.i230.i) #21
   %.not196.i = icmp eq i32 %122, 0
   br i1 %.not196.i, label %123, label %af_loader_load_glyph.exit
 
 123:                                              ; preds = %121, %118
   %124 = and i32 %4, -10246
   %125 = or disjoint i32 %124, 10241
-  %126 = call i32 @FT_Load_Glyph(ptr noundef %19, i32 noundef %3, i32 noundef %125) #20
+  %126 = call i32 @FT_Load_Glyph(ptr noundef %19, i32 noundef %3, i32 noundef %125) #21
   %.not197.i = icmp eq i32 %126, 0
   br i1 %.not197.i, label %127, label %af_loader_load_glyph.exit
 
@@ -3545,12 +3545,12 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
   %149 = getelementptr inbounds nuw i8, ptr %27, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %149, i64 16, i1 false), !tbaa.struct !267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %147, i64 32, i1 false)
-  %150 = call i32 @FT_Matrix_Invert(ptr noundef nonnull %8) #20
+  %150 = call i32 @FT_Matrix_Invert(ptr noundef nonnull %8) #21
   %.not201.i = icmp eq i32 %150, 0
   br i1 %.not201.i, label %151, label %152
 
 151:                                              ; preds = %145
-  call void @FT_Vector_Transform(ptr noundef nonnull %148, ptr noundef nonnull %8) #20
+  call void @FT_Vector_Transform(ptr noundef nonnull %148, ptr noundef nonnull %8) #21
   br label %152
 
 152:                                              ; preds = %151, %145
@@ -3574,7 +3574,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
   %161 = load i64, ptr %160, align 8, !tbaa !269
   %162 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %163 = load i64, ptr %162, align 16, !tbaa !270
-  call void @FT_Outline_Translate(ptr noundef nonnull %159, i64 noundef %161, i64 noundef %163) #20
+  call void @FT_Outline_Translate(ptr noundef nonnull %159, i64 noundef %161, i64 noundef %163) #21
   br label %164
 
 164:                                              ; preds = %158, %156
@@ -3617,7 +3617,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
 
 191:                                              ; preds = %188
   %192 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %193 = call i32 %190(i32 noundef %3, ptr noundef nonnull %11, ptr noundef nonnull %192, ptr noundef nonnull %.037.i230.i) #20
+  %193 = call i32 %190(i32 noundef %3, ptr noundef nonnull %11, ptr noundef nonnull %192, ptr noundef nonnull %.037.i230.i) #21
   %.not204.i = icmp eq i32 %193, 0
   br i1 %.not204.i, label %194, label %af_loader_load_glyph.exit
 
@@ -3787,8 +3787,8 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
 298:                                              ; preds = %264
   %299 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %300 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  call void @FT_Outline_Transform(ptr noundef nonnull %299, ptr noundef nonnull %300) #20
-  call void @FT_Vector_Transform(ptr noundef nonnull %10, ptr noundef nonnull %300) #20
+  call void @FT_Outline_Transform(ptr noundef nonnull %299, ptr noundef nonnull %300) #21
+  call void @FT_Vector_Transform(ptr noundef nonnull %10, ptr noundef nonnull %300) #21
   br label %301
 
 301:                                              ; preds = %298, %264
@@ -3800,12 +3800,12 @@ af_face_globals_get_metrics.exit.i:               ; preds = %93
 304:                                              ; preds = %301
   %305 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %306 = sub nsw i64 0, %303
-  call void @FT_Outline_Translate(ptr noundef nonnull %305, i64 noundef %306, i64 noundef 0) #20
+  call void @FT_Outline_Translate(ptr noundef nonnull %305, i64 noundef %306, i64 noundef 0) #21
   br label %307
 
 307:                                              ; preds = %304, %301
   %308 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  call void @FT_Outline_Get_CBox(ptr noundef nonnull %308, ptr noundef nonnull %9) #20
+  call void @FT_Outline_Get_CBox(ptr noundef nonnull %308, ptr noundef nonnull %9) #21
   %309 = load i64, ptr %9, align 8, !tbaa !283
   %310 = and i64 %309, -64
   %311 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3970,7 +3970,7 @@ define internal void @af_autofitter_done(ptr readnone captures(none) %0) #4 {
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @af_get_interface(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @af_services, ptr noundef %1) #20
+  %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @af_services, ptr noundef %1) #21
   ret ptr %3
 }
 
@@ -3994,7 +3994,7 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !294
-  %16 = tail call ptr @hb_font_get_face(ptr noundef %15) #20
+  %16 = tail call ptr @hb_font_get_face(ptr noundef %15) #21
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 4, !tbaa !295
   %19 = zext i32 %18 to i64
@@ -4008,7 +4008,7 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 3, ptr %7, align 4, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @hb_ot_tags_from_script_and_language(i32 noundef %26, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null) #20
+  call void @hb_ot_tags_from_script_and_language(i32 noundef %26, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null) #21
   %27 = load i32, ptr %7, align 4, !tbaa !43
   %.not = icmp eq i32 %27, 0
   %28 = load i32, ptr %8, align 4
@@ -4058,39 +4058,39 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %43, %46, %42, %45, %44
-  %49 = call ptr @hb_set_create() #20
-  call void @hb_ot_layout_collect_lookups(ptr noundef %16, i32 noundef 1196643650, ptr noundef nonnull %5, ptr noundef null, ptr noundef %21, ptr noundef %49) #20
-  %50 = call i32 @hb_set_is_empty(ptr noundef %49) #20
+  %49 = call ptr @hb_set_create() #21
+  call void @hb_ot_layout_collect_lookups(ptr noundef %16, i32 noundef 1196643650, ptr noundef nonnull %5, ptr noundef null, ptr noundef %21, ptr noundef %49) #21
+  %50 = call i32 @hb_set_is_empty(ptr noundef %49) #21
   %.not88 = icmp eq i32 %50, 0
   br i1 %.not88, label %51, label %.loopexit
 
 51:                                               ; preds = %48
-  %52 = call ptr @hb_set_create() #20
+  %52 = call ptr @hb_set_create() #21
   store i32 -1, ptr %6, align 4, !tbaa !43
-  %53 = call i32 @hb_set_next(ptr noundef %49, ptr noundef nonnull %6) #20
+  %53 = call i32 @hb_set_next(ptr noundef %49, ptr noundef nonnull %6) #21
   %.not89104 = icmp eq i32 %53, 0
   br i1 %.not89104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %54 = load i32, ptr %6, align 4, !tbaa !43
-  call void @hb_ot_layout_lookup_collect_glyphs(ptr noundef %16, i32 noundef 1196643650, i32 noundef %54, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %52) #20
-  %55 = call i32 @hb_set_next(ptr noundef %49, ptr noundef nonnull %6) #20
+  call void @hb_ot_layout_lookup_collect_glyphs(ptr noundef %16, i32 noundef 1196643650, i32 noundef %54, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %52) #21
+  %55 = call i32 @hb_set_next(ptr noundef %49, ptr noundef nonnull %6) #21
   %.not89 = icmp eq i32 %55, 0
   br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !298
 
 ._crit_edge:                                      ; preds = %.lr.ph, %51
-  %56 = call ptr @hb_set_create() #20
-  call void @hb_ot_layout_collect_lookups(ptr noundef %16, i32 noundef 1196445523, ptr noundef nonnull %5, ptr noundef null, ptr noundef %21, ptr noundef %56) #20
-  %57 = call ptr @hb_set_create() #20
+  %56 = call ptr @hb_set_create() #21
+  call void @hb_ot_layout_collect_lookups(ptr noundef %16, i32 noundef 1196445523, ptr noundef nonnull %5, ptr noundef null, ptr noundef %21, ptr noundef %56) #21
+  %57 = call ptr @hb_set_create() #21
   store i32 -1, ptr %6, align 4, !tbaa !43
-  %58 = call i32 @hb_set_next(ptr noundef %56, ptr noundef nonnull %6) #20
+  %58 = call i32 @hb_set_next(ptr noundef %56, ptr noundef nonnull %6) #21
   %.not90105 = icmp eq i32 %58, 0
   br i1 %.not90105, label %._crit_edge108, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %._crit_edge, %.lr.ph107
   %59 = load i32, ptr %6, align 4, !tbaa !43
-  call void @hb_ot_layout_lookup_collect_glyphs(ptr noundef %16, i32 noundef 1196445523, i32 noundef %59, ptr noundef null, ptr noundef %57, ptr noundef null, ptr noundef null) #20
-  %60 = call i32 @hb_set_next(ptr noundef %56, ptr noundef nonnull %6) #20
+  call void @hb_ot_layout_lookup_collect_glyphs(ptr noundef %16, i32 noundef 1196445523, i32 noundef %59, ptr noundef null, ptr noundef %57, ptr noundef null, ptr noundef null) #21
+  %60 = call i32 @hb_set_next(ptr noundef %56, ptr noundef nonnull %6) #21
   %.not90 = icmp eq i32 %60, 0
   br i1 %.not90, label %._crit_edge108, label %.lr.ph107, !llvm.loop !299
 
@@ -4165,17 +4165,17 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   br label %91
 
 91:                                               ; preds = %93, %.loopexit103
-  %92 = call i32 @hb_set_next(ptr noundef %49, ptr noundef nonnull %6) #20
+  %92 = call i32 @hb_set_next(ptr noundef %49, ptr noundef nonnull %6) #21
   %.not99 = icmp eq i32 %92, 0
   br i1 %.not99, label %98, label %93
 
 93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %94 = load ptr, ptr %0, align 8, !tbaa !248
-  %95 = call i32 @FT_Get_Char_Index(ptr noundef %94, i64 noundef %90) #20
+  %95 = call i32 @FT_Get_Char_Index(ptr noundef %94, i64 noundef %90) #21
   store i32 %95, ptr %9, align 4, !tbaa !43
   %96 = load i32, ptr %6, align 4, !tbaa !43
-  %97 = call i32 @hb_ot_layout_lookup_would_substitute(ptr noundef %16, i32 noundef %96, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #20
+  %97 = call i32 @hb_ot_layout_lookup_would_substitute(ptr noundef %16, i32 noundef %96, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1) #21
   %.not100 = icmp eq i32 %97, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not100, label %91, label %98
@@ -4203,12 +4203,12 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   br i1 %.not94, label %.thread, label %104
 
 104:                                              ; preds = %103
-  call void @hb_set_subtract(ptr noundef %52, ptr noundef %57) #20
+  call void @hb_set_subtract(ptr noundef %52, ptr noundef %57) #21
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge108, %104, %103
   store i32 -1, ptr %6, align 4, !tbaa !43
-  %105 = call i32 @hb_set_next(ptr noundef %52, ptr noundef nonnull %6) #20
+  %105 = call i32 @hb_set_next(ptr noundef %52, ptr noundef nonnull %6) #21
   %.not95125 = icmp eq i32 %105, 0
   br i1 %.not95125, label %.loopexit, label %.lr.ph126
 
@@ -4236,7 +4236,7 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   br label %.backedge
 
 .backedge:                                        ; preds = %110, %115, %107
-  %118 = call i32 @hb_set_next(ptr noundef %52, ptr noundef nonnull %6) #20
+  %118 = call i32 @hb_set_next(ptr noundef %52, ptr noundef nonnull %6) #21
   %.not95 = icmp eq i32 %118, 0
   br i1 %.not95, label %.loopexit, label %107, !llvm.loop !303
 
@@ -4245,10 +4245,10 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly c
   %.075 = phi ptr [ null, %48 ], [ %57, %._crit_edge123 ], [ null, %46 ], [ %57, %.thread ], [ %57, %62 ], [ %57, %.backedge ]
   %.074 = phi ptr [ null, %48 ], [ %52, %._crit_edge123 ], [ null, %46 ], [ %52, %.thread ], [ %52, %62 ], [ %52, %.backedge ]
   %.073 = phi ptr [ %49, %48 ], [ %49, %._crit_edge123 ], [ null, %46 ], [ %49, %.thread ], [ %49, %62 ], [ %49, %.backedge ]
-  call void @hb_set_destroy(ptr noundef %.073) #20
-  call void @hb_set_destroy(ptr noundef %.074) #20
-  call void @hb_set_destroy(ptr noundef %.076) #20
-  call void @hb_set_destroy(ptr noundef %.075) #20
+  call void @hb_set_destroy(ptr noundef %.073) #21
+  call void @hb_set_destroy(ptr noundef %.074) #21
+  call void @hb_set_destroy(ptr noundef %.076) #21
+  call void @hb_set_destroy(ptr noundef %.075) #21
   br label %119
 
 119:                                              ; preds = %4, %.loopexit
@@ -4285,7 +4285,7 @@ declare void @hb_set_destroy(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @af_shaper_buf_create(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @hb_buffer_create() #20
+  %2 = tail call ptr @hb_buffer_create() #21
   ret ptr %2
 }
 
@@ -4293,7 +4293,7 @@ declare ptr @hb_buffer_create() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @af_shaper_buf_destroy(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @hb_buffer_destroy(ptr noundef %1) #20
+  tail call void @hb_buffer_destroy(ptr noundef %1) #21
   ret void
 }
 
@@ -4314,7 +4314,7 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   %15 = load i32, ptr %14, align 4, !tbaa !295
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !294
-  tail call void @hb_font_set_scale(ptr noundef %17, i32 noundef %12, i32 noundef %12) #20
+  tail call void @hb_font_set_scale(ptr noundef %17, i32 noundef %12, i32 noundef %12) #21
   br label %18
 
 18:                                               ; preds = %18, %4
@@ -4355,12 +4355,12 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   %33 = ptrtoint ptr %.058 to i64
   %34 = sub i64 %32, %33
   %35 = trunc i64 %34 to i32
-  tail call void @hb_buffer_clear_contents(ptr noundef %2) #20
-  tail call void @hb_buffer_add_utf8(ptr noundef %2, ptr noundef nonnull %.058, i32 noundef %35, i32 noundef 0, i32 noundef %35) #20
-  tail call void @hb_buffer_guess_segment_properties(ptr noundef %2) #20
+  tail call void @hb_buffer_clear_contents(ptr noundef %2) #21
+  tail call void @hb_buffer_add_utf8(ptr noundef %2, ptr noundef nonnull %.058, i32 noundef %35, i32 noundef 0, i32 noundef %35) #21
+  tail call void @hb_buffer_guess_segment_properties(ptr noundef %2) #21
   %.not = icmp ne i32 %15, 10
   %36 = zext i1 %.not to i32
-  tail call void @hb_shape(ptr noundef %17, ptr noundef %2, ptr noundef %31, i32 noundef %36) #20
+  tail call void @hb_shape(ptr noundef %17, ptr noundef %2, ptr noundef %31, i32 noundef %36) #21
   br i1 %.not, label %37, label %54
 
 37:                                               ; preds = %._crit_edge
@@ -4369,12 +4369,12 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   %40 = load ptr, ptr %39, align 8, !tbaa !308
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  tail call void @hb_buffer_clear_contents(ptr noundef %40) #20
-  tail call void @hb_buffer_add_utf8(ptr noundef %40, ptr noundef nonnull %.058, i32 noundef %35, i32 noundef 0, i32 noundef %35) #20
-  tail call void @hb_buffer_guess_segment_properties(ptr noundef %40) #20
-  tail call void @hb_shape(ptr noundef %17, ptr noundef %40, ptr noundef null, i32 noundef 0) #20
-  %41 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %2, ptr noundef nonnull %5) #20
-  %42 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %40, ptr noundef nonnull %6) #20
+  tail call void @hb_buffer_clear_contents(ptr noundef %40) #21
+  tail call void @hb_buffer_add_utf8(ptr noundef %40, ptr noundef nonnull %.058, i32 noundef %35, i32 noundef 0, i32 noundef %35) #21
+  tail call void @hb_buffer_guess_segment_properties(ptr noundef %40) #21
+  tail call void @hb_shape(ptr noundef %17, ptr noundef %40, ptr noundef null, i32 noundef 0) #21
+  %41 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %2, ptr noundef nonnull %5) #21
+  %42 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %40, ptr noundef nonnull %6) #21
   %43 = load i32, ptr %5, align 4, !tbaa !43
   %44 = load i32, ptr %6, align 4, !tbaa !43
   %45 = icmp eq i32 %43, %44
@@ -4408,7 +4408,7 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   br i1 %52, label %._crit_edge76.thread, label %53
 
 ._crit_edge76.thread:                             ; preds = %50, %.preheader, %._crit_edge76
-  call void @hb_buffer_clear_contents(ptr noundef %2) #20
+  call void @hb_buffer_clear_contents(ptr noundef %2) #21
   br label %53
 
 53:                                               ; preds = %._crit_edge76, %._crit_edge76.thread, %37
@@ -4417,7 +4417,7 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr noundef rea
   br label %54
 
 54:                                               ; preds = %53, %._crit_edge
-  %55 = call i32 @hb_buffer_get_length(ptr noundef %2) #20
+  %55 = call i32 @hb_buffer_get_length(ptr noundef %2) #21
   store i32 %55, ptr %3, align 4, !tbaa !43
   ret ptr %.059.lcssa
 }
@@ -4440,8 +4440,8 @@ declare i32 @hb_buffer_get_length(ptr noundef) local_unnamed_addr #6
 define hidden range(i64 0, 4294967296) i64 @af_shaper_get_elem(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %1, ptr noundef nonnull %6) #20
-  %8 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %1, ptr noundef nonnull %6) #20
+  %7 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %1, ptr noundef nonnull %6) #21
+  %8 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %1, ptr noundef nonnull %6) #21
   %9 = load i32, ptr %6, align 4, !tbaa !43
   %.not = icmp ult i32 %2, %9
   br i1 %.not, label %10, label %25
@@ -4515,13 +4515,13 @@ define internal fastcc void @af_cjk_metrics_init_widths(ptr noundef captures(non
   %20 = load ptr, ptr %19, align 8, !tbaa !126
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !128
-  %23 = tail call ptr @hb_buffer_create() #20
+  %23 = tail call ptr @hb_buffer_create() #21
   %24 = load i8, ptr %22, align 1, !tbaa !39
   %.not112 = icmp eq i8 %24, 0
   br i1 %.not112, label %.loopexit109.thread, label %.lr.ph116
 
 .loopexit109.thread:                              ; preds = %2
-  tail call void @hb_buffer_destroy(ptr noundef %23) #20
+  tail call void @hb_buffer_destroy(ptr noundef %23) #21
   br label %.loopexit
 
 .lr.ph116:                                        ; preds = %2, %38
@@ -4547,8 +4547,8 @@ define internal fastcc void @af_cjk_metrics_init_widths(ptr noundef captures(non
 
 32:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %33 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %23, ptr noundef nonnull %3) #20
-  %34 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %23, ptr noundef nonnull %3) #20
+  %33 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %23, ptr noundef nonnull %3) #21
+  %34 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %23, ptr noundef nonnull %3) #21
   %35 = load i32, ptr %3, align 4, !tbaa !43
   %.not.i.not = icmp eq i32 %35, 0
   br i1 %.not.i.not, label %af_shaper_get_elem.exit.thread, label %af_shaper_get_elem.exit
@@ -4566,8 +4566,8 @@ af_shaper_get_elem.exit:                          ; preds = %32
 
 .loopexit109.thread140:                           ; preds = %af_shaper_get_elem.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @hb_buffer_destroy(ptr noundef %23) #20
-  %37 = call i32 @FT_Load_Glyph(ptr noundef %1, i32 noundef %.fr, i32 noundef 1) #20
+  call void @hb_buffer_destroy(ptr noundef %23) #21
+  %37 = call i32 @FT_Load_Glyph(ptr noundef %1, i32 noundef %.fr, i32 noundef 1) #21
   %.not93 = icmp eq i32 %37, 0
   br i1 %.not93, label %40, label %.loopexit
 
@@ -4578,7 +4578,7 @@ af_shaper_get_elem.exit:                          ; preds = %32
   br i1 %.not, label %.loopexit109, label %.lr.ph116
 
 .loopexit109:                                     ; preds = %38
-  call void @hb_buffer_destroy(ptr noundef %23) #20
+  call void @hb_buffer_destroy(ptr noundef %23) #21
   br label %.loopexit
 
 40:                                               ; preds = %.loopexit109.thread140
@@ -4751,7 +4751,7 @@ define internal fastcc void @af_cjk_metrics_check_digits(ptr noundef captures(no
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, ptr noundef nonnull align 16 dereferenceable(20) @__const.af_latin_metrics_check_digits.digits, i64 20, i1 false)
-  %4 = tail call ptr @hb_buffer_create() #20
+  %4 = tail call ptr @hb_buffer_create() #21
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold
@@ -4766,8 +4766,8 @@ define internal fastcc void @af_cjk_metrics_check_digits(ptr noundef captures(no
 
 8:                                                ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %9 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %4, ptr noundef nonnull %1) #20
-  %10 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %4, ptr noundef nonnull %1) #20
+  %9 = call ptr @hb_buffer_get_glyph_infos(ptr noundef %4, ptr noundef nonnull %1) #21
+  %10 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %4, ptr noundef nonnull %1) #21
   %11 = load i32, ptr %1, align 4, !tbaa !43
   %.not.i.not = icmp eq i32 %11, 0
   br i1 %.not.i.not, label %af_shaper_get_elem.exit.thread, label %af_shaper_get_elem.exit
@@ -4806,7 +4806,7 @@ select.unfold:                                    ; preds = %16, %15, %af_shaper
 
 .loopexit:                                        ; preds = %select.unfold, %.thread
   %.117 = phi i8 [ 0, %.thread ], [ 1, %select.unfold ]
-  call void @hb_buffer_destroy(ptr noundef %4) #20
+  call void @hb_buffer_destroy(ptr noundef %4) #21
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.117, ptr %18, align 8, !tbaa !319
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -4880,7 +4880,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   %40 = and i32 %39, 131068
   %41 = sext i32 %22 to i64
   %42 = zext nneg i32 %40 to i64
-  %43 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 8, i64 noundef %41, i64 noundef %42, ptr noundef %38, ptr noundef nonnull %3) #20
+  %43 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 8, i64 noundef %41, i64 noundef %42, ptr noundef %38, ptr noundef nonnull %3) #21
   store ptr %43, ptr %32, align 8, !tbaa !323
   %44 = load i32, ptr %3, align 4, !tbaa !43
   %.not = icmp eq i32 %44, 0
@@ -4934,7 +4934,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   %69 = and i32 %68, 131064
   %70 = sext i32 %50 to i64
   %71 = zext nneg i32 %69 to i64
-  %72 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 80, i64 noundef %70, i64 noundef %71, ptr noundef %67, ptr noundef nonnull %3) #20
+  %72 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 80, i64 noundef %70, i64 noundef %71, ptr noundef %67, ptr noundef nonnull %3) #21
   store ptr %72, ptr %61, align 8, !tbaa !109
   %73 = load i32, ptr %3, align 4, !tbaa !43
   %.not321 = icmp eq i32 %73, 0
@@ -4956,7 +4956,7 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   store i32 2, ptr %78, align 8, !tbaa !205
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 2640
   store i32 -1, ptr %79, align 8, !tbaa !205
-  %80 = call i32 @FT_Outline_Get_Orientation(ptr noundef nonnull %1) #20
+  %80 = call i32 @FT_Outline_Get_Orientation(ptr noundef nonnull %1) #21
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %82, label %83
 
@@ -5466,7 +5466,7 @@ af_direction_compute.exit:                        ; preds = %265, %267, %268
   %383 = sext i16 %382 to i32
   %384 = sub nsw i32 %383, %370
   %385 = sext i32 %384 to i64
-  %386 = call i32 @ft_corner_is_flat(i64 noundef %367, i64 noundef %375, i64 noundef %380, i64 noundef %385) #20
+  %386 = call i32 @ft_corner_is_flat(i64 noundef %367, i64 noundef %375, i64 noundef %380, i64 noundef %385) #21
   %.not326 = icmp eq i32 %386, 0
   br i1 %.not326, label %.thread, label %387
 
@@ -5959,7 +5959,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 
 226:                                              ; preds = %221
   %227 = zext nneg i32 %224 to i64
-  %228 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 80, i64 noundef 0, i64 noundef %227, ptr noundef null, ptr noundef nonnull %3) #20
+  %228 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 80, i64 noundef 0, i64 noundef %227, ptr noundef null, ptr noundef nonnull %3) #21
   store ptr %228, ptr %55, align 8, !tbaa !143
   %229 = load i32, ptr %3, align 4, !tbaa !43
   %.not46.i = icmp eq i32 %229, 0
@@ -5973,7 +5973,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 231:                                              ; preds = %221
   %232 = zext nneg i32 %220 to i64
   %233 = zext nneg i32 %224 to i64
-  %234 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 80, i64 noundef %232, i64 noundef %233, ptr noundef %.pre572, ptr noundef nonnull %3) #20
+  %234 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 80, i64 noundef %232, i64 noundef %233, ptr noundef %.pre572, ptr noundef nonnull %3) #21
   store ptr %234, ptr %55, align 8, !tbaa !143
   %235 = load i32, ptr %3, align 4, !tbaa !43
   %.not45.i = icmp eq i32 %235, 0
@@ -6608,7 +6608,7 @@ define internal fastcc void @af_glyph_hints_done(ptr noundef nonnull captures(ad
   br i1 %.not43, label %12, label %11
 
 11:                                               ; preds = %4
-  tail call void @ft_mem_free(ptr noundef nonnull %2, ptr noundef %9) #20
+  tail call void @ft_mem_free(ptr noundef nonnull %2, ptr noundef %9) #21
   store ptr null, ptr %8, align 8, !tbaa !143
   br label %12
 
@@ -6624,7 +6624,7 @@ define internal fastcc void @af_glyph_hints_done(ptr noundef nonnull captures(ad
   br i1 %.not44, label %19, label %18
 
 18:                                               ; preds = %12
-  tail call void @ft_mem_free(ptr noundef nonnull %2, ptr noundef %16) #20
+  tail call void @ft_mem_free(ptr noundef nonnull %2, ptr noundef %16) #21
   store ptr null, ptr %15, align 8, !tbaa !85
   br label %19
 
@@ -6639,7 +6639,7 @@ define internal fastcc void @af_glyph_hints_done(ptr noundef nonnull captures(ad
   br i1 %.not41, label %25, label %24
 
 24:                                               ; preds = %20
-  tail call void @ft_mem_free(ptr noundef nonnull %2, ptr noundef %22) #20
+  tail call void @ft_mem_free(ptr noundef nonnull %2, ptr noundef %22) #21
   store ptr null, ptr %21, align 8, !tbaa !323
   br label %25
 
@@ -6655,7 +6655,7 @@ define internal fastcc void @af_glyph_hints_done(ptr noundef nonnull captures(ad
   br i1 %.not42, label %32, label %31
 
 31:                                               ; preds = %25
-  tail call void @ft_mem_free(ptr noundef nonnull %2, ptr noundef %29) #20
+  tail call void @ft_mem_free(ptr noundef nonnull %2, ptr noundef %29) #21
   store ptr null, ptr %28, align 8, !tbaa !109
   br label %32
 
@@ -6777,7 +6777,7 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr noundef captures(none)
   %61 = add nsw i64 %33, 32
   %62 = and i64 %61, -64
   store i64 %62, ptr %35, align 8, !tbaa !380
-  %63 = tail call i64 @FT_DivFix(i64 noundef %62, i64 noundef %.060) #20
+  %63 = tail call i64 @FT_DivFix(i64 noundef %62, i64 noundef %.060) #21
   %64 = load i64, ptr %36, align 8, !tbaa !381
   %65 = sub nsw i64 %63, %64
   %66 = icmp slt i64 %65, 0
@@ -6915,7 +6915,7 @@ af_cjk_hints_compute_segments.exit.thread:        ; preds = %._crit_edge.i, %.pr
   %.in.v.i = select i1 %49, i64 8, i64 24
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v.i
   %50 = load i64, ptr %.in.i, align 8, !tbaa !60
-  %51 = tail call i64 @FT_DivFix(i64 noundef 192, i64 noundef %50) #20
+  %51 = tail call i64 @FT_DivFix(i64 noundef 192, i64 noundef %50) #21
   %52 = icmp ult ptr %34, %40
   br i1 %52, label %.lr.ph183.split.us.i, label %af_cjk_hints_link_segments.exit
 
@@ -7225,7 +7225,7 @@ af_cjk_hints_link_segments.exit:                  ; preds = %188, %39
   br i1 %213, label %214, label %216
 
 214:                                              ; preds = %199
-  %215 = tail call i64 @FT_DivFix(i64 noundef 16, i64 noundef %202) #20
+  %215 = tail call i64 @FT_DivFix(i64 noundef 16, i64 noundef %202) #21
   br label %216
 
 216:                                              ; preds = %214, %199
@@ -8182,7 +8182,7 @@ define internal fastcc void @af_cjk_hint_edges(ptr noundef readonly captures(non
   %258 = sub nsw i64 %257, %251
   %259 = sub nsw i32 %249, %248
   %260 = sext i32 %259 to i64
-  %261 = tail call i64 @FT_MulDiv(i64 noundef %255, i64 noundef %258, i64 noundef %260) #20
+  %261 = tail call i64 @FT_MulDiv(i64 noundef %255, i64 noundef %258, i64 noundef %260) #21
   %262 = add nsw i64 %261, %251
   br label %.sink.split
 
@@ -8363,7 +8363,7 @@ split:                                            ; preds = %.preheader, %._crit
   %82 = load i16, ptr %70, align 8, !tbaa !206
   %83 = sext i16 %82 to i64
   %84 = sub nsw i64 %81, %83
-  %85 = tail call i64 @FT_DivFix(i64 noundef %79, i64 noundef %84) #20
+  %85 = tail call i64 @FT_DivFix(i64 noundef %79, i64 noundef %84) #21
   store i64 %85, ptr %71, align 8, !tbaa !415
   br label %86
 
@@ -8567,7 +8567,7 @@ define internal fastcc void @af_glyph_hints_align_weak_points(ptr noundef readon
 .lr.ph.i:                                         ; preds = %58
   %82 = sub nsw i64 %71, %69
   %83 = sub nsw i64 %67, %65
-  %84 = tail call i64 @FT_DivFix(i64 noundef %82, i64 noundef %83) #20
+  %84 = tail call i64 @FT_DivFix(i64 noundef %82, i64 noundef %83) #21
   %sext78.i = shl i64 %84, 32
   %85 = ashr exact i64 %sext78.i, 32
   br label %86
@@ -8703,7 +8703,7 @@ define internal fastcc void @af_glyph_hints_align_weak_points(ptr noundef readon
 .lr.ph.i90:                                       ; preds = %127
   %151 = sub nsw i64 %140, %138
   %152 = sub nsw i64 %136, %134
-  %153 = tail call i64 @FT_DivFix(i64 noundef %151, i64 noundef %152) #20
+  %153 = tail call i64 @FT_DivFix(i64 noundef %151, i64 noundef %152) #21
   %sext78.i91 = shl i64 %153, 32
   %154 = ashr exact i64 %sext78.i91, 32
   br label %155
@@ -8799,7 +8799,7 @@ af_iup_interp.exit105:                            ; preds = %173, %.lr.ph85.i98,
 .lr.ph.i109:                                      ; preds = %180
   %204 = sub nsw i64 %193, %191
   %205 = sub nsw i64 %189, %187
-  %206 = tail call i64 @FT_DivFix(i64 noundef %204, i64 noundef %205) #20
+  %206 = tail call i64 @FT_DivFix(i64 noundef %204, i64 noundef %205) #21
   %sext78.i110 = shl i64 %206, 32
   %207 = ashr exact i64 %sext78.i110, 32
   br label %208
@@ -8937,7 +8937,7 @@ define internal fastcc i32 @af_axis_hints_new_edge(ptr noundef %0, i32 noundef r
 
 34:                                               ; preds = %26
   %35 = zext nneg i32 %spec.select to i64
-  %36 = call ptr @ft_mem_realloc(ptr noundef %4, i64 noundef 88, i64 noundef 0, i64 noundef %35, ptr noundef null, ptr noundef nonnull %7) #20
+  %36 = call ptr @ft_mem_realloc(ptr noundef %4, i64 noundef 88, i64 noundef 0, i64 noundef %35, ptr noundef null, ptr noundef nonnull %7) #21
   store ptr %36, ptr %30, align 8, !tbaa !85
   %37 = load i32, ptr %7, align 4, !tbaa !43
   %.not62 = icmp eq i32 %37, 0
@@ -8950,7 +8950,7 @@ define internal fastcc i32 @af_axis_hints_new_edge(ptr noundef %0, i32 noundef r
 39:                                               ; preds = %26
   %40 = zext nneg i32 %19 to i64
   %41 = zext nneg i32 %spec.select to i64
-  %42 = call ptr @ft_mem_realloc(ptr noundef %4, i64 noundef 88, i64 noundef %40, i64 noundef %41, ptr noundef %31, ptr noundef nonnull %7) #20
+  %42 = call ptr @ft_mem_realloc(ptr noundef %4, i64 noundef 88, i64 noundef %40, i64 noundef %41, ptr noundef %31, ptr noundef nonnull %7) #21
   store ptr %42, ptr %30, align 8, !tbaa !85
   %43 = load i32, ptr %7, align 4, !tbaa !43
   %.not61 = icmp eq i32 %43, 0
@@ -9468,7 +9468,7 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr noundef captures(non
   br i1 %or.cond7, label %56, label %.thread
 
 56:                                               ; preds = %51
-  %57 = tail call i64 @FT_MulDiv(i64 noundef %.0, i64 noundef %53, i64 noundef %36) #20
+  %57 = tail call i64 @FT_MulDiv(i64 noundef %.0, i64 noundef %53, i64 noundef %36) #21
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load i32, ptr %58, align 8, !tbaa !118
   %60 = zext i32 %59 to i64
@@ -9785,13 +9785,13 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
 
 37:                                               ; preds = %27
   %38 = load i64, ptr %32, align 8, !tbaa !80
-  %39 = tail call i64 @FT_DivFix(i64 noundef 64, i64 noundef %38) #20
+  %39 = tail call i64 @FT_DivFix(i64 noundef 64, i64 noundef %38) #21
   br label %40
 
 40:                                               ; preds = %37, %34
   %.0182246.i = phi i8 [ 0, %37 ], [ %36, %34 ]
   %.0201.i = phi i64 [ %39, %37 ], [ 0, %34 ]
-  %41 = tail call i64 @FT_DivFix(i64 noundef 32, i64 noundef %33) #20
+  %41 = tail call i64 @FT_DivFix(i64 noundef 32, i64 noundef %33) #21
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 488
   %43 = load i64, ptr %42, align 8, !tbaa !151
   %sext.i = shl i64 %43, 32
@@ -9806,7 +9806,7 @@ define internal fastcc i32 @af_latin_hints_detect_features(ptr noundef %0, i32 n
   %51 = trunc i64 %50 to i32
   %52 = tail call i32 @llvm.smin.i32(i32 %51, i32 16)
   %spec.store.select.i = sext i32 %52 to i64
-  %53 = tail call i64 @FT_DivFix(i64 noundef %spec.store.select.i, i64 noundef %33) #20
+  %53 = tail call i64 @FT_DivFix(i64 noundef %spec.store.select.i, i64 noundef %33) #21
   %54 = icmp ult ptr %22, %28
   br i1 %54, label %.lr.ph272.i, label %._crit_edge280.i
 
@@ -10798,7 +10798,7 @@ define internal fastcc void @af_latin_hint_edges(ptr noundef readonly captures(n
   %350 = load i64, ptr %349, align 8, !tbaa !94
   %351 = sub nsw i64 %350, %342
   %352 = sub nsw i64 %337, %339
-  %353 = tail call i64 @FT_MulDiv(i64 noundef %348, i64 noundef %351, i64 noundef %352) #20
+  %353 = tail call i64 @FT_MulDiv(i64 noundef %348, i64 noundef %351, i64 noundef %352) #21
   %354 = add nsw i64 %353, %342
   %355 = getelementptr inbounds nuw i8, ptr %.2500, i64 16
   store i64 %354, ptr %355, align 8, !tbaa !94
@@ -11224,7 +11224,7 @@ define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef nonnul
   br i1 %.not45, label %95, label %32
 
 32:                                               ; preds = %23
-  call void %31(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %4) #20
+  call void %31(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %4) #21
   %.pre = load i64, ptr %4, align 8, !tbaa !60
   br i1 %.not46, label %33, label %38
 
@@ -11316,7 +11316,7 @@ define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef nonnul
   store i64 %80, ptr %81, align 8, !tbaa !470
   %.neg58 = add nsw i64 %22, -524288
   %82 = sub i64 %.neg58, %66
-  %83 = call i64 @FT_DivFix(i64 noundef %82, i64 noundef %22) #20
+  %83 = call i64 @FT_DivFix(i64 noundef %82, i64 noundef %22) #21
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 784
   store i64 %83, ptr %84, align 8, !tbaa !471
   br label %85
@@ -11327,12 +11327,12 @@ define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef nonnul
   %88 = load i64, ptr %87, align 8, !tbaa !467
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 776
   %90 = load i64, ptr %89, align 8, !tbaa !470
-  %91 = call i32 @FT_Outline_EmboldenXY(ptr noundef nonnull %86, i64 noundef %88, i64 noundef %90) #20
+  %91 = call i32 @FT_Outline_EmboldenXY(ptr noundef nonnull %86, i64 noundef %88, i64 noundef %90) #21
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 784
   %93 = load i64, ptr %92, align 8, !tbaa !471
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %93, ptr %94, align 8, !tbaa !472
-  call void @FT_Outline_Transform(ptr noundef nonnull %86, ptr noundef nonnull %6) #20
+  call void @FT_Outline_Transform(ptr noundef nonnull %86, ptr noundef nonnull %6) #21
   br label %95
 
 95:                                               ; preds = %23, %3, %85
@@ -11364,7 +11364,7 @@ define internal fastcc i32 @af_face_globals_new(ptr noundef %0, ptr noundef nonn
   %10 = load i64, ptr %9, align 8, !tbaa !473
   %11 = shl i64 %10, 1
   %12 = add i64 %11, 800
-  %13 = call ptr @ft_mem_qalloc(ptr noundef %8, i64 noundef %12, ptr noundef nonnull %6) #20
+  %13 = call ptr @ft_mem_qalloc(ptr noundef %8, i64 noundef %12, ptr noundef nonnull %6) #21
   %14 = load i32, ptr %6, align 4, !tbaa !43
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %208
@@ -11398,16 +11398,16 @@ define internal fastcc i32 @af_face_globals_new(ptr noundef %0, ptr noundef nonn
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !478
   %33 = trunc i64 %32 to i32
-  %34 = call ptr @hb_blob_create(ptr noundef %30, i32 noundef %33, i32 noundef 1, ptr noundef nonnull %0, ptr noundef null) #20
+  %34 = call ptr @hb_blob_create(ptr noundef %30, i32 noundef %33, i32 noundef 1, ptr noundef nonnull %0, ptr noundef null) #21
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !479
   %37 = trunc i64 %36 to i32
-  %38 = call ptr @hb_face_create(ptr noundef %34, i32 noundef %37) #20
-  call void @hb_blob_destroy(ptr noundef %34) #20
+  %38 = call ptr @hb_face_create(ptr noundef %34, i32 noundef %37) #21
+  call void @hb_blob_destroy(ptr noundef %34) #21
   br label %hb_ft_font_create_.exit
 
 39:                                               ; preds = %15
-  %40 = call ptr @hb_face_create_for_tables(ptr noundef nonnull @hb_ft_reference_table_, ptr noundef nonnull %0, ptr noundef null) #20
+  %40 = call ptr @hb_face_create_for_tables(ptr noundef nonnull @hb_ft_reference_table_, ptr noundef nonnull %0, ptr noundef null) #21
   br label %hb_ft_font_create_.exit
 
 hb_ft_font_create_.exit:                          ; preds = %29, %39
@@ -11415,16 +11415,16 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !479
   %43 = trunc i64 %42 to i32
-  call void @hb_face_set_index(ptr noundef %.0.i.i, i32 noundef %43) #20
+  call void @hb_face_set_index(ptr noundef %.0.i.i, i32 noundef %43) #21
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %45 = load i16, ptr %44, align 8, !tbaa !25
   %46 = zext i16 %45 to i32
-  call void @hb_face_set_upem(ptr noundef %.0.i.i, i32 noundef %46) #20
-  %47 = call ptr @hb_font_create(ptr noundef %.0.i.i) #20
-  call void @hb_face_destroy(ptr noundef %.0.i.i) #20
+  call void @hb_face_set_upem(ptr noundef %.0.i.i, i32 noundef %46) #21
+  %47 = call ptr @hb_font_create(ptr noundef %.0.i.i) #21
+  call void @hb_face_destroy(ptr noundef %.0.i.i) #21
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %47, ptr %48, align 8, !tbaa !294
-  %49 = call ptr @hb_buffer_create() #20
+  %49 = call ptr @hb_buffer_create() #21
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %49, ptr %50, align 8, !tbaa !308
   %51 = load ptr, ptr %13, align 8, !tbaa !248
@@ -11448,7 +11448,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !480
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %hb_ft_font_create_.exit
-  %57 = call i32 @FT_Select_Charmap(ptr noundef nonnull %51, i32 noundef 1970170211) #20
+  %57 = call i32 @FT_Select_Charmap(ptr noundef nonnull %51, i32 noundef 1970170211) #21
   %.not.i = icmp eq i32 %57, 0
   br i1 %.not.i, label %.preheader124.i, label %.loopexit121.i
 
@@ -11489,7 +11489,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %.094131.i = phi ptr [ %113, %._crit_edge128.i ], [ %65, %.lr.ph133.preheader.i ]
   %77 = zext i32 %76 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %78 = call i32 @FT_Get_Char_Index(ptr noundef nonnull %51, i64 noundef %77) #20
+  %78 = call i32 @FT_Get_Char_Index(ptr noundef nonnull %51, i64 noundef %77) #21
   store i32 %78, ptr %4, align 4, !tbaa !43
   %.not119.i = icmp eq i32 %78, 0
   br i1 %.not119.i, label %89, label %79
@@ -11513,7 +11513,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 89:                                               ; preds = %88, %82, %79, %.lr.ph133.i
   %90 = getelementptr inbounds nuw i8, ptr %.094131.i, i64 4
-  %91 = call i64 @FT_Get_Next_Char(ptr noundef nonnull %51, i64 noundef %77, ptr noundef nonnull %4) #20
+  %91 = call i64 @FT_Get_Next_Char(ptr noundef nonnull %51, i64 noundef %77, ptr noundef nonnull %4) #21
   %92 = load i32, ptr %4, align 4, !tbaa !43
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %._crit_edge128.i, label %.lr.ph127.i
@@ -11544,7 +11544,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   br label %109
 
 109:                                              ; preds = %108, %102, %99
-  %110 = call i64 @FT_Get_Next_Char(ptr noundef nonnull %51, i64 noundef %95, ptr noundef nonnull %4) #20
+  %110 = call i64 @FT_Get_Next_Char(ptr noundef nonnull %51, i64 noundef %95, ptr noundef nonnull %4) #21
   %111 = load i32, ptr %4, align 4, !tbaa !43
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %._crit_edge128.i, label %.lr.ph127.i
@@ -11568,7 +11568,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %.195140.i = phi ptr [ %159, %._crit_edge137.i ], [ %116, %._crit_edge134.i ]
   %119 = zext i32 %118 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %120 = call i32 @FT_Get_Char_Index(ptr noundef nonnull %51, i64 noundef %119) #20
+  %120 = call i32 @FT_Get_Char_Index(ptr noundef nonnull %51, i64 noundef %119) #21
   store i32 %120, ptr %5, align 4, !tbaa !43
   %.not118.i = icmp eq i32 %120, 0
   br i1 %.not118.i, label %133, label %121
@@ -11594,7 +11594,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 133:                                              ; preds = %131, %124, %121, %.lr.ph142.i
   %134 = getelementptr inbounds nuw i8, ptr %.195140.i, i64 4
-  %135 = call i64 @FT_Get_Next_Char(ptr noundef nonnull %51, i64 noundef %119, ptr noundef nonnull %5) #20
+  %135 = call i64 @FT_Get_Next_Char(ptr noundef nonnull %51, i64 noundef %119, ptr noundef nonnull %5) #21
   %136 = load i32, ptr %5, align 4, !tbaa !43
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %._crit_edge137.i, label %.lr.ph136.i
@@ -11627,7 +11627,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   br label %155
 
 155:                                              ; preds = %153, %146, %143
-  %156 = call i64 @FT_Get_Next_Char(ptr noundef nonnull %51, i64 noundef %139, ptr noundef nonnull %5) #20
+  %156 = call i64 @FT_Get_Next_Char(ptr noundef nonnull %51, i64 noundef %139, ptr noundef nonnull %5) #21
   %157 = load i32, ptr %5, align 4, !tbaa !43
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %._crit_edge137.i, label %.lr.ph136.i
@@ -11685,7 +11685,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
 
 182:                                              ; preds = %192, %177
   %indvars.iv158.i = phi i64 [ 48, %177 ], [ %indvars.iv.next159.i, %192 ]
-  %183 = call i32 @FT_Get_Char_Index(ptr noundef nonnull %51, i64 noundef %indvars.iv158.i) #20
+  %183 = call i32 @FT_Get_Char_Index(ptr noundef nonnull %51, i64 noundef %indvars.iv158.i) #21
   %.not114.i = icmp eq i32 %183, 0
   br i1 %.not114.i, label %192, label %184
 
@@ -11789,13 +11789,13 @@ define internal void @af_face_globals_free(ptr noundef %0) #0 {
   br i1 %.not25, label %21, label %20
 
 20:                                               ; preds = %10
-  tail call void %19(ptr noundef nonnull %9) #20
+  tail call void %19(ptr noundef nonnull %9) #21
   %.pre = load ptr, ptr %8, align 8, !tbaa !243
   br label %21
 
 21:                                               ; preds = %10, %20
   %22 = phi ptr [ %9, %10 ], [ %.pre, %20 ]
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %22) #20
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %22) #21
   store ptr null, ptr %8, align 8, !tbaa !243
   br label %23
 
@@ -11807,11 +11807,11 @@ define internal void @af_face_globals_free(ptr noundef %0) #0 {
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !294
-  tail call void @hb_font_destroy(ptr noundef %26) #20
+  tail call void @hb_font_destroy(ptr noundef %26) #21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !308
-  tail call void @hb_buffer_destroy(ptr noundef %28) #20
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef nonnull %0) #20
+  tail call void @hb_buffer_destroy(ptr noundef %28) #21
+  tail call void @ft_mem_free(ptr noundef %5, ptr noundef nonnull %0) #21
   br label %29
 
 29:                                               ; preds = %24, %1
@@ -11838,29 +11838,29 @@ define internal ptr @hb_ft_reference_table_(ptr readnone captures(none) %0, i32 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !60
   %5 = zext i32 %1 to i64
-  %6 = call i32 @FT_Load_Sfnt_Table(ptr noundef %2, i64 noundef %5, i64 noundef 0, ptr noundef null, ptr noundef nonnull %4) #20
+  %6 = call i32 @FT_Load_Sfnt_Table(ptr noundef %2, i64 noundef %5, i64 noundef 0, ptr noundef null, ptr noundef nonnull %4) #21
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %17
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %4, align 8, !tbaa !60
-  %9 = call noalias ptr @malloc(i64 noundef %8) #21
+  %9 = call noalias ptr @malloc(i64 noundef %8) #22
   %.not14 = icmp eq ptr %9, null
   br i1 %.not14, label %17, label %10
 
 10:                                               ; preds = %7
-  %11 = call i32 @FT_Load_Sfnt_Table(ptr noundef %2, i64 noundef %5, i64 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %4) #20
+  %11 = call i32 @FT_Load_Sfnt_Table(ptr noundef %2, i64 noundef %5, i64 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %4) #21
   %.not15 = icmp eq i32 %11, 0
   br i1 %.not15, label %13, label %12
 
 12:                                               ; preds = %10
-  call void @free(ptr noundef nonnull %9) #20
+  call void @free(ptr noundef nonnull %9) #21
   br label %17
 
 13:                                               ; preds = %10
   %14 = load i64, ptr %4, align 8, !tbaa !60
   %15 = trunc i64 %14 to i32
-  %16 = call ptr @hb_blob_create(ptr noundef nonnull %9, i32 noundef %15, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull @free) #20
+  %16 = call ptr @hb_blob_create(ptr noundef nonnull %9, i32 noundef %15, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull @free) #21
   br label %17
 
 17:                                               ; preds = %7, %3, %13, %12
@@ -11895,7 +11895,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr readonly captures(no
   %5 = select i1 %2, i64 262144, i64 %4
   %6 = zext i16 %.136.val to i64
   %7 = shl nuw nsw i64 %6, 16
-  %8 = tail call i64 @FT_DivFix(i64 noundef 65536000, i64 noundef %7) #20
+  %8 = tail call i64 @FT_DivFix(i64 noundef 65536000, i64 noundef %7) #21
   %9 = icmp slt i64 %8, 655
   br i1 %9, label %124, label %10
 
@@ -11971,7 +11971,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr readonly captures(no
 63:                                               ; preds = %59
   %64 = shl i32 %14, 16
   %65 = zext i32 %64 to i64
-  %66 = tail call i64 @FT_DivFix(i64 noundef %65, i64 noundef %5) #20
+  %66 = tail call i64 @FT_DivFix(i64 noundef %65, i64 noundef %5) #21
   br label %122
 
 67:                                               ; preds = %59
@@ -11981,7 +11981,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr readonly captures(no
   br i1 %70, label %71, label %84
 
 71:                                               ; preds = %67
-  %72 = tail call i64 @FT_DivFix(i64 noundef %61, i64 noundef %5) #20
+  %72 = tail call i64 @FT_DivFix(i64 noundef %61, i64 noundef %5) #21
   %.not = icmp eq i32 %16, %12
   br i1 %.not, label %88, label %.thread
 
@@ -11993,10 +11993,10 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr readonly captures(no
   %76 = ashr exact i64 %sext, 32
   %77 = sext i32 %75 to i64
   %78 = sext i32 %73 to i64
-  %79 = tail call i64 @FT_MulDiv(i64 noundef %76, i64 noundef %77, i64 noundef %78) #20
+  %79 = tail call i64 @FT_MulDiv(i64 noundef %76, i64 noundef %77, i64 noundef %78) #21
   %80 = shl i32 %14, 16
   %81 = zext i32 %80 to i64
-  %82 = tail call i64 @FT_DivFix(i64 noundef %81, i64 noundef %5) #20
+  %82 = tail call i64 @FT_DivFix(i64 noundef %81, i64 noundef %5) #21
   %83 = add nsw i64 %82, %79
   br label %122
 
@@ -12007,7 +12007,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr readonly captures(no
   br i1 %87, label %88, label %101
 
 88:                                               ; preds = %71, %84
-  %89 = tail call i64 @FT_DivFix(i64 noundef %69, i64 noundef %5) #20
+  %89 = tail call i64 @FT_DivFix(i64 noundef %69, i64 noundef %5) #21
   %.not94 = icmp eq i32 %20, %16
   br i1 %.not94, label %._crit_edge, label %.thread3
 
@@ -12024,10 +12024,10 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr readonly captures(no
   %93 = ashr exact i64 %sext95, 32
   %94 = sext i32 %92 to i64
   %95 = sext i32 %90 to i64
-  %96 = tail call i64 @FT_MulDiv(i64 noundef %93, i64 noundef %94, i64 noundef %95) #20
+  %96 = tail call i64 @FT_MulDiv(i64 noundef %93, i64 noundef %94, i64 noundef %95) #21
   %97 = shl i32 %18, 16
   %98 = zext i32 %97 to i64
-  %99 = tail call i64 @FT_DivFix(i64 noundef %98, i64 noundef %5) #20
+  %99 = tail call i64 @FT_DivFix(i64 noundef %98, i64 noundef %5) #21
   %100 = add nsw i64 %99, %96
   br label %122
 
@@ -12039,7 +12039,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr readonly captures(no
 
 105:                                              ; preds = %._crit_edge, %101
   %.pre-phi14 = phi i64 [ %.pre13, %._crit_edge ], [ %86, %101 ]
-  %106 = tail call i64 @FT_DivFix(i64 noundef %.pre-phi14, i64 noundef %5) #20
+  %106 = tail call i64 @FT_DivFix(i64 noundef %.pre-phi14, i64 noundef %5) #21
   %.not96 = icmp eq i32 %24, %20
   br i1 %.not96, label %118, label %.thread6
 
@@ -12051,22 +12051,22 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr readonly captures(no
   %110 = ashr exact i64 %sext97, 32
   %111 = sext i32 %109 to i64
   %112 = sext i32 %107 to i64
-  %113 = tail call i64 @FT_MulDiv(i64 noundef %110, i64 noundef %111, i64 noundef %112) #20
+  %113 = tail call i64 @FT_MulDiv(i64 noundef %110, i64 noundef %111, i64 noundef %112) #21
   %114 = shl i32 %22, 16
   %115 = zext i32 %114 to i64
-  %116 = tail call i64 @FT_DivFix(i64 noundef %115, i64 noundef %5) #20
+  %116 = tail call i64 @FT_DivFix(i64 noundef %115, i64 noundef %5) #21
   %117 = add nsw i64 %116, %113
   br label %122
 
 118:                                              ; preds = %105, %101
   %119 = shl i32 %26, 16
   %120 = zext i32 %119 to i64
-  %121 = tail call i64 @FT_DivFix(i64 noundef %120, i64 noundef %5) #20
+  %121 = tail call i64 @FT_DivFix(i64 noundef %120, i64 noundef %5) #21
   br label %122
 
 122:                                              ; preds = %.thread6, %.thread3, %.thread, %118, %63
   %.083 = phi i64 [ %66, %63 ], [ %121, %118 ], [ %83, %.thread ], [ %100, %.thread3 ], [ %117, %.thread6 ]
-  %123 = tail call i64 @FT_DivFix(i64 noundef %.083, i64 noundef %8) #20
+  %123 = tail call i64 @FT_DivFix(i64 noundef %.083, i64 noundef %8) #21
   br label %124
 
 124:                                              ; preds = %1, %122
@@ -12086,7 +12086,7 @@ define internal i32 @af_property_set(ptr noundef %0, ptr noundef readonly captur
   %5 = alloca ptr, align 8
   %6 = alloca [8 x i32], align 16
   %7 = alloca ptr, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.181) #22
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.181) #23
   %.not = icmp eq i32 %8, 0
   %.1122.sroa.gep152 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.1122.sroa.gep153 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12130,7 +12130,7 @@ define internal i32 @af_property_set(ptr noundef %0, ptr noundef readonly captur
   br label %.loopexit
 
 26:                                               ; preds = %4
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.182) #22
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.182) #23
   %.not136 = icmp eq i32 %27, 0
   br i1 %.not136, label %28, label %32
 
@@ -12145,7 +12145,7 @@ define internal i32 @af_property_set(ptr noundef %0, ptr noundef readonly captur
   br label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.183) #22
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.183) #23
   %.not138 = icmp eq i32 %33, 0
   br i1 %.not138, label %34, label %48
 
@@ -12192,7 +12192,7 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
   br label %.loopexit
 
 48:                                               ; preds = %32
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.184) #22
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.184) #23
   %.not141 = icmp eq i32 %49, 0
   br i1 %.not141, label %50, label %103
 
@@ -12212,7 +12212,7 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
 52:                                               ; preds = %51, %59
   %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %59 ]
   %.0118178 = phi ptr [ %2, %51 ], [ %60, %59 ]
-  %53 = call i64 @strtol(ptr noundef %.0118178, ptr noundef nonnull %7, i32 noundef 10) #20
+  %53 = call i64 @strtol(ptr noundef %.0118178, ptr noundef nonnull %7, i32 noundef 10) #21
   %54 = trunc i64 %53 to i32
   %55 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %54, ptr %55, align 4, !tbaa !43
@@ -12230,7 +12230,7 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
   br i1 %exitcond.not, label %61, label %52, !llvm.loop !498
 
 61:                                               ; preds = %59
-  %62 = call i64 @strtol(ptr noundef nonnull %60, ptr noundef nonnull %7, i32 noundef 10) #20
+  %62 = call i64 @strtol(ptr noundef nonnull %60, ptr noundef nonnull %7, i32 noundef 10) #21
   %63 = trunc i64 %62 to i32
   store i32 %63, ptr %.1122.sroa.gep167, align 4, !tbaa !43
   %64 = load ptr, ptr %7, align 8, !tbaa !159
@@ -12326,7 +12326,7 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
   br label %.loopexit
 
 103:                                              ; preds = %48
-  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.185) #22
+  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.185) #23
   %.not144 = icmp eq i32 %104, 0
   br i1 %.not144, label %105, label %.loopexit
 
@@ -12335,7 +12335,7 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
   br i1 %.not145, label %111, label %106
 
 106:                                              ; preds = %105
-  %107 = tail call i64 @strtol(ptr noundef captures(none) %2, ptr noundef null, i32 noundef 10) #20
+  %107 = tail call i64 @strtol(ptr noundef captures(none) %2, ptr noundef null, i32 noundef 10) #21
   %.not146 = icmp eq i64 %107, 0
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %.not146, label %109, label %110
@@ -12363,7 +12363,7 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
 define internal i32 @af_property_get(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(20) @.str.186) #22
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(20) @.str.186) #23
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %21
 
@@ -12407,7 +12407,7 @@ af_property_get_face_globals.exit:                ; preds = %7, %12
   br label %83
 
 21:                                               ; preds = %3
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.181) #22
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.181) #23
   %.not53 = icmp eq i32 %22, 0
   br i1 %.not53, label %23, label %31
 
@@ -12423,7 +12423,7 @@ af_property_get_face_globals.exit:                ; preds = %7, %12
   br label %83
 
 31:                                               ; preds = %21
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.182) #22
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.182) #23
   %.not54 = icmp eq i32 %32, 0
   br i1 %.not54, label %33, label %36
 
@@ -12434,7 +12434,7 @@ af_property_get_face_globals.exit:                ; preds = %7, %12
   br label %83
 
 36:                                               ; preds = %31
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.183) #22
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.183) #23
   %.not55 = icmp eq i32 %37, 0
   br i1 %.not55, label %38, label %52
 
@@ -12478,7 +12478,7 @@ af_property_get_face_globals.exit63:              ; preds = %38, %43
   br label %83
 
 52:                                               ; preds = %36
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.184) #22
+  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.184) #23
   %.not57 = icmp eq i32 %53, 0
   br i1 %.not57, label %54, label %78
 
@@ -12517,7 +12517,7 @@ af_property_get_face_globals.exit63:              ; preds = %38, %43
   br label %83
 
 78:                                               ; preds = %52
-  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.185) #22
+  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.185) #23
   %.not58 = icmp eq i32 %79, 0
   br i1 %.not58, label %80, label %83
 
@@ -12547,20 +12547,20 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #19
@@ -12568,14 +12568,14 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #19
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.abs.i8(i8, i1 immarg) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smax.i16(i16, i16) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smin.i16(i16, i16) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12597,9 +12597,10 @@ attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

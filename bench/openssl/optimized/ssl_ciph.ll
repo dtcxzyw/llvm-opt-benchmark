@@ -190,7 +190,7 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
 22:                                               ; preds = %19
   %23 = load ptr, ptr %0, align 8, !tbaa !45
   %24 = load ptr, ptr %17, align 8, !tbaa !46
-  %25 = tail call ptr @ssl_evp_cipher_fetch(ptr noundef %23, i32 noundef %21, ptr noundef %24) #13
+  %25 = tail call ptr @ssl_evp_cipher_fetch(ptr noundef %23, i32 noundef %21, ptr noundef %24) #14
   %26 = getelementptr inbounds nuw ptr, ptr %18, i64 %.083116
   store ptr %25, ptr %26, align 8, !tbaa !47
   %27 = icmp eq ptr %25, null
@@ -223,7 +223,7 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   %41 = getelementptr inbounds nuw i8, ptr %.186117, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !43
   %43 = load ptr, ptr %17, align 8, !tbaa !46
-  %44 = tail call ptr @ssl_evp_md_fetch(ptr noundef %40, i32 noundef %42, ptr noundef %43) #13
+  %44 = tail call ptr @ssl_evp_md_fetch(ptr noundef %40, i32 noundef %42, ptr noundef %43) #14
   %45 = getelementptr inbounds nuw ptr, ptr %37, i64 %.184118
   store ptr %44, ptr %45, align 8, !tbaa !53
   %46 = icmp eq ptr %44, null
@@ -237,7 +237,7 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   br label %.critedge102
 
 51:                                               ; preds = %39
-  %52 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %44) #13
+  %52 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %44) #14
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %.critedge, !prof !54
 
@@ -258,10 +258,10 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   store i32 0, ptr %60, align 8, !tbaa !57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1716
   store i32 0, ptr %61, align 4, !tbaa !58
-  %62 = tail call i32 @ERR_set_mark() #13
+  %62 = tail call i32 @ERR_set_mark() #14
   %63 = load ptr, ptr %0, align 8, !tbaa !45
   %64 = load ptr, ptr %17, align 8, !tbaa !46
-  %65 = tail call ptr @EVP_SIGNATURE_fetch(ptr noundef %63, ptr noundef nonnull @.str, ptr noundef %64) #13
+  %65 = tail call ptr @EVP_SIGNATURE_fetch(ptr noundef %63, ptr noundef nonnull @.str, ptr noundef %64) #14
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %70
 
@@ -272,13 +272,13 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   br label %71
 
 70:                                               ; preds = %59
-  tail call void @EVP_SIGNATURE_free(ptr noundef nonnull %65) #13
+  tail call void @EVP_SIGNATURE_free(ptr noundef nonnull %65) #14
   br label %71
 
 71:                                               ; preds = %70, %67
   %72 = load ptr, ptr %0, align 8, !tbaa !45
   %73 = load ptr, ptr %17, align 8, !tbaa !46
-  %74 = tail call ptr @EVP_KEYEXCH_fetch(ptr noundef %72, ptr noundef nonnull @.str.1, ptr noundef %73) #13
+  %74 = tail call ptr @EVP_KEYEXCH_fetch(ptr noundef %72, ptr noundef nonnull @.str.1, ptr noundef %73) #14
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %79
 
@@ -289,13 +289,13 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   br label %80
 
 79:                                               ; preds = %71
-  tail call void @EVP_KEYEXCH_free(ptr noundef nonnull %74) #13
+  tail call void @EVP_KEYEXCH_free(ptr noundef nonnull %74) #14
   br label %80
 
 80:                                               ; preds = %79, %76
   %81 = load ptr, ptr %0, align 8, !tbaa !45
   %82 = load ptr, ptr %17, align 8, !tbaa !46
-  %83 = tail call ptr @EVP_KEYEXCH_fetch(ptr noundef %81, ptr noundef nonnull @.str.2, ptr noundef %82) #13
+  %83 = tail call ptr @EVP_KEYEXCH_fetch(ptr noundef %81, ptr noundef nonnull @.str.2, ptr noundef %82) #14
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %88
 
@@ -306,13 +306,13 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   br label %89
 
 88:                                               ; preds = %80
-  tail call void @EVP_KEYEXCH_free(ptr noundef nonnull %83) #13
+  tail call void @EVP_KEYEXCH_free(ptr noundef nonnull %83) #14
   br label %89
 
 89:                                               ; preds = %88, %85
   %90 = load ptr, ptr %0, align 8, !tbaa !45
   %91 = load ptr, ptr %17, align 8, !tbaa !46
-  %92 = tail call ptr @EVP_SIGNATURE_fetch(ptr noundef %90, ptr noundef nonnull @.str.3, ptr noundef %91) #13
+  %92 = tail call ptr @EVP_SIGNATURE_fetch(ptr noundef %90, ptr noundef nonnull @.str.3, ptr noundef %91) #14
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %97
 
@@ -323,23 +323,23 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   br label %98
 
 97:                                               ; preds = %89
-  tail call void @EVP_SIGNATURE_free(ptr noundef nonnull %92) #13
+  tail call void @EVP_SIGNATURE_free(ptr noundef nonnull %92) #14
   br label %98
 
 98:                                               ; preds = %97, %94
-  %99 = tail call i32 @ERR_pop_to_mark() #13
+  %99 = tail call i32 @ERR_pop_to_mark() #14
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %100, ptr noundef nonnull align 16 dereferenceable(56) @default_mac_pkey_id, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !60
-  %101 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, i32 noundef -1) #13
+  %101 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, i32 noundef -1) #14
   %.not.i = icmp eq ptr %101, null
   br i1 %.not.i, label %get_optional_pkey_id.exit, label %102
 
 102:                                              ; preds = %98
-  %103 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %101) #13
+  %103 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %101) #14
   %104 = icmp slt i32 %103, 1
   br i1 %104, label %105, label %get_optional_pkey_id.exit
 
@@ -349,7 +349,7 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
 
 get_optional_pkey_id.exit:                        ; preds = %98, %102, %105
   %106 = load ptr, ptr %14, align 8, !tbaa !59
-  call void @tls_engine_finish(ptr noundef %106) #13
+  call void @tls_engine_finish(ptr noundef %106) #14
   %107 = load i32, ptr %15, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -374,12 +374,12 @@ get_optional_pkey_id.exit:                        ; preds = %98, %102, %105
   store ptr null, ptr %12, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !60
-  %115 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %12, ptr noundef nonnull @.str.5, i32 noundef -1) #13
+  %115 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %12, ptr noundef nonnull @.str.5, i32 noundef -1) #14
   %.not.i103 = icmp eq ptr %115, null
   br i1 %.not.i103, label %get_optional_pkey_id.exit104, label %116
 
 116:                                              ; preds = %114
-  %117 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %115) #13
+  %117 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %115) #14
   %118 = icmp slt i32 %117, 1
   br i1 %118, label %119, label %get_optional_pkey_id.exit104
 
@@ -389,7 +389,7 @@ get_optional_pkey_id.exit:                        ; preds = %98, %102, %105
 
 get_optional_pkey_id.exit104:                     ; preds = %114, %116, %119
   %120 = load ptr, ptr %12, align 8, !tbaa !59
-  call void @tls_engine_finish(ptr noundef %120) #13
+  call void @tls_engine_finish(ptr noundef %120) #14
   %121 = load i32, ptr %13, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -414,12 +414,12 @@ get_optional_pkey_id.exit104:                     ; preds = %114, %116, %119
   store ptr null, ptr %10, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !60
-  %129 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %10, ptr noundef nonnull @.str.6, i32 noundef -1) #13
+  %129 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %10, ptr noundef nonnull @.str.6, i32 noundef -1) #14
   %.not.i105 = icmp eq ptr %129, null
   br i1 %.not.i105, label %get_optional_pkey_id.exit106, label %130
 
 130:                                              ; preds = %128
-  %131 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %11, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %129) #13
+  %131 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %11, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %129) #14
   %132 = icmp slt i32 %131, 1
   br i1 %132, label %133, label %get_optional_pkey_id.exit106
 
@@ -429,7 +429,7 @@ get_optional_pkey_id.exit104:                     ; preds = %114, %116, %119
 
 get_optional_pkey_id.exit106:                     ; preds = %128, %130, %133
   %134 = load ptr, ptr %10, align 8, !tbaa !59
-  call void @tls_engine_finish(ptr noundef %134) #13
+  call void @tls_engine_finish(ptr noundef %134) #14
   %135 = load i32, ptr %11, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -454,12 +454,12 @@ get_optional_pkey_id.exit106:                     ; preds = %128, %130, %133
   store ptr null, ptr %8, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !60
-  %143 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %8, ptr noundef nonnull @.str.7, i32 noundef -1) #13
+  %143 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %8, ptr noundef nonnull @.str.7, i32 noundef -1) #14
   %.not.i107 = icmp eq ptr %143, null
   br i1 %.not.i107, label %get_optional_pkey_id.exit108, label %144
 
 144:                                              ; preds = %142
-  %145 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %143) #13
+  %145 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %143) #14
   %146 = icmp slt i32 %145, 1
   br i1 %146, label %147, label %get_optional_pkey_id.exit108
 
@@ -469,7 +469,7 @@ get_optional_pkey_id.exit106:                     ; preds = %128, %130, %133
 
 get_optional_pkey_id.exit108:                     ; preds = %142, %144, %147
   %148 = load ptr, ptr %8, align 8, !tbaa !59
-  call void @tls_engine_finish(ptr noundef %148) #13
+  call void @tls_engine_finish(ptr noundef %148) #14
   %149 = load i32, ptr %9, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -494,12 +494,12 @@ get_optional_pkey_id.exit108:                     ; preds = %142, %144, %147
   store ptr null, ptr %6, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !60
-  %157 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, i32 noundef -1) #13
+  %157 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, i32 noundef -1) #14
   %.not.i109 = icmp eq ptr %157, null
   br i1 %.not.i109, label %get_optional_pkey_id.exit110, label %158
 
 158:                                              ; preds = %156
-  %159 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %157) #13
+  %159 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %157) #14
   %160 = icmp slt i32 %159, 1
   br i1 %160, label %161, label %get_optional_pkey_id.exit110
 
@@ -509,7 +509,7 @@ get_optional_pkey_id.exit108:                     ; preds = %142, %144, %147
 
 get_optional_pkey_id.exit110:                     ; preds = %156, %158, %161
   %162 = load ptr, ptr %6, align 8, !tbaa !59
-  call void @tls_engine_finish(ptr noundef %162) #13
+  call void @tls_engine_finish(ptr noundef %162) #14
   %163 = load i32, ptr %7, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -527,12 +527,12 @@ get_optional_pkey_id.exit110:                     ; preds = %156, %158, %161
   store ptr null, ptr %4, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !60
-  %168 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, i32 noundef -1) #13
+  %168 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, i32 noundef -1) #14
   %.not.i111 = icmp eq ptr %168, null
   br i1 %.not.i111, label %get_optional_pkey_id.exit112, label %169
 
 169:                                              ; preds = %167
-  %170 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %168) #13
+  %170 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %168) #14
   %171 = icmp slt i32 %170, 1
   br i1 %171, label %172, label %get_optional_pkey_id.exit112
 
@@ -542,7 +542,7 @@ get_optional_pkey_id.exit110:                     ; preds = %156, %158, %161
 
 get_optional_pkey_id.exit112:                     ; preds = %167, %169, %172
   %173 = load ptr, ptr %4, align 8, !tbaa !59
-  call void @tls_engine_finish(ptr noundef %173) #13
+  call void @tls_engine_finish(ptr noundef %173) #14
   %174 = load i32, ptr %5, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -560,12 +560,12 @@ get_optional_pkey_id.exit112:                     ; preds = %167, %169, %172
   store ptr null, ptr %2, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !60
-  %179 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i32 noundef -1) #13
+  %179 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i32 noundef -1) #14
   %.not.i113 = icmp eq ptr %179, null
   br i1 %.not.i113, label %get_optional_pkey_id.exit114, label %180
 
 180:                                              ; preds = %178
-  %181 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %179) #13
+  %181 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %179) #14
   %182 = icmp slt i32 %181, 1
   br i1 %182, label %183, label %get_optional_pkey_id.exit114
 
@@ -575,7 +575,7 @@ get_optional_pkey_id.exit112:                     ; preds = %167, %169, %172
 
 get_optional_pkey_id.exit114:                     ; preds = %178, %180, %183
   %184 = load ptr, ptr %2, align 8, !tbaa !59
-  call void @tls_engine_finish(ptr noundef %184) #13
+  call void @tls_engine_finish(ptr noundef %184) #14
   %185 = load i32, ptr %3, align 4, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -667,7 +667,7 @@ ssl_cipher_info_find.exit:                        ; preds = %6
   %14 = load ptr, ptr %0, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %16 = load ptr, ptr %15, align 8, !tbaa !46
-  %17 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %14, ptr noundef nonnull @.str.11, ptr noundef %16) #13
+  %17 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %14, ptr noundef nonnull @.str.11, ptr noundef %16) #14
   store ptr %17, ptr %2, align 8, !tbaa !47
   %18 = icmp eq ptr %17, null
   br i1 %18, label %29, label %28
@@ -682,7 +682,7 @@ ssl_cipher_info_find.exit:                        ; preds = %6
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @ssl_evp_cipher_up_ref(ptr noundef nonnull %23) #13
+  %26 = tail call i32 @ssl_evp_cipher_up_ref(ptr noundef nonnull %23) #14
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %29, label %.critedge
 
@@ -749,7 +749,7 @@ ssl_cipher_info_find.exit:                        ; preds = %8
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %ssl_cipher_info_find.exit
-  %22 = tail call i32 @ssl_evp_md_up_ref(ptr noundef nonnull %19) #13
+  %22 = tail call i32 @ssl_evp_md_up_ref(ptr noundef nonnull %19) #14
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.critedge, label %23
 
@@ -805,7 +805,7 @@ define range(i32 0, 2) i32 @ssl_cipher_get_evp(ptr noundef readonly captures(non
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 752
   %16 = load i32, ptr %15, align 8, !tbaa !74
   store i32 %16, ptr %9, align 8, !tbaa !75
-  %17 = tail call ptr @OSSL_LIB_CTX_get_data(ptr noundef null, i32 noundef 21) #13
+  %17 = tail call ptr @OSSL_LIB_CTX_get_data(ptr noundef null, i32 noundef 21) #14
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %SSL_COMP_get_compression_methods.exit.thread, label %SSL_COMP_get_compression_methods.exit
 
@@ -815,12 +815,12 @@ SSL_COMP_get_compression_methods.exit:            ; preds = %14
   br i1 %.not75, label %SSL_COMP_get_compression_methods.exit.thread, label %19
 
 19:                                               ; preds = %SSL_COMP_get_compression_methods.exit
-  %20 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %18, ptr noundef nonnull %9) #13
+  %20 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %18, ptr noundef nonnull %9) #14
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %SSL_COMP_get_compression_methods.exit.thread
 
 22:                                               ; preds = %19
-  %23 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %18, i32 noundef %20) #13
+  %23 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %18, i32 noundef %20) #14
   store ptr %23, ptr %6, align 8, !tbaa !72
   br label %SSL_COMP_get_compression_methods.exit.thread
 
@@ -866,7 +866,7 @@ ssl_cipher_info_find.exit.i:                      ; preds = %32
   %40 = load ptr, ptr %0, align 8, !tbaa !45
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %42 = load ptr, ptr %41, align 8, !tbaa !46
-  %43 = call ptr @EVP_CIPHER_fetch(ptr noundef %40, ptr noundef nonnull @.str.11, ptr noundef %42) #13
+  %43 = call ptr @EVP_CIPHER_fetch(ptr noundef %40, ptr noundef nonnull @.str.11, ptr noundef %42) #14
   store ptr %43, ptr %2, align 8, !tbaa !47
   %44 = icmp eq ptr %43, null
   br i1 %44, label %ssl_cipher_get_evp_cipher.exit.thread, label %ssl_cipher_get_evp_cipher.exit
@@ -881,7 +881,7 @@ ssl_cipher_info_find.exit.i:                      ; preds = %32
   br i1 %50, label %ssl_cipher_get_evp_cipher.exit.thread, label %51
 
 51:                                               ; preds = %45
-  %52 = call i32 @ssl_evp_cipher_up_ref(ptr noundef nonnull %49) #13
+  %52 = call i32 @ssl_evp_cipher_up_ref(ptr noundef nonnull %49) #14
   %.not.i88 = icmp eq i32 %52, 0
   br i1 %.not.i88, label %ssl_cipher_get_evp_cipher.exit.thread, label %.critedge.i
 
@@ -936,7 +936,7 @@ ssl_cipher_info_find.exit.i94:                    ; preds = %57
   br i1 %68, label %ssl_cipher_get_evp_md_mac.exit, label %69
 
 69:                                               ; preds = %ssl_cipher_info_find.exit.i94
-  %70 = call i32 @ssl_evp_md_up_ref(ptr noundef nonnull %67) #13
+  %70 = call i32 @ssl_evp_md_up_ref(ptr noundef nonnull %67) #14
   %.not.i96 = icmp eq i32 %70, 0
   br i1 %.not.i96, label %.ssl_cipher_get_evp_md_mac.exit_crit_edge, label %71
 
@@ -973,7 +973,7 @@ ssl_cipher_info_find.exit.i94:                    ; preds = %57
 
 ssl_cipher_get_evp_md_mac.exit:                   ; preds = %.ssl_cipher_get_evp_md_mac.exit_crit_edge, %ssl_cipher_info_find.exit.i94
   %81 = phi ptr [ %.pre, %.ssl_cipher_get_evp_md_mac.exit_crit_edge ], [ %54, %ssl_cipher_info_find.exit.i94 ]
-  call void @ssl_evp_cipher_free(ptr noundef %81) #13
+  call void @ssl_evp_cipher_free(ptr noundef %81) #14
   br label %ssl_cipher_get_evp_cipher.exit.thread
 
 82:                                               ; preds = %63, %.critedge.sink.split.i
@@ -991,7 +991,7 @@ ssl_cipher_get_evp_md_mac.exit:                   ; preds = %.ssl_cipher_get_evp
   br i1 %83, label %87, label %.thread133
 
 87:                                               ; preds = %86
-  %88 = call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %84) #13
+  %88 = call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %84) #14
   %89 = and i64 %88, 2097152
   %.not82 = icmp eq i64 %89, 0
   br i1 %.not82, label %ssl_cipher_get_evp_cipher.exit.thread, label %.thread133
@@ -1053,15 +1053,15 @@ ssl_cipher_get_evp_md_mac.exit:                   ; preds = %.ssl_cipher_get_evp
   %108 = load ptr, ptr %0, align 8, !tbaa !45
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %110 = load ptr, ptr %109, align 8, !tbaa !46
-  %111 = call ptr @ssl_evp_cipher_fetch(ptr noundef %108, i32 noundef %.sink138, ptr noundef %110) #13
+  %111 = call ptr @ssl_evp_cipher_fetch(ptr noundef %108, i32 noundef %.sink138, ptr noundef %110) #14
   %.not86 = icmp eq ptr %111, null
   br i1 %.not86, label %ssl_cipher_get_evp_cipher.exit.thread, label %112
 
 112:                                              ; preds = %107
   %113 = load ptr, ptr %2, align 8, !tbaa !47
-  call void @ssl_evp_cipher_free(ptr noundef %113) #13
+  call void @ssl_evp_cipher_free(ptr noundef %113) #14
   %114 = load ptr, ptr %3, align 8, !tbaa !53
-  call void @ssl_evp_md_free(ptr noundef %114) #13
+  call void @ssl_evp_md_free(ptr noundef %114) #14
   store ptr %111, ptr %2, align 8, !tbaa !47
   store ptr null, ptr %3, align 8, !tbaa !53
   br label %ssl_cipher_get_evp_cipher.exit.thread
@@ -1073,7 +1073,7 @@ ssl_cipher_get_evp_cipher.exit.thread:            ; preds = %.thread, %104, %103
 
 ; Function Attrs: nounwind uwtable
 define ptr @SSL_COMP_get_compression_methods() local_unnamed_addr #0 {
-  %1 = tail call ptr @OSSL_LIB_CTX_get_data(ptr noundef null, i32 noundef 21) #13
+  %1 = tail call ptr @OSSL_LIB_CTX_get_data(ptr noundef null, i32 noundef 21) #14
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
 
@@ -1118,7 +1118,7 @@ define ptr @ssl_md(ptr noundef readonly captures(none) %0, i32 noundef %1) local
 define ptr @ssl_handshake_md(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !80
-  %4 = tail call i64 @ssl_get_algorithm2(ptr noundef %0) #13
+  %4 = tail call i64 @ssl_get_algorithm2(ptr noundef %0) #14
   %5 = and i64 %4, 254
   %6 = icmp samesign ugt i64 %5, 13
   br i1 %6, label %ssl_md.exit, label %7
@@ -1141,7 +1141,7 @@ declare i64 @ssl_get_algorithm2(ptr noundef) local_unnamed_addr #1
 define ptr @ssl_prf_md(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !80
-  %4 = tail call i64 @ssl_get_algorithm2(ptr noundef %0) #13
+  %4 = tail call i64 @ssl_get_algorithm2(ptr noundef %0) #14
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 8
   %7 = and i32 %6, 255
@@ -1186,7 +1186,7 @@ define range(i32 0, 2) i32 @SSL_CTX_set_ciphersuites(ptr noundef captures(none) 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @set_ciphersuites(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @OPENSSL_sk_new_null() #13
+  %3 = tail call ptr @OPENSSL_sk_new_null() #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %16, label %5
 
@@ -1196,25 +1196,25 @@ define internal fastcc range(i32 0, 2) i32 @set_ciphersuites(ptr noundef capture
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @CONF_parse_list(ptr noundef nonnull %1, i32 noundef 58, i32 noundef 1, ptr noundef nonnull @ciphersuite_cb, ptr noundef nonnull %3) #13
+  %8 = tail call i32 @CONF_parse_list(ptr noundef nonnull %1, i32 noundef 58, i32 noundef 1, ptr noundef nonnull @ciphersuite_cb, ptr noundef nonnull %3) #14
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #13
+  %11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10, %7
-  tail call void @ERR_new() #13
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 1318, ptr noundef nonnull @__func__.set_ciphersuites) #13
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 185, ptr noundef null) #13
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %3) #13
+  tail call void @ERR_new() #14
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 1318, ptr noundef nonnull @__func__.set_ciphersuites) #14
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 185, ptr noundef null) #14
+  tail call void @OPENSSL_sk_free(ptr noundef nonnull %3) #14
   br label %16
 
 14:                                               ; preds = %10, %5
   %15 = load ptr, ptr %0, align 8, !tbaa !118
-  tail call void @OPENSSL_sk_free(ptr noundef %15) #13
+  tail call void @OPENSSL_sk_free(ptr noundef %15) #14
   store ptr %3, ptr %0, align 8, !tbaa !118
   br label %16
 
@@ -1226,30 +1226,30 @@ define internal fastcc range(i32 0, 2) i32 @set_ciphersuites(ptr noundef capture
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @update_cipher_list(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8, !tbaa !118
-  %6 = tail call ptr @OPENSSL_sk_dup(ptr noundef %5) #13
+  %6 = tail call ptr @OPENSSL_sk_dup(ptr noundef %5) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %50, label %.split23.preheader
 
 .split23.preheader:                               ; preds = %4
-  %8 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %6) #13
+  %8 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %6) #14
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split23.preheader, %.split
-  %10 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %6, i32 noundef 0) #13
+  %10 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %6, i32 noundef 0) #14
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %12 = load i32, ptr %11, align 4, !tbaa !119
   %13 = icmp eq i32 %12, 772
   br i1 %13, label %.split, label %.critedge
 
 .split:                                           ; preds = %.lr.ph
-  %14 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %6, i32 noundef 0) #13
-  %15 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %6) #13
+  %14 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %6, i32 noundef 0) #14
+  %15 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %6) #14
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !120
 
 .critedge:                                        ; preds = %.lr.ph, %.split, %.split23.preheader
-  %17 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #13
+  %17 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #14
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph29, label %._crit_edge
 
@@ -1261,7 +1261,7 @@ define internal fastcc range(i32 0, 2) i32 @update_cipher_list(ptr noundef reado
 21:                                               ; preds = %.lr.ph29, %40
   %.02228.in = phi i32 [ %17, %.lr.ph29 ], [ %.02228, %40 ]
   %.02228 = add nsw i32 %.02228.in, -1
-  %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.02228) #13
+  %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.02228) #14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %24 = load i32, ptr %23, align 4, !tbaa !61
   %25 = load i32, ptr %19, align 8, !tbaa !3
@@ -1282,7 +1282,7 @@ define internal fastcc range(i32 0, 2) i32 @update_cipher_list(ptr noundef reado
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %28
-  %39 = tail call i32 @OPENSSL_sk_unshift(ptr noundef nonnull %6, ptr noundef nonnull %22) #13
+  %39 = tail call i32 @OPENSSL_sk_unshift(ptr noundef nonnull %6, ptr noundef nonnull %22) #14
   br label %40
 
 40:                                               ; preds = %38, %28, %21
@@ -1290,23 +1290,23 @@ define internal fastcc range(i32 0, 2) i32 @update_cipher_list(ptr noundef reado
   br i1 %41, label %21, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %40, %.critedge
-  %42 = tail call ptr @OPENSSL_sk_dup(ptr noundef nonnull %6) #13
+  %42 = tail call ptr @OPENSSL_sk_dup(ptr noundef nonnull %6) #14
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %._crit_edge
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %6) #13
+  tail call void @OPENSSL_sk_free(ptr noundef nonnull %6) #14
   br label %50
 
 45:                                               ; preds = %._crit_edge
   %46 = load ptr, ptr %2, align 8, !tbaa !118
-  tail call void @OPENSSL_sk_free(ptr noundef %46) #13
+  tail call void @OPENSSL_sk_free(ptr noundef %46) #14
   store ptr %42, ptr %2, align 8, !tbaa !118
-  %47 = tail call ptr @OPENSSL_sk_set_cmp_func(ptr noundef nonnull %42, ptr noundef nonnull @ssl_cipher_ptr_id_cmp) #13
+  %47 = tail call ptr @OPENSSL_sk_set_cmp_func(ptr noundef nonnull %42, ptr noundef nonnull @ssl_cipher_ptr_id_cmp) #14
   %48 = load ptr, ptr %2, align 8, !tbaa !118
-  tail call void @OPENSSL_sk_sort(ptr noundef %48) #13
+  tail call void @OPENSSL_sk_sort(ptr noundef %48) #14
   %49 = load ptr, ptr %1, align 8, !tbaa !118
-  tail call void @OPENSSL_sk_free(ptr noundef %49) #13
+  tail call void @OPENSSL_sk_free(ptr noundef %49) #14
   store ptr %6, ptr %1, align 8, !tbaa !118
   br label %50
 
@@ -1331,7 +1331,7 @@ define range(i32 0, 2) i32 @SSL_set_ciphersuites(ptr noundef %0, ptr noundef %1)
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #13
+  %10 = tail call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %0) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %.thread26
 
@@ -1345,12 +1345,12 @@ define range(i32 0, 2) i32 @SSL_set_ciphersuites(ptr noundef %0, ptr noundef %1)
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %.thread26
-  %19 = tail call ptr @SSL_get_ciphers(ptr noundef nonnull %0) #13
+  %19 = tail call ptr @SSL_get_ciphers(ptr noundef nonnull %0) #14
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @OPENSSL_sk_dup(ptr noundef nonnull %19) #13
+  %21 = tail call ptr @OPENSSL_sk_dup(ptr noundef nonnull %19) #14
   store ptr %21, ptr %15, align 8, !tbaa !124
   br label %22
 
@@ -1398,22 +1398,22 @@ define ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0, ptr n
   br i1 %or.cond3, label %637, label %14
 
 14:                                               ; preds = %6
-  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(14) @.str.64, i64 noundef 13) #14
+  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(14) @.str.64, i64 noundef 13) #15
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(12) @.str.65, i64 noundef 11) #14
+  %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(12) @.str.65, i64 noundef 11) #15
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(10) @.str.66, i64 noundef 9) #14
+  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(10) @.str.66, i64 noundef 9) #15
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(10) @.str.67, i64 noundef 9) #14
+  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(10) @.str.67, i64 noundef 9) #15
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %.thread, label %29
 
@@ -1462,9 +1462,9 @@ define ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0, ptr n
   br label %43
 
 check_suiteb_cipher_list.exit:                    ; preds = %33
-  tail call void @ERR_new() #13
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 1258, ptr noundef nonnull @__func__.check_suiteb_cipher_list) #13
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 158, ptr noundef null) #13
+  tail call void @ERR_new() #14
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 1258, ptr noundef nonnull @__func__.check_suiteb_cipher_list) #14
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 158, ptr noundef null) #14
   br label %637
 
 43:                                               ; preds = %40, %29, %42, %41, %39
@@ -1479,14 +1479,14 @@ check_suiteb_cipher_list.exit:                    ; preds = %33
   %51 = load i32, ptr %50, align 4, !tbaa !52
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %53 = load ptr, ptr %52, align 8, !tbaa !136
-  %54 = tail call i32 %53() #13
+  %54 = tail call i32 %53() #14
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %ssl_cipher_apply_rule.exit319.thread
 
 56:                                               ; preds = %43
   %57 = zext nneg i32 %54 to i64
   %58 = shl nuw nsw i64 %57, 5
-  %59 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %58, ptr noundef nonnull @.str.12, i32 noundef 1466) #13
+  %59 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %58, ptr noundef nonnull @.str.12, i32 noundef 1466) #14
   %60 = icmp eq ptr %59, null
   br i1 %60, label %637, label %.lr.ph.i
 
@@ -1499,7 +1499,7 @@ check_suiteb_cipher_list.exit:                    ; preds = %33
   %.066.i = phi i32 [ 0, %.lr.ph.i ], [ %105, %104 ]
   %.05565.i = phi i32 [ 0, %.lr.ph.i ], [ %.156.i, %104 ]
   %64 = load ptr, ptr %61, align 8, !tbaa !137
-  %65 = tail call ptr %64(i32 noundef %.066.i) #13
+  %65 = tail call ptr %64(i32 noundef %.066.i) #14
   %66 = icmp eq ptr %65, null
   br i1 %66, label %104, label %67
 
@@ -2491,7 +2491,7 @@ ssl_cipher_apply_rule.exit340:                    ; preds = %.backedge.i333, %ss
   br i1 %.not100, label %421, label %422
 
 421:                                              ; preds = %ssl_cipher_apply_rule.exit340
-  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1534) #13
+  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1534) #14
   br label %637
 
 422:                                              ; preds = %ssl_cipher_apply_rule.exit340
@@ -2840,12 +2840,12 @@ ssl_cipher_apply_rule.exit439:                    ; preds = %.backedge.i432, %ss
   %544 = add nsw i32 %54, 80
   %545 = sext i32 %544 to i64
   %546 = shl nsw i64 %545, 3
-  %547 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %546, ptr noundef nonnull @.str.12, i32 noundef 1577) #13
+  %547 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %546, ptr noundef nonnull @.str.12, i32 noundef 1577) #14
   %548 = icmp eq ptr %547, null
   br i1 %548, label %549, label %550
 
 549:                                              ; preds = %ssl_cipher_apply_rule.exit439
-  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1579) #13
+  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1579) #14
   br label %637
 
 550:                                              ; preds = %ssl_cipher_apply_rule.exit439
@@ -2923,7 +2923,7 @@ ssl_cipher_apply_rule.exit439:                    ; preds = %.backedge.i432, %ss
 
 ssl_cipher_collect_aliases.exit:                  ; preds = %582
   store ptr null, ptr %.2.i, align 8, !tbaa !151
-  %583 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0448.ph, ptr noundef nonnull dereferenceable(8) @.str.13, i64 noundef 7) #14
+  %583 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0448.ph, ptr noundef nonnull dereferenceable(8) @.str.13, i64 noundef 7) #15
   %584 = icmp eq i32 %583, 0
   br i1 %584, label %585, label %.thread462
 
@@ -2946,33 +2946,33 @@ ssl_cipher_collect_aliases.exit:                  ; preds = %582
 592:                                              ; preds = %.thread462
   %593 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull %.093466, ptr noundef %7, ptr noundef %8, ptr noundef %547, ptr noundef %5)
   %594 = icmp eq i32 %593, 0
-  tail call void @CRYPTO_free(ptr noundef nonnull %547, ptr noundef nonnull @.str.12, i32 noundef 1603) #13
+  tail call void @CRYPTO_free(ptr noundef nonnull %547, ptr noundef nonnull @.str.12, i32 noundef 1603) #14
   br i1 %594, label %595, label %596
 
 .critedge112:                                     ; preds = %585
-  tail call void @CRYPTO_free(ptr noundef nonnull %547, ptr noundef nonnull @.str.12, i32 noundef 1603) #13
+  tail call void @CRYPTO_free(ptr noundef nonnull %547, ptr noundef nonnull @.str.12, i32 noundef 1603) #14
   br label %595
 
 595:                                              ; preds = %.critedge112, %592
-  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1606) #13
+  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1606) #14
   br label %637
 
 .critedge:                                        ; preds = %.thread462
-  tail call void @CRYPTO_free(ptr noundef nonnull %547, ptr noundef nonnull @.str.12, i32 noundef 1603) #13
+  tail call void @CRYPTO_free(ptr noundef nonnull %547, ptr noundef nonnull @.str.12, i32 noundef 1603) #14
   br label %596
 
 596:                                              ; preds = %.critedge, %592
-  %597 = tail call ptr @OPENSSL_sk_new_null() #13
+  %597 = tail call ptr @OPENSSL_sk_new_null() #14
   %598 = icmp eq ptr %597, null
   br i1 %598, label %601, label %.preheader473
 
 .preheader473:                                    ; preds = %596
-  %599 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #13
+  %599 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #14
   %600 = icmp sgt i32 %599, 0
   br i1 %600, label %.lr.ph, label %.preheader
 
 601:                                              ; preds = %596
-  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1615) #13
+  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1615) #14
   br label %637
 
 .preheader:                                       ; preds = %621, %.preheader473
@@ -2982,7 +2982,7 @@ ssl_cipher_collect_aliases.exit:                  ; preds = %582
 
 .lr.ph:                                           ; preds = %.preheader473, %621
   %.089474 = phi i32 [ %622, %621 ], [ 0, %.preheader473 ]
-  %602 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.089474) #13
+  %602 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.089474) #14
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 36
   %604 = load i32, ptr %603, align 4, !tbaa !61
   %605 = and i32 %604, %49
@@ -3002,24 +3002,24 @@ ssl_cipher_collect_aliases.exit:                  ; preds = %582
   br i1 %.not109, label %618, label %615
 
 615:                                              ; preds = %606, %.lr.ph
-  %616 = tail call ptr @OPENSSL_sk_delete(ptr noundef %1, i32 noundef %.089474) #13
+  %616 = tail call ptr @OPENSSL_sk_delete(ptr noundef %1, i32 noundef %.089474) #14
   %617 = add nsw i32 %.089474, -1
   br label %621
 
 618:                                              ; preds = %606
-  %619 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %597, ptr noundef nonnull %602) #13
+  %619 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %597, ptr noundef nonnull %602) #14
   %.not110 = icmp eq i32 %619, 0
   br i1 %.not110, label %620, label %621
 
 620:                                              ; preds = %618
-  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1634) #13
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %597) #13
+  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1634) #14
+  tail call void @OPENSSL_sk_free(ptr noundef nonnull %597) #14
   br label %637
 
 621:                                              ; preds = %615, %618
   %.190.ph = phi i32 [ %.089474, %618 ], [ %617, %615 ]
   %622 = add nsw i32 %.190.ph, 1
-  %623 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #13
+  %623 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #14
   %624 = icmp slt i32 %622, %623
   br i1 %624, label %.lr.ph, label %.preheader, !llvm.loop !154
 
@@ -3032,7 +3032,7 @@ ssl_cipher_collect_aliases.exit:                  ; preds = %582
 
 627:                                              ; preds = %.lr.ph478
   %628 = load ptr, ptr %.091477, align 8, !tbaa !142
-  %629 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %597, ptr noundef %628) #13
+  %629 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %597, ptr noundef %628) #14
   %.not106 = icmp eq i32 %629, 0
   br i1 %.not106, label %632, label %630
 
@@ -3043,23 +3043,23 @@ ssl_cipher_collect_aliases.exit:                  ; preds = %582
   br i1 %.not104, label %._crit_edge, label %.lr.ph478, !llvm.loop !155
 
 632:                                              ; preds = %627
-  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1650) #13
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %597) #13
+  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1650) #14
+  tail call void @OPENSSL_sk_free(ptr noundef nonnull %597) #14
   br label %637
 
 ._crit_edge:                                      ; preds = %630, %.preheader
-  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1659) #13
+  tail call void @CRYPTO_free(ptr noundef %.092460546551556561566571576581586591596601, ptr noundef nonnull @.str.12, i32 noundef 1659) #14
   %633 = tail call fastcc i32 @update_cipher_list_by_id(ptr noundef %3, ptr noundef %597)
   %.not107 = icmp eq i32 %633, 0
   br i1 %.not107, label %634, label %635
 
 634:                                              ; preds = %._crit_edge
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %597) #13
+  tail call void @OPENSSL_sk_free(ptr noundef nonnull %597) #14
   br label %637
 
 635:                                              ; preds = %._crit_edge
   %636 = load ptr, ptr %2, align 8, !tbaa !118
-  tail call void @OPENSSL_sk_free(ptr noundef %636) #13
+  tail call void @OPENSSL_sk_free(ptr noundef %636) #14
   store ptr %597, ptr %2, align 8, !tbaa !118
   br label %637
 
@@ -3488,7 +3488,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_strength_sort(ptr noundef
   %11 = add nuw nsw i32 %.026.lcssa, 1
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 2
-  %14 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %13, ptr noundef nonnull @.str.12, i32 noundef 939) #13
+  %14 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %13, ptr noundef nonnull @.str.12, i32 noundef 939) #14
   %15 = icmp eq ptr %14, null
   br i1 %15, label %61, label %.preheader33
 
@@ -3611,7 +3611,7 @@ ssl_cipher_apply_rule.exit:                       ; preds = %.backedge.i, %32
   br i1 %60, label %.lr.ph44, label %._crit_edge45, !llvm.loop !161
 
 ._crit_edge45:                                    ; preds = %59
-  tail call void @CRYPTO_free(ptr noundef nonnull %14, ptr noundef nonnull @.str.12, i32 noundef 961) #13
+  tail call void @CRYPTO_free(ptr noundef nonnull %14, ptr noundef nonnull @.str.12, i32 noundef 961) #14
   br label %61
 
 61:                                               ; preds = %._crit_edge, %._crit_edge45
@@ -3750,9 +3750,9 @@ switch.early.test:                                ; preds = %25
   br i1 %33, label %.split.us, label %34
 
 .split.us:                                        ; preds = %20, %32
-  tail call void @ERR_new() #13
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 1036, ptr noundef nonnull @__func__.ssl_cipher_process_rulestr) #13
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 280, ptr noundef null) #13
+  tail call void @ERR_new() #14
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 1036, ptr noundef nonnull @__func__.ssl_cipher_process_rulestr) #14
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 280, ptr noundef null) #14
   br label %.loopexit
 
 34:                                               ; preds = %32
@@ -3771,7 +3771,7 @@ switch.early.test:                                ; preds = %25
   %39 = phi ptr [ %36, %.lr.ph ], [ %60, %58 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !163
-  %42 = tail call i32 @strncmp(ptr noundef %.2212, ptr noundef %41, i64 noundef %37) #14
+  %42 = tail call i32 @strncmp(ptr noundef %.2212, ptr noundef %41, i64 noundef %37) #15
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %48
 
@@ -3788,7 +3788,7 @@ switch.early.test:                                ; preds = %25
   br i1 %.not255, label %58, label %51
 
 51:                                               ; preds = %48
-  %52 = tail call i32 @strncmp(ptr noundef %.2212, ptr noundef nonnull %50, i64 noundef %37) #14
+  %52 = tail call i32 @strncmp(ptr noundef %.2212, ptr noundef nonnull %50, i64 noundef %37) #15
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %58
 
@@ -3928,12 +3928,12 @@ switch.early.test:                                ; preds = %25
   br label %128
 
 108:                                              ; preds = %20
-  %109 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.137, i64 noundef 8) #14
+  %109 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.137, i64 noundef 8) #15
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %120, label %.thread.sink.split
 
 111:                                              ; preds = %20
-  %112 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.138, i64 noundef 9) #14
+  %112 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.138, i64 noundef 9) #15
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %.thread.sink.split
 
@@ -3958,9 +3958,9 @@ switch.early.test:                                ; preds = %25
 
 .thread.sink.split:                               ; preds = %111, %108, %20, %114
   %.sink = phi i32 [ 1197, %114 ], [ 1203, %20 ], [ 1203, %108 ], [ 1203, %111 ]
-  tail call void @ERR_new() #13
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef %.sink, ptr noundef nonnull @__func__.ssl_cipher_process_rulestr) #13
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 280, ptr noundef null) #13
+  tail call void @ERR_new() #14
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef %.sink, ptr noundef nonnull @__func__.ssl_cipher_process_rulestr) #14
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 280, ptr noundef null) #14
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %120
@@ -4034,17 +4034,17 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @update_cipher_list_by_id(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = tail call ptr @OPENSSL_sk_dup(ptr noundef nonnull %1) #13
+  %3 = tail call ptr @OPENSSL_sk_dup(ptr noundef nonnull %1) #14
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !118
-  tail call void @OPENSSL_sk_free(ptr noundef %6) #13
+  tail call void @OPENSSL_sk_free(ptr noundef %6) #14
   store ptr %3, ptr %0, align 8, !tbaa !118
-  %7 = tail call ptr @OPENSSL_sk_set_cmp_func(ptr noundef nonnull %3, ptr noundef nonnull @ssl_cipher_ptr_id_cmp) #13
+  %7 = tail call ptr @OPENSSL_sk_set_cmp_func(ptr noundef nonnull %3, ptr noundef nonnull @ssl_cipher_ptr_id_cmp) #14
   %8 = load ptr, ptr %0, align 8, !tbaa !118
-  tail call void @OPENSSL_sk_sort(ptr noundef %8) #13
+  tail call void @OPENSSL_sk_sort(ptr noundef %8) #14
   br label %9
 
 9:                                                ; preds = %2, %5
@@ -4058,7 +4058,7 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef 1681) #13
+  %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef 1681) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %60, label %10
 
@@ -4079,7 +4079,7 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
   %18 = load i32, ptr %17, align 8, !tbaa !64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %20 = load i32, ptr %19, align 4, !tbaa !119
-  %21 = tail call ptr @ssl_protocol_to_string(i32 noundef %20) #13
+  %21 = tail call ptr @ssl_protocol_to_string(i32 noundef %20) #14
   switch i32 %12, label %32 [
     i32 1, label %33
     i32 2, label %22
@@ -4207,7 +4207,7 @@ switch.lookup34:                                  ; preds = %.split1
   %56 = zext nneg i32 %.023 to i64
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !163
-  %59 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.022, i64 noundef %56, ptr noundef nonnull @.str.15, ptr noundef %58, ptr noundef %21, ptr noundef nonnull %.024, ptr noundef nonnull %.027, ptr noundef nonnull %.026, ptr noundef nonnull %.025) #13
+  %59 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.022, i64 noundef %56, ptr noundef nonnull @.str.15, ptr noundef %58, ptr noundef %21, ptr noundef nonnull %.024, ptr noundef nonnull %.027, ptr noundef nonnull %.026, ptr noundef nonnull %.025) #14
   br label %60
 
 60:                                               ; preds = %8, %5, %55
@@ -4231,7 +4231,7 @@ define ptr @SSL_CIPHER_get_version(ptr noundef readonly captures(address_is_null
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @ssl_protocol_to_string(i32 noundef %5) #13
+  %8 = tail call ptr @ssl_protocol_to_string(i32 noundef %5) #14
   br label %9
 
 9:                                                ; preds = %3, %1, %7
@@ -4275,7 +4275,7 @@ define ptr @OPENSSL_cipher_name(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %SSL_CIPHER_get_name.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @ssl3_get_cipher_by_std_name(ptr noundef nonnull %0) #13
+  %4 = tail call ptr @ssl3_get_cipher_by_std_name(ptr noundef nonnull %0) #14
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %SSL_CIPHER_get_name.exit, label %5
 
@@ -4342,12 +4342,12 @@ define ptr @ssl3_comp_find(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 6:                                                ; preds = %2
   store i32 %1, ptr %3, align 8, !tbaa !75
-  %7 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %0, ptr noundef nonnull %3) #13
+  %7 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %7) #13
+  %10 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %7) #14
   br label %11
 
 11:                                               ; preds = %9, %6, %2
@@ -4360,7 +4360,7 @@ declare ptr @OSSL_LIB_CTX_get_data(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define ptr @SSL_COMP_set0_compression_methods(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @OSSL_LIB_CTX_get_data(ptr noundef null, i32 noundef 21) #13
+  %2 = tail call ptr @OSSL_LIB_CTX_get_data(ptr noundef null, i32 noundef 21) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
 
@@ -4376,7 +4376,7 @@ define ptr @SSL_COMP_set0_compression_methods(ptr noundef %0) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_COMP_add_compression_method(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @OSSL_LIB_CTX_get_data(ptr noundef null, i32 noundef 21) #13
+  %3 = tail call ptr @OSSL_LIB_CTX_get_data(ptr noundef null, i32 noundef 21) #14
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %SSL_COMP_get_compression_methods.exit.thread, label %SSL_COMP_get_compression_methods.exit
 
@@ -4388,7 +4388,7 @@ SSL_COMP_get_compression_methods.exit:            ; preds = %2
   br i1 %or.cond19, label %SSL_COMP_get_compression_methods.exit.thread, label %7
 
 7:                                                ; preds = %SSL_COMP_get_compression_methods.exit
-  %8 = tail call i32 @COMP_get_type(ptr noundef nonnull %1) #13
+  %8 = tail call i32 @COMP_get_type(ptr noundef nonnull %1) #14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %SSL_COMP_get_compression_methods.exit.thread, label %10
 
@@ -4398,18 +4398,18 @@ SSL_COMP_get_compression_methods.exit:            ; preds = %2
   br i1 %or.cond, label %SSL_COMP_get_compression_methods.exit.thread.sink.split, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str.12, i32 noundef 2035) #13
+  %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str.12, i32 noundef 2035) #14
   %14 = icmp eq ptr %13, null
   br i1 %14, label %SSL_COMP_get_compression_methods.exit.thread, label %15
 
 15:                                               ; preds = %12
   store i32 %0, ptr %13, align 8, !tbaa !75
-  %16 = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %4, ptr noundef nonnull %13) #13
+  %16 = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %4, ptr noundef nonnull %13) #14
   %17 = icmp sgt i32 %16, -1
   br i1 %17, label %SSL_COMP_get_compression_methods.exit.thread.sink.split.sink.split, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %4, ptr noundef nonnull %13) #13
+  %19 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %4, ptr noundef nonnull %13) #14
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %SSL_COMP_get_compression_methods.exit.thread.sink.split.sink.split, label %SSL_COMP_get_compression_methods.exit.thread
 
@@ -4417,15 +4417,15 @@ SSL_COMP_get_compression_methods.exit.thread.sink.split.sink.split: ; preds = %1
   %.sink27 = phi i32 [ 2041, %15 ], [ 2046, %18 ]
   %.sink26.ph = phi i32 [ 2042, %15 ], [ 2047, %18 ]
   %.sink.ph = phi i32 [ 309, %15 ], [ 524303, %18 ]
-  tail call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str.12, i32 noundef %.sink27) #13
+  tail call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str.12, i32 noundef %.sink27) #14
   br label %SSL_COMP_get_compression_methods.exit.thread.sink.split
 
 SSL_COMP_get_compression_methods.exit.thread.sink.split: ; preds = %SSL_COMP_get_compression_methods.exit.thread.sink.split.sink.split, %10
   %.sink26 = phi i32 [ 2031, %10 ], [ %.sink26.ph, %SSL_COMP_get_compression_methods.exit.thread.sink.split.sink.split ]
   %.sink = phi i32 [ 307, %10 ], [ %.sink.ph, %SSL_COMP_get_compression_methods.exit.thread.sink.split.sink.split ]
-  tail call void @ERR_new() #13
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef %.sink26, ptr noundef nonnull @__func__.SSL_COMP_add_compression_method) #13
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #13
+  tail call void @ERR_new() #14
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef %.sink26, ptr noundef nonnull @__func__.SSL_COMP_add_compression_method) #14
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #14
   br label %SSL_COMP_get_compression_methods.exit.thread
 
 SSL_COMP_get_compression_methods.exit.thread:     ; preds = %SSL_COMP_get_compression_methods.exit.thread.sink.split, %2, %18, %12, %7, %SSL_COMP_get_compression_methods.exit
@@ -4447,7 +4447,7 @@ define ptr @SSL_COMP_get_name(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @COMP_get_name(ptr noundef nonnull %0) #13
+  %3 = tail call ptr @COMP_get_name(ptr noundef nonnull %0) #14
   br label %4
 
 4:                                                ; preds = %1, %2
@@ -4476,7 +4476,7 @@ define ptr @ssl_get_cipher_by_char(ptr noundef readonly captures(none) %0, ptr n
   %5 = load ptr, ptr %4, align 8, !tbaa !171
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load ptr, ptr %6, align 8, !tbaa !172
-  %8 = tail call ptr %7(ptr noundef %1) #13
+  %8 = tail call ptr %7(ptr noundef %1) #14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
 
@@ -4503,7 +4503,7 @@ define ptr @SSL_CIPHER_find(ptr noundef readonly captures(none) %0, ptr noundef 
   %4 = load ptr, ptr %3, align 8, !tbaa !173
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8, !tbaa !172
-  %7 = tail call ptr %6(ptr noundef %1) #13
+  %7 = tail call ptr %6(ptr noundef %1) #14
   ret ptr %7
 }
 
@@ -4678,8 +4678,8 @@ define ptr @SSL_CIPHER_get_handshake_digest(ptr noundef readonly captures(none) 
   %8 = getelementptr inbounds nuw %struct.ssl_cipher_table, ptr @ssl_cipher_table_mac, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !43
-  %11 = tail call ptr @OBJ_nid2sn(i32 noundef %10) #13
-  %12 = tail call ptr @EVP_get_digestbyname(ptr noundef %11) #13
+  %11 = tail call ptr @OBJ_nid2sn(i32 noundef %10) #14
+  %12 = tail call ptr @EVP_get_digestbyname(ptr noundef %11) #14
   br label %13
 
 13:                                               ; preds = %1, %6
@@ -4743,13 +4743,13 @@ ssl_cipher_info_find.exit.i:                      ; preds = %.preheader67
 
 SSL_CIPHER_get_digest_nid.exit:                   ; preds = %17, %ssl_cipher_info_find.exit.i
   %.0.i = phi i32 [ %23, %ssl_cipher_info_find.exit.i ], [ 0, %17 ]
-  %24 = tail call ptr @OBJ_nid2sn(i32 noundef %.0.i) #13
-  %25 = tail call ptr @EVP_get_digestbyname(ptr noundef %24) #13
+  %24 = tail call ptr @OBJ_nid2sn(i32 noundef %.0.i) #14
+  %25 = tail call ptr @EVP_get_digestbyname(ptr noundef %24) #14
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %SSL_CIPHER_get_digest_nid.exit
-  %28 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %25) #13
+  %28 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %25) #14
   %29 = icmp slt i32 %28, 1
   br i1 %29, label %.critedge, label %30
 
@@ -4781,23 +4781,23 @@ ssl_cipher_info_find.exit.i65:                    ; preds = %.preheader
 
 SSL_CIPHER_get_cipher_nid.exit:                   ; preds = %34, %ssl_cipher_info_find.exit.i65
   %.0.i64 = phi i32 [ %40, %ssl_cipher_info_find.exit.i65 ], [ 0, %34 ]
-  %41 = tail call ptr @OBJ_nid2sn(i32 noundef %.0.i64) #13
-  %42 = tail call ptr @EVP_get_cipherbyname(ptr noundef %41) #13
+  %41 = tail call ptr @OBJ_nid2sn(i32 noundef %.0.i64) #14
+  %42 = tail call ptr @EVP_get_cipherbyname(ptr noundef %41) #14
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.critedge, label %44
 
 44:                                               ; preds = %SSL_CIPHER_get_cipher_nid.exit
-  %45 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %42) #13
+  %45 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %42) #14
   %.not58 = icmp eq i32 %45, 2
   br i1 %.not58, label %46, label %.critedge
 
 46:                                               ; preds = %44
-  %47 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %42) #13
+  %47 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %42) #14
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %.critedge, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @EVP_CIPHER_get_block_size(ptr noundef nonnull %42) #13
+  %50 = tail call i32 @EVP_CIPHER_get_block_size(ptr noundef nonnull %42) #14
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %52, label %.critedge
 
@@ -4834,7 +4834,7 @@ define range(i32 0, 2) i32 @ssl_cert_is_disabled(ptr noundef %0, i64 noundef %1)
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @ssl_cert_lookup_by_idx(i64 noundef %1, ptr noundef %0) #13
+  %5 = tail call ptr @ssl_cert_lookup_by_idx(i64 noundef %1, ptr noundef %0) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7
 
@@ -4880,19 +4880,19 @@ define internal range(i32 0, 2) i32 @ciphersuite_cb(ptr noundef readonly capture
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %0, i64 %7, i1 false)
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   store i8 0, ptr %8, align 1, !tbaa !117
-  %9 = call ptr @ssl3_get_cipher_by_std_name(ptr noundef nonnull %4) #13
+  %9 = call ptr @ssl3_get_cipher_by_std_name(ptr noundef nonnull %4) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %6
-  %12 = call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %9) #13
+  %12 = call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %9) #14
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %11
-  call void @ERR_new() #13
-  call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 1300, ptr noundef nonnull @__func__.ciphersuite_cb) #13
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #13
+  call void @ERR_new() #14
+  call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 1300, ptr noundef nonnull @__func__.ciphersuite_cb) #14
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #14
   br label %14
 
 14:                                               ; preds = %11, %6, %3, %13
@@ -4917,16 +4917,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4940,10 +4940,11 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

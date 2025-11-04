@@ -87,7 +87,7 @@ define hidden void @VP8LBitsEntropyUnrefined(ptr noalias noundef readonly captur
 
 26:                                               ; preds = %17
   %27 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %28 = tail call i64 %27(i32 noundef %16) #12
+  %28 = tail call i64 %27(i32 noundef %16) #13
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %22, %26
@@ -123,7 +123,7 @@ VP8LFastSLog2.exit:                               ; preds = %22, %26
 
 44:                                               ; preds = %._crit_edge
   %45 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %46 = tail call i64 %45(i32 noundef %37) #12
+  %46 = tail call i64 %45(i32 noundef %37) #13
   br label %VP8LFastSLog2.exit25
 
 VP8LFastSLog2.exit25:                             ; preds = %._crit_edge.thread, %44
@@ -414,7 +414,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
   %18 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %19 = load ptr, ptr %1, align 8, !tbaa !35
   %20 = load ptr, ptr %2, align 8, !tbaa !35
-  tail call void %18(ptr noundef %16, ptr noundef %19, ptr noundef %20, i32 noundef %9) #12
+  tail call void %18(ptr noundef %16, ptr noundef %19, ptr noundef %20, i32 noundef %9) #13
   br label %34
 
 21:                                               ; preds = %15
@@ -458,7 +458,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
   %42 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void %42(ptr noundef nonnull %40, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef 256) #12
+  tail call void %42(ptr noundef nonnull %40, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef 256) #13
   br label %52
 
 45:                                               ; preds = %39
@@ -496,7 +496,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
   %60 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  tail call void %60(ptr noundef nonnull %58, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 256) #12
+  tail call void %60(ptr noundef nonnull %58, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 256) #13
   br label %70
 
 63:                                               ; preds = %57
@@ -534,7 +534,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
   %78 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 2056
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 2056
-  tail call void %78(ptr noundef nonnull %76, ptr noundef nonnull %79, ptr noundef nonnull %80, i32 noundef 256) #12
+  tail call void %78(ptr noundef nonnull %76, ptr noundef nonnull %79, ptr noundef nonnull %80, i32 noundef 256) #13
   br label %88
 
 81:                                               ; preds = %75
@@ -572,7 +572,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
   %96 = load ptr, ptr @VP8LAddVector, align 8, !tbaa !13
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 3080
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 3080
-  tail call void %96(ptr noundef nonnull %94, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef 40) #12
+  tail call void %96(ptr noundef nonnull %94, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef 40) #13
   br label %106
 
 99:                                               ; preds = %93
@@ -624,7 +624,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 121:                                              ; preds = %117
   %122 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %123 = load ptr, ptr %2, align 8, !tbaa !35
-  tail call void %122(ptr noundef %120, ptr noundef %123, i32 noundef %9) #12
+  tail call void %122(ptr noundef %120, ptr noundef %123, i32 noundef %9) #13
   br label %128
 
 124:                                              ; preds = %117
@@ -650,7 +650,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 135:                                              ; preds = %131
   %136 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void %136(ptr noundef nonnull %134, ptr noundef nonnull %137, i32 noundef 256) #12
+  tail call void %136(ptr noundef nonnull %134, ptr noundef nonnull %137, i32 noundef 256) #13
   br label %140
 
 138:                                              ; preds = %131
@@ -674,7 +674,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 147:                                              ; preds = %143
   %148 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  tail call void %148(ptr noundef nonnull %146, ptr noundef nonnull %149, i32 noundef 256) #12
+  tail call void %148(ptr noundef nonnull %146, ptr noundef nonnull %149, i32 noundef 256) #13
   br label %152
 
 150:                                              ; preds = %143
@@ -698,7 +698,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 159:                                              ; preds = %155
   %160 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 2056
-  tail call void %160(ptr noundef nonnull %158, ptr noundef nonnull %161, i32 noundef 256) #12
+  tail call void %160(ptr noundef nonnull %158, ptr noundef nonnull %161, i32 noundef 256) #13
   br label %164
 
 162:                                              ; preds = %155
@@ -722,7 +722,7 @@ define hidden void @VP8LHistogramAdd(ptr noalias noundef %0, ptr noalias noundef
 171:                                              ; preds = %167
   %172 = load ptr, ptr @VP8LAddVectorEq, align 8, !tbaa !13
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 3080
-  tail call void %172(ptr noundef nonnull %170, ptr noundef nonnull %173, i32 noundef 40) #12
+  tail call void %172(ptr noundef nonnull %170, ptr noundef nonnull %173, i32 noundef 40) #13
   br label %176
 
 174:                                              ; preds = %167
@@ -758,7 +758,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #12
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #13
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %15
 
@@ -769,7 +769,7 @@ define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
   br i1 %.not1, label %VP8LEncDspInit_body.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @VP8LDspInit() #12
+  tail call void @VP8LDspInit() #13
   store ptr @VP8LSubtractGreenFromBlueAndRed_C, ptr @VP8LSubtractGreenFromBlueAndRed, align 8, !tbaa !13
   store ptr @VP8LTransformColor_C, ptr @VP8LTransformColor, align 8, !tbaa !13
   store ptr @VP8LCollectColorBlueTransforms_C, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !13
@@ -823,25 +823,25 @@ define hidden void @VP8LEncDspInit() local_unnamed_addr #1 {
   br i1 %.not.i, label %VP8LEncDspInit_body.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 %6(i32 noundef 0) #12
+  %8 = tail call i32 %6(i32 noundef 0) #13
   %.not1.i = icmp eq i32 %8, 0
   br i1 %.not1.i, label %VP8LEncDspInit_body.exit, label %9
 
 9:                                                ; preds = %7
-  tail call void @VP8LEncDspInitSSE2() #12
+  tail call void @VP8LEncDspInitSSE2() #13
   %10 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !13
-  %11 = tail call i32 %10(i32 noundef 3) #12
+  %11 = tail call i32 %10(i32 noundef 3) #13
   %.not2.i = icmp eq i32 %11, 0
   br i1 %.not2.i, label %VP8LEncDspInit_body.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @VP8LEncDspInitSSE41() #12
+  tail call void @VP8LEncDspInitSSE41() #13
   br label %VP8LEncDspInit_body.exit
 
 VP8LEncDspInit_body.exit:                         ; preds = %12, %9, %7, %5, %2
   %13 = load ptr, ptr @VP8GetCPUInfo, align 8, !tbaa !13
   store volatile ptr %13, ptr @VP8LEncDspInit.VP8LEncDspInit_body_last_cpuinfo_used, align 8, !tbaa !13
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #12
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @VP8LEncDspInit.VP8LEncDspInit_body_lock) #13
   br label %15
 
 15:                                               ; preds = %0, %VP8LEncDspInit_body.exit
@@ -889,7 +889,7 @@ define internal i32 @FastLog2Slow_C(i32 noundef %0) #7 {
 
 24:                                               ; preds = %1
   %25 = uitofp i32 %0 to double
-  %26 = tail call double @log(double noundef %25) #12, !tbaa !9
+  %26 = tail call double @log(double noundef %25) #13, !tbaa !9
   %27 = tail call double @llvm.fmuladd.f64(double %26, double 0x41671547652B82FE, double 5.000000e-01)
   %28 = fptoui double %27 to i32
   br label %29
@@ -928,7 +928,7 @@ define internal i64 @FastSLog2Slow_C(i32 noundef %0) #7 {
 21:                                               ; preds = %1
   %22 = uitofp i32 %0 to double
   %23 = fmul double %22, 0x41671547652B82FE
-  %24 = tail call double @log(double noundef %22) #12, !tbaa !9
+  %24 = tail call double @log(double noundef %22) #13, !tbaa !9
   %25 = tail call double @llvm.fmuladd.f64(double %23, double %24, double 5.000000e-01)
   %26 = fptoui double %25 to i64
   br label %27
@@ -1057,7 +1057,7 @@ define internal i64 @CombinedShannonEntropy_C(ptr noundef readonly captures(none
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %18 = tail call i64 %17(i32 noundef %5) #12
+  %18 = tail call i64 %17(i32 noundef %5) #13
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %12, %16
@@ -1075,7 +1075,7 @@ VP8LFastSLog2.exit:                               ; preds = %12, %16
 
 27:                                               ; preds = %VP8LFastSLog2.exit
   %28 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %29 = tail call i64 %28(i32 noundef %9) #12
+  %29 = tail call i64 %28(i32 noundef %9) #13
   br label %VP8LFastSLog2.exit35
 
 VP8LFastSLog2.exit35:                             ; preds = %23, %27
@@ -1100,7 +1100,7 @@ VP8LFastSLog2.exit35:                             ; preds = %23, %27
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %42 = tail call i64 %41(i32 noundef %7) #12
+  %42 = tail call i64 %41(i32 noundef %7) #13
   br label %VP8LFastSLog2.exit36
 
 VP8LFastSLog2.exit36:                             ; preds = %36, %40
@@ -1128,7 +1128,7 @@ VP8LFastSLog2.exit36:                             ; preds = %36, %40
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %54 = tail call i64 %53(i32 noundef %.131) #12
+  %54 = tail call i64 %53(i32 noundef %.131) #13
   br label %VP8LFastSLog2.exit37
 
 VP8LFastSLog2.exit37:                             ; preds = %48, %52
@@ -1144,7 +1144,7 @@ VP8LFastSLog2.exit37:                             ; preds = %48, %52
 
 61:                                               ; preds = %VP8LFastSLog2.exit37
   %62 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %63 = tail call i64 %62(i32 noundef %.129) #12
+  %63 = tail call i64 %62(i32 noundef %.129) #13
   br label %VP8LFastSLog2.exit38
 
 VP8LFastSLog2.exit38:                             ; preds = %57, %61
@@ -1185,7 +1185,7 @@ define internal i64 @ShannonEntropy_C(ptr noundef readonly captures(none) %0, i3
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %15 = tail call i64 %14(i32 noundef %5) #12
+  %15 = tail call i64 %14(i32 noundef %5) #13
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %9, %13
@@ -1214,7 +1214,7 @@ VP8LFastSLog2.exit:                               ; preds = %9, %13
 
 23:                                               ; preds = %._crit_edge
   %24 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %25 = tail call i64 %24(i32 noundef %.1) #12
+  %25 = tail call i64 %24(i32 noundef %.1) #13
   br label %VP8LFastSLog2.exit16
 
 VP8LFastSLog2.exit16:                             ; preds = %._crit_edge.thread, %23
@@ -1282,7 +1282,7 @@ define internal void @GetEntropyUnrefined_C(ptr noundef readonly captures(none) 
 
 32:                                               ; preds = %23
   %33 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !50
-  %34 = tail call i64 %33(i32 noundef %.02630) #12, !noalias !50
+  %34 = tail call i64 %33(i32 noundef %.02630) #13, !noalias !50
   br label %VP8LFastSLog2.exit.i
 
 VP8LFastSLog2.exit.i:                             ; preds = %32, %28
@@ -1364,7 +1364,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %20, %VP8LFastSLog2.
 
 78:                                               ; preds = %67
   %79 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !61
-  %80 = tail call i64 %79(i32 noundef %.026.lcssa) #12, !noalias !61
+  %80 = tail call i64 %79(i32 noundef %.026.lcssa) #13, !noalias !61
   br label %VP8LFastSLog2.exit.i20
 
 VP8LFastSLog2.exit.i20:                           ; preds = %78, %74
@@ -1409,7 +1409,7 @@ GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LF
 
 108:                                              ; preds = %GetEntropyUnrefinedHelper.exit21
   %109 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %110 = tail call i64 %109(i32 noundef %89) #12
+  %110 = tail call i64 %109(i32 noundef %89) #13
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %104, %108
@@ -1482,7 +1482,7 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr noundef readonly capture
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !71
-  %40 = tail call i64 %39(i32 noundef %.02933) #12, !noalias !71
+  %40 = tail call i64 %39(i32 noundef %.02933) #13, !noalias !71
   br label %VP8LFastSLog2.exit.i
 
 VP8LFastSLog2.exit.i:                             ; preds = %38, %34
@@ -1564,7 +1564,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %26, %VP8LFastSLog2.
 
 84:                                               ; preds = %73
   %85 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13, !noalias !82
-  %86 = tail call i64 %85(i32 noundef %.029.lcssa) #12, !noalias !82
+  %86 = tail call i64 %85(i32 noundef %.029.lcssa) #13, !noalias !82
   br label %VP8LFastSLog2.exit.i23
 
 VP8LFastSLog2.exit.i23:                           ; preds = %84, %80
@@ -1609,7 +1609,7 @@ GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LF
 
 114:                                              ; preds = %GetEntropyUnrefinedHelper.exit24
   %115 = load ptr, ptr @VP8LFastSLog2Slow, align 8, !tbaa !13
-  %116 = tail call i64 %115(i32 noundef %95) #12
+  %116 = tail call i64 %115(i32 noundef %95) #13
   br label %VP8LFastSLog2.exit
 
 VP8LFastSLog2.exit:                               ; preds = %110, %114
@@ -1777,7 +1777,7 @@ define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor2_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor2_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1812,7 +1812,7 @@ define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor3_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor3_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1847,7 +1847,7 @@ define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor4_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor4_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1882,7 +1882,7 @@ define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor5_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor5_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1917,7 +1917,7 @@ define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor6_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor6_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1952,7 +1952,7 @@ define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor7_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor7_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -1987,7 +1987,7 @@ define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor8_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor8_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2022,7 +2022,7 @@ define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor9_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor9_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2057,7 +2057,7 @@ define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor10_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor10_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2092,7 +2092,7 @@ define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor11_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor11_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2127,7 +2127,7 @@ define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor12_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor12_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2162,7 +2162,7 @@ define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %9 = tail call i32 @VP8LPredictor13_C(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @VP8LPredictor13_C(ptr noundef %7, ptr noundef %8) #13
   %10 = load i32, ptr %6, align 4, !tbaa !9
   %11 = or i32 %10, 16711680
   %12 = and i32 %9, -16711936
@@ -2190,11 +2190,11 @@ declare void @VP8LEncDspInitSSE41() local_unnamed_addr #6
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
 declare i32 @VP8LPredictor2_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -2221,7 +2221,7 @@ declare i32 @VP8LPredictor12_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i32 @VP8LPredictor13_C(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2233,9 +2233,10 @@ attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { nounwind }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

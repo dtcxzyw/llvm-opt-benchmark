@@ -168,7 +168,7 @@ define dso_local void @type_init_cint() local_unnamed_addr #0 {
   br i1 %6, label %switch.lookup, label %7
 
 7:                                                ; preds = %.split.i, %0
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %2) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %2) #14
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
@@ -196,7 +196,7 @@ define dso_local ptr @type_int_signed_by_bitsize(i64 noundef %0) local_unnamed_a
   br i1 %5, label %switch.lookup, label %6
 
 6:                                                ; preds = %.split, %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %0) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %0) #14
   unreachable
 
 switch.lookup:                                    ; preds = %.split
@@ -219,7 +219,7 @@ define dso_local ptr @type_int_unsigned_by_bitsize(i64 noundef %0) local_unnamed
   br i1 %5, label %switch.lookup, label %6
 
 6:                                                ; preds = %.split, %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %0) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %0) #14
   unreachable
 
 switch.lookup:                                    ; preds = %.split
@@ -243,11 +243,11 @@ define dso_local ptr @type_quoted_error_string(ptr noundef readonly captures(add
 5:                                                ; preds = %1
   %6 = load ptr, ptr %2, align 8
   %7 = tail call ptr @type_to_error_string(ptr noundef %6)
-  %8 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.3, ptr noundef %4, ptr noundef %7) #14
+  %8 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.3, ptr noundef %4, ptr noundef %7) #15
   br label %11
 
 9:                                                ; preds = %1
-  %10 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.4, ptr noundef %4) #14
+  %10 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.4, ptr noundef %4) #15
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -336,17 +336,17 @@ tailrecurse:
   br label %common.ret67
 
 16:                                               ; preds = %7
-  tail call void @scratch_buffer_clear() #14
+  tail call void @scratch_buffer_clear() #15
   %17 = load ptr, ptr %6, align 8
-  tail call void @scratch_buffer_append(ptr noundef %17) #14
+  tail call void @scratch_buffer_append(ptr noundef %17) #15
   %18 = load ptr, ptr %8, align 8
   %.not36 = icmp eq ptr %18, null
   %.38 = select i1 %.not36, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), ptr %18
   %19 = load ptr, ptr %.38, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load ptr, ptr %20, align 8
-  tail call void @scratch_buffer_append(ptr noundef %21) #14
-  %22 = tail call ptr @scratch_buffer_copy() #14
+  tail call void @scratch_buffer_append(ptr noundef %21) #15
+  %22 = tail call ptr @scratch_buffer_copy() #15
   br label %common.ret67
 
 tailrecurse.jt25:                                 ; preds = %46, %tailrecurse
@@ -362,11 +362,11 @@ tailrecurse.jt25:                                 ; preds = %46, %tailrecurse
   br label %common.ret67
 
 28:                                               ; preds = %tailrecurse.jt25
-  tail call void @scratch_buffer_clear() #14
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.6) #14
+  tail call void @scratch_buffer_clear() #15
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.6) #15
   %29 = load ptr, ptr %23, align 8
   tail call fastcc void @type_append_func_to_scratch(ptr noundef %29)
-  %30 = tail call ptr @scratch_buffer_copy() #14
+  %30 = tail call ptr @scratch_buffer_copy() #15
   br label %common.ret67
 
 common.ret67:                                     ; preds = %54, %45, %44, %28, %25, %16, %13, %1, %tailrecurse, %73, %68, %60, %57, %51, %36, %31
@@ -377,7 +377,7 @@ common.ret67:                                     ; preds = %54, %45, %44, %28, 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @type_to_error_string(ptr noundef %33)
-  %35 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.7, ptr noundef %34) #14
+  %35 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.7, ptr noundef %34) #15
   br label %common.ret67
 
 36:                                               ; preds = %tailrecurse
@@ -387,7 +387,7 @@ common.ret67:                                     ; preds = %54, %45, %44, %28, 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
-  %43 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.8, ptr noundef %39, i64 noundef %42) #14
+  %43 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.8, ptr noundef %39, i64 noundef %42) #15
   br label %common.ret67
 
 44:                                               ; preds = %tailrecurse
@@ -405,7 +405,7 @@ common.ret67:                                     ; preds = %54, %45, %44, %28, 
 
 51:                                               ; preds = %46
   %52 = tail call ptr @type_to_error_string(ptr noundef nonnull %48)
-  %53 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.11, ptr noundef %52) #14
+  %53 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.11, ptr noundef %52) #15
   br label %common.ret67
 
 54:                                               ; preds = %tailrecurse
@@ -416,7 +416,7 @@ common.ret67:                                     ; preds = %54, %45, %44, %28, 
 
 57:                                               ; preds = %54
   %58 = tail call ptr @type_to_error_string(ptr noundef nonnull %56)
-  %59 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.13, ptr noundef %58) #14
+  %59 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.13, ptr noundef %58) #15
   br label %common.ret67
 
 60:                                               ; preds = %tailrecurse
@@ -426,25 +426,25 @@ common.ret67:                                     ; preds = %54, %45, %44, %28, 
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.14, ptr noundef %63, i64 noundef %66) #14
+  %67 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.14, ptr noundef %63, i64 noundef %66) #15
   br label %common.ret67
 
 68:                                               ; preds = %tailrecurse, %tailrecurse
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr @type_to_error_string(ptr noundef %70)
-  %72 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.15, ptr noundef %71) #14
+  %72 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.15, ptr noundef %71) #15
   br label %common.ret67
 
 73:                                               ; preds = %tailrecurse
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %75 = load ptr, ptr %74, align 8
   %76 = tail call ptr @type_to_error_string(ptr noundef %75)
-  %77 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.16, ptr noundef %76) #14
+  %77 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.16, ptr noundef %76) #15
   br label %common.ret67
 
 78:                                               ; preds = %tailrecurse
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_to_error_string, ptr noundef nonnull @.str.2, i32 noundef 267) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_to_error_string, ptr noundef nonnull @.str.2, i32 noundef 267) #14
   unreachable
 }
 
@@ -459,7 +459,7 @@ define internal fastcc void @type_append_func_to_scratch(ptr noundef readonly ca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %3)
-  tail call void @scratch_buffer_append_char(i8 noundef signext 40) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 40) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -481,7 +481,7 @@ define internal fastcc void @type_append_func_to_scratch(ptr noundef readonly ca
   br i1 %.not16, label %10, label %9
 
 9:                                                ; preds = %.lr.ph
-  tail call void @scratch_buffer_append_char(i8 noundef signext 44) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 44) #15
   br label %10
 
 10:                                               ; preds = %9, %.lr.ph
@@ -500,11 +500,11 @@ define internal fastcc void @type_append_func_to_scratch(ptr noundef readonly ca
   br i1 %.not25, label %._crit_edge.thread, label %16
 
 16:                                               ; preds = %._crit_edge
-  tail call void @scratch_buffer_append_char(i8 noundef signext 44) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 44) #15
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %6, %16, %._crit_edge
-  tail call void @scratch_buffer_append_char(i8 noundef signext 41) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 41) #15
   ret void
 }
 
@@ -651,7 +651,7 @@ define dso_local i32 @type_size(ptr noundef readonly captures(none) %0) local_un
   br label %common.ret82
 
 42:                                               ; preds = %4, %4, %4, %4, %4, %4, %4
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_size, ptr noundef nonnull @.str.2, i32 noundef 306) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_size, ptr noundef nonnull @.str.2, i32 noundef 306) #14
   unreachable
 
 43:                                               ; preds = %4
@@ -723,7 +723,7 @@ common.ret82:                                     ; preds = %18, %26, %84, %71, 
   br label %common.ret82
 
 86:                                               ; preds = %4
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_size, ptr noundef nonnull @.str.2, i32 noundef 347) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_size, ptr noundef nonnull @.str.2, i32 noundef 347) #14
   unreachable
 }
 
@@ -737,7 +737,7 @@ define dso_local noundef ptr @type_get_resolved_prototype(ptr noundef readonly c
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %1
-  tail call void @c_abi_func_create(ptr noundef nonnull %3) #14
+  tail call void @c_abi_func_create(ptr noundef nonnull %3) #15
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -775,7 +775,7 @@ define dso_local zeroext i1 @type_flat_is_numlike(ptr noundef readonly captures(
   br label %15
 
 14:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 15:                                               ; preds = %12, %6
@@ -825,7 +825,7 @@ define dso_local zeroext i1 @type_flat_is_floatlike(ptr noundef readonly capture
   br label %15
 
 14:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 15:                                               ; preds = %12, %6
@@ -875,7 +875,7 @@ define dso_local zeroext i1 @type_flat_is_intlike(ptr noundef readonly captures(
   br label %15
 
 14:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 15:                                               ; preds = %12, %6
@@ -925,7 +925,7 @@ define dso_local zeroext i1 @type_flat_is_boolintlike(ptr noundef readonly captu
   br label %15
 
 14:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 15:                                               ; preds = %12, %6
@@ -1033,7 +1033,7 @@ define dso_local noundef zeroext i1 @type_is_abi_aggregate(ptr noundef readonly 
   br label %.backedge
 
 14:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_abi_aggregate, ptr noundef nonnull @.str.2, i32 noundef 440) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_abi_aggregate, ptr noundef nonnull @.str.2, i32 noundef 440) #14
   unreachable
 
 .loopexit.loopexit:                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
@@ -1196,7 +1196,7 @@ define dso_local noundef zeroext i1 @type_is_comparable(ptr noundef readonly cap
   ]
 
 4:                                                ; preds = %2, %2, %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_comparable, ptr noundef nonnull @.str.2, i32 noundef 493) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_comparable, ptr noundef nonnull @.str.2, i32 noundef 493) #14
   unreachable
 
 5:                                                ; preds = %2
@@ -1229,7 +1229,7 @@ define dso_local noundef zeroext i1 @type_is_comparable(ptr noundef readonly cap
   br label %.backedge
 
 21:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_comparable, ptr noundef nonnull @.str.2, i32 noundef 534) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_comparable, ptr noundef nonnull @.str.2, i32 noundef 534) #14
   unreachable
 
 .loopexit.loopexit:                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2
@@ -1295,7 +1295,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 3:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_mangle_introspect_name_to_buffer, ptr noundef nonnull @.str.2, i32 noundef 543) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_mangle_introspect_name_to_buffer, ptr noundef nonnull @.str.2, i32 noundef 543) #14
   unreachable
 
 4:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
@@ -1304,7 +1304,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.loopexit.sink.split
 
 7:                                                ; preds = %tailrecurse, %tailrecurse
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.19) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.19) #15
   %8 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   br label %tailrecurse.backedge
 
@@ -1314,38 +1314,38 @@ tailrecurse.backedge:                             ; preds = %7, %9, %11, %13, %1
   br label %tailrecurse
 
 9:                                                ; preds = %tailrecurse
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.20) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.20) #15
   %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   br label %tailrecurse.backedge
 
 11:                                               ; preds = %tailrecurse
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.21) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.21) #15
   %12 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   br label %tailrecurse.backedge
 
 13:                                               ; preds = %tailrecurse
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.22) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.22) #15
   %14 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   br label %tailrecurse.backedge
 
 15:                                               ; preds = %tailrecurse
-  tail call void @scratch_buffer_append_char(i8 noundef signext 118) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 118) #15
   %16 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %19) #14
-  tail call void @scratch_buffer_append_char(i8 noundef signext 36) #14
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %19) #15
+  tail call void @scratch_buffer_append_char(i8 noundef signext 36) #15
   br label %tailrecurse.backedge
 
 20:                                               ; preds = %tailrecurse
-  tail call void @scratch_buffer_append_char(i8 noundef signext 97) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 97) #15
   %21 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   %22 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %24) #14
-  tail call void @scratch_buffer_append_char(i8 noundef signext 36) #14
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %24) #15
+  tail call void @scratch_buffer_append_char(i8 noundef signext 36) #15
   br label %tailrecurse.backedge
 
 25:                                               ; preds = %tailrecurse
@@ -1377,8 +1377,8 @@ tailrecurse.backedge:                             ; preds = %7, %9, %11, %13, %1
 
 42:                                               ; preds = %32, %38
   %43 = phi ptr [ %41, %38 ], [ %37, %32 ]
-  tail call void @scratch_buffer_append(ptr noundef %43) #14
-  tail call void @scratch_buffer_append_char(i8 noundef signext 36) #14
+  tail call void @scratch_buffer_append(ptr noundef %43) #15
+  tail call void @scratch_buffer_append_char(i8 noundef signext 36) #15
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %45 = load ptr, ptr %44, align 8
   br label %.loopexit.sink.split
@@ -1386,7 +1386,7 @@ tailrecurse.backedge:                             ; preds = %7, %9, %11, %13, %1
 46:                                               ; preds = %25
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #15
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #16
   %.not41 = icmp eq i64 %49, 0
   br i1 %.not41, label %.loopexit, label %.lr.ph
 
@@ -1463,15 +1463,15 @@ tailrecurse.backedge:                             ; preds = %7, %9, %11, %13, %1
   ]
 
 53:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  tail call void @scratch_buffer_append_char(i8 noundef signext %52) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext %52) #15
   br label %56
 
 54:                                               ; preds = %.lr.ph
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.23) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.23) #15
   br label %56
 
 55:                                               ; preds = %.lr.ph
-  tail call void @scratch_buffer_append_char(i8 noundef signext 36) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 36) #15
   br label %56
 
 56:                                               ; preds = %55, %54, %53
@@ -1491,12 +1491,12 @@ tailrecurse.backedge:                             ; preds = %7, %9, %11, %13, %1
   br label %tailrecurse.backedge
 
 65:                                               ; preds = %tailrecurse
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_mangle_introspect_name_to_buffer, ptr noundef nonnull @.str.2, i32 noundef 629) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_mangle_introspect_name_to_buffer, ptr noundef nonnull @.str.2, i32 noundef 629) #14
   unreachable
 
 .loopexit.sink.split:                             ; preds = %tailrecurse, %4, %58, %42
   %.sink = phi ptr [ %45, %42 ], [ %62, %58 ], [ %6, %4 ], [ @.str.18, %tailrecurse ]
-  tail call void @scratch_buffer_append(ptr noundef %.sink) #14
+  tail call void @scratch_buffer_append(ptr noundef %.sink) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %.loopexit.sink.split, %46
@@ -1679,7 +1679,7 @@ define dso_local i32 @type_abi_alignment(ptr noundef readonly captures(none) %0)
   ]
 
 4:                                                ; preds = %2, %2, %2, %2, %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_abi_alignment, ptr noundef nonnull @.str.2, i32 noundef 662) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_abi_alignment, ptr noundef nonnull @.str.2, i32 noundef 662) #14
   unreachable
 
 5:                                                ; preds = %2
@@ -1795,7 +1795,7 @@ define dso_local i32 @type_abi_alignment(ptr noundef readonly captures(none) %0)
   br label %.loopexit
 
 79:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_abi_alignment, ptr noundef nonnull @.str.2, i32 noundef 721) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_abi_alignment, ptr noundef nonnull @.str.2, i32 noundef 721) #14
   unreachable
 
 .loopexit:                                        ; preds = %2, %2, %2, %77, %69, %64, %59, %53, %32
@@ -1860,7 +1860,7 @@ define internal fastcc ptr @type_generate_ptr(ptr noundef %0, i1 noundef zeroext
   br i1 %.not.i.i, label %10, label %13
 
 10:                                               ; preds = %.preheader
-  %11 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %11 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 8, ptr %12, align 4
   br label %15
@@ -1884,7 +1884,7 @@ define internal fastcc ptr @type_generate_ptr(ptr noundef %0, i1 noundef zeroext
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = or disjoint i64 %23, 8
-  %25 = tail call ptr @calloc_arena(i64 noundef %24) #14
+  %25 = tail call ptr @calloc_arena(i64 noundef %24) #15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %21, ptr %26, align 4
   %27 = load i32, ptr %20, align 4
@@ -1927,12 +1927,12 @@ create_type_cache.exit:                           ; preds = %33, %6
   %48 = select i1 %47, i32 20, i32 23
   %49 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.11, ptr noundef %50) #14
-  %52 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  %51 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.11, ptr noundef %50) #15
+  %52 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 %48, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %51, ptr %53, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %52) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %52) #15
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 56
   store ptr %.024, ptr %54, align 8
   %55 = load ptr, ptr %7, align 8
@@ -1980,7 +1980,7 @@ define internal fastcc ptr @type_generate_optional(ptr noundef %0, i1 noundef ze
   br i1 %.not.i.i, label %10, label %13
 
 10:                                               ; preds = %.preheader
-  %11 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %11 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 8, ptr %12, align 4
   br label %15
@@ -2004,7 +2004,7 @@ define internal fastcc ptr @type_generate_optional(ptr noundef %0, i1 noundef ze
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = or disjoint i64 %23, 8
-  %25 = tail call ptr @calloc_arena(i64 noundef %24) #14
+  %25 = tail call ptr @calloc_arena(i64 noundef %24) #15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %21, ptr %26, align 4
   %27 = load i32, ptr %20, align 4
@@ -2045,12 +2045,12 @@ create_type_cache.exit:                           ; preds = %33, %6
 46:                                               ; preds = %create_type_cache.exit
   %47 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.13, ptr noundef %48) #14
-  %50 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.13, ptr noundef %48) #15
+  %50 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 40, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %49, ptr %51, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %50) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %50) #15
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store ptr %.023, ptr %52, align 8
   %53 = load ptr, ptr %7, align 8
@@ -2105,7 +2105,7 @@ define internal fastcc ptr @type_generate_subarray(ptr noundef %0, i1 noundef ze
   br i1 %.not.i.i, label %10, label %13
 
 10:                                               ; preds = %.preheader
-  %11 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %11 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 8, ptr %12, align 4
   br label %15
@@ -2129,7 +2129,7 @@ define internal fastcc ptr @type_generate_subarray(ptr noundef %0, i1 noundef ze
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = or disjoint i64 %23, 8
-  %25 = tail call ptr @calloc_arena(i64 noundef %24) #14
+  %25 = tail call ptr @calloc_arena(i64 noundef %24) #15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %21, ptr %26, align 4
   %27 = load i32, ptr %20, align 4
@@ -2170,12 +2170,12 @@ create_type_cache.exit:                           ; preds = %33, %6
 46:                                               ; preds = %create_type_cache.exit
   %47 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.16, ptr noundef %48) #14
-  %50 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.16, ptr noundef %48) #15
+  %50 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 34, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %49, ptr %51, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %50) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %50) #15
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store ptr %.023, ptr %52, align 8
   %53 = load ptr, ptr %7, align 8
@@ -2230,7 +2230,7 @@ define internal fastcc ptr @type_generate_inferred_array(ptr noundef %0, i1 noun
   br i1 %.not.i.i, label %10, label %13
 
 10:                                               ; preds = %.preheader
-  %11 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %11 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 8, ptr %12, align 4
   br label %15
@@ -2254,7 +2254,7 @@ define internal fastcc ptr @type_generate_inferred_array(ptr noundef %0, i1 noun
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = or disjoint i64 %23, 8
-  %25 = tail call ptr @calloc_arena(i64 noundef %24) #14
+  %25 = tail call ptr @calloc_arena(i64 noundef %24) #15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %21, ptr %26, align 4
   %27 = load i32, ptr %20, align 4
@@ -2295,12 +2295,12 @@ create_type_cache.exit:                           ; preds = %33, %6
 46:                                               ; preds = %create_type_cache.exit
   %47 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.15, ptr noundef %48) #14
-  %50 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.15, ptr noundef %48) #15
+  %50 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 36, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %49, ptr %51, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %50) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %50) #15
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store ptr %.023, ptr %52, align 8
   %53 = load ptr, ptr %7, align 8
@@ -2355,7 +2355,7 @@ define internal fastcc ptr @type_generate_inferred_vector(ptr noundef %0, i1 nou
   br i1 %.not.i.i, label %10, label %13
 
 10:                                               ; preds = %.preheader
-  %11 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %11 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 8, ptr %12, align 4
   br label %15
@@ -2379,7 +2379,7 @@ define internal fastcc ptr @type_generate_inferred_vector(ptr noundef %0, i1 nou
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = or disjoint i64 %23, 8
-  %25 = tail call ptr @calloc_arena(i64 noundef %24) #14
+  %25 = tail call ptr @calloc_arena(i64 noundef %24) #15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %21, ptr %26, align 4
   %27 = load i32, ptr %20, align 4
@@ -2420,12 +2420,12 @@ create_type_cache.exit:                           ; preds = %33, %6
 46:                                               ; preds = %create_type_cache.exit
   %47 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.7, ptr noundef %48) #14
-  %50 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.7, ptr noundef %48) #15
+  %50 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 38, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %49, ptr %51, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %50) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %50) #15
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store ptr %.023, ptr %52, align 8
   %53 = load ptr, ptr %7, align 8
@@ -2480,7 +2480,7 @@ define internal fastcc ptr @type_generate_flexible_array(ptr noundef %0, i1 noun
   br i1 %.not.i.i, label %10, label %13
 
 10:                                               ; preds = %.preheader
-  %11 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %11 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 8, ptr %12, align 4
   br label %15
@@ -2504,7 +2504,7 @@ define internal fastcc ptr @type_generate_flexible_array(ptr noundef %0, i1 noun
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = or disjoint i64 %23, 8
-  %25 = tail call ptr @calloc_arena(i64 noundef %24) #14
+  %25 = tail call ptr @calloc_arena(i64 noundef %24) #15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %21, ptr %26, align 4
   %27 = load i32, ptr %20, align 4
@@ -2545,12 +2545,12 @@ create_type_cache.exit:                           ; preds = %33, %6
 46:                                               ; preds = %create_type_cache.exit
   %47 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.15, ptr noundef %48) #14
-  %50 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  %49 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.15, ptr noundef %48) #15
+  %50 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 35, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %49, ptr %51, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %50) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %50) #15
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store ptr %.024, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 64
@@ -2606,7 +2606,7 @@ define dso_local zeroext i1 @type_is_structurally_equivalent(ptr noundef readonl
   br label %16
 
 15:                                               ; preds = %3
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 16:                                               ; preds = %13, %7
@@ -2638,7 +2638,7 @@ type_flatten.exit:                                ; preds = %3, %29
   br label %29
 
 28:                                               ; preds = %type_flatten.exit
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 29:                                               ; preds = %26, %20
@@ -3002,7 +3002,7 @@ define internal fastcc noundef ptr @type_create_array(ptr noundef %0, i32 nounde
   br i1 %.not.i.i, label %12, label %15
 
 12:                                               ; preds = %.preheader
-  %13 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %13 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 8, ptr %14, align 4
   br label %17
@@ -3026,7 +3026,7 @@ define internal fastcc noundef ptr @type_create_array(ptr noundef %0, i32 nounde
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 3
   %26 = or disjoint i64 %25, 8
-  %27 = tail call ptr @calloc_arena(i64 noundef %26) #14
+  %27 = tail call ptr @calloc_arena(i64 noundef %26) #15
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %23, ptr %28, align 4
   %29 = load i32, ptr %22, align 4
@@ -3115,12 +3115,12 @@ create_type_cache.exit:                           ; preds = %35
   %67 = load ptr, ptr %66, align 8
   %.str.55..str.56 = select i1 %2, ptr @.str.55, ptr @.str.56
   %. = select i1 %2, i32 37, i32 33
-  %68 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %.str.55..str.56, ptr noundef %67, i32 noundef %1) #14
-  %69 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  %68 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %.str.55..str.56, ptr noundef %67, i32 noundef %1) #15
+  %69 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 %., ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %68, ptr %70, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %69) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %69) #15
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 56
   store ptr %.071, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 64
@@ -3143,7 +3143,7 @@ create_type_cache.exit:                           ; preds = %35
   br i1 %.not.i, label %81, label %84
 
 81:                                               ; preds = %78
-  %82 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %82 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 8, ptr %83, align 4
   br label %86
@@ -3167,7 +3167,7 @@ create_type_cache.exit:                           ; preds = %35
   %93 = zext i32 %92 to i64
   %94 = shl nuw nsw i64 %93, 3
   %95 = or disjoint i64 %94, 8
-  %96 = tail call ptr @calloc_arena(i64 noundef %95) #14
+  %96 = tail call ptr @calloc_arena(i64 noundef %95) #15
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 %92, ptr %97, align 4
   %98 = load i32, ptr %91, align 4
@@ -3330,7 +3330,7 @@ define dso_local noundef zeroext i1 @type_is_valid_for_array(ptr noundef readonl
   br label %.backedge
 
 14:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_valid_for_array, ptr noundef nonnull @.str.2, i32 noundef 1199) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_valid_for_array, ptr noundef nonnull @.str.2, i32 noundef 1199) #14
   unreachable
 
 .loopexit.loopexit:                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
@@ -3369,7 +3369,7 @@ define dso_local noundef ptr @type_get_vector_bool(ptr noundef readonly captures
   br label %15
 
 14:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 15:                                               ; preds = %12, %6
@@ -3394,7 +3394,7 @@ type_flatten.exit:                                ; preds = %2
   br i1 %24, label %switch.lookup, label %25
 
 25:                                               ; preds = %.split.i, %type_flatten.exit
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %20) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %20) #14
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
@@ -3417,7 +3417,7 @@ define dso_local noundef ptr @type_get_vector(ptr noundef %0, i32 noundef %1) lo
 define dso_local void @type_func_prototype_init(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
   %3 = shl nuw nsw i64 %2, 4
-  %4 = tail call ptr @calloc_arena(i64 noundef %3) #14
+  %4 = tail call ptr @calloc_arena(i64 noundef %3) #15
   store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @map, i64 16), align 8
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @map, i64 4), align 4
   %5 = uitofp i32 %0 to double
@@ -3432,11 +3432,11 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @type_new_func(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  %4 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 25, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %5, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %4) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -3527,7 +3527,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
 
 46:                                               ; preds = %43, %._crit_edge
   %.0135.i = phi i32 [ %45, %43 ], [ 0, %._crit_edge ]
-  %47 = tail call ptr @calloc_arena(i64 noundef 96) #14
+  %47 = tail call ptr @calloc_arena(i64 noundef 96) #15
   %48 = load i16, ptr %3, align 1
   %49 = and i16 %48, 56
   %50 = icmp eq i16 %49, 24
@@ -3609,11 +3609,11 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %96 = zext i32 %.0135.i to i64
   %97 = shl nuw nsw i64 %96, 3
   %98 = add nuw nsw i64 %97, 8
-  %99 = tail call ptr @calloc_arena(i64 noundef %98) #14
+  %99 = tail call ptr @calloc_arena(i64 noundef %98) #15
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %.0135.i, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %102 = tail call ptr @calloc_arena(i64 noundef %98) #14
+  %102 = tail call ptr @calloc_arena(i64 noundef %98) #15
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i32 %.0135.i, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -3626,7 +3626,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %106 = load ptr, ptr %17, align 8
   %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i20
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #14
+  %109 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %109, ptr noundef nonnull readonly align 8 dereferenceable(136) %108, i64 136, i1 false)
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 72
   %111 = load ptr, ptr %110, align 8
@@ -3650,7 +3650,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %121 = zext i32 %120 to i64
   %122 = shl nuw nsw i64 %121, 3
   %123 = or disjoint i64 %122, 8
-  %124 = tail call ptr @calloc_arena(i64 noundef %123) #14
+  %124 = tail call ptr @calloc_arena(i64 noundef %123) #15
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store i32 %120, ptr %125, align 4
   %126 = load i32, ptr %.phi.trans.insert.i.i, align 4
@@ -3686,7 +3686,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %144 = zext i32 %143 to i64
   %145 = shl nuw nsw i64 %144, 3
   %146 = or disjoint i64 %145, 8
-  %147 = tail call ptr @calloc_arena(i64 noundef %146) #14
+  %147 = tail call ptr @calloc_arena(i64 noundef %146) #15
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
   store i32 %143, ptr %148, align 4
   %149 = load i32, ptr %.phi.trans.insert.i162.i, align 4
@@ -3721,11 +3721,11 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   br label %164
 
 164:                                              ; preds = %161, %88
-  tail call void @scratch_buffer_clear() #14
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.6) #14
+  tail call void @scratch_buffer_clear() #15
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.6) #15
   %165 = load ptr, ptr %65, align 8
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %165)
-  tail call void @scratch_buffer_append_char(i8 noundef signext 40) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 40) #15
   %166 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %167 = load ptr, ptr %166, align 8
   %.not155.i = icmp eq ptr %167, null
@@ -3749,7 +3749,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   br i1 %.not159.i, label %171, label %170
 
 170:                                              ; preds = %.lr.ph.i24
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.57) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.57) #15
   br label %171
 
 171:                                              ; preds = %170, %.lr.ph.i24
@@ -3759,14 +3759,14 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   br i1 %exitcond187.not.i, label %._crit_edge.i, label %.lr.ph.i24, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %171, %.thread.i, %164
-  tail call void @scratch_buffer_append_char(i8 noundef signext 41) #14
-  %172 = tail call ptr @scratch_buffer_interned() #14
-  %173 = tail call ptr @calloc_arena(i64 noundef 80) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 41) #15
+  %172 = tail call ptr @scratch_buffer_interned() #15
+  %173 = tail call ptr @calloc_arena(i64 noundef 80) #15
   store i32 25, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store ptr %172, ptr %174, align 8
-  tail call void @global_context_add_type(ptr noundef nonnull %173) #14
-  %175 = tail call ptr @calloc_arena(i64 noundef 24) #14
+  tail call void @global_context_add_type(ptr noundef nonnull %173) #15
+  %175 = tail call ptr @calloc_arena(i64 noundef 24) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %175, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i8 0, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -3804,7 +3804,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   store i32 %194, ptr getelementptr inbounds nuw (i8, ptr @map, i64 8), align 8
   %195 = zext i32 %191 to i64
   %196 = shl nuw nsw i64 %195, 4
-  %197 = tail call ptr @calloc_arena(i64 noundef %196) #14
+  %197 = tail call ptr @calloc_arena(i64 noundef %196) #15
   %198 = add i32 %191, -1
   %.not179.i = icmp eq i32 %190, 0
   br i1 %.not179.i, label %._crit_edge177.i, label %.lr.ph176.preheader.i
@@ -4086,7 +4086,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1016), align 8
   store ptr @.str.24, ptr getelementptr inbounds nuw (i8, ptr @t, i64 976), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 960), ptr getelementptr inbounds nuw (i8, ptr @t, i64 968), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 960)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 960)) #15
   %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 140), align 4
   %.sroa.015.0.extract.trunc.i.i36 = trunc i64 %12 to i32
   %.sroa.317.0.extract.shift.i.i37 = lshr i64 %12, 32
@@ -4104,7 +4104,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %19, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1096), align 8
   store ptr @.str.25, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1056), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 1040), ptr getelementptr inbounds nuw (i8, ptr @t, i64 1048), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1040)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1040)) #15
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 148), align 4
   %.sroa.015.0.extract.trunc.i.i40 = trunc i64 %20 to i32
   %.sroa.317.0.extract.shift.i.i41 = lshr i64 %20, 32
@@ -4122,7 +4122,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1176), align 8
   store ptr @.str.26, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1136), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 1120), ptr getelementptr inbounds nuw (i8, ptr @t, i64 1128), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1120)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1120)) #15
   %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 156), align 4
   %.sroa.015.0.extract.trunc.i.i44 = trunc i64 %28 to i32
   %.sroa.317.0.extract.shift.i.i45 = lshr i64 %28, 32
@@ -4140,7 +4140,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %35, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1256), align 8
   store ptr @.str.27, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1216), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 1200), ptr getelementptr inbounds nuw (i8, ptr @t, i64 1208), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1200)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1200)) #15
   %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 68), align 4
   %.sroa.015.0.extract.trunc.i.i48 = trunc i64 %36 to i32
   %.sroa.317.0.extract.shift.i.i49 = lshr i64 %36, 32
@@ -4158,7 +4158,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @t, i64 216), align 8
   store ptr @.str.28, ptr getelementptr inbounds nuw (i8, ptr @t, i64 176), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 160), ptr getelementptr inbounds nuw (i8, ptr @t, i64 168), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 160)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 160)) #15
   %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 76), align 4
   %.sroa.015.0.extract.trunc.i.i52 = trunc i64 %44 to i32
   %.sroa.317.0.extract.shift.i.i53 = lshr i64 %44, 32
@@ -4176,7 +4176,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %51, ptr getelementptr inbounds nuw (i8, ptr @t, i64 296), align 8
   store ptr @.str.29, ptr getelementptr inbounds nuw (i8, ptr @t, i64 256), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 240), ptr getelementptr inbounds nuw (i8, ptr @t, i64 248), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 240)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 240)) #15
   %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 84), align 4
   %.sroa.015.0.extract.trunc.i.i56 = trunc i64 %52 to i32
   %.sroa.317.0.extract.shift.i.i57 = lshr i64 %52, 32
@@ -4194,7 +4194,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %59, ptr getelementptr inbounds nuw (i8, ptr @t, i64 376), align 8
   store ptr @.str.30, ptr getelementptr inbounds nuw (i8, ptr @t, i64 336), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 320), ptr getelementptr inbounds nuw (i8, ptr @t, i64 328), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 320)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 320)) #15
   %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 92), align 4
   %.sroa.015.0.extract.trunc.i.i60 = trunc i64 %60 to i32
   %.sroa.317.0.extract.shift.i.i61 = lshr i64 %60, 32
@@ -4212,7 +4212,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %67, ptr getelementptr inbounds nuw (i8, ptr @t, i64 456), align 8
   store ptr @.str.31, ptr getelementptr inbounds nuw (i8, ptr @t, i64 416), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 400), ptr getelementptr inbounds nuw (i8, ptr @t, i64 408), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 400)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 400)) #15
   %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 100), align 4
   %.sroa.015.0.extract.trunc.i.i64 = trunc i64 %68 to i32
   %.sroa.317.0.extract.shift.i.i65 = lshr i64 %68, 32
@@ -4230,7 +4230,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %75, ptr getelementptr inbounds nuw (i8, ptr @t, i64 536), align 8
   store ptr @.str.32, ptr getelementptr inbounds nuw (i8, ptr @t, i64 496), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 480), ptr getelementptr inbounds nuw (i8, ptr @t, i64 488), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 480)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 480)) #15
   %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 68), align 4
   %.sroa.015.0.extract.trunc.i.i68 = trunc i64 %76 to i32
   %.sroa.317.0.extract.shift.i.i69 = lshr i64 %76, 32
@@ -4248,7 +4248,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %83, ptr getelementptr inbounds nuw (i8, ptr @t, i64 136), align 8
   store ptr @.str.33, ptr getelementptr inbounds nuw (i8, ptr @t, i64 96), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 80), ptr getelementptr inbounds nuw (i8, ptr @t, i64 88), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 80)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 80)) #15
   %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 68), align 4
   %.sroa.015.0.extract.trunc.i.i72 = trunc i64 %84 to i32
   %.sroa.317.0.extract.shift.i.i73 = lshr i64 %84, 32
@@ -4266,7 +4266,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %91, ptr getelementptr inbounds nuw (i8, ptr @t, i64 616), align 8
   store ptr @.str.34, ptr getelementptr inbounds nuw (i8, ptr @t, i64 576), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 560), ptr getelementptr inbounds nuw (i8, ptr @t, i64 568), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 560)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 560)) #15
   %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 76), align 4
   %.sroa.015.0.extract.trunc.i.i76 = trunc i64 %92 to i32
   %.sroa.317.0.extract.shift.i.i77 = lshr i64 %92, 32
@@ -4284,7 +4284,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %99, ptr getelementptr inbounds nuw (i8, ptr @t, i64 696), align 8
   store ptr @.str.35, ptr getelementptr inbounds nuw (i8, ptr @t, i64 656), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 640), ptr getelementptr inbounds nuw (i8, ptr @t, i64 648), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 640)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 640)) #15
   %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 84), align 4
   %.sroa.015.0.extract.trunc.i.i80 = trunc i64 %100 to i32
   %.sroa.317.0.extract.shift.i.i81 = lshr i64 %100, 32
@@ -4302,7 +4302,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %107, ptr getelementptr inbounds nuw (i8, ptr @t, i64 776), align 8
   store ptr @.str.36, ptr getelementptr inbounds nuw (i8, ptr @t, i64 736), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 720), ptr getelementptr inbounds nuw (i8, ptr @t, i64 728), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 720)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 720)) #15
   %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 92), align 4
   %.sroa.015.0.extract.trunc.i.i84 = trunc i64 %108 to i32
   %.sroa.317.0.extract.shift.i.i85 = lshr i64 %108, 32
@@ -4320,7 +4320,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %115, ptr getelementptr inbounds nuw (i8, ptr @t, i64 856), align 8
   store ptr @.str.37, ptr getelementptr inbounds nuw (i8, ptr @t, i64 816), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 800), ptr getelementptr inbounds nuw (i8, ptr @t, i64 808), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 800)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 800)) #15
   %116 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 100), align 4
   %.sroa.015.0.extract.trunc.i.i88 = trunc i64 %116 to i32
   %.sroa.317.0.extract.shift.i.i89 = lshr i64 %116, 32
@@ -4338,7 +4338,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %123, ptr getelementptr inbounds nuw (i8, ptr @t, i64 936), align 8
   store ptr @.str.38, ptr getelementptr inbounds nuw (i8, ptr @t, i64 896), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 880), ptr getelementptr inbounds nuw (i8, ptr @t, i64 888), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 880)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 880)) #15
   %124 = load i64, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 68), align 4
   %.sroa.015.0.extract.trunc.i.i92 = trunc i64 %124 to i32
   %.sroa.317.0.extract.shift.i.i93 = lshr i64 %124, 32
@@ -4356,31 +4356,31 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %131, ptr getelementptr inbounds nuw (i8, ptr @t, i64 56), align 8
   store ptr @.str.39, ptr getelementptr inbounds nuw (i8, ptr @t, i64 16), align 8
   store ptr @t, ptr getelementptr inbounds nuw (i8, ptr @t, i64 8), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull @t) #14
+  tail call void @global_context_add_type(ptr noundef nonnull @t) #15
   store i32 42, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2000), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @t, i64 2024), i8 0, i64 32, i1 false)
   store i32 16843009, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2056), align 8
   store ptr @.str.9, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2016), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 2000), ptr getelementptr inbounds nuw (i8, ptr @t, i64 2008), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2000)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2000)) #15
   store i32 43, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1920), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @t, i64 1944), i8 0, i64 32, i1 false)
   store i32 16843009, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1976), align 8
   store ptr @.str.40, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1936), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 1920), ptr getelementptr inbounds nuw (i8, ptr @t, i64 1928), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1920)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1920)) #15
   store i32 39, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2080), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @t, i64 2104), i8 0, i64 32, i1 false)
   store i32 16843009, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2136), align 8
   store ptr @.str.41, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2096), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 2080), ptr getelementptr inbounds nuw (i8, ptr @t, i64 2088), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2080)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2080)) #15
   store i32 41, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2320), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @t, i64 2344), i8 0, i64 32, i1 false)
   store i32 16843009, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2376), align 8
   store ptr @.str.39, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2336), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 2320), ptr getelementptr inbounds nuw (i8, ptr @t, i64 2328), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2320)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2320)) #15
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %133 = load i32, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -4406,7 +4406,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %147, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1816), align 8
   store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1776), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 1760), ptr getelementptr inbounds nuw (i8, ptr @t, i64 1768), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1760)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1760)) #15
   %148 = load i32, ptr %132, align 8
   %149 = load i64, ptr %134, align 4
   %.sroa.015.0.extract.trunc.i96 = trunc i64 %149 to i32
@@ -4430,7 +4430,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   store i32 %161, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1736), align 8
   store ptr @.str.42, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1696), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 1680), ptr getelementptr inbounds nuw (i8, ptr @t, i64 1688), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1680)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1680)) #15
   %162 = load ptr, ptr @type_void, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
   br label %164
@@ -4442,7 +4442,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   br i1 %.not.i.i100, label %166, label %169
 
 166:                                              ; preds = %164
-  %167 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %167 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 4
   store i32 8, ptr %168, align 4
   br label %171
@@ -4466,7 +4466,7 @@ define dso_local void @type_setup(ptr noundef readonly captures(none) %0) local_
   %178 = zext i32 %177 to i64
   %179 = shl nuw nsw i64 %178, 3
   %180 = or disjoint i64 %179, 8
-  %181 = tail call ptr @calloc_arena(i64 noundef %180) #14
+  %181 = tail call ptr @calloc_arena(i64 noundef %180) #15
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store i32 %177, ptr %182, align 4
   %183 = load i32, ptr %176, align 4
@@ -4508,7 +4508,7 @@ create_type_cache.exit:                           ; preds = %189
   store i32 16843009, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2216), align 8
   store ptr @.str.43, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2176), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 2160), ptr getelementptr inbounds nuw (i8, ptr @t, i64 2168), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2160)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2160)) #15
   %202 = load i32, ptr %132, align 8
   %203 = shl i32 %202, 1
   %204 = load i64, ptr %134, align 4
@@ -4533,7 +4533,7 @@ create_type_cache.exit:                           ; preds = %189
   store i32 %216, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2296), align 8
   store ptr @.str.44, ptr getelementptr inbounds nuw (i8, ptr @t, i64 2256), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 2240), ptr getelementptr inbounds nuw (i8, ptr @t, i64 2248), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2240)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 2240)) #15
   %217 = load ptr, ptr @type_any, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   br label %219
@@ -4545,7 +4545,7 @@ create_type_cache.exit:                           ; preds = %189
   br i1 %.not.i.i106, label %221, label %224
 
 221:                                              ; preds = %219
-  %222 = tail call ptr @calloc_arena(i64 noundef 72) #14
+  %222 = tail call ptr @calloc_arena(i64 noundef 72) #15
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 4
   store i32 8, ptr %223, align 4
   br label %226
@@ -4569,7 +4569,7 @@ create_type_cache.exit:                           ; preds = %189
   %233 = zext i32 %232 to i64
   %234 = shl nuw nsw i64 %233, 3
   %235 = or disjoint i64 %234, 8
-  %236 = tail call ptr @calloc_arena(i64 noundef %235) #14
+  %236 = tail call ptr @calloc_arena(i64 noundef %235) #15
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 4
   store i32 %232, ptr %237, align 4
   %238 = load i32, ptr %231, align 4
@@ -4619,7 +4619,7 @@ create_type_cache.exit113:                        ; preds = %244
   br i1 %262, label %switch.lookup, label %263
 
 263:                                              ; preds = %.split.i, %create_type_cache.exit113
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %258) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %258) #14
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
@@ -4631,7 +4631,7 @@ switch.lookup:                                    ; preds = %.split.i
   store ptr %.0.i, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1288), align 8
   store ptr @.str.45, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1296), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @t, i64 1304), i8 0, i64 56, i1 false)
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1280)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1280)) #15
   %264 = load i32, ptr %132, align 8
   %265 = zext i32 %264 to i64
   %266 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %265)
@@ -4645,7 +4645,7 @@ switch.lookup:                                    ; preds = %.split.i
   br i1 %269, label %switch.lookup137, label %270
 
 270:                                              ; preds = %.split.i114, %switch.lookup
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %265) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %265) #14
   unreachable
 
 switch.lookup137:                                 ; preds = %.split.i114
@@ -4657,7 +4657,7 @@ switch.lookup137:                                 ; preds = %.split.i114
   store ptr %.0.i116, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1368), align 8
   store ptr @.str.46, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1376), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @t, i64 1384), i8 0, i64 56, i1 false)
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1360)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1360)) #15
   %271 = load i32, ptr %132, align 8
   %272 = zext i32 %271 to i64
   %273 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %272)
@@ -4671,7 +4671,7 @@ switch.lookup137:                                 ; preds = %.split.i114
   br i1 %276, label %switch.lookup141, label %277
 
 277:                                              ; preds = %.split.i117, %switch.lookup137
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %272) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_unsigned_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 95, i64 noundef %272) #14
   unreachable
 
 switch.lookup141:                                 ; preds = %.split.i117
@@ -4683,7 +4683,7 @@ switch.lookup141:                                 ; preds = %.split.i117
   store ptr %.0.i119, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1448), align 8
   store ptr @.str.47, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1456), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @t, i64 1464), i8 0, i64 56, i1 false)
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1440)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1440)) #15
   %278 = load i32, ptr %132, align 8
   %279 = zext i32 %278 to i64
   %280 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %279)
@@ -4697,7 +4697,7 @@ switch.lookup141:                                 ; preds = %.split.i117
   br i1 %283, label %switch.lookup145, label %284
 
 284:                                              ; preds = %.split.i121, %switch.lookup141
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %279) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %279) #14
   unreachable
 
 switch.lookup145:                                 ; preds = %.split.i121
@@ -4709,7 +4709,7 @@ switch.lookup145:                                 ; preds = %.split.i121
   store ptr %.0.i123, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1528), align 8
   store ptr @.str.48, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1536), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @t, i64 1544), i8 0, i64 56, i1 false)
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1520)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1520)) #15
   %285 = tail call i32 @type_abi_alignment(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1680))
   %286 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1288), align 8
   %287 = tail call i32 @type_abi_alignment(ptr noundef %286)
@@ -4740,15 +4740,15 @@ switch.lookup145:                                 ; preds = %.split.i121
   store i32 %303, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1896), align 8
   store ptr @.str.49, ptr getelementptr inbounds nuw (i8, ptr @t, i64 1856), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @t, i64 1840), ptr getelementptr inbounds nuw (i8, ptr @t, i64 1848), align 8
-  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1840)) #14
+  tail call void @global_context_add_type(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @t, i64 1840)) #15
   %304 = load ptr, ptr @type_char, align 8
   %305 = tail call fastcc ptr @type_generate_subarray(ptr noundef %304, i1 noundef zeroext false)
   store ptr %305, ptr @type_chars, align 8
   %306 = load ptr, ptr @type_wildcard, align 8
   %307 = tail call fastcc ptr @type_generate_optional(ptr noundef %306, i1 noundef zeroext false)
   store ptr %307, ptr @type_wildcard_optional, align 8
-  %308 = tail call ptr @symtab_preset(ptr noundef nonnull @.str.50, i32 noundef 66) #14
-  %309 = tail call ptr @decl_new_with_type(ptr noundef %308, i64 0, i32 noundef 10) #14
+  %308 = tail call ptr @symtab_preset(ptr noundef nonnull @.str.50, i32 noundef 66) #15
+  %309 = tail call ptr @decl_new_with_type(ptr noundef %308, i64 0, i32 noundef 10) #15
   %310 = load ptr, ptr %309, align 8
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store ptr %310, ptr %311, align 8
@@ -4757,7 +4757,7 @@ switch.lookup145:                                 ; preds = %.split.i121
   %314 = or i64 %313, 32768
   store i64 %314, ptr %312, align 8
   %315 = load ptr, ptr @type_chars, align 8
-  %316 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #14
+  %316 = tail call ptr @vmem_alloc(ptr noundef nonnull @type_info_arena, i64 noundef 40) #15
   %317 = load i16, ptr %316, align 8
   %318 = and i16 %317, -512
   %319 = or disjoint i16 %318, 10
@@ -4775,8 +4775,8 @@ switch.lookup145:                                 ; preds = %.split.i121
   %326 = getelementptr inbounds nuw i8, ptr %309, i64 72
   %327 = load ptr, ptr %326, align 8
   store ptr %327, ptr @type_string, align 8
-  tail call void @global_context_add_type(ptr noundef %327) #14
-  tail call void @global_context_add_decl(ptr noundef nonnull %309) #14
+  tail call void @global_context_add_type(ptr noundef %327) #15
+  tail call void @global_context_add_decl(ptr noundef nonnull %309) #15
   ret void
 }
 
@@ -4799,7 +4799,7 @@ define dso_local range(i32 8, 129) i32 @type_kind_bitsize(i32 noundef %0) local_
   br i1 %or.cond, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_kind_bitsize, ptr noundef nonnull @.str.2, i32 noundef 1605) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_kind_bitsize, ptr noundef nonnull @.str.2, i32 noundef 1605) #14
   unreachable
 
 switch.lookup:                                    ; preds = %1
@@ -4864,7 +4864,7 @@ define dso_local noundef zeroext i1 @type_is_scalar(ptr noundef readonly capture
   ]
 
 3:                                                ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_scalar, ptr noundef nonnull @.str.2, i32 noundef 1616) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_scalar, ptr noundef nonnull @.str.2, i32 noundef 1616) #14
   unreachable
 
 .backedge.sink.split.sink.split:                  ; preds = %.backedge, %.backedge
@@ -4891,7 +4891,7 @@ define dso_local noundef zeroext i1 @type_is_scalar(ptr noundef readonly capture
   br i1 %.not, label %.loopexit.loopexit, label %.backedge.backedge
 
 13:                                               ; preds = %.backedge
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_scalar, ptr noundef nonnull @.str.2, i32 noundef 1651) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_is_scalar, ptr noundef nonnull @.str.2, i32 noundef 1651) #14
   unreachable
 
 .loopexit.loopexit:                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %.backedge, %10
@@ -5016,7 +5016,7 @@ define dso_local ptr @type_from_token(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_from_token, ptr noundef nonnull @.str.2, i32 noundef 1743) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_from_token, ptr noundef nonnull @.str.2, i32 noundef 1743) #14
   unreachable
 
 switch.lookup:                                    ; preds = %1
@@ -5055,7 +5055,7 @@ define dso_local i32 @type_array_element_is_equivalent(ptr noundef captures(none
   br label %17
 
 16:                                               ; preds = %.preheader
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 17:                                               ; preds = %14, %8
@@ -5087,7 +5087,7 @@ type_flatten.exit:                                ; preds = %.preheader, %30
   br label %30
 
 29:                                               ; preds = %type_flatten.exit
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 30:                                               ; preds = %27, %21
@@ -5237,7 +5237,7 @@ tailrecurse:                                      ; preds = %132, %4
   br label %19
 
 18:                                               ; preds = %.preheader88
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 19:                                               ; preds = %16, %10
@@ -5269,7 +5269,7 @@ type_flatten.exit:                                ; preds = %.preheader88, %32
   br label %32
 
 31:                                               ; preds = %type_flatten.exit
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 32:                                               ; preds = %29, %23
@@ -5324,7 +5324,7 @@ type_flatten.exit71:                              ; preds = %type_flatten.exit, 
   br label %58
 
 57:                                               ; preds = %.preheader
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 58:                                               ; preds = %55, %49
@@ -5356,7 +5356,7 @@ type_flatten.exit75:                              ; preds = %.preheader, %71
   br label %71
 
 70:                                               ; preds = %type_flatten.exit75
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 71:                                               ; preds = %68, %62
@@ -5499,11 +5499,11 @@ type_is_matching_int.exit.thread:                 ; preds = %108, %105
   ]
 
 137:                                              ; preds = %136
-  %138 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.054) #14
+  %138 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.054) #15
   br i1 %138, label %139, label %type_is_subtype.exit
 
 139:                                              ; preds = %137
-  %140 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.053) #14
+  %140 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef nonnull %.053) #15
   br i1 %140, label %141, label %type_is_subtype.exit
 
 141:                                              ; preds = %139
@@ -5651,7 +5651,7 @@ define dso_local zeroext i1 @type_may_have_method(ptr noundef readonly captures(
   ]
 
 9:                                                ; preds = %8
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_may_have_method, ptr noundef nonnull @.str.2, i32 noundef 1899) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_may_have_method, ptr noundef nonnull @.str.2, i32 noundef 1899) #14
   unreachable
 
 10:                                               ; preds = %8
@@ -5663,7 +5663,7 @@ define dso_local zeroext i1 @type_may_have_method(ptr noundef readonly captures(
   br label %15
 
 14:                                               ; preds = %8
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_may_have_method, ptr noundef nonnull @.str.2, i32 noundef 1914) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_may_have_method, ptr noundef nonnull @.str.2, i32 noundef 1914) #14
   unreachable
 
 15:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %13, %10
@@ -5714,7 +5714,7 @@ define dso_local ptr @type_find_max_num_type(ptr noundef readonly captures(ret: 
   ]
 
 9:                                                ; preds = %8
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_num_type, ptr noundef nonnull @.str.2, i32 noundef 1957) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_num_type, ptr noundef nonnull @.str.2, i32 noundef 1957) #14
   unreachable
 
 10:                                               ; preds = %6
@@ -5747,7 +5747,7 @@ define dso_local ptr @type_find_max_num_type(ptr noundef readonly captures(ret: 
   br i1 %26, label %switch.lookup, label %27
 
 27:                                               ; preds = %.split.i, %21
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %22) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_int_signed_by_bitsize, ptr noundef nonnull @.str.2, i32 noundef 83, i64 noundef %22) #14
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
@@ -5916,7 +5916,7 @@ define dso_local ptr @type_find_max_type(ptr noundef readonly captures(none) %0,
   ]
 
 47:                                               ; preds = %44, %44, %44, %44, %44
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_type, ptr noundef nonnull @.str.2, i32 noundef 2089) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_type, ptr noundef nonnull @.str.2, i32 noundef 2089) #14
   unreachable
 
 48:                                               ; preds = %44, %44, %44, %44, %44, %44, %44, %44, %44, %44
@@ -5951,7 +5951,7 @@ define dso_local ptr @type_find_max_type(ptr noundef readonly captures(none) %0,
   br label %62
 
 61:                                               ; preds = %.preheader
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.54, i32 noundef 2984) #14
   unreachable
 
 62:                                               ; preds = %59, %53
@@ -6177,11 +6177,11 @@ tailrecurse:                                      ; preds = %48
   br label %.critedge120
 
 191:                                              ; preds = %44
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_type, ptr noundef nonnull @.str.2, i32 noundef 2176) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_type, ptr noundef nonnull @.str.2, i32 noundef 2176) #14
   unreachable
 
 192:                                              ; preds = %44
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_type, ptr noundef nonnull @.str.2, i32 noundef 2190) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_find_max_type, ptr noundef nonnull @.str.2, i32 noundef 2190) #14
   unreachable
 
 .critedge120:                                     ; preds = %tailrecurse, %9, %13, %.critedge2, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %48, %.lr.ph176, %.thread, %2, %90, %169, %188, %188, %188, %188, %175, %152, %130, %109, %105, %190, %177, %173, %167, %147, %116, %112, %.thread124, %.thread123
@@ -6502,7 +6502,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
   br i1 %.not55.us, label %.loopexit58, label %.lr.ph67.split.us
 
 .thread:                                          ; preds = %37, %39
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.51, i32 noundef 512) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.51, i32 noundef 512) #14
   unreachable
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67, %.loopexit
@@ -6626,7 +6626,7 @@ define dso_local range(i32 0, 21) i32 @type_get_introspection_kind(i32 noundef %
   br label %25
 
 17:                                               ; preds = %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_get_introspection_kind, ptr noundef nonnull @.str.2, i32 noundef 2290) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_get_introspection_kind, ptr noundef nonnull @.str.2, i32 noundef 2290) #14
   unreachable
 
 18:                                               ; preds = %1
@@ -6645,11 +6645,11 @@ define dso_local range(i32 0, 21) i32 @type_get_introspection_kind(i32 noundef %
   br label %25
 
 23:                                               ; preds = %1, %1, %1, %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_get_introspection_kind, ptr noundef nonnull @.str.2, i32 noundef 2308) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_get_introspection_kind, ptr noundef nonnull @.str.2, i32 noundef 2308) #14
   unreachable
 
 24:                                               ; preds = %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_get_introspection_kind, ptr noundef nonnull @.str.2, i32 noundef 2311) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_get_introspection_kind, ptr noundef nonnull @.str.2, i32 noundef 2311) #14
   unreachable
 
 25:                                               ; preds = %1, %1, %22, %21, %20, %19, %18, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
@@ -6753,11 +6753,11 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
   br label %.loopexit
 
 23:                                               ; preds = %2, %2, %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2361) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2361) #14
   unreachable
 
 24:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2363) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2363) #14
   unreachable
 
 .loopexit:                                        ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %21, %16, %14, %12, %6
@@ -6818,14 +6818,14 @@ define internal fastcc void @type_append_name_to_scratch(ptr noundef readonly ca
   ]
 
 5:                                                ; preds = %1, %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_append_name_to_scratch, ptr noundef nonnull @.str.2, i32 noundef 117) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_append_name_to_scratch, ptr noundef nonnull @.str.2, i32 noundef 117) #14
   unreachable
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @scratch_buffer_append(ptr noundef %9) #14
+  tail call void @scratch_buffer_append(ptr noundef %9) #15
   br label %common.ret12
 
 common.ret12:                                     ; preds = %29, %25, %18, %6, %1, %32, %22, %19, %10
@@ -6835,7 +6835,7 @@ common.ret12:                                     ; preds = %29, %25, %18, %6, %
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %12)
-  tail call void @scratch_buffer_append_char(i8 noundef signext 42) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 42) #15
   br label %common.ret12
 
 13:                                               ; preds = %1
@@ -6849,35 +6849,35 @@ common.ret12:                                     ; preds = %29, %25, %18, %6, %
   br label %18
 
 17:                                               ; preds = %13
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.39) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.39) #15
   br label %18
 
 18:                                               ; preds = %17, %16
-  tail call void @scratch_buffer_append_char(i8 noundef signext 33) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 33) #15
   br label %common.ret12
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %21)
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.52) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.52) #15
   br label %common.ret12
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %24)
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.53) #14
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.53) #15
   br label %common.ret12
 
 25:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
-  tail call void @scratch_buffer_append(ptr noundef %27) #14
+  tail call void @scratch_buffer_append(ptr noundef %27) #15
   br label %common.ret12
 
 28:                                               ; preds = %1, %1, %1, %1, %1, %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_append_name_to_scratch, ptr noundef nonnull @.str.2, i32 noundef 168) #13
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_append_name_to_scratch, ptr noundef nonnull @.str.2, i32 noundef 168) #14
   unreachable
 
 29:                                               ; preds = %1
@@ -6890,12 +6890,12 @@ common.ret12:                                     ; preds = %29, %25, %18, %6, %
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %34)
-  tail call void @scratch_buffer_append_char(i8 noundef signext 91) #14
+  tail call void @scratch_buffer_append_char(i8 noundef signext 91) #15
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  tail call void @scratch_buffer_append_signed_int(i64 noundef %37) #14
-  tail call void @scratch_buffer_append_char(i8 noundef signext 93) #14
+  tail call void @scratch_buffer_append_signed_int(i64 noundef %37) #15
+  tail call void @scratch_buffer_append_char(i8 noundef signext 93) #15
   br label %common.ret12
 }
 
@@ -7014,22 +7014,22 @@ declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7043,11 +7043,12 @@ attributes #7 = { nofree norecurse nosync nounwind uwtable "frame-pointer"="all"
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

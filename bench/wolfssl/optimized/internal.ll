@@ -401,7 +401,7 @@ define i32 @InitSSL_Ctx(ptr noundef initializes((0, 304)) %0, ptr noundef %1, pt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 1, ptr %9, align 4, !tbaa !57
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @wolfSSL_RefWithMutexInit(ptr noundef nonnull %10, ptr noundef nonnull %4) #27
+  call void @wolfSSL_RefWithMutexInit(ptr noundef nonnull %10, ptr noundef nonnull %4) #28
   %11 = load i32, ptr %4, align 4, !tbaa !49
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %15
@@ -445,7 +445,7 @@ define i32 @InitSSL_Ctx(ptr noundef initializes((0, 304)) %0, ptr noundef %1, pt
 32:                                               ; preds = %28, %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 -2, ptr %33, align 8, !tbaa !68
-  %34 = call ptr @wolfSSL_CertManagerNew_ex(ptr noundef %2) #27
+  %34 = call ptr @wolfSSL_CertManagerNew_ex(ptr noundef %2) #28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %34, ptr %35, align 8, !tbaa !69
   %36 = icmp eq ptr %34, null
@@ -503,7 +503,7 @@ define void @SSL_CtxResourceFree(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @wolfSSL_Free(ptr noundef nonnull %2) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %2) #28
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -514,7 +514,7 @@ define void @SSL_CtxResourceFree(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %.not33, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void @wolfSSL_Free(ptr noundef nonnull %6) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %6) #28
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -525,7 +525,7 @@ define void @SSL_CtxResourceFree(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %.not34, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @wolfSSL_Free(ptr noundef nonnull %10) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %10) #28
   br label %12
 
 12:                                               ; preds = %11, %8
@@ -536,7 +536,7 @@ define void @SSL_CtxResourceFree(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %.not35, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @wolfSSL_Free(ptr noundef nonnull %14) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %14) #28
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -603,19 +603,19 @@ define void @SSL_CtxResourceFree(ptr noundef %0) local_unnamed_addr #4 {
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %19, %16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call void @FreeDer(ptr noundef nonnull %17) #27
+  tail call void @FreeDer(ptr noundef nonnull %17) #28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @FreeDer(ptr noundef nonnull %38) #27
+  tail call void @FreeDer(ptr noundef nonnull %38) #28
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @FreeDer(ptr noundef nonnull %39) #27
+  tail call void @FreeDer(ptr noundef nonnull %39) #28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %41 = load ptr, ptr %40, align 8, !tbaa !69
-  tail call void @wolfSSL_CertManagerFree(ptr noundef %41) #27
+  tail call void @wolfSSL_CertManagerFree(ptr noundef %41) #28
   store ptr null, ptr %40, align 8, !tbaa !69
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %43 = load ptr, ptr %42, align 8, !tbaa !84
   %44 = load ptr, ptr %37, align 8, !tbaa !55
-  tail call void @TLSX_FreeAll(ptr noundef %43, ptr noundef %44) #27
+  tail call void @TLSX_FreeAll(ptr noundef %43, ptr noundef %44) #28
   ret void
 }
 
@@ -687,7 +687,7 @@ define void @FreeSSL_Ctx(ptr noundef %0) local_unnamed_addr #4 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @wolfSSL_RefWithMutexDec(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #27
+  call void @wolfSSL_RefWithMutexDec(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #28
   %5 = load i32, ptr %3, align 4, !tbaa !49
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %12
@@ -709,11 +709,11 @@ define void @FreeSSL_Ctx(ptr noundef %0) local_unnamed_addr #4 {
 
 14:                                               ; preds = %12
   call void @SSL_CtxResourceFree(ptr noundef nonnull %0)
-  call void @wolfSSL_RefWithMutexFree(ptr noundef nonnull %4) #27
+  call void @wolfSSL_RefWithMutexFree(ptr noundef nonnull %4) #28
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %14
-  call void @wolfSSL_Free(ptr noundef nonnull %0) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %0) #28
   br label %15
 
 15:                                               ; preds = %.sink.split, %12, %7
@@ -808,7 +808,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   br i1 %.not11, label %ForceZero.exit.thread, label %19
 
 19:                                               ; preds = %ForceZero.exit
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #28
   br label %ForceZero.exit.thread
 
 ForceZero.exit.thread:                            ; preds = %1, %19, %ForceZero.exit
@@ -819,13 +819,13 @@ ForceZero.exit.thread:                            ; preds = %1, %19, %ForceZero.
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @FreeCiphersSide(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !93
-  tail call void @wc_AesFree(ptr noundef %2) #27
+  tail call void @wc_AesFree(ptr noundef %2) #28
   %3 = load ptr, ptr %0, align 8, !tbaa !93
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @wolfSSL_Free(ptr noundef nonnull %3) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %3) #28
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -836,7 +836,7 @@ define internal fastcc void @FreeCiphersSide(ptr noundef captures(none) %0) unna
   br i1 %.not23, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @wolfSSL_Free(ptr noundef nonnull %7) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %7) #28
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -847,7 +847,7 @@ define internal fastcc void @FreeCiphersSide(ptr noundef captures(none) %0) unna
   br i1 %.not24, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @wolfSSL_Free(ptr noundef nonnull %11) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %11) #28
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -907,7 +907,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   br i1 %.not26, label %ForceZero.exit.thread, label %29
 
 29:                                               ; preds = %ForceZero.exit
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #28
   br label %ForceZero.exit.thread
 
 ForceZero.exit.thread:                            ; preds = %13, %29, %ForceZero.exit
@@ -1072,7 +1072,7 @@ define range(i32 -303, 1) i32 @AllocateCtxSuites(ptr noundef captures(none) %0) 
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #27
+  %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
   store ptr %6, ptr %2, align 8, !tbaa !72
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -1096,7 +1096,7 @@ define range(i32 -303, 1) i32 @AllocateSuites(ptr noundef captures(none) %0) loc
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #27
+  %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
   store ptr %6, ptr %2, align 8, !tbaa !98
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
@@ -1678,7 +1678,7 @@ define void @FreeX509Name(ptr noundef captures(address_is_null) %0) local_unname
   br i1 %.not8, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @wolfSSL_Free(ptr noundef nonnull %6) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %6) #28
   br label %8
 
 8:                                                ; preds = %7, %5
@@ -1739,7 +1739,7 @@ define void @FreeX509(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %.not8.i, label %10, label %9
 
 9:                                                ; preds = %7
-  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #28
   br label %10
 
 10:                                               ; preds = %9, %7
@@ -1759,7 +1759,7 @@ FreeX509Name.exit:                                ; preds = %3, %10
   br i1 %.not8.i23, label %17, label %16
 
 16:                                               ; preds = %14
-  tail call void @wolfSSL_Free(ptr noundef nonnull %15) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %15) #28
   br label %17
 
 17:                                               ; preds = %16, %14
@@ -1773,20 +1773,20 @@ FreeX509Name.exit24:                              ; preds = %FreeX509Name.exit, 
   br i1 %.not, label %21, label %20
 
 20:                                               ; preds = %FreeX509Name.exit24
-  tail call void @wolfSSL_Free(ptr noundef nonnull %19) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %19) #28
   store ptr null, ptr %18, align 8, !tbaa !112
   br label %21
 
 21:                                               ; preds = %20, %FreeX509Name.exit24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call void @FreeDer(ptr noundef nonnull %22) #27
+  tail call void @FreeDer(ptr noundef nonnull %22) #28
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load ptr, ptr %23, align 8, !tbaa !113
   %.not20 = icmp eq ptr %24, null
   br i1 %.not20, label %26, label %25
 
 25:                                               ; preds = %21
-  tail call void @wolfSSL_Free(ptr noundef nonnull %24) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %24) #28
   br label %26
 
 26:                                               ; preds = %25, %21
@@ -1799,7 +1799,7 @@ FreeX509Name.exit24:                              ; preds = %FreeX509Name.exit, 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = load ptr, ptr %30, align 8, !tbaa !107
-  tail call void @FreeAltNames(ptr noundef nonnull %28, ptr noundef %31) #27
+  tail call void @FreeAltNames(ptr noundef nonnull %28, ptr noundef %31) #28
   store ptr null, ptr %27, align 8, !tbaa !114
   br label %32
 
@@ -1866,14 +1866,14 @@ switch.lookup:                                    ; preds = %11
   %13 = load i32, ptr %4, align 4, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8, !tbaa !116
-  %16 = tail call i32 @wc_RsaPSS_Sign(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %switch.offset, i32 noundef %switch.offset34, ptr noundef %7, ptr noundef %15) #27
+  %16 = tail call i32 @wc_RsaPSS_Sign(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %switch.offset, i32 noundef %switch.offset34, ptr noundef %7, ptr noundef %15) #28
   br label %22
 
 17:                                               ; preds = %9
   %18 = load i32, ptr %4, align 4, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load ptr, ptr %19, align 8, !tbaa !116
-  %21 = tail call i32 @wc_RsaSSL_Sign(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %18, ptr noundef %7, ptr noundef %20) #27
+  %21 = tail call i32 @wc_RsaSSL_Sign(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %18, ptr noundef %7, ptr noundef %20) #28
   br label %22
 
 22:                                               ; preds = %switch.lookup, %17
@@ -1908,11 +1908,11 @@ define i32 @RsaVerify(ptr readnone captures(none) %0, ptr noundef %1, i32 nounde
 switch.lookup:                                    ; preds = %10
   %switch.offset = add nuw nsw i32 %5, 2
   %switch.offset28 = add nsw i32 %5, -3
-  %12 = tail call i32 @wc_RsaPSS_VerifyInline(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %switch.offset, i32 noundef %switch.offset28, ptr noundef %6) #27
+  %12 = tail call i32 @wc_RsaPSS_VerifyInline(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %switch.offset, i32 noundef %switch.offset28, ptr noundef %6) #28
   br label %.critedge
 
 13:                                               ; preds = %8
-  %14 = tail call i32 @wc_RsaSSL_VerifyInline(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %6) #27
+  %14 = tail call i32 @wc_RsaSSL_VerifyInline(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %6) #28
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %13, %switch.lookup
@@ -1950,20 +1950,20 @@ define range(i32 -2147483648, 1) i32 @VerifyRsaSign(ptr readnone captures(none) 
 switch.lookup:                                    ; preds = %17
   %switch.offset = add nuw nsw i32 %6, 2
   %switch.offset61 = add nsw i32 %6, -3
-  %19 = call i32 @wc_RsaPSS_VerifyInline(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %10, i32 noundef %switch.offset, i32 noundef %switch.offset61, ptr noundef %7) #27
+  %19 = call i32 @wc_RsaPSS_VerifyInline(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %10, i32 noundef %switch.offset, i32 noundef %switch.offset61, ptr noundef %7) #28
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %switch.lookup
   %22 = load ptr, ptr %10, align 8, !tbaa !117
-  %23 = call i32 @sp_count_bits(ptr noundef %7) #27
-  %24 = call i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %22, i32 noundef %19, i32 noundef %switch.offset, i32 noundef -1, i32 noundef %23) #27
+  %23 = call i32 @sp_count_bits(ptr noundef %7) #28
+  %24 = call i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %22, i32 noundef %19, i32 noundef %switch.offset, i32 noundef -1, i32 noundef %23) #28
   %.not43 = icmp eq i32 %24, 0
   %spec.store.select = select i1 %.not43, i32 0, i32 -329
   br label %.critedge
 
 25:                                               ; preds = %15
-  %26 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %10, ptr noundef %7) #27
+  %26 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %10, ptr noundef %7) #28
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %.critedge
 
@@ -1999,12 +1999,12 @@ define i32 @RsaDec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 n
   store ptr %9, ptr %8, align 8, !tbaa !117
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8, !tbaa !116
-  %12 = tail call i32 @wc_RsaSetRNG(ptr noundef %5, ptr noundef %11) #27
+  %12 = tail call i32 @wc_RsaSetRNG(ptr noundef %5, ptr noundef %11) #28
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %ctMaskCopy.exit
 
 13:                                               ; preds = %7
-  %14 = call i32 @wc_RsaPrivateDecryptInline(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef %5) #27
+  %14 = call i32 @wc_RsaPrivateDecryptInline(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef %5) #28
   %15 = add i32 %14, -1
   %16 = lshr i32 %15, 31
   %17 = trunc nuw nsw i32 %16 to i8
@@ -2048,7 +2048,7 @@ define range(i32 -2147483648, 1) i32 @RsaEnc(ptr noundef readonly captures(none)
   %8 = load i32, ptr %4, align 4, !tbaa !49
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8, !tbaa !116
-  %11 = tail call i32 @wc_RsaPublicEncrypt(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef %5, ptr noundef %10) #27
+  %11 = tail call i32 @wc_RsaPublicEncrypt(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %8, ptr noundef %5, ptr noundef %10) #28
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %14
 
@@ -2067,7 +2067,7 @@ declare i32 @wc_RsaPublicEncrypt(ptr noundef, i32 noundef, ptr noundef, i32 noun
 define i32 @EccSign(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #4 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8, !tbaa !116
-  %10 = tail call i32 @wc_ecc_sign_hash(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5) #27
+  %10 = tail call i32 @wc_ecc_sign_hash(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5) #28
   ret i32 %10
 }
 
@@ -2076,7 +2076,7 @@ declare i32 @wc_ecc_sign_hash(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define i32 @EccVerify(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #4 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1148
-  %9 = tail call i32 @wc_ecc_verify_hash(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, ptr noundef %5) #27
+  %9 = tail call i32 @wc_ecc_verify_hash(ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, ptr noundef %5) #28
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %13
 
@@ -2097,12 +2097,12 @@ declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 nound
 define i32 @EccSharedSecret(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #4 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8, !tbaa !116
-  %11 = tail call i32 @wc_ecc_set_rng(ptr noundef %1, ptr noundef %10) #27
+  %11 = tail call i32 @wc_ecc_set_rng(ptr noundef %1, ptr noundef %10) #28
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
-  %14 = tail call i32 @wc_ecc_shared_secret(ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %6) #27
+  %14 = tail call i32 @wc_ecc_shared_secret(ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %6) #28
   br label %15
 
 15:                                               ; preds = %8, %13
@@ -2135,7 +2135,7 @@ define i32 @EccMakeKey(ptr noundef captures(none) %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %9
-  %16 = tail call i32 @wc_ecc_get_oid(i32 noundef %14, ptr noundef null, ptr noundef null) #27
+  %16 = tail call i32 @wc_ecc_get_oid(i32 noundef %14, ptr noundef null, ptr noundef null) #28
   br label %21
 
 17:                                               ; preds = %5
@@ -2149,7 +2149,7 @@ define i32 @EccMakeKey(ptr noundef captures(none) %0, ptr noundef %1, ptr nounde
   %.0 = phi i32 [ %16, %15 ], [ 0, %9 ], [ %20, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load ptr, ptr %22, align 8, !tbaa !116
-  %24 = tail call i32 @wc_ecc_make_key_ex(ptr noundef %23, i32 noundef %.016, ptr noundef %1, i32 noundef %.0) #27
+  %24 = tail call i32 @wc_ecc_make_key_ex(ptr noundef %23, i32 noundef %.016, ptr noundef %1, i32 noundef %.0) #28
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %34
 
@@ -2180,7 +2180,7 @@ declare i32 @wc_ecc_make_key_ex(ptr noundef, i32 noundef, ptr noundef, i32 nound
 define i32 @DhGenKeyPair(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8, !tbaa !116
-  %9 = tail call i32 @wc_DhGenerateKeyPair(ptr noundef %1, ptr noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #27
+  %9 = tail call i32 @wc_DhGenerateKeyPair(ptr noundef %1, ptr noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #28
   ret i32 %9
 }
 
@@ -2198,11 +2198,11 @@ define i32 @DhAgree(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @wc_DhCheckPubKey(ptr noundef nonnull %1, ptr noundef %4, i32 noundef %5) #27
+  %15 = tail call i32 @wc_DhCheckPubKey(ptr noundef nonnull %1, ptr noundef %4, i32 noundef %5) #28
   br label %18
 
 16:                                               ; preds = %11, %10
-  %17 = tail call i32 @wc_DhCheckPubValue(ptr noundef %8, i32 noundef %9, ptr noundef %4, i32 noundef %5) #27
+  %17 = tail call i32 @wc_DhCheckPubValue(ptr noundef %8, i32 noundef %9, ptr noundef %4, i32 noundef %5) #28
   br label %18
 
 18:                                               ; preds = %16, %14
@@ -2211,7 +2211,7 @@ define i32 @DhAgree(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr 
   br i1 %.not20, label %19, label %21
 
 19:                                               ; preds = %18
-  %20 = tail call i32 @wc_DhAgree(ptr noundef %1, ptr noundef %6, ptr noundef %7, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #27
+  %20 = tail call i32 @wc_DhAgree(ptr noundef %1, ptr noundef %6, ptr noundef %7, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #28
   br label %21
 
 21:                                               ; preds = %18, %19
@@ -2346,11 +2346,11 @@ define i32 @SetSSL_CTX(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void @wolfSSL_CTX_free(ptr noundef nonnull %7) #27
+  tail call void @wolfSSL_CTX_free(ptr noundef nonnull %7) #28
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = tail call i32 @wolfSSL_CTX_up_ref(ptr noundef nonnull %1) #27
+  %11 = tail call i32 @wolfSSL_CTX_up_ref(ptr noundef nonnull %1) #28
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %12, label %254
 
@@ -2668,7 +2668,7 @@ define i32 @SetSSL_CTX(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   br i1 %.not129, label %244, label %241
 
 241:                                              ; preds = %238
-  %242 = tail call i64 @wolfSSL_set_options(ptr noundef nonnull %0, i64 noundef %240) #27
+  %242 = tail call i64 @wolfSSL_set_options(ptr noundef nonnull %0, i64 noundef %240) #28
   %243 = icmp eq i64 %242, 0
   br i1 %243, label %254, label %244
 
@@ -2707,25 +2707,25 @@ define i32 @InitHandshakeHashes(ptr noundef captures(none) %0) local_unnamed_add
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 464
-  tail call void @wc_Md5Free(ptr noundef nonnull %5) #27
+  tail call void @wc_Md5Free(ptr noundef nonnull %5) #28
   %6 = load ptr, ptr %2, align 16, !tbaa !159
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 360
-  tail call void @wc_ShaFree(ptr noundef nonnull %7) #27
+  tail call void @wc_ShaFree(ptr noundef nonnull %7) #28
   %8 = load ptr, ptr %2, align 16, !tbaa !159
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 576
-  tail call void @wc_Sha256Free(ptr noundef nonnull %9) #27
+  tail call void @wc_Sha256Free(ptr noundef nonnull %9) #28
   %10 = load ptr, ptr %2, align 16, !tbaa !159
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 704
-  tail call void @wc_Sha384Free(ptr noundef nonnull %11) #27
+  tail call void @wc_Sha384Free(ptr noundef nonnull %11) #28
   %12 = load ptr, ptr %2, align 16, !tbaa !159
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 928
-  tail call void @wc_Sha512Free(ptr noundef nonnull %13) #27
+  tail call void @wc_Sha512Free(ptr noundef nonnull %13) #28
   %14 = load ptr, ptr %2, align 16, !tbaa !159
   %.not11.i = icmp eq ptr %14, null
   br i1 %.not11.i, label %FreeHandshakeHashes.exit, label %15
 
 15:                                               ; preds = %4
-  tail call void @wolfSSL_Free(ptr noundef nonnull %14) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %14) #28
   br label %FreeHandshakeHashes.exit
 
 FreeHandshakeHashes.exit:                         ; preds = %4, %15
@@ -2733,7 +2733,7 @@ FreeHandshakeHashes.exit:                         ; preds = %4, %15
   br label %16
 
 16:                                               ; preds = %FreeHandshakeHashes.exit, %1
-  %17 = tail call ptr @wolfSSL_Malloc(i64 noundef 1152) #27
+  %17 = tail call ptr @wolfSSL_Malloc(i64 noundef 1152) #28
   store ptr %17, ptr %2, align 16, !tbaa !159
   %18 = icmp eq ptr %17, null
   br i1 %18, label %51, label %19
@@ -2746,7 +2746,7 @@ FreeHandshakeHashes.exit:                         ; preds = %4, %15
   %23 = load ptr, ptr %22, align 16, !tbaa !160
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %25 = load i32, ptr %24, align 4, !tbaa !161
-  %26 = tail call i32 @wc_InitMd5_ex(ptr noundef nonnull %21, ptr noundef %23, i32 noundef %25) #27
+  %26 = tail call i32 @wc_InitMd5_ex(ptr noundef nonnull %21, ptr noundef %23, i32 noundef %25) #28
   %.not37 = icmp eq i32 %26, 0
   br i1 %.not37, label %27, label %51
 
@@ -2755,7 +2755,7 @@ FreeHandshakeHashes.exit:                         ; preds = %4, %15
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 360
   %30 = load ptr, ptr %22, align 16, !tbaa !160
   %31 = load i32, ptr %24, align 4, !tbaa !161
-  %32 = tail call i32 @wc_InitSha_ex(ptr noundef nonnull %29, ptr noundef %30, i32 noundef %31) #27
+  %32 = tail call i32 @wc_InitSha_ex(ptr noundef nonnull %29, ptr noundef %30, i32 noundef %31) #28
   %.not38 = icmp eq i32 %32, 0
   br i1 %.not38, label %33, label %51
 
@@ -2764,7 +2764,7 @@ FreeHandshakeHashes.exit:                         ; preds = %4, %15
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 576
   %36 = load ptr, ptr %22, align 16, !tbaa !160
   %37 = load i32, ptr %24, align 4, !tbaa !161
-  %38 = tail call i32 @wc_InitSha256_ex(ptr noundef nonnull %35, ptr noundef %36, i32 noundef %37) #27
+  %38 = tail call i32 @wc_InitSha256_ex(ptr noundef nonnull %35, ptr noundef %36, i32 noundef %37) #28
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %39, label %51
 
@@ -2773,7 +2773,7 @@ FreeHandshakeHashes.exit:                         ; preds = %4, %15
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 704
   %42 = load ptr, ptr %22, align 16, !tbaa !160
   %43 = load i32, ptr %24, align 4, !tbaa !161
-  %44 = tail call i32 @wc_InitSha384_ex(ptr noundef nonnull %41, ptr noundef %42, i32 noundef %43) #27
+  %44 = tail call i32 @wc_InitSha384_ex(ptr noundef nonnull %41, ptr noundef %42, i32 noundef %43) #28
   %.not40 = icmp eq i32 %44, 0
   br i1 %.not40, label %45, label %51
 
@@ -2782,7 +2782,7 @@ FreeHandshakeHashes.exit:                         ; preds = %4, %15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 928
   %48 = load ptr, ptr %22, align 16, !tbaa !160
   %49 = load i32, ptr %24, align 4, !tbaa !161
-  %50 = tail call i32 @wc_InitSha512_ex(ptr noundef nonnull %47, ptr noundef %48, i32 noundef %49) #27
+  %50 = tail call i32 @wc_InitSha512_ex(ptr noundef nonnull %47, ptr noundef %48, i32 noundef %49) #28
   br label %51
 
 51:                                               ; preds = %45, %39, %33, %27, %19, %16
@@ -2799,25 +2799,25 @@ define void @FreeHandshakeHashes(ptr noundef captures(none) %0) local_unnamed_ad
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 464
-  tail call void @wc_Md5Free(ptr noundef nonnull %5) #27
+  tail call void @wc_Md5Free(ptr noundef nonnull %5) #28
   %6 = load ptr, ptr %2, align 16, !tbaa !159
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 360
-  tail call void @wc_ShaFree(ptr noundef nonnull %7) #27
+  tail call void @wc_ShaFree(ptr noundef nonnull %7) #28
   %8 = load ptr, ptr %2, align 16, !tbaa !159
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 576
-  tail call void @wc_Sha256Free(ptr noundef nonnull %9) #27
+  tail call void @wc_Sha256Free(ptr noundef nonnull %9) #28
   %10 = load ptr, ptr %2, align 16, !tbaa !159
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 704
-  tail call void @wc_Sha384Free(ptr noundef nonnull %11) #27
+  tail call void @wc_Sha384Free(ptr noundef nonnull %11) #28
   %12 = load ptr, ptr %2, align 16, !tbaa !159
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 928
-  tail call void @wc_Sha512Free(ptr noundef nonnull %13) #27
+  tail call void @wc_Sha512Free(ptr noundef nonnull %13) #28
   %14 = load ptr, ptr %2, align 16, !tbaa !159
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %16, label %15
 
 15:                                               ; preds = %4
-  tail call void @wolfSSL_Free(ptr noundef nonnull %14) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %14) #28
   br label %16
 
 16:                                               ; preds = %15, %4
@@ -2868,7 +2868,7 @@ define i32 @InitHandshakeHashesAndCopy(ptr noundef captures(none) %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %12 = load ptr, ptr %2, align 8, !tbaa !162
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 360
-  %14 = tail call i32 @wc_ShaCopy(ptr noundef nonnull %11, ptr noundef nonnull %13) #27
+  %14 = tail call i32 @wc_ShaCopy(ptr noundef nonnull %11, ptr noundef nonnull %13) #28
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.thread33
 
@@ -2876,7 +2876,7 @@ define i32 @InitHandshakeHashesAndCopy(ptr noundef captures(none) %0, ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %18 = load ptr, ptr %2, align 8, !tbaa !162
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 464
-  %20 = tail call i32 @wc_Md5Copy(ptr noundef nonnull %17, ptr noundef nonnull %19) #27
+  %20 = tail call i32 @wc_Md5Copy(ptr noundef nonnull %17, ptr noundef nonnull %19) #28
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.thread33
 
@@ -2884,7 +2884,7 @@ define i32 @InitHandshakeHashesAndCopy(ptr noundef captures(none) %0, ptr nounde
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %24 = load ptr, ptr %2, align 8, !tbaa !162
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 576
-  %26 = tail call i32 @wc_Sha256Copy(ptr noundef nonnull %23, ptr noundef nonnull %25) #27
+  %26 = tail call i32 @wc_Sha256Copy(ptr noundef nonnull %23, ptr noundef nonnull %25) #28
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.thread33
 
@@ -2892,7 +2892,7 @@ define i32 @InitHandshakeHashesAndCopy(ptr noundef captures(none) %0, ptr nounde
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %30 = load ptr, ptr %2, align 8, !tbaa !162
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 704
-  %32 = tail call i32 @wc_Sha384Copy(ptr noundef nonnull %29, ptr noundef nonnull %31) #27
+  %32 = tail call i32 @wc_Sha384Copy(ptr noundef nonnull %29, ptr noundef nonnull %31) #28
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.thread33
 
@@ -2900,7 +2900,7 @@ define i32 @InitHandshakeHashesAndCopy(ptr noundef captures(none) %0, ptr nounde
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 928
   %36 = load ptr, ptr %2, align 8, !tbaa !162
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 928
-  %38 = tail call i32 @wc_Sha512Copy(ptr noundef nonnull %35, ptr noundef nonnull %37) #27
+  %38 = tail call i32 @wc_Sha512Copy(ptr noundef nonnull %35, ptr noundef nonnull %37) #28
   br label %.thread33
 
 .thread33:                                        ; preds = %9, %16, %22, %28, %34, %5, %3
@@ -2930,7 +2930,7 @@ define i32 @ReinitSSL(ptr noundef captures(none) %0, ptr readnone captures(none)
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @wolfSSL_Malloc(i64 noundef 224) #27
+  %9 = tail call ptr @wolfSSL_Malloc(i64 noundef 224) #28
   store ptr %9, ptr %5, align 8, !tbaa !163
   %10 = icmp eq ptr %9, null
   br i1 %10, label %47, label %11
@@ -2940,7 +2940,7 @@ define i32 @ReinitSSL(ptr noundef captures(none) %0, ptr readnone captures(none)
   %12 = load ptr, ptr %5, align 8, !tbaa !163
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 512, ptr %13, align 8, !tbaa !164
-  %14 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #27
+  %14 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #28
   %15 = load ptr, ptr %5, align 8, !tbaa !163
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %14, ptr %16, align 8, !tbaa !166
@@ -2958,7 +2958,7 @@ define i32 @ReinitSSL(ptr noundef captures(none) %0, ptr readnone captures(none)
   br i1 %22, label %23, label %36
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #27
+  %24 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #28
   store ptr %24, ptr %20, align 8, !tbaa !116
   %25 = icmp eq ptr %24, null
   br i1 %25, label %47, label %26
@@ -2974,7 +2974,7 @@ define i32 @ReinitSSL(ptr noundef captures(none) %0, ptr readnone captures(none)
   %32 = load ptr, ptr %31, align 16, !tbaa !160
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %34 = load i32, ptr %33, align 4, !tbaa !161
-  %35 = tail call i32 @wc_InitRng_ex(ptr noundef %30, ptr noundef %32, i32 noundef %34) #27
+  %35 = tail call i32 @wc_InitRng_ex(ptr noundef %30, ptr noundef %32, i32 noundef %34) #28
   %.not29 = icmp eq i32 %35, 0
   br i1 %.not29, label %36, label %47
 
@@ -3136,7 +3136,7 @@ define i32 @InitSSL(ptr noundef initializes((0, 1232)) %0, ptr noundef %1, i32 n
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %81
-  %86 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #27
+  %86 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
   store ptr %86, ptr %82, align 8, !tbaa !72
   %87 = icmp eq ptr %86, null
   br i1 %87, label %AllocateCtxSuites.exit, label %88
@@ -3166,7 +3166,7 @@ define i32 @InitSSL(ptr noundef initializes((0, 1232)) %0, ptr noundef %1, i32 n
 
 100:                                              ; preds = %91
   %101 = load ptr, ptr %6, align 16, !tbaa !160
-  %102 = tail call ptr @wolfSSL_NewSession(ptr noundef %101) #27
+  %102 = tail call ptr @wolfSSL_NewSession(ptr noundef %101) #28
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr %102, ptr %103, align 16, !tbaa !168
   %104 = icmp eq ptr %102, null
@@ -3196,7 +3196,7 @@ define internal i32 @SSL_hmac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %20 = tail call ptr @wolfSSL_GetMacSecret(ptr noundef %0, i32 noundef %6) #27
+  %20 = tail call ptr @wolfSSL_GetMacSecret(ptr noundef %0, i32 noundef %6) #28
   %21 = trunc i32 %5 to i8
   store i8 %21, ptr %13, align 1, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -3288,85 +3288,85 @@ WriteSEQ.exit:                                    ; preds = %8, %31, %38, %40, %
   br i1 %72, label %77, label %100
 
 77:                                               ; preds = %WriteSEQ.exit
-  %78 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %10, ptr noundef %74, i32 noundef %76) #27
+  %78 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %10, ptr noundef %74, i32 noundef %76) #28
   %.not63 = icmp eq i32 %78, 0
   br i1 %.not63, label %79, label %123
 
 79:                                               ; preds = %77
-  %80 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef %20, i32 noundef %16) #27
-  %81 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull @PAD1, i32 noundef %19) #27
+  %80 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef %20, i32 noundef %16) #28
+  %81 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull @PAD1, i32 noundef %19) #28
   %82 = or i32 %81, %80
-  %83 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef 8) #27
+  %83 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef 8) #28
   %84 = or i32 %82, %83
-  %85 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull %13, i32 noundef 3) #27
+  %85 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull %13, i32 noundef 3) #28
   %86 = or i32 %84, %85
-  %87 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef %2, i32 noundef %3) #27
+  %87 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef %2, i32 noundef %3) #28
   %88 = or i32 %86, %87
   %.not64 = icmp eq i32 %88, 0
   br i1 %.not64, label %89, label %123
 
 89:                                               ; preds = %79
-  %90 = call i32 @wc_Md5Final(ptr noundef nonnull %10, ptr noundef nonnull %9) #27
+  %90 = call i32 @wc_Md5Final(ptr noundef nonnull %10, ptr noundef nonnull %9) #28
   %.not65 = icmp eq i32 %90, 0
   br i1 %.not65, label %91, label %123
 
 91:                                               ; preds = %89
-  %92 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef %20, i32 noundef %16) #27
-  %93 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull @PAD2, i32 noundef %19) #27
+  %92 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef %20, i32 noundef %16) #28
+  %93 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull @PAD2, i32 noundef %19) #28
   %94 = or i32 %93, %92
-  %95 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef %16) #27
+  %95 = call i32 @wc_Md5Update(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef %16) #28
   %96 = or i32 %94, %95
   %.not66 = icmp eq i32 %96, 0
   br i1 %.not66, label %97, label %123
 
 97:                                               ; preds = %91
-  %98 = call i32 @wc_Md5Final(ptr noundef nonnull %10, ptr noundef %1) #27
+  %98 = call i32 @wc_Md5Final(ptr noundef nonnull %10, ptr noundef %1) #28
   %.not67 = icmp eq i32 %98, 0
   br i1 %.not67, label %99, label %123
 
 99:                                               ; preds = %97
-  call void @wc_Md5Free(ptr noundef nonnull %10) #27
+  call void @wc_Md5Free(ptr noundef nonnull %10) #28
   br label %123
 
 100:                                              ; preds = %WriteSEQ.exit
-  %101 = call i32 @wc_InitSha_ex(ptr noundef nonnull %11, ptr noundef %74, i32 noundef %76) #27
+  %101 = call i32 @wc_InitSha_ex(ptr noundef nonnull %11, ptr noundef %74, i32 noundef %76) #28
   %.not = icmp eq i32 %101, 0
   br i1 %.not, label %102, label %123
 
 102:                                              ; preds = %100
-  %103 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef %20, i32 noundef %16) #27
-  %104 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull @PAD1, i32 noundef %19) #27
+  %103 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef %20, i32 noundef %16) #28
+  %104 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull @PAD1, i32 noundef %19) #28
   %105 = or i32 %104, %103
-  %106 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 8) #27
+  %106 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 8) #28
   %107 = or i32 %105, %106
-  %108 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull %13, i32 noundef 3) #27
+  %108 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull %13, i32 noundef 3) #28
   %109 = or i32 %107, %108
-  %110 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef %2, i32 noundef %3) #27
+  %110 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef %2, i32 noundef %3) #28
   %111 = or i32 %109, %110
   %.not59 = icmp eq i32 %111, 0
   br i1 %.not59, label %112, label %123
 
 112:                                              ; preds = %102
-  %113 = call i32 @wc_ShaFinal(ptr noundef nonnull %11, ptr noundef nonnull %9) #27
+  %113 = call i32 @wc_ShaFinal(ptr noundef nonnull %11, ptr noundef nonnull %9) #28
   %.not60 = icmp eq i32 %113, 0
   br i1 %.not60, label %114, label %123
 
 114:                                              ; preds = %112
-  %115 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef %20, i32 noundef %16) #27
-  %116 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull @PAD2, i32 noundef %19) #27
+  %115 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef %20, i32 noundef %16) #28
+  %116 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull @PAD2, i32 noundef %19) #28
   %117 = or i32 %116, %115
-  %118 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef %16) #27
+  %118 = call i32 @wc_ShaUpdate(ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef %16) #28
   %119 = or i32 %117, %118
   %.not61 = icmp eq i32 %119, 0
   br i1 %.not61, label %120, label %123
 
 120:                                              ; preds = %114
-  %121 = call i32 @wc_ShaFinal(ptr noundef nonnull %11, ptr noundef %1) #27
+  %121 = call i32 @wc_ShaFinal(ptr noundef nonnull %11, ptr noundef %1) #28
   %.not62 = icmp eq i32 %121, 0
   br i1 %.not62, label %122, label %123
 
 122:                                              ; preds = %120
-  call void @wc_ShaFree(ptr noundef nonnull %11) #27
+  call void @wc_ShaFree(ptr noundef nonnull %11) #28
   br label %123
 
 123:                                              ; preds = %99, %122, %120, %114, %112, %102, %100, %97, %91, %89, %79, %77
@@ -3474,7 +3474,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   br i1 %.not27, label %43, label %42
 
 42:                                               ; preds = %ForceZero.exit
-  tail call void @wolfSSL_Free(ptr noundef nonnull %41) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %41) #28
   %.pre = load ptr, ptr %3, align 8, !tbaa !163
   br label %43
 
@@ -3491,7 +3491,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   br i1 %.not28, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call void @wolfSSL_Free(ptr noundef nonnull %48) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %48) #28
   %.pre63 = load ptr, ptr %3, align 8, !tbaa !163
   br label %50
 
@@ -3547,7 +3547,7 @@ ForceZero.exit48:                                 ; preds = %.lr.ph35.i41, %.pre
   br i1 %.not29, label %ForceZero.exit48.thread, label %64
 
 64:                                               ; preds = %ForceZero.exit48
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #28
   br label %ForceZero.exit48.thread
 
 ForceZero.exit48.thread:                          ; preds = %2, %64, %ForceZero.exit48
@@ -3575,15 +3575,15 @@ define void @FreeKey(ptr noundef readnone captures(address_is_null) %0, i32 noun
   ]
 
 9:                                                ; preds = %8
-  %10 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %7) #27
+  %10 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %7) #28
   br label %15
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @wc_ecc_free(ptr noundef nonnull %7) #27
+  %12 = tail call i32 @wc_ecc_free(ptr noundef nonnull %7) #28
   br label %15
 
 13:                                               ; preds = %8
-  %14 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %7) #27
+  %14 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %7) #28
   br label %15
 
 15:                                               ; preds = %9, %11, %13
@@ -3593,7 +3593,7 @@ define void @FreeKey(ptr noundef readnone captures(address_is_null) %0, i32 noun
 
 .thread:                                          ; preds = %8, %15
   %16 = phi ptr [ %.pr, %15 ], [ %7, %8 ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %16) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %16) #28
   br label %17
 
 17:                                               ; preds = %.thread, %15
@@ -3637,7 +3637,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
 
 11:                                               ; preds = %8, %10, %9
   %.025 = phi i64 [ 4208, %9 ], [ 3136, %10 ], [ 8368, %8 ]
-  %12 = tail call ptr @wolfSSL_Malloc(i64 noundef %.025) #27
+  %12 = tail call ptr @wolfSSL_Malloc(i64 noundef %.025) #28
   store ptr %12, ptr %2, align 8, !tbaa !196
   %13 = icmp eq ptr %12, null
   br i1 %13, label %FreeKey.exit, label %14
@@ -3654,7 +3654,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
   %17 = load ptr, ptr %16, align 16, !tbaa !160
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %19 = load i32, ptr %18, align 4, !tbaa !161
-  %20 = tail call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %12, ptr noundef %17, i32 noundef %19) #27
+  %20 = tail call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %12, ptr noundef %17, i32 noundef %19) #28
   br label %33
 
 21:                                               ; preds = %14
@@ -3662,7 +3662,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
   %23 = load ptr, ptr %22, align 16, !tbaa !160
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %25 = load i32, ptr %24, align 4, !tbaa !161
-  %26 = tail call i32 @wc_ecc_init_ex(ptr noundef nonnull %12, ptr noundef %23, i32 noundef %25) #27
+  %26 = tail call i32 @wc_ecc_init_ex(ptr noundef nonnull %12, ptr noundef %23, i32 noundef %25) #28
   br label %33
 
 27:                                               ; preds = %14
@@ -3670,7 +3670,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
   %29 = load ptr, ptr %28, align 16, !tbaa !160
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %31 = load i32, ptr %30, align 4, !tbaa !161
-  %32 = tail call i32 @wc_InitDhKey_ex(ptr noundef nonnull %12, ptr noundef %29, i32 noundef %31) #27
+  %32 = tail call i32 @wc_InitDhKey_ex(ptr noundef nonnull %12, ptr noundef %29, i32 noundef %31) #28
   br label %33
 
 33:                                               ; preds = %27, %21, %15
@@ -3691,15 +3691,15 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
   ]
 
 37:                                               ; preds = %36
-  %38 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %35) #27
+  %38 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %35) #28
   br label %43
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @wc_ecc_free(ptr noundef nonnull %35) #27
+  %40 = tail call i32 @wc_ecc_free(ptr noundef nonnull %35) #28
   br label %43
 
 41:                                               ; preds = %36
-  %42 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %35) #27
+  %42 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %35) #28
   br label %43
 
 43:                                               ; preds = %41, %39, %37
@@ -3709,7 +3709,7 @@ define i32 @AllocKey(ptr noundef readonly captures(address_is_null) %0, i32 noun
 
 .thread.i:                                        ; preds = %43, %36
   %44 = phi ptr [ %.pr.i, %43 ], [ %35, %36 ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %44) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %44) #28
   br label %45
 
 45:                                               ; preds = %.thread.i, %43
@@ -3741,7 +3741,7 @@ define void @FreeAsyncCtx(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_a
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void %6(ptr noundef nonnull %0, ptr noundef nonnull %8) #27
+  tail call void %6(ptr noundef nonnull %0, ptr noundef nonnull %8) #28
   %9 = load ptr, ptr %3, align 8, !tbaa !197
   store ptr null, ptr %9, align 8, !tbaa !198
   br label %10
@@ -3752,7 +3752,7 @@ define void @FreeAsyncCtx(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_a
   br i1 %.not13, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void @wolfSSL_Free(ptr noundef nonnull %11) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %11) #28
   store ptr null, ptr %3, align 8, !tbaa !197
   br label %13
 
@@ -3768,7 +3768,7 @@ define void @FreeKeyExchange(ptr noundef captures(none) %0) local_unnamed_addr #
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  tail call void @wolfSSL_Free(ptr noundef nonnull %3) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %3) #28
   store ptr null, ptr %2, align 16, !tbaa !200
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i32 0, ptr %5, align 8, !tbaa !201
@@ -3788,7 +3788,7 @@ define void @FreeKeyExchange(ptr noundef captures(none) %0) local_unnamed_addr #
   br i1 %.not21, label %13, label %14
 
 13:                                               ; preds = %9
-  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #28
   %.pre = load i64, ptr %10, align 8
   br label %14
 
@@ -3817,15 +3817,15 @@ define void @FreeKeyExchange(ptr noundef captures(none) %0) local_unnamed_addr #
   ]
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %20) #27
+  %25 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %20) #28
   br label %30
 
 26:                                               ; preds = %21
-  %27 = tail call i32 @wc_ecc_free(ptr noundef nonnull %20) #27
+  %27 = tail call i32 @wc_ecc_free(ptr noundef nonnull %20) #28
   br label %30
 
 28:                                               ; preds = %21
-  %29 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %20) #27
+  %29 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %20) #28
   br label %30
 
 30:                                               ; preds = %28, %26, %24
@@ -3835,7 +3835,7 @@ define void @FreeKeyExchange(ptr noundef captures(none) %0) local_unnamed_addr #
 
 .thread.i:                                        ; preds = %30, %21
   %31 = phi ptr [ %.pr.i, %30 ], [ %20, %21 ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %31) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %31) #28
   br label %32
 
 32:                                               ; preds = %.thread.i, %30
@@ -3849,13 +3849,13 @@ define void @FreeKeyExchange(ptr noundef captures(none) %0) local_unnamed_addr #
   br i1 %.not.i22, label %FreeKey.exit26, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %35) #27
+  %37 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %35) #28
   %.pr.i23 = load ptr, ptr %34, align 8, !tbaa !196
   %.not13.i24 = icmp eq ptr %.pr.i23, null
   br i1 %.not13.i24, label %38, label %.thread.i25
 
 .thread.i25:                                      ; preds = %36
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i23) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i23) #28
   br label %38
 
 38:                                               ; preds = %.thread.i25, %36
@@ -3874,7 +3874,7 @@ define void @FreeSuites(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @wolfSSL_Free(ptr noundef nonnull %3) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %3) #28
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -3944,7 +3944,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   br i1 %.not11.i, label %FreeCiphers.exit, label %20
 
 20:                                               ; preds = %ForceZero.exit.i
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i) #28
   br label %FreeCiphers.exit
 
 FreeCiphers.exit:                                 ; preds = %1, %ForceZero.exit.i, %20
@@ -3963,14 +3963,14 @@ FreeCiphers.exit:                                 ; preds = %1, %ForceZero.exit.
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %26) #27
+  tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %26) #28
   %27 = load ptr, ptr %21, align 8, !tbaa !197
   store ptr null, ptr %27, align 8, !tbaa !198
   br label %28
 
 28:                                               ; preds = %25, %23
   %29 = phi ptr [ %27, %25 ], [ %22, %23 ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %29) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %29) #28
   store ptr null, ptr %21, align 8, !tbaa !197
   br label %FreeAsyncCtx.exit
 
@@ -3983,13 +3983,13 @@ FreeAsyncCtx.exit:                                ; preds = %FreeCiphers.exit, %
 32:                                               ; preds = %FreeAsyncCtx.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %34 = load ptr, ptr %33, align 8, !tbaa !116
-  %35 = tail call i32 @wc_FreeRng(ptr noundef %34) #27
+  %35 = tail call i32 @wc_FreeRng(ptr noundef %34) #28
   %36 = load ptr, ptr %33, align 8, !tbaa !116
   %.not66 = icmp eq ptr %36, null
   br i1 %.not66, label %38, label %37
 
 37:                                               ; preds = %32
-  tail call void @wolfSSL_Free(ptr noundef nonnull %36) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %36) #28
   br label %38
 
 38:                                               ; preds = %37, %32
@@ -4006,7 +4006,7 @@ FreeAsyncCtx.exit:                                ; preds = %FreeCiphers.exit, %
   br i1 %.not.i78, label %FreeSuites.exit, label %44
 
 44:                                               ; preds = %41
-  tail call void @wolfSSL_Free(ptr noundef nonnull %43) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %43) #28
   br label %FreeSuites.exit
 
 FreeSuites.exit:                                  ; preds = %41, %44
@@ -4018,25 +4018,25 @@ FreeSuites.exit:                                  ; preds = %41, %44
 
 47:                                               ; preds = %FreeSuites.exit
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 464
-  tail call void @wc_Md5Free(ptr noundef nonnull %48) #27
+  tail call void @wc_Md5Free(ptr noundef nonnull %48) #28
   %49 = load ptr, ptr %45, align 16, !tbaa !159
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 360
-  tail call void @wc_ShaFree(ptr noundef nonnull %50) #27
+  tail call void @wc_ShaFree(ptr noundef nonnull %50) #28
   %51 = load ptr, ptr %45, align 16, !tbaa !159
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 576
-  tail call void @wc_Sha256Free(ptr noundef nonnull %52) #27
+  tail call void @wc_Sha256Free(ptr noundef nonnull %52) #28
   %53 = load ptr, ptr %45, align 16, !tbaa !159
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 704
-  tail call void @wc_Sha384Free(ptr noundef nonnull %54) #27
+  tail call void @wc_Sha384Free(ptr noundef nonnull %54) #28
   %55 = load ptr, ptr %45, align 16, !tbaa !159
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 928
-  tail call void @wc_Sha512Free(ptr noundef nonnull %56) #27
+  tail call void @wc_Sha512Free(ptr noundef nonnull %56) #28
   %57 = load ptr, ptr %45, align 16, !tbaa !159
   %.not11.i80 = icmp eq ptr %57, null
   br i1 %.not11.i80, label %59, label %58
 
 58:                                               ; preds = %47
-  tail call void @wolfSSL_Free(ptr noundef nonnull %57) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %57) #28
   br label %59
 
 59:                                               ; preds = %58, %47
@@ -4050,7 +4050,7 @@ FreeHandshakeHashes.exit:                         ; preds = %FreeSuites.exit, %5
   br i1 %.not67, label %63, label %62
 
 62:                                               ; preds = %FreeHandshakeHashes.exit
-  tail call void @wolfSSL_Free(ptr noundef nonnull %61) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %61) #28
   br label %63
 
 63:                                               ; preds = %62, %FreeHandshakeHashes.exit
@@ -4250,7 +4250,7 @@ ForceZero.exit138:                                ; preds = %.lr.ph35.i131, %.pr
   br i1 %.not69, label %ForceZero.exit138.thread, label %121
 
 121:                                              ; preds = %ForceZero.exit138
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #28
   br label %ForceZero.exit138.thread
 
 ForceZero.exit138.thread:                         ; preds = %ForceZero.exit119, %121, %ForceZero.exit138
@@ -4260,7 +4260,7 @@ ForceZero.exit138.thread:                         ; preds = %ForceZero.exit119, 
   br i1 %.not70, label %125, label %124
 
 124:                                              ; preds = %ForceZero.exit138.thread
-  tail call void @wolfSSL_Free(ptr noundef nonnull %123) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %123) #28
   br label %125
 
 125:                                              ; preds = %124, %ForceZero.exit138.thread
@@ -4276,7 +4276,7 @@ ForceZero.exit138.thread:                         ; preds = %ForceZero.exit119, 
   br i1 %.not72, label %132, label %131
 
 131:                                              ; preds = %128
-  tail call void @wolfSSL_Free(ptr noundef nonnull %130) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %130) #28
   br label %132
 
 132:                                              ; preds = %131, %128
@@ -4286,26 +4286,26 @@ ForceZero.exit138.thread:                         ; preds = %ForceZero.exit119, 
   br i1 %.not73, label %136, label %135
 
 135:                                              ; preds = %132
-  tail call void @wolfSSL_Free(ptr noundef nonnull %134) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %134) #28
   br label %136
 
 136:                                              ; preds = %125, %135, %132
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   store i8 0, ptr %137, align 16, !tbaa !212
-  %138 = tail call i32 @wolfSSL_UnloadCertsKeys(ptr noundef nonnull %0) #27
+  %138 = tail call i32 @wolfSSL_UnloadCertsKeys(ptr noundef nonnull %0) #28
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %140 = load ptr, ptr %139, align 16, !tbaa !196
   %.not.i139 = icmp eq ptr %140, null
   br i1 %.not.i139, label %FreeKey.exit, label %141
 
 141:                                              ; preds = %136
-  %142 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %140) #27
+  %142 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %140) #28
   %.pr.i140 = load ptr, ptr %139, align 8, !tbaa !196
   %.not13.i = icmp eq ptr %.pr.i140, null
   br i1 %.not13.i, label %143, label %.thread.i
 
 .thread.i:                                        ; preds = %141
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i140) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i140) #28
   br label %143
 
 143:                                              ; preds = %.thread.i, %141
@@ -4387,7 +4387,7 @@ ForceZero.exit.i155:                              ; preds = %.lr.ph35.i.i151, %.
   %173 = zext i8 %172 to i64
   %174 = sub nsw i64 0, %173
   %175 = getelementptr inbounds i8, ptr %169, i64 %174
-  tail call void @wolfSSL_Free(ptr noundef nonnull %175) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %175) #28
   br label %ShrinkInputBuffer.exit
 
 ShrinkInputBuffer.exit:                           ; preds = %ForceZero.exit.i155, %171
@@ -4418,7 +4418,7 @@ ShrinkInputBuffer.exit:                           ; preds = %ForceZero.exit.i155
   %186 = zext i8 %185 to i64
   %187 = sub nsw i64 0, %186
   %188 = getelementptr inbounds i8, ptr %182, i64 %187
-  tail call void @wolfSSL_Free(ptr noundef nonnull %188) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %188) #28
   br label %ShrinkOutputBuffer.exit
 
 ShrinkOutputBuffer.exit:                          ; preds = %180, %184
@@ -4437,13 +4437,13 @@ ShrinkOutputBuffer.exit:                          ; preds = %180, %184
   br i1 %.not.i160, label %197, label %194
 
 194:                                              ; preds = %191
-  %195 = tail call i32 @wc_ecc_free(ptr noundef nonnull %193) #27
+  %195 = tail call i32 @wc_ecc_free(ptr noundef nonnull %193) #28
   %.pr.i161 = load ptr, ptr %192, align 8, !tbaa !196
   %.not13.i162 = icmp eq ptr %.pr.i161, null
   br i1 %.not13.i162, label %196, label %.thread.i163
 
 .thread.i163:                                     ; preds = %194
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i161) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i161) #28
   br label %196
 
 196:                                              ; preds = %.thread.i163, %194
@@ -4459,13 +4459,13 @@ ShrinkOutputBuffer.exit:                          ; preds = %180, %184
   br i1 %.not.i165, label %204, label %201
 
 201:                                              ; preds = %197
-  %202 = tail call i32 @wc_ecc_free(ptr noundef nonnull %200) #27
+  %202 = tail call i32 @wc_ecc_free(ptr noundef nonnull %200) #28
   %.pr.i166 = load ptr, ptr %199, align 8, !tbaa !196
   %.not13.i167 = icmp eq ptr %.pr.i166, null
   br i1 %.not13.i167, label %203, label %.thread.i168
 
 .thread.i168:                                     ; preds = %201
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i166) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i166) #28
   br label %203
 
 203:                                              ; preds = %.thread.i168, %201
@@ -4481,13 +4481,13 @@ ShrinkOutputBuffer.exit:                          ; preds = %180, %184
   br i1 %.not.i170, label %FreeKey.exit174, label %208
 
 208:                                              ; preds = %204
-  %209 = tail call i32 @wc_ecc_free(ptr noundef nonnull %207) #27
+  %209 = tail call i32 @wc_ecc_free(ptr noundef nonnull %207) #28
   %.pr.i171 = load ptr, ptr %206, align 8, !tbaa !196
   %.not13.i172 = icmp eq ptr %.pr.i171, null
   br i1 %.not13.i172, label %210, label %.thread.i173
 
 .thread.i173:                                     ; preds = %208
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i171) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i171) #28
   br label %210
 
 210:                                              ; preds = %.thread.i173, %208
@@ -4501,7 +4501,7 @@ FreeKey.exit174:                                  ; preds = %204, %210
   %213 = load ptr, ptr %212, align 8, !tbaa !223
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %215 = load ptr, ptr %214, align 16, !tbaa !160
-  tail call void @TLSX_FreeAll(ptr noundef %213, ptr noundef %215) #27
+  tail call void @TLSX_FreeAll(ptr noundef %213, ptr noundef %215) #28
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %217 = load ptr, ptr %216, align 16, !tbaa !168
   %.not76 = icmp eq ptr %217, null
@@ -4509,7 +4509,7 @@ FreeKey.exit174:                                  ; preds = %204, %210
 
 218:                                              ; preds = %FreeKey.exit174
   %219 = load ptr, ptr %0, align 16, !tbaa !99
-  tail call void @wolfSSL_FreeSession(ptr noundef %219, ptr noundef nonnull %217) #27
+  tail call void @wolfSSL_FreeSession(ptr noundef %219, ptr noundef nonnull %217) #28
   br label %220
 
 220:                                              ; preds = %218, %FreeKey.exit174
@@ -4617,7 +4617,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %42 = zext i8 %41 to i64
   %43 = sub nsw i64 0, %42
   %44 = getelementptr inbounds i8, ptr %38, i64 %43
-  tail call void @wolfSSL_Free(ptr noundef nonnull %44) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %44) #28
   br label %45
 
 45:                                               ; preds = %40, %ForceZero.exit
@@ -4648,7 +4648,7 @@ define void @ShrinkOutputBuffer(ptr noundef %0) local_unnamed_addr #4 {
   %7 = zext i8 %6 to i64
   %8 = sub nsw i64 0, %7
   %9 = getelementptr inbounds i8, ptr %3, i64 %8
-  tail call void @wolfSSL_Free(ptr noundef nonnull %9) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %9) #28
   br label %10
 
 10:                                               ; preds = %5, %1
@@ -4763,7 +4763,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   %43 = zext i8 %42 to i64
   %44 = sub nsw i64 0, %43
   %45 = getelementptr inbounds i8, ptr %39, i64 %44
-  tail call void @wolfSSL_Free(ptr noundef nonnull %45) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %45) #28
   br label %46
 
 46:                                               ; preds = %41, %ForceZero.exit.i
@@ -4783,7 +4783,7 @@ ShrinkInputBuffer.exit:                           ; preds = %46, %12, %4, %1
   br i1 %.not.i, label %FreeSuites.exit, label %50
 
 50:                                               ; preds = %ShrinkInputBuffer.exit
-  tail call void @wolfSSL_Free(ptr noundef nonnull %49) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %49) #28
   br label %FreeSuites.exit
 
 FreeSuites.exit:                                  ; preds = %ShrinkInputBuffer.exit, %50
@@ -4795,25 +4795,25 @@ FreeSuites.exit:                                  ; preds = %ShrinkInputBuffer.e
 
 53:                                               ; preds = %FreeSuites.exit
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 464
-  tail call void @wc_Md5Free(ptr noundef nonnull %54) #27
+  tail call void @wc_Md5Free(ptr noundef nonnull %54) #28
   %55 = load ptr, ptr %51, align 16, !tbaa !159
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 360
-  tail call void @wc_ShaFree(ptr noundef nonnull %56) #27
+  tail call void @wc_ShaFree(ptr noundef nonnull %56) #28
   %57 = load ptr, ptr %51, align 16, !tbaa !159
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 576
-  tail call void @wc_Sha256Free(ptr noundef nonnull %58) #27
+  tail call void @wc_Sha256Free(ptr noundef nonnull %58) #28
   %59 = load ptr, ptr %51, align 16, !tbaa !159
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 704
-  tail call void @wc_Sha384Free(ptr noundef nonnull %60) #27
+  tail call void @wc_Sha384Free(ptr noundef nonnull %60) #28
   %61 = load ptr, ptr %51, align 16, !tbaa !159
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 928
-  tail call void @wc_Sha512Free(ptr noundef nonnull %62) #27
+  tail call void @wc_Sha512Free(ptr noundef nonnull %62) #28
   %63 = load ptr, ptr %51, align 16, !tbaa !159
   %.not11.i = icmp eq ptr %63, null
   br i1 %.not11.i, label %65, label %64
 
 64:                                               ; preds = %53
-  tail call void @wolfSSL_Free(ptr noundef nonnull %63) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %63) #28
   br label %65
 
 65:                                               ; preds = %64, %53
@@ -4847,13 +4847,13 @@ FreeHandshakeHashes.exit:                         ; preds = %FreeSuites.exit, %6
 77:                                               ; preds = %70, %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %79 = load ptr, ptr %78, align 8, !tbaa !116
-  %80 = tail call i32 @wc_FreeRng(ptr noundef %79) #27
+  %80 = tail call i32 @wc_FreeRng(ptr noundef %79) #28
   %81 = load ptr, ptr %78, align 8, !tbaa !116
   %.not67 = icmp eq ptr %81, null
   br i1 %.not67, label %83, label %82
 
 82:                                               ; preds = %77
-  tail call void @wolfSSL_Free(ptr noundef nonnull %81) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %81) #28
   br label %83
 
 83:                                               ; preds = %82, %77
@@ -4880,13 +4880,13 @@ FreeHandshakeHashes.exit:                         ; preds = %FreeSuites.exit, %6
   br i1 %.not.i76, label %97, label %94
 
 94:                                               ; preds = %91
-  %95 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %93) #27
+  %95 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %93) #28
   %.pr.i = load ptr, ptr %92, align 8, !tbaa !196
   %.not13.i = icmp eq ptr %.pr.i, null
   br i1 %.not13.i, label %96, label %.thread.i77
 
 .thread.i77:                                      ; preds = %94
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i) #28
   br label %96
 
 96:                                               ; preds = %.thread.i77, %94
@@ -4902,13 +4902,13 @@ FreeHandshakeHashes.exit:                         ; preds = %FreeSuites.exit, %6
   br i1 %.not.i78, label %104, label %101
 
 101:                                              ; preds = %97
-  %102 = tail call i32 @wc_ecc_free(ptr noundef nonnull %100) #27
+  %102 = tail call i32 @wc_ecc_free(ptr noundef nonnull %100) #28
   %.pr.i79 = load ptr, ptr %99, align 8, !tbaa !196
   %.not13.i80 = icmp eq ptr %.pr.i79, null
   br i1 %.not13.i80, label %103, label %.thread.i81
 
 .thread.i81:                                      ; preds = %101
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i79) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i79) #28
   br label %103
 
 103:                                              ; preds = %.thread.i81, %101
@@ -4924,13 +4924,13 @@ FreeHandshakeHashes.exit:                         ; preds = %FreeSuites.exit, %6
   br i1 %.not.i83, label %111, label %108
 
 108:                                              ; preds = %104
-  %109 = tail call i32 @wc_ecc_free(ptr noundef nonnull %107) #27
+  %109 = tail call i32 @wc_ecc_free(ptr noundef nonnull %107) #28
   %.pr.i84 = load ptr, ptr %106, align 8, !tbaa !196
   %.not13.i85 = icmp eq ptr %.pr.i84, null
   br i1 %.not13.i85, label %110, label %.thread.i86
 
 .thread.i86:                                      ; preds = %108
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i84) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i84) #28
   br label %110
 
 110:                                              ; preds = %.thread.i86, %108
@@ -4946,13 +4946,13 @@ FreeHandshakeHashes.exit:                         ; preds = %FreeSuites.exit, %6
   br i1 %.not.i88, label %FreeKey.exit92, label %115
 
 115:                                              ; preds = %111
-  %116 = tail call i32 @wc_ecc_free(ptr noundef nonnull %114) #27
+  %116 = tail call i32 @wc_ecc_free(ptr noundef nonnull %114) #28
   %.pr.i89 = load ptr, ptr %113, align 8, !tbaa !196
   %.not13.i90 = icmp eq ptr %.pr.i89, null
   br i1 %.not13.i90, label %117, label %.thread.i91
 
 .thread.i91:                                      ; preds = %115
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i89) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i89) #28
   br label %117
 
 117:                                              ; preds = %.thread.i91, %115
@@ -5023,7 +5023,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   br i1 %.not69, label %ForceZero.exit.thread, label %137
 
 137:                                              ; preds = %ForceZero.exit
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #28
   br label %ForceZero.exit.thread
 
 ForceZero.exit.thread:                            ; preds = %FreeKey.exit92, %137, %ForceZero.exit
@@ -5034,7 +5034,7 @@ ForceZero.exit.thread:                            ; preds = %FreeKey.exit92, %13
   br i1 %.not70, label %141, label %140
 
 140:                                              ; preds = %ForceZero.exit.thread
-  tail call void @wolfSSL_Free(ptr noundef nonnull %139) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %139) #28
   br label %141
 
 141:                                              ; preds = %140, %ForceZero.exit.thread
@@ -5051,7 +5051,7 @@ ForceZero.exit.thread:                            ; preds = %FreeKey.exit92, %13
   br i1 %.not72, label %148, label %147
 
 147:                                              ; preds = %144
-  tail call void @wolfSSL_Free(ptr noundef nonnull %146) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %146) #28
   br label %148
 
 148:                                              ; preds = %147, %144
@@ -5062,7 +5062,7 @@ ForceZero.exit.thread:                            ; preds = %FreeKey.exit92, %13
   br i1 %.not73, label %152, label %151
 
 151:                                              ; preds = %148
-  tail call void @wolfSSL_Free(ptr noundef nonnull %150) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %150) #28
   br label %152
 
 152:                                              ; preds = %151, %148
@@ -5076,22 +5076,22 @@ ForceZero.exit.thread:                            ; preds = %FreeKey.exit92, %13
   br i1 %.not74, label %158, label %156
 
 156:                                              ; preds = %153
-  %157 = tail call i32 @wolfSSL_UnloadCertsKeys(ptr noundef nonnull %0) #27
+  %157 = tail call i32 @wolfSSL_UnloadCertsKeys(ptr noundef nonnull %0) #28
   br label %158
 
 158:                                              ; preds = %156, %153
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %161 = load ptr, ptr %160, align 16, !tbaa !160
-  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 13, ptr noundef %161) #27
+  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 13, ptr noundef %161) #28
   %162 = load ptr, ptr %160, align 16, !tbaa !160
-  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 11, ptr noundef %162) #27
+  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 11, ptr noundef %162) #28
   %163 = load ptr, ptr %160, align 16, !tbaa !160
-  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 10, ptr noundef %163) #27
+  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 10, ptr noundef %163) #28
   %164 = load ptr, ptr %160, align 16, !tbaa !160
-  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 43, ptr noundef %164) #27
+  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 43, ptr noundef %164) #28
   %165 = load ptr, ptr %160, align 16, !tbaa !160
-  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 51, ptr noundef %165) #27
+  tail call void @TLSX_Remove(ptr noundef nonnull %159, i32 noundef 51, ptr noundef %165) #28
   ret void
 }
 
@@ -5103,7 +5103,7 @@ define void @FreeSSL(ptr noundef %0, ptr noundef readnone captures(none) %1) loc
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 16, !tbaa !99
   tail call void @wolfSSL_ResourceFree(ptr noundef nonnull %0)
-  tail call void @wolfSSL_Free(ptr noundef nonnull %0) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %0) #28
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %18, label %6
 
@@ -5111,7 +5111,7 @@ define void @FreeSSL(ptr noundef %0, ptr noundef readnone captures(none) %1) loc
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @wolfSSL_RefWithMutexDec(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #27
+  call void @wolfSSL_RefWithMutexDec(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #28
   %8 = load i32, ptr %4, align 4, !tbaa !49
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %15
@@ -5133,11 +5133,11 @@ define void @FreeSSL(ptr noundef %0, ptr noundef readnone captures(none) %1) loc
 
 17:                                               ; preds = %15
   call void @SSL_CtxResourceFree(ptr noundef nonnull %5)
-  call void @wolfSSL_RefWithMutexFree(ptr noundef nonnull %7) #27
+  call void @wolfSSL_RefWithMutexFree(ptr noundef nonnull %7) #28
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %17, %14
-  call void @wolfSSL_Free(ptr noundef nonnull %5) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %5) #28
   br label %FreeSSL_Ctx.exit
 
 FreeSSL_Ctx.exit:                                 ; preds = %10, %15, %.sink.split.i
@@ -5228,7 +5228,7 @@ GetSEQIncrement.exit:                             ; preds = %24, %17, %15, %8, %
 
 ; Function Attrs: nounwind uwtable
 define i32 @LowResTimer() local_unnamed_addr #4 {
-  %1 = tail call i64 @wc_Time(ptr noundef null) #27
+  %1 = tail call i64 @wc_Time(ptr noundef null) #28
   %2 = trunc i64 %1 to i32
   ret i32 %2
 }
@@ -5244,10 +5244,10 @@ define i32 @HashRaw(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  %9 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2) #27
+  %9 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2) #28
   %10 = load ptr, ptr %4, align 16, !tbaa !159
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 464
-  %12 = tail call i32 @wc_Md5Update(ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2) #27
+  %12 = tail call i32 @wc_Md5Update(ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2) #28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 710
   %14 = load i8, ptr %13, align 2, !tbaa !3
   %15 = icmp eq i8 %14, 3
@@ -5262,21 +5262,21 @@ define i32 @HashRaw(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 
 IsAtLeastTLSv1_2.exit:                            ; preds = %16
   %20 = load ptr, ptr %4, align 16, !tbaa !159
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 576
-  %22 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %21, ptr noundef %1, i32 noundef %2) #27
+  %22 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %21, ptr noundef %1, i32 noundef %2) #28
   %.not29 = icmp eq i32 %22, 0
   br i1 %.not29, label %23, label %31
 
 23:                                               ; preds = %IsAtLeastTLSv1_2.exit
   %24 = load ptr, ptr %4, align 16, !tbaa !159
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 704
-  %26 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %25, ptr noundef %1, i32 noundef %2) #27
+  %26 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %25, ptr noundef %1, i32 noundef %2) #28
   %.not30 = icmp eq i32 %26, 0
   br i1 %.not30, label %27, label %31
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %4, align 16, !tbaa !159
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 928
-  %30 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %29, ptr noundef %1, i32 noundef %2) #27
+  %30 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %29, ptr noundef %1, i32 noundef %2) #28
   %.not31 = icmp eq i32 %30, 0
   br i1 %.not31, label %IsAtLeastTLSv1_2.exit.thread, label %31
 
@@ -5366,7 +5366,7 @@ define range(i32 -387, 1) i32 @SendBuffered(ptr noundef %0) local_unnamed_addr #
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %18 = load ptr, ptr %9, align 16, !tbaa !181
-  %19 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %12, ptr noundef %18) #27
+  %19 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %17, i32 noundef %12, ptr noundef %18) #28
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -5412,7 +5412,7 @@ define range(i32 -387, 1) i32 @SendBuffered(ptr noundef %0) local_unnamed_addr #
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   %41 = load i32, ptr %5, align 16, !tbaa !226
   %42 = load ptr, ptr %9, align 16, !tbaa !181
-  %43 = tail call i32 %36(ptr noundef nonnull %0, ptr noundef %40, i32 noundef %41, ptr noundef %42) #27
+  %43 = tail call i32 %36(ptr noundef nonnull %0, ptr noundef %40, i32 noundef %41, ptr noundef %42) #28
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %.lr.ph, label %._crit_edge
 
@@ -5473,7 +5473,7 @@ define range(i32 -387, 1) i32 @SendBuffered(ptr noundef %0) local_unnamed_addr #
   %67 = zext i8 %66 to i64
   %68 = sub nsw i64 0, %67
   %69 = getelementptr inbounds i8, ptr %63, i64 %68
-  tail call void @wolfSSL_Free(ptr noundef nonnull %69) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %69) #28
   br label %ShrinkOutputBuffer.exit
 
 ShrinkOutputBuffer.exit:                          ; preds = %61, %65
@@ -5514,7 +5514,7 @@ define range(i32 -173, 1) i32 @GrowInputBuffer(ptr noundef captures(none) %0, i3
 5:                                                ; preds = %3
   %6 = add nuw nsw i32 %2, %1
   %7 = zext nneg i32 %6 to i64
-  %8 = tail call ptr @wolfSSL_Malloc(i64 noundef %7) #27
+  %8 = tail call ptr @wolfSSL_Malloc(i64 noundef %7) #28
   %9 = icmp eq ptr %8, null
   br i1 %9, label %57, label %10
 
@@ -5615,7 +5615,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %22, %.
   %48 = zext i8 %47 to i64
   %49 = sub nsw i64 0, %48
   %50 = getelementptr inbounds i8, ptr %44, i64 %49
-  tail call void @wolfSSL_Free(ptr noundef nonnull %50) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %50) #28
   br label %51
 
 51:                                               ; preds = %ForceZero.exit, %45, %19
@@ -5665,7 +5665,7 @@ define range(i32 -173, 1) i32 @CheckAvailableSize(ptr noundef captures(none) %0,
 17:                                               ; preds = %14
   %18 = add i32 %11, %1
   %19 = zext i32 %18 to i64
-  %20 = tail call ptr @wolfSSL_Malloc(i64 noundef %19) #27
+  %20 = tail call ptr @wolfSSL_Malloc(i64 noundef %19) #28
   %21 = icmp eq ptr %20, null
   br i1 %21, label %GrowOutputBuffer.exit.thread, label %22
 
@@ -5701,7 +5701,7 @@ define range(i32 -173, 1) i32 @CheckAvailableSize(ptr noundef captures(none) %0,
   %39 = zext i8 %38 to i64
   %40 = sub nsw i64 0, %39
   %41 = getelementptr inbounds i8, ptr %35, i64 %40
-  tail call void @wolfSSL_Free(ptr noundef nonnull %41) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %41) #28
   br label %GrowOutputBuffer.exit
 
 GrowOutputBuffer.exit:                            ; preds = %30, %33, %36
@@ -6496,7 +6496,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
   br i1 %or.cond5, label %.thread138, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %10 = tail call ptr @__ctype_tolower_loc() #28
+  %10 = tail call ptr @__ctype_tolower_loc() #29
   %11 = load ptr, ptr %10, align 8, !tbaa !237
   %12 = and i32 %4, 64
   %.not = icmp eq i32 %12, 0
@@ -6794,7 +6794,7 @@ define range(i32 -322, 1) i32 @CheckHostName(ptr noundef readonly captures(addre
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -322, 1) i32 @CheckIPAddr(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
   %4 = trunc i64 %3 to i32
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %.thread22.i, label %5
@@ -6913,12 +6913,12 @@ SendAlert.exit:                                   ; preds = %18, %20, %21
 ; Function Attrs: nounwind uwtable
 define range(i32 -125, 1) i32 @SetupStoreCtxCallback(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6) local_unnamed_addr #4 {
   store i32 0, ptr %6, align 4, !tbaa !49
-  %8 = tail call ptr @wolfSSL_X509_STORE_CTX_new_ex(ptr noundef %5) #27
+  %8 = tail call ptr @wolfSSL_X509_STORE_CTX_new_ex(ptr noundef %5) #28
   %cond = icmp eq ptr %8, null
   br i1 %cond, label %52, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @wolfSSL_Malloc(i64 noundef 256) #27
+  %10 = tail call ptr @wolfSSL_Malloc(i64 noundef 256) #28
   %11 = icmp eq ptr %10, null
   br i1 %11, label %51, label %12
 
@@ -6997,7 +6997,7 @@ define range(i32 -125, 1) i32 @SetupStoreCtxCallback(ptr noundef writeonly captu
   br label %52
 
 51:                                               ; preds = %9
-  tail call void @wolfSSL_X509_STORE_CTX_free(ptr noundef nonnull %8) #27
+  tail call void @wolfSSL_X509_STORE_CTX_free(ptr noundef nonnull %8) #28
   br label %52
 
 52:                                               ; preds = %7, %51, %44
@@ -7017,12 +7017,12 @@ define void @CleanupStoreCtxCallback(ptr noundef %0, ptr noundef readnone captur
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void @wolfSSL_Free(ptr noundef nonnull %6) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %6) #28
   br label %8
 
 8:                                                ; preds = %7, %4
   store ptr null, ptr %5, align 8, !tbaa !263
-  tail call void @wolfSSL_X509_STORE_CTX_free(ptr noundef nonnull %0) #27
+  tail call void @wolfSSL_X509_STORE_CTX_free(ptr noundef nonnull %0) #28
   ret void
 }
 
@@ -7063,12 +7063,12 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %.not54, label %.critedge, label %22
 
 22:                                               ; preds = %.thread, %17
-  %23 = tail call ptr @wolfSSL_X509_STORE_CTX_new_ex(ptr noundef %10) #27
+  %23 = tail call ptr @wolfSSL_X509_STORE_CTX_new_ex(ptr noundef %10) #28
   %cond.i = icmp eq ptr %23, null
   br i1 %cond.i, label %.critedge, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call ptr @wolfSSL_Malloc(i64 noundef 256) #27
+  %25 = tail call ptr @wolfSSL_Malloc(i64 noundef 256) #28
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge.sink.split, label %27
 
@@ -7150,7 +7150,7 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
 
 68:                                               ; preds = %59
   store ptr %0, ptr %60, align 8, !tbaa !266
-  %69 = tail call i32 %67(i32 noundef %.043, ptr noundef nonnull %23) #27
+  %69 = tail call i32 %67(i32 noundef %.043, ptr noundef nonnull %23) #28
   %.not57 = icmp ne i32 %69, 0
   %spec.select64 = select i1 %.not57, i32 0, i32 %2
   br label %70
@@ -7167,7 +7167,7 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %.not58, label %76, label %74
 
 74:                                               ; preds = %71
-  %75 = tail call i32 %73(i32 noundef %.043, ptr noundef nonnull %23) #27
+  %75 = tail call i32 %73(i32 noundef %.043, ptr noundef nonnull %23) #28
   %.not59 = icmp eq i32 %75, 0
   %spec.select61 = select i1 %12, i32 0, i32 %.2
   br i1 %.not59, label %.thread77, label %76
@@ -7191,7 +7191,7 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   br i1 %.not.i68, label %CleanupStoreCtxCallback.exit, label %81
 
 81:                                               ; preds = %79
-  tail call void @wolfSSL_Free(ptr noundef nonnull %80) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %80) #28
   br label %CleanupStoreCtxCallback.exit
 
 CleanupStoreCtxCallback.exit:                     ; preds = %79, %81
@@ -7200,7 +7200,7 @@ CleanupStoreCtxCallback.exit:                     ; preds = %79, %81
 
 .critedge.sink.split:                             ; preds = %24, %CleanupStoreCtxCallback.exit
   %.0.ph = phi i32 [ %.4, %CleanupStoreCtxCallback.exit ], [ -125, %24 ]
-  tail call void @wolfSSL_X509_STORE_CTX_free(ptr noundef nonnull %23) #27
+  tail call void @wolfSSL_X509_STORE_CTX_free(ptr noundef nonnull %23) #28
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %22, %.thread, %4
@@ -7266,7 +7266,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
 36:                                               ; preds = %30, %32
   %37 = add i32 %22, %23
   store i32 %37, ptr %11, align 8, !tbaa !278
-  %38 = tail call ptr @wolfSSL_Malloc(i64 noundef 144) #27
+  %38 = tail call ptr @wolfSSL_Malloc(i64 noundef 144) #28
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %38, ptr %39, align 8, !tbaa !281
   %.not472 = icmp eq ptr %38, null
@@ -7275,7 +7275,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
 40:                                               ; preds = %36, %4
   %41 = phi ptr [ %38, %36 ], [ null, %4 ]
   %42 = phi i32 [ %37, %36 ], [ %10, %4 ]
-  %43 = tail call ptr @wolfSSL_Malloc(i64 noundef 144) #27
+  %43 = tail call ptr @wolfSSL_Malloc(i64 noundef 144) #28
   store ptr %43, ptr %5, align 16, !tbaa !267
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread384.thread, label %45
@@ -7494,7 +7494,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   store i32 %170, ptr %11, align 8, !tbaa !278
   %.neg484 = add i32 %146, -2
   %171 = sub i32 %.neg484, %162
-  %172 = tail call i32 @TLSX_Parse(ptr noundef nonnull %0, ptr noundef %169, i16 noundef zeroext %159, i8 noundef zeroext 11, ptr noundef null) #27
+  %172 = tail call i32 @TLSX_Parse(ptr noundef nonnull %0, ptr noundef %169, i16 noundef zeroext %159, i8 noundef zeroext 11, ptr noundef null) #28
   %173 = icmp sgt i32 %172, -1
   br i1 %173, label %174, label %177
 
@@ -7575,7 +7575,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   %208 = load i8, ptr %207, align 1
   %209 = and i8 %208, -5
   store i8 %209, ptr %207, align 1
-  %210 = tail call ptr @wolfSSL_Malloc(i64 noundef 1024) #27
+  %210 = tail call ptr @wolfSSL_Malloc(i64 noundef 1024) #28
   %211 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %210, ptr %211, align 16, !tbaa !253
   %212 = icmp eq ptr %210, null
@@ -7608,7 +7608,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
 225:                                              ; preds = %.thread401.thread, %.thread406, %350, %353, %.thread401
   %.21 = phi i32 [ 0, %353 ], [ %.17412, %350 ], [ 0, %.thread401 ], [ 0, %.thread406 ], [ 0, %.thread401.thread ]
   %226 = load ptr, ptr %217, align 16, !tbaa !253
-  call void @FreeDecodedCert(ptr noundef %226) #27
+  call void @FreeDecodedCert(ptr noundef %226) #28
   %227 = load i8, ptr %218, align 1
   %228 = and i8 %227, -5
   store i8 %228, ptr %218, align 1
@@ -7645,7 +7645,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %248 = load i32, ptr %247, align 8, !tbaa !283
   %249 = load ptr, ptr %219, align 16, !tbaa !160
-  call void @InitDecodedCert(ptr noundef nonnull %237, ptr noundef %246, i32 noundef %248, ptr noundef %249) #27
+  call void @InitDecodedCert(ptr noundef nonnull %237, ptr noundef %246, i32 noundef %248, ptr noundef %249) #28
   %250 = load i8, ptr %218, align 1
   %251 = or i8 %250, 4
   store i8 %251, ptr %218, align 1
@@ -7660,7 +7660,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   %257 = load ptr, ptr %0, align 16, !tbaa !99
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 144
   %259 = load ptr, ptr %258, align 8, !tbaa !69
-  %260 = call i32 @ParseCertRelative(ptr noundef nonnull %256, i32 noundef 42, i32 noundef range(i32 0, 2) %236, ptr noundef %259, ptr noundef null) #27
+  %260 = call i32 @ParseCertRelative(ptr noundef nonnull %256, i32 noundef 42, i32 noundef range(i32 0, 2) %236, ptr noundef %259, ptr noundef null) #28
   switch i32 %260, label %ProcessPeerCertParse.exit [
     i32 -150, label %261
     i32 -151, label %261
@@ -7678,7 +7678,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   %266 = load ptr, ptr %0, align 16, !tbaa !99
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 144
   %268 = load ptr, ptr %267, align 8, !tbaa !69
-  %269 = call i32 @AlreadySigner(ptr noundef %268, ptr noundef nonnull %.1.i) #27
+  %269 = call i32 @AlreadySigner(ptr noundef %268, ptr noundef nonnull %.1.i) #28
   br label %ProcessPeerCertParse.exit
 
 ProcessPeerCertParse.exit:                        ; preds = %255, %261
@@ -7786,7 +7786,7 @@ ProcessPeerCertParse.exit:                        ; preds = %255, %261
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %315 = load i32, ptr %314, align 8, !tbaa !283
   %316 = load ptr, ptr %219, align 16, !tbaa !160
-  %317 = call i32 @AllocDer(ptr noundef nonnull %6, i32 noundef %315, i32 noundef 6, ptr noundef %316) #27
+  %317 = call i32 @AllocDer(ptr noundef nonnull %6, i32 noundef %315, i32 noundef 6, ptr noundef %316) #28
   %318 = icmp sgt i32 %317, -1
   br i1 %318, label %select.unfold, label %354
 
@@ -7800,7 +7800,7 @@ select.unfold:                                    ; preds = %313
   %324 = load ptr, ptr %0, align 16, !tbaa !99
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 144
   %326 = load ptr, ptr %325, align 8, !tbaa !69
-  %327 = call i32 @AddCA(ptr noundef %326, ptr noundef nonnull %6, i32 noundef 2, i32 noundef 0) #27
+  %327 = call i32 @AddCA(ptr noundef %326, ptr noundef nonnull %6, i32 noundef 2, i32 noundef 0) #28
   %328 = icmp eq i32 %327, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %328, label %.thread401.thread, label %.thread401
@@ -7938,7 +7938,7 @@ RetrySendAlert.exit.i.i:                          ; preds = %337
   %374 = load i32, ptr %373, align 8, !tbaa !283
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %376 = load ptr, ptr %375, align 16, !tbaa !160
-  call void @InitDecodedCert(ptr noundef nonnull %364, ptr noundef %372, i32 noundef %374, ptr noundef %376) #27
+  call void @InitDecodedCert(ptr noundef nonnull %364, ptr noundef %372, i32 noundef %374, ptr noundef %376) #28
   %377 = load i8, ptr %367, align 1
   %378 = or i8 %377, 4
   store i8 %378, ptr %367, align 1
@@ -7954,7 +7954,7 @@ RetrySendAlert.exit.i.i:                          ; preds = %337
   %385 = load ptr, ptr %0, align 16, !tbaa !99
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 144
   %387 = load ptr, ptr %386, align 8, !tbaa !69
-  %388 = call i32 @ParseCertRelative(ptr noundef nonnull %384, i32 noundef 0, i32 noundef range(i32 0, 2) %362, ptr noundef %387, ptr noundef null) #27
+  %388 = call i32 @ParseCertRelative(ptr noundef nonnull %384, i32 noundef 0, i32 noundef range(i32 0, 2) %362, ptr noundef %387, ptr noundef null) #28
   switch i32 %388, label %419 [
     i32 -150, label %ProcessPeerCertParse.exit338
     i32 -151, label %ProcessPeerCertParse.exit338
@@ -7976,7 +7976,7 @@ ProcessPeerCertParse.exit338:                     ; preds = %383, %383, %383
   %393 = load ptr, ptr %0, align 16, !tbaa !99
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 144
   %395 = load ptr, ptr %394, align 8, !tbaa !69
-  %396 = call i32 @AlreadySigner(ptr noundef %395, ptr noundef nonnull %.1.i334) #27
+  %396 = call i32 @AlreadySigner(ptr noundef %395, ptr noundef nonnull %.1.i334) #28
   switch i32 %388, label %419 [
     i32 0, label %397
     i32 -125, label %ProcessPeerCertParse.exit338.thread
@@ -8210,7 +8210,7 @@ ProcessPeerCertParse.exit338.thread:              ; preds = %383, %383, %383, %3
   br i1 %.not295, label %513, label %509
 
 509:                                              ; preds = %506
-  %510 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %505) #29
+  %510 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %505) #30
   %511 = trunc i64 %510 to i32
   %512 = call i32 @CheckForAltNames(ptr noundef nonnull %439, ptr noundef nonnull %505, i32 noundef %511, ptr noundef null, i32 noundef 0)
   %.not296 = icmp eq i32 %512, 1
@@ -8222,7 +8222,7 @@ ProcessPeerCertParse.exit338.thread:              ; preds = %383, %383, %383, %3
   %515 = load ptr, ptr %514, align 8, !tbaa !251
   %516 = getelementptr inbounds nuw i8, ptr %439, i64 144
   %517 = load i32, ptr %516, align 8, !tbaa !252
-  %518 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %505) #29
+  %518 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %505) #30
   %519 = trunc i64 %518 to i32
   %520 = call i32 @MatchDomainName(ptr noundef %515, i32 noundef %517, ptr noundef nonnull %505, i32 noundef %519, i32 noundef 0)
   %521 = icmp eq i32 %520, 0
@@ -8278,7 +8278,7 @@ ProcessPeerCertParse.exit338.thread:              ; preds = %383, %383, %383, %3
   %539 = load ptr, ptr %538, align 8, !tbaa !299
   %540 = getelementptr inbounds nuw i8, ptr %538, i64 8
   %541 = load i32, ptr %540, align 8, !tbaa !288
-  %542 = call i32 @wc_RsaPublicKeyDecode(ptr noundef %539, ptr noundef nonnull %7, ptr noundef %537, i32 noundef %541) #27
+  %542 = call i32 @wc_RsaPublicKeyDecode(ptr noundef %539, ptr noundef nonnull %7, ptr noundef %537, i32 noundef %541) #28
   %.not304 = icmp eq i32 %542, 0
   br i1 %.not304, label %543, label %.thread442
 
@@ -8296,7 +8296,7 @@ ProcessPeerCertParse.exit338.thread:              ; preds = %383, %383, %383, %3
 
 549:                                              ; preds = %546
   %550 = load ptr, ptr %526, align 16, !tbaa !298
-  %551 = call i32 @wc_RsaEncryptSize(ptr noundef %550) #27
+  %551 = call i32 @wc_RsaEncryptSize(ptr noundef %550) #28
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   %553 = load i16, ptr %552, align 4, !tbaa !142
   %554 = sext i16 %553 to i32
@@ -8348,7 +8348,7 @@ ProcessPeerCertParse.exit338.thread:              ; preds = %383, %383, %383, %3
   %570 = load ptr, ptr %569, align 8, !tbaa !299
   %571 = getelementptr inbounds nuw i8, ptr %569, i64 8
   %572 = load i32, ptr %571, align 8, !tbaa !288
-  %573 = call i32 @wc_EccPublicKeyDecode(ptr noundef %570, ptr noundef nonnull %8, ptr noundef %568, i32 noundef %572) #27
+  %573 = call i32 @wc_EccPublicKeyDecode(ptr noundef %570, ptr noundef nonnull %8, ptr noundef %568, i32 noundef %572) #28
   %.not299 = icmp eq i32 %573, 0
   br i1 %.not299, label %574, label %.thread448
 
@@ -8366,7 +8366,7 @@ ProcessPeerCertParse.exit338.thread:              ; preds = %383, %383, %383, %3
 
 580:                                              ; preds = %577
   %581 = load ptr, ptr %557, align 16, !tbaa !300
-  %582 = call i32 @wc_ecc_size(ptr noundef %581) #27
+  %582 = call i32 @wc_ecc_size(ptr noundef %581) #28
   %583 = getelementptr inbounds nuw i8, ptr %0, i64 1062
   %584 = load i16, ptr %583, align 2, !tbaa !143
   %585 = sext i16 %584 to i32
@@ -8554,7 +8554,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   br i1 %.not.i352, label %.thread384.thread, label %650
 
 650:                                              ; preds = %.thread384
-  call void @wolfSSL_Free(ptr noundef nonnull %.pr) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %.pr) #28
   br label %.thread384.thread
 
 .thread384.thread:                                ; preds = %40, %650, %.thread384
@@ -8566,7 +8566,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   br i1 %.not20.i, label %654, label %653
 
 653:                                              ; preds = %.thread384.thread
-  call void @wolfSSL_Free(ptr noundef nonnull %652) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %652) #28
   br label %654
 
 654:                                              ; preds = %653, %.thread384.thread
@@ -8584,7 +8584,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   br i1 %.not22.i, label %.thread.i, label %661
 
 661:                                              ; preds = %657
-  call void @FreeDecodedCert(ptr noundef nonnull %656) #27
+  call void @FreeDecodedCert(ptr noundef nonnull %656) #28
   %662 = load i8, ptr %658, align 1
   %663 = and i8 %662, -5
   store i8 %663, ptr %658, align 1
@@ -8594,7 +8594,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
 
 .thread.i:                                        ; preds = %661, %657
   %664 = phi ptr [ %.pre.i, %661 ], [ %656, %657 ]
-  call void @wolfSSL_Free(ptr noundef nonnull %664) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %664) #28
   br label %665
 
 665:                                              ; preds = %.thread.i, %661
@@ -8628,30 +8628,30 @@ define internal fastcc i32 @ReuseKey(ptr noundef readonly captures(none) %0, i32
   ]
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %2) #27
+  %5 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %2) #28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 16, !tbaa !160
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %9 = load i32, ptr %8, align 4, !tbaa !161
-  %10 = tail call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %2, ptr noundef %7, i32 noundef %9) #27
+  %10 = tail call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %2, ptr noundef %7, i32 noundef %9) #28
   br label %25
 
 11:                                               ; preds = %3
-  %12 = tail call i32 @wc_ecc_free(ptr noundef nonnull %2) #27
+  %12 = tail call i32 @wc_ecc_free(ptr noundef nonnull %2) #28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 16, !tbaa !160
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %16 = load i32, ptr %15, align 4, !tbaa !161
-  %17 = tail call i32 @wc_ecc_init_ex(ptr noundef nonnull %2, ptr noundef %14, i32 noundef %16) #27
+  %17 = tail call i32 @wc_ecc_init_ex(ptr noundef nonnull %2, ptr noundef %14, i32 noundef %16) #28
   br label %25
 
 18:                                               ; preds = %3
-  %19 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %2) #27
+  %19 = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %2) #28
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %21 = load ptr, ptr %20, align 16, !tbaa !160
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %23 = load i32, ptr %22, align 4, !tbaa !161
-  %24 = tail call i32 @wc_InitDhKey_ex(ptr noundef nonnull %2, ptr noundef %21, i32 noundef %23) #27
+  %24 = tail call i32 @wc_InitDhKey_ex(ptr noundef nonnull %2, ptr noundef %21, i32 noundef %23) #28
   br label %25
 
 25:                                               ; preds = %4, %11, %18, %3
@@ -8745,7 +8745,7 @@ define i32 @DoHandShakeMsgType(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @DoTls13HandShakeMsgType(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 6, i32 noundef %4, i32 noundef %5) #27
+  %9 = tail call i32 @DoTls13HandShakeMsgType(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 6, i32 noundef %4, i32 noundef %5) #28
   br label %SendAlert.exit
 
 10:                                               ; preds = %6
@@ -9679,7 +9679,7 @@ RetrySendAlert.exit.i:                            ; preds = %15
 30:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 2, ptr %5, align 1, !tbaa !45
-  %31 = call i32 @DoTls13ServerHello(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %5) #27
+  %31 = call i32 @DoTls13ServerHello(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
@@ -9827,7 +9827,7 @@ RetrySendAlert.exit.i:                            ; preds = %15
   br i1 %111, label %112, label %138
 
 112:                                              ; preds = %109
-  %113 = tail call i32 @TLSX_SupportExtensions(ptr noundef nonnull %0) #27
+  %113 = tail call i32 @TLSX_SupportExtensions(ptr noundef nonnull %0) #28
   %.not123 = icmp eq i32 %113, 0
   br i1 %.not123, label %136, label %114
 
@@ -9856,7 +9856,7 @@ RetrySendAlert.exit.i:                            ; preds = %15
 130:                                              ; preds = %117
   %131 = zext i32 %125 to i64
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 %131
-  %133 = tail call i32 @TLSX_Parse(ptr noundef nonnull %0, ptr noundef %132, i16 noundef zeroext %124, i8 noundef zeroext 2, ptr noundef null) #27
+  %133 = tail call i32 @TLSX_Parse(ptr noundef nonnull %0, ptr noundef %132, i16 noundef zeroext %124, i8 noundef zeroext 2, ptr noundef null) #28
   %.not124 = icmp eq i32 %133, 0
   br i1 %.not124, label %134, label %.critedge
 
@@ -10201,7 +10201,7 @@ define internal fastcc i32 @DoServerKeyExchange(ptr noundef initializes((1041, 1
   br i1 %.not156.i, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void @wolfSSL_Free(ptr noundef nonnull %22) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %22) #28
   store ptr null, ptr %21, align 16, !tbaa !211
   br label %24
 
@@ -10212,7 +10212,7 @@ define internal fastcc i32 @DoServerKeyExchange(ptr noundef initializes((1041, 1
   br i1 %.not157.i, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call void @wolfSSL_Free(ptr noundef nonnull %26) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %26) #28
   store ptr null, ptr %25, align 16, !tbaa !210
   br label %28
 
@@ -10223,7 +10223,7 @@ define internal fastcc i32 @DoServerKeyExchange(ptr noundef initializes((1041, 1
   br i1 %.not158.i, label %32, label %31
 
 31:                                               ; preds = %28
-  tail call void @wolfSSL_Free(ptr noundef nonnull %30) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %30) #28
   store ptr null, ptr %29, align 16, !tbaa !208
   br label %32
 
@@ -10320,7 +10320,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
 
 76:                                               ; preds = %61
   %77 = zext i16 %42 to i64
-  %78 = tail call ptr @wolfSSL_Malloc(i64 noundef %77) #27
+  %78 = tail call ptr @wolfSSL_Malloc(i64 noundef %77) #28
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %78, ptr %79, align 16, !tbaa !211
   %.not159.i = icmp eq ptr %78, null
@@ -10347,7 +10347,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not177.i, label %92, label %91
 
 91:                                               ; preds = %89
-  tail call void @wolfSSL_Free(ptr noundef nonnull %90) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %90) #28
   br label %92
 
 92:                                               ; preds = %91, %89
@@ -10376,7 +10376,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not176.i, label %107, label %106
 
 106:                                              ; preds = %104
-  tail call void @wolfSSL_Free(ptr noundef nonnull %105) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %105) #28
   br label %107
 
 107:                                              ; preds = %106, %104
@@ -10395,7 +10395,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not175.i, label %115, label %114
 
 114:                                              ; preds = %111
-  tail call void @wolfSSL_Free(ptr noundef nonnull %113) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %113) #28
   br label %115
 
 115:                                              ; preds = %114, %111
@@ -10404,7 +10404,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
 
 116:                                              ; preds = %108
   %117 = zext i16 %100 to i64
-  %118 = tail call ptr @wolfSSL_Malloc(i64 noundef %117) #27
+  %118 = tail call ptr @wolfSSL_Malloc(i64 noundef %117) #28
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store ptr %118, ptr %119, align 16, !tbaa !210
   %.not160.i = icmp eq ptr %118, null
@@ -10429,7 +10429,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not161.i, label %131, label %130
 
 130:                                              ; preds = %128
-  tail call void @wolfSSL_Free(ptr noundef nonnull %129) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %129) #28
   br label %131
 
 131:                                              ; preds = %130, %128
@@ -10442,7 +10442,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not173.i, label %135, label %134
 
 134:                                              ; preds = %132
-  tail call void @wolfSSL_Free(ptr noundef nonnull %133) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %133) #28
   br label %135
 
 135:                                              ; preds = %134, %132
@@ -10452,7 +10452,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not174.i, label %138, label %137
 
 137:                                              ; preds = %135
-  tail call void @wolfSSL_Free(ptr noundef nonnull %136) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %136) #28
   br label %138
 
 138:                                              ; preds = %137, %135
@@ -10481,7 +10481,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not171.i, label %153, label %152
 
 152:                                              ; preds = %150
-  tail call void @wolfSSL_Free(ptr noundef nonnull %151) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %151) #28
   br label %153
 
 153:                                              ; preds = %152, %150
@@ -10491,7 +10491,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not172.i, label %156, label %155
 
 155:                                              ; preds = %153
-  tail call void @wolfSSL_Free(ptr noundef nonnull %154) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %154) #28
   br label %156
 
 156:                                              ; preds = %155, %153
@@ -10510,7 +10510,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not169.i, label %164, label %163
 
 163:                                              ; preds = %160
-  tail call void @wolfSSL_Free(ptr noundef nonnull %162) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %162) #28
   br label %164
 
 164:                                              ; preds = %163, %160
@@ -10520,7 +10520,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not170.i, label %167, label %166
 
 166:                                              ; preds = %164
-  tail call void @wolfSSL_Free(ptr noundef nonnull %165) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %165) #28
   br label %167
 
 167:                                              ; preds = %166, %164
@@ -10529,7 +10529,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
 
 168:                                              ; preds = %157
   %169 = zext i16 %146 to i64
-  %170 = tail call ptr @wolfSSL_Malloc(i64 noundef %169) #27
+  %170 = tail call ptr @wolfSSL_Malloc(i64 noundef %169) #28
   store ptr %170, ptr %29, align 16, !tbaa !208
   %.not162.i = icmp eq ptr %170, null
   br i1 %.not162.i, label %177, label %171
@@ -10553,7 +10553,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not163.i, label %180, label %179
 
 179:                                              ; preds = %177
-  tail call void @wolfSSL_Free(ptr noundef nonnull %178) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %178) #28
   br label %180
 
 180:                                              ; preds = %179, %177
@@ -10563,7 +10563,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br i1 %.not164.i, label %183, label %182
 
 182:                                              ; preds = %180
-  tail call void @wolfSSL_Free(ptr noundef nonnull %181) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %181) #28
   br label %183
 
 183:                                              ; preds = %182, %180
@@ -10571,7 +10571,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   br label %GetDhPublicKey.exit.thread
 
 184:                                              ; preds = %171
-  %185 = tail call ptr @wc_Dh_ffdhe2048_Get() #27
+  %185 = tail call ptr @wc_Dh_ffdhe2048_Get() #28
   %186 = icmp eq ptr %185, null
   br i1 %186, label %250, label %187
 
@@ -10679,11 +10679,11 @@ switch.lookup:                                    ; preds = %214
   br i1 %.not171, label %242, label %GetDhPublicKey.exit.thread
 
 242:                                              ; preds = %237, %240, %235
-  %243 = tail call i32 @wc_ecc_get_oid(i32 noundef %switch.load, ptr noundef null, ptr noundef null) #27
+  %243 = tail call i32 @wc_ecc_get_oid(i32 noundef %switch.load, ptr noundef null, ptr noundef null) #28
   %244 = zext i32 %224 to i64
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 %244
   %246 = load ptr, ptr %232, align 8, !tbaa !323
-  %247 = tail call i32 @wc_ecc_import_x963_ex(ptr noundef %245, i32 noundef %228, ptr noundef %246, i32 noundef %243) #27
+  %247 = tail call i32 @wc_ecc_import_x963_ex(ptr noundef %245, i32 noundef %228, ptr noundef %246, i32 noundef %243) #28
   %.not173 = icmp eq i32 %247, 0
   br i1 %.not173, label %.thread, label %GetDhPublicKey.exit.thread
 
@@ -10912,7 +10912,7 @@ DecodeSigAlg.exit..thread233_crit_edge:           ; preds = %DecodeSigAlg.exit
 342:                                              ; preds = %338
   %343 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %344 = zext i16 %337 to i64
-  %345 = tail call ptr @wolfSSL_Malloc(i64 noundef %344) #27
+  %345 = tail call ptr @wolfSSL_Malloc(i64 noundef %344) #28
   store ptr %345, ptr %343, align 8, !tbaa !324
   %346 = icmp eq ptr %345, null
   br i1 %346, label %GetDhPublicKey.exit.thread, label %347
@@ -10945,7 +10945,7 @@ DecodeSigAlg.exit..thread233_crit_edge:           ; preds = %DecodeSigAlg.exit
   %362 = getelementptr inbounds nuw i8, ptr %5, i64 26
   store i16 %361, ptr %362, align 2, !tbaa !325
   %363 = load ptr, ptr %356, align 16, !tbaa !298
-  %364 = call i32 @sp_count_bits(ptr noundef %363) #27
+  %364 = call i32 @sp_count_bits(ptr noundef %363) #28
   %365 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %364, ptr %365, align 4, !tbaa !326
   br label %366
@@ -10966,7 +10966,7 @@ DecodeSigAlg.exit..thread233_crit_edge:           ; preds = %DecodeSigAlg.exit
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %375 = load ptr, ptr %374, align 16, !tbaa !300
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 1148
-  %377 = tail call i32 @wc_ecc_verify_hash(ptr noundef nonnull %345, i32 noundef %369, ptr noundef %371, i32 noundef %373, ptr noundef nonnull %376, ptr noundef %375) #27
+  %377 = tail call i32 @wc_ecc_verify_hash(ptr noundef nonnull %345, i32 noundef %369, ptr noundef %371, i32 noundef %373, ptr noundef nonnull %376, ptr noundef %375) #28
   %.not.i200 = icmp eq i32 %377, 0
   br i1 %.not.i200, label %378, label %EccVerify.exit
 
@@ -11051,7 +11051,7 @@ EccVerify.exit:                                   ; preds = %368, %378
   %.0.i204 = select i1 %415, i32 %switch.offset.i203, i32 0
   %416 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %417 = load i32, ptr %416, align 4, !tbaa !326
-  %418 = call i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef %405, i32 noundef %407, ptr noundef %408, i32 noundef %411, i32 noundef %.0.i204, i32 noundef -1, i32 noundef %417) #27
+  %418 = call i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef %405, i32 noundef %407, ptr noundef %408, i32 noundef %411, i32 noundef %.0.i204, i32 noundef -1, i32 noundef %417) #28
   %.not191 = icmp eq i32 %418, 0
   br i1 %.not191, label %.sink.split321.sink.split, label %GetDhPublicKey.exit.thread
 
@@ -11086,7 +11086,7 @@ switch.lookup330:                                 ; preds = %IsAtLeastTLSv1_2.ex
 
 TypeHash.exit:                                    ; preds = %IsAtLeastTLSv1_2.exit206, %switch.lookup330
   %.0.i207 = phi i32 [ %switch.load332, %switch.lookup330 ], [ 0, %IsAtLeastTLSv1_2.exit206 ]
-  %434 = call i32 @wc_EncodeSignature(ptr noundef nonnull %6, ptr noundef %428, i32 noundef %430, i32 noundef %.0.i207) #27
+  %434 = call i32 @wc_EncodeSignature(ptr noundef nonnull %6, ptr noundef %428, i32 noundef %430, i32 noundef %.0.i207) #28
   %435 = getelementptr inbounds nuw i8, ptr %5, i64 26
   %436 = load i16, ptr %435, align 2, !tbaa !325
   %437 = zext i16 %436 to i32
@@ -11180,7 +11180,7 @@ GetDhPublicKey.exit.thread:                       ; preds = %214, %.thread250, %
   br i1 %.not.i209, label %FreeDskeArgs.exit, label %469
 
 469:                                              ; preds = %GetDhPublicKey.exit.thread
-  call void @wolfSSL_Free(ptr noundef nonnull %468) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %468) #28
   br label %FreeDskeArgs.exit
 
 FreeDskeArgs.exit:                                ; preds = %GetDhPublicKey.exit.thread, %469
@@ -11376,7 +11376,7 @@ define i32 @DoClientHello(ptr noundef %0, ptr noundef %1, ptr noundef captures(n
   br i1 %45, label %46, label %AllocateSuites.exit
 
 46:                                               ; preds = %42
-  %47 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #27
+  %47 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
   store ptr %47, ptr %43, align 8, !tbaa !98
   %48 = icmp eq ptr %47, null
   br i1 %48, label %AllocateSuites.exit.thread324, label %49
@@ -11503,7 +11503,7 @@ thread-pre-split333.thread:                       ; preds = %83, %84, %87, %91
   br i1 %101, label %102, label %112
 
 102:                                              ; preds = %98
-  %103 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #27
+  %103 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
   store ptr %103, ptr %99, align 8, !tbaa !98
   %104 = icmp eq ptr %103, null
   br i1 %104, label %AllocateSuites.exit.thread324, label %105
@@ -11602,11 +11602,11 @@ AllocateSuites.exit319:                           ; preds = %97, %112, %75, %72
   br i1 %.not287, label %163, label %162
 
 162:                                              ; preds = %159
-  tail call void @wolfSSL_Free(ptr noundef nonnull %161) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %161) #28
   br label %163
 
 163:                                              ; preds = %162, %159
-  %164 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #27
+  %164 = tail call ptr @wolfSSL_Malloc(i64 noundef 344) #28
   store ptr %164, ptr %160, align 16, !tbaa !330
   %165 = icmp eq ptr %164, null
   br i1 %165, label %AllocateSuites.exit.thread324, label %166
@@ -11714,12 +11714,12 @@ AllocateSuites.exit319:                           ; preds = %97, %112, %75, %72
   br i1 %226, label %227, label %262
 
 227:                                              ; preds = %224
-  %228 = tail call i32 @TLSX_SupportExtensions(ptr noundef nonnull %0) #27
+  %228 = tail call i32 @TLSX_SupportExtensions(ptr noundef nonnull %0) #28
   %.not290 = icmp eq i32 %228, 0
   br i1 %.not290, label %260, label %229
 
 229:                                              ; preds = %227
-  %230 = tail call i32 @TLSX_PopulateExtensions(ptr noundef nonnull %0, i8 noundef zeroext 1) #27
+  %230 = tail call i32 @TLSX_PopulateExtensions(ptr noundef nonnull %0, i8 noundef zeroext 1) #28
   %.not291 = icmp eq i32 %230, 0
   br i1 %.not291, label %231, label %AllocateSuites.exit.thread324
 
@@ -11749,14 +11749,14 @@ AllocateSuites.exit319:                           ; preds = %97, %112, %75, %72
   %248 = zext i32 %242 to i64
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 %248
   %250 = load ptr, ptr %160, align 16, !tbaa !330
-  %251 = tail call i32 @TLSX_Parse(ptr noundef nonnull %0, ptr noundef %249, i16 noundef zeroext %241, i8 noundef zeroext 1, ptr noundef %250) #27
+  %251 = tail call i32 @TLSX_Parse(ptr noundef nonnull %0, ptr noundef %249, i16 noundef zeroext %241, i8 noundef zeroext 1, ptr noundef %250) #28
   %.not292 = icmp eq i32 %251, 0
   br i1 %.not292, label %252, label %AllocateSuites.exit.thread324
 
 252:                                              ; preds = %247
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %254 = load ptr, ptr %253, align 8, !tbaa !223
-  %255 = tail call ptr @TLSX_Find(ptr noundef %254, i32 noundef 43) #27
+  %255 = tail call ptr @TLSX_Find(ptr noundef %254, i32 noundef 43) #28
   %.not293 = icmp eq ptr %255, null
   br i1 %.not293, label %256, label %AllocateSuites.exit.thread324
 
@@ -11807,7 +11807,7 @@ AllocateSuites.exit319:                           ; preds = %97, %112, %75, %72
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %273
-  %278 = tail call i32 @TLSX_EncryptThenMac_Respond(ptr noundef nonnull %0) #27
+  %278 = tail call i32 @TLSX_EncryptThenMac_Respond(ptr noundef nonnull %0) #28
   %.not298 = icmp eq i32 %278, 0
   br i1 %.not298, label %281, label %AllocateSuites.exit.thread324
 
@@ -11824,12 +11824,12 @@ AllocateSuites.exit319:                           ; preds = %97, %112, %75, %72
 284:                                              ; preds = %281, %262
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %286 = load ptr, ptr %285, align 8, !tbaa !223
-  %287 = tail call ptr @TLSX_Find(ptr noundef %286, i32 noundef 10) #27
+  %287 = tail call ptr @TLSX_Find(ptr noundef %286, i32 noundef 10) #28
   %.not299 = icmp eq ptr %287, null
   br i1 %.not299, label %.thread363, label %288
 
 288:                                              ; preds = %284
-  %289 = tail call i32 @TLSX_SupportedFFDHE_Set(ptr noundef nonnull %0) #27
+  %289 = tail call i32 @TLSX_SupportedFFDHE_Set(ptr noundef nonnull %0) #28
   %.not300 = icmp eq i32 %289, 0
   br i1 %.not300, label %.thread363, label %AllocateSuites.exit.thread324
 
@@ -11850,7 +11850,7 @@ AllocateSuites.exit319:                           ; preds = %97, %112, %75, %72
   br i1 %297, label %298, label %.thread365
 
 298:                                              ; preds = %294
-  %299 = tail call i32 @TLSX_EncryptThenMac_Respond(ptr noundef nonnull %0) #27
+  %299 = tail call i32 @TLSX_EncryptThenMac_Respond(ptr noundef nonnull %0) #28
   br label %AllocateSuites.exit.thread324
 
 .thread365:                                       ; preds = %294, %.thread363
@@ -11866,7 +11866,7 @@ AllocateSuites.exit.thread324:                    ; preds = %256, %252, %247, %2
   br i1 %.not302, label %304, label %303
 
 303:                                              ; preds = %AllocateSuites.exit.thread324
-  tail call void @wolfSSL_Free(ptr noundef nonnull %302) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %302) #28
   br label %304
 
 304:                                              ; preds = %303, %AllocateSuites.exit.thread324
@@ -11957,7 +11957,7 @@ RetrySendAlert.exit.i:                            ; preds = %17
 42:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 512, ptr %43, align 8, !tbaa !164
-  %44 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #27
+  %44 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #28
   %45 = load ptr, ptr %37, align 8, !tbaa !163
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %44, ptr %46, align 8, !tbaa !166
@@ -12037,7 +12037,7 @@ RetrySendAlert.exit.i:                            ; preds = %17
   %82 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !166
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
-  %85 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %81, ptr noundef nonnull %84, i32 noundef 46) #27
+  %85 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %81, ptr noundef nonnull %84, i32 noundef 46) #28
   %.not202 = icmp eq i32 %85, 0
   br i1 %.not202, label %.thread241, label %.thread238
 
@@ -12148,7 +12148,7 @@ RetrySendAlert.exit.i:                            ; preds = %17
   %132 = load ptr, ptr %131, align 8, !tbaa !120
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 4, !tbaa !128
-  %135 = tail call i32 @wc_ecc_import_x963_ex(ptr noundef %129, i32 noundef %108, ptr noundef %130, i32 noundef %134) #27
+  %135 = tail call i32 @wc_ecc_import_x963_ex(ptr noundef %129, i32 noundef %108, ptr noundef %130, i32 noundef %134) #28
   %.not198 = icmp eq i32 %135, 0
   br i1 %.not198, label %136, label %SendAlert.exit
 
@@ -12202,7 +12202,7 @@ RetrySendAlert.exit.i:                            ; preds = %17
   %167 = load ptr, ptr %166, align 16, !tbaa !210
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %169 = load i32, ptr %168, align 8, !tbaa !316
-  %170 = tail call i32 @wc_DhSetKey(ptr noundef %161, ptr noundef %163, i32 noundef %165, ptr noundef %167, i32 noundef %169) #27
+  %170 = tail call i32 @wc_DhSetKey(ptr noundef %161, ptr noundef %163, i32 noundef %165, ptr noundef %167, i32 noundef %169) #28
   %171 = load ptr, ptr %37, align 8, !tbaa !163
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store i32 512, ptr %172, align 8, !tbaa !164
@@ -12229,14 +12229,14 @@ RetrySendAlert.exit.i:                            ; preds = %17
   store ptr null, ptr %5, align 8, !tbaa !117
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %182 = load ptr, ptr %181, align 8, !tbaa !116
-  %183 = tail call i32 @wc_RsaSetRNG(ptr noundef %179, ptr noundef %182) #27
+  %183 = tail call i32 @wc_RsaSetRNG(ptr noundef %179, ptr noundef %182) #28
   %.not.i221 = icmp eq i32 %183, 0
   br i1 %.not.i221, label %184, label %RsaDec.exit
 
 184:                                              ; preds = %177
   %185 = zext i32 %175 to i64
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 %185
-  %187 = call i32 @wc_RsaPrivateDecryptInline(ptr noundef %186, i32 noundef %173, ptr noundef nonnull %5, ptr noundef %179) #27
+  %187 = call i32 @wc_RsaPrivateDecryptInline(ptr noundef %186, i32 noundef %173, ptr noundef nonnull %5, ptr noundef %179) #28
   %188 = add i32 %187, -1
   %189 = lshr i32 %188, 31
   %190 = trunc nuw nsw i32 %189 to i8
@@ -12297,13 +12297,13 @@ DhAgree.exit.thread269:                           ; preds = %RsaDec.exit.thread,
   %212 = load ptr, ptr %211, align 8, !tbaa !166
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %214 = load ptr, ptr %213, align 8, !tbaa !116
-  %215 = tail call i32 @wc_ecc_set_rng(ptr noundef %.0152, ptr noundef %214) #27
+  %215 = tail call i32 @wc_ecc_set_rng(ptr noundef %.0152, ptr noundef %214) #28
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %217, label %EccSharedSecret.exit
 
 217:                                              ; preds = %205
   %218 = getelementptr inbounds nuw i8, ptr %210, i64 16
-  %219 = tail call i32 @wc_ecc_shared_secret(ptr noundef %.0152, ptr noundef %209, ptr noundef %212, ptr noundef nonnull %218) #27
+  %219 = tail call i32 @wc_ecc_shared_secret(ptr noundef %.0152, ptr noundef %209, ptr noundef %212, ptr noundef nonnull %218) #28
   br label %EccSharedSecret.exit
 
 EccSharedSecret.exit:                             ; preds = %217, %205
@@ -12313,13 +12313,13 @@ EccSharedSecret.exit:                             ; preds = %217, %205
   br i1 %.not.i224, label %FreeKey.exit, label %221
 
 221:                                              ; preds = %EccSharedSecret.exit
-  %222 = tail call i32 @wc_ecc_free(ptr noundef nonnull %220) #27
+  %222 = tail call i32 @wc_ecc_free(ptr noundef nonnull %220) #28
   %.pr.i = load ptr, ptr %208, align 8, !tbaa !196
   %.not13.i = icmp eq ptr %.pr.i, null
   br i1 %.not13.i, label %223, label %.thread.i
 
 .thread.i:                                        ; preds = %221
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i) #28
   br label %223
 
 223:                                              ; preds = %.thread.i, %221
@@ -12358,11 +12358,11 @@ FreeKey.exit:                                     ; preds = %EccSharedSecret.exi
   br i1 %or.cond.i, label %245, label %247
 
 245:                                              ; preds = %242
-  %246 = tail call i32 @wc_DhCheckPubKey(ptr noundef nonnull %227, ptr noundef %233, i32 noundef %174) #27
+  %246 = tail call i32 @wc_DhCheckPubKey(ptr noundef nonnull %227, ptr noundef %233, i32 noundef %174) #28
   br label %249
 
 247:                                              ; preds = %242, %225
-  %248 = tail call i32 @wc_DhCheckPubValue(ptr noundef %239, i32 noundef %241, ptr noundef %233, i32 noundef %174) #27
+  %248 = tail call i32 @wc_DhCheckPubValue(ptr noundef %239, i32 noundef %241, ptr noundef %233, i32 noundef %174) #28
   br label %249
 
 249:                                              ; preds = %247, %245
@@ -12371,7 +12371,7 @@ FreeKey.exit:                                     ; preds = %EccSharedSecret.exi
   br i1 %.not20.i227, label %250, label %SendAlert.exit
 
 250:                                              ; preds = %249
-  %251 = tail call i32 @wc_DhAgree(ptr noundef %227, ptr noundef %236, ptr noundef nonnull %237, ptr noundef %229, i32 noundef %231, ptr noundef %233, i32 noundef %174) #27
+  %251 = tail call i32 @wc_DhAgree(ptr noundef %227, ptr noundef %236, ptr noundef nonnull %237, ptr noundef %229, i32 noundef %231, ptr noundef %233, i32 noundef %174) #28
   br label %DhAgree.exit
 
 DhAgree.exit:                                     ; preds = %250, %FreeKey.exit
@@ -12495,7 +12495,7 @@ IsEncryptionOn.exit:                              ; preds = %300
   br label %IsEncryptionOn.exit.thread
 
 IsEncryptionOn.exit.thread:                       ; preds = %300, %303, %IsEncryptionOn.exit
-  %308 = call i32 @MakeMasterSecret(ptr noundef nonnull %0) #27
+  %308 = call i32 @MakeMasterSecret(ptr noundef nonnull %0) #28
   %.not210 = icmp eq i32 %308, 0
   br i1 %.not210, label %309, label %SendAlert.exit
 
@@ -12790,11 +12790,11 @@ IsAtLeastTLSv1_2.exit133.thread:                  ; preds = %IsAtLeastTLSv1_2.ex
 switch.lookup.i:                                  ; preds = %102
   %switch.offset.i = add nuw nsw i32 %101, 2
   %switch.offset28.i = add nsw i32 %101, -3
-  %105 = call i32 @wc_RsaPSS_VerifyInline(ptr noundef %100, i32 noundef %69, ptr noundef nonnull %5, i32 noundef %switch.offset.i, i32 noundef %switch.offset28.i, ptr noundef nonnull %94) #27
+  %105 = call i32 @wc_RsaPSS_VerifyInline(ptr noundef %100, i32 noundef %69, ptr noundef nonnull %5, i32 noundef %switch.offset.i, i32 noundef %switch.offset28.i, ptr noundef nonnull %94) #28
   br label %RsaVerify.exit
 
 106:                                              ; preds = %98
-  %107 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef %100, i32 noundef %69, ptr noundef nonnull %5, ptr noundef nonnull %94) #27
+  %107 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef %100, i32 noundef %69, ptr noundef nonnull %5, ptr noundef nonnull %94) #28
   br label %RsaVerify.exit
 
 RsaVerify.exit:                                   ; preds = %switch.lookup.i, %106
@@ -12839,7 +12839,7 @@ RsaVerify.exit.thread:                            ; preds = %RsaVerify.exit.thre
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %129 = load ptr, ptr %128, align 16, !tbaa !300
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 1148
-  %131 = call i32 @wc_ecc_verify_hash(ptr noundef %121, i32 noundef %123, ptr noundef %125, i32 noundef %127, ptr noundef nonnull %130, ptr noundef %129) #27
+  %131 = call i32 @wc_ecc_verify_hash(ptr noundef %121, i32 noundef %123, ptr noundef %125, i32 noundef %127, ptr noundef nonnull %130, ptr noundef %129) #28
   %.not.i = icmp eq i32 %131, 0
   br i1 %.not.i, label %132, label %EccVerify.exit
 
@@ -12943,8 +12943,8 @@ SetDigest.exit141:                                ; preds = %.SetDigest.exit141_
   %179 = icmp ult i8 %178, 5
   %switch.offset.i143 = add nuw nsw i32 %177, 2
   %.0.i144 = select i1 %179, i32 %switch.offset.i143, i32 0
-  %180 = call i32 @sp_count_bits(ptr noundef nonnull %146) #27
-  %181 = call i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef %173, i32 noundef %172, ptr noundef %174, i32 noundef %176, i32 noundef %.0.i144, i32 noundef -1, i32 noundef %180) #27
+  %180 = call i32 @sp_count_bits(ptr noundef nonnull %146) #28
+  %181 = call i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef %173, i32 noundef %172, ptr noundef %174, i32 noundef %176, i32 noundef %.0.i144, i32 noundef -1, i32 noundef %180) #28
   %.not126 = icmp eq i32 %181, 0
   br i1 %.not126, label %.thread, label %.thread159
 
@@ -13000,7 +13000,7 @@ switch.lookup208:                                 ; preds = %SetDigest.exit148
 
 TypeHash.exit:                                    ; preds = %SetDigest.exit148, %switch.lookup208
   %.0.i149 = phi i32 [ %switch.load210, %switch.lookup208 ], [ 0, %SetDigest.exit148 ]
-  %199 = call i32 @wc_EncodeSignature(ptr noundef nonnull %6, ptr noundef %196, i32 noundef %195, i32 noundef %.0.i149) #27
+  %199 = call i32 @wc_EncodeSignature(ptr noundef nonnull %6, ptr noundef %196, i32 noundef %195, i32 noundef %.0.i149) #28
   %200 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %199, ptr %200, align 16, !tbaa !348
   %201 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -13105,7 +13105,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   br i1 %.not130, label %246, label %247
 
 246:                                              ; preds = %242
-  call void @wolfSSL_Free(ptr noundef nonnull %241) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %241) #28
   br label %247
 
 247:                                              ; preds = %242, %246, %.thread159
@@ -13278,7 +13278,7 @@ writeAeadAuthData.exit:                           ; preds = %5, %18, %25
 xorbuf.exit:                                      ; preds = %.lr.ph.split.i, %.lr.ph38.i, %writeAeadAuthData.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %85 = load ptr, ptr %84, align 8, !tbaa !87
-  %86 = call i32 @wc_Chacha_SetIV(ptr noundef %85, ptr noundef nonnull %8, i32 noundef 0) #27
+  %86 = call i32 @wc_Chacha_SetIV(ptr noundef %85, ptr noundef nonnull %8, i32 noundef 0) #28
   %.not51 = icmp eq i32 %86, 0
   br i1 %.not51, label %101, label %87
 
@@ -13338,7 +13338,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph.split.i, %.l
 
 101:                                              ; preds = %xorbuf.exit
   %102 = load ptr, ptr %84, align 8, !tbaa !87
-  %103 = call i32 @wc_Chacha_Process(ptr noundef %102, ptr noundef nonnull %9, ptr noundef nonnull %9, i32 noundef 32) #27
+  %103 = call i32 @wc_Chacha_Process(ptr noundef %102, ptr noundef nonnull %9, ptr noundef nonnull %9, i32 noundef 32) #28
   %.not52 = icmp eq i32 %103, 0
   br i1 %.not52, label %118, label %104
 
@@ -13398,7 +13398,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph.split.i, %.l
 
 118:                                              ; preds = %101
   %119 = load ptr, ptr %84, align 8, !tbaa !87
-  %120 = call i32 @wc_Chacha_SetIV(ptr noundef %119, ptr noundef nonnull %8, i32 noundef 1) #27
+  %120 = call i32 @wc_Chacha_SetIV(ptr noundef %119, ptr noundef nonnull %8, i32 noundef 1) #28
   %.not53 = icmp eq i32 %120, 0
   %121 = ptrtoint ptr %8 to i64
   %122 = trunc i64 %121 to i32
@@ -13519,7 +13519,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph.split.i, %.l
 
 ForceZero.exit135:                                ; preds = %.lr.ph35.i128, %.preheader.i124
   %147 = load ptr, ptr %84, align 8, !tbaa !87
-  %148 = call i32 @wc_Chacha_Process(ptr noundef %147, ptr noundef %1, ptr noundef %2, i32 noundef %14) #27
+  %148 = call i32 @wc_Chacha_Process(ptr noundef %147, ptr noundef %1, ptr noundef %2, i32 noundef %14) #28
   %.not54 = icmp eq i32 %148, 0
   br i1 %.not54, label %151, label %.lr.ph29.i151
 
@@ -13546,13 +13546,13 @@ ForceZero.exit135:                                ; preds = %.lr.ph35.i128, %.pr
 156:                                              ; preds = %151
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %158 = load ptr, ptr %157, align 8, !tbaa !89
-  %159 = call i32 @wc_Poly1305SetKey(ptr noundef %158, ptr noundef nonnull %9, i32 noundef 32) #27
+  %159 = call i32 @wc_Poly1305SetKey(ptr noundef %158, ptr noundef nonnull %9, i32 noundef 32) #28
   %.not56 = icmp eq i32 %159, 0
   br i1 %.not56, label %160, label %ForceZero.exit.sink.split
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr %157, align 8, !tbaa !89
-  %162 = call i32 @wc_Poly1305_MAC(ptr noundef %161, ptr noundef nonnull %7, i32 noundef 13, ptr noundef %1, i32 noundef %14, ptr noundef nonnull %6, i32 noundef 16) #27
+  %162 = call i32 @wc_Poly1305_MAC(ptr noundef %161, ptr noundef nonnull %7, i32 noundef 13, ptr noundef %1, i32 noundef %14, ptr noundef nonnull %6, i32 noundef 16) #28
   %.not57 = icmp eq i32 %162, 0
   br i1 %.not57, label %163, label %ForceZero.exit.sink.split
 
@@ -13724,13 +13724,13 @@ define internal fastcc i32 @Poly1305TagOld(ptr noundef readonly captures(none) %
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %17 = load ptr, ptr %16, align 8, !tbaa !89
-  %18 = tail call i32 @wc_Poly1305SetKey(ptr noundef %17, ptr noundef nonnull %4, i32 noundef 32) #27
+  %18 = tail call i32 @wc_Poly1305SetKey(ptr noundef %17, ptr noundef nonnull %4, i32 noundef 32) #28
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %38
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %16, align 8, !tbaa !89
-  %21 = tail call i32 @wc_Poly1305Update(ptr noundef %20, ptr noundef nonnull %1, i32 noundef %2) #27
+  %21 = tail call i32 @wc_Poly1305Update(ptr noundef %20, ptr noundef nonnull %1, i32 noundef %2) #28
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %22, label %38
 
@@ -13739,14 +13739,14 @@ define internal fastcc i32 @Poly1305TagOld(ptr noundef readonly captures(none) %
   %23 = trunc i32 %2 to i8
   store i8 %23, ptr %8, align 8, !tbaa !45
   %24 = load ptr, ptr %16, align 8, !tbaa !89
-  %25 = call i32 @wc_Poly1305Update(ptr noundef %24, ptr noundef nonnull %8, i32 noundef 8) #27
+  %25 = call i32 @wc_Poly1305Update(ptr noundef %24, ptr noundef nonnull %8, i32 noundef 8) #28
   %.not36 = icmp eq i32 %25, 0
   br i1 %.not36, label %26, label %38
 
 26:                                               ; preds = %22
   store i64 0, ptr %8, align 8
   %27 = load ptr, ptr %16, align 8, !tbaa !89
-  %28 = call i32 @wc_Poly1305Update(ptr noundef %27, ptr noundef %3, i32 noundef %13) #27
+  %28 = call i32 @wc_Poly1305Update(ptr noundef %27, ptr noundef %3, i32 noundef %13) #28
   %.not37 = icmp eq i32 %28, 0
   br i1 %.not37, label %29, label %38
 
@@ -13758,13 +13758,13 @@ define internal fastcc i32 @Poly1305TagOld(ptr noundef readonly captures(none) %
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store i8 0, ptr %32, align 1, !tbaa !45
   %33 = load ptr, ptr %16, align 8, !tbaa !89
-  %34 = call i32 @wc_Poly1305Update(ptr noundef %33, ptr noundef nonnull %8, i32 noundef 8) #27
+  %34 = call i32 @wc_Poly1305Update(ptr noundef %33, ptr noundef nonnull %8, i32 noundef 8) #28
   %.not38 = icmp eq i32 %34, 0
   br i1 %.not38, label %35, label %38
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %16, align 8, !tbaa !89
-  %37 = call i32 @wc_Poly1305Final(ptr noundef %36, ptr noundef nonnull %6) #27
+  %37 = call i32 @wc_Poly1305Final(ptr noundef %36, ptr noundef nonnull %6) #28
   br label %38
 
 38:                                               ; preds = %35, %29, %26, %22, %19, %15, %7
@@ -13931,7 +13931,7 @@ writeAeadAuthData.exit:                           ; preds = %4, %17, %24
 xorbuf.exit:                                      ; preds = %.lr.ph.split.i, %.lr.ph38.i, %writeAeadAuthData.exit
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %86 = load ptr, ptr %85, align 8, !tbaa !88
-  %87 = call i32 @wc_Chacha_SetIV(ptr noundef %86, ptr noundef nonnull %6, i32 noundef 0) #27
+  %87 = call i32 @wc_Chacha_SetIV(ptr noundef %86, ptr noundef nonnull %6, i32 noundef 0) #28
   %.not49 = icmp eq i32 %87, 0
   br i1 %.not49, label %102, label %88
 
@@ -13991,7 +13991,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph.split.i, %.l
 
 102:                                              ; preds = %xorbuf.exit
   %103 = load ptr, ptr %85, align 8, !tbaa !88
-  %104 = call i32 @wc_Chacha_Process(ptr noundef %103, ptr noundef nonnull %8, ptr noundef nonnull %8, i32 noundef 32) #27
+  %104 = call i32 @wc_Chacha_Process(ptr noundef %103, ptr noundef nonnull %8, ptr noundef nonnull %8, i32 noundef 32) #28
   %.not50 = icmp eq i32 %104, 0
   br i1 %.not50, label %119, label %105
 
@@ -14051,7 +14051,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph.split.i, %.l
 
 119:                                              ; preds = %102
   %120 = load ptr, ptr %85, align 8, !tbaa !88
-  %121 = call i32 @wc_Chacha_SetIV(ptr noundef %120, ptr noundef nonnull %6, i32 noundef 1) #27
+  %121 = call i32 @wc_Chacha_SetIV(ptr noundef %120, ptr noundef nonnull %6, i32 noundef 1) #28
   %.not51 = icmp eq i32 %121, 0
   %122 = ptrtoint ptr %6 to i64
   %123 = trunc i64 %122 to i32
@@ -14188,7 +14188,7 @@ ForceZero.exit135:                                ; preds = %.lr.ph35.i128, %.pr
 153:                                              ; preds = %ForceZero.exit135
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %155 = load ptr, ptr %154, align 8, !tbaa !89
-  %156 = call i32 @wc_Poly1305SetKey(ptr noundef %155, ptr noundef nonnull %8, i32 noundef 32) #27
+  %156 = call i32 @wc_Poly1305SetKey(ptr noundef %155, ptr noundef nonnull %8, i32 noundef 32) #28
   %.not53 = icmp eq i32 %156, 0
   br i1 %.not53, label %158, label %157
 
@@ -14198,7 +14198,7 @@ ForceZero.exit135:                                ; preds = %.lr.ph35.i128, %.pr
 
 158:                                              ; preds = %153
   %159 = load ptr, ptr %154, align 8, !tbaa !89
-  %160 = call i32 @wc_Poly1305_MAC(ptr noundef %159, ptr noundef nonnull %5, i32 noundef 13, ptr noundef %2, i32 noundef %13, ptr noundef nonnull %7, i32 noundef 16) #27
+  %160 = call i32 @wc_Poly1305_MAC(ptr noundef %159, ptr noundef nonnull %5, i32 noundef 13, ptr noundef %2, i32 noundef %13, ptr noundef nonnull %7, i32 noundef 16) #28
   %.not54 = icmp eq i32 %160, 0
   br i1 %.not54, label %162, label %161
 
@@ -14248,7 +14248,7 @@ ConstantCompare.exit:                             ; preds = %.lr.ph.i137
 
 ConstantCompare.exit.thread:                      ; preds = %162, %ConstantCompare.exit
   %178 = load ptr, ptr %85, align 8, !tbaa !88
-  %179 = call i32 @wc_Chacha_Process(ptr noundef %178, ptr noundef %1, ptr noundef %2, i32 noundef %13) #27
+  %179 = call i32 @wc_Chacha_Process(ptr noundef %178, ptr noundef %1, ptr noundef %2, i32 noundef %13) #28
   br label %ForceZero.exit
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.lr.ph35.i71, %.lr.ph29.i113, %.preheader.i67, %.preheader.i59, %ConstantCompare.exit.thread, %173, %176, %161, %157, %152
@@ -14305,7 +14305,7 @@ MaskPadding.exit:                                 ; preds = %.lr.ph.i, %6
   %30 = add i32 %3, %2
   %31 = xor i32 %30, -1
   %32 = add i32 %4, %31
-  %33 = call i32 %29(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %1, i32 noundef %32, i32 noundef %2, i32 noundef %5, i32 noundef 1, i32 noundef 1) #27
+  %33 = call i32 %29(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %1, i32 noundef %32, i32 noundef %2, i32 noundef %5, i32 noundef 1, i32 noundef 1) #28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 727
   %35 = load i8, ptr %34, align 1, !tbaa !115
   %36 = zext i8 %35 to i32
@@ -15109,7 +15109,7 @@ IsEncryptionOn.exit406.i:                         ; preds = %183
   %202 = getelementptr inbounds nuw i8, ptr %191, i64 %201
   %203 = load ptr, ptr %34, align 16, !tbaa !182
   %204 = sub nuw nsw i32 %194, %197
-  %205 = call i32 %203(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %202, i32 noundef %204, i32 noundef -1, i32 noundef range(i32 0, 256) %200, i32 noundef 1, i32 noundef 1) #27
+  %205 = call i32 %203(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %202, i32 noundef %204, i32 noundef -1, i32 noundef range(i32 0, 256) %200, i32 noundef 1, i32 noundef 1) #28
   %206 = zext i16 %193 to i64
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 %206
   %208 = zext i8 %196 to i64
@@ -15343,7 +15343,7 @@ SanityCheckCipherText.exit.i:                     ; preds = %262
   %316 = load i32, ptr %20, align 4, !tbaa !374
   %317 = zext i32 %316 to i64
   %318 = getelementptr inbounds nuw i8, ptr %315, i64 %317
-  %319 = call i32 @DecryptTls13(ptr noundef nonnull %0, ptr noundef %318, ptr noundef %318, i16 noundef zeroext %235, ptr noundef nonnull %18, i16 noundef zeroext 5) #27
+  %319 = call i32 @DecryptTls13(ptr noundef nonnull %0, ptr noundef %318, ptr noundef %318, i16 noundef zeroext %235, ptr noundef nonnull %18, i16 noundef zeroext 5) #28
   br label %320
 
 320:                                              ; preds = %314, %312, %272
@@ -15511,7 +15511,7 @@ IsEncryptionOn.exit438.thread747.i.thread90:      ; preds = %365
   %390 = load ptr, ptr %34, align 16, !tbaa !182
   %391 = xor i32 %spec.select.i429.i, -1
   %392 = add nsw i32 %387, %391
-  %393 = call i32 %390(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %373, i32 noundef %392, i32 noundef %spec.select.i429.i, i32 noundef range(i32 0, 256) %376, i32 noundef 1, i32 noundef 1) #27
+  %393 = call i32 %390(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %373, i32 noundef %392, i32 noundef %spec.select.i429.i, i32 noundef range(i32 0, 256) %376, i32 noundef 1, i32 noundef 1) #28
   %394 = zext i16 %.pre676.i to i64
   %395 = getelementptr inbounds nuw i8, ptr %373, i64 %394
   %396 = zext i8 %377 to i64
@@ -15558,7 +15558,7 @@ ConstantCompare.exit.thread.i.i:                  ; preds = %.preheader.i.i
 413:                                              ; preds = %369
   %414 = load ptr, ptr %34, align 16, !tbaa !182
   %415 = sub nsw i32 %374, %378
-  %416 = call i32 %414(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %373, i32 noundef %415, i32 noundef -1, i32 noundef range(i32 0, 256) %376, i32 noundef 1, i32 noundef 1) #27
+  %416 = call i32 %414(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %373, i32 noundef %415, i32 noundef -1, i32 noundef range(i32 0, 256) %376, i32 noundef 1, i32 noundef 1) #28
   %417 = zext i16 %.pre676.i to i64
   %418 = getelementptr inbounds nuw i8, ptr %373, i64 %417
   %419 = zext i8 %377 to i64
@@ -15830,7 +15830,7 @@ RetrySendAlert.exit.i3:                           ; preds = %502
   %527 = icmp ne i16 %526, 3
   %528 = icmp ult i16 %525, 1024
   %.not5.not.i.not614.i = or i1 %528, %527
-  %529 = call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #27
+  %529 = call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #28
   %530 = and i64 %529, 536870912
   %.not2.i.i = icmp ne i64 %530, 0
   %narrow.i.not.i = select i1 %.not2.i.i, i1 true, i1 %.not5.not.i.not614.i
@@ -15937,7 +15937,7 @@ RetrySendAlert.exit.i3:                           ; preds = %502
   %598 = getelementptr inbounds nuw i8, ptr %595, i64 20
   store i32 %597, ptr %598, align 4, !tbaa !377
   %599 = zext nneg i32 %597 to i64
-  %600 = call ptr @wolfSSL_Malloc(i64 noundef %599) #27
+  %600 = call ptr @wolfSSL_Malloc(i64 noundef %599) #28
   %601 = load ptr, ptr %49, align 8, !tbaa !163
   store ptr %600, ptr %601, align 8, !tbaa !195
   %602 = icmp eq ptr %600, null
@@ -16013,7 +16013,7 @@ GetHandShakeHeader.exit102.i.i:                   ; preds = %592
   br i1 %.not96.i.i, label %651, label %650
 
 650:                                              ; preds = %642
-  call void @wolfSSL_Free(ptr noundef nonnull %649) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %649) #28
   %.pre.i454.i = load ptr, ptr %49, align 8, !tbaa !163
   br label %651
 
@@ -16034,7 +16034,7 @@ DoHandShakeMsg.exit.i:                            ; preds = %651, %GetHandShakeH
   %655 = load i32, ptr %46, align 2
   %656 = and i32 %655, -262145
   store i32 %656, ptr %46, align 2
-  %657 = call i32 @DoTls13HandShakeMsg(ptr noundef nonnull %0, ptr noundef %.pre681.i, ptr noundef nonnull %20, i32 noundef %.pre682.i) #27
+  %657 = call i32 @DoTls13HandShakeMsg(ptr noundef nonnull %0, ptr noundef %.pre681.i, ptr noundef nonnull %20, i32 noundef %.pre682.i) #28
   br label %658
 
 658:                                              ; preds = %654, %514
@@ -16269,7 +16269,7 @@ thread-pre-split554.i:                            ; preds = %716, %714, %IsEncry
 
 SanityCheckMsgReceived.exit.i:                    ; preds = %._crit_edge686.i, %751, %.thread106.i.i
   store i8 1, ptr %30, align 4, !tbaa !44
-  %753 = call i32 @SetKeysSide(ptr noundef nonnull %0, i32 noundef 2) #27
+  %753 = call i32 @SetKeysSide(ptr noundef nonnull %0, i32 noundef 2) #28
   %.not380.i = icmp eq i32 %753, 0
   br i1 %.not380.i, label %754, label %DoProcessReplyEx.exit
 
@@ -16544,7 +16544,7 @@ ForceZero.exit.i.i:                               ; preds = %.lr.ph35.i.i.i, %.p
   %863 = zext i8 %862 to i64
   %864 = sub nsw i64 0, %863
   %865 = getelementptr inbounds i8, ptr %860, i64 %864
-  call void @wolfSSL_Free(ptr noundef nonnull %865) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %865) #28
   br label %866
 
 866:                                              ; preds = %861, %ForceZero.exit.i.i
@@ -16611,7 +16611,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %1, %5, %IsEncryptio
 21:                                               ; preds = %18
   %22 = add i32 %15, %.032
   %23 = zext i32 %22 to i64
-  %24 = tail call ptr @wolfSSL_Malloc(i64 noundef %23) #27
+  %24 = tail call ptr @wolfSSL_Malloc(i64 noundef %23) #28
   %25 = icmp eq ptr %24, null
   br i1 %25, label %CheckAvailableSize.exit, label %26
 
@@ -16647,7 +16647,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %1, %5, %IsEncryptio
   %43 = zext i8 %42 to i64
   %44 = sub nsw i64 0, %43
   %45 = getelementptr inbounds i8, ptr %39, i64 %44
-  tail call void @wolfSSL_Free(ptr noundef nonnull %45) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %45) #28
   br label %.thread
 
 .thread:                                          ; preds = %34, %37, %40
@@ -16745,7 +16745,7 @@ IsEncryptionOn.exit46.thread:                     ; preds = %AddRecordHeader.exi
   br i1 %.not40, label %90, label %98
 
 90:                                               ; preds = %IsEncryptionOn.exit46.thread
-  %91 = call i32 @SetKeysSide(ptr noundef nonnull %0, i32 noundef 1) #27
+  %91 = call i32 @SetKeysSide(ptr noundef nonnull %0, i32 noundef 1) #28
   %.not41 = icmp eq i32 %91, 0
   br i1 %.not41, label %92, label %CheckAvailableSize.exit
 
@@ -16846,7 +16846,7 @@ define i32 @BuildMessage(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %.not207, label %25, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call i32 @BuildTls13Message(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #27
+  %24 = tail call i32 @BuildTls13Message(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #28
   br label %FreeBuildMsgArgs.exit
 
 25:                                               ; preds = %19
@@ -16960,7 +16960,7 @@ define i32 @BuildMessage(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   store ptr %79, ptr %80, align 16, !tbaa !394
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %82 = load ptr, ptr %81, align 8, !tbaa !116
-  %83 = call i32 @wc_RNG_GenerateBlock(ptr noundef %82, ptr noundef nonnull %79, i32 noundef %72) #27
+  %83 = call i32 @wc_RNG_GenerateBlock(ptr noundef %82, ptr noundef nonnull %79, i32 noundef %72) #28
   %.not213 = icmp eq i32 %83, 0
   br i1 %.not213, label %._crit_edge, label %.thread234
 
@@ -17089,7 +17089,7 @@ HashOutput.exit:                                  ; preds = %109
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 %152
   %154 = load i8, ptr %32, align 4, !tbaa !388
   %155 = zext i8 %154 to i32
-  %156 = call i32 %144(ptr noundef nonnull %0, ptr noundef %147, ptr noundef %153, i32 noundef %4, i32 noundef -1, i32 noundef %155, i32 noundef 0, i32 noundef %9) #27
+  %156 = call i32 %144(ptr noundef nonnull %0, ptr noundef %147, ptr noundef %153, i32 noundef %4, i32 noundef -1, i32 noundef %155, i32 noundef 0, i32 noundef %9) #28
   %.not220 = icmp eq i32 %156, 0
   br i1 %.not220, label %.thread, label %.thread234
 
@@ -17158,7 +17158,7 @@ HashOutput.exit:                                  ; preds = %109
   %198 = add i32 %197, %195
   %199 = load i8, ptr %32, align 4, !tbaa !388
   %200 = zext i8 %199 to i32
-  %201 = call i32 %183(ptr noundef nonnull %0, ptr noundef nonnull %191, ptr noundef %194, i32 noundef %198, i32 noundef -1, i32 noundef %200, i32 noundef 0, i32 noundef %9) #27
+  %201 = call i32 %183(ptr noundef nonnull %0, ptr noundef nonnull %191, ptr noundef %194, i32 noundef %198, i32 noundef -1, i32 noundef %200, i32 noundef 0, i32 noundef %9) #28
   %.10.fr = freeze i32 %201
   store i8 0, ptr %26, align 1, !tbaa !389
   %202 = icmp eq i32 %.10.fr, 0
@@ -17187,7 +17187,7 @@ HashOutput.exit:                                  ; preds = %109
   br i1 %or.cond.i, label %FreeBuildMsgArgs.exit, label %210
 
 210:                                              ; preds = %205
-  call void @wolfSSL_Free(ptr noundef nonnull %208) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %208) #28
   br label %FreeBuildMsgArgs.exit
 
 FreeBuildMsgArgs.exit:                            ; preds = %210, %205, %.critedge, %14, %10, %23
@@ -17214,7 +17214,7 @@ define i32 @BuildCertHashes(ptr noundef readonly captures(none) %0, ptr noundef 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 16, !tbaa !159
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 464
-  %14 = tail call i32 @wc_Md5GetHash(ptr noundef nonnull %13, ptr noundef %1) #27
+  %14 = tail call i32 @wc_Md5GetHash(ptr noundef nonnull %13, ptr noundef %1) #28
   %.not43 = icmp eq i32 %14, 0
   br i1 %.not43, label %15, label %113
 
@@ -17222,7 +17222,7 @@ define i32 @BuildCertHashes(ptr noundef readonly captures(none) %0, ptr noundef 
   %16 = load ptr, ptr %11, align 16, !tbaa !159
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 360
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = tail call i32 @wc_ShaGetHash(ptr noundef nonnull %17, ptr noundef nonnull %18) #27
+  %19 = tail call i32 @wc_ShaGetHash(ptr noundef nonnull %17, ptr noundef nonnull %18) #28
   %.not44 = icmp eq i32 %19, 0
   br i1 %.not44, label %20, label %113
 
@@ -17242,7 +17242,7 @@ IsAtLeastTLSv1_2.exit:                            ; preds = %24
   %28 = load ptr, ptr %11, align 16, !tbaa !159
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 576
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %31 = tail call i32 @wc_Sha256GetHash(ptr noundef nonnull %29, ptr noundef nonnull %30) #27
+  %31 = tail call i32 @wc_Sha256GetHash(ptr noundef nonnull %29, ptr noundef nonnull %30) #28
   %.not46 = icmp eq i32 %31, 0
   br i1 %.not46, label %32, label %113
 
@@ -17250,7 +17250,7 @@ IsAtLeastTLSv1_2.exit:                            ; preds = %24
   %33 = load ptr, ptr %11, align 16, !tbaa !159
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 704
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %36 = tail call i32 @wc_Sha384GetHash(ptr noundef nonnull %34, ptr noundef nonnull %35) #27
+  %36 = tail call i32 @wc_Sha384GetHash(ptr noundef nonnull %34, ptr noundef nonnull %35) #28
   %.not47 = icmp eq i32 %36, 0
   br i1 %.not47, label %37, label %113
 
@@ -17258,7 +17258,7 @@ IsAtLeastTLSv1_2.exit:                            ; preds = %24
   %38 = load ptr, ptr %11, align 16, !tbaa !159
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 928
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %41 = tail call i32 @wc_Sha512GetHash(ptr noundef nonnull %39, ptr noundef nonnull %40) #27
+  %41 = tail call i32 @wc_Sha512GetHash(ptr noundef nonnull %39, ptr noundef nonnull %40) #28
   %.not48 = icmp eq i32 %41, 0
   br i1 %.not48, label %IsAtLeastTLSv1_2.exit.thread, label %113
 
@@ -17268,7 +17268,7 @@ IsAtLeastTLSv1_2.exit:                            ; preds = %24
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %44 = load ptr, ptr %43, align 16, !tbaa !159
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 464
-  %46 = call i32 @wc_Md5Copy(ptr noundef nonnull %45, ptr noundef nonnull %6) #27
+  %46 = call i32 @wc_Md5Copy(ptr noundef nonnull %45, ptr noundef nonnull %6) #28
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %BuildMD5_CertVerify.exit.thread
 
@@ -17276,17 +17276,17 @@ IsAtLeastTLSv1_2.exit:                            ; preds = %24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !163
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 173
-  %52 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %51, i32 noundef 48) #27
+  %52 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %51, i32 noundef 48) #28
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %BuildMD5_CertVerify.exit.thread
 
 54:                                               ; preds = %48
-  %55 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull @PAD1, i32 noundef 48) #27
+  %55 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull @PAD1, i32 noundef 48) #28
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %BuildMD5_CertVerify.exit.thread
 
 57:                                               ; preds = %54
-  %58 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef nonnull %5) #27
+  %58 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef nonnull %5) #28
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %BuildMD5_CertVerify.exit.thread
 
@@ -17295,24 +17295,24 @@ IsAtLeastTLSv1_2.exit:                            ; preds = %24
   %62 = load ptr, ptr %61, align 16, !tbaa !160
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %64 = load i32, ptr %63, align 4, !tbaa !161
-  %65 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %6, ptr noundef %62, i32 noundef %64) #27
+  %65 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %6, ptr noundef %62, i32 noundef %64) #28
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %BuildMD5_CertVerify.exit.thread
 
 67:                                               ; preds = %60
   %68 = load ptr, ptr %49, align 8, !tbaa !163
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 173
-  %70 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %69, i32 noundef 48) #27
+  %70 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %69, i32 noundef 48) #28
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %BuildMD5_CertVerify.exit.thread57
 
 72:                                               ; preds = %67
-  %73 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull @PAD2, i32 noundef 48) #27
+  %73 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull @PAD2, i32 noundef 48) #28
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %BuildMD5_CertVerify.exit.thread57
 
 75:                                               ; preds = %72
-  %76 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 16) #27
+  %76 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 16) #28
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %BuildMD5_CertVerify.exit, label %BuildMD5_CertVerify.exit.thread57
 
@@ -17324,14 +17324,14 @@ BuildMD5_CertVerify.exit.thread:                  ; preds = %60, %57, %54, %48, 
 
 BuildMD5_CertVerify.exit.thread57:                ; preds = %75, %72, %67
   %.6.i.ph = phi i32 [ %70, %67 ], [ %73, %72 ], [ %76, %75 ]
-  call void @wc_Md5Free(ptr noundef nonnull %6) #27
+  call void @wc_Md5Free(ptr noundef nonnull %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %113
 
 BuildMD5_CertVerify.exit:                         ; preds = %75
-  %78 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef %1) #27
-  call void @wc_Md5Free(ptr noundef nonnull %6) #27
+  %78 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef %1) #28
+  call void @wc_Md5Free(ptr noundef nonnull %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not41 = icmp eq i32 %78, 0
@@ -17343,48 +17343,48 @@ BuildMD5_CertVerify.exit:                         ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %81 = load ptr, ptr %43, align 16, !tbaa !159
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 360
-  %83 = call i32 @wc_ShaCopy(ptr noundef nonnull %82, ptr noundef nonnull %4) #27
+  %83 = call i32 @wc_ShaCopy(ptr noundef nonnull %82, ptr noundef nonnull %4) #28
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %BuildSHA_CertVerify.exit.thread
 
 85:                                               ; preds = %79
   %86 = load ptr, ptr %49, align 8, !tbaa !163
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 173
-  %88 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull %87, i32 noundef 48) #27
+  %88 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull %87, i32 noundef 48) #28
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %BuildSHA_CertVerify.exit.thread
 
 90:                                               ; preds = %85
-  %91 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull @PAD1, i32 noundef 40) #27
+  %91 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull @PAD1, i32 noundef 40) #28
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %BuildSHA_CertVerify.exit.thread
 
 93:                                               ; preds = %90
-  %94 = call i32 @wc_ShaFinal(ptr noundef nonnull %4, ptr noundef nonnull %3) #27
+  %94 = call i32 @wc_ShaFinal(ptr noundef nonnull %4, ptr noundef nonnull %3) #28
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %BuildSHA_CertVerify.exit.thread
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %61, align 16, !tbaa !160
   %98 = load i32, ptr %63, align 4, !tbaa !161
-  %99 = call i32 @wc_InitSha_ex(ptr noundef nonnull %4, ptr noundef %97, i32 noundef %98) #27
+  %99 = call i32 @wc_InitSha_ex(ptr noundef nonnull %4, ptr noundef %97, i32 noundef %98) #28
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %BuildSHA_CertVerify.exit.thread
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %49, align 8, !tbaa !163
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 173
-  %104 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull %103, i32 noundef 48) #27
+  %104 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull %103, i32 noundef 48) #28
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %BuildSHA_CertVerify.exit.thread63
 
 106:                                              ; preds = %101
-  %107 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull @PAD2, i32 noundef 40) #27
+  %107 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull @PAD2, i32 noundef 40) #28
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %BuildSHA_CertVerify.exit.thread63
 
 109:                                              ; preds = %106
-  %110 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 20) #27
+  %110 = call i32 @wc_ShaUpdate(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 20) #28
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %BuildSHA_CertVerify.exit, label %BuildSHA_CertVerify.exit.thread63
 
@@ -17396,14 +17396,14 @@ BuildSHA_CertVerify.exit.thread:                  ; preds = %96, %93, %90, %85, 
 
 BuildSHA_CertVerify.exit.thread63:                ; preds = %109, %106, %101
   %.6.i51.ph = phi i32 [ %104, %101 ], [ %107, %106 ], [ %110, %109 ]
-  call void @wc_ShaFree(ptr noundef nonnull %4) #27
+  call void @wc_ShaFree(ptr noundef nonnull %4) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %113
 
 BuildSHA_CertVerify.exit:                         ; preds = %109
-  %112 = call i32 @wc_ShaFinal(ptr noundef nonnull %4, ptr noundef nonnull %80) #27
-  call void @wc_ShaFree(ptr noundef nonnull %4) #27
+  %112 = call i32 @wc_ShaFinal(ptr noundef nonnull %4, ptr noundef nonnull %80) #28
+  call void @wc_ShaFree(ptr noundef nonnull %4) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not42 = icmp eq i32 %112, 0
@@ -17442,7 +17442,7 @@ define void @FreeBuildMsgArgs(ptr noundef readnone captures(none) %0, ptr nounde
   br i1 %or.cond, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void @wolfSSL_Free(ptr noundef nonnull %5) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %5) #28
   br label %8
 
 8:                                                ; preds = %3, %7, %2
@@ -17485,7 +17485,7 @@ define internal fastcc i32 @Encrypt(ptr noundef nonnull %0, ptr noundef %1, ptr 
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = tail call ptr @wolfSSL_Malloc(i64 noundef 13) #27
+  %20 = tail call ptr @wolfSSL_Malloc(i64 noundef 13) #28
   store ptr %20, ptr %16, align 8, !tbaa !398
   %21 = icmp eq ptr %20, null
   br label %22
@@ -17498,7 +17498,7 @@ define internal fastcc i32 @Encrypt(ptr noundef nonnull %0, ptr noundef %1, ptr 
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %22
-  %28 = tail call ptr @wolfSSL_Malloc(i64 noundef 12) #27
+  %28 = tail call ptr @wolfSSL_Malloc(i64 noundef 12) #28
   store ptr %28, ptr %24, align 8, !tbaa !399
   %.pre = load ptr, ptr %16, align 8, !tbaa !398
   %29 = icmp eq ptr %28, null
@@ -17531,7 +17531,7 @@ define internal fastcc i32 @Encrypt(ptr noundef nonnull %0, ptr noundef %1, ptr 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %38 = load ptr, ptr %37, align 8, !tbaa !85
   %39 = zext i16 %3 to i32
-  %40 = tail call i32 @wc_AesCbcEncrypt(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %39) #27
+  %40 = tail call i32 @wc_AesCbcEncrypt(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %39) #28
   br label %EncryptDo.exit
 
 41:                                               ; preds = %33, %33
@@ -17628,7 +17628,7 @@ writeAeadAuthData.exit.i:                         ; preds = %60, %53, %41
   %104 = sub nsw i64 0, %103
   %105 = getelementptr inbounds i8, ptr %102, i64 %104
   %106 = load ptr, ptr %48, align 8, !tbaa !398
-  %107 = tail call i32 @wc_AesGcmEncrypt_ex(ptr noundef %93, ptr noundef nonnull %94, ptr noundef nonnull %95, i32 noundef %98, ptr noundef %100, i32 noundef 12, ptr noundef %105, i32 noundef %97, ptr noundef %106, i32 noundef 13) #27
+  %107 = tail call i32 @wc_AesGcmEncrypt_ex(ptr noundef %93, ptr noundef nonnull %94, ptr noundef nonnull %95, i32 noundef %98, ptr noundef %100, i32 noundef 12, ptr noundef %105, i32 noundef %97, ptr noundef %106, i32 noundef 13) #28
   %108 = load ptr, ptr %99, align 8, !tbaa !399
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i64, ptr %109, align 1
@@ -17756,7 +17756,7 @@ define i32 @SendFinished(ptr noundef initializes((1032, 1033)) %0) local_unnamed
 19:                                               ; preds = %17
   %20 = add nuw i32 %14, 150
   %21 = zext i32 %20 to i64
-  %22 = tail call ptr @wolfSSL_Malloc(i64 noundef %21) #27
+  %22 = tail call ptr @wolfSSL_Malloc(i64 noundef %21) #28
   %23 = icmp eq ptr %22, null
   br i1 %23, label %CheckAvailableSize.exit, label %24
 
@@ -17792,7 +17792,7 @@ define i32 @SendFinished(ptr noundef initializes((1032, 1033)) %0) local_unnamed
   %41 = zext i8 %40 to i64
   %42 = sub nsw i64 0, %41
   %43 = getelementptr inbounds i8, ptr %37, i64 %42
-  tail call void @wolfSSL_Free(ptr noundef nonnull %43) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %43) #28
   br label %GrowOutputBuffer.exit.i
 
 GrowOutputBuffer.exit.i:                          ; preds = %38, %35, %32
@@ -17847,8 +17847,8 @@ GrowOutputBuffer.exit.i:                          ; preds = %38, %35, %32
   br i1 %.not41, label %72, label %76
 
 72:                                               ; preds = %69
-  call void @SetupSession(ptr noundef nonnull %0) #27
-  call void @AddSession(ptr noundef nonnull %0) #27
+  call void @SetupSession(ptr noundef nonnull %0) #28
+  call void @AddSession(ptr noundef nonnull %0) #28
   %73 = load i64, ptr %3, align 8
   %74 = and i64 %73, 48
   %75 = icmp eq i64 %74, 0
@@ -17897,7 +17897,7 @@ define internal fastcc i32 @BuildFinished(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @BuildTlsFinished(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #27
+  %14 = tail call i32 @BuildTlsFinished(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #28
   %.pre = load i64, ptr %10, align 8
   br label %15
 
@@ -17914,12 +17914,12 @@ define internal fastcc i32 @BuildFinished(ptr noundef %0, ptr noundef %1, ptr no
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 16, !tbaa !159
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 464
-  %22 = call i32 @wc_Md5Copy(ptr noundef nonnull %21, ptr noundef nonnull %7) #27
+  %22 = call i32 @wc_Md5Copy(ptr noundef nonnull %21, ptr noundef nonnull %7) #28
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %BuildMD5.exit.thread
 
 24:                                               ; preds = %18
-  %25 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef %2, i32 noundef 4) #27
+  %25 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef %2, i32 noundef 4) #28
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %BuildMD5.exit.thread
 
@@ -17927,17 +17927,17 @@ define internal fastcc i32 @BuildFinished(ptr noundef %0, ptr noundef %1, ptr no
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !163
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 173
-  %31 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull %30, i32 noundef 48) #27
+  %31 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull %30, i32 noundef 48) #28
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %BuildMD5.exit.thread
 
 33:                                               ; preds = %27
-  %34 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull @PAD1, i32 noundef 48) #27
+  %34 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull @PAD1, i32 noundef 48) #28
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %BuildMD5.exit.thread
 
 36:                                               ; preds = %33
-  %37 = call i32 @wc_Md5Final(ptr noundef nonnull %7, ptr noundef nonnull %6) #27
+  %37 = call i32 @wc_Md5Final(ptr noundef nonnull %7, ptr noundef nonnull %6) #28
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %BuildMD5.exit.thread
 
@@ -17946,24 +17946,24 @@ define internal fastcc i32 @BuildFinished(ptr noundef %0, ptr noundef %1, ptr no
   %41 = load ptr, ptr %40, align 16, !tbaa !160
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %43 = load i32, ptr %42, align 4, !tbaa !161
-  %44 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %7, ptr noundef %41, i32 noundef %43) #27
+  %44 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %7, ptr noundef %41, i32 noundef %43) #28
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %BuildMD5.exit.thread
 
 46:                                               ; preds = %39
   %47 = load ptr, ptr %28, align 8, !tbaa !163
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 173
-  %49 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull %48, i32 noundef 48) #27
+  %49 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull %48, i32 noundef 48) #28
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %BuildMD5.exit.thread23
 
 51:                                               ; preds = %46
-  %52 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull @PAD2, i32 noundef 48) #27
+  %52 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull @PAD2, i32 noundef 48) #28
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %BuildMD5.exit.thread23
 
 54:                                               ; preds = %51
-  %55 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 16) #27
+  %55 = call i32 @wc_Md5Update(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 16) #28
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %BuildMD5.exit, label %BuildMD5.exit.thread23
 
@@ -17975,14 +17975,14 @@ BuildMD5.exit.thread:                             ; preds = %39, %36, %33, %27, 
 
 BuildMD5.exit.thread23:                           ; preds = %54, %51, %46
   %.7.i.ph = phi i32 [ %49, %46 ], [ %52, %51 ], [ %55, %54 ]
-  call void @wc_Md5Free(ptr noundef nonnull %7) #27
+  call void @wc_Md5Free(ptr noundef nonnull %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %97
 
 BuildMD5.exit:                                    ; preds = %54
-  %57 = call i32 @wc_Md5Final(ptr noundef nonnull %7, ptr noundef %1) #27
-  call void @wc_Md5Free(ptr noundef nonnull %7) #27
+  %57 = call i32 @wc_Md5Final(ptr noundef nonnull %7, ptr noundef %1) #28
+  call void @wc_Md5Free(ptr noundef nonnull %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = icmp eq i32 %57, 0
@@ -17993,64 +17993,64 @@ BuildMD5.exit:                                    ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = load ptr, ptr %19, align 16, !tbaa !159
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 360
-  %62 = call i32 @wc_ShaCopy(ptr noundef nonnull %61, ptr noundef nonnull %5) #27
+  %62 = call i32 @wc_ShaCopy(ptr noundef nonnull %61, ptr noundef nonnull %5) #28
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %BuildSHA.exit
 
 64:                                               ; preds = %59
-  %65 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef %2, i32 noundef 4) #27
+  %65 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef %2, i32 noundef 4) #28
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %BuildSHA.exit
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %28, align 8, !tbaa !163
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 173
-  %70 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull %69, i32 noundef 48) #27
+  %70 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull %69, i32 noundef 48) #28
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %BuildSHA.exit
 
 72:                                               ; preds = %67
-  %73 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull @PAD1, i32 noundef 40) #27
+  %73 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull @PAD1, i32 noundef 40) #28
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %BuildSHA.exit
 
 75:                                               ; preds = %72
-  %76 = call i32 @wc_ShaFinal(ptr noundef nonnull %5, ptr noundef nonnull %4) #27
+  %76 = call i32 @wc_ShaFinal(ptr noundef nonnull %5, ptr noundef nonnull %4) #28
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %BuildSHA.exit
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr %40, align 16, !tbaa !160
   %80 = load i32, ptr %42, align 4, !tbaa !161
-  %81 = call i32 @wc_InitSha_ex(ptr noundef nonnull %5, ptr noundef %79, i32 noundef %80) #27
+  %81 = call i32 @wc_InitSha_ex(ptr noundef nonnull %5, ptr noundef %79, i32 noundef %80) #28
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %BuildSHA.exit
 
 83:                                               ; preds = %78
   %84 = load ptr, ptr %28, align 8, !tbaa !163
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 173
-  %86 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull %85, i32 noundef 48) #27
+  %86 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull %85, i32 noundef 48) #28
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %.thread31.i19
 
 88:                                               ; preds = %83
-  %89 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull @PAD2, i32 noundef 40) #27
+  %89 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull @PAD2, i32 noundef 40) #28
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %.thread31.i19
 
 91:                                               ; preds = %88
-  %92 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 20) #27
+  %92 = call i32 @wc_ShaUpdate(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 20) #28
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %.thread31.i19
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %96 = call i32 @wc_ShaFinal(ptr noundef nonnull %5, ptr noundef nonnull %95) #27
+  %96 = call i32 @wc_ShaFinal(ptr noundef nonnull %5, ptr noundef nonnull %95) #28
   br label %.thread31.i19
 
 .thread31.i19:                                    ; preds = %94, %91, %88, %83
   %.7.i20 = phi i32 [ %96, %94 ], [ %92, %91 ], [ %89, %88 ], [ %86, %83 ]
-  call void @wc_ShaFree(ptr noundef nonnull %5) #27
+  call void @wc_ShaFree(ptr noundef nonnull %5) #28
   br label %BuildSHA.exit
 
 BuildSHA.exit:                                    ; preds = %59, %64, %67, %72, %75, %78, %.thread31.i19
@@ -18308,7 +18308,7 @@ IsEncryptionOn.exit250.thread._crit_edge:         ; preds = %IsEncryptionOn.exit
 104:                                              ; preds = %101
   %105 = add i32 %98, %.2180
   %106 = zext i32 %105 to i64
-  %107 = tail call ptr @wolfSSL_Malloc(i64 noundef %106) #27
+  %107 = tail call ptr @wolfSSL_Malloc(i64 noundef %106) #28
   %108 = icmp eq ptr %107, null
   br i1 %108, label %CheckAvailableSize.exit.thread302, label %109
 
@@ -18340,7 +18340,7 @@ IsEncryptionOn.exit250.thread._crit_edge:         ; preds = %IsEncryptionOn.exit
   %122 = zext i8 %121 to i64
   %123 = sub nsw i64 0, %122
   %124 = getelementptr inbounds i8, ptr %119, i64 %123
-  tail call void @wolfSSL_Free(ptr noundef nonnull %124) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %124) #28
   br label %GrowOutputBuffer.exit.i
 
 GrowOutputBuffer.exit.i:                          ; preds = %120, %118, %116
@@ -18644,7 +18644,7 @@ IsEncryptionOn.exit272:                           ; preds = %258
 
 267:                                              ; preds = %265
   %268 = zext nneg i32 %263 to i64
-  %269 = tail call ptr @wolfSSL_Malloc(i64 noundef %268) #27
+  %269 = tail call ptr @wolfSSL_Malloc(i64 noundef %268) #28
   %270 = icmp eq ptr %269, null
   br i1 %270, label %CheckAvailableSize.exit.thread302, label %271
 
@@ -18653,7 +18653,7 @@ IsEncryptionOn.exit272:                           ; preds = %258
   %273 = getelementptr inbounds nuw i8, ptr %132, i64 %272
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %269, ptr nonnull align 1 %273, i64 %268, i1 false)
   %274 = tail call i32 @BuildMessage(ptr noundef nonnull %0, ptr noundef %132, i32 noundef %.2180, ptr noundef nonnull %269, i32 noundef %263, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  tail call void @wolfSSL_Free(ptr noundef nonnull %269) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %269) #28
   br label %275
 
 275:                                              ; preds = %271, %.thread
@@ -18855,7 +18855,7 @@ IsEncryptionOn.exit119.thread:                    ; preds = %IsEncryptionOn.exit
 73:                                               ; preds = %70
   %74 = add i32 %67, %.190
   %75 = zext i32 %74 to i64
-  %76 = tail call ptr @wolfSSL_Malloc(i64 noundef %75) #27
+  %76 = tail call ptr @wolfSSL_Malloc(i64 noundef %75) #28
   %77 = icmp eq ptr %76, null
   br i1 %77, label %CheckAvailableSize.exit, label %78
 
@@ -18891,7 +18891,7 @@ IsEncryptionOn.exit119.thread:                    ; preds = %IsEncryptionOn.exit
   %95 = zext i8 %94 to i64
   %96 = sub nsw i64 0, %95
   %97 = getelementptr inbounds i8, ptr %91, i64 %96
-  tail call void @wolfSSL_Free(ptr noundef nonnull %97) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %97) #28
   br label %.thread163
 
 .thread163:                                       ; preds = %86, %89, %92
@@ -19047,7 +19047,7 @@ IsEncryptionOn.exit128:                           ; preds = %IsAtLeastTLSv1_2.ex
 
 180:                                              ; preds = %175
   %181 = zext nneg i32 %178 to i64
-  %182 = tail call ptr @wolfSSL_Malloc(i64 noundef %181) #27
+  %182 = tail call ptr @wolfSSL_Malloc(i64 noundef %181) #28
   %183 = icmp eq ptr %182, null
   br i1 %183, label %CheckAvailableSize.exit, label %184
 
@@ -19056,7 +19056,7 @@ IsEncryptionOn.exit128:                           ; preds = %IsAtLeastTLSv1_2.ex
   %186 = getelementptr inbounds nuw i8, ptr %130, i64 %185
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %182, ptr nonnull align 1 %186, i64 %181, i1 false)
   %187 = tail call i32 @BuildMessage(ptr noundef nonnull %0, ptr noundef nonnull %130, i32 noundef %.190, ptr noundef nonnull %182, i32 noundef %178, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  tail call void @wolfSSL_Free(ptr noundef nonnull %182) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %182) #28
   %188 = icmp sgt i32 %187, -1
   br i1 %188, label %194, label %CheckAvailableSize.exit
 
@@ -19267,7 +19267,7 @@ ssl_in_handshake.exit:                            ; preds = %56
   br i1 %60, label %ssl_in_handshake.exit.thread132, label %ssl_in_handshake.exit.thread
 
 ssl_in_handshake.exit.thread132:                  ; preds = %52, %IsAtLeastTLSv1_2.exit.i, %40, %28, %ssl_in_handshake.exit
-  %61 = tail call i32 @wolfSSL_negotiate(ptr noundef nonnull %0) #27
+  %61 = tail call i32 @wolfSSL_negotiate(ptr noundef nonnull %0) #28
   %.not106 = icmp eq i32 %61, 1
   br i1 %.not106, label %ssl_in_handshake.exit.thread, label %.thread146
 
@@ -19372,7 +19372,7 @@ RetrySendAlert.exit:                              ; preds = %82
   br i1 %121, label %CheckTLS13AEADSendLimit.exit.thread, label %CheckTLS13AEADSendLimit.exit
 
 CheckTLS13AEADSendLimit.exit:                     ; preds = %114
-  %122 = tail call i32 @Tls13UpdateKeys(ptr noundef nonnull %0) #27
+  %122 = tail call i32 @Tls13UpdateKeys(ptr noundef nonnull %0) #28
   %.not110 = icmp eq i32 %122, 0
   br i1 %.not110, label %CheckTLS13AEADSendLimit.exit.thread, label %.thread146.sink.split
 
@@ -19458,7 +19458,7 @@ cipherExtraData.exit:                             ; preds = %133, %138
 160:                                              ; preds = %157
   %161 = add i32 %154, %.0
   %162 = zext i32 %161 to i64
-  %163 = tail call ptr @wolfSSL_Malloc(i64 noundef %162) #27
+  %163 = tail call ptr @wolfSSL_Malloc(i64 noundef %162) #28
   %164 = icmp eq ptr %163, null
   br i1 %164, label %.thread146.sink.split, label %165
 
@@ -19490,7 +19490,7 @@ cipherExtraData.exit:                             ; preds = %133, %138
   %178 = zext i8 %177 to i64
   %179 = sub nsw i64 0, %178
   %180 = getelementptr inbounds i8, ptr %175, i64 %179
-  tail call void @wolfSSL_Free(ptr noundef nonnull %180) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %180) #28
   br label %GrowOutputBuffer.exit.i
 
 GrowOutputBuffer.exit.i:                          ; preds = %176, %174, %172
@@ -19520,7 +19520,7 @@ CheckAvailableSize.exit:                          ; preds = %.CheckAvailableSize
   br label %194
 
 192:                                              ; preds = %CheckAvailableSize.exit
-  %193 = tail call i32 @BuildTls13Message(ptr noundef nonnull %0, ptr noundef %187, i32 noundef %.0, ptr noundef %107, i32 noundef %spec.store.select.i, i32 noundef 23, i32 noundef 0, i32 noundef 0, i32 noundef 1) #27
+  %193 = tail call i32 @BuildTls13Message(ptr noundef nonnull %0, ptr noundef %187, i32 noundef %.0, ptr noundef %107, i32 noundef %spec.store.select.i, i32 noundef 23, i32 noundef 0, i32 noundef 0, i32 noundef 1) #28
   br label %194
 
 194:                                              ; preds = %192, %190
@@ -19687,7 +19687,7 @@ ssl_in_handshake.exit:                            ; preds = %44
   br i1 %49, label %ssl_in_handshake.exit.thread68, label %ssl_in_handshake.exit.thread
 
 ssl_in_handshake.exit.thread68:                   ; preds = %40, %IsAtLeastTLSv1_2.exit.i, %24, %9, %ssl_in_handshake.exit
-  %50 = tail call i32 @wolfSSL_negotiate(ptr noundef nonnull %0) #27
+  %50 = tail call i32 @wolfSSL_negotiate(ptr noundef nonnull %0) #28
   %.not57 = icmp eq i32 %50, 1
   br i1 %.not57, label %ssl_in_handshake.exit.thread, label %ShrinkInputBuffer.exit
 
@@ -19895,7 +19895,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   %141 = zext i8 %140 to i64
   %142 = sub nsw i64 0, %141
   %143 = getelementptr inbounds i8, ptr %137, i64 %142
-  tail call void @wolfSSL_Free(ptr noundef nonnull %143) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %143) #28
   br label %144
 
 144:                                              ; preds = %139, %ForceZero.exit.i
@@ -19942,7 +19942,7 @@ define internal fastcc range(i32 -387, 1) i32 @SendAlert_ex(ptr noundef nonnull 
 18:                                               ; preds = %16
   %19 = add nuw i32 %13, 104
   %20 = zext i32 %19 to i64
-  %21 = tail call ptr @wolfSSL_Malloc(i64 noundef %20) #27
+  %21 = tail call ptr @wolfSSL_Malloc(i64 noundef %20) #28
   %22 = icmp eq ptr %21, null
   br i1 %22, label %CheckAvailableSize.exit, label %23
 
@@ -19978,7 +19978,7 @@ define internal fastcc range(i32 -387, 1) i32 @SendAlert_ex(ptr noundef nonnull 
   %40 = zext i8 %39 to i64
   %41 = sub nsw i64 0, %40
   %42 = getelementptr inbounds i8, ptr %36, i64 %41
-  tail call void @wolfSSL_Free(ptr noundef nonnull %42) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %42) #28
   br label %.thread51
 
 .thread51:                                        ; preds = %31, %34, %37
@@ -20120,7 +20120,7 @@ define ptr @wolfSSL_ERR_reason_error_string(i64 noundef %0) local_unnamed_addr #
 
 6:                                                ; preds = %1
   %spec.select = sub nsw i32 0, %3
-  %7 = tail call ptr @wc_GetErrorString(i32 noundef %spec.select) #27
+  %7 = tail call ptr @wc_GetErrorString(i32 noundef %spec.select) #28
   br label %187
 
 8:                                                ; preds = %1
@@ -20860,7 +20860,7 @@ define noundef nonnull ptr @wolfSSL_ERR_lib_error_string(i64 noundef %0) local_u
 define void @SetErrorString(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %0 to i64
   %4 = tail call ptr @wolfSSL_ERR_reason_error_string(i64 noundef %3)
-  %5 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 80) #27
+  %5 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 80) #28
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 79
   store i8 0, ptr %6, align 1, !tbaa !45
   ret void
@@ -21038,7 +21038,7 @@ define range(i32 -173, 1) i32 @GetCipherSuiteFromName(ptr noundef %0, ptr nounde
   br label %13
 
 11:                                               ; preds = %6
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
   br label %13
 
 13:                                               ; preds = %11, %7
@@ -21049,7 +21049,7 @@ define range(i32 -173, 1) i32 @GetCipherSuiteFromName(ptr noundef %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %39 ]
   %15 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr @cipher_names, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !413
-  %17 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %16, i64 noundef %.031) #29
+  %17 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %16, i64 noundef %.031) #30
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.thread
 
@@ -21062,7 +21062,7 @@ define range(i32 -173, 1) i32 @GetCipherSuiteFromName(ptr noundef %0, ptr nounde
 .thread:                                          ; preds = %14, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !415
-  %25 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %24, i64 noundef %.031) #29
+  %25 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %24, i64 noundef %.031) #30
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %39
 
@@ -21156,17 +21156,17 @@ define range(i32 0, 2) i32 @SetCipherList_ex(ptr noundef readonly captures(addre
   br i1 %23, label %34, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.238) #29
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.238) #30
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.239) #29
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.239) #30
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.240) #29
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.240) #30
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %34, label %.preheader.i
 
@@ -21204,7 +21204,7 @@ define range(i32 0, 2) i32 @SetCipherList_ex(ptr noundef readonly captures(addre
   %.192.i = phi ptr [ %43, %37 ], [ null, %36 ]
   %.081.i = phi i64 [ %spec.select.i, %37 ], [ 48, %36 ]
   %45 = and i64 %.081.i, 4294967295
-  %46 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %.091.i, i64 noundef %45) #27
+  %46 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %.091.i, i64 noundef %45) #28
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 %45
   store i8 0, ptr %47, align 1, !tbaa !45
   br label %48
@@ -21213,14 +21213,14 @@ define range(i32 0, 2) i32 @SetCipherList_ex(ptr noundef readonly captures(addre
   %indvars.iv.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i, %93 ]
   %49 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr @cipher_names, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !413
-  %51 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %50, i64 noundef 49) #29
+  %51 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %50, i64 noundef 49) #30
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !415
-  %56 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %55, i64 noundef 49) #29
+  %56 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %55, i64 noundef 49) #30
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %93
 
@@ -21286,7 +21286,7 @@ define range(i32 0, 2) i32 @SetCipherList_ex(ptr noundef readonly captures(addre
   br i1 %86, label %.thread127.i, label %87
 
 87:                                               ; preds = %77
-  %88 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.241) #29
+  %88 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.241) #30
   %.not111.i = icmp eq ptr %88, null
   br i1 %.not111.i, label %91, label %89
 
@@ -21726,7 +21726,7 @@ define i32 @DecodePrivateKey(ptr noundef captures(none) %0, ptr noundef writeonl
   br i1 %.not.i, label %17, label %AllocKey.exit.thread
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @wolfSSL_Malloc(i64 noundef 8368) #27
+  %18 = tail call ptr @wolfSSL_Malloc(i64 noundef 8368) #28
   store ptr %18, ptr %15, align 8, !tbaa !196
   %19 = icmp eq ptr %18, null
   br i1 %19, label %AllocKey.exit.thread, label %20
@@ -21736,7 +21736,7 @@ define i32 @DecodePrivateKey(ptr noundef captures(none) %0, ptr noundef writeonl
   %22 = load ptr, ptr %21, align 16, !tbaa !160
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %24 = load i32, ptr %23, align 4, !tbaa !161
-  %25 = tail call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %18, ptr noundef %22, i32 noundef %24) #27
+  %25 = tail call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %18, ptr noundef %22, i32 noundef %24) #28
   %.not30.i = icmp eq i32 %25, 0
   br i1 %.not30.i, label %AllocKey.exit, label %26
 
@@ -21746,13 +21746,13 @@ define i32 @DecodePrivateKey(ptr noundef captures(none) %0, ptr noundef writeonl
   br i1 %.not.i.i, label %AllocKey.exit.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %27) #27
+  %29 = tail call i32 @wc_FreeRsaKey(ptr noundef nonnull %27) #28
   %.pr.i.i = load ptr, ptr %15, align 8, !tbaa !196
   %.not13.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not13.i.i, label %30, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %28
-  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i.i) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %.pr.i.i) #28
   br label %30
 
 30:                                               ; preds = %.thread.i.i, %28
@@ -21766,13 +21766,13 @@ AllocKey.exit:                                    ; preds = %20
   %33 = load ptr, ptr %15, align 16, !tbaa !338
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !78
-  %36 = call i32 @wc_RsaPrivateKeyDecode(ptr noundef %32, ptr noundef nonnull %3, ptr noundef %33, i32 noundef %35) #27
+  %36 = call i32 @wc_RsaPrivateKeyDecode(ptr noundef %32, ptr noundef nonnull %3, ptr noundef %33, i32 noundef %35) #28
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %48
 
 38:                                               ; preds = %AllocKey.exit
   %39 = load ptr, ptr %15, align 16, !tbaa !338
-  %40 = call i32 @wc_RsaEncryptSize(ptr noundef %39) #27
+  %40 = call i32 @wc_RsaEncryptSize(ptr noundef %39) #28
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %AllocKey.exit.thread, label %42
 
@@ -21804,15 +21804,15 @@ AllocKey.exit:                                    ; preds = %20
   ]
 
 54:                                               ; preds = %52
-  %55 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %51) #27
+  %55 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %51) #28
   br label %60
 
 56:                                               ; preds = %52
-  %57 = call i32 @wc_ecc_free(ptr noundef nonnull %51) #27
+  %57 = call i32 @wc_ecc_free(ptr noundef nonnull %51) #28
   br label %60
 
 58:                                               ; preds = %52
-  %59 = call i32 @wc_FreeDhKey(ptr noundef nonnull %51) #27
+  %59 = call i32 @wc_FreeDhKey(ptr noundef nonnull %51) #28
   br label %60
 
 60:                                               ; preds = %58, %56, %54
@@ -21822,7 +21822,7 @@ AllocKey.exit:                                    ; preds = %20
 
 .thread.i:                                        ; preds = %60, %52
   %61 = phi ptr [ %.pr.i, %60 ], [ %51, %52 ]
-  call void @wolfSSL_Free(ptr noundef nonnull %61) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %61) #28
   br label %62
 
 62:                                               ; preds = %.thread.i, %60
@@ -21838,7 +21838,7 @@ FreeKey.exit:                                     ; preds = %48, %62
 
 64:                                               ; preds = %FreeKey.exit, %FreeKey.exit
   store i32 37, ptr %49, align 8, !tbaa !204
-  %65 = call ptr @wolfSSL_Malloc(i64 noundef 4208) #27
+  %65 = call ptr @wolfSSL_Malloc(i64 noundef 4208) #28
   store ptr %65, ptr %50, align 8, !tbaa !196
   %66 = icmp eq ptr %65, null
   br i1 %66, label %AllocKey.exit.thread, label %67
@@ -21848,7 +21848,7 @@ FreeKey.exit:                                     ; preds = %48, %62
   %69 = load ptr, ptr %68, align 16, !tbaa !160
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %71 = load i32, ptr %70, align 4, !tbaa !161
-  %72 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %65, ptr noundef %69, i32 noundef %71) #27
+  %72 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %65, ptr noundef %69, i32 noundef %71) #28
   %.not30.i55 = icmp eq i32 %72, 0
   br i1 %.not30.i55, label %AllocKey.exit60, label %73
 
@@ -21858,13 +21858,13 @@ FreeKey.exit:                                     ; preds = %48, %62
   br i1 %.not.i.i56, label %AllocKey.exit.thread, label %75
 
 75:                                               ; preds = %73
-  %76 = call i32 @wc_ecc_free(ptr noundef nonnull %74) #27
+  %76 = call i32 @wc_ecc_free(ptr noundef nonnull %74) #28
   %.pr.i.i57 = load ptr, ptr %50, align 8, !tbaa !196
   %.not13.i.i58 = icmp eq ptr %.pr.i.i57, null
   br i1 %.not13.i.i58, label %77, label %.thread.i.i59
 
 .thread.i.i59:                                    ; preds = %75
-  call void @wolfSSL_Free(ptr noundef nonnull %.pr.i.i57) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %.pr.i.i57) #28
   br label %77
 
 77:                                               ; preds = %.thread.i.i59, %75
@@ -21878,13 +21878,13 @@ AllocKey.exit60:                                  ; preds = %67
   %80 = load ptr, ptr %50, align 16, !tbaa !338
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %82 = load i32, ptr %81, align 8, !tbaa !78
-  %83 = call i32 @wc_EccPrivateKeyDecode(ptr noundef %79, ptr noundef nonnull %3, ptr noundef %80, i32 noundef %82) #27
+  %83 = call i32 @wc_EccPrivateKeyDecode(ptr noundef %79, ptr noundef nonnull %3, ptr noundef %80, i32 noundef %82) #28
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %AllocKey.exit.thread
 
 85:                                               ; preds = %AllocKey.exit60
   %86 = load ptr, ptr %50, align 16, !tbaa !338
-  %87 = call i32 @wc_ecc_size(ptr noundef %86) #27
+  %87 = call i32 @wc_ecc_size(ptr noundef %86) #28
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1062
   %89 = load i16, ptr %88, align 2, !tbaa !143
   %90 = sext i16 %89 to i32
@@ -21893,7 +21893,7 @@ AllocKey.exit60:                                  ; preds = %67
 
 92:                                               ; preds = %85
   %93 = load ptr, ptr %50, align 16, !tbaa !338
-  %94 = call i32 @wc_ecc_sig_size(ptr noundef %93) #27
+  %94 = call i32 @wc_ecc_sig_size(ptr noundef %93) #28
   store i32 %94, ptr %1, align 4, !tbaa !49
   br label %AllocKey.exit.thread
 
@@ -21918,7 +21918,7 @@ define range(i32 0, 2) i32 @TLSv1_3_Capable(ptr noundef %0) local_unnamed_addr #
   %6 = icmp eq i16 %5, 3
   %7 = icmp ugt i16 %4, 1023
   %.not5.not = and i1 %7, %6
-  %8 = tail call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #27
+  %8 = tail call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #28
   %9 = and i64 %8, 536870912
   %.not2 = icmp eq i64 %9, 0
   %narrow = select i1 %.not2, i1 %.not5.not, i1 false
@@ -21938,14 +21938,14 @@ define range(i32 0, 2) i32 @HaveUniqueSessionObj(ptr noundef captures(none) %0) 
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @wolfSSL_SESSION_dup(ptr noundef nonnull %3) #27
+  %8 = tail call ptr @wolfSSL_SESSION_dup(ptr noundef nonnull %3) #28
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %.thread
 
 .thread:                                          ; preds = %7
   %10 = load ptr, ptr %0, align 16, !tbaa !99
   %11 = load ptr, ptr %2, align 16, !tbaa !168
-  tail call void @wolfSSL_FreeSession(ptr noundef %10, ptr noundef %11) #27
+  tail call void @wolfSSL_FreeSession(ptr noundef %10, ptr noundef %11) #28
   store ptr %8, ptr %2, align 16, !tbaa !168
   br label %12
 
@@ -21973,7 +21973,7 @@ define i32 @SendClientHello(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %.not178, label %12, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call i32 @SendTls13ClientHello(ptr noundef nonnull %0) #27
+  %11 = tail call i32 @SendTls13ClientHello(ptr noundef nonnull %0) #28
   br label %.thread170
 
 12:                                               ; preds = %4
@@ -22011,13 +22011,13 @@ define i32 @SendClientHello(ptr noundef %0) local_unnamed_addr #4 {
   %33 = load i16, ptr %31, align 2, !tbaa !100
   %34 = zext i16 %33 to i32
   %35 = add nuw nsw i32 %32, %34
-  %36 = tail call i32 @TLSX_PopulateExtensions(ptr noundef nonnull %0, i8 noundef zeroext 0) #27
+  %36 = tail call i32 @TLSX_PopulateExtensions(ptr noundef nonnull %0, i8 noundef zeroext 0) #28
   %.not149 = icmp eq i32 %36, 0
   br i1 %.not149, label %37, label %.thread170
 
 37:                                               ; preds = %.thread
   store i32 0, ptr %2, align 4, !tbaa !49
-  %38 = call i32 @TLSX_GetRequestSize(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %2) #27
+  %38 = call i32 @TLSX_GetRequestSize(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %2) #28
   %.not150 = icmp eq i32 %38, 0
   br i1 %.not150, label %39, label %.thread170
 
@@ -22086,7 +22086,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %45, %IsEncryptionOn
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %77 = load ptr, ptr %76, align 8, !tbaa !116
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 11
-  %79 = call i32 @wc_RNG_GenerateBlock(ptr noundef %77, ptr noundef nonnull %78, i32 noundef 32) #27
+  %79 = call i32 @wc_RNG_GenerateBlock(ptr noundef %77, ptr noundef nonnull %78, i32 noundef 32) #28
   %.not153 = icmp eq i32 %79, 0
   br i1 %.not153, label %80, label %.thread170
 
@@ -22155,7 +22155,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %45, %IsEncryptionOn
   store i32 0, ptr %2, align 4, !tbaa !49
   %123 = zext nneg i32 %.2 to i64
   %124 = getelementptr inbounds nuw i8, ptr %64, i64 %123
-  %125 = call i32 @TLSX_WriteRequest(ptr noundef nonnull %0, ptr noundef nonnull %124, i8 noundef zeroext 1, ptr noundef nonnull %2) #27
+  %125 = call i32 @TLSX_WriteRequest(ptr noundef nonnull %0, ptr noundef nonnull %124, i8 noundef zeroext 1, ptr noundef nonnull %2) #28
   %.not156 = icmp eq i32 %125, 0
   br i1 %.not156, label %126, label %.thread170
 
@@ -22179,7 +22179,7 @@ IsEncryptionOn.exit166:                           ; preds = %126
   %spec.select160.neg180 = select i1 %.not159, i32 -5, i32 -13
   %133 = add i32 %128, %spec.select160.neg180
   %134 = sext i32 %133 to i64
-  %135 = call ptr @wolfSSL_Malloc(i64 noundef %134) #27
+  %135 = call ptr @wolfSSL_Malloc(i64 noundef %134) #28
   %136 = icmp eq ptr %135, null
   br i1 %136, label %.thread170, label %137
 
@@ -22188,7 +22188,7 @@ IsEncryptionOn.exit166:                           ; preds = %126
   %139 = getelementptr inbounds nuw i8, ptr %64, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %135, ptr nonnull align 1 %139, i64 %134, i1 false)
   %140 = call i32 @BuildMessage(ptr noundef nonnull %0, ptr noundef nonnull %64, i32 noundef %51, ptr noundef nonnull %135, i32 noundef %133, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  call void @wolfSSL_Free(ptr noundef nonnull %135) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %135) #28
   %141 = icmp sgt i32 %140, -1
   br i1 %141, label %148, label %.thread170
 
@@ -22415,7 +22415,7 @@ define i32 @CompleteServerHello(ptr noundef %0) local_unnamed_addr #4 {
   %15 = icmp ne i16 %14, 3
   %16 = icmp ult i16 %13, 1024
   %.not5.not.i.not53 = or i1 %16, %15
-  %17 = tail call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #27
+  %17 = tail call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #28
   %18 = and i64 %17, 536870912
   %.not2.i = icmp ne i64 %18, 0
   %narrow.i.not = select i1 %.not2.i, i1 true, i1 %.not5.not.i.not53
@@ -22471,7 +22471,7 @@ RetrySendAlert.exit.i:                            ; preds = %21
   br i1 %40, label %41, label %101
 
 41:                                               ; preds = %37
-  %42 = tail call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #27
+  %42 = tail call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #28
   %43 = and i64 %42, 134217728
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %101
@@ -22516,7 +22516,7 @@ DSH_CheckSessionId.exit:                          ; preds = %58
   br i1 %.not50, label %66, label %DSH_CheckSessionId.exit.thread
 
 66:                                               ; preds = %DSH_CheckSessionId.exit
-  %67 = tail call i32 @SetCipherSpecs(ptr noundef nonnull %0) #27
+  %67 = tail call i32 @SetCipherSpecs(ptr noundef nonnull %0) #28
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %.critedge
 
@@ -22528,14 +22528,14 @@ DSH_CheckSessionId.exit:                          ; preds = %58
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %69
-  %75 = tail call ptr @wolfSSL_SESSION_dup(ptr noundef nonnull %70) #27
+  %75 = tail call ptr @wolfSSL_SESSION_dup(ptr noundef nonnull %70) #28
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.critedge, label %.thread.i
 
 .thread.i:                                        ; preds = %74
   %77 = load ptr, ptr %0, align 16, !tbaa !99
   %78 = load ptr, ptr %59, align 16, !tbaa !168
-  tail call void @wolfSSL_FreeSession(ptr noundef %77, ptr noundef %78) #27
+  tail call void @wolfSSL_FreeSession(ptr noundef %77, ptr noundef %78) #28
   store ptr %75, ptr %59, align 16, !tbaa !168
   br label %79
 
@@ -22551,7 +22551,7 @@ DSH_CheckSessionId.exit:                          ; preds = %58
   br i1 %.not42, label %88, label %86
 
 86:                                               ; preds = %79
-  %87 = tail call i32 @DeriveTlsKeys(ptr noundef nonnull %0) #27
+  %87 = tail call i32 @DeriveTlsKeys(ptr noundef nonnull %0) #28
   %.pre = load i64, ptr %2, align 8
   br label %88
 
@@ -22563,7 +22563,7 @@ DSH_CheckSessionId.exit:                          ; preds = %58
   br i1 %.not43, label %91, label %93
 
 91:                                               ; preds = %88
-  %92 = tail call i32 @DeriveKeys(ptr noundef nonnull %0) #27
+  %92 = tail call i32 @DeriveKeys(ptr noundef nonnull %0) #28
   %.pre54 = load i64, ptr %2, align 8
   br label %93
 
@@ -22585,7 +22585,7 @@ DSH_CheckSessionId.exit.thread:                   ; preds = %50, %52, %58, %DSH_
   br label %101
 
 101:                                              ; preds = %32, %37, %41, %45, %19, %DSH_CheckSessionId.exit.thread
-  %102 = tail call i32 @SetCipherSpecs(ptr noundef nonnull %0) #27
+  %102 = tail call i32 @SetCipherSpecs(ptr noundef nonnull %0) #28
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %74, %30, %29, %48, %66, %101, %93
@@ -22614,7 +22614,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #27
+  %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #28
   store ptr %6, ptr %2, align 8, !tbaa !197
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread347, label %8
@@ -22744,7 +22744,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
 65:                                               ; preds = %.thread304, %17
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 512, ptr %66, align 8, !tbaa !424
-  %67 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #27
+  %67 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #28
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %67, ptr %68, align 8, !tbaa !426
   %69 = icmp eq ptr %67, null
@@ -22761,7 +22761,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i32 512, ptr %77, align 8, !tbaa !164
-  %78 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #27
+  %78 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #28
   %79 = load ptr, ptr %71, align 8, !tbaa !163
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %78, ptr %80, align 8, !tbaa !166
@@ -22788,7 +22788,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !166
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
-  %93 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %88, ptr noundef nonnull %92, i32 noundef 46) #27
+  %93 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %88, ptr noundef nonnull %92, i32 noundef 46) #28
   %.not261 = icmp eq i32 %93, 0
   br i1 %.not261, label %94, label %.thread
 
@@ -22815,7 +22815,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i32 512, ptr %110, align 8, !tbaa !201
-  %111 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #27
+  %111 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #28
   store ptr %111, ptr %109, align 16, !tbaa !200
   %112 = icmp eq ptr %111, null
   br i1 %112, label %.thread347, label %113
@@ -22845,7 +22845,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
 129:                                              ; preds = %116
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %131 = load ptr, ptr %130, align 8, !tbaa !116
-  %132 = tail call i32 @wc_DhSetCheckKey(ptr noundef %120, ptr noundef %122, i32 noundef %124, ptr noundef %126, i32 noundef %128, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %131) #27
+  %132 = tail call i32 @wc_DhSetCheckKey(ptr noundef %120, ptr noundef %122, i32 noundef %124, ptr noundef %126, i32 noundef %128, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %131) #28
   %.not259 = icmp eq i32 %132, 0
   br i1 %.not259, label %133, label %.thread
 
@@ -22856,7 +22856,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   br label %146
 
 136:                                              ; preds = %116
-  %137 = tail call i32 @wc_DhSetKey(ptr noundef %120, ptr noundef %122, i32 noundef %124, ptr noundef %126, i32 noundef %128) #27
+  %137 = tail call i32 @wc_DhSetKey(ptr noundef %120, ptr noundef %122, i32 noundef %124, ptr noundef %126, i32 noundef %128) #28
   %.not260 = icmp eq i32 %137, 0
   br i1 %.not260, label %146, label %.thread
 
@@ -22868,7 +22868,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   %142 = load ptr, ptr %141, align 16, !tbaa !338
   %143 = load ptr, ptr %68, align 8, !tbaa !426
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 1
-  %145 = tail call i32 @wc_ecc_export_x963(ptr noundef %142, ptr noundef nonnull %144, ptr noundef nonnull %66) #27
+  %145 = tail call i32 @wc_ecc_export_x963(ptr noundef %142, ptr noundef nonnull %144, ptr noundef nonnull %66) #28
   %.not255 = icmp eq i32 %145, 0
   br i1 %.not255, label %.thread311, label %.thread347
 
@@ -22878,7 +22878,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   %149 = load ptr, ptr %68, align 8, !tbaa !426
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %151 = load ptr, ptr %150, align 8, !tbaa !116
-  %152 = tail call i32 @wc_DhGenerateKeyPair(ptr noundef %147, ptr noundef %151, ptr noundef %148, ptr noundef nonnull %110, ptr noundef %149, ptr noundef nonnull %66) #27
+  %152 = tail call i32 @wc_DhGenerateKeyPair(ptr noundef %147, ptr noundef %151, ptr noundef %148, ptr noundef nonnull %110, ptr noundef %149, ptr noundef nonnull %66) #28
   %153 = load ptr, ptr %71, align 8, !tbaa !163
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store i32 512, ptr %154, align 8, !tbaa !164
@@ -22911,7 +22911,7 @@ define noundef i32 @SendClientKeyExchange(ptr noundef %0) local_unnamed_addr #4 
   %168 = load i32, ptr %165, align 8, !tbaa !49
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %170 = load ptr, ptr %169, align 8, !tbaa !116
-  %171 = tail call i32 @wc_RsaPublicEncrypt(ptr noundef %162, i32 noundef 48, ptr noundef %164, i32 noundef %168, ptr noundef %167, ptr noundef %170) #27
+  %171 = tail call i32 @wc_RsaPublicEncrypt(ptr noundef %162, i32 noundef 48, ptr noundef %164, i32 noundef %168, ptr noundef %167, ptr noundef %170) #28
   %172 = icmp sgt i32 %171, 0
   br i1 %172, label %RsaEnc.exit.thread319, label %RsaEnc.exit
 
@@ -22949,11 +22949,11 @@ RsaEnc.exit.thread319:                            ; preds = %158
   br i1 %or.cond.i, label %196, label %198
 
 196:                                              ; preds = %193
-  %197 = tail call i32 @wc_DhCheckPubKey(ptr noundef nonnull %175, ptr noundef %181, i32 noundef %183) #27
+  %197 = tail call i32 @wc_DhCheckPubKey(ptr noundef nonnull %175, ptr noundef %181, i32 noundef %183) #28
   br label %200
 
 198:                                              ; preds = %193, %173
-  %199 = tail call i32 @wc_DhCheckPubValue(ptr noundef %190, i32 noundef %192, ptr noundef %181, i32 noundef %183) #27
+  %199 = tail call i32 @wc_DhCheckPubValue(ptr noundef %190, i32 noundef %192, ptr noundef %181, i32 noundef %183) #28
   br label %200
 
 200:                                              ; preds = %198, %196
@@ -22962,7 +22962,7 @@ RsaEnc.exit.thread319:                            ; preds = %158
   br i1 %.not20.i, label %201, label %.thread347
 
 201:                                              ; preds = %200
-  %202 = tail call i32 @wc_DhAgree(ptr noundef %175, ptr noundef %187, ptr noundef nonnull %188, ptr noundef %177, i32 noundef %179, ptr noundef %181, i32 noundef %183) #27
+  %202 = tail call i32 @wc_DhAgree(ptr noundef %175, ptr noundef %187, ptr noundef nonnull %188, ptr noundef %177, i32 noundef %179, ptr noundef %181, i32 noundef %183) #28
   br label %RsaEnc.exit
 
 203:                                              ; preds = %155
@@ -22981,13 +22981,13 @@ RsaEnc.exit.thread319:                            ; preds = %158
   %214 = load ptr, ptr %213, align 8, !tbaa !166
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %216 = load ptr, ptr %215, align 8, !tbaa !116
-  %217 = tail call i32 @wc_ecc_set_rng(ptr noundef %210, ptr noundef %216) #27
+  %217 = tail call i32 @wc_ecc_set_rng(ptr noundef %210, ptr noundef %216) #28
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %219, label %EccSharedSecret.exit
 
 219:                                              ; preds = %203
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %221 = tail call i32 @wc_ecc_shared_secret(ptr noundef %210, ptr noundef %208, ptr noundef %214, ptr noundef nonnull %220) #27
+  %221 = tail call i32 @wc_ecc_shared_secret(ptr noundef %210, ptr noundef %208, ptr noundef %214, ptr noundef nonnull %220) #28
   br label %EccSharedSecret.exit
 
 EccSharedSecret.exit:                             ; preds = %203, %219
@@ -23110,7 +23110,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %IsEncryptionOn.exit
 274:                                              ; preds = %271
   %275 = add i32 %268, %259
   %276 = zext i32 %275 to i64
-  %277 = tail call ptr @wolfSSL_Malloc(i64 noundef %276) #27
+  %277 = tail call ptr @wolfSSL_Malloc(i64 noundef %276) #28
   %278 = icmp eq ptr %277, null
   br i1 %278, label %.thread347, label %279
 
@@ -23146,7 +23146,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %IsEncryptionOn.exit
   %296 = zext i8 %295 to i64
   %297 = sub nsw i64 0, %296
   %298 = getelementptr inbounds i8, ptr %292, i64 %297
-  tail call void @wolfSSL_Free(ptr noundef nonnull %298) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %298) #28
   br label %CheckAvailableSize.exit.thread
 
 CheckAvailableSize.exit.thread:                   ; preds = %287, %290, %293
@@ -23274,7 +23274,7 @@ IsEncryptionOn.exit293:                           ; preds = %349
   %364 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i32 %363, ptr %364, align 4, !tbaa !430
   %365 = sext i32 %363 to i64
-  %366 = tail call ptr @wolfSSL_Malloc(i64 noundef %365) #27
+  %366 = tail call ptr @wolfSSL_Malloc(i64 noundef %365) #28
   %367 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %366, ptr %367, align 8, !tbaa !431
   %.not274 = icmp eq ptr %366, null
@@ -23319,7 +23319,7 @@ IsEncryptionOn.exit297:                           ; preds = %374
   br i1 %.not276, label %388, label %387
 
 387:                                              ; preds = %377
-  tail call void @wolfSSL_Free(ptr noundef nonnull %386) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %386) #28
   br label %388
 
 388:                                              ; preds = %387, %377
@@ -23372,7 +23372,7 @@ HashOutput.exit._crit_edge:                       ; preds = %HashOutput.exit
 
 .thread343:                                       ; preds = %399, %407, %407
   %.11345 = phi i32 [ %408, %407 ], [ %408, %407 ], [ 0, %399 ]
-  %409 = tail call i32 @MakeMasterSecret(ptr noundef nonnull %0) #27
+  %409 = tail call i32 @MakeMasterSecret(ptr noundef nonnull %0) #28
   %.not279 = icmp eq i32 %409, 0
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   store i8 13, ptr %410, align 4, !tbaa !177
@@ -23466,7 +23466,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
 
 438:                                              ; preds = %436
   %439 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  tail call void %437(ptr noundef nonnull %0, ptr noundef nonnull %439) #27
+  tail call void %437(ptr noundef nonnull %0, ptr noundef nonnull %439) #28
   %440 = load ptr, ptr %2, align 8, !tbaa !197
   store ptr null, ptr %440, align 8, !tbaa !198
   br label %FreeAsyncCtx.exit
@@ -23488,7 +23488,7 @@ define internal void @FreeSckeArgs(ptr readnone captures(none) %0, ptr noundef c
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @wolfSSL_Free(ptr noundef nonnull %4) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %4) #28
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -23499,7 +23499,7 @@ define internal void @FreeSckeArgs(ptr readnone captures(none) %0, ptr noundef c
   br i1 %.not10, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #28
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -23523,7 +23523,7 @@ define i32 @SendCertificateVerify(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #27
+  %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #28
   store ptr %6, ptr %2, align 8, !tbaa !197
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread239, label %8
@@ -23590,7 +23590,7 @@ IsEncryptionOn.exit:                              ; preds = %25
 
 IsEncryptionOn.exit.thread:                       ; preds = %25, %29, %IsEncryptionOn.exit
   %30 = phi i64 [ 614, %25 ], [ 716, %29 ], [ 614, %IsEncryptionOn.exit ]
-  %31 = tail call ptr @wolfSSL_Malloc(i64 noundef %30) #27
+  %31 = tail call ptr @wolfSSL_Malloc(i64 noundef %30) #28
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %31, ptr %32, align 8, !tbaa !434
   %33 = icmp eq ptr %31, null
@@ -23638,7 +23638,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %25, %29, %IsEncrypt
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i32 512, ptr %57, align 8, !tbaa !201
-  %58 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #27
+  %58 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #28
   store ptr %58, ptr %56, align 16, !tbaa !200
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.thread239, label %60
@@ -23847,7 +23847,7 @@ switch.lookup296:                                 ; preds = %IsAtLeastTLSv1_2.ex
 
 TypeHash.exit:                                    ; preds = %IsAtLeastTLSv1_2.exit211, %switch.lookup296
   %.0.i212 = phi i32 [ %switch.load298, %switch.lookup296 ], [ 0, %IsAtLeastTLSv1_2.exit211 ]
-  %142 = tail call i32 @wc_EncodeSignature(ptr noundef %133, ptr noundef %135, i32 noundef %137, i32 noundef %.0.i212) #27
+  %142 = tail call i32 @wc_EncodeSignature(ptr noundef %133, ptr noundef %135, i32 noundef %137, i32 noundef %.0.i212) #28
   store i32 %142, ptr %57, align 8, !tbaa !201
   br label %.sink.split271
 
@@ -23901,7 +23901,7 @@ TypeHash.exit:                                    ; preds = %IsAtLeastTLSv1_2.ex
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %177 = load ptr, ptr %176, align 8, !tbaa !116
-  %178 = tail call i32 @wc_ecc_sign_hash(ptr noundef %170, i32 noundef %172, ptr noundef %174, ptr noundef nonnull %175, ptr noundef %177, ptr noundef %168) #27
+  %178 = tail call i32 @wc_ecc_sign_hash(ptr noundef %170, i32 noundef %172, ptr noundef %174, ptr noundef nonnull %175, ptr noundef %177, ptr noundef %168) #28
   %.pr223 = load i32, ptr %163, align 8, !tbaa !204
   br label %179
 
@@ -23950,14 +23950,14 @@ switch.lookup.i:                                  ; preds = %207
   %210 = load i32, ptr %200, align 4, !tbaa !49
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %212 = load ptr, ptr %211, align 8, !tbaa !116
-  %213 = tail call i32 @wc_RsaPSS_Sign(ptr noundef %192, i32 noundef %194, ptr noundef nonnull %199, i32 noundef %210, i32 noundef %switch.offset.i, i32 noundef %switch.offset34.i, ptr noundef %184, ptr noundef %212) #27
+  %213 = tail call i32 @wc_RsaPSS_Sign(ptr noundef %192, i32 noundef %194, ptr noundef nonnull %199, i32 noundef %210, i32 noundef %switch.offset.i, i32 noundef %switch.offset34.i, ptr noundef %184, ptr noundef %212) #28
   br label %219
 
 214:                                              ; preds = %182
   %215 = load i32, ptr %200, align 4, !tbaa !49
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %217 = load ptr, ptr %216, align 8, !tbaa !116
-  %218 = tail call i32 @wc_RsaSSL_Sign(ptr noundef %192, i32 noundef %194, ptr noundef nonnull %199, i32 noundef %215, ptr noundef %184, ptr noundef %217) #27
+  %218 = tail call i32 @wc_RsaSSL_Sign(ptr noundef %192, i32 noundef %194, ptr noundef nonnull %199, i32 noundef %215, ptr noundef %184, ptr noundef %217) #28
   br label %219
 
 219:                                              ; preds = %214, %switch.lookup.i
@@ -24033,7 +24033,7 @@ RsaSign.exit:                                     ; preds = %219, %179
   %260 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %261 = load i32, ptr %260, align 8, !tbaa !441
   %262 = zext i32 %261 to i64
-  %263 = tail call ptr @wolfSSL_Malloc(i64 noundef %262) #27
+  %263 = tail call ptr @wolfSSL_Malloc(i64 noundef %262) #28
   store ptr %263, ptr %256, align 8, !tbaa !442
   %264 = icmp eq ptr %263, null
   br i1 %264, label %.thread239, label %265
@@ -24075,7 +24075,7 @@ RsaSign.exit:                                     ; preds = %219, %179
   br i1 %.not196, label %292, label %291
 
 291:                                              ; preds = %289
-  tail call void @wolfSSL_Free(ptr noundef nonnull %290) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %290) #28
   br label %292
 
 292:                                              ; preds = %289, %291
@@ -24180,7 +24180,7 @@ AddHeaders.exit:                                  ; preds = %296, %316
   br i1 %.not199, label %348, label %349
 
 348:                                              ; preds = %344
-  tail call void @wolfSSL_Free(ptr noundef nonnull %343) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %343) #28
   br label %349
 
 349:                                              ; preds = %344, %348, %.thread239
@@ -24202,7 +24202,7 @@ AddHeaders.exit:                                  ; preds = %296, %316
 
 357:                                              ; preds = %355
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  tail call void %356(ptr noundef nonnull %0, ptr noundef nonnull %358) #27
+  tail call void %356(ptr noundef nonnull %0, ptr noundef nonnull %358) #28
   %359 = load ptr, ptr %2, align 8, !tbaa !197
   store ptr null, ptr %359, align 8, !tbaa !198
   br label %FreeAsyncCtx.exit
@@ -24224,7 +24224,7 @@ define internal void @FreeScvArgs(ptr readnone captures(none) %0, ptr noundef ca
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @wolfSSL_Free(ptr noundef nonnull %4) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %4) #28
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -24235,7 +24235,7 @@ define internal void @FreeScvArgs(ptr readnone captures(none) %0, ptr noundef ca
   br i1 %.not10, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #28
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -24376,7 +24376,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %41, %cipherExtraDat
 77:                                               ; preds = %74
   %78 = add i32 %71, %.075
   %79 = zext i32 %78 to i64
-  %80 = tail call ptr @wolfSSL_Malloc(i64 noundef %79) #27
+  %80 = tail call ptr @wolfSSL_Malloc(i64 noundef %79) #28
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.thread, label %82
 
@@ -24408,7 +24408,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %41, %cipherExtraDat
   %95 = zext i8 %94 to i64
   %96 = sub nsw i64 0, %95
   %97 = getelementptr inbounds i8, ptr %92, i64 %96
-  tail call void @wolfSSL_Free(ptr noundef nonnull %97) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %97) #28
   br label %CheckAvailableSize.exit.thread4
 
 CheckAvailableSize.exit.thread4:                  ; preds = %89, %91, %93
@@ -24642,7 +24642,7 @@ define i32 @SendServerHello(ptr noundef %0) local_unnamed_addr #4 {
   %7 = trunc nuw nsw i32 %spec.select.i to i16
   %8 = add nuw nsw i16 %7, 38
   store i16 %8, ptr %2, align 2, !tbaa !97
-  %9 = call i32 @TLSX_GetResponseSize(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %2) #27
+  %9 = call i32 @TLSX_GetResponseSize(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %2) #28
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %CheckAvailableSize.exit
 
@@ -24692,7 +24692,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %10, %IsEncryptionOn
 32:                                               ; preds = %29
   %33 = add i32 %26, %18
   %34 = zext i32 %33 to i64
-  %35 = call ptr @wolfSSL_Malloc(i64 noundef %34) #27
+  %35 = call ptr @wolfSSL_Malloc(i64 noundef %34) #28
   %36 = icmp eq ptr %35, null
   br i1 %36, label %CheckAvailableSize.exit, label %37
 
@@ -24728,7 +24728,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %10, %IsEncryptionOn
   %54 = zext i8 %53 to i64
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds i8, ptr %50, i64 %55
-  call void @wolfSSL_Free(ptr noundef nonnull %56) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %56) #28
   br label %.thread
 
 .thread:                                          ; preds = %45, %48, %51
@@ -24828,7 +24828,7 @@ AddHeaders.exit:                                  ; preds = %63, %69, %84
   %113 = icmp ne i16 %112, 3
   %114 = icmp ult i16 %111, 1024
   %.not5.not.i.not202 = or i1 %114, %113
-  %115 = call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #27
+  %115 = call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #28
   %116 = and i64 %115, 536870912
   %.not2.i = icmp ne i64 %116, 0
   %narrow.i.not = select i1 %.not2.i, i1 true, i1 %.not5.not.i.not202
@@ -24863,7 +24863,7 @@ AddHeaders.exit:                                  ; preds = %63, %69, %84
   br i1 %133, label %134, label %IsAtLeastTLSv1_2.exit177
 
 134:                                              ; preds = %130
-  %135 = call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #27
+  %135 = call i64 @wolfSSL_get_options(ptr noundef nonnull %0) #28
   %136 = and i64 %135, 134217728
   %137 = icmp eq i64 %136, 0
   br i1 %137, label %138, label %IsAtLeastTLSv1_2.exit177
@@ -24894,7 +24894,7 @@ IsAtLeastTLSv1_2.exit177:                         ; preds = %IsAtLeastTLSv1_2.ex
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %148 = load ptr, ptr %147, align 8, !tbaa !116
   %149 = getelementptr inbounds nuw i8, ptr %91, i64 11
-  %150 = call i32 @wc_RNG_GenerateBlock(ptr noundef %148, ptr noundef nonnull %149, i32 noundef %.0136) #27
+  %150 = call i32 @wc_RNG_GenerateBlock(ptr noundef %148, ptr noundef nonnull %149, i32 noundef %.0136) #28
   %.not163 = icmp eq i32 %150, 0
   br i1 %.not163, label %151, label %CheckAvailableSize.exit
 
@@ -24907,7 +24907,7 @@ IsAtLeastTLSv1_2.exit177:                         ; preds = %IsAtLeastTLSv1_2.ex
   store i8 %6, ptr %155, align 1, !tbaa !45
   %156 = load ptr, ptr %147, align 8, !tbaa !116
   %157 = getelementptr inbounds nuw i8, ptr %91, i64 44
-  %158 = call i32 @wc_RNG_GenerateBlock(ptr noundef %156, ptr noundef nonnull %157, i32 noundef %spec.select.i) #27
+  %158 = call i32 @wc_RNG_GenerateBlock(ptr noundef %156, ptr noundef nonnull %157, i32 noundef %spec.select.i) #28
   %.not164 = icmp eq i32 %158, 0
   br i1 %.not164, label %159, label %CheckAvailableSize.exit
 
@@ -24960,7 +24960,7 @@ IsAtLeastTLSv1_2.exit177:                         ; preds = %IsAtLeastTLSv1_2.ex
   store i16 0, ptr %3, align 2, !tbaa !97
   %189 = zext nneg i32 %.2142 to i64
   %190 = getelementptr inbounds nuw i8, ptr %91, i64 %189
-  %191 = call i32 @TLSX_WriteResponse(ptr noundef nonnull %0, ptr noundef nonnull %190, i8 noundef zeroext 2, ptr noundef nonnull %3) #27
+  %191 = call i32 @TLSX_WriteResponse(ptr noundef nonnull %0, ptr noundef nonnull %190, i8 noundef zeroext 2, ptr noundef nonnull %3) #28
   %.not166 = icmp eq i32 %191, 0
   %192 = load i16, ptr %3, align 2
   %193 = zext i16 %192 to i32
@@ -24986,7 +24986,7 @@ IsEncryptionOn.exit181:                           ; preds = %195
   %spec.select171.neg204 = select i1 %.not169, i32 -5, i32 -13
   %200 = add nsw i32 %194, %spec.select171.neg204
   %201 = zext nneg i32 %200 to i64
-  %202 = call ptr @wolfSSL_Malloc(i64 noundef %201) #27
+  %202 = call ptr @wolfSSL_Malloc(i64 noundef %201) #28
   %203 = icmp eq ptr %202, null
   br i1 %203, label %CheckAvailableSize.exit, label %204
 
@@ -24995,7 +24995,7 @@ IsEncryptionOn.exit181:                           ; preds = %195
   %206 = getelementptr inbounds nuw i8, ptr %91, i64 %205
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull align 1 %206, i64 %201, i1 false)
   %207 = call i32 @BuildMessage(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %18, ptr noundef nonnull %202, i32 noundef %200, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  call void @wolfSSL_Free(ptr noundef nonnull %202) #27
+  call void @wolfSSL_Free(ptr noundef nonnull %202) #28
   %208 = icmp sgt i32 %207, -1
   br i1 %208, label %214, label %CheckAvailableSize.exit
 
@@ -25049,7 +25049,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #27
+  %9 = tail call ptr @wolfSSL_Malloc(i64 noundef 80) #28
   store ptr %9, ptr %5, align 8, !tbaa !197
   %10 = icmp eq ptr %9, null
   br i1 %10, label %FreeAsyncCtx.exit, label %11
@@ -25125,7 +25125,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #4 {
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %43 = load i32, ptr %42, align 8, !tbaa !314
   %44 = zext i32 %43 to i64
-  %45 = tail call ptr @wolfSSL_Malloc(i64 noundef %44) #27
+  %45 = tail call ptr @wolfSSL_Malloc(i64 noundef %44) #28
   store ptr %45, ptr %38, align 16, !tbaa !208
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread581, label %47
@@ -25146,7 +25146,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #4 {
 
 56:                                               ; preds = %50
   %57 = zext i32 %55 to i64
-  %58 = tail call ptr @wolfSSL_Malloc(i64 noundef %57) #27
+  %58 = tail call ptr @wolfSSL_Malloc(i64 noundef %57) #28
   store ptr %58, ptr %51, align 16, !tbaa !206
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.thread581, label %60
@@ -25184,7 +25184,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #4 {
 79:                                               ; preds = %68
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %81 = load ptr, ptr %80, align 8, !tbaa !116
-  %82 = tail call i32 @wc_DhSetCheckKey(ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %78, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %81) #27
+  %82 = tail call i32 @wc_DhSetCheckKey(ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %78, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %81) #28
   %.not448 = icmp eq i32 %82, 0
   br i1 %.not448, label %83, label %.thread514
 
@@ -25195,7 +25195,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #4 {
   br label %88
 
 86:                                               ; preds = %68
-  %87 = tail call i32 @wc_DhSetKey(ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %78) #27
+  %87 = tail call i32 @wc_DhSetKey(ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %78) #28
   %.not449 = icmp eq i32 %87, 0
   br i1 %.not449, label %88, label %.thread514
 
@@ -25207,7 +25207,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #4 {
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %95 = load ptr, ptr %94, align 8, !tbaa !116
-  %96 = tail call i32 @wc_DhGenerateKeyPair(ptr noundef %89, ptr noundef %95, ptr noundef %90, ptr noundef nonnull %91, ptr noundef %92, ptr noundef nonnull %93) #27
+  %96 = tail call i32 @wc_DhGenerateKeyPair(ptr noundef %89, ptr noundef %95, ptr noundef %90, ptr noundef nonnull %91, ptr noundef %92, ptr noundef nonnull %93) #28
   br label %110
 
 .thread:                                          ; preds = %26
@@ -25263,7 +25263,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #4 {
   store i32 4, ptr %116, align 8, !tbaa !447
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 60
   store i32 256, ptr %117, align 4, !tbaa !448
-  %118 = tail call ptr @wolfSSL_Malloc(i64 noundef 256) #27
+  %118 = tail call ptr @wolfSSL_Malloc(i64 noundef 256) #28
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %118, ptr %119, align 8, !tbaa !449
   %120 = icmp eq ptr %118, null
@@ -25272,7 +25272,7 @@ define i32 @SendServerKeyExchange(ptr noundef %0) local_unnamed_addr #4 {
 121:                                              ; preds = %114
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %123 = load ptr, ptr %122, align 8, !tbaa !337
-  %124 = tail call i32 @wc_ecc_export_x963(ptr noundef %123, ptr noundef nonnull %118, ptr noundef nonnull %117) #27
+  %124 = tail call i32 @wc_ecc_export_x963(ptr noundef %123, ptr noundef nonnull %118, ptr noundef nonnull %117) #28
   %.not462 = icmp eq i32 %124, 0
   br i1 %.not462, label %125, label %.thread581
 
@@ -25381,7 +25381,7 @@ IsEncryptionOn.exit:                              ; preds = %IsAtLeastTLSv1_2.ex
 IsEncryptionOn.exit.thread:                       ; preds = %IsAtLeastTLSv1_2.exit.thread, %167, %IsEncryptionOn.exit
   %169 = phi i32 [ %163, %IsAtLeastTLSv1_2.exit.thread ], [ %168, %167 ], [ %163, %IsEncryptionOn.exit ]
   %170 = zext i32 %169 to i64
-  %171 = tail call ptr @wolfSSL_Malloc(i64 noundef %170) #27
+  %171 = tail call ptr @wolfSSL_Malloc(i64 noundef %170) #28
   %172 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %171, ptr %172, align 8, !tbaa !452
   %173 = icmp eq ptr %171, null
@@ -25519,7 +25519,7 @@ EncodeSigAlg.exit._crit_edge:                     ; preds = %EncodeSigAlg.exit
   br i1 %245, label %IsAtLeastTLSv1_2.exit489, label %IsAtLeastTLSv1_2.exit489.thread
 
 IsAtLeastTLSv1_2.exit489:                         ; preds = %242
-  %246 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #27
+  %246 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #28
   %.not472 = icmp eq ptr %246, null
   br i1 %.not472, label %.thread581, label %247
 
@@ -25542,7 +25542,7 @@ switch.lookup:                                    ; preds = %247
 
 TypeHash.exit:                                    ; preds = %247, %switch.lookup
   %.0.i490 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %247 ]
-  %256 = tail call i32 @wc_EncodeSignature(ptr noundef nonnull %246, ptr noundef %249, i32 noundef %251, i32 noundef %.0.i490) #27
+  %256 = tail call i32 @wc_EncodeSignature(ptr noundef nonnull %246, ptr noundef %249, i32 noundef %251, i32 noundef %.0.i490) #28
   store i32 %256, ptr %250, align 8, !tbaa !203
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %258 = load i64, ptr %257, align 8
@@ -25556,7 +25556,7 @@ TypeHash.exit:                                    ; preds = %247, %switch.lookup
   br i1 %.not471, label %263, label %262
 
 262:                                              ; preds = %260
-  tail call void @wolfSSL_Free(ptr noundef nonnull %261) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %261) #28
   %.pre620 = load i64, ptr %257, align 8
   br label %263
 
@@ -25710,7 +25710,7 @@ IsEncryptionOn.exit496:                           ; preds = %334
 IsEncryptionOn.exit496.thread:                    ; preds = %334, %340, %IsEncryptionOn.exit496
   %342 = phi i32 [ %336, %334 ], [ %341, %340 ], [ %336, %IsEncryptionOn.exit496 ]
   %343 = zext i32 %342 to i64
-  %344 = tail call ptr @wolfSSL_Malloc(i64 noundef %343) #27
+  %344 = tail call ptr @wolfSSL_Malloc(i64 noundef %343) #28
   %345 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %344, ptr %345, align 8, !tbaa !452
   %346 = icmp eq ptr %344, null
@@ -25899,7 +25899,7 @@ EncodeSigAlg.exit502:                             ; preds = %IsAtLeastTLSv1_2.ex
   br i1 %463, label %IsAtLeastTLSv1_2.exit507, label %.thread556
 
 IsAtLeastTLSv1_2.exit507:                         ; preds = %460
-  %464 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #27
+  %464 = tail call ptr @wolfSSL_Malloc(i64 noundef 512) #28
   %.not461 = icmp eq ptr %464, null
   br i1 %.not461, label %.thread581, label %465
 
@@ -25922,7 +25922,7 @@ switch.lookup657:                                 ; preds = %465
 
 TypeHash.exit509:                                 ; preds = %465, %switch.lookup657
   %.0.i508 = phi i32 [ %switch.load659, %switch.lookup657 ], [ 0, %465 ]
-  %474 = tail call i32 @wc_EncodeSignature(ptr noundef nonnull %464, ptr noundef %467, i32 noundef %469, i32 noundef %.0.i508) #27
+  %474 = tail call i32 @wc_EncodeSignature(ptr noundef nonnull %464, ptr noundef %467, i32 noundef %469, i32 noundef %.0.i508) #28
   store i32 %474, ptr %468, align 8, !tbaa !203
   %475 = load i64, ptr %303, align 8
   %476 = and i64 %475, 1099511627776
@@ -25935,7 +25935,7 @@ TypeHash.exit509:                                 ; preds = %465, %switch.lookup
   br i1 %.not460, label %480, label %479
 
 479:                                              ; preds = %477
-  tail call void @wolfSSL_Free(ptr noundef nonnull %478) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %478) #28
   %.pre616 = load i64, ptr %303, align 8
   br label %480
 
@@ -26003,7 +26003,7 @@ TypeHash.exit509:                                 ; preds = %465, %switch.lookup
   %520 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %522 = load ptr, ptr %521, align 8, !tbaa !116
-  %523 = tail call i32 @wc_ecc_sign_hash(ptr noundef %511, i32 noundef %513, ptr noundef nonnull %519, ptr noundef nonnull %520, ptr noundef %522, ptr noundef %509) #27
+  %523 = tail call i32 @wc_ecc_sign_hash(ptr noundef %511, i32 noundef %513, ptr noundef nonnull %519, ptr noundef nonnull %520, ptr noundef %522, ptr noundef %509) #28
   br label %549
 
 524:                                              ; preds = %483
@@ -26083,7 +26083,7 @@ TypeHash.exit509:                                 ; preds = %465, %switch.lookup
 
 566:                                              ; preds = %562
   %567 = zext i32 %564 to i64
-  %568 = tail call ptr @wolfSSL_Malloc(i64 noundef %567) #27
+  %568 = tail call ptr @wolfSSL_Malloc(i64 noundef %567) #28
   store ptr %568, ptr %559, align 8, !tbaa !455
   %.not478 = icmp eq ptr %568, null
   br i1 %.not478, label %.thread581, label %569
@@ -26174,7 +26174,7 @@ TypeHash.exit509:                                 ; preds = %465, %switch.lookup
 
 630:                                              ; preds = %626
   %631 = zext i32 %628 to i64
-  %632 = tail call ptr @wolfSSL_Malloc(i64 noundef %631) #27
+  %632 = tail call ptr @wolfSSL_Malloc(i64 noundef %631) #28
   store ptr %632, ptr %623, align 8, !tbaa !455
   %.not477 = icmp eq ptr %632, null
   br i1 %.not477, label %.thread581, label %633
@@ -26310,7 +26310,7 @@ AddHeaders.exit:                                  ; preds = %661, %677
   br i1 %.not483, label %704, label %703
 
 703:                                              ; preds = %.thread581
-  tail call void @wolfSSL_Free(ptr noundef nonnull %702) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %702) #28
   store ptr null, ptr %701, align 8, !tbaa !452
   br label %704
 
@@ -26326,7 +26326,7 @@ AddHeaders.exit:                                  ; preds = %661, %677
 
 707:                                              ; preds = %705
   %708 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  tail call void %706(ptr noundef nonnull %0, ptr noundef nonnull %708) #27
+  tail call void %706(ptr noundef nonnull %0, ptr noundef nonnull %708) #28
   %709 = load ptr, ptr %5, align 8, !tbaa !197
   store ptr null, ptr %709, align 8, !tbaa !198
   br label %FreeAsyncCtx.exit
@@ -26349,7 +26349,7 @@ define internal void @FreeSskeArgs(ptr readnone captures(none) %0, ptr noundef c
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @wolfSSL_Free(ptr noundef nonnull %4) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %4) #28
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -26360,7 +26360,7 @@ define internal void @FreeSskeArgs(ptr readnone captures(none) %0, ptr noundef c
   br i1 %.not10, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #28
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -26408,7 +26408,7 @@ GetCurveByOID.exit:                               ; preds = %13, %12, %11, %10, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @HashSkeData(ptr noundef captures(none) %0, i32 noundef range(i32 1, 10) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #4 {
-  %5 = tail call i32 @wc_HashGetDigestSize(i32 noundef %1) #27
+  %5 = tail call i32 @wc_HashGetDigestSize(i32 noundef %1) #28
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %.critedge
 
@@ -26419,7 +26419,7 @@ define internal fastcc i32 @HashSkeData(ptr noundef captures(none) %0, i32 nound
 9:                                                ; preds = %7
   %10 = add nuw i32 %3, 64
   %11 = zext i32 %10 to i64
-  %12 = tail call ptr @wolfSSL_Malloc(i64 noundef %11) #27
+  %12 = tail call ptr @wolfSSL_Malloc(i64 noundef %11) #28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %12, ptr %13, align 16, !tbaa !200
   %14 = icmp eq ptr %12, null
@@ -26456,7 +26456,7 @@ define internal fastcc i32 @HashSkeData(ptr noundef captures(none) %0, i32 nound
   br i1 %.not46, label %34, label %33
 
 33:                                               ; preds = %31
-  tail call void @wolfSSL_Free(ptr noundef nonnull %32) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %32) #28
   %.pre = load i64, ptr %28, align 8
   %.pre57 = load i32, ptr %27, align 8, !tbaa !203
   br label %34
@@ -26467,7 +26467,7 @@ define internal fastcc i32 @HashSkeData(ptr noundef captures(none) %0, i32 nound
   %37 = and i64 %36, -1099511627777
   store i64 %37, ptr %28, align 8
   %38 = zext i32 %35 to i64
-  %39 = tail call ptr @wolfSSL_Malloc(i64 noundef %38) #27
+  %39 = tail call ptr @wolfSSL_Malloc(i64 noundef %38) #28
   store ptr %39, ptr %26, align 16, !tbaa !202
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.critedge, label %41
@@ -26476,13 +26476,13 @@ define internal fastcc i32 @HashSkeData(ptr noundef captures(none) %0, i32 nound
   %42 = load ptr, ptr %13, align 16, !tbaa !200
   %43 = load i32, ptr %15, align 8, !tbaa !201
   %44 = load i32, ptr %27, align 8, !tbaa !203
-  %45 = tail call i32 @wc_Hash(i32 noundef %1, ptr noundef %42, i32 noundef %43, ptr noundef nonnull %39, i32 noundef %44) #27
+  %45 = tail call i32 @wc_Hash(i32 noundef %1, ptr noundef %42, i32 noundef %43, ptr noundef nonnull %39, i32 noundef %44) #28
   %46 = load ptr, ptr %13, align 16, !tbaa !200
   %.not47 = icmp eq ptr %46, null
   br i1 %.not47, label %48, label %47
 
 47:                                               ; preds = %41
-  tail call void @wolfSSL_Free(ptr noundef nonnull %46) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %46) #28
   br label %48
 
 48:                                               ; preds = %47, %41
@@ -26706,7 +26706,7 @@ define internal fastcc range(i32 -501, 1) i32 @CompareSuites(ptr noundef %0, ptr
 
 70:                                               ; preds = %66, %62, %60
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %72 = tail call i32 @TLSX_ValidateSupportedCurves(ptr noundef %0, i8 noundef zeroext %12, i8 noundef zeroext %20, ptr noundef nonnull %71) #27
+  %72 = tail call i32 @TLSX_ValidateSupportedCurves(ptr noundef %0, i8 noundef zeroext %12, i8 noundef zeroext %20, ptr noundef nonnull %71) #28
   %.not72.i = icmp eq i32 %72, 0
   br i1 %.not72.i, label %.thread, label %73
 
@@ -26730,7 +26730,7 @@ define internal fastcc range(i32 -501, 1) i32 @CompareSuites(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !45
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %86 = call i32 @TLSX_KeyShare_Choose(ptr noundef nonnull %0, ptr noundef %6, i8 noundef zeroext %12, i8 noundef zeroext %20, ptr noundef nonnull %85, ptr noundef nonnull %8) #27
+  %86 = call i32 @TLSX_KeyShare_Choose(ptr noundef nonnull %0, ptr noundef %6, i8 noundef zeroext %12, i8 noundef zeroext %20, ptr noundef nonnull %85, ptr noundef nonnull %8) #28
   %87 = icmp eq i32 %86, -125
   br i1 %87, label %.critedge.i, label %88
 
@@ -26813,7 +26813,7 @@ define i32 @MatchSuite(ptr noundef %0, ptr noundef readonly captures(none) %1) l
   %14 = load i32, ptr %13, align 4, !tbaa !467
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 %14, ptr %15, align 16, !tbaa !125
-  %16 = call i32 @SetCipherSpecs(ptr noundef nonnull %0) #27
+  %16 = call i32 @SetCipherSpecs(ptr noundef nonnull %0) #28
   %.not32 = icmp eq i32 %16, 0
   br i1 %.not32, label %17, label %48
 
@@ -26840,7 +26840,7 @@ define i32 @MatchSuite(ptr noundef %0, ptr noundef readonly captures(none) %1) l
 
 30:                                               ; preds = %26
   store i8 2, ptr %27, align 1, !tbaa !230
-  %31 = call i32 @TLSX_KeyShare_SetSupported(ptr noundef nonnull %0, ptr noundef nonnull %4) #27
+  %31 = call i32 @TLSX_KeyShare_SetSupported(ptr noundef nonnull %0, ptr noundef nonnull %4) #28
   br label %48
 
 32:                                               ; preds = %23
@@ -26862,7 +26862,7 @@ define i32 @MatchSuite(ptr noundef %0, ptr noundef readonly captures(none) %1) l
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !461
-  %46 = call i32 @TLSX_KeyShare_Setup(ptr noundef nonnull %0, ptr noundef %45) #27
+  %46 = call i32 @TLSX_KeyShare_Setup(ptr noundef nonnull %0, ptr noundef %45) #28
   %.not36 = icmp eq i32 %46, 0
   br i1 %.not36, label %47, label %48
 
@@ -26884,7 +26884,7 @@ define i32 @HandleTlsResumption(ptr noundef %0, ptr noundef readonly captures(no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !163
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 173
-  %6 = tail call ptr @wolfSSL_GetSession(ptr noundef %0, ptr noundef nonnull %5, i8 noundef zeroext 1) #27
+  %6 = tail call ptr @wolfSSL_GetSession(ptr noundef %0, ptr noundef nonnull %5, i8 noundef zeroext 1) #28
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %11
 
@@ -26896,7 +26896,7 @@ define i32 @HandleTlsResumption(ptr noundef %0, ptr noundef readonly captures(no
   br label %.thread
 
 11:                                               ; preds = %2
-  %12 = tail call i64 @wc_Time(ptr noundef null) #27
+  %12 = tail call i64 @wc_Time(ptr noundef null) #28
   %13 = trunc i64 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 108
   %15 = load i32, ptr %14, align 4, !tbaa !468
@@ -27005,7 +27005,7 @@ define i32 @HandleTlsResumption(ptr noundef %0, ptr noundef readonly captures(no
   %68 = load i8, ptr %67, align 1, !tbaa !471
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1038
   store i8 %68, ptr %69, align 2, !tbaa !304
-  %70 = tail call i32 @SetCipherSpecs(ptr noundef %0) #27
+  %70 = tail call i32 @SetCipherSpecs(ptr noundef %0) #28
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.critedge, label %.thread
 
@@ -27028,7 +27028,7 @@ define i32 @HandleTlsResumption(ptr noundef %0, ptr noundef readonly captures(no
   %82 = load ptr, ptr %81, align 8, !tbaa !116
   %83 = load ptr, ptr %3, align 8, !tbaa !163
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 60
-  %85 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %82, ptr noundef nonnull %84, i32 noundef 32) #27
+  %85 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %82, ptr noundef nonnull %84, i32 noundef 32) #28
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %.thread
 
@@ -27039,7 +27039,7 @@ define i32 @HandleTlsResumption(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %.not60, label %92, label %90
 
 90:                                               ; preds = %87
-  %91 = tail call i32 @DeriveTlsKeys(ptr noundef nonnull %0) #27
+  %91 = tail call i32 @DeriveTlsKeys(ptr noundef nonnull %0) #28
   %.pre = load i64, ptr %28, align 8
   br label %92
 
@@ -27051,7 +27051,7 @@ define i32 @HandleTlsResumption(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %.not61, label %95, label %97
 
 95:                                               ; preds = %92
-  %96 = tail call i32 @DeriveKeys(ptr noundef nonnull %0) #27
+  %96 = tail call i32 @DeriveKeys(ptr noundef nonnull %0) #28
   %.pre79 = load i64, ptr %28, align 8
   br label %97
 
@@ -27098,7 +27098,7 @@ define range(i32 -387, 1) i32 @SNI_Callback(ptr noundef %0) local_unnamed_addr #
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %10 = load ptr, ptr %9, align 8, !tbaa !474
-  %11 = call i32 %7(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %10) #27
+  %11 = call i32 %7(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %10) #28
   switch i32 %11, label %SendAlert.exit [
     i32 1, label %12
     i32 2, label %25
@@ -27217,7 +27217,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %1, %IsEncryptionOn.
 19:                                               ; preds = %16
   %20 = add i32 %13, %5
   %21 = zext i32 %20 to i64
-  %22 = tail call ptr @wolfSSL_Malloc(i64 noundef %21) #27
+  %22 = tail call ptr @wolfSSL_Malloc(i64 noundef %21) #28
   %23 = icmp eq ptr %22, null
   br i1 %23, label %CheckAvailableSize.exit, label %24
 
@@ -27253,7 +27253,7 @@ IsEncryptionOn.exit.thread:                       ; preds = %1, %IsEncryptionOn.
   %41 = zext i8 %40 to i64
   %42 = sub nsw i64 0, %41
   %43 = getelementptr inbounds i8, ptr %37, i64 %42
-  tail call void @wolfSSL_Free(ptr noundef nonnull %43) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %43) #28
   br label %.thread
 
 .thread:                                          ; preds = %32, %35, %38
@@ -27338,7 +27338,7 @@ IsEncryptionOn.exit62:                            ; preds = %AddHeaders.exit
   %.not54 = icmp eq i64 %83, 0
   %spec.select55 = select i1 %.not54, i32 4, i32 12
   %84 = zext nneg i32 %spec.select55 to i64
-  %85 = tail call ptr @wolfSSL_Malloc(i64 noundef %84) #27
+  %85 = tail call ptr @wolfSSL_Malloc(i64 noundef %84) #28
   %86 = icmp eq ptr %85, null
   br i1 %86, label %CheckAvailableSize.exit, label %87
 
@@ -27347,7 +27347,7 @@ IsEncryptionOn.exit62:                            ; preds = %AddHeaders.exit
   %88 = getelementptr inbounds nuw i8, ptr %74, i64 %spec.select56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull align 1 dereferenceable(1) %88, i64 %84, i1 false)
   %89 = tail call i32 @BuildMessage(ptr noundef nonnull %0, ptr noundef nonnull %74, i32 noundef %5, ptr noundef nonnull %85, i32 noundef %spec.select55, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  tail call void @wolfSSL_Free(ptr noundef nonnull %85) #27
+  tail call void @wolfSSL_Free(ptr noundef nonnull %85) #28
   %90 = icmp sgt i32 %89, -1
   br i1 %90, label %96, label %CheckAvailableSize.exit
 
@@ -27466,7 +27466,7 @@ define internal fastcc range(i32 -376, 1) i32 @GetInputData(ptr noundef %0, i32 
 
 .preheader.i:                                     ; preds = %38
   %45 = load ptr, ptr %36, align 8, !tbaa !180
-  %46 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef %42, i32 noundef range(i32 -65535, 65536) %.043, ptr noundef %45) #27
+  %46 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef %42, i32 noundef range(i32 -65535, 65536) %.043, ptr noundef %45) #28
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %.lr.ph.i, label %.loopexit
 
@@ -27474,7 +27474,7 @@ define internal fastcc range(i32 -376, 1) i32 @GetInputData(ptr noundef %0, i32 
   %49 = add nsw i32 %.024.i, -1
   %50 = load ptr, ptr %35, align 8, !tbaa !156
   %51 = load ptr, ptr %36, align 8, !tbaa !180
-  %52 = tail call i32 %50(ptr noundef nonnull %0, ptr noundef %42, i32 noundef range(i32 -65535, 65536) %.043, ptr noundef %51) #27
+  %52 = tail call i32 %50(ptr noundef nonnull %0, ptr noundef %42, i32 noundef range(i32 -65535, 65536) %.043, ptr noundef %51) #28
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %.lr.ph.i, label %.loopexit
 
@@ -27569,7 +27569,7 @@ define internal fastcc i32 @DecryptTls(ptr noundef initializes((336, 337)) %0, p
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @wolfSSL_Malloc(i64 noundef 13) #27
+  %17 = tail call ptr @wolfSSL_Malloc(i64 noundef 13) #28
   store ptr %17, ptr %13, align 8, !tbaa !476
   %18 = icmp eq ptr %17, null
   br label %19
@@ -27582,7 +27582,7 @@ define internal fastcc i32 @DecryptTls(ptr noundef initializes((336, 337)) %0, p
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @wolfSSL_Malloc(i64 noundef 12) #27
+  %25 = tail call ptr @wolfSSL_Malloc(i64 noundef 12) #28
   store ptr %25, ptr %21, align 16, !tbaa !477
   %.pre = load ptr, ptr %13, align 8, !tbaa !476
   %26 = icmp eq ptr %25, null
@@ -27611,7 +27611,7 @@ thread-pre-split:                                 ; preds = %24, %.thread
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %32 = load ptr, ptr %31, align 16, !tbaa !86
   %33 = zext i16 %3 to i32
-  %34 = tail call i32 @wc_AesCbcDecrypt(ptr noundef %32, ptr noundef %1, ptr noundef %2, i32 noundef %33) #27
+  %34 = tail call i32 @wc_AesCbcDecrypt(ptr noundef %32, ptr noundef %1, ptr noundef %2, i32 noundef %33) #28
   br label %DecryptDo.exit
 
 35:                                               ; preds = %28, %28
@@ -27718,7 +27718,7 @@ writeAeadAuthData.exit.i:                         ; preds = %54, %47, %35
   %106 = sub nsw i64 0, %105
   %107 = getelementptr inbounds i8, ptr %104, i64 %106
   %108 = load ptr, ptr %42, align 8, !tbaa !476
-  %109 = tail call i32 @wc_AesGcmDecrypt(ptr noundef %96, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef %101, ptr noundef %102, i32 noundef 12, ptr noundef nonnull %107, i32 noundef %100, ptr noundef %108, i32 noundef 13) #27
+  %109 = tail call i32 @wc_AesGcmDecrypt(ptr noundef %96, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef %101, ptr noundef %102, i32 noundef 12, ptr noundef nonnull %107, i32 noundef %100, ptr noundef %108, i32 noundef 13) #28
   br label %DecryptDo.exit
 
 110:                                              ; preds = %28
@@ -27856,32 +27856,32 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #26
+declare i32 @llvm.abs.i32(i32, i1 immarg) #27
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -27909,10 +27909,11 @@ attributes #22 = { nofree norecurse nounwind memory(read, inaccessiblemem: none)
 attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind willreturn memory(none) }
-attributes #29 = { nounwind willreturn memory(read) }
+attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nounwind }
+attributes #29 = { nounwind willreturn memory(none) }
+attributes #30 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -36,13 +36,13 @@ define dso_local range(i32 0, 2) i32 @git_parse_signed(ptr noundef %0, ptr nound
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 26, ptr noundef nonnull @.str.1) #13
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 26, ptr noundef nonnull @.str.1) #14
   unreachable
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @__errno_location() #14
+  %11 = tail call ptr @__errno_location() #15
   store i32 0, ptr %11, align 4, !tbaa !7
-  %12 = call i64 @strtoimax(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 0) #15
+  %12 = call i64 @strtoimax(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 0) #16
   %13 = load i32, ptr %11, align 4, !tbaa !7
   %14 = icmp eq i32 %13, 34
   br i1 %14, label %40, label %15
@@ -62,17 +62,17 @@ define dso_local range(i32 0, 2) i32 @git_parse_signed(ptr noundef %0, ptr nound
   br i1 %.not.i, label %select.unfold, label %21
 
 21:                                               ; preds = %19
-  %22 = call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.10) #16
+  %22 = call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.10) #17
   %.not4.i = icmp eq i32 %22, 0
   br i1 %.not4.i, label %select.unfold, label %23
 
 23:                                               ; preds = %21
-  %24 = call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.11) #16
+  %24 = call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.11) #17
   %.not5.i = icmp eq i32 %24, 0
   br i1 %.not5.i, label %select.unfold, label %25
 
 25:                                               ; preds = %23
-  %26 = call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.12) #16
+  %26 = call i32 @strcasecmp(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.12) #17
   %.not6.i = icmp eq i32 %26, 0
   br i1 %.not6.i, label %select.unfold, label %get_unit_factor.exit
 
@@ -117,7 +117,7 @@ select.unfold:                                    ; preds = %25, %19, %21, %23
   br label %43
 
 41:                                               ; preds = %5, %3
-  %42 = tail call ptr @__errno_location() #14
+  %42 = tail call ptr @__errno_location() #15
   store i32 22, ptr %42, align 4, !tbaa !7
   br label %43
 
@@ -187,14 +187,14 @@ define dso_local range(i32 0, 2) i32 @git_parse_ulong(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 45) #16
+  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 45) #17
   %.not21.i = icmp eq ptr %7, null
-  %8 = tail call ptr @__errno_location() #14
+  %8 = tail call ptr @__errno_location() #15
   br i1 %.not21.i, label %9, label %git_parse_unsigned.exit.thread6.sink.split
 
 9:                                                ; preds = %6
   store i32 0, ptr %8, align 4, !tbaa !7
-  %10 = call i64 @strtoumax(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0) #15
+  %10 = call i64 @strtoumax(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0) #16
   %11 = load i32, ptr %8, align 4, !tbaa !7
   %12 = icmp eq i32 %11, 34
   br i1 %12, label %git_parse_unsigned.exit.thread6, label %13
@@ -210,17 +210,17 @@ define dso_local range(i32 0, 2) i32 @git_parse_ulong(ptr noundef %0, ptr nounde
   br i1 %.not.i.i, label %select.unfold.i, label %18
 
 18:                                               ; preds = %16
-  %19 = call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.10) #16
+  %19 = call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.10) #17
   %.not4.i.i = icmp eq i32 %19, 0
   br i1 %.not4.i.i, label %select.unfold.i, label %20
 
 20:                                               ; preds = %18
-  %21 = call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.11) #16
+  %21 = call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.11) #17
   %.not5.i.i = icmp eq i32 %21, 0
   br i1 %.not5.i.i, label %select.unfold.i, label %22
 
 22:                                               ; preds = %20
-  %23 = call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.12) #16
+  %23 = call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.12) #17
   %.not6.i.i = icmp eq i32 %23, 0
   br i1 %.not6.i.i, label %select.unfold.i, label %git_parse_unsigned.exit.thread6.sink.split
 
@@ -231,7 +231,7 @@ select.unfold.i:                                  ; preds = %22, %20, %18, %16
   br i1 %mul.ov.i, label %git_parse_unsigned.exit.thread6.sink.split, label %25
 
 git_parse_unsigned.exit.thread:                   ; preds = %2, %4
-  %24 = tail call ptr @__errno_location() #14
+  %24 = tail call ptr @__errno_location() #15
   store i32 22, ptr %24, align 4, !tbaa !7
   br label %27
 
@@ -287,14 +287,14 @@ define dso_local range(i32 0, 2) i32 @git_parse_double(ptr noundef %0, ptr nound
   br i1 %.not12, label %6, label %8
 
 6:                                                ; preds = %4, %2
-  %7 = tail call ptr @__errno_location() #14
+  %7 = tail call ptr @__errno_location() #15
   store i32 22, ptr %7, align 4, !tbaa !7
   br label %26
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @__errno_location() #14
+  %9 = tail call ptr @__errno_location() #15
   store i32 0, ptr %9, align 4, !tbaa !7
-  %10 = call double @strtod(ptr noundef nonnull %0, ptr noundef nonnull %3) #15
+  %10 = call double @strtod(ptr noundef nonnull %0, ptr noundef nonnull %3) #16
   %11 = load i32, ptr %9, align 4, !tbaa !7
   %12 = icmp eq i32 %11, 34
   br i1 %12, label %26, label %13
@@ -314,17 +314,17 @@ define dso_local range(i32 0, 2) i32 @git_parse_double(ptr noundef %0, ptr nound
   br i1 %.not.i, label %select.unfold, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.10) #16
+  %20 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.10) #17
   %.not4.i = icmp eq i32 %20, 0
   br i1 %.not4.i, label %select.unfold, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.11) #16
+  %22 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.11) #17
   %.not5.i = icmp eq i32 %22, 0
   br i1 %.not5.i, label %select.unfold, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.12) #16
+  %24 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.12) #17
   %.not6.i = icmp eq i32 %24, 0
   br i1 %.not6.i, label %select.unfold, label %get_unit_factor.exit
 
@@ -358,32 +358,32 @@ define dso_local range(i32 -1, 2) i32 @git_parse_maybe_bool_text(ptr noundef rea
   br i1 %.not9, label %16, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #16
+  %5 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #17
   %.not10 = icmp eq i32 %5, 0
   br i1 %.not10, label %16, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #16
+  %7 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #17
   %.not11 = icmp eq i32 %7, 0
   br i1 %.not11, label %16, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #16
+  %9 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #17
   %.not12 = icmp eq i32 %9, 0
   br i1 %.not12, label %16, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #16
+  %11 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #17
   %.not13 = icmp eq i32 %11, 0
   br i1 %.not13, label %16, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #16
+  %13 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #17
   %.not14 = icmp eq i32 %13, 0
   br i1 %.not14, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #16
+  %15 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #17
   %.not15 = icmp ne i32 %15, 0
   %spec.select = sext i1 %.not15 to i32
   br label %16
@@ -429,7 +429,7 @@ git_parse_int.exit.thread:                        ; preds = %5
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @git_env_bool(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = tail call ptr @getenv(ptr noundef %0) #15
+  %4 = tail call ptr @getenv(ptr noundef %0) #16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %git_parse_maybe_bool.exit.thread, label %5
 
@@ -455,7 +455,7 @@ define dso_local i32 @git_env_bool(ptr noundef %0, i32 noundef %1) local_unnamed
 15:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = tail call fastcc ptr @_(ptr noundef nonnull @.str.8)
-  tail call void (ptr, ...) @die(ptr noundef %16, ptr noundef nonnull %4, ptr noundef %0) #13
+  tail call void (ptr, ...) @die(ptr noundef %16, ptr noundef nonnull %4, ptr noundef %0) #14
   unreachable
 
 git_parse_maybe_bool.exit.thread:                 ; preds = %5, %10, %2
@@ -481,7 +481,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #9 {
   br i1 %.not4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %0, i32 noundef 5) #15
+  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %0, i32 noundef 5) #16
   br label %7
 
 7:                                                ; preds = %3, %1, %5
@@ -493,7 +493,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #9 {
 define dso_local i64 @git_env_ulong(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !12
-  %4 = tail call ptr @getenv(ptr noundef %0) #15
+  %4 = tail call ptr @getenv(ptr noundef %0) #16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
@@ -508,7 +508,7 @@ define dso_local i64 @git_env_ulong(ptr noundef %0, i64 noundef %1) local_unname
 
 7:                                                ; preds = %5
   %8 = tail call fastcc ptr @_(ptr noundef nonnull @.str.9)
-  tail call void (ptr, ...) @die(ptr noundef %8, ptr noundef %0) #13
+  tail call void (ptr, ...) @die(ptr noundef %8, ptr noundef %0) #14
   unreachable
 
 9:                                                ; preds = %._crit_edge, %2
@@ -531,11 +531,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #12
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -549,11 +549,12 @@ attributes #8 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-
 attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

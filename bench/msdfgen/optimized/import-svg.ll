@@ -214,7 +214,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
-  %call.i.i = call double @strtod(ptr noundef nonnull %pathDef.addr.6, ptr noundef nonnull %end.i.i) #16
+  %call.i.i = call double @strtod(ptr noundef nonnull %pathDef.addr.6, ptr noundef nonnull %end.i.i) #17
   %6 = load ptr, ptr %end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %6, %pathDef.addr.6
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
@@ -241,7 +241,7 @@ while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, 
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
-  %call.i9.i = call double @strtod(ptr noundef nonnull %pathDef.addr.7, ptr noundef nonnull %end.i3.i) #16
+  %call.i9.i = call double @strtod(ptr noundef nonnull %pathDef.addr.7, ptr noundef nonnull %end.i3.i) #17
   %8 = load ptr, ptr %end.i3.i, align 8
   %cmp.i10.i = icmp ugt ptr %8, %pathDef.addr.7
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i)
@@ -281,7 +281,7 @@ while.body.i.i.i38:                               ; preds = %while.cond.i.i.i37,
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40:     ; preds = %while.cond.i.i.i37
   store ptr null, ptr %end.i.i35, align 8
-  %call.i.i41 = call double @strtod(ptr noundef nonnull %pathDef.addr.10, ptr noundef nonnull %end.i.i35) #16
+  %call.i.i41 = call double @strtod(ptr noundef nonnull %pathDef.addr.10, ptr noundef nonnull %end.i.i35) #17
   %10 = load ptr, ptr %end.i.i35, align 8
   %cmp.i.i42 = icmp ugt ptr %10, %pathDef.addr.10
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i35)
@@ -308,7 +308,7 @@ while.body.i.i6.i46:                              ; preds = %while.cond.i.i5.i45
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48:    ; preds = %while.cond.i.i5.i45
   store ptr null, ptr %end.i3.i34, align 8
-  %call.i9.i50 = call double @strtod(ptr noundef nonnull %pathDef.addr.11, ptr noundef nonnull %end.i3.i34) #16
+  %call.i9.i50 = call double @strtod(ptr noundef nonnull %pathDef.addr.11, ptr noundef nonnull %end.i3.i34) #17
   %12 = load ptr, ptr %end.i3.i34, align 8
   %cmp.i10.i51 = icmp ugt ptr %12, %pathDef.addr.11
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i34)
@@ -326,7 +326,7 @@ if.end20:                                         ; preds = %_ZN7msdfgenL14skipE
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end20
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #17
   br label %sw.epilog
 
 lpad:                                             ; preds = %if.end20
@@ -356,7 +356,7 @@ while.body.i.i60:                                 ; preds = %while.cond.i.i59, %
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i62:       ; preds = %while.cond.i.i59
   store ptr null, ptr %end.i, align 8
-  %call.i63 = call double @strtod(ptr noundef nonnull %pathDef.addr.14, ptr noundef nonnull %end.i) #16
+  %call.i63 = call double @strtod(ptr noundef nonnull %pathDef.addr.14, ptr noundef nonnull %end.i) #17
   %15 = load ptr, ptr %end.i, align 8
   %cmp.i = icmp ugt ptr %15, %pathDef.addr.14
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
@@ -372,7 +372,7 @@ if.end32:                                         ; preds = %_ZN7msdfgenL14skipE
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %if.end32
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39) #17
   br label %sw.epilog
 
 lpad42:                                           ; preds = %if.end32
@@ -402,7 +402,7 @@ while.body.i.i69:                                 ; preds = %while.cond.i.i68, %
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i71:       ; preds = %while.cond.i.i68
   store ptr null, ptr %end.i66, align 8
-  %call.i72 = call double @strtod(ptr noundef nonnull %pathDef.addr.16, ptr noundef nonnull %end.i66) #16
+  %call.i72 = call double @strtod(ptr noundef nonnull %pathDef.addr.16, ptr noundef nonnull %end.i66) #17
   %18 = load ptr, ptr %end.i66, align 8
   %cmp.i73 = icmp ugt ptr %18, %pathDef.addr.16
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i66)
@@ -418,7 +418,7 @@ if.end47:                                         ; preds = %_ZN7msdfgenL14skipE
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %if.end47
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55) #17
   br label %sw.epilog
 
 lpad58:                                           ; preds = %if.end47
@@ -448,7 +448,7 @@ while.body.i.i.i81:                               ; preds = %while.cond.i.i.i80,
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83:     ; preds = %while.cond.i.i.i80
   store ptr null, ptr %end.i.i78, align 8
-  %call.i.i84 = call double @strtod(ptr noundef nonnull %pathDef.addr.18, ptr noundef nonnull %end.i.i78) #16
+  %call.i.i84 = call double @strtod(ptr noundef nonnull %pathDef.addr.18, ptr noundef nonnull %end.i.i78) #17
   %21 = load ptr, ptr %end.i.i78, align 8
   %cmp.i.i85 = icmp ugt ptr %21, %pathDef.addr.18
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i78)
@@ -475,7 +475,7 @@ while.body.i.i6.i89:                              ; preds = %while.cond.i.i5.i88
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91:    ; preds = %while.cond.i.i5.i88
   store ptr null, ptr %end.i3.i77, align 8
-  %call.i9.i93 = call double @strtod(ptr noundef nonnull %pathDef.addr.19, ptr noundef nonnull %end.i3.i77) #16
+  %call.i9.i93 = call double @strtod(ptr noundef nonnull %pathDef.addr.19, ptr noundef nonnull %end.i3.i77) #17
   %23 = load ptr, ptr %end.i3.i77, align 8
   %cmp.i10.i94 = icmp ugt ptr %23, %pathDef.addr.19
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i77)
@@ -502,7 +502,7 @@ while.body.i.i.i102:                              ; preds = %while.cond.i.i.i101
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104:    ; preds = %while.cond.i.i.i101
   store ptr null, ptr %end.i.i99, align 8
-  %call.i.i105 = call double @strtod(ptr noundef nonnull %pathDef.addr.22, ptr noundef nonnull %end.i.i99) #16
+  %call.i.i105 = call double @strtod(ptr noundef nonnull %pathDef.addr.22, ptr noundef nonnull %end.i.i99) #17
   %25 = load ptr, ptr %end.i.i99, align 8
   %cmp.i.i106 = icmp ugt ptr %25, %pathDef.addr.22
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i99)
@@ -529,7 +529,7 @@ while.body.i.i6.i110:                             ; preds = %while.cond.i.i5.i10
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112:   ; preds = %while.cond.i.i5.i109
   store ptr null, ptr %end.i3.i98, align 8
-  %call.i9.i114 = call double @strtod(ptr noundef nonnull %pathDef.addr.23, ptr noundef nonnull %end.i3.i98) #16
+  %call.i9.i114 = call double @strtod(ptr noundef nonnull %pathDef.addr.23, ptr noundef nonnull %end.i3.i98) #17
   %27 = load ptr, ptr %end.i3.i98, align 8
   %cmp.i10.i115 = icmp ugt ptr %27, %pathDef.addr.23
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i98)
@@ -557,7 +557,7 @@ if.end75:                                         ; preds = %if.then69, %if.end6
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %if.end75
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp76) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp76) #17
   br label %sw.epilog
 
 lpad81:                                           ; preds = %if.end75
@@ -604,7 +604,7 @@ while.body.i.i.i133:                              ; preds = %while.cond.i.i.i132
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135:    ; preds = %while.cond.i.i.i132
   store ptr null, ptr %end.i.i130, align 8
-  %call.i.i136 = call double @strtod(ptr noundef nonnull %pathDef.addr.26, ptr noundef nonnull %end.i.i130) #16
+  %call.i.i136 = call double @strtod(ptr noundef nonnull %pathDef.addr.26, ptr noundef nonnull %end.i.i130) #17
   %30 = load ptr, ptr %end.i.i130, align 8
   %cmp.i.i137 = icmp ugt ptr %30, %pathDef.addr.26
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i130)
@@ -631,7 +631,7 @@ while.body.i.i6.i141:                             ; preds = %while.cond.i.i5.i14
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143:   ; preds = %while.cond.i.i5.i140
   store ptr null, ptr %end.i3.i129, align 8
-  %call.i9.i145 = call double @strtod(ptr noundef nonnull %pathDef.addr.27, ptr noundef nonnull %end.i3.i129) #16
+  %call.i9.i145 = call double @strtod(ptr noundef nonnull %pathDef.addr.27, ptr noundef nonnull %end.i3.i129) #17
   %32 = load ptr, ptr %end.i3.i129, align 8
   %cmp.i10.i146 = icmp ugt ptr %32, %pathDef.addr.27
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i129)
@@ -649,7 +649,7 @@ if.end108:                                        ; preds = %_ZN7msdfgenL14skipE
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %if.end108
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115) #17
   br label %sw.epilog
 
 lpad120:                                          ; preds = %if.end108
@@ -679,7 +679,7 @@ while.body.i.i.i158:                              ; preds = %while.cond.i.i.i157
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160:    ; preds = %while.cond.i.i.i157
   store ptr null, ptr %end.i.i155, align 8
-  %call.i.i161 = call double @strtod(ptr noundef nonnull %pathDef.addr.30, ptr noundef nonnull %end.i.i155) #16
+  %call.i.i161 = call double @strtod(ptr noundef nonnull %pathDef.addr.30, ptr noundef nonnull %end.i.i155) #17
   %35 = load ptr, ptr %end.i.i155, align 8
   %cmp.i.i162 = icmp ugt ptr %35, %pathDef.addr.30
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i155)
@@ -706,7 +706,7 @@ while.body.i.i6.i166:                             ; preds = %while.cond.i.i5.i16
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168:   ; preds = %while.cond.i.i5.i165
   store ptr null, ptr %end.i3.i154, align 8
-  %call.i9.i170 = call double @strtod(ptr noundef nonnull %pathDef.addr.31, ptr noundef nonnull %end.i3.i154) #16
+  %call.i9.i170 = call double @strtod(ptr noundef nonnull %pathDef.addr.31, ptr noundef nonnull %end.i3.i154) #17
   %37 = load ptr, ptr %end.i3.i154, align 8
   %cmp.i10.i171 = icmp ugt ptr %37, %pathDef.addr.31
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i154)
@@ -733,7 +733,7 @@ while.body.i.i.i179:                              ; preds = %while.cond.i.i.i178
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181:    ; preds = %while.cond.i.i.i178
   store ptr null, ptr %end.i.i176, align 8
-  %call.i.i182 = call double @strtod(ptr noundef nonnull %pathDef.addr.34, ptr noundef nonnull %end.i.i176) #16
+  %call.i.i182 = call double @strtod(ptr noundef nonnull %pathDef.addr.34, ptr noundef nonnull %end.i.i176) #17
   %39 = load ptr, ptr %end.i.i176, align 8
   %cmp.i.i183 = icmp ugt ptr %39, %pathDef.addr.34
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i176)
@@ -760,7 +760,7 @@ while.body.i.i6.i187:                             ; preds = %while.cond.i.i5.i18
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189:   ; preds = %while.cond.i.i5.i186
   store ptr null, ptr %end.i3.i175, align 8
-  %call.i9.i191 = call double @strtod(ptr noundef nonnull %pathDef.addr.35, ptr noundef nonnull %end.i3.i175) #16
+  %call.i9.i191 = call double @strtod(ptr noundef nonnull %pathDef.addr.35, ptr noundef nonnull %end.i3.i175) #17
   %41 = load ptr, ptr %end.i3.i175, align 8
   %cmp.i10.i192 = icmp ugt ptr %41, %pathDef.addr.35
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i175)
@@ -787,7 +787,7 @@ while.body.i.i.i200:                              ; preds = %while.cond.i.i.i199
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202:    ; preds = %while.cond.i.i.i199
   store ptr null, ptr %end.i.i197, align 8
-  %call.i.i203 = call double @strtod(ptr noundef nonnull %pathDef.addr.38, ptr noundef nonnull %end.i.i197) #16
+  %call.i.i203 = call double @strtod(ptr noundef nonnull %pathDef.addr.38, ptr noundef nonnull %end.i.i197) #17
   %43 = load ptr, ptr %end.i.i197, align 8
   %cmp.i.i204 = icmp ugt ptr %43, %pathDef.addr.38
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i197)
@@ -814,7 +814,7 @@ while.body.i.i6.i208:                             ; preds = %while.cond.i.i5.i20
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210:   ; preds = %while.cond.i.i5.i207
   store ptr null, ptr %end.i3.i196, align 8
-  %call.i9.i212 = call double @strtod(ptr noundef nonnull %pathDef.addr.39, ptr noundef nonnull %end.i3.i196) #16
+  %call.i9.i212 = call double @strtod(ptr noundef nonnull %pathDef.addr.39, ptr noundef nonnull %end.i3.i196) #17
   %45 = load ptr, ptr %end.i3.i196, align 8
   %cmp.i10.i213 = icmp ugt ptr %45, %pathDef.addr.39
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i196)
@@ -846,7 +846,7 @@ if.end145:                                        ; preds = %if.then136, %if.end
           to label %invoke.cont154 unwind label %lpad153
 
 invoke.cont154:                                   ; preds = %if.end145
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp146) #17
   br label %sw.epilog
 
 lpad153:                                          ; preds = %if.end145
@@ -885,7 +885,7 @@ _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241:    ; preds = %while.cond.i.i.i238
   %controlPoint.sroa.0.7 = select i1 %switch, double %sub.i231, double %node.sroa.0.0825
   %controlPoint.sroa.14.7 = select i1 %switch, double %sub3.i232, double %node.sroa.39.0824
   store ptr null, ptr %end.i.i236, align 8
-  %call.i.i242 = call double @strtod(ptr noundef nonnull %pathDef.addr.42, ptr noundef nonnull %end.i.i236) #16
+  %call.i.i242 = call double @strtod(ptr noundef nonnull %pathDef.addr.42, ptr noundef nonnull %end.i.i236) #17
   %50 = load ptr, ptr %end.i.i236, align 8
   %cmp.i.i243 = icmp ugt ptr %50, %pathDef.addr.42
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i236)
@@ -912,7 +912,7 @@ while.body.i.i6.i247:                             ; preds = %while.cond.i.i5.i24
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249:   ; preds = %while.cond.i.i5.i246
   store ptr null, ptr %end.i3.i235, align 8
-  %call.i9.i251 = call double @strtod(ptr noundef nonnull %pathDef.addr.43, ptr noundef nonnull %end.i3.i235) #16
+  %call.i9.i251 = call double @strtod(ptr noundef nonnull %pathDef.addr.43, ptr noundef nonnull %end.i3.i235) #17
   %52 = load ptr, ptr %end.i3.i235, align 8
   %cmp.i10.i252 = icmp ugt ptr %52, %pathDef.addr.43
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i235)
@@ -939,7 +939,7 @@ while.body.i.i.i260:                              ; preds = %while.cond.i.i.i259
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262:    ; preds = %while.cond.i.i.i259
   store ptr null, ptr %end.i.i257, align 8
-  %call.i.i263 = call double @strtod(ptr noundef nonnull %pathDef.addr.46, ptr noundef nonnull %end.i.i257) #16
+  %call.i.i263 = call double @strtod(ptr noundef nonnull %pathDef.addr.46, ptr noundef nonnull %end.i.i257) #17
   %54 = load ptr, ptr %end.i.i257, align 8
   %cmp.i.i264 = icmp ugt ptr %54, %pathDef.addr.46
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i257)
@@ -966,7 +966,7 @@ while.body.i.i6.i268:                             ; preds = %while.cond.i.i5.i26
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270:   ; preds = %while.cond.i.i5.i267
   store ptr null, ptr %end.i3.i256, align 8
-  %call.i9.i272 = call double @strtod(ptr noundef nonnull %pathDef.addr.47, ptr noundef nonnull %end.i3.i256) #16
+  %call.i9.i272 = call double @strtod(ptr noundef nonnull %pathDef.addr.47, ptr noundef nonnull %end.i3.i256) #17
   %56 = load ptr, ptr %end.i3.i256, align 8
   %cmp.i10.i273 = icmp ugt ptr %56, %pathDef.addr.47
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i256)
@@ -994,7 +994,7 @@ if.end195:                                        ; preds = %if.then189, %if.end
           to label %invoke.cont204 unwind label %lpad203
 
 invoke.cont204:                                   ; preds = %if.end195
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp196) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp196) #17
   br label %sw.epilog
 
 lpad203:                                          ; preds = %if.end195
@@ -1024,7 +1024,7 @@ while.body.i.i.i289:                              ; preds = %while.cond.i.i.i288
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291:    ; preds = %while.cond.i.i.i288
   store ptr null, ptr %end.i.i286, align 8
-  %call.i.i292 = call double @strtod(ptr noundef nonnull %pathDef.addr.50, ptr noundef nonnull %end.i.i286) #16
+  %call.i.i292 = call double @strtod(ptr noundef nonnull %pathDef.addr.50, ptr noundef nonnull %end.i.i286) #17
   %59 = load ptr, ptr %end.i.i286, align 8
   %cmp.i.i293 = icmp ugt ptr %59, %pathDef.addr.50
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i286)
@@ -1051,7 +1051,7 @@ while.body.i.i6.i297:                             ; preds = %while.cond.i.i5.i29
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299:   ; preds = %while.cond.i.i5.i296
   store ptr null, ptr %end.i3.i285, align 8
-  %call.i9.i301 = call double @strtod(ptr noundef nonnull %pathDef.addr.51, ptr noundef nonnull %end.i3.i285) #16
+  %call.i9.i301 = call double @strtod(ptr noundef nonnull %pathDef.addr.51, ptr noundef nonnull %end.i3.i285) #17
   %61 = load ptr, ptr %end.i3.i285, align 8
   %cmp.i10.i302 = icmp ugt ptr %61, %pathDef.addr.51
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i285)
@@ -1078,7 +1078,7 @@ while.body.i.i309:                                ; preds = %while.cond.i.i308, 
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i311:      ; preds = %while.cond.i.i308
   store ptr null, ptr %end.i306, align 8
-  %call.i312 = call double @strtod(ptr noundef nonnull %pathDef.addr.54, ptr noundef nonnull %end.i306) #16
+  %call.i312 = call double @strtod(ptr noundef nonnull %pathDef.addr.54, ptr noundef nonnull %end.i306) #17
   %63 = load ptr, ptr %end.i306, align 8
   %cmp.i313 = icmp ugt ptr %63, %pathDef.addr.54
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i306)
@@ -1105,7 +1105,7 @@ while.body.i.i319:                                ; preds = %while.cond.i.i318, 
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i321:      ; preds = %while.cond.i.i318
   store ptr null, ptr %end.i316, align 8
-  %call.i322 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.56, ptr noundef nonnull %end.i316, i32 noundef 10) #16
+  %call.i322 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.56, ptr noundef nonnull %end.i316, i32 noundef 10) #17
   %65 = load ptr, ptr %end.i316, align 8
   %cmp.i323 = icmp ugt ptr %65, %pathDef.addr.56
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i316)
@@ -1133,7 +1133,7 @@ while.body.i.i328:                                ; preds = %while.cond.i.i327, 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i330:      ; preds = %while.cond.i.i327
   %cmp1.i = icmp ne i64 %call.i322, 0
   store ptr null, ptr %end.i325, align 8
-  %call.i331 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.58, ptr noundef nonnull %end.i325, i32 noundef 10) #16
+  %call.i331 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.58, ptr noundef nonnull %end.i325, i32 noundef 10) #17
   %67 = load ptr, ptr %end.i325, align 8
   %cmp.i332 = icmp ugt ptr %67, %pathDef.addr.58
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i325)
@@ -1161,7 +1161,7 @@ while.body.i.i.i341:                              ; preds = %while.cond.i.i.i340
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343:    ; preds = %while.cond.i.i.i340
   %cmp1.i334 = icmp ne i64 %call.i331, 0
   store ptr null, ptr %end.i.i338, align 8
-  %call.i.i344 = call double @strtod(ptr noundef nonnull %pathDef.addr.60, ptr noundef nonnull %end.i.i338) #16
+  %call.i.i344 = call double @strtod(ptr noundef nonnull %pathDef.addr.60, ptr noundef nonnull %end.i.i338) #17
   %69 = load ptr, ptr %end.i.i338, align 8
   %cmp.i.i345 = icmp ugt ptr %69, %pathDef.addr.60
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i338)
@@ -1188,7 +1188,7 @@ while.body.i.i6.i349:                             ; preds = %while.cond.i.i5.i34
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351:   ; preds = %while.cond.i.i5.i348
   store ptr null, ptr %end.i3.i337, align 8
-  %call.i9.i353 = call double @strtod(ptr noundef nonnull %pathDef.addr.61, ptr noundef nonnull %end.i3.i337) #16
+  %call.i9.i353 = call double @strtod(ptr noundef nonnull %pathDef.addr.61, ptr noundef nonnull %end.i3.i337) #17
   %71 = load ptr, ptr %end.i3.i337, align 8
   %cmp.i10.i354 = icmp ugt ptr %71, %pathDef.addr.61
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i337)
@@ -1221,7 +1221,7 @@ if.then4.i:                                       ; preds = %if.end.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then4.i
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #17
   br label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit
 
 lpad.i:                                           ; preds = %if.then4.i
@@ -1232,8 +1232,8 @@ lpad.i:                                           ; preds = %if.then4.i
 if.end7.i:                                        ; preds = %if.end.i
   %74 = call double @llvm.fabs.f64(double %call.i.i292)
   %75 = call double @llvm.fabs.f64(double %call.i9.i301)
-  %call12.i = call double @cos(double noundef %mul) #16
-  %call13.i = call double @sin(double noundef %mul) #16
+  %call12.i = call double @cos(double noundef %mul) #17
+  %call13.i = call double @sin(double noundef %mul) #17
   %sub.i.i = fsub double %prevNode.sroa.0.1821, %node.sroa.0.9
   %sub3.i.i = fsub double %prevNode.sroa.25.1820, %node.sroa.39.9
   %mul.i.i = fmul double %sub.i.i, 5.000000e-01
@@ -1312,7 +1312,7 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %cmp2.i.i.i = fcmp olt double %div.i77.i, -1.000000e+00
   %cond.i.i.i = select i1 %cmp2.i.i.i, double -1.000000e+00, double 1.000000e+00
   %cond6.i.i.i = select i1 %or.cond.i.i.i, double %cond.i.i.i, double %div.i77.i
-  %call9.i.i = call double @acos(double noundef %cond6.i.i.i) #16
+  %call9.i.i = call double @acos(double noundef %cond6.i.i.i) #17
   %87 = fneg double %call9.i.i
   %mul10.i.i = select i1 %cmp.i.i.i, double %call9.i.i, double %87
   %fneg.i.i = fneg double %76
@@ -1337,7 +1337,7 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %cmp2.i.i106.i = fcmp olt double %div.i104.i, -1.000000e+00
   %cond.i.i107.i = select i1 %cmp2.i.i106.i, double -1.000000e+00, double 1.000000e+00
   %cond6.i.i108.i = select i1 %or.cond.i.i105.i, double %cond.i.i107.i, double %div.i104.i
-  %call9.i109.i = call double @acos(double noundef %cond6.i.i108.i) #16
+  %call9.i109.i = call double @acos(double noundef %cond6.i.i108.i) #17
   %93 = fneg double %call9.i109.i
   %mul10.i110.i = select i1 %cmp.i.i97.i, double %call9.i109.i, double %93
   %cmp110.i = fcmp ule double %mul10.i110.i, 0.000000e+00
@@ -1366,9 +1366,9 @@ if.end119.i:                                      ; preds = %if.then116.i, %if.e
   %conv122.i = sitofp i32 %conv121.i to double
   %div123.i = fdiv double %angleExtent.0.i, %conv122.i
   %mul124.i = fmul double %div123.i, 5.000000e-01
-  %call125.i = call double @sin(double noundef %mul124.i) #16
+  %call125.i = call double @sin(double noundef %mul124.i) #17
   %mul126.i = fmul double %call125.i, 0x3FF5555555555555
-  %call128.i = call double @cos(double noundef %mul124.i) #16
+  %call128.i = call double @cos(double noundef %mul124.i) #17
   %add129.i = fadd double %call128.i, 1.000000e+00
   %div130.i = fdiv double %mul126.i, %add129.i
   %cmp131161.i = icmp sgt i32 %conv121.i, 0
@@ -1384,8 +1384,8 @@ arrayctor.loop.preheader.i:                       ; preds = %invoke.cont190.i, %
   %prevNode.sroa.0.0164.i = phi double [ %prevNode.sroa.0.1821, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.0.0.i, %invoke.cont190.i ]
   %angle.0163.i = phi double [ %mul10.i.i, %arrayctor.loop.preheader.lr.ph.i ], [ %add150.i, %invoke.cont190.i ]
   %i.0162.i = phi i32 [ 0, %arrayctor.loop.preheader.lr.ph.i ], [ %inc.i, %invoke.cont190.i ]
-  %call132.i = call double @cos(double noundef %angle.0163.i) #16
-  %call133.i = call double @sin(double noundef %angle.0163.i) #16
+  %call132.i = call double @cos(double noundef %angle.0163.i) #17
+  %call133.i = call double @sin(double noundef %angle.0163.i) #17
   %96 = call double @llvm.fmuladd.f64(double %neg.i, double %call133.i, double %call132.i)
   %97 = call double @llvm.fmuladd.f64(double %div130.i, double %call132.i, double %call133.i)
   %mul.i114.i = fmul double %radius.sroa.0.0.i, %96
@@ -1398,8 +1398,8 @@ arrayctor.loop.preheader.i:                       ; preds = %invoke.cont190.i, %
   %add.i122.i = fadd double %add.i65.i, %99
   %add3.i123.i = fadd double %add3.i66.i, %100
   %add150.i = fadd double %div123.i, %angle.0163.i
-  %call151.i = call double @cos(double noundef %add150.i) #16
-  %call152.i = call double @sin(double noundef %add150.i) #16
+  %call151.i = call double @cos(double noundef %add150.i) #17
+  %call152.i = call double @sin(double noundef %add150.i) #17
   %101 = call double @llvm.fmuladd.f64(double %div130.i, double %call152.i, double %call151.i)
   %102 = call double @llvm.fmuladd.f64(double %neg.i, double %call151.i, double %call152.i)
   %mul.i128.i = fmul double %radius.sroa.0.0.i, %101
@@ -1435,7 +1435,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %arra
           to label %invoke.cont190.i unwind label %lpad189.i
 
 invoke.cont190.i:                                 ; preds = %cond.end.i
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp182.i) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp182.i) #17
   %inc.i = add nuw nsw i32 %i.0162.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %conv121.i
   br i1 %exitcond.not.i, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %arrayctor.loop.preheader.i, !llvm.loop !7
@@ -1448,7 +1448,7 @@ lpad189.i:                                        ; preds = %cond.end.i
 common.resume:                                    ; preds = %lpad.i, %lpad189.i, %lpad, %lpad42, %lpad58, %lpad81, %lpad120, %lpad153, %lpad203, %lpad281
   %ref.tmp.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp39, %lpad42 ], [ %ref.tmp55, %lpad58 ], [ %ref.tmp76, %lpad81 ], [ %ref.tmp115, %lpad120 ], [ %ref.tmp146, %lpad153 ], [ %ref.tmp196, %lpad203 ], [ %ref.tmp278, %lpad281 ], [ %ref.tmp182.i, %lpad189.i ], [ %ref.tmp.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %13, %lpad ], [ %16, %lpad42 ], [ %19, %lpad58 ], [ %28, %lpad81 ], [ %33, %lpad120 ], [ %46, %lpad153 ], [ %57, %lpad203 ], [ %132, %lpad281 ], [ %109, %lpad189.i ], [ %73, %lpad.i ]
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sink) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 _ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit: ; preds = %invoke.cont190.i, %if.end220, %invoke.cont.i, %if.end119.i
@@ -1580,7 +1580,7 @@ if.else277:                                       ; preds = %if.then247
           to label %invoke.cont282 unwind label %lpad281
 
 invoke.cont282:                                   ; preds = %if.else277
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp278) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp278) #17
   br label %while.cond.backedge
 
 lpad281:                                          ; preds = %if.else277
@@ -1630,7 +1630,7 @@ while.body.i:                                     ; preds = %while.cond.i, %whil
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit:           ; preds = %while.cond.i
   store ptr null, ptr %end, align 8
-  %call = call double @strtod(ptr noundef nonnull %0, ptr noundef nonnull %end) #16
+  %call = call double @strtod(ptr noundef nonnull %0, ptr noundef nonnull %end) #17
   store double %call, ptr %output, align 8
   %2 = load ptr, ptr %end, align 8
   %3 = load ptr, ptr %pathDef, align 8
@@ -1669,7 +1669,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %if.end, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit, %invoke.cont21, %invoke.cont19, %if.end18, %if.end13, %if.else, %if.then7, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #16
+  call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #17
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %invoke.cont
@@ -1752,7 +1752,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %wh
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   store ptr null, ptr %end.i, align 8
-  %call.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i.i24, ptr noundef nonnull %end.i) #16
+  %call.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i.i24, ptr noundef nonnull %end.i) #17
   %4 = load ptr, ptr %end.i, align 8
   %cmp.i = icmp ugt ptr %4, %incdec.ptr.i.i24
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
@@ -1779,7 +1779,7 @@ while.body.i.i16:                                 ; preds = %while.cond.i.i15, %
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i18:       ; preds = %while.cond.i.i15
   store ptr null, ptr %end.i13, align 8
-  %call.i19 = call double @strtod(ptr noundef nonnull %5, ptr noundef nonnull %end.i13) #16
+  %call.i19 = call double @strtod(ptr noundef nonnull %5, ptr noundef nonnull %end.i13) #17
   %7 = load ptr, ptr %end.i13, align 8
   %cmp.i20 = icmp ugt ptr %7, %5
   br i1 %cmp.i20, label %land.lhs.true32, label %_ZN7msdfgenL10readDoubleERdRPKc.exit22
@@ -1823,7 +1823,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.end40, %_ZSt8_De
 
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %10, %for.body.i.i.i.i.i ]
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #16
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #17
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !10
@@ -1838,7 +1838,7 @@ invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %12) #17
+  call void @_ZdlPv(ptr noundef nonnull %12) #18
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
@@ -1864,7 +1864,7 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %if.end40, %invo
 
 cleanup:                                          ; preds = %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit, %invoke.cont14, %if.end10, %invoke.cont1, %invoke.cont
   %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %invoke.cont1 ], [ false, %if.end10 ], [ false, %invoke.cont14 ], [ %call44, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit ]
-  call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #16
+  call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #17
   ret i1 %retval.0
 }
 
@@ -1891,7 +1891,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
 
 for.body:                                         ; preds = %land.rhs
   %call.i24 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i24, ptr noundef nonnull dereferenceable(5) @.str.5) #18
+  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i24, ptr noundef nonnull dereferenceable(5) @.str.5) #19
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then, label %if.else17
 
@@ -1962,25 +1962,25 @@ lor.end:                                          ; preds = %lor.rhs, %if.then21
 
 if.else25:                                        ; preds = %if.else17, %if.else17.tail
   %call.i26 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i26, ptr noundef nonnull dereferenceable(5) @.str.8) #18
+  %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i26, ptr noundef nonnull dereferenceable(5) @.str.8) #19
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then41, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %if.else25
   %call.i27 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i27, ptr noundef nonnull dereferenceable(7) @.str.9) #18
+  %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i27, ptr noundef nonnull dereferenceable(7) @.str.9) #19
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then41, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false29
   %call.i28 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i28, ptr noundef nonnull dereferenceable(8) @.str.10) #18
+  %call35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i28, ptr noundef nonnull dereferenceable(8) @.str.10) #19
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then41, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false33
   %call.i29 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i29, ptr noundef nonnull dereferenceable(8) @.str.11) #18
+  %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i29, ptr noundef nonnull dereferenceable(8) @.str.11) #19
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %if.else43
 
@@ -1992,13 +1992,13 @@ if.then41:                                        ; preds = %lor.lhs.false37, %l
 
 if.else43:                                        ; preds = %lor.lhs.false37
   %call.i30 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i30, ptr noundef nonnull dereferenceable(5) @.str.12) #18
+  %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i30, ptr noundef nonnull dereferenceable(5) @.str.12) #19
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.then51, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %if.else43
   %call.i31 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i31, ptr noundef nonnull dereferenceable(4) @.str.13) #18
+  %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i31, ptr noundef nonnull dereferenceable(4) @.str.13) #19
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %if.then51, label %for.inc
 
@@ -2033,7 +2033,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
 
 for.body:                                         ; preds = %land.rhs
   %call.i24 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i24, ptr noundef nonnull dereferenceable(5) @.str.5) #18
+  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i24, ptr noundef nonnull dereferenceable(5) @.str.5) #19
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then, label %if.else17
 
@@ -2104,25 +2104,25 @@ lor.end:                                          ; preds = %lor.rhs, %if.then21
 
 if.else25:                                        ; preds = %if.else17, %if.else17.tail
   %call.i26 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i26, ptr noundef nonnull dereferenceable(5) @.str.8) #18
+  %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i26, ptr noundef nonnull dereferenceable(5) @.str.8) #19
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.then41, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %if.else25
   %call.i27 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i27, ptr noundef nonnull dereferenceable(7) @.str.9) #18
+  %call31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i27, ptr noundef nonnull dereferenceable(7) @.str.9) #19
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.then41, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false29
   %call.i28 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i28, ptr noundef nonnull dereferenceable(8) @.str.10) #18
+  %call35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i28, ptr noundef nonnull dereferenceable(8) @.str.10) #19
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.then41, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false33
   %call.i29 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i29, ptr noundef nonnull dereferenceable(8) @.str.11) #18
+  %call39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i29, ptr noundef nonnull dereferenceable(8) @.str.11) #19
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %if.else43
 
@@ -2134,13 +2134,13 @@ if.then41:                                        ; preds = %lor.lhs.false37, %l
 
 if.else43:                                        ; preds = %lor.lhs.false37
   %call.i30 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i30, ptr noundef nonnull dereferenceable(5) @.str.12) #18
+  %call45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i30, ptr noundef nonnull dereferenceable(5) @.str.12) #19
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %if.then51, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %if.else43
   %call.i31 = tail call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.034)
-  %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i31, ptr noundef nonnull dereferenceable(4) @.str.13) #18
+  %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i31, ptr noundef nonnull dereferenceable(4) @.str.13) #19
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %if.then51, label %for.inc
 
@@ -2241,7 +2241,7 @@ invoke.cont11:                                    ; preds = %land.lhs.true
 lpad7:                                            ; preds = %invoke.cont19, %invoke.cont17, %invoke.cont16, %invoke.cont15, %if.end14, %land.lhs.true, %invoke.cont8
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %fullPath) #16
+  call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %fullPath) #17
   br label %ehcleanup
 
 if.end14:                                         ; preds = %invoke.cont11
@@ -2296,7 +2296,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %wh
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   store ptr null, ptr %end.i, align 8
-  %call.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i.i16, ptr noundef nonnull %end.i) #16
+  %call.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i.i16, ptr noundef nonnull %end.i) #17
   store double %call.i, ptr %viewBox, align 8
   %4 = load ptr, ptr %end.i, align 8
   %cmp.i = icmp ugt ptr %4, %incdec.ptr.i.i16
@@ -2335,17 +2335,17 @@ if.end38:                                         ; preds = %_ZN7msdfgenL10readD
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont11, %if.end38
   %retval.1 = phi i32 [ %1, %if.end38 ], [ 0, %invoke.cont11 ], [ 0, %invoke.cont9 ]
-  call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %fullPath) #16
+  call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %fullPath) #17
   br label %cleanup44
 
 cleanup44:                                        ; preds = %invoke.cont1, %invoke.cont, %cleanup
   %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %invoke.cont ], [ 0, %invoke.cont1 ]
-  call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #16
+  call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #17
   ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad7, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad7 ], [ %0, %lpad ]
-  call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #16
+  call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -2411,13 +2411,13 @@ if.then:                                          ; preds = %for.body.tail
 
 if.else:                                          ; preds = %for.body, %for.body.tail
   %call.i66 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
-  %call7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i66, ptr noundef nonnull dereferenceable(5) @.str.12) #18
+  %call7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i66, ptr noundef nonnull dereferenceable(5) @.str.12) #19
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
   %call.i67 = call noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(120) %cur.0157)
-  %call10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i67, ptr noundef nonnull dereferenceable(4) @.str.13) #18
+  %call10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i67, ptr noundef nonnull dereferenceable(4) @.str.13) #19
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then12, label %if.else13
 
@@ -2433,7 +2433,7 @@ if.else13:                                        ; preds = %lor.lhs.false
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.else13
-  %call15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i6869, ptr noundef nonnull dereferenceable(5) @.str.5) #18
+  %call15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i6869, ptr noundef nonnull dereferenceable(5) @.str.5) #19
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.then17, label %if.else25
 
@@ -2469,7 +2469,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then17, %land.lh
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit154, %lpad.loopexit ], [ %lpad.loopexit.split-lp155, %lpad.loopexit.split-lp ]
-  call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %curPath) #16
+  call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %curPath) #17
   resume { ptr, i32 } %lpad.phi
 
 if.else25:                                        ; preds = %invoke.cont
@@ -2477,7 +2477,7 @@ if.else25:                                        ; preds = %invoke.cont
           to label %invoke.cont26 unwind label %lpad.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %if.else25
-  %call28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i7071, ptr noundef nonnull dereferenceable(5) @.str.8) #18
+  %call28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i7071, ptr noundef nonnull dereferenceable(5) @.str.8) #19
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %if.then30, label %if.else72
 
@@ -2552,7 +2552,7 @@ if.else72:                                        ; preds = %invoke.cont26
           to label %invoke.cont73 unwind label %lpad.loopexit.split-lp
 
 invoke.cont73:                                    ; preds = %if.else72
-  %call75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i7576, ptr noundef nonnull dereferenceable(7) @.str.9) #18
+  %call75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i7576, ptr noundef nonnull dereferenceable(7) @.str.9) #19
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %if.then77, label %if.else92
 
@@ -2584,7 +2584,7 @@ if.else92:                                        ; preds = %invoke.cont73
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp
 
 invoke.cont93:                                    ; preds = %if.else92
-  %call95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i7879, ptr noundef nonnull dereferenceable(8) @.str.10) #18
+  %call95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i7879, ptr noundef nonnull dereferenceable(8) @.str.10) #19
   %tobool96.not = icmp eq i32 %call95, 0
   br i1 %tobool96.not, label %if.then97, label %if.else127
 
@@ -2633,7 +2633,7 @@ if.else127:                                       ; preds = %invoke.cont93
           to label %invoke.cont128 unwind label %lpad.loopexit.split-lp
 
 invoke.cont128:                                   ; preds = %if.else127
-  %call130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i8788, ptr noundef nonnull dereferenceable(8) @.str.11) #18
+  %call130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i8788, ptr noundef nonnull dereferenceable(8) @.str.11) #19
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %if.then132, label %cleanup
 
@@ -2671,7 +2671,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
-  %call.i.i = call double @strtod(ptr noundef nonnull %pd133.1, ptr noundef nonnull %end.i.i) #16
+  %call.i.i = call double @strtod(ptr noundef nonnull %pd133.1, ptr noundef nonnull %end.i.i) #17
   %11 = load ptr, ptr %end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %11, %pd133.1
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
@@ -2698,7 +2698,7 @@ while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, 
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
-  %call.i9.i = call double @strtod(ptr noundef nonnull %pd133.2, ptr noundef nonnull %end.i3.i) #16
+  %call.i9.i = call double @strtod(ptr noundef nonnull %pd133.2, ptr noundef nonnull %end.i3.i) #17
   %13 = load ptr, ptr %end.i3.i, align 8
   %cmp.i10.i = icmp ugt ptr %13, %pd133.2
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i)
@@ -2731,7 +2731,7 @@ while.body.i.i.i95:                               ; preds = %while.cond.i.i.i94,
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97:     ; preds = %while.cond.i.i.i94
   store ptr null, ptr %end.i.i92, align 8
-  %call.i.i98 = call double @strtod(ptr noundef nonnull %pd133.5, ptr noundef nonnull %end.i.i92) #16
+  %call.i.i98 = call double @strtod(ptr noundef nonnull %pd133.5, ptr noundef nonnull %end.i.i92) #17
   %15 = load ptr, ptr %end.i.i92, align 8
   %cmp.i.i99 = icmp ugt ptr %15, %pd133.5
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i92)
@@ -2758,7 +2758,7 @@ while.body.i.i6.i103:                             ; preds = %while.cond.i.i5.i10
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105:   ; preds = %while.cond.i.i5.i102
   store ptr null, ptr %end.i3.i91, align 8
-  %call.i9.i107 = call double @strtod(ptr noundef nonnull %pd133.6, ptr noundef nonnull %end.i3.i91) #16
+  %call.i9.i107 = call double @strtod(ptr noundef nonnull %pd133.6, ptr noundef nonnull %end.i3.i91) #17
   %17 = load ptr, ptr %end.i3.i91, align 8
   %cmp.i10.i108 = icmp ugt ptr %17, %pd133.6
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i91)
@@ -2794,7 +2794,7 @@ while.body.i.i.i116:                              ; preds = %while.cond.i.i.i115
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118:    ; preds = %while.cond.i.i.i115
   store ptr null, ptr %end.i.i113, align 8
-  %call.i.i119 = call double @strtod(ptr noundef nonnull %pd133.9, ptr noundef nonnull %end.i.i113) #16
+  %call.i.i119 = call double @strtod(ptr noundef nonnull %pd133.9, ptr noundef nonnull %end.i.i113) #17
   %19 = load ptr, ptr %end.i.i113, align 8
   %cmp.i.i120 = icmp ugt ptr %19, %pd133.9
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i113)
@@ -2821,7 +2821,7 @@ while.body.i.i6.i124:                             ; preds = %while.cond.i.i5.i12
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126:   ; preds = %while.cond.i.i5.i123
   store ptr null, ptr %end.i3.i112, align 8
-  %call.i9.i128 = call double @strtod(ptr noundef nonnull %pd133.10, ptr noundef nonnull %end.i3.i112) #16
+  %call.i9.i128 = call double @strtod(ptr noundef nonnull %pd133.10, ptr noundef nonnull %end.i3.i112) #17
   %21 = load ptr, ptr %end.i3.i112, align 8
   %cmp.i10.i129 = icmp ugt ptr %21, %pd133.10
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i112)
@@ -2840,7 +2840,7 @@ invoke.cont171:                                   ; preds = %if.end170
   br i1 %tobool173.not, label %if.end179, label %land.lhs.true174
 
 land.lhs.true174:                                 ; preds = %invoke.cont171
-  %call175 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call172, ptr noundef nonnull dereferenceable(8) @.str.24) #18
+  %call175 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call172, ptr noundef nonnull dereferenceable(8) @.str.24) #19
   %tobool176.not = icmp eq i32 %call175, 0
   br i1 %tobool176.not, label %if.then177, label %if.end179
 
@@ -2883,7 +2883,7 @@ cleanup.sink.split:                               ; preds = %if.then23, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i, %invoke.cont128, %invoke.cont111, %invoke.cont84, %invoke.cont45
-  call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %curPath) #16
+  call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %curPath) #17
   br label %for.inc
 
 for.inc:                                          ; preds = %cleanup, %if.then, %if.then12
@@ -2916,28 +2916,28 @@ declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9Ed
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #8
+declare double @cos(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #8
+declare double @sin(double noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #5
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.ceil.f64(double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @acos(double noundef) local_unnamed_addr #8
+declare double @acos(double noundef) local_unnamed_addr #9
 
 declare noundef ptr @_ZNK8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
@@ -3170,7 +3170,7 @@ if.then58.i:                                      ; preds = %if.else53.i
   %21 = load float, ptr %values.i, align 16, !noalias !15
   %conv.i = fpext float %21 to double
   %mul.i = fmul double %conv.i, 0x3F91DF46A2529D39
-  %call60.i = call double @tan(double noundef %mul.i) #16
+  %call60.i = call double @tan(double noundef %mul.i) #17
   %conv61.i = fptrunc double %call60.i to float
   store float %conv61.i, ptr %arrayinit.element.i.i6.i, align 4, !noalias !15
   store i32 128, ptr %fTypeMask.i.i14.i, align 4, !noalias !15
@@ -3187,7 +3187,7 @@ if.then68.i:                                      ; preds = %if.else63.i
   %23 = load float, ptr %values.i, align 16, !noalias !15
   %conv70.i = fpext float %23 to double
   %mul71.i = fmul double %conv70.i, 0x3F91DF46A2529D39
-  %call72.i = call double @tan(double noundef %mul71.i) #16
+  %call72.i = call double @tan(double noundef %mul71.i) #17
   %conv73.i = fptrunc double %call72.i to float
   store float %conv73.i, ptr %arrayinit.element3.i.i8.i, align 4, !noalias !15
   store i32 128, ptr %fTypeMask.i.i14.i, align 4, !noalias !15
@@ -3260,7 +3260,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
-  %call.i.i = call double @strtod(ptr noundef nonnull %transformationOriginString.addr.0, ptr noundef nonnull %end.i.i) #16
+  %call.i.i = call double @strtod(ptr noundef nonnull %transformationOriginString.addr.0, ptr noundef nonnull %end.i.i) #17
   %28 = load ptr, ptr %end.i.i, align 8
   %cmp.i.i = icmp ugt ptr %28, %transformationOriginString.addr.0
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
@@ -3287,7 +3287,7 @@ while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, 
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
-  %call.i9.i = call double @strtod(ptr noundef nonnull %transformationOriginString.addr.1, ptr noundef nonnull %end.i3.i) #16
+  %call.i9.i = call double @strtod(ptr noundef nonnull %transformationOriginString.addr.1, ptr noundef nonnull %end.i3.i) #17
   %30 = load ptr, ptr %end.i3.i, align 8
   %cmp.i10.i = icmp ugt ptr %30, %transformationOriginString.addr.1
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i3.i)
@@ -3438,7 +3438,7 @@ declare noundef zeroext i1 @_Z2OpRK6SkPathS1_8SkPathOpPS_(ptr noundef nonnull al
 define internal fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef nonnull writeonly captures(none) %dst, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %count, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %str, ptr noundef readonly captures(none) %name) unnamed_addr #4 {
 entry:
   %end.i = alloca ptr, align 8
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #18
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #19
   %0 = load ptr, ptr %str, align 8
   %sext = shl i64 %call, 32
   %conv1 = ashr exact i64 %sext, 32
@@ -3521,7 +3521,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %wh
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i:         ; preds = %while.cond.i.i
   store ptr null, ptr %end.i, align 8
-  %call.i = call double @strtod(ptr noundef nonnull %curStr.3, ptr noundef nonnull %end.i) #16
+  %call.i = call double @strtod(ptr noundef nonnull %curStr.3, ptr noundef nonnull %end.i) #17
   %6 = load ptr, ptr %end.i, align 8
   %cmp.i = icmp ugt ptr %6, %curStr.3
   call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
@@ -3571,10 +3571,10 @@ declare noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setRotateE
 declare noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setRotateEf(ptr noundef nonnull align 4 dereferenceable(40), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tan(double noundef) local_unnamed_addr #8
+declare double @tan(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(40)) local_unnamed_addr #1
 
@@ -3583,28 +3583,28 @@ declare noundef nonnull align 8 dereferenceable(15) ptr @_ZN6SkPath7addRectERK6S
 declare void @_ZNK6SkPath9transformERK8SkMatrixPS_22SkApplyPerspectiveClip(ptr noundef nonnull align 8 dereferenceable(15), ptr noundef nonnull align 4 dereferenceable(40), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3614,17 +3614,18 @@ attributes #4 = { mustprogress nofree norecurse nounwind uwtable "frame-pointer"
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { builtin nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { builtin nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

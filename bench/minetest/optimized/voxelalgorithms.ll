@@ -539,7 +539,7 @@ if.else.i.i:                                      ; preds = %_ZN8MapBlock14setNo
   br i1 %cmp.i.i.i186, label %if.then.i.i.i187, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i187:                                 ; preds = %if.else.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
 _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i.i
@@ -552,7 +552,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 5
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i48 %neighbor_rel_pos.sroa.0.0.insert.insert249, ptr %add.ptr.i.i, align 8, !tbaa.struct !71
   %block_position.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 6
@@ -580,7 +580,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %32) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %32) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
@@ -670,7 +670,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i: ; preds = %land.lhs.true
 
 if.then.i190:                                     ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true.i.i.i, %lor.rhs.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, %if.then45
   %__y.addr.0.lcssa.i.i.i23.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ], [ %add.ptr.i.i.i.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i ], [ %add.ptr.i.i.i.i, %if.then45 ], [ %__y.addr.1.i.i.i.i, %land.lhs.true.i.i.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 32
   store i16 %neighbor_block_pos.sroa.0.1, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !18
   %neighbor_block_pos.sroa.12.0._M_storage.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 34
@@ -725,7 +725,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true18.i.i
 
 cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %lor.rhs.i.i.i, %if.then.i238
   %49 = phi i1 [ true, %if.then.i238 ], [ true, %land.lhs.true.i.i.i.i.i ], [ true, %lor.rhs.i.i.i ], [ false, %land.lhs.true18.i.i.i.i.i ], [ %cmp27.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %49, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #22
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %49, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #23
   %50 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !85
   %inc.i.i.i = add i64 %50, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8, !tbaa !85
@@ -734,11 +734,11 @@ cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i,
 _ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i: ; preds = %if.then.i190
   %51 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #22
   resume { ptr, i32 } %51
 
 if.then.i23.i:                                    ; preds = %invoke.cont7.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #22
   br label %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEEixERS9_.exit
 
 _ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEEixERS9_.exit: ; preds = %if.then.i23.i, %cleanup.thread.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true18.i.i.i, %lor.lhs.false.i.i.i
@@ -799,7 +799,7 @@ if.else.i.i201:                                   ; preds = %if.then73
   br i1 %cmp.i.i.i205, label %if.then.i.i.i236, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i206
 
 if.then.i.i.i236:                                 ; preds = %if.else.i.i201
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
 _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i206: ; preds = %if.else.i.i201
@@ -812,7 +812,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i206: 
   %cmp.not.i.i.i212 = icmp ne i64 %cond.i.i.i211, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i212)
   %mul.i.i.i.i.i214 = shl nuw nsw i64 %cond.i.i.i211, 5
-  %call5.i.i.i.i.i215 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i214) #20
+  %call5.i.i.i.i.i215 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i214) #21
   %add.ptr.i.i218 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i215, i64 %sub.ptr.sub.i.i.i.i204
   store i48 %current.sroa.0.0.copyload, ptr %add.ptr.i.i218, align 8, !tbaa.struct !71
   %block_position.i.i.i.i5.i219 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i218, i64 6
@@ -840,7 +840,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i232, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i234, label %if.then.i63.i.i233
 
 if.then.i63.i.i233:                               ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i229
-  tail call void @_ZdlPv(ptr noundef nonnull %57) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %57) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i234
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i234: ; preds = %if.then.i63.i.i233, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i229
@@ -1215,7 +1215,7 @@ if.else.i.i:                                      ; preds = %_ZN8MapBlock14setNo
   br i1 %cmp.i.i.i103, label %if.then.i.i.i104, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i104:                                 ; preds = %if.else.i.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
 _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i.i
@@ -1228,7 +1228,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 5
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i48 %neighbor_rel_pos.sroa.0.0.insert.insert115, ptr %add.ptr.i.i, align 8, !tbaa.struct !71
   %block_position.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 6
@@ -1256,7 +1256,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
-  call void @_ZdlPv(ptr noundef nonnull %37) #21
+  call void @_ZdlPv(ptr noundef nonnull %37) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
@@ -1745,7 +1745,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i: ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true.i.i.i, %lor.rhs.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit498
   %__y.addr.0.lcssa.i.i.i23.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ], [ %add.ptr.i.i.i.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i ], [ %add.ptr.i.i.i.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit498 ], [ %__y.addr.1.i.i.i.i, %land.lhs.true.i.i.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %call5.i.i.i.i.i.i866 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %call5.i.i.i.i.i.i866 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad58
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %if.then.i
@@ -1803,7 +1803,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true18.i.i
 
 cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %lor.rhs.i.i.i, %if.then.i862
   %40 = phi i1 [ true, %if.then.i862 ], [ true, %land.lhs.true.i.i.i.i.i ], [ true, %lor.rhs.i.i.i ], [ false, %land.lhs.true18.i.i.i.i.i ], [ %cmp27.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %40, ptr noundef nonnull %call5.i.i.i.i.i.i866, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #22
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %40, ptr noundef nonnull %call5.i.i.i.i.i.i866, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #23
   %41 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !85
   %inc.i.i.i = add i64 %41, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8, !tbaa !85
@@ -1812,11 +1812,11 @@ cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i,
 _ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i: ; preds = %call5.i.i.i.i.i.i.noexc
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i866) #21
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i866) #22
   br label %ehcleanup362
 
 if.then.i23.i:                                    ; preds = %invoke.cont7.i
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i866) #21
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i866) #22
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %if.then.i23.i, %cleanup.thread.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true18.i.i.i, %lor.lhs.false.i.i.i
@@ -2197,7 +2197,7 @@ if.else.i.i:                                      ; preds = %if.then128
   br i1 %cmp.i.i.i525, label %if.then.i.i.i.invoke, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i.invoke:                             ; preds = %if.else.i.i559, %if.else.i.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
           to label %if.then.i.i.i.cont unwind label %lpad66.loopexit.split-lp
 
 if.then.i.i.i.cont:                               ; preds = %if.then.i.i.i.invoke
@@ -2213,7 +2213,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i527, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i527, 5
-  %call5.i.i.i.i.i528 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %call5.i.i.i.i.i528 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
           to label %invoke.cont.i.i unwind label %lpad66.loopexit
 
 invoke.cont.i.i:                                  ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -2244,7 +2244,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
-  call void @_ZdlPv(ptr noundef nonnull %101) #21
+  call void @_ZdlPv(ptr noundef nonnull %101) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
@@ -2363,7 +2363,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i564: 
   %cmp.not.i.i.i570 = icmp ne i64 %cond.i.i.i569, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i570)
   %mul.i.i.i.i.i572 = shl nuw nsw i64 %cond.i.i.i569, 5
-  %call5.i.i.i.i.i596 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i572) #20
+  %call5.i.i.i.i.i596 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i572) #21
           to label %invoke.cont.i.i573 unwind label %lpad66.loopexit
 
 invoke.cont.i.i573:                               ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i564
@@ -2394,7 +2394,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i589, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i591, label %if.then.i63.i.i590
 
 if.then.i63.i.i590:                               ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i586
-  call void @_ZdlPv(ptr noundef nonnull %116) #21
+  call void @_ZdlPv(ptr noundef nonnull %116) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i591
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i591: ; preds = %if.then.i63.i.i590, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i586
@@ -2519,7 +2519,7 @@ if.else.i.i661:                                   ; preds = %invoke.cont190
   br i1 %cmp.i.i.i665, label %if.then.i.i.i695, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i666
 
 if.then.i.i.i695:                                 ; preds = %if.else.i.i661
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
           to label %.noexc696 unwind label %lpad189.loopexit.split-lp
 
 .noexc696:                                        ; preds = %if.then.i.i.i695
@@ -2535,7 +2535,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i666: 
   %cmp.not.i.i.i672 = icmp ne i64 %cond.i.i.i671, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i672)
   %mul.i.i.i.i.i674 = shl nuw nsw i64 %cond.i.i.i671, 5
-  %call5.i.i.i.i.i698 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i674) #20
+  %call5.i.i.i.i.i698 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i674) #21
           to label %invoke.cont.i.i675 unwind label %lpad189.loopexit
 
 invoke.cont.i.i675:                               ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i666
@@ -2566,7 +2566,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i691, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i693, label %if.then.i63.i.i692
 
 if.then.i63.i.i692:                               ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i688
-  call void @_ZdlPv(ptr noundef nonnull %131) #21
+  call void @_ZdlPv(ptr noundef nonnull %131) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i693
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i693: ; preds = %if.then.i63.i.i692, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i688
@@ -2684,7 +2684,7 @@ if.else.i.i756:                                   ; preds = %invoke.cont268
   br i1 %cmp.i.i.i760, label %if.then.i.i.i790, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i761
 
 if.then.i.i.i790:                                 ; preds = %if.else.i.i756
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
           to label %.noexc791 unwind label %lpad267.loopexit.split-lp
 
 .noexc791:                                        ; preds = %if.then.i.i.i790
@@ -2700,7 +2700,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i761: 
   %cmp.not.i.i.i767 = icmp ne i64 %cond.i.i.i766, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i767)
   %mul.i.i.i.i.i769 = shl nuw nsw i64 %cond.i.i.i766, 5
-  %call5.i.i.i.i.i793 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i769) #20
+  %call5.i.i.i.i.i793 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i769) #21
           to label %invoke.cont.i.i770 unwind label %lpad267.loopexit
 
 invoke.cont.i.i770:                               ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i761
@@ -2731,7 +2731,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i786, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i788, label %if.then.i63.i.i787
 
 if.then.i63.i.i787:                               ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i783
-  call void @_ZdlPv(ptr noundef nonnull %146) #21
+  call void @_ZdlPv(ptr noundef nonnull %146) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i788
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i788: ; preds = %if.then.i63.i.i787, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i783
@@ -2885,9 +2885,9 @@ invoke.cont348:                                   ; preds = %invoke.cont.i.i.i.i
   br i1 %cmp.i797, label %invoke.cont338, label %for.cond.cleanup327, !llvm.loop !139
 
 invoke.cont361:                                   ; preds = %for.cond.cleanup316
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %light_sources)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %disappearing_lights)
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx1019, 4
   %cmp.not = icmp eq i64 %__begin1.0.add, 8
@@ -2895,13 +2895,13 @@ invoke.cont361:                                   ; preds = %for.cond.cleanup316
 
 ehcleanup362:                                     ; preds = %lpad311, %lpad267.loopexit.split-lp, %lpad267.loopexit, %lpad232, %lpad189.loopexit.split-lp, %lpad189.loopexit, %lpad166, %lpad159, %lpad91, %lpad66.loopexit.split-lp, %lpad66.loopexit, %lpad58, %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i, %lpad42
   %.pn466 = phi { ptr, i32 } [ %149, %lpad311 ], [ %13, %lpad42 ], [ %60, %lpad58 ], [ %42, %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i ], [ %67, %lpad91 ], [ %119, %lpad159 ], [ %122, %lpad166 ], [ %134, %lpad232 ], [ %lpad.loopexit1003, %lpad66.loopexit ], [ %lpad.loopexit.split-lp1004, %lpad66.loopexit.split-lp ], [ %lpad.loopexit, %lpad189.loopexit ], [ %lpad.loopexit.split-lp, %lpad189.loopexit.split-lp ], [ %lpad.loopexit1000, %lpad267.loopexit ], [ %lpad.loopexit.split-lp1001, %lpad267.loopexit.split-lp ]
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #23
   br label %ehcleanup364
 
 ehcleanup364:                                     ; preds = %ehcleanup362, %lpad
   %.pn466.pn = phi { ptr, i32 } [ %.pn466, %ehcleanup362 ], [ %4, %lpad ]
   call void @llvm.lifetime.end.p0(ptr nonnull %light_sources)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %disappearing_lights)
   call void @llvm.lifetime.end.p0(ptr nonnull %is_valid_position)
   resume { ptr, i32 } %.pn466.pn
@@ -2934,7 +2934,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIN7voxalgo13ChangingLightESaIS1_EE11_M_allocateEm.exit.i, label %for.inc
 
 if.then.i:                                        ; preds = %entry
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #20
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i
@@ -2945,7 +2945,7 @@ _ZNSt12_Vector_baseIN7voxalgo13ChangingLightESaIS1_EE11_M_allocateEm.exit.i: ; p
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !21
   %sub.ptr.lhs.cast.i30.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i32.i = sub i64 %sub.ptr.lhs.cast.i30.i, %sub.ptr.rhs.cast.i.i
-  %call5.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
+  %call5.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #21
           to label %call5.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call5.i.i.i.i.noexc:                              ; preds = %_ZNSt12_Vector_baseIN7voxalgo13ChangingLightESaIS1_EE11_M_allocateEm.exit.i
@@ -2966,7 +2966,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN7voxalgo13ChangingLightESaIS1_EE13_M_deallocateEPS1_m.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
   br label %_ZNSt12_Vector_baseIN7voxalgo13ChangingLightESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
 _ZNSt12_Vector_baseIN7voxalgo13ChangingLightESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if.then.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
@@ -3000,7 +3000,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i, %lpad
@@ -3010,7 +3010,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.
   br i1 %tobool.not.i.i.i.1, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1, label %if.then.i.i.i.1
 
 if.then.i.i.i.1:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1: ; preds = %if.then.i.i.i.1, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit
@@ -3020,7 +3020,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.2, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2, label %if.then.i.i.i.2
 
 if.then.i.i.i.2:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2: ; preds = %if.then.i.i.i.2, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1
@@ -3030,7 +3030,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.3, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3, label %if.then.i.i.i.3
 
 if.then.i.i.i.3:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3: ; preds = %if.then.i.i.i.3, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2
@@ -3040,7 +3040,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.4, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4, label %if.then.i.i.i.4
 
 if.then.i.i.i.4:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4: ; preds = %if.then.i.i.i.4, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3
@@ -3050,7 +3050,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.5, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5, label %if.then.i.i.i.5
 
 if.then.i.i.i.5:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5: ; preds = %if.then.i.i.i.5, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4
@@ -3060,7 +3060,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.6, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6, label %if.then.i.i.i.6
 
 if.then.i.i.i.6:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6: ; preds = %if.then.i.i.i.6, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5
@@ -3070,7 +3070,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.7, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7, label %if.then.i.i.i.7
 
 if.then.i.i.i.7:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7: ; preds = %if.then.i.i.i.7, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6
@@ -3080,7 +3080,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.8, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8, label %if.then.i.i.i.8
 
 if.then.i.i.i.8:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8: ; preds = %if.then.i.i.i.8, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7
@@ -3090,7 +3090,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.9, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9, label %if.then.i.i.i.9
 
 if.then.i.i.i.9:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9: ; preds = %if.then.i.i.i.9, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8
@@ -3100,7 +3100,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.10, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10, label %if.then.i.i.i.10
 
 if.then.i.i.i.10:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10: ; preds = %if.then.i.i.i.10, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9
@@ -3110,7 +3110,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.11, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11, label %if.then.i.i.i.11
 
 if.then.i.i.i.11:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11: ; preds = %if.then.i.i.i.11, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10
@@ -3120,7 +3120,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.12, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12, label %if.then.i.i.i.12
 
 if.then.i.i.i.12:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12: ; preds = %if.then.i.i.i.12, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11
@@ -3130,7 +3130,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.13, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13, label %if.then.i.i.i.13
 
 if.then.i.i.i.13:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %16) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13: ; preds = %if.then.i.i.i.13, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12
@@ -3140,7 +3140,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.14, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14, label %if.then.i.i.i.14
 
 if.then.i.i.i.14:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13
-  tail call void @_ZdlPv(ptr noundef nonnull %17) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14: ; preds = %if.then.i.i.i.14, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13
@@ -3149,7 +3149,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.15, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.15, label %if.then.i.i.i.15
 
 if.then.i.i.i.15:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.15
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.15: ; preds = %if.then.i.i.i.15, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14
@@ -3171,7 +3171,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i, %entry
@@ -3181,7 +3181,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.
   br i1 %tobool.not.i.i.i.1, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1, label %if.then.i.i.i.1
 
 if.then.i.i.i.1:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1: ; preds = %if.then.i.i.i.1, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit
@@ -3191,7 +3191,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.2, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2, label %if.then.i.i.i.2
 
 if.then.i.i.i.2:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2: ; preds = %if.then.i.i.i.2, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.1
@@ -3201,7 +3201,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.3, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3, label %if.then.i.i.i.3
 
 if.then.i.i.i.3:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3: ; preds = %if.then.i.i.i.3, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.2
@@ -3211,7 +3211,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.4, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4, label %if.then.i.i.i.4
 
 if.then.i.i.i.4:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4: ; preds = %if.then.i.i.i.4, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.3
@@ -3221,7 +3221,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.5, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5, label %if.then.i.i.i.5
 
 if.then.i.i.i.5:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5: ; preds = %if.then.i.i.i.5, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.4
@@ -3231,7 +3231,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.6, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6, label %if.then.i.i.i.6
 
 if.then.i.i.i.6:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6: ; preds = %if.then.i.i.i.6, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.5
@@ -3241,7 +3241,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.7, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7, label %if.then.i.i.i.7
 
 if.then.i.i.i.7:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7: ; preds = %if.then.i.i.i.7, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.6
@@ -3251,7 +3251,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.8, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8, label %if.then.i.i.i.8
 
 if.then.i.i.i.8:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8: ; preds = %if.then.i.i.i.8, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.7
@@ -3261,7 +3261,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.9, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9, label %if.then.i.i.i.9
 
 if.then.i.i.i.9:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9: ; preds = %if.then.i.i.i.9, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.8
@@ -3271,7 +3271,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9: ; preds = %if.then.i.
   br i1 %tobool.not.i.i.i.10, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10, label %if.then.i.i.i.10
 
 if.then.i.i.i.10:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10: ; preds = %if.then.i.i.i.10, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.9
@@ -3281,7 +3281,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.11, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11, label %if.then.i.i.i.11
 
 if.then.i.i.i.11:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11: ; preds = %if.then.i.i.i.11, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.10
@@ -3291,7 +3291,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.12, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12, label %if.then.i.i.i.12
 
 if.then.i.i.i.12:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12: ; preds = %if.then.i.i.i.12, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.11
@@ -3301,7 +3301,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.13, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13, label %if.then.i.i.i.13
 
 if.then.i.i.i.13:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13: ; preds = %if.then.i.i.i.13, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.12
@@ -3311,7 +3311,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.14, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14, label %if.then.i.i.i.14
 
 if.then.i.i.i.14:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14: ; preds = %if.then.i.i.i.14, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.13
@@ -3320,7 +3320,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14: ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.15, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.15, label %if.then.i.i.i.15
 
 if.then.i.i.i.15:                                 ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14
-  tail call void @_ZdlPv(ptr noundef nonnull %15) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %15) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.15
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.15: ; preds = %if.then.i.i.i.15, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.14
@@ -4003,7 +4003,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i: ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true.i.i.i, %lor.rhs.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, %_ZN8MapBlock14setNodeNoCheckEsss7MapNode.exit
   %__y.addr.0.lcssa.i.i.i23.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ], [ %add.ptr.i.i.i.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i ], [ %add.ptr.i.i.i.i, %_ZN8MapBlock14setNodeNoCheckEsss7MapNode.exit ], [ %__y.addr.1.i.i.i.i, %land.lhs.true.i.i.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %call5.i.i.i.i.i.i442 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %call5.i.i.i.i.i.i442 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad115
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %if.then.i
@@ -4061,7 +4061,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true18.i.i
 
 cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %lor.rhs.i.i.i, %if.then.i438
   %52 = phi i1 [ true, %if.then.i438 ], [ true, %land.lhs.true.i.i.i.i.i ], [ true, %lor.rhs.i.i.i ], [ false, %land.lhs.true18.i.i.i.i.i ], [ %cmp27.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %52, ptr noundef nonnull %call5.i.i.i.i.i.i442, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #22
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %52, ptr noundef nonnull %call5.i.i.i.i.i.i442, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #23
   %53 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !85
   %inc.i.i.i = add i64 %53, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8, !tbaa !85
@@ -4070,11 +4070,11 @@ cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i,
 _ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i: ; preds = %call5.i.i.i.i.i.i.noexc
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i442) #21
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i442) #22
   br label %ehcleanup135
 
 if.then.i23.i:                                    ; preds = %invoke.cont7.i
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i442) #21
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i442) #22
   br label %invoke.cont119
 
 invoke.cont119:                                   ; preds = %if.then.i23.i, %cleanup.thread.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true18.i.i.i, %lor.lhs.false.i.i.i
@@ -4116,7 +4116,7 @@ if.else.i.i390:                                   ; preds = %invoke.cont119
   br i1 %cmp.i.i.i391, label %if.then.i.i.i392, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i392:                                 ; preds = %if.else.i.i390
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
           to label %.noexc unwind label %lpad104.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i.i392
@@ -4132,7 +4132,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 5
-  %call5.i.i.i.i.i393 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %call5.i.i.i.i.i393 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
           to label %invoke.cont.i.i unwind label %lpad104.loopexit
 
 invoke.cont.i.i:                                  ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -4163,7 +4163,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
-  call void @_ZdlPv(ptr noundef nonnull %59) #21
+  call void @_ZdlPv(ptr noundef nonnull %59) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
@@ -4333,9 +4333,9 @@ invoke.cont200:                                   ; preds = %invoke.cont.i.i.i.i
   br i1 %cmp.i394, label %invoke.cont190, label %for.cond.cleanup179, !llvm.loop !156
 
 invoke.cont213:                                   ; preds = %for.cond.cleanup167
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %light_sources)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %disappearing_lights)
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx467, 4
   %cmp.not = icmp eq i64 %__begin1.0.add, 8
@@ -4343,13 +4343,13 @@ invoke.cont213:                                   ; preds = %for.cond.cleanup167
 
 ehcleanup214:                                     ; preds = %lpad162, %ehcleanup135, %lpad11
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %63, %lpad162 ], [ %.pn.pn, %ehcleanup135 ], [ %7, %lpad11 ]
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #23
   br label %ehcleanup215
 
 ehcleanup215:                                     ; preds = %ehcleanup214, %lpad
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup214 ], [ %3, %lpad ]
   call void @llvm.lifetime.end.p0(ptr nonnull %light_sources)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %disappearing_lights)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
@@ -5014,7 +5014,7 @@ if.else.i.i:                                      ; preds = %_ZN8MapBlock14setNo
   br i1 %cmp.i.i.i131, label %if.then.i.i.i133, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i133:                                 ; preds = %if.else.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
 _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i.i
@@ -5027,7 +5027,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 5
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i48 %current_pos.sroa.0.0.insert.insert263.reass, ptr %add.ptr.i.i, align 8, !tbaa.struct !71
   %block_position.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 6
@@ -5055,7 +5055,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %24) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %24) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
@@ -5159,7 +5159,7 @@ if.else.i.i206:                                   ; preds = %_ZN8MapBlock14setNo
   br i1 %cmp.i.i.i210, label %if.then.i.i.i241, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i211
 
 if.then.i.i.i241:                                 ; preds = %if.else.i.i206
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
 _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i211: ; preds = %if.else.i.i206
@@ -5172,7 +5172,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i211: 
   %cmp.not.i.i.i217 = icmp ne i64 %cond.i.i.i216, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i217)
   %mul.i.i.i.i.i219 = shl nuw nsw i64 %cond.i.i.i216, 5
-  %call5.i.i.i.i.i220 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i219) #20
+  %call5.i.i.i.i.i220 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i219) #21
   %add.ptr.i.i223 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i220, i64 %sub.ptr.sub.i.i.i.i209
   store i48 %current_pos.sroa.0.0.insert.insert254.reass.reass65, ptr %add.ptr.i.i223, align 8, !tbaa.struct !71
   %block_position.i.i.i.i5.i224 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i223, i64 6
@@ -5200,7 +5200,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i237, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i239, label %if.then.i63.i.i238
 
 if.then.i63.i.i238:                               ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i234
-  tail call void @_ZdlPv(ptr noundef nonnull %38) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %38) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i239
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i239: ; preds = %if.then.i63.i.i238, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i234
@@ -5390,7 +5390,7 @@ if.else.i.i:                                      ; preds = %if.then65
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i.1, %if.else.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
   unreachable
 
 _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i.i
@@ -5403,7 +5403,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 5
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store i48 %relpos.sroa.0.0.insert.insert.reass, ptr %add.ptr.i.i, align 8, !tbaa.struct !71
   %block_position.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 6
@@ -5431,7 +5431,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
@@ -5488,7 +5488,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i.1: ;
   %cmp.not.i.i.i.1 = icmp ne i64 %cond.i.i.i.1, 0
   tail call void @llvm.assume(i1 %cmp.not.i.i.i.1)
   %mul.i.i.i.i.i.1 = shl nuw nsw i64 %cond.i.i.i.1, 5
-  %call5.i.i.i.i.i.1 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.1) #20
+  %call5.i.i.i.i.i.1 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.1) #21
   %add.ptr.i.i.1 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.1, i64 %sub.ptr.sub.i.i.i.i.1
   store i48 %relpos.sroa.0.0.insert.insert.reass, ptr %add.ptr.i.i.1, align 8, !tbaa.struct !71
   %block_position.i.i.i.i5.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.1, i64 6
@@ -5516,7 +5516,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i.1, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1, label %if.then.i63.i.i.1
 
 if.then.i63.i.i.1:                                ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1: ; preds = %if.then.i63.i.i.1, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
@@ -5931,7 +5931,7 @@ lpad:                                             ; preds = %if.end
 lpad12:                                           ; preds = %invoke.cont13
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #23
   br label %ehcleanup294
 
 for.cond26.for.cond.cleanup31_crit_edge:          ; preds = %while.end
@@ -6125,7 +6125,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i429
   store ptr %incdec.ptr.i.i557573, ptr %_M_finish.i, align 8, !tbaa !13
   store ptr %incdec.ptr.i.i557573, ptr %_M_end_of_storage.i, align 8, !tbaa !202
   store ptr %cond.i49.i.i568571, ptr %data, align 8, !tbaa !13
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
           to label %.noexc unwind label %lpad63.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i.i
@@ -6141,7 +6141,7 @@ _ZNKSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE12_M_check_lenEmPKc.exi
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i431, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i431, 6
-  %call5.i.i.i.i.i432 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %call5.i.i.i.i.i432 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
           to label %invoke.cont.i.i unwind label %lpad63.loopexit
 
 invoke.cont.i.i:                                  ; preds = %_ZNKSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -6170,7 +6170,7 @@ _ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE11_S_relocateEPS1_S4_S4_
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i59.i.i
 
 if.then.i59.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit58.i.i
-  call void @_ZdlPv(ptr noundef nonnull %cond.i49.i.i568571) #21
+  call void @_ZdlPv(ptr noundef nonnull %cond.i49.i.i568571) #22
   br label %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i59.i.i, %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit58.i.i
@@ -6292,7 +6292,7 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i: ; preds = %land.lhs.true
 
 if.then.i436:                                     ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true.i.i.i, %lor.rhs.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, %invoke.cont81
   %__y.addr.0.lcssa.i.i.i23.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ], [ %add.ptr.i.i.i.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i ], [ %add.ptr.i.i.i.i, %invoke.cont81 ], [ %__y.addr.1.i.i.i.i, %land.lhs.true.i.i.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %call5.i.i.i.i.i.i515 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %call5.i.i.i.i.i.i515 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad37
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %if.then.i436
@@ -6348,7 +6348,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true18.i.i
 
 cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i, %land.lhs.true18.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %lor.rhs.i.i.i, %if.then.i511
   %61 = phi i1 [ true, %if.then.i511 ], [ true, %land.lhs.true.i.i.i.i.i ], [ true, %lor.rhs.i.i.i ], [ false, %land.lhs.true18.i.i.i.i.i ], [ %cmp27.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %61, ptr noundef nonnull %call5.i.i.i.i.i.i515, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #22
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %61, ptr noundef nonnull %call5.i.i.i.i.i.i515, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #23
   %62 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !85
   %inc.i.i.i = add i64 %62, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8, !tbaa !85
@@ -6357,11 +6357,11 @@ cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i,
 _ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i: ; preds = %call5.i.i.i.i.i.i.noexc
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i515) #21
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i515) #22
   br label %ehcleanup279thread-pre-split
 
 if.then.i23.i:                                    ; preds = %invoke.cont7.i
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i515) #21
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i515) #22
   br label %invoke.cont84
 
 invoke.cont84:                                    ; preds = %if.then.i23.i, %cleanup.thread.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true18.i.i.i, %lor.lhs.false.i.i.i
@@ -6629,7 +6629,7 @@ if.else.i.i:                                      ; preds = %if.then221
   br i1 %cmp.i.i.i483, label %if.then.i.i.i503, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i503:                                 ; preds = %if.else.i.i.1, %if.else.i.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
           to label %.noexc504 unwind label %lpad225.loopexit.split-lp
 
 .noexc504:                                        ; preds = %if.then.i.i.i503
@@ -6645,7 +6645,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %cmp.not.i.i.i489 = icmp ne i64 %cond.i.i.i488, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i489)
   %mul.i.i.i.i.i491 = shl nuw nsw i64 %cond.i.i.i488, 5
-  %call5.i.i.i.i.i506 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i491) #20
+  %call5.i.i.i.i.i506 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i491) #21
           to label %invoke.cont.i.i492 unwind label %lpad225.loopexit
 
 invoke.cont.i.i492:                               ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -6676,7 +6676,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i502, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
-  call void @_ZdlPv(ptr noundef nonnull %112) #21
+  call void @_ZdlPv(ptr noundef nonnull %112) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
@@ -6745,7 +6745,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i.1: ;
   %cmp.not.i.i.i489.1 = icmp ne i64 %cond.i.i.i488.1, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i489.1)
   %mul.i.i.i.i.i491.1 = shl nuw nsw i64 %cond.i.i.i488.1, 5
-  %call5.i.i.i.i.i506.1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i491.1) #20
+  %call5.i.i.i.i.i506.1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i491.1) #21
           to label %invoke.cont.i.i492.1 unwind label %lpad225.loopexit
 
 invoke.cont.i.i492.1:                             ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i.1
@@ -6776,7 +6776,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i502.1, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1, label %if.then.i63.i.i.1
 
 if.then.i63.i.i.1:                                ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
-  call void @_ZdlPv(ptr noundef nonnull %117) #21
+  call void @_ZdlPv(ptr noundef nonnull %117) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1: ; preds = %if.then.i63.i.i.1, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
@@ -6849,17 +6849,17 @@ invoke.cont276:                                   ; preds = %invoke.cont271
   br i1 %tobool.not.i.i.i.i, label %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont276
-  call void @_ZdlPv(ptr noundef nonnull %125) #21
+  call void @_ZdlPv(ptr noundef nonnull %125) #22
   br label %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit
 
 _ZN7voxalgo23SunlightPropagationDataD2Ev.exit:    ; preds = %if.then.i.i.i.i, %invoke.cont276
   call void @llvm.lifetime.end.p0(ptr nonnull %data)
   call void @llvm.lifetime.end.p0(ptr nonnull %lights)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element14) #22
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element14) #23
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %relight)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #22
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #23
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %unlight)
   br label %cleanup311
 
@@ -6878,25 +6878,25 @@ ehcleanup279:                                     ; preds = %ehcleanup279thread-
   br i1 %tobool.not.i.i.i.i507, label %ehcleanup280, label %if.then.i.i.i.i508
 
 if.then.i.i.i.i508:                               ; preds = %ehcleanup279
-  call void @_ZdlPv(ptr noundef nonnull %126) #21
+  call void @_ZdlPv(ptr noundef nonnull %126) #22
   br label %ehcleanup280
 
 ehcleanup280:                                     ; preds = %if.then.i.i.i.i508, %ehcleanup279
   call void @llvm.lifetime.end.p0(ptr nonnull %data)
   call void @llvm.lifetime.end.p0(ptr nonnull %lights)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element14) #22
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element14) #23
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #23
   br label %ehcleanup294
 
 ehcleanup294:                                     ; preds = %ehcleanup280, %lpad12, %lpad12.thread
   %.pn381.pn.pn.pn.pn = phi { ptr, i32 } [ %13, %lpad12.thread ], [ %.pn381.pn.pn, %ehcleanup280 ], [ %15, %lpad12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %relight)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #23
   br label %ehcleanup308
 
 ehcleanup308:                                     ; preds = %ehcleanup294, %lpad
   %.pn381.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn381.pn.pn.pn.pn, %ehcleanup294 ], [ %14, %lpad ]
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %unlight)
   resume { ptr, i32 } %.pn381.pn.pn.pn.pn.pn
 }
@@ -7301,7 +7301,7 @@ lpad:                                             ; preds = %if.end
 lpad5:                                            ; preds = %invoke.cont6
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #23
   br label %ehcleanup169
 
 lpad17.loopexit:                                  ; preds = %if.then.i275, %if.then51, %while.body
@@ -7348,7 +7348,7 @@ if.else.i:                                        ; preds = %for.body33
   br i1 %cmp.i.i.i232, label %if.then.i.i.i233, label %_ZNKSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i233:                                 ; preds = %if.else.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
           to label %.noexc unwind label %lpad36.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i.i233
@@ -7364,7 +7364,7 @@ _ZNKSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE12_M_check_lenEmPKc.exi
   %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 6
-  %call5.i.i.i.i.i234 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %call5.i.i.i.i.i234 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
           to label %invoke.cont.i.i unwind label %lpad36.loopexit
 
 invoke.cont.i.i:                                  ; preds = %_ZNKSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -7394,7 +7394,7 @@ _ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE11_S_relocateEPS1_S4_S4_
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i59.i.i
 
 if.then.i59.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit58.i.i
-  call void @_ZdlPv(ptr noundef nonnull %40) #21
+  call void @_ZdlPv(ptr noundef nonnull %40) #22
   br label %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE17_M_realloc_insertIJN3irr4core8vector2dIsEERbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i59.i.i, %_ZNSt6vectorIN7voxalgo23SunlightPropagationUnitESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit58.i.i
@@ -7672,7 +7672,7 @@ if.else.i.i:                                      ; preds = %if.then118
   br i1 %cmp.i.i.i307, label %if.then.i.i.i327, label %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i327:                                 ; preds = %if.else.i.i.1, %if.else.i.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #20
           to label %.noexc328 unwind label %lpad122.loopexit.split-lp
 
 .noexc328:                                        ; preds = %if.then.i.i.i327
@@ -7688,7 +7688,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %cmp.not.i.i.i313 = icmp ne i64 %cond.i.i.i312, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i313)
   %mul.i.i.i.i.i315 = shl nuw nsw i64 %cond.i.i.i312, 5
-  %call5.i.i.i.i.i330 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i315) #20
+  %call5.i.i.i.i.i330 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i315) #21
           to label %invoke.cont.i.i316 unwind label %lpad122.loopexit
 
 invoke.cont.i.i316:                               ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -7719,7 +7719,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i326, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i63.i.i
 
 if.then.i63.i.i:                                  ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
-  call void @_ZdlPv(ptr noundef nonnull %81) #21
+  call void @_ZdlPv(ptr noundef nonnull %81) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i63.i.i, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i
@@ -7783,7 +7783,7 @@ _ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i.1: ;
   %cmp.not.i.i.i313.1 = icmp ne i64 %cond.i.i.i312.1, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i313.1)
   %mul.i.i.i.i.i315.1 = shl nuw nsw i64 %cond.i.i.i312.1, 5
-  %call5.i.i.i.i.i330.1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i315.1) #20
+  %call5.i.i.i.i.i330.1 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i315.1) #21
           to label %invoke.cont.i.i316.1 unwind label %lpad122.loopexit
 
 invoke.cont.i.i316.1:                             ; preds = %_ZNKSt6vectorIN7voxalgo13ChangingLightESaIS1_EE12_M_check_lenEmPKc.exit.i.i.1
@@ -7814,7 +7814,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit6
   br i1 %tobool.not.i.i.i326.1, label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1, label %if.then.i63.i.i.1
 
 if.then.i63.i.i.1:                                ; preds = %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
-  call void @_ZdlPv(ptr noundef nonnull %86) #21
+  call void @_ZdlPv(ptr noundef nonnull %86) #22
   br label %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1
 
 _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE17_M_realloc_insertIJRN3irr4core8vector3dIsEES9_RP8MapBlockRhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.1: ; preds = %if.then.i63.i.i.1, %_ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit62.i.i.1
@@ -7865,17 +7865,17 @@ invoke.cont152:                                   ; preds = %for.cond.cleanup64
   br i1 %tobool.not.i.i.i.i, label %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont152
-  call void @_ZdlPv(ptr noundef nonnull %94) #21
+  call void @_ZdlPv(ptr noundef nonnull %94) #22
   br label %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit
 
 _ZN7voxalgo23SunlightPropagationDataD2Ev.exit:    ; preds = %if.then.i.i.i.i, %invoke.cont152
   call void @llvm.lifetime.end.p0(ptr nonnull %data)
   call void @llvm.lifetime.end.p0(ptr nonnull %lights)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element7) #22
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element7) #23
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %relight)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #22
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #23
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %unlight)
   br label %return
 
@@ -7890,25 +7890,25 @@ ehcleanup153:                                     ; preds = %lpad122.loopexit.sp
   br i1 %tobool.not.i.i.i.i331, label %ehcleanup155, label %if.then.i.i.i.i332
 
 if.then.i.i.i.i332:                               ; preds = %ehcleanup153
-  call void @_ZdlPv(ptr noundef nonnull %95) #21
+  call void @_ZdlPv(ptr noundef nonnull %95) #22
   br label %ehcleanup155
 
 ehcleanup155:                                     ; preds = %if.then.i.i.i.i332, %ehcleanup153
   call void @llvm.lifetime.end.p0(ptr nonnull %data)
   call void @llvm.lifetime.end.p0(ptr nonnull %lights)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element7) #22
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element7) #23
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #23
   br label %ehcleanup169
 
 ehcleanup169:                                     ; preds = %ehcleanup155, %lpad5, %lpad5.thread
   %.pn222.pn.pn = phi { ptr, i32 } [ %1, %lpad5.thread ], [ %.pn222, %ehcleanup155 ], [ %34, %lpad5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %relight)
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #23
   br label %ehcleanup183
 
 ehcleanup183:                                     ; preds = %ehcleanup169, %lpad
   %.pn222.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn, %ehcleanup169 ], [ %33, %lpad ]
-  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #22
+  call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %unlight)
   resume { ptr, i32 } %.pn222.pn.pn.pn
 }
@@ -8161,7 +8161,7 @@ entry:
   ret i16 %conv15
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -8211,21 +8211,21 @@ if.end48:                                         ; preds = %if.else, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8, !tbaa !13
   %1 = inttoptr i64 %0 to ptr
@@ -8281,7 +8281,7 @@ land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true18.i.i
 
 cleanup.thread:                                   ; preds = %land.rhs.i.i.i.i, %land.lhs.true18.i.i.i.i, %land.lhs.true.i.i.i.i, %lor.lhs.false.i.i.i.i, %lor.rhs.i.i, %if.then
   %10 = phi i1 [ true, %if.then ], [ true, %land.lhs.true.i.i.i.i ], [ true, %lor.rhs.i.i ], [ false, %land.lhs.true18.i.i.i.i ], [ %cmp27.i.i.i.i, %land.rhs.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %10, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #22
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %10, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #23
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !85
   %inc.i.i = add i64 %11, 1
@@ -8291,11 +8291,11 @@ cleanup.thread:                                   ; preds = %land.rhs.i.i.i.i, %
 _ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit: ; preds = %invoke.cont
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #22
   resume { ptr, i32 } %12
 
 if.then.i23:                                      ; preds = %invoke.cont7
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #22
   br label %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit24
 
 _ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit24: ; preds = %if.then.i23, %cleanup.thread
@@ -8414,7 +8414,7 @@ if.then.i:                                        ; preds = %cond.end.i, %if.els
   br i1 %cmp.i.i91, label %cleanup80, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa64.i) #23
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa64.i) #24
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %.pre325 = load i16, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 2, !tbaa !4
   %.pre326 = load i16, ptr %__k, align 2, !tbaa !4
@@ -8493,7 +8493,7 @@ if.then18:                                        ; preds = %_ZNKSt4lessIN3irr4c
   br i1 %cmp21, label %cleanup80, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #24
   %_M_storage.i.i.i110 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %28 = load i16, ptr %_M_storage.i.i.i110, align 2, !tbaa !4
   %cmp.i.i111 = icmp slt i16 %28, %21
@@ -8593,7 +8593,7 @@ if.then.i170:                                     ; preds = %cond.end.i142, %if.
   br i1 %cmp.i.i173, label %cleanup80, label %if.else.i174
 
 if.else.i174:                                     ; preds = %if.then.i170
-  %call.i.i175 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa64.i171) #23
+  %call.i.i175 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa64.i171) #24
   %_M_storage.i.i.i.i151.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i175, i64 32
   %.pre324 = load i16, ptr %_M_storage.i.i.i.i151.phi.trans.insert, align 2, !tbaa !4
   br label %if.end12.i148
@@ -8655,7 +8655,7 @@ if.then50:                                        ; preds = %if.else44.thread87,
   br i1 %cmp53, label %cleanup80, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i203 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
+  %call.i203 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #24
   %_M_storage.i.i.i204 = getelementptr inbounds nuw i8, ptr %call.i203, i64 32
   %47 = load i16, ptr %_M_storage.i.i.i204, align 2, !tbaa !4
   %cmp.i.i205 = icmp slt i16 %21, %47
@@ -8757,7 +8757,7 @@ if.then.i264:                                     ; preds = %cond.end.i236, %if.
   br i1 %cmp.i.i267, label %cleanup80, label %if.else.i268
 
 if.else.i268:                                     ; preds = %if.then.i264
-  %call.i.i269 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa64.i265) #23
+  %call.i.i269 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa64.i265) #24
   %_M_storage.i.i.i.i245.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i269, i64 32
   %.pre = load i16, ptr %_M_storage.i.i.i.i245.phi.trans.insert, align 2, !tbaa !4
   br label %if.end12.i242
@@ -8805,19 +8805,19 @@ cleanup80:                                        ; preds = %if.else44.thread87,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_voxelalgorithms.cpp() #16 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_voxelalgorithms.cpp() #17 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   store <4 x i16> <i16 15, i16 0, i16 0, i16 15>, ptr @_ZN7voxalgoL13block_bordersE, align 16, !tbaa !18
   store i16 15, ptr getelementptr inbounds nuw (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 8), align 8, !tbaa !18
   store i16 15, ptr getelementptr inbounds nuw (i8, ptr @_ZN7voxalgoL13block_bordersE, i64 10), align 2, !tbaa !18
@@ -8871,16 +8871,16 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -8890,7 +8890,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #19
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8903,19 +8903,20 @@ attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { noreturn }
-attributes #20 = { builtin allocsize(0) }
-attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { noreturn }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

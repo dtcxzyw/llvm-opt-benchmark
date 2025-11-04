@@ -78,7 +78,7 @@ define internal range(i32 -2147483648, 1) i32 @xcbgrab_read_header(ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load ptr, ptr %13, align 8, !tbaa !24
-  %15 = tail call noalias ptr @av_strdup(ptr noundef %14) #10
+  %15 = tail call noalias ptr @av_strdup(ptr noundef %14) #11
   store ptr %15, ptr %10, align 8, !tbaa !25
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %418, label %16
@@ -87,14 +87,14 @@ define internal range(i32 -2147483648, 1) i32 @xcbgrab_read_header(ptr noundef %
   %17 = load ptr, ptr %13, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 68
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %20 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %17, ptr noundef nonnull @.str.30, ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef nonnull %19) #10
+  %20 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %17, ptr noundef nonnull @.str.30, ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef nonnull %19) #11
   %.not59 = icmp eq i32 %20, 0
   br i1 %.not59, label %21, label %28
 
 21:                                               ; preds = %16
   store i8 0, ptr %15, align 1, !tbaa !26
   %22 = load ptr, ptr %13, align 8, !tbaa !24
-  %23 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %22, ptr noundef nonnull @.str.31, ptr noundef nonnull %18, ptr noundef nonnull %19) #10
+  %23 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %22, ptr noundef nonnull @.str.31, ptr noundef nonnull %18, ptr noundef nonnull %19) #11
   %.not60 = icmp eq i32 %23, 2
   br i1 %.not60, label %28, label %24
 
@@ -105,19 +105,19 @@ define internal range(i32 -2147483648, 1) i32 @xcbgrab_read_header(ptr noundef %
   br i1 %.not61, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.32, ptr noundef nonnull %25) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.32, ptr noundef nonnull %25) #11
   br label %28
 
 28:                                               ; preds = %21, %27, %24, %16
   %29 = load i8, ptr %15, align 1, !tbaa !26
   %.not62 = icmp eq i8 %29, 0
   %30 = select i1 %.not62, ptr null, ptr %15
-  %31 = call ptr @xcb_connect(ptr noundef %30, ptr noundef nonnull %9) #10
+  %31 = call ptr @xcb_connect(ptr noundef %30, ptr noundef nonnull %9) #11
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %31, ptr %32, align 8, !tbaa !27
-  call void @av_freep(ptr noundef nonnull %10) #10
+  call void @av_freep(ptr noundef nonnull %10) #11
   %33 = load ptr, ptr %32, align 8, !tbaa !27
-  %34 = call i32 @xcb_connection_has_error(ptr noundef %33) #10
+  %34 = call i32 @xcb_connection_has_error(ptr noundef %33) #11
   %.not63 = icmp eq i32 %34, 0
   br i1 %.not63, label %38, label %35
 
@@ -126,15 +126,15 @@ define internal range(i32 -2147483648, 1) i32 @xcbgrab_read_header(ptr noundef %
   %37 = load i8, ptr %36, align 1, !tbaa !26
   %.not71 = icmp eq i8 %37, 0
   %spec.select = select i1 %.not71, ptr @.str.34, ptr %36
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.33, ptr noundef nonnull %spec.select, i32 noundef %34) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.33, ptr noundef nonnull %spec.select, i32 noundef %34) #11
   br label %418
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %32, align 8, !tbaa !27
-  %40 = call ptr @xcb_get_setup(ptr noundef %39) #10
+  %40 = call ptr @xcb_get_setup(ptr noundef %39) #11
   %41 = load i32, ptr %9, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %42 = call { ptr, i64 } @xcb_setup_roots_iterator(ptr noundef %40) #10
+  %42 = call { ptr, i64 } @xcb_setup_roots_iterator(ptr noundef %40) #11
   %43 = extractvalue { ptr, i64 } %42, 0
   store ptr %43, ptr %8, align 8
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -151,7 +151,7 @@ define internal range(i32 -2147483648, 1) i32 @xcbgrab_read_header(ptr noundef %
 
 48:                                               ; preds = %.lr.ph.i
   %49 = add nsw i32 %.034.i, -1
-  call void @xcb_screen_next(ptr noundef nonnull %8) #10
+  call void @xcb_screen_next(ptr noundef nonnull %8) #11
   %50 = load i32, ptr %44, align 8, !tbaa !34
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %.lr.ph.i, label %get_screen.exit.thread, !llvm.loop !36
@@ -172,8 +172,8 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
 
 55:                                               ; preds = %get_screen.exit.thread, %get_screen.exit
   %56 = load i32, ptr %9, align 4, !tbaa !33
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.35, i32 noundef %56) #10
-  %57 = call i32 @xcbgrab_read_close(ptr noundef %0) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.35, i32 noundef %56) #11
+  %57 = call i32 @xcbgrab_read_close(ptr noundef %0) #12
   br label %418
 
 58:                                               ; preds = %get_screen.exit
@@ -194,7 +194,7 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   br i1 %.not65, label %68, label %67
 
 67:                                               ; preds = %64
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.36) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.36) #11
   store i32 0, ptr %65, align 8, !tbaa !44
   br label %68
 
@@ -205,7 +205,7 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   br i1 %.not66, label %72, label %71
 
 71:                                               ; preds = %68
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.37) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.37) #11
   store i32 0, ptr %69, align 8, !tbaa !45
   br label %72
 
@@ -224,16 +224,16 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %81 = load i32, ptr %80, align 4, !tbaa !41
-  %82 = call i32 @xcb_generate_id(ptr noundef %78) #10
+  %82 = call i32 @xcb_generate_id(ptr noundef %78) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 4294967306, ptr %7, align 8
-  %83 = call i32 @xcb_create_gc(ptr noundef %78, i32 noundef %82, i32 noundef %81, i32 noundef 32769, ptr noundef nonnull %7) #10
-  %84 = call i32 @xcb_generate_id(ptr noundef %78) #10
-  %85 = call i32 @xcb_open_font(ptr noundef %78, i32 noundef %84, i16 noundef zeroext 6, ptr noundef nonnull @.str.40) #10
-  %86 = call i32 @xcb_generate_id(ptr noundef %78) #10
-  %87 = call i32 @xcb_create_glyph_cursor(ptr noundef %78, i32 noundef %86, i32 noundef %84, i32 noundef %84, i16 noundef zeroext 34, i16 noundef zeroext 35, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext -1, i16 noundef zeroext -1, i16 noundef zeroext -1) #10
-  %88 = call i32 @xcb_grab_pointer(ptr noundef %78, i8 noundef zeroext 0, i32 noundef %81, i16 noundef zeroext 8204, i8 noundef zeroext 1, i8 noundef zeroext 1, i32 noundef %81, i32 noundef %86, i32 noundef 0) #10
-  %89 = call ptr @xcb_grab_pointer_reply(ptr noundef %78, i32 %88, ptr noundef null) #10
+  %83 = call i32 @xcb_create_gc(ptr noundef %78, i32 noundef %82, i32 noundef %81, i32 noundef 32769, ptr noundef nonnull %7) #11
+  %84 = call i32 @xcb_generate_id(ptr noundef %78) #11
+  %85 = call i32 @xcb_open_font(ptr noundef %78, i32 noundef %84, i16 noundef zeroext 6, ptr noundef nonnull @.str.40) #11
+  %86 = call i32 @xcb_generate_id(ptr noundef %78) #11
+  %87 = call i32 @xcb_create_glyph_cursor(ptr noundef %78, i32 noundef %86, i32 noundef %84, i32 noundef %84, i16 noundef zeroext 34, i16 noundef zeroext 35, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext -1, i16 noundef zeroext -1, i16 noundef zeroext -1) #11
+  %88 = call i32 @xcb_grab_pointer(ptr noundef %78, i8 noundef zeroext 0, i32 noundef %81, i16 noundef zeroext 8204, i8 noundef zeroext 1, i8 noundef zeroext 1, i32 noundef %81, i32 noundef %86, i32 noundef 0) #11
+  %89 = call ptr @xcb_grab_pointer_reply(ptr noundef %78, i32 %88, ptr noundef null) #11
   %.not.i72 = icmp eq ptr %89, null
   br i1 %.not.i72, label %93, label %90
 
@@ -244,13 +244,13 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   br i1 %.not90.i, label %94, label %93
 
 93:                                               ; preds = %90, %75
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.41) #10
-  call void @free(ptr noundef %89) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.41) #11
+  call void @free(ptr noundef %89) #11
   br label %select_region.exit
 
 94:                                               ; preds = %90
-  call void @free(ptr noundef nonnull %89) #10
-  %95 = call i32 @xcb_grab_server(ptr noundef %78) #10
+  call void @free(ptr noundef nonnull %89) #11
+  %95 = call i32 @xcb_grab_server(ptr noundef %78) #11
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %97
 
@@ -258,7 +258,7 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   %.086103.i = phi i32 [ 0, %94 ], [ %.187.i, %123 ]
   %.sroa.4100.0102.i = phi i16 [ undef, %94 ], [ %.sroa.4100.1.i, %123 ]
   %.sroa.099.0101.i = phi i16 [ undef, %94 ], [ %.sroa.099.1.i, %123 ]
-  %98 = call ptr @xcb_wait_for_event(ptr noundef %78) #10
+  %98 = call ptr @xcb_wait_for_event(ptr noundef %78) #11
   %.not92.i = icmp eq ptr %98, null
   br i1 %.not92.i, label %.critedge.i, label %99
 
@@ -289,7 +289,7 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   %110 = load i16, ptr %109, align 4, !tbaa !56
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 26
   %112 = load i16, ptr %111, align 2, !tbaa !58
-  %113 = call i32 @xcb_poly_rectangle(ptr noundef %78, i32 noundef %81, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %6) #10
+  %113 = call i32 @xcb_poly_rectangle(ptr noundef %78, i32 noundef %81, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %6) #11
   %..i.i = call i16 @llvm.smin.i16(i16 %.sroa.099.0101.i, i16 %110)
   %.in26.i.i = call i16 @llvm.smin.i16(i16 %.sroa.4100.0102.i, i16 %112)
   %114 = sext i16 %.sroa.099.0101.i to i32
@@ -318,7 +318,7 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   %.sroa.4100.1.ph.i = phi i16 [ %.sroa.4100.0102.i, %108 ], [ %106, %102 ], [ %.sroa.4100.0102.i, %99 ]
   %.187.ph.i = phi i32 [ 1, %108 ], [ 1, %102 ], [ %.086103.i, %99 ]
   %.not91.ph.i = phi i1 [ true, %108 ], [ true, %102 ], [ false, %99 ]
-  %122 = call i32 @xcb_poly_rectangle(ptr noundef %78, i32 noundef %81, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %6) #10
+  %122 = call i32 @xcb_poly_rectangle(ptr noundef %78, i32 noundef %81, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %6) #11
   br label %123
 
 123:                                              ; preds = %.sink.split.i, %107, %99
@@ -326,8 +326,8 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   %.sroa.4100.1.i = phi i16 [ %.sroa.4100.0102.i, %99 ], [ %.sroa.4100.0102.i, %107 ], [ %.sroa.4100.1.ph.i, %.sink.split.i ]
   %.187.i = phi i32 [ %.086103.i, %99 ], [ 0, %107 ], [ %.187.ph.i, %.sink.split.i ]
   %.not91.i = phi i1 [ true, %99 ], [ true, %107 ], [ %.not91.ph.i, %.sink.split.i ]
-  %124 = call i32 @xcb_flush(ptr noundef %78) #10
-  call void @free(ptr noundef nonnull %98) #10
+  %124 = call i32 @xcb_flush(ptr noundef %78) #11
+  call void @free(ptr noundef nonnull %98) #11
   br i1 %.not91.i, label %97, label %.critedge.i, !llvm.loop !59
 
 .critedge.i:                                      ; preds = %123, %97
@@ -354,28 +354,28 @@ get_screen.exit:                                  ; preds = %.lr.ph.i
   store i32 %.sink104.i, ptr %137, align 4, !tbaa !64
   %138 = getelementptr inbounds nuw i8, ptr %76, i64 72
   store i32 %.sink.i, ptr %138, align 8, !tbaa !65
-  %139 = call i32 @xcb_ungrab_server(ptr noundef %78) #10
-  %140 = call i32 @xcb_ungrab_pointer(ptr noundef %78, i32 noundef 0) #10
-  %141 = call i32 @xcb_flush(ptr noundef %78) #10
+  %139 = call i32 @xcb_ungrab_server(ptr noundef %78) #11
+  %140 = call i32 @xcb_ungrab_pointer(ptr noundef %78, i32 noundef 0) #11
+  %141 = call i32 @xcb_flush(ptr noundef %78) #11
   br label %select_region.exit
 
 select_region.exit:                               ; preds = %93, %.critedge.i
   %142 = phi i1 [ true, %93 ], [ false, %.critedge.i ]
   %.0.i73 = phi i32 [ -5, %93 ], [ 0, %.critedge.i ]
-  %143 = call i32 @xcb_free_cursor(ptr noundef %78, i32 noundef %86) #10
-  %144 = call i32 @xcb_close_font(ptr noundef %78, i32 noundef %84) #10
-  %145 = call i32 @xcb_free_gc(ptr noundef %78, i32 noundef %82) #10
+  %143 = call i32 @xcb_free_cursor(ptr noundef %78, i32 noundef %86) #11
+  %144 = call i32 @xcb_close_font(ptr noundef %78, i32 noundef %84) #11
+  %145 = call i32 @xcb_free_gc(ptr noundef %78, i32 noundef %82) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %142, label %146, label %148
 
 146:                                              ; preds = %select_region.exit
-  %147 = call i32 @xcbgrab_read_close(ptr noundef %0) #11
+  %147 = call i32 @xcbgrab_read_close(ptr noundef %0) #12
   br label %418
 
 148:                                              ; preds = %select_region.exit, %72
   %149 = load ptr, ptr %11, align 8, !tbaa !4
-  %150 = call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #10
+  %150 = call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #11
   %.not.i74 = icmp eq ptr %150, null
   br i1 %.not.i74, label %302, label %151
 
@@ -383,25 +383,25 @@ select_region.exit:                               ; preds = %93, %.critedge.i
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 88
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 120
   %154 = load ptr, ptr %153, align 8, !tbaa !66
-  %155 = call i32 @av_parse_video_rate(ptr noundef nonnull %152, ptr noundef %154) #10
+  %155 = call i32 @av_parse_video_rate(ptr noundef nonnull %152, ptr noundef %154) #11
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %302, label %157
 
 157:                                              ; preds = %151
-  call void @avpriv_set_pts_info(ptr noundef nonnull %150, i32 noundef 64, i32 noundef 1, i32 noundef 1000000) #10
+  call void @avpriv_set_pts_info(ptr noundef nonnull %150, i32 noundef 64, i32 noundef 1, i32 noundef 1000000) #11
   %158 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !27
   %160 = getelementptr inbounds nuw i8, ptr %149, i64 64
   %161 = load i32, ptr %160, align 8, !tbaa !40
-  %162 = call i32 @xcb_get_geometry(ptr noundef %159, i32 noundef %161) #10
+  %162 = call i32 @xcb_get_geometry(ptr noundef %159, i32 noundef %161) #11
   %163 = load ptr, ptr %158, align 8, !tbaa !27
-  %164 = call ptr @xcb_get_geometry_reply(ptr noundef %163, i32 %162, ptr noundef null) #10
+  %164 = call ptr @xcb_get_geometry_reply(ptr noundef %163, i32 %162, ptr noundef null) #11
   %.not77.i = icmp eq ptr %164, null
   br i1 %.not77.i, label %165, label %167
 
 165:                                              ; preds = %157
   %166 = load i32, ptr %160, align 8, !tbaa !40
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.42, i32 noundef %166) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.42, i32 noundef %166) #11
   br label %302
 
 167:                                              ; preds = %157
@@ -463,8 +463,8 @@ select_region.exit:                               ; preds = %93, %.critedge.i
 
 195:                                              ; preds = %188, %._crit_edge116.i
   %.pre-phi123.i = phi i32 [ %.pre122.i, %._crit_edge116.i ], [ %193, %188 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.43, i32 noundef %183, i32 noundef %182, i32 noundef %185, i32 noundef %.pre118.i, i32 noundef %.pre-phi.i, i32 noundef %.pre-phi123.i) #10
-  call void @free(ptr noundef nonnull %164) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.43, i32 noundef %183, i32 noundef %182, i32 noundef %185, i32 noundef %.pre118.i, i32 noundef %.pre-phi.i, i32 noundef %.pre-phi123.i) #11
+  call void @free(ptr noundef nonnull %164) #11
   br label %302
 
 196:                                              ; preds = %188
@@ -476,10 +476,10 @@ select_region.exit:                               ; preds = %93, %.critedge.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %149, i64 52
   store i32 %200, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !33
   %201 = load i64, ptr %197, align 8
-  %202 = call i64 @av_rescale_q(i64 noundef 1, i64 %201, i64 4294967296000001) #12
+  %202 = call i64 @av_rescale_q(i64 noundef 1, i64 %201, i64 4294967296000001) #13
   %203 = getelementptr inbounds nuw i8, ptr %149, i64 56
   store i64 %202, ptr %203, align 8, !tbaa !77
-  %204 = call i64 @av_gettime_relative() #10
+  %204 = call i64 @av_gettime_relative() #11
   %205 = getelementptr inbounds nuw i8, ptr %149, i64 40
   store i64 %204, ptr %205, align 8, !tbaa !78
   %206 = getelementptr inbounds nuw i8, ptr %164, i64 1
@@ -491,9 +491,9 @@ select_region.exit:                               ; preds = %93, %.critedge.i
   %212 = load ptr, ptr %11, align 8, !tbaa !4
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !27
-  %215 = call ptr @xcb_get_setup(ptr noundef %214) #10
-  %216 = call ptr @xcb_setup_pixmap_formats(ptr noundef %215) #10
-  %217 = call i32 @xcb_setup_pixmap_formats_length(ptr noundef %215) #10
+  %215 = call ptr @xcb_get_setup(ptr noundef %214) #11
+  %216 = call ptr @xcb_setup_pixmap_formats(ptr noundef %215) #11
+  %217 = call i32 @xcb_setup_pixmap_formats_length(ptr noundef %215) #11
   store i32 0, ptr %210, align 4, !tbaa !33
   %.not45.i.i = icmp eq i32 %217, 0
   br i1 %.not45.i.i, label %pixfmt_from_pixmap_format.exit.thread.i, label %.lr.ph.i.preheader.i
@@ -641,8 +641,8 @@ select_region.exit:                               ; preds = %93, %.critedge.i
   br label %.loopexit.i
 
 pixfmt_from_pixmap_format.exit.thread.i:          ; preds = %260, %251, %242, %233, %225, %.lr.ph.i.preheader.i, %196
-  call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef %0, ptr noundef nonnull @.str.45) #10
-  call void @free(ptr noundef %164) #10
+  call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef %0, ptr noundef nonnull @.str.45) #11
+  call void @free(ptr noundef %164) #11
   br label %302
 
 .loopexit.i:                                      ; preds = %256, %.split104.us.i, %.split97.us.i, %.split90.us.i, %.split88.us.i, %.split.us.i
@@ -650,7 +650,7 @@ pixfmt_from_pixmap_format.exit.thread.i:          ; preds = %260, %251, %242, %2
   %282 = phi i32 [ 16, %.split104.us.i ], [ 16, %.split97.us.i ], [ 32, %.split88.us.i ], [ 24, %.split90.us.i ], [ 32, %.split.us.i ], [ 8, %256 ]
   store i32 %.sink.i.i, ptr %210, align 4, !tbaa !33
   store i32 %282, ptr %211, align 4, !tbaa !33
-  call void @free(ptr noundef %164) #10
+  call void @free(ptr noundef %164) #11
   %283 = load i32, ptr %168, align 4, !tbaa !61
   %284 = sext i32 %283 to i64
   %285 = load i32, ptr %189, align 8, !tbaa !63
@@ -663,7 +663,7 @@ pixfmt_from_pixmap_format.exit.thread.i:          ; preds = %260, %251, %242, %2
   br i1 %291, label %292, label %293
 
 292:                                              ; preds = %.loopexit.i
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.44) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.44) #11
   br label %302
 
 293:                                              ; preds = %.loopexit.i
@@ -675,7 +675,7 @@ pixfmt_from_pixmap_format.exit.thread.i:          ; preds = %260, %251, %242, %2
   %sext.i = add i64 %297, 274877906944
   %298 = ashr exact i64 %sext.i, 32
   %299 = load ptr, ptr %158, align 8, !tbaa !27
-  %300 = call ptr @av_buffer_pool_init2(i64 noundef %298, ptr noundef %299, ptr noundef nonnull @allocate_shm_buffer, ptr noundef null) #10
+  %300 = call ptr @av_buffer_pool_init2(i64 noundef %298, ptr noundef %299, ptr noundef nonnull @allocate_shm_buffer, ptr noundef null) #11
   %301 = getelementptr inbounds nuw i8, ptr %149, i64 32
   store ptr %300, ptr %301, align 8, !tbaa !89
   %.not80.i = icmp eq ptr %300, null
@@ -683,7 +683,7 @@ pixfmt_from_pixmap_format.exit.thread.i:          ; preds = %260, %251, %242, %2
 
 302:                                              ; preds = %195, %292, %165, %148, %151, %293, %pixfmt_from_pixmap_format.exit.thread.i
   %.0.i75.ph = phi i32 [ -1163346256, %pixfmt_from_pixmap_format.exit.thread.i ], [ -12, %293 ], [ %155, %151 ], [ -12, %148 ], [ -542398533, %165 ], [ -1163346256, %292 ], [ -22, %195 ]
-  %303 = call i32 @xcbgrab_read_close(ptr noundef %0) #11
+  %303 = call i32 @xcbgrab_read_close(ptr noundef %0) #12
   br label %418
 
 304:                                              ; preds = %293
@@ -701,17 +701,17 @@ pixfmt_from_pixmap_format.exit.thread.i:          ; preds = %260, %251, %242, %2
   %312 = sext i32 %311 to i64
   %313 = load i32, ptr %198, align 4, !tbaa !70
   %314 = sext i32 %313 to i64
-  %315 = call i64 @av_rescale(i64 noundef %290, i64 noundef %312, i64 noundef %314) #12
+  %315 = call i64 @av_rescale(i64 noundef %290, i64 noundef %312, i64 noundef %314) #13
   %316 = getelementptr inbounds nuw i8, ptr %305, i64 48
   store i64 %315, ptr %316, align 8, !tbaa !96
   %317 = load ptr, ptr %32, align 8, !tbaa !27
-  %318 = call i32 @xcb_shm_query_version(ptr noundef %317) #10
-  %319 = call ptr @xcb_shm_query_version_reply(ptr noundef %317, i32 %318, ptr noundef null) #10
+  %318 = call i32 @xcb_shm_query_version(ptr noundef %317) #11
+  %319 = call ptr @xcb_shm_query_version_reply(ptr noundef %317, i32 %318, ptr noundef null) #11
   %.not.i76 = icmp eq ptr %319, null
   br i1 %.not.i76, label %check_shm.exit, label %320
 
 320:                                              ; preds = %304
-  call void @free(ptr noundef nonnull %319) #10
+  call void @free(ptr noundef nonnull %319) #11
   br label %check_shm.exit
 
 check_shm.exit:                                   ; preds = %304, %320
@@ -725,19 +725,19 @@ check_shm.exit:                                   ; preds = %304, %320
 
 324:                                              ; preds = %check_shm.exit
   %325 = load ptr, ptr %32, align 8, !tbaa !27
-  %326 = call i32 @xcb_xfixes_query_version(ptr noundef %325, i32 noundef 6, i32 noundef 0) #10
-  %327 = call ptr @xcb_xfixes_query_version_reply(ptr noundef %325, i32 %326, ptr noundef null) #10
+  %326 = call i32 @xcb_xfixes_query_version(ptr noundef %325, i32 noundef 6, i32 noundef 0) #11
+  %327 = call ptr @xcb_xfixes_query_version_reply(ptr noundef %325, i32 %326, ptr noundef null) #11
   %.not.i78 = icmp eq ptr %327, null
   br i1 %.not.i78, label %328, label %check_xfixes.exit
 
 check_xfixes.exit:                                ; preds = %324
-  call void @free(ptr noundef nonnull %327) #10
+  call void @free(ptr noundef nonnull %327) #11
   store i32 1, ptr %322, align 4, !tbaa !98
   br label %329
 
 328:                                              ; preds = %324
   store i32 0, ptr %322, align 4, !tbaa !98
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.38) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.38) #11
   br label %329
 
 329:                                              ; preds = %check_xfixes.exit, %328
@@ -747,7 +747,7 @@ check_xfixes.exit:                                ; preds = %324
   br i1 %332, label %333, label %334
 
 333:                                              ; preds = %329
-  call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %331) #10
+  call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %331) #11
   store i32 0, ptr %322, align 4, !tbaa !98
   br label %334
 
@@ -777,7 +777,7 @@ check_xfixes.exit:                                ; preds = %324
   store i16 %347, ptr %344, align 2, !tbaa !62
   %348 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %349 = load ptr, ptr %348, align 8, !tbaa !27
-  %350 = call i32 @xcb_generate_id(ptr noundef %349) #10
+  %350 = call i32 @xcb_generate_id(ptr noundef %349) #11
   %351 = getelementptr inbounds nuw i8, ptr %338, i64 24
   store i32 %350, ptr %351, align 8, !tbaa !100
   %352 = load ptr, ptr %348, align 8, !tbaa !27
@@ -801,19 +801,19 @@ check_xfixes.exit:                                ; preds = %324
   %370 = load i32, ptr %345, align 8, !tbaa !63
   %371 = add nsw i32 %370, %367
   %372 = trunc i32 %371 to i16
-  %373 = call i32 @xcb_create_window(ptr noundef %352, i8 noundef zeroext 0, i32 noundef %350, i32 noundef %355, i16 noundef signext %361, i16 noundef signext %365, i16 noundef zeroext %369, i16 noundef zeroext %372, i16 noundef zeroext 0, i16 noundef zeroext 1, i32 noundef 0, i32 noundef 2560, ptr noundef nonnull %4) #10
+  %373 = call i32 @xcb_create_window(ptr noundef %352, i8 noundef zeroext 0, i32 noundef %350, i32 noundef %355, i16 noundef signext %361, i16 noundef signext %365, i16 noundef zeroext %369, i16 noundef zeroext %372, i16 noundef zeroext 0, i16 noundef zeroext 1, i32 noundef 0, i32 noundef 2560, ptr noundef nonnull %4) #11
   %374 = load ptr, ptr %348, align 8, !tbaa !27
   %375 = load i32, ptr %351, align 8, !tbaa !100
   %376 = load i32, ptr %358, align 8, !tbaa !101
   %377 = trunc i32 %376 to i16
-  %378 = call i32 @xcb_shape_rectangles(ptr noundef %374, i8 noundef zeroext 3, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef %375, i16 noundef signext %377, i16 noundef signext %377, i32 noundef 1, ptr noundef nonnull %5) #10
+  %378 = call i32 @xcb_shape_rectangles(ptr noundef %374, i8 noundef zeroext 3, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef %375, i16 noundef signext %377, i16 noundef signext %377, i32 noundef 1, ptr noundef nonnull %5) #11
   %379 = load ptr, ptr %348, align 8, !tbaa !27
   %380 = load i32, ptr %351, align 8, !tbaa !100
-  %381 = call i32 @xcb_map_window(ptr noundef %379, i32 noundef %380) #10
+  %381 = call i32 @xcb_map_window(ptr noundef %379, i32 noundef %380) #11
   %.val.i = load ptr, ptr %11, align 8, !tbaa !4
   %382 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %383 = load ptr, ptr %382, align 8, !tbaa !27
-  %384 = call i32 @xcb_generate_id(ptr noundef %383) #10
+  %384 = call i32 @xcb_generate_id(ptr noundef %383) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %385 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %386 = load ptr, ptr %385, align 8, !tbaa !38
@@ -854,10 +854,10 @@ check_xfixes.exit:                                ; preds = %324
   %411 = load ptr, ptr %382, align 8, !tbaa !27
   %412 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %413 = load i32, ptr %412, align 8, !tbaa !100
-  %414 = call i32 @xcb_create_gc(ptr noundef %411, i32 noundef %384, i32 noundef %413, i32 noundef 316, ptr noundef nonnull %2) #10
+  %414 = call i32 @xcb_create_gc(ptr noundef %411, i32 noundef %384, i32 noundef %413, i32 noundef 316, ptr noundef nonnull %2) #11
   %415 = load ptr, ptr %382, align 8, !tbaa !27
   %416 = load i32, ptr %412, align 8, !tbaa !100
-  %417 = call i32 @xcb_poly_rectangle(ptr noundef %415, i32 noundef %416, i32 noundef %384, i32 noundef 1, ptr noundef nonnull %3) #10
+  %417 = call i32 @xcb_poly_rectangle(ptr noundef %415, i32 noundef %416, i32 noundef %384, i32 noundef 1, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -885,7 +885,7 @@ define internal range(i32 -542398533, 1) i32 @xcbgrab_read_packet(ptr noundef %0
   %12 = load i64, ptr %11, align 8, !tbaa !78
   %13 = add nsw i64 %12, %10
   store i64 %13, ptr %11, align 8, !tbaa !78
-  %14 = tail call i64 @av_gettime_relative() #10
+  %14 = tail call i64 @av_gettime_relative() #11
   %15 = load i64, ptr %11, align 8, !tbaa !78
   %16 = sub nsw i64 %15, %14
   %17 = icmp slt i64 %16, 1
@@ -894,15 +894,15 @@ define internal range(i32 -542398533, 1) i32 @xcbgrab_read_packet(ptr noundef %0
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %18 = phi i64 [ %23, %.lr.ph.i ], [ %16, %2 ]
   %19 = trunc i64 %18 to i32
-  %20 = tail call i32 @av_usleep(i32 noundef %19) #10
-  %21 = tail call i64 @av_gettime_relative() #10
+  %20 = tail call i32 @av_usleep(i32 noundef %19) #11
+  %21 = tail call i64 @av_gettime_relative() #11
   %22 = load i64, ptr %11, align 8, !tbaa !78
   %23 = sub nsw i64 %22, %21
   %24 = icmp slt i64 %23, 1
   br i1 %24, label %wait_frame.exit, label %.lr.ph.i
 
 wait_frame.exit:                                  ; preds = %.lr.ph.i, %2
-  %25 = tail call i64 @av_gettime() #10
+  %25 = tail call i64 @av_gettime() #11
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %27 = load i32, ptr %26, align 8, !tbaa !45
   %.not = icmp eq i32 %27, 0
@@ -919,28 +919,28 @@ wait_frame.exit:                                  ; preds = %.lr.ph.i, %2
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %35 = load i32, ptr %34, align 8, !tbaa !40
-  %36 = tail call i32 @xcb_query_pointer(ptr noundef %33, i32 noundef %35) #10
+  %36 = tail call i32 @xcb_query_pointer(ptr noundef %33, i32 noundef %35) #11
   %37 = load ptr, ptr %32, align 8, !tbaa !27
   %38 = load i32, ptr %34, align 8, !tbaa !40
-  %39 = tail call i32 @xcb_get_geometry(ptr noundef %37, i32 noundef %38) #10
+  %39 = tail call i32 @xcb_get_geometry(ptr noundef %37, i32 noundef %38) #11
   %40 = load ptr, ptr %32, align 8, !tbaa !27
-  %41 = tail call ptr @xcb_query_pointer_reply(ptr noundef %40, i32 %36, ptr noundef null) #10
+  %41 = tail call ptr @xcb_query_pointer_reply(ptr noundef %40, i32 %36, ptr noundef null) #11
   %.not79 = icmp eq ptr %41, null
   br i1 %.not79, label %42, label %43
 
 42:                                               ; preds = %31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.46) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.46) #11
   br label %392
 
 43:                                               ; preds = %31
   %44 = load ptr, ptr %32, align 8, !tbaa !27
-  %45 = tail call ptr @xcb_get_geometry_reply(ptr noundef %44, i32 %39, ptr noundef null) #10
+  %45 = tail call ptr @xcb_get_geometry_reply(ptr noundef %44, i32 %39, ptr noundef null) #11
   %.not80 = icmp eq ptr %45, null
   br i1 %.not80, label %46, label %47
 
 46:                                               ; preds = %43
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.47) #10
-  tail call void @free(ptr noundef nonnull %41) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.47) #11
+  tail call void @free(ptr noundef nonnull %41) #11
   br label %392
 
 47:                                               ; preds = %43, %28
@@ -957,16 +957,16 @@ wait_frame.exit:                                  ; preds = %.lr.ph.i, %2
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !27
-  %56 = tail call i32 @xcb_translate_coordinates(ptr noundef %55, i32 noundef %49, i32 noundef %52, i16 noundef signext 0, i16 noundef signext 0) #10
+  %56 = tail call i32 @xcb_translate_coordinates(ptr noundef %55, i32 noundef %49, i32 noundef %52, i16 noundef signext 0, i16 noundef signext 0) #11
   %57 = load ptr, ptr %54, align 8, !tbaa !27
-  %58 = tail call ptr @xcb_translate_coordinates_reply(ptr noundef %57, i32 %56, ptr noundef null) #10
+  %58 = tail call ptr @xcb_translate_coordinates_reply(ptr noundef %57, i32 %56, ptr noundef null) #11
   %.not82 = icmp eq ptr %58, null
   br i1 %.not82, label %59, label %60
 
 59:                                               ; preds = %53
-  tail call void @free(ptr noundef %.068) #10
-  tail call void @free(ptr noundef %.069) #10
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.48) #10
+  tail call void @free(ptr noundef %.068) #11
+  tail call void @free(ptr noundef %.069) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.48) #11
   br label %392
 
 60:                                               ; preds = %53
@@ -976,7 +976,7 @@ wait_frame.exit:                                  ; preds = %.lr.ph.i, %2
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 14
   %65 = load i16, ptr %64, align 2, !tbaa !106
   %66 = sext i16 %65 to i32
-  tail call void @free(ptr noundef nonnull %58) #10
+  tail call void @free(ptr noundef nonnull %58) #11
   br label %67
 
 67:                                               ; preds = %60, %47
@@ -1106,7 +1106,7 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %143 = load ptr, ptr %142, align 8, !tbaa !27
   %144 = getelementptr inbounds nuw i8, ptr %.val91, i64 24
   %145 = load i32, ptr %144, align 8, !tbaa !100
-  %146 = call i32 @xcb_configure_window(ptr noundef %143, i32 noundef %145, i16 noundef zeroext 3, ptr noundef nonnull %6) #10
+  %146 = call i32 @xcb_configure_window(ptr noundef %143, i32 noundef %145, i16 noundef zeroext 3, ptr noundef nonnull %6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %147
 
@@ -1125,17 +1125,17 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 32
   %155 = load ptr, ptr %154, align 8, !tbaa !89
-  %156 = call ptr @av_buffer_pool_get(ptr noundef %155) #10
+  %156 = call ptr @av_buffer_pool_get(ptr noundef %155) #11
   store ptr %156, ptr %5, align 8, !tbaa !112
   %.not.i = icmp eq ptr %156, null
   br i1 %.not.i, label %157, label %158
 
 157:                                              ; preds = %150
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.50) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.50) #11
   br label %200
 
 158:                                              ; preds = %150
-  %159 = call ptr @av_buffer_pool_buffer_get_opaque(ptr noundef nonnull %156) #10
+  %159 = call ptr @av_buffer_pool_buffer_get_opaque(ptr noundef nonnull %156) #11
   %160 = ptrtoint ptr %159 to i64
   %161 = trunc i64 %160 to i32
   %162 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -1152,11 +1152,11 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %173 = getelementptr inbounds nuw i8, ptr %151, i64 80
   %174 = load i32, ptr %173, align 8, !tbaa !63
   %175 = trunc i32 %174 to i16
-  %176 = call i32 @xcb_shm_get_image(ptr noundef %163, i32 noundef %153, i16 noundef signext %166, i16 noundef signext %169, i16 noundef zeroext %172, i16 noundef zeroext %175, i32 noundef -1, i8 noundef zeroext 2, i32 noundef %161, i32 noundef 0) #10
+  %176 = call i32 @xcb_shm_get_image(ptr noundef %163, i32 noundef %153, i16 noundef signext %166, i16 noundef signext %169, i16 noundef zeroext %172, i16 noundef zeroext %175, i32 noundef -1, i8 noundef zeroext 2, i32 noundef %161, i32 noundef 0) #11
   %177 = load ptr, ptr %162, align 8, !tbaa !27
-  %178 = call ptr @xcb_shm_get_image_reply(ptr noundef %177, i32 %176, ptr noundef nonnull %4) #10
+  %178 = call ptr @xcb_shm_get_image_reply(ptr noundef %177, i32 %176, ptr noundef nonnull %4) #11
   %179 = load ptr, ptr %162, align 8, !tbaa !27
-  %180 = call i32 @xcb_flush(ptr noundef %179) #10
+  %180 = call i32 @xcb_flush(ptr noundef %179) #11
   %181 = load ptr, ptr %4, align 8, !tbaa !111
   %.not22.i = icmp eq ptr %181, null
   br i1 %.not22.i, label %201, label %182
@@ -1178,21 +1178,21 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %196 = getelementptr inbounds nuw i8, ptr %181, i64 10
   %197 = load i8, ptr %196, align 2, !tbaa !119
   %198 = zext i8 %197 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.51, i32 noundef %184, i32 noundef %187, i32 noundef %190, i32 noundef %192, i32 noundef %195, i32 noundef %198) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.51, i32 noundef %184, i32 noundef %187, i32 noundef %190, i32 noundef %192, i32 noundef %195, i32 noundef %198) #11
   %199 = load ptr, ptr %4, align 8, !tbaa !111
-  call void @free(ptr noundef %199) #10
-  call void @av_buffer_unref(ptr noundef nonnull %5) #10
+  call void @free(ptr noundef %199) #11
+  call void @av_buffer_unref(ptr noundef nonnull %5) #11
   br label %200
 
 200:                                              ; preds = %182, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.49) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.49) #11
   store i32 0, ptr %148, align 8, !tbaa !97
   br label %.thread
 
 201:                                              ; preds = %158
-  call void @free(ptr noundef %178) #10
+  call void @free(ptr noundef %178) #11
   store ptr %156, ptr %1, align 8, !tbaa !120
   %202 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %203 = load ptr, ptr %202, align 8, !tbaa !121
@@ -1228,9 +1228,9 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %222 = getelementptr inbounds nuw i8, ptr %208, i64 80
   %223 = load i32, ptr %222, align 8, !tbaa !63
   %224 = trunc i32 %223 to i16
-  %225 = call i32 @xcb_get_image(ptr noundef %212, i8 noundef zeroext 2, i32 noundef %210, i16 noundef signext %215, i16 noundef signext %218, i16 noundef zeroext %221, i16 noundef zeroext %224, i32 noundef -1) #10
+  %225 = call i32 @xcb_get_image(ptr noundef %212, i8 noundef zeroext 2, i32 noundef %210, i16 noundef signext %215, i16 noundef signext %218, i16 noundef zeroext %221, i16 noundef zeroext %224, i32 noundef -1) #11
   %226 = load ptr, ptr %211, align 8, !tbaa !27
-  %227 = call ptr @xcb_get_image_reply(ptr noundef %226, i32 %225, ptr noundef nonnull %3) #10
+  %227 = call ptr @xcb_get_image_reply(ptr noundef %226, i32 %225, ptr noundef nonnull %3) #11
   %228 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i95 = icmp eq ptr %228, null
   br i1 %.not.i95, label %247, label %229
@@ -1252,7 +1252,7 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %243 = getelementptr inbounds nuw i8, ptr %228, i64 10
   %244 = load i8, ptr %243, align 2, !tbaa !119
   %245 = zext i8 %244 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.51, i32 noundef %231, i32 noundef %234, i32 noundef %237, i32 noundef %239, i32 noundef %242, i32 noundef %245) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.51, i32 noundef %231, i32 noundef %234, i32 noundef %237, i32 noundef %239, i32 noundef %242, i32 noundef %245) #11
   %246 = load ptr, ptr %3, align 8, !tbaa !111
   br label %.thread106.sink.split
 
@@ -1261,10 +1261,10 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   br i1 %.not26.i, label %.thread106, label %248
 
 248:                                              ; preds = %247
-  %249 = call ptr @xcb_get_image_data(ptr noundef nonnull %227) #10
-  %250 = call i32 @xcb_get_image_data_length(ptr noundef nonnull %227) #10
+  %249 = call ptr @xcb_get_image_data(ptr noundef nonnull %227) #11
+  %250 = call i32 @xcb_get_image_data_length(ptr noundef nonnull %227) #11
   %251 = sext i32 %250 to i64
-  %252 = call ptr @av_buffer_create(ptr noundef %249, i64 noundef %251, ptr noundef nonnull @xcbgrab_image_reply_free, ptr noundef nonnull %227, i32 noundef 0) #10
+  %252 = call ptr @av_buffer_create(ptr noundef %249, i64 noundef %251, ptr noundef nonnull @xcbgrab_image_reply_free, ptr noundef nonnull %227, i32 noundef 0) #11
   store ptr %252, ptr %1, align 8, !tbaa !120
   %.not27.i = icmp eq ptr %252, null
   br i1 %.not27.i, label %.thread106.sink.split, label %257
@@ -1272,7 +1272,7 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
 .thread106.sink.split:                            ; preds = %248, %229
   %.sink = phi ptr [ %246, %229 ], [ %227, %248 ]
   %.0.i96.ph.ph = phi i32 [ -13, %229 ], [ -12, %248 ]
-  call void @free(ptr noundef %.sink) #10
+  call void @free(ptr noundef %.sink) #11
   br label %.thread106
 
 .thread106:                                       ; preds = %.thread106.sink.split, %247
@@ -1322,14 +1322,14 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %272 = sdiv i32 %271, 8
   %273 = getelementptr inbounds nuw i8, ptr %.val92, i64 8
   %274 = load ptr, ptr %273, align 8, !tbaa !27
-  %275 = call i32 @xcb_xfixes_get_cursor_image(ptr noundef %274) #10
+  %275 = call i32 @xcb_xfixes_get_cursor_image(ptr noundef %274) #11
   %276 = load ptr, ptr %273, align 8, !tbaa !27
-  %277 = call ptr @xcb_xfixes_get_cursor_image_reply(ptr noundef %276, i32 %275, ptr noundef null) #10
+  %277 = call ptr @xcb_xfixes_get_cursor_image_reply(ptr noundef %276, i32 %275, ptr noundef null) #11
   %.not.i97 = icmp eq ptr %277, null
   br i1 %.not.i97, label %xcbgrab_draw_mouse.exit, label %278
 
 278:                                              ; preds = %269
-  %279 = call ptr @xcb_xfixes_get_cursor_image_cursor_image(ptr noundef nonnull %277) #10
+  %279 = call ptr @xcb_xfixes_get_cursor_image_cursor_image(ptr noundef nonnull %277) #11
   %.not125.i = icmp eq ptr %279, null
   br i1 %.not125.i, label %xcbgrab_draw_mouse.exit, label %280
 
@@ -1494,13 +1494,13 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   br i1 %exitcond20.not.i, label %._crit_edge17.i, label %.lr.ph.us.i, !llvm.loop !137
 
 ._crit_edge17.i:                                  ; preds = %._crit_edge.us.i, %.lr.ph16.i, %280
-  call void @free(ptr noundef nonnull %277) #10
+  call void @free(ptr noundef nonnull %277) #11
   br label %xcbgrab_draw_mouse.exit
 
 xcbgrab_draw_mouse.exit:                          ; preds = %._crit_edge17.i, %278, %269, %.thread106, %266, %.thread101
   %.072103 = phi i32 [ 0, %266 ], [ 0, %.thread101 ], [ %.0.i96.ph, %.thread106 ], [ 0, %269 ], [ 0, %278 ], [ 0, %._crit_edge17.i ]
-  call void @free(ptr noundef %.068) #10
-  call void @free(ptr noundef %.069) #10
+  call void @free(ptr noundef %.068) #11
+  call void @free(ptr noundef %.069) #11
   br label %392
 
 392:                                              ; preds = %xcbgrab_draw_mouse.exit, %59, %46, %42
@@ -1513,10 +1513,10 @@ define internal noundef i32 @xcbgrab_read_close(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @av_buffer_pool_uninit(ptr noundef nonnull %4) #10
+  tail call void @av_buffer_pool_uninit(ptr noundef nonnull %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !27
-  tail call void @xcb_disconnect(ptr noundef %6) #10
+  tail call void @xcb_disconnect(ptr noundef %6) #11
   ret i32 0
 }
 
@@ -1595,15 +1595,15 @@ declare ptr @av_buffer_pool_init2(i64 noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
-  %3 = tail call i32 @shmget(i32 noundef 0, i64 noundef %1, i32 noundef 1023) #10
+  %3 = tail call i32 @shmget(i32 noundef 0, i64 noundef %1, i32 noundef 1023) #11
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @xcb_generate_id(ptr noundef %0) #10
-  %7 = tail call i32 @xcb_shm_attach(ptr noundef %0, i32 noundef %6, i32 noundef %3, i8 noundef zeroext 0) #10
-  %8 = tail call ptr @shmat(i32 noundef %3, ptr noundef null, i32 noundef 0) #10
-  %9 = tail call i32 @shmctl(i32 noundef %3, i32 noundef 0, ptr noundef null) #10
+  %6 = tail call i32 @xcb_generate_id(ptr noundef %0) #11
+  %7 = tail call i32 @xcb_shm_attach(ptr noundef %0, i32 noundef %6, i32 noundef %3, i8 noundef zeroext 0) #11
+  %8 = tail call ptr @shmat(i32 noundef %3, ptr noundef null, i32 noundef 0) #11
+  %9 = tail call i32 @shmctl(i32 noundef %3, i32 noundef 0, ptr noundef null) #11
   %magicptr = ptrtoint ptr %8 to i64
   %magicptr.off = add i64 %magicptr, -1
   %switch = icmp ult i64 %magicptr.off, -2
@@ -1612,12 +1612,12 @@ define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
 10:                                               ; preds = %5
   %11 = zext i32 %6 to i64
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @av_buffer_create(ptr noundef nonnull %8, i64 noundef %1, ptr noundef nonnull @free_shm_buffer, ptr noundef %12, i32 noundef 0) #10
+  %13 = tail call ptr @av_buffer_create(ptr noundef nonnull %8, i64 noundef %1, ptr noundef nonnull @free_shm_buffer, ptr noundef %12, i32 noundef 0) #11
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @shmdt(ptr noundef nonnull %8) #10
+  %15 = tail call i32 @shmdt(ptr noundef nonnull %8) #11
   br label %16
 
 16:                                               ; preds = %5, %10, %14, %2
@@ -1647,7 +1647,7 @@ declare ptr @av_buffer_create(ptr noundef, i64 noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_shm_buffer(ptr readnone captures(none) %0, ptr noundef %1) #1 {
-  %3 = tail call i32 @shmdt(ptr noundef %1) #10
+  %3 = tail call i32 @shmdt(ptr noundef %1) #11
   ret void
 }
 
@@ -1702,7 +1702,7 @@ declare i32 @xcb_get_image_data_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @xcbgrab_image_reply_free(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #7 {
-  tail call void @free(ptr noundef %0) #10
+  tail call void @free(ptr noundef %0) #11
   ret void
 }
 
@@ -1722,17 +1722,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1743,10 +1743,11 @@ attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #6 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold }
+attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

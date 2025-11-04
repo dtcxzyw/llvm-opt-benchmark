@@ -48,15 +48,15 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_instrumentation() local_unnamed_addr #0 {
-  %1 = tail call i64 @rb_define_module(ptr noundef nonnull @.str) #6
-  %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.1) #6
-  tail call void @rb_global_variable(ptr noundef nonnull @timeline_value) #6
-  %3 = tail call i64 @rb_data_typed_object_wrap(i64 noundef 0, ptr noundef null, ptr noundef nonnull @event_timeline_type) #6
+  %1 = tail call i64 @rb_define_module(ptr noundef nonnull @.str) #7
+  %2 = tail call i64 @rb_define_module_under(i64 noundef %1, ptr noundef nonnull @.str.1) #7
+  tail call void @rb_global_variable(ptr noundef nonnull @timeline_value) #7
+  %3 = tail call i64 @rb_data_typed_object_wrap(i64 noundef 0, ptr noundef null, ptr noundef nonnull @event_timeline_type) #7
   store i64 %3, ptr @timeline_value, align 8, !tbaa !6
-  tail call void @rb_global_variable(ptr noundef nonnull @last_thread) #6
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @thread_register_callback, i32 noundef 1) #6
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull @thread_unregister_callback, i32 noundef 0) #6
-  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @thread_register_and_unregister_callback, i32 noundef 0) #6
+  tail call void @rb_global_variable(ptr noundef nonnull @last_thread) #7
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.2, ptr noundef nonnull @thread_register_callback, i32 noundef 1) #7
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull @thread_unregister_callback, i32 noundef 0) #7
+  tail call void @rb_define_singleton_method(i64 noundef %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @thread_register_and_unregister_callback, i32 noundef 0) #7
   ret void
 }
 
@@ -76,7 +76,7 @@ define internal noundef i64 @thread_register_callback(i64 %0, i64 noundef %1) #0
   %4 = icmp ne i64 %3, 0
   %5 = zext i1 %4 to i64
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 31, ptr noundef %6) #6
+  %7 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 31, ptr noundef %6) #7
   store ptr %7, ptr @single_hook, align 8, !tbaa !10
   ret i64 4
 }
@@ -88,24 +88,24 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef nonnull %2) #6
+  %4 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef nonnull %2) #7
   store ptr null, ptr @single_hook, align 8, !tbaa !10
   br label %5
 
 5:                                                ; preds = %3, %1
   %6 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
   %7 = zext i32 %6 to i64
-  %8 = tail call i64 @rb_ary_new_capa(i64 noundef %7) #6
+  %8 = tail call i64 @rb_ary_new_capa(i64 noundef %7) #7
   %9 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
   %.not19 = icmp eq i32 %9, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %event_symbol.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %event_symbol.exit ], [ 0, %5 ]
-  %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #6
+  %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #7
   %11 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %indvars.iv
   %12 = load i64, ptr %11, align 16, !tbaa !15
-  %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #6
+  %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #7
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !17
   %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
@@ -128,7 +128,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i.i, label %.lr.ph.i.i, label %event_symbol.exit
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
-  %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 7) #6
+  %20 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 7) #7
   store i64 %20, ptr @event_symbol.rbimpl_id, align 8, !tbaa !6
   %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %event_symbol.exit, !llvm.loop !18
@@ -139,7 +139,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i8.i, label %.lr.ph.i10.i, label %event_symbol.exit
 
 .lr.ph.i10.i:                                     ; preds = %21, %.lr.ph.i10.i
-  %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 5) #6
+  %22 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.14, i64 noundef 5) #7
   store i64 %22, ptr @event_symbol.rbimpl_id.19, align 8, !tbaa !6
   %.not.i11.i = icmp eq i64 %22, 0
   br i1 %.not.i11.i, label %.lr.ph.i10.i, label %event_symbol.exit, !llvm.loop !18
@@ -150,7 +150,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i14.i, label %.lr.ph.i16.i, label %event_symbol.exit
 
 .lr.ph.i16.i:                                     ; preds = %23, %.lr.ph.i16.i
-  %24 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 7) #6
+  %24 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.15, i64 noundef 7) #7
   store i64 %24, ptr @event_symbol.rbimpl_id.20, align 8, !tbaa !6
   %.not.i17.i = icmp eq i64 %24, 0
   br i1 %.not.i17.i, label %.lr.ph.i16.i, label %event_symbol.exit, !llvm.loop !18
@@ -161,7 +161,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i20.i, label %.lr.ph.i22.i, label %event_symbol.exit
 
 .lr.ph.i22.i:                                     ; preds = %25, %.lr.ph.i22.i
-  %26 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 9) #6
+  %26 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.16, i64 noundef 9) #7
   store i64 %26, ptr @event_symbol.rbimpl_id.21, align 8, !tbaa !6
   %.not.i23.i = icmp eq i64 %26, 0
   br i1 %.not.i23.i, label %.lr.ph.i22.i, label %event_symbol.exit, !llvm.loop !18
@@ -172,20 +172,20 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   br i1 %.not4.i26.i, label %.lr.ph.i28.i, label %event_symbol.exit
 
 .lr.ph.i28.i:                                     ; preds = %27, %.lr.ph.i28.i
-  %28 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 6) #6
+  %28 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 6) #7
   store i64 %28, ptr @event_symbol.rbimpl_id.22, align 8, !tbaa !6
   %.not.i29.i = icmp eq i64 %28, 0
   br i1 %.not.i29.i, label %.lr.ph.i28.i, label %event_symbol.exit, !llvm.loop !18
 
 29:                                               ; preds = %.split.i, %.lr.ph
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.23) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.23) #8
   unreachable
 
 event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.ph.i22.i, %.lr.ph.i16.i, %.lr.ph.i10.i, %.lr.ph.i.i, %19, %21, %23, %25, %27
   %.lcssa.i27.sink.i = phi i64 [ %.pr.i.i, %19 ], [ %.pr.i7.i, %21 ], [ %.pr.i13.i, %23 ], [ %.pr.i19.i, %25 ], [ %.pr.i25.i, %27 ], [ %20, %.lr.ph.i.i ], [ %22, %.lr.ph.i10.i ], [ %24, %.lr.ph.i16.i ], [ %26, %.lr.ph.i22.i ], [ %28, %.lr.ph.i28.i ]
-  %30 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i27.sink.i) #6
-  %31 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %30) #6
-  %32 = tail call i64 @rb_ary_push(i64 noundef %8, i64 noundef %10) #6
+  %30 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i27.sink.i) #7
+  %31 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %30) #7
+  %32 = tail call i64 @rb_ary_push(i64 noundef %8, i64 noundef %10) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
   %34 = zext i32 %33 to i64
@@ -194,7 +194,7 @@ event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.
 
 ._crit_edge:                                      ; preds = %event_symbol.exit, %5
   store i32 0, ptr @timeline_cursor, align 4, !tbaa !13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) @event_timeline, i8 noundef 0, i64 noundef 16384, i1 noundef false) #6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) @event_timeline, i8 noundef 0, i64 noundef 16384, i1 noundef false) #7
   ret i64 %8
 }
 
@@ -207,12 +207,12 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 3:                                                ; preds = %7
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 16, !tbaa !10
-  %6 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %5) #6
+  %6 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %5) #7
   br i1 %6, label %10, label %25
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #6
+  %8 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #7
   %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   store ptr %8, ptr %9, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -221,25 +221,25 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %2, align 16, !tbaa !10
-  %12 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %11) #6
+  %12 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %11) #7
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !10
-  %16 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %15) #6
+  %16 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %15) #7
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 16, !tbaa !10
-  %20 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %19) #6
+  %20 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %19) #7
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !10
-  %24 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %23) #6
+  %24 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %23) #7
   %. = select i1 %24, i64 20, i64 0
   br label %25
 
@@ -259,7 +259,7 @@ define internal void @event_timeline_gc_mark(ptr readnone captures(none) %0) #0 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %indvars.iv
   %4 = load i64, ptr %3, align 16, !tbaa !15
-  tail call void @rb_gc_mark(i64 noundef %4) #6
+  tail call void @rb_gc_mark(i64 noundef %4) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
   %6 = zext i32 %5 to i64
@@ -335,12 +335,12 @@ event_name.exit.i:                                ; preds = %17, %.split.i.i, %s
   br i1 %.not56, label %unexpected.exit, label %23
 
 23:                                               ; preds = %event_name.exit.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #8
   unreachable
 
 unexpected.exit:                                  ; preds = %event_name.exit.i
   %24 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %25 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %24, i32 noundef 1, ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #6
+  %25 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %24, i32 noundef 1, ptr noundef nonnull @.str.6, i64 noundef %4, ptr noundef nonnull %.0.i.i) #7
   br label %find_last_event.exit.thread.sink.split
 
 26:                                               ; preds = %.split
@@ -370,12 +370,12 @@ event_name.exit.i37:                              ; preds = %27, %.split.i.i39, 
   br i1 %.not56, label %unexpected.exit40, label %33
 
 33:                                               ; preds = %event_name.exit.i37
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i38) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i38) #8
   unreachable
 
 unexpected.exit40:                                ; preds = %event_name.exit.i37
   %34 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %35 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %34, i32 noundef 1, ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i38) #6
+  %35 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %34, i32 noundef 1, ptr noundef nonnull @.str.7, i64 noundef %4, ptr noundef nonnull %.0.i.i38) #7
   br label %find_last_event.exit.thread.sink.split
 
 36:                                               ; preds = %.split
@@ -403,12 +403,12 @@ event_name.exit.i41:                              ; preds = %37, %.split.i.i43, 
   br i1 %.not56, label %unexpected.exit44, label %43
 
 43:                                               ; preds = %event_name.exit.i41
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i42) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i42) #8
   unreachable
 
 unexpected.exit44:                                ; preds = %event_name.exit.i41
   %44 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %45 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %44, i32 noundef 1, ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i42) #6
+  %45 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %44, i32 noundef 1, ptr noundef nonnull @.str.8, i64 noundef %4, ptr noundef nonnull %.0.i.i42) #7
   br label %find_last_event.exit.thread.sink.split
 
 46:                                               ; preds = %.split
@@ -436,12 +436,12 @@ event_name.exit.i45:                              ; preds = %47, %.split.i.i47, 
   br i1 %.not56, label %unexpected.exit48, label %53
 
 53:                                               ; preds = %event_name.exit.i45
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i46) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i46) #8
   unreachable
 
 unexpected.exit48:                                ; preds = %event_name.exit.i45
   %54 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %55 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %54, i32 noundef 1, ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i46) #6
+  %55 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %54, i32 noundef 1, ptr noundef nonnull @.str.9, i64 noundef %4, ptr noundef nonnull %.0.i.i46) #7
   br label %find_last_event.exit.thread.sink.split
 
 56:                                               ; preds = %.split
@@ -471,17 +471,17 @@ event_name.exit.i49:                              ; preds = %57, %.split.i.i51, 
   br i1 %.not56, label %unexpected.exit52, label %63
 
 63:                                               ; preds = %event_name.exit.i49
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i50) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i50) #8
   unreachable
 
 unexpected.exit52:                                ; preds = %event_name.exit.i49
   %64 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %65 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %64, i32 noundef 1, ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i50) #6
+  %65 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %64, i32 noundef 1, ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.0.i.i50) #7
   br label %find_last_event.exit.thread.sink.split
 
 find_last_event.exit.thread.sink.split:           ; preds = %unexpected.exit52, %unexpected.exit48, %unexpected.exit44, %unexpected.exit40, %unexpected.exit
   %66 = load ptr, ptr @stderr, align 8, !tbaa !26
-  %67 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %66, i32 noundef 1, ptr noundef nonnull @.str.12) #6
+  %67 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %66, i32 noundef 1, ptr noundef nonnull @.str.12) #7
   br label %find_last_event.exit.thread
 
 find_last_event.exit.thread:                      ; preds = %10, %find_last_event.exit.thread.sink.split, %3, %56, %56, %26, %26, %.split, %36, %46, %find_last_event.exit
@@ -490,7 +490,7 @@ find_last_event.exit.thread:                      ; preds = %10, %find_last_even
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %find_last_event.exit.thread
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.11) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.11) #8
   unreachable
 
 71:                                               ; preds = %find_last_event.exit.thread
@@ -524,23 +524,24 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold noreturn nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

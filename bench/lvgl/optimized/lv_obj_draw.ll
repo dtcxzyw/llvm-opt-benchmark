@@ -19,7 +19,7 @@ define void @lv_obj_init_draw_rect_dsc(ptr noundef %0, i32 noundef %1, ptr nound
   br label %get_layer_opa.exit
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #5
+  %10 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #6
   br label %get_layer_opa.exit
 
 get_layer_opa.exit:                               ; preds = %6, %9
@@ -44,7 +44,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br label %218
 
 20:                                               ; preds = %get_layer_opa.exit
-  %21 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 12) #5
+  %21 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 12) #6
   %22 = ptrtoint ptr %21 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %22 to i32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -55,7 +55,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %.not, label %79, label %26
 
 26:                                               ; preds = %20
-  %27 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 29) #5
+  %27 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 29) #6
   %28 = ptrtoint ptr %27 to i64
   %29 = trunc i64 %28 to i8
   store i8 %29, ptr %24, align 4, !tbaa !23
@@ -64,12 +64,12 @@ get_layer_opa.exit:                               ; preds = %6, %9
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 53
-  %33 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 28) #5
-  %34 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %33) #5
+  %33 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 28) #6
+  %34 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %33) #6
   %35 = ptrtoint ptr %34 to i64
   %.sroa.01.0.extract.trunc.i = trunc i64 %35 to i24
   store i24 %.sroa.01.0.extract.trunc.i, ptr %32, align 1
-  %36 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 38) #5
+  %36 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 38) #6
   %.not155 = icmp eq ptr %36, null
   br i1 %.not155, label %44, label %37
 
@@ -82,11 +82,11 @@ get_layer_opa.exit:                               ; preds = %6, %9
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %43 = tail call ptr @lv_memcpy(ptr noundef nonnull %42, ptr noundef nonnull %36, i64 noundef 12) #5
+  %43 = tail call ptr @lv_memcpy(ptr noundef nonnull %42, ptr noundef nonnull %36, i64 noundef 12) #6
   br label %79
 
 44:                                               ; preds = %37, %31
-  %45 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 32) #5
+  %45 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 32) #6
   %46 = ptrtoint ptr %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 67
   %48 = trunc i64 %46 to i8
@@ -101,33 +101,33 @@ get_layer_opa.exit:                               ; preds = %6, %9
 
 54:                                               ; preds = %44
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %56 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 28) #5
-  %57 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %56) #5
+  %56 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 28) #6
+  %57 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %56) #6
   %58 = ptrtoint ptr %57 to i64
   %.sroa.01.0.extract.trunc.i167 = trunc i64 %58 to i24
   store i24 %.sroa.01.0.extract.trunc.i167, ptr %55, align 8
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 61
-  %60 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 35) #5
-  %61 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %60) #5
+  %60 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 35) #6
+  %61 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %60) #6
   %62 = ptrtoint ptr %61 to i64
   %.sroa.01.0.extract.trunc.i168 = trunc i64 %62 to i24
   store i24 %.sroa.01.0.extract.trunc.i168, ptr %59, align 1
-  %63 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 33) #5
+  %63 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 33) #6
   %64 = ptrtoint ptr %63 to i64
   %65 = trunc i64 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i8 %65, ptr %66, align 4, !tbaa !29
-  %67 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 34) #5
+  %67 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 34) #6
   %68 = ptrtoint ptr %67 to i64
   %69 = trunc i64 %68 to i8
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 65
   store i8 %69, ptr %70, align 1, !tbaa !29
-  %71 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 36) #5
+  %71 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 36) #6
   %72 = ptrtoint ptr %71 to i64
   %73 = trunc i64 %72 to i8
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 59
   store i8 %73, ptr %74, align 1, !tbaa !31
-  %75 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 37) #5
+  %75 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 37) #6
   %76 = ptrtoint ptr %75 to i64
   %77 = trunc i64 %76 to i8
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -141,7 +141,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %.not158, label %104, label %82
 
 82:                                               ; preds = %79
-  %83 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 48) #5
+  %83 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 48) #6
   %84 = ptrtoint ptr %83 to i64
   %.sroa.0.0.extract.trunc.i171 = trunc i64 %84 to i32
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 100
@@ -150,7 +150,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %.not159, label %104, label %86
 
 86:                                               ; preds = %82
-  %87 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 50) #5
+  %87 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 50) #6
   %88 = ptrtoint ptr %87 to i64
   %89 = trunc i64 %88 to i8
   store i8 %89, ptr %80, align 8, !tbaa !25
@@ -158,7 +158,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %90, label %91, label %104
 
 91:                                               ; preds = %86
-  %92 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 52) #5
+  %92 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 52) #6
   %93 = ptrtoint ptr %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 105
   %95 = trunc i64 %93 to i8
@@ -168,8 +168,8 @@ get_layer_opa.exit:                               ; preds = %6, %9
   %99 = or disjoint i8 %97, %98
   store i8 %99, ptr %94, align 1
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 94
-  %101 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 49) #5
-  %102 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %101) #5
+  %101 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 49) #6
+  %102 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %101) #6
   %103 = ptrtoint ptr %102 to i64
   %.sroa.01.0.extract.trunc.i173 = trunc i64 %103 to i24
   store i24 %.sroa.01.0.extract.trunc.i173, ptr %100, align 2
@@ -182,7 +182,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %.not160, label %124, label %107
 
 107:                                              ; preds = %104
-  %108 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 56) #5
+  %108 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 56) #6
   %109 = ptrtoint ptr %108 to i64
   %.sroa.0.0.extract.trunc.i174 = trunc i64 %109 to i32
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -191,7 +191,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %.not161, label %124, label %111
 
 111:                                              ; preds = %107
-  %112 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 58) #5
+  %112 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 58) #6
   %113 = ptrtoint ptr %112 to i64
   %114 = trunc i64 %113 to i8
   store i8 %114, ptr %105, align 8, !tbaa !26
@@ -199,14 +199,14 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %115, label %116, label %124
 
 116:                                              ; preds = %111
-  %117 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 59) #5
+  %117 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 59) #6
   %118 = ptrtoint ptr %117 to i64
   %.sroa.0.0.extract.trunc.i175 = trunc i64 %118 to i32
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i32 %.sroa.0.0.extract.trunc.i175, ptr %119, align 4, !tbaa !34
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 106
-  %121 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 57) #5
-  %122 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %121) #5
+  %121 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 57) #6
+  %122 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %121) #6
   %123 = ptrtoint ptr %122 to i64
   %.sroa.01.0.extract.trunc.i176 = trunc i64 %123 to i24
   store i24 %.sroa.01.0.extract.trunc.i176, ptr %120, align 2
@@ -219,14 +219,14 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %.not162, label %161, label %127
 
 127:                                              ; preds = %124
-  %128 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 40) #5
+  %128 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 40) #6
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %128, ptr %129, align 8, !tbaa !35
   %.not163 = icmp eq ptr %128, null
   br i1 %.not163, label %161, label %130
 
 130:                                              ; preds = %127
-  %131 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 41) #5
+  %131 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 41) #6
   %132 = ptrtoint ptr %131 to i64
   %133 = trunc i64 %132 to i8
   store i8 %133, ptr %125, align 1, !tbaa !24
@@ -235,17 +235,17 @@ get_layer_opa.exit:                               ; preds = %6, %9
 
 135:                                              ; preds = %130
   %136 = load ptr, ptr %129, align 8, !tbaa !35
-  %137 = tail call i32 @lv_image_src_get_type(ptr noundef %136) #5
+  %137 = tail call i32 @lv_image_src_get_type(ptr noundef %136) #6
   %138 = icmp eq i32 %137, 2
   br i1 %138, label %139, label %146
 
 139:                                              ; preds = %135
-  %140 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 90) #5
+  %140 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 90) #6
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %140, ptr %141, align 8, !tbaa !36
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %143 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 88) #5
-  %144 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %143) #5
+  %143 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 88) #6
+  %144 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %143) #6
   %145 = ptrtoint ptr %144 to i64
   %.sroa.01.0.extract.trunc.i177 = trunc i64 %145 to i24
   store i24 %.sroa.01.0.extract.trunc.i177, ptr %142, align 8
@@ -253,17 +253,17 @@ get_layer_opa.exit:                               ; preds = %6, %9
 
 146:                                              ; preds = %135
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %148 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 42) #5
-  %149 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %148) #5
+  %148 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 42) #6
+  %149 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %148) #6
   %150 = ptrtoint ptr %149 to i64
   %.sroa.01.0.extract.trunc.i178 = trunc i64 %150 to i24
   store i24 %.sroa.01.0.extract.trunc.i178, ptr %147, align 8
-  %151 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 43) #5
+  %151 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 43) #6
   %152 = ptrtoint ptr %151 to i64
   %153 = trunc i64 %152 to i8
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i8 %153, ptr %154, align 4, !tbaa !37
-  %155 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 44) #5
+  %155 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 44) #6
   %156 = ptrtoint ptr %155 to i64
   %157 = and i64 %156, 4294967295
   %158 = icmp ne i64 %157, 0
@@ -279,7 +279,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %.not164, label %190, label %164
 
 164:                                              ; preds = %161
-  %165 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 60) #5
+  %165 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 60) #6
   %166 = ptrtoint ptr %165 to i64
   %.sroa.0.0.extract.trunc.i179 = trunc i64 %166 to i32
   %167 = getelementptr inbounds nuw i8, ptr %2, i64 124
@@ -293,7 +293,7 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %170, label %171, label %190
 
 171:                                              ; preds = %168
-  %172 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 62) #5
+  %172 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 62) #6
   %173 = ptrtoint ptr %172 to i64
   %174 = trunc i64 %173 to i8
   store i8 %174, ptr %162, align 4, !tbaa !27
@@ -301,24 +301,24 @@ get_layer_opa.exit:                               ; preds = %6, %9
   br i1 %175, label %176, label %190
 
 176:                                              ; preds = %171
-  %177 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 64) #5
+  %177 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 64) #6
   %178 = ptrtoint ptr %177 to i64
   %.sroa.0.0.extract.trunc.i180 = trunc i64 %178 to i32
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 %.sroa.0.0.extract.trunc.i180, ptr %179, align 8, !tbaa !40
-  %180 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 65) #5
+  %180 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 65) #6
   %181 = ptrtoint ptr %180 to i64
   %.sroa.0.0.extract.trunc.i181 = trunc i64 %181 to i32
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 132
   store i32 %.sroa.0.0.extract.trunc.i181, ptr %182, align 4, !tbaa !41
-  %183 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 66) #5
+  %183 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 66) #6
   %184 = ptrtoint ptr %183 to i64
   %.sroa.0.0.extract.trunc.i182 = trunc i64 %184 to i32
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %.sroa.0.0.extract.trunc.i182, ptr %185, align 8, !tbaa !42
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 121
-  %187 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 61) #5
-  %188 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %187) #5
+  %187 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 61) #6
+  %188 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %187) #6
   %189 = ptrtoint ptr %188 to i64
   %.sroa.01.0.extract.trunc.i183 = trunc i64 %189 to i24
   store i24 %.sroa.01.0.extract.trunc.i183, ptr %186, align 1
@@ -374,7 +374,7 @@ define void @lv_obj_init_draw_label_dsc(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %0, ptr %2, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !48
-  %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 89) #5
+  %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 89) #6
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -394,7 +394,7 @@ define void @lv_obj_init_draw_label_dsc(ptr noundef %0, i32 noundef %1, ptr noun
   br label %get_layer_opa.exit
 
 15:                                               ; preds = %10
-  %16 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #5
+  %16 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #6
   br label %get_layer_opa.exit
 
 get_layer_opa.exit:                               ; preds = %12, %15
@@ -423,22 +423,22 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %30 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 88) #5
-  %31 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %30) #5
+  %30 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 88) #6
+  %31 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %30) #6
   %32 = ptrtoint ptr %31 to i64
   %.sroa.01.0.extract.trunc.i = trunc i64 %32 to i24
   store i24 %.sroa.01.0.extract.trunc.i, ptr %29, align 8
-  %33 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 91) #5
+  %33 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 91) #6
   %34 = ptrtoint ptr %33 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %34 to i32
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 %.sroa.0.0.extract.trunc.i, ptr %35, align 8, !tbaa !50
-  %36 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 92) #5
+  %36 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 92) #6
   %37 = ptrtoint ptr %36 to i64
   %.sroa.0.0.extract.trunc.i41 = trunc i64 %37 to i32
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 %.sroa.0.0.extract.trunc.i41, ptr %38, align 4, !tbaa !51
-  %39 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 93) #5
+  %39 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 93) #6
   %40 = ptrtoint ptr %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %42 = trunc i64 %40 to i8
@@ -451,7 +451,7 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
   br i1 %.not, label %.split, label %.split38
 
 .split38:                                         ; preds = %28
-  %47 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext 103) #5
+  %47 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext 103) #6
   %48 = ptrtoint ptr %47 to i64
   %49 = trunc i64 %48 to i8
   %50 = load i8, ptr %41, align 8
@@ -464,10 +464,10 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
 
 .split:                                           ; preds = %28, %.split38
   %.sink48 = phi i32 [ %1, %.split38 ], [ 0, %28 ]
-  %55 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %.sink48, i8 noundef zeroext 90) #5
+  %55 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %.sink48, i8 noundef zeroext 90) #6
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %55, ptr %56, align 8, !tbaa !52
-  %57 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %.sink48, i8 noundef zeroext 94) #5
+  %57 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %.sink48, i8 noundef zeroext 94) #6
   %phi.call39.in = ptrtoint ptr %57 to i64
   %phi.call39 = trunc i64 %phi.call39.in to i32
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -483,7 +483,7 @@ define void @lv_obj_init_draw_image_dsc(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %0, ptr %2, align 8, !tbaa !54
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !60
-  %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 68) #5
+  %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 68) #6
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 100
@@ -503,7 +503,7 @@ define void @lv_obj_init_draw_image_dsc(ptr noundef %0, i32 noundef %1, ptr noun
   br label %get_layer_opa.exit
 
 15:                                               ; preds = %10
-  %16 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #5
+  %16 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #6
   br label %get_layer_opa.exit
 
 get_layer_opa.exit:                               ; preds = %12, %15
@@ -538,22 +538,22 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 256, ptr %31, align 4, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = tail call i32 @lv_area_get_width(ptr noundef nonnull %32) #5
+  %33 = tail call i32 @lv_area_get_width(ptr noundef nonnull %32) #6
   %34 = sdiv i32 %33, 2
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %34, ptr %35, align 8, !tbaa !65
-  %36 = tail call i32 @lv_area_get_height(ptr noundef nonnull %32) #5
+  %36 = tail call i32 @lv_area_get_height(ptr noundef nonnull %32) #6
   %37 = sdiv i32 %36, 2
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 %37, ptr %38, align 4, !tbaa !66
-  %39 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 70) #5
+  %39 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 70) #6
   %40 = ptrtoint ptr %39 to i64
   %41 = trunc i64 %40 to i8
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 99
   store i8 %41, ptr %42, align 1, !tbaa !67
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %44 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 69) #5
-  %45 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %44) #5
+  %44 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 69) #6
+  %45 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %44) #6
   %46 = ptrtoint ptr %45 to i64
   %.sroa.01.0.extract.trunc.i = trunc i64 %46 to i24
   store i24 %.sroa.01.0.extract.trunc.i, ptr %43, align 8
@@ -561,7 +561,7 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
   br i1 %.not, label %56, label %47
 
 47:                                               ; preds = %28
-  %48 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext 103) #5
+  %48 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext 103) #6
   %49 = ptrtoint ptr %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 101
   %51 = trunc i64 %49 to i8
@@ -585,7 +585,7 @@ define void @lv_obj_init_draw_line_dsc(ptr noundef %0, i32 noundef %1, ptr nound
   store ptr %0, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !72
-  %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 77) #5
+  %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 77) #6
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -605,7 +605,7 @@ define void @lv_obj_init_draw_line_dsc(ptr noundef %0, i32 noundef %1, ptr nound
   br label %get_layer_opa.exit
 
 15:                                               ; preds = %10
-  %16 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #5
+  %16 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #6
   br label %get_layer_opa.exit
 
 get_layer_opa.exit:                               ; preds = %12, %15
@@ -633,7 +633,7 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
   br i1 %27, label %64, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 72) #5
+  %29 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 72) #6
   %30 = ptrtoint ptr %29 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %30 to i32
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 68
@@ -643,12 +643,12 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %35 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 76) #5
-  %36 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %35) #5
+  %35 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 76) #6
+  %36 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %35) #6
   %37 = ptrtoint ptr %36 to i64
   %.sroa.01.0.extract.trunc.i = trunc i64 %37 to i24
   store i24 %.sroa.01.0.extract.trunc.i, ptr %34, align 8
-  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 73) #5
+  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 73) #6
   %39 = ptrtoint ptr %38 to i64
   %.sroa.0.0.extract.trunc.i40 = trunc i64 %39 to i32
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -657,7 +657,7 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
   br i1 %.not, label %45, label %41
 
 41:                                               ; preds = %33
-  %42 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 74) #5
+  %42 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 74) #6
   %43 = ptrtoint ptr %42 to i64
   %.sroa.0.0.extract.trunc.i41 = trunc i64 %43 to i32
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 76
@@ -665,7 +665,7 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
   br label %45
 
 45:                                               ; preds = %41, %33
-  %46 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 75) #5
+  %46 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 75) #6
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, 4294967295
   %.not43 = icmp eq i64 %48, 0
@@ -681,7 +681,7 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
   br i1 %.not39, label %64, label %56
 
 56:                                               ; preds = %45
-  %57 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext 103) #5
+  %57 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i8 noundef zeroext 103) #6
   %58 = ptrtoint ptr %57 to i64
   %59 = trunc i64 %58 to i8
   %60 = load i8, ptr %49, align 1
@@ -700,7 +700,7 @@ define void @lv_obj_init_draw_arc_dsc(ptr noundef %0, i32 noundef %1, ptr nounde
   store ptr %0, ptr %2, align 8, !tbaa !77
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !79
-  %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 80) #5
+  %5 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 80) #6
   %6 = ptrtoint ptr %5 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 52
@@ -709,7 +709,7 @@ define void @lv_obj_init_draw_arc_dsc(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %8, label %49, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 83) #5
+  %10 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 83) #6
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -729,7 +729,7 @@ define void @lv_obj_init_draw_arc_dsc(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %get_layer_opa.exit
 
 20:                                               ; preds = %15
-  %21 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #5
+  %21 = tail call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %0, i32 noundef %1) #6
   br label %get_layer_opa.exit
 
 get_layer_opa.exit:                               ; preds = %17, %20
@@ -758,15 +758,15 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %35 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 82) #5
-  %36 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %35) #5
+  %35 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 82) #6
+  %36 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %35) #6
   %37 = ptrtoint ptr %36 to i64
   %.sroa.01.0.extract.trunc.i = trunc i64 %37 to i24
   store i24 %.sroa.01.0.extract.trunc.i, ptr %34, align 8
-  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 84) #5
+  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 84) #6
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %38, ptr %39, align 8, !tbaa !82
-  %40 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 81) #5
+  %40 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 81) #6
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, 4294967295
   %43 = icmp ne i64 %42, 0
@@ -784,14 +784,14 @@ thread-pre-split:                                 ; preds = %get_layer_opa.exit
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, -2147483648) i32 @lv_obj_calculate_ext_draw_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 60) #5
+  %3 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 60) #6
   %4 = ptrtoint ptr %3 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %4 to i32
   %.not = icmp eq i32 %.sroa.0.0.extract.trunc.i, 0
   br i1 %.not, label %24, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 62) #5
+  %6 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 62) #6
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i8
   %9 = icmp ugt i8 %8, 2
@@ -800,14 +800,14 @@ define range(i32 0, -2147483648) i32 @lv_obj_calculate_ext_draw_size(ptr noundef
 10:                                               ; preds = %5
   %11 = sdiv i32 %.sroa.0.0.extract.trunc.i, 2
   %12 = add nsw i32 %11, 1
-  %13 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 66) #5
+  %13 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 66) #6
   %14 = ptrtoint ptr %13 to i64
   %.sroa.0.0.extract.trunc.i62 = trunc i64 %14 to i32
   %15 = add nsw i32 %12, %.sroa.0.0.extract.trunc.i62
-  %16 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 64) #5
+  %16 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 64) #6
   %17 = ptrtoint ptr %16 to i64
   %.sroa.0.0.extract.trunc.i63 = trunc i64 %17 to i32
-  %18 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 65) #5
+  %18 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 65) #6
   %19 = ptrtoint ptr %18 to i64
   %.sroa.0.0.extract.trunc.i64 = trunc i64 %19 to i32
   %20 = tail call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i63, i1 true)
@@ -819,21 +819,21 @@ define range(i32 0, -2147483648) i32 @lv_obj_calculate_ext_draw_size(ptr noundef
 
 24:                                               ; preds = %5, %10, %2
   %.0 = phi i32 [ 0, %2 ], [ %23, %10 ], [ 0, %5 ]
-  %25 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 56) #5
+  %25 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 56) #6
   %26 = ptrtoint ptr %25 to i64
   %.sroa.0.0.extract.trunc.i65 = trunc i64 %26 to i32
   %.not61 = icmp eq i32 %.sroa.0.0.extract.trunc.i65, 0
   br i1 %.not61, label %37, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 58) #5
+  %28 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 58) #6
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i8
   %31 = icmp ugt i8 %30, 2
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %27
-  %33 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 59) #5
+  %33 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 59) #6
   %34 = ptrtoint ptr %33 to i64
   %.sroa.0.0.extract.trunc.i66 = trunc i64 %34 to i32
   %35 = add nsw i32 %.sroa.0.0.extract.trunc.i66, %.sroa.0.0.extract.trunc.i65
@@ -842,10 +842,10 @@ define range(i32 0, -2147483648) i32 @lv_obj_calculate_ext_draw_size(ptr noundef
 
 37:                                               ; preds = %27, %32, %24
   %.2 = phi i32 [ %.0, %24 ], [ %36, %32 ], [ %.0, %27 ]
-  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 104) #5
+  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 104) #6
   %39 = ptrtoint ptr %38 to i64
   %.sroa.0.0.extract.trunc.i67 = trunc i64 %39 to i32
-  %40 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 105) #5
+  %40 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 105) #6
   %41 = ptrtoint ptr %40 to i64
   %.sroa.0.0.extract.trunc.i68 = trunc i64 %41 to i32
   %42 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i67, i32 %.sroa.0.0.extract.trunc.i68)
@@ -878,7 +878,7 @@ lv_obj_get_ext_draw_size.exit:                    ; preds = %3, %6
   %.0.i = phi i32 [ %8, %6 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !94
-  %9 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 27, ptr noundef nonnull %2) #5
+  %9 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 27, ptr noundef nonnull %2) #6
   %10 = load ptr, ptr %4, align 8, !tbaa !83
   %.not9 = icmp eq ptr %10, null
   %11 = load i32, ptr %2, align 4, !tbaa !94
@@ -889,7 +889,7 @@ lv_obj_get_ext_draw_size.exit:                    ; preds = %3, %6
   br i1 %.not10, label %17, label %13
 
 13:                                               ; preds = %12
-  call void @lv_obj_allocate_spec_attr(ptr noundef nonnull %0) #5
+  call void @lv_obj_allocate_spec_attr(ptr noundef nonnull %0) #6
   %14 = load i32, ptr %2, align 4, !tbaa !94
   %15 = load ptr, ptr %4, align 8, !tbaa !83
   br label %.sink.split
@@ -907,7 +907,7 @@ lv_obj_get_ext_draw_size.exit:                    ; preds = %3, %6
   br i1 %.not11, label %20, label %19
 
 19:                                               ; preds = %17
-  call void @lv_obj_invalidate(ptr noundef nonnull %0) #5
+  call void @lv_obj_invalidate(ptr noundef nonnull %0) #6
   br label %20
 
 20:                                               ; preds = %19, %17
@@ -973,18 +973,19 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #4
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

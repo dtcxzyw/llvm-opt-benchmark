@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @lj_asm_patchexit(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !4
-  %7 = tail call ptr @lj_mcode_patch(ptr noundef %0, ptr noundef %6, i32 noundef 0) #14
+  %7 = tail call ptr @lj_mcode_patch(ptr noundef %0, ptr noundef %6, i32 noundef 0) #15
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1696
@@ -161,8 +161,8 @@ define hidden void @lj_asm_patchexit(ptr noundef %0, ptr noundef readonly captur
   %93 = load i32, ptr %8, align 4, !tbaa !18
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 %94
-  tail call void @lj_mcode_sync(ptr noundef %92, ptr noundef %95) #14
-  %96 = tail call ptr @lj_mcode_patch(ptr noundef %0, ptr noundef %7, i32 noundef 1) #14
+  tail call void @lj_mcode_sync(ptr noundef %92, ptr noundef %95) #15
+  %96 = tail call ptr @lj_mcode_patch(ptr noundef %0, ptr noundef %7, i32 noundef 1) #15
   ret void
 }
 
@@ -432,7 +432,7 @@ define hidden void @lj_asm_trace(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not.i, label %lj_ir_nextins.exit, label %49, !prof !38
 
 49:                                               ; preds = %44
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #14
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #15
   br label %lj_ir_nextins.exit
 
 lj_ir_nextins.exit:                               ; preds = %44, %49
@@ -457,7 +457,7 @@ lj_ir_nextins.exit:                               ; preds = %44, %49
   store ptr %1, ptr %60, align 8, !tbaa !45
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %62 = load ptr, ptr %61, align 8, !tbaa !46
-  %63 = tail call ptr @lj_trace_alloc(ptr noundef %62, ptr noundef nonnull %1) #14
+  %63 = tail call ptr @lj_trace_alloc(ptr noundef %62, ptr noundef nonnull %1) #15
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %63, ptr %64, align 8, !tbaa !47
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -491,7 +491,7 @@ lj_ir_nextins.exit:                               ; preds = %44, %49
   %84 = getelementptr inbounds nuw i8, ptr %29, i64 280
   store ptr %83, ptr %84, align 8, !tbaa !57
   %85 = getelementptr inbounds nuw i8, ptr %29, i64 288
-  %86 = call ptr @lj_mcode_reserve(ptr noundef nonnull %0, ptr noundef nonnull %85) #14
+  %86 = call ptr @lj_mcode_reserve(ptr noundef nonnull %0, ptr noundef nonnull %85) #15
   %87 = getelementptr inbounds nuw i8, ptr %29, i64 304
   store ptr %86, ptr %87, align 8, !tbaa !58
   %88 = getelementptr inbounds nuw i8, ptr %29, i64 296
@@ -521,7 +521,7 @@ lj_ir_nextins.exit:                               ; preds = %44, %49
 
 98:                                               ; preds = %82
   %99 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %99, i32 noundef 4) #15
+  call void @lj_trace_err(ptr noundef %99, i32 noundef 4) #16
   unreachable
 
 100:                                              ; preds = %140, %.lr.ph.i.i
@@ -541,7 +541,7 @@ lj_ir_nextins.exit:                               ; preds = %44, %49
   br i1 %.not.i.i.i, label %111, label %110
 
 110:                                              ; preds = %106
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 111:                                              ; preds = %106
@@ -848,7 +848,7 @@ ra_setup.exit.i:                                  ; preds = %254
   %282 = load ptr, ptr %59, align 8, !tbaa !44
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 3020
   %284 = load i32, ptr %283, align 4, !tbaa !90
-  %285 = call ptr @lj_snap_regspmap(ptr noundef %282, ptr noundef nonnull %280, i32 noundef %284, ptr noundef nonnull %279) #14
+  %285 = call ptr @lj_snap_regspmap(ptr noundef %282, ptr noundef nonnull %280, i32 noundef %284, ptr noundef nonnull %279) #15
   %286 = ptrtoint ptr %285 to i64
   %287 = ptrtoint ptr %279 to i64
   %288 = sub i64 %286, %287
@@ -857,7 +857,7 @@ ra_setup.exit.i:                                  ; preds = %254
 
 290:                                              ; preds = %281
   %291 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %291, i32 noundef 34) #15
+  call void @lj_trace_err(ptr noundef %291, i32 noundef 34) #16
   unreachable
 
 292:                                              ; preds = %281
@@ -1568,7 +1568,7 @@ asm_baseslot.exit.i:                              ; preds = %571, %577, %556
   br i1 %586, label %587, label %checkmclim.exit.i, !prof !108
 
 587:                                              ; preds = %asm_baseslot.exit.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit.i:                                ; preds = %asm_baseslot.exit.i
@@ -2281,7 +2281,7 @@ emit_rmro.exit94.i.i:                             ; preds = %945, %935
   %952 = load ptr, ptr %59, align 8, !tbaa !44
   %953 = getelementptr inbounds nuw i8, ptr %952, i64 128
   %954 = load ptr, ptr %953, align 8, !tbaa !46
-  call void @lj_ir_kvalue(ptr noundef %954, ptr noundef nonnull %26, ptr noundef nonnull %783) #14
+  call void @lj_ir_kvalue(ptr noundef %954, ptr noundef nonnull %26, ptr noundef nonnull %783) #15
   %955 = load i64, ptr %26, align 8
   %956 = icmp eq i64 %955, -1
   br i1 %956, label %957, label %970
@@ -2394,7 +2394,7 @@ emit_movmroi.exit106.i.i:                         ; preds = %993, %990, %emit_mo
   br i1 %1002, label %1003, label %checkmclim.exit.i.i, !prof !108
 
 1003:                                             ; preds = %999
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit.i.i:                              ; preds = %999, %774
@@ -2451,7 +2451,7 @@ asm_tail_link.exit:                               ; preds = %1006, %asm_stack_re
 
 1029:                                             ; preds = %1018
   %1030 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %1030, i32 noundef 28) #15
+  call void @lj_trace_err(ptr noundef %1030, i32 noundef 28) #16
   unreachable
 
 1031:                                             ; preds = %1033, %.preheader.i
@@ -2663,7 +2663,7 @@ asm_snap_alloc.exit.i:                            ; preds = %asm_snap_alloc.exit
 
 1146:                                             ; preds = %1143
   %1147 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %1147, i32 noundef 30) #15
+  call void @lj_trace_err(ptr noundef %1147, i32 noundef 30) #16
   unreachable
 
 1148:                                             ; preds = %1143
@@ -2695,7 +2695,7 @@ asm_snap_prep.exit:                               ; preds = %asm_snap_checkrenam
   br i1 %1159, label %1160, label %checkmclim.exit, !prof !108
 
 1160:                                             ; preds = %asm_snap_prep.exit
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit:                                  ; preds = %asm_snap_prep.exit
@@ -2876,7 +2876,7 @@ checkmclim.exit108.thread.i.i:                    ; preds = %1187
   br i1 %1203, label %1204, label %checkmclim.exit108.i.i, !prof !108
 
 1204:                                             ; preds = %1199
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit108.i.i:                           ; preds = %1199, %1183
@@ -2998,7 +2998,7 @@ emit_movrr.exit.i.i.i:                            ; preds = %1268, %1254, %1248,
   store i16 %1282, ptr %1284, align 8, !tbaa !20
   %1286 = getelementptr inbounds nuw i8, ptr %1281, i64 186
   store i16 %1283, ptr %1286, align 2, !tbaa !20
-  %1287 = call i32 @lj_ir_emit(ptr noundef %1281) #14
+  %1287 = call i32 @lj_ir_emit(ptr noundef %1281) #15
   %1288 = and i32 %1287, 65535
   %1289 = load ptr, ptr %59, align 8, !tbaa !44
   %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 32
@@ -3023,7 +3023,7 @@ ra_rename.exit.i.i:                               ; preds = %1277, %emit_movrr.e
   br i1 %1302, label %1303, label %checkmclim.exit107.i.i, !prof !108
 
 1303:                                             ; preds = %ra_rename.exit.i.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit107.i.i:                           ; preds = %ra_rename.exit.i.i, %checkmclim.exit108.i.i, %checkmclim.exit108.thread.i.i, %.lr.ph.checkmclim.exit107_crit_edge.i.i
@@ -3128,7 +3128,7 @@ asm_phi_break.exit118.i.i:                        ; preds = %ra_pick.exit.i114.i
   br i1 %1342, label %1343, label %checkmclim.exit106.i.i, !prof !108
 
 1343:                                             ; preds = %asm_phi_break.exit118.i.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit106.i.i:                           ; preds = %asm_phi_break.exit118.i.i, %1307
@@ -3167,7 +3167,7 @@ checkmclim.exit105.i.i:                           ; preds = %1352, %._crit_edge.
   br i1 %1364, label %1365, label %checkmclim.exit105.i.i, !prof !108, !llvm.loop !123
 
 1365:                                             ; preds = %1352
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 1366:                                             ; preds = %checkmclim.exit105.i.i
@@ -3200,7 +3200,7 @@ checkmclim.exit104.i.i:                           ; preds = %1373, %1366
   br i1 %1385, label %1386, label %checkmclim.exit104.i.i, !prof !108, !llvm.loop !124
 
 1386:                                             ; preds = %1373
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 1387:                                             ; preds = %checkmclim.exit104.i.i
@@ -3368,7 +3368,7 @@ ra_save.exit.i.i:                                 ; preds = %1474, %1463, %1446,
   br i1 %1478, label %1479, label %checkmclim.exit.i.i1046, !prof !108
 
 1479:                                             ; preds = %ra_save.exit.i.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit.i.i1046:                          ; preds = %ra_save.exit.i.i, %.lr.ph146.i.i
@@ -3778,7 +3778,7 @@ emit_rmro.exit151.i.i:                            ; preds = %1701, %1693
   br i1 %1705, label %.split.us.i.i, label %checkmclim.exit103.i.i, !prof !108
 
 .split.us.i.i:                                    ; preds = %emit_rmro.exit151.i.i, %emit_rmro.exit.i111.us.i.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit103.i.i:                           ; preds = %emit_rmro.exit151.i.i, %1648, %1640, %.lr.ph191.split.i.i
@@ -4078,7 +4078,7 @@ emit_rmro.exit175.i.i:                            ; preds = %1868, %1861
   br i1 %1872, label %1873, label %checkmclim.exit.i31.i, !prof !108
 
 1873:                                             ; preds = %emit_rmro.exit175.i.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit.i31.i:                            ; preds = %emit_rmro.exit175.i.i, %1817, %1810, %1806
@@ -4321,7 +4321,7 @@ ra_alloc1.exit:                                   ; preds = %1966, %1974
 
 2013:                                             ; preds = %2010, %2007
   %2014 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %2014, i32 noundef 33) #15
+  call void @lj_trace_err(ptr noundef %2014, i32 noundef 33) #16
   unreachable
 
 2015:                                             ; preds = %2010
@@ -4465,7 +4465,7 @@ emit_movrr.exit.i1018:                            ; preds = %emit_rr.exit9.i.i, 
 
 2095:                                             ; preds = %2092, %2089
   %2096 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %2096, i32 noundef 33) #15
+  call void @lj_trace_err(ptr noundef %2096, i32 noundef 33) #16
   unreachable
 
 2097:                                             ; preds = %2092
@@ -4513,7 +4513,7 @@ emit_movrr.exit.i1018:                            ; preds = %emit_rr.exit9.i.i, 
 
 2117:                                             ; preds = %2114
   %2118 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %2118, i32 noundef 30) #15
+  call void @lj_trace_err(ptr noundef %2118, i32 noundef 30) #16
   unreachable
 
 2119:                                             ; preds = %2114
@@ -9345,7 +9345,7 @@ asm_guardcc.exit85.i.i:                           ; preds = %4608, %4598
   br i1 %4623, label %4624, label %checkmclim.exit.i.i202, !prof !108
 
 4624:                                             ; preds = %4621
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit.i.i202:                           ; preds = %4621
@@ -11147,7 +11147,7 @@ ra_alloc1.exit.i179.i:                            ; preds = %5519, %5512
   %5535 = load ptr, ptr %143, align 8, !tbaa !68
   %5536 = zext nneg i16 %5511 to i64
   %5537 = getelementptr inbounds nuw %union.IRIns, ptr %5535, i64 %5536
-  call void @lj_ir_kvalue(ptr noundef %5534, ptr noundef nonnull %25, ptr noundef %5537) #14
+  call void @lj_ir_kvalue(ptr noundef %5534, ptr noundef nonnull %25, ptr noundef %5537) #15
   %5538 = load i16, ptr %1015, align 8, !tbaa !20
   %5539 = zext i16 %5538 to i32
   call fastcc void @asm_fuseahuref(ptr noundef nonnull %29, i32 noundef %5539, i32 noundef 49135)
@@ -11923,7 +11923,7 @@ asm_tnew.exit:                                    ; preds = %.thread.i.i428, %._
   %5927 = getelementptr inbounds nuw %union.IRIns, ptr %5924, i64 %5926
   %5928 = load i32, ptr %5927, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %5929 = call i32 @lj_ctype_info(ptr noundef %5923, i32 noundef %5928, ptr noundef nonnull %22) #14
+  %5929 = call i32 @lj_ctype_info(ptr noundef %5923, i32 noundef %5928, ptr noundef nonnull %22) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %5930 = load i32, ptr %149, align 8, !tbaa !74
   %5931 = add nsw i32 %5930, 1
@@ -15477,7 +15477,7 @@ asm_callx.exit:                                   ; preds = %asm_callx_func.exit
   %7731 = getelementptr inbounds nuw i8, ptr %7730, i64 3088
   %7732 = uitofp i8 %1162 to double
   store double %7732, ptr %7731, align 8, !tbaa !20
-  call void @lj_trace_err_info(ptr noundef %7730, i32 noundef 32) #15
+  call void @lj_trace_err_info(ptr noundef %7730, i32 noundef 32) #16
   unreachable
 
 asm_ir.exit:                                      ; preds = %asm_callx.exit, %asm_call.exit.i, %asm_strto.exit, %asm_tostr.exit, %asm_obar.exit, %asm_tbar.exit, %6653, %asm_bufput.exit, %asm_bufhdr.exit, %asm_cnew.exit.i, %5914, %asm_tnew.exit, %5856, %5855, %5854, %emit_mrm.exit, %emit_mrm.exit472, %5616, %ra_alloc1.exit.i179.i, %5503, %5494, %4918, %4917, %emit_mrm.exit561, %emit_mrm.exit578, %emit_mrm.exit595, %emit_mrm.exit612, %4490, %4489, %asm_lref.exit, %asm_tmpref.exit, %asm_fref.exit, %emit_rmro.exit78.i.i, %3875, %3685, %asm_newref.exit, %3282, %3190, %3189, %3188, %asm_tobit.exit, %asm_ldexp.exit, %2719, %2459, %2458, %2457, %2456, %2455, %2454, %2453, %2452, %asm_bswap.exit, %2361, %asm_retf.exit, %2228, %2225, %2213, %asm_prof.exit, %asm_gcstep.exit, %ra_alloc1.exit, %checkmclim.exit, %checkmclim.exit, %checkmclim.exit, %asm_loop_fixup.exit.i, %1959, %1986, %emit_movrr.exit.i1018, %2087, %ra_spill.exit.i, %2132, %.thread.i1015, %2139, %2140, %2465, %asm_lea.exit.i, %asm_lea.exit.thread.i, %2653, %2654, %2659, %2660, %2665, %2674, %2684, %2685, %2690, %2699, %2704, %2713, %ra_dest.exit.i900, %2929, %emit_call_.exit.i, %3018, %3180, %3181, %3186, %3187, %3260, %3262, %3265, %3560, %emit_rmro.exit86.i, %emit_rr.exit.i.i664, %4269, %emit_gri.exit.i, %4295, %emit_rmro.exit142.i, %emit_rmro.exit161.i, %5245, %5258, %emit_rmro.exit183.i, %emit_rmro.exit196.i, %emit_rmro.exit209.i, %emit_rmro.exit232.i, %6967, %emit_rr.exit.i339, %ra_alloc1.exit167.i, %7202, %7264, %7345, %7418, %7419, %7487, %7489, %1058
@@ -15508,7 +15508,7 @@ asm_ir.exit:                                      ; preds = %asm_callx.exit, %as
   br i1 %7745, label %7746, label %checkmclim.exit150, !prof !108
 
 7746:                                             ; preds = %7742
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit150:                               ; preds = %7742
@@ -15558,7 +15558,7 @@ checkmclim.exit150:                               ; preds = %7742
   br i1 %7771, label %7772, label %checkmclim.exit29.i, !prof !108
 
 7772:                                             ; preds = %7767
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit29.i:                              ; preds = %7767, %7761
@@ -15600,7 +15600,7 @@ checkmclim.exit29.i:                              ; preds = %7767, %7761
   br i1 %7789, label %7790, label %checkmclim.exit.i222, !prof !108
 
 7790:                                             ; preds = %7785
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit.i222:                             ; preds = %7785, %7779
@@ -15901,7 +15901,7 @@ ra_save.exit.checkmclim.exit233_crit_edge.i:      ; preds = %ra_save.exit.i
   br label %checkmclim.exit233.i
 
 7949:                                             ; preds = %ra_save.exit.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 7950:                                             ; preds = %7874
@@ -16062,7 +16062,7 @@ checkmclim.exit233.i:                             ; preds = %7953, %7950, %ra_sa
 
 8030:                                             ; preds = %8023
   %8031 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %8031, i32 noundef 34) #15
+  call void @lj_trace_err(ptr noundef %8031, i32 noundef 34) #16
   unreachable
 
 8032:                                             ; preds = %8023
@@ -16207,7 +16207,7 @@ ra_save.exit254.i:                                ; preds = %8093, %8082, %8065,
   br i1 %8107, label %8108, label %checkmclim.exit232.i, !prof !108
 
 8108:                                             ; preds = %8105
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit232.i:                             ; preds = %8105, %8014, %7999
@@ -16421,7 +16421,7 @@ emit_loadofs.exit.i:                              ; preds = %8215, %8202, %8186,
   br i1 %8219, label %8220, label %checkmclim.exit231.i, !prof !108
 
 8220:                                             ; preds = %emit_loadofs.exit.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 checkmclim.exit231.i:                             ; preds = %emit_loadofs.exit.i, %8134
@@ -16559,7 +16559,7 @@ emit_movrr.exit.i:                                ; preds = %8305, %8291, %8285,
   br i1 %8310, label %8311, label %checkmclim.exit230.i.outer, !prof !108, !llvm.loop !169
 
 8311:                                             ; preds = %emit_movrr.exit.i
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 8312:                                             ; preds = %checkmclim.exit230.i
@@ -16575,7 +16575,7 @@ emit_movrr.exit.i:                                ; preds = %8305, %8291, %8285,
 
 8317:                                             ; preds = %8314
   %8318 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %8318, i32 noundef 34) #15
+  call void @lj_trace_err(ptr noundef %8318, i32 noundef 34) #16
   unreachable
 
 8319:                                             ; preds = %8314
@@ -16661,7 +16661,7 @@ emit_rr.exit.i.i1082:                             ; preds = %8358, %8319
   store i16 %8373, ptr %8375, align 8, !tbaa !20
   %8377 = getelementptr inbounds nuw i8, ptr %8372, i64 186
   store i16 %8374, ptr %8377, align 2, !tbaa !20
-  %8378 = call i32 @lj_ir_emit(ptr noundef %8372) #14
+  %8378 = call i32 @lj_ir_emit(ptr noundef %8372) #15
   %8379 = and i32 %8378, 65535
   %8380 = load ptr, ptr %59, align 8, !tbaa !44
   %8381 = getelementptr inbounds nuw i8, ptr %8380, i64 32
@@ -16689,7 +16689,7 @@ ra_rename.exit1084:                               ; preds = %8368, %emit_rr.exit
 
 8394:                                             ; preds = %8391
   %8395 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %8395, i32 noundef 34) #15
+  call void @lj_trace_err(ptr noundef %8395, i32 noundef 34) #16
   unreachable
 
 8396:                                             ; preds = %8391
@@ -16763,7 +16763,7 @@ emit_rr.exit9.i.i1067:                            ; preds = %8426, %8396
   store i16 %8439, ptr %8441, align 8, !tbaa !20
   %8443 = getelementptr inbounds nuw i8, ptr %8438, i64 186
   store i16 %8440, ptr %8443, align 2, !tbaa !20
-  %8444 = call i32 @lj_ir_emit(ptr noundef %8438) #14
+  %8444 = call i32 @lj_ir_emit(ptr noundef %8438) #15
   %8445 = and i32 %8444, 65535
   %8446 = load ptr, ptr %59, align 8, !tbaa !44
   %8447 = getelementptr inbounds nuw i8, ptr %8446, i64 32
@@ -16787,7 +16787,7 @@ ra_rename.exit:                                   ; preds = %8434, %emit_rr.exit
   br i1 %8459, label %8460, label %checkmclim.exit230.i, !prof !108
 
 8460:                                             ; preds = %ra_rename.exit
-  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #16
+  call fastcc void @asm_mclimit(ptr noundef nonnull %29) #17
   unreachable
 
 8461:                                             ; preds = %8312
@@ -16974,7 +16974,7 @@ asm_head_root.exit:                               ; preds = %asm_head_root_base.
   store i16 %8543, ptr %8558, align 8, !tbaa !20
   %8560 = getelementptr inbounds nuw i8, ptr %8556, i64 186
   store i16 %8557, ptr %8560, align 2, !tbaa !20
-  %8561 = call i32 @lj_ir_emit(ptr noundef %8556) #14
+  %8561 = call i32 @lj_ir_emit(ptr noundef %8556) #15
   %8562 = and i32 %8561, 65535
   %8563 = trunc nuw nsw i32 %8540 to i8
   %8564 = load ptr, ptr %59, align 8, !tbaa !44
@@ -17047,7 +17047,7 @@ asm_phi_fixup.exit:                               ; preds = %8575, %8536
 
 8610:                                             ; preds = %8599
   %8611 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %8611, i32 noundef 28) #15
+  call void @lj_trace_err(ptr noundef %8611, i32 noundef 28) #16
   unreachable
 
 8612:                                             ; preds = %8614, %.preheader.i270
@@ -17080,10 +17080,10 @@ asm_snap_prev.exit275:                            ; preds = %8612, %8583, %8622
   br i1 %.not142, label %8629, label %8627
 
 8624:                                             ; preds = %asm_phi_fixup.exit
-  call void @lj_trace_free(ptr noundef nonnull %228, ptr noundef nonnull %8579) #14
+  call void @lj_trace_free(ptr noundef nonnull %228, ptr noundef nonnull %8579) #15
   store ptr null, ptr %64, align 8, !tbaa !47
   %8625 = load ptr, ptr %61, align 8, !tbaa !46
-  %8626 = call ptr @lj_trace_alloc(ptr noundef %8625, ptr noundef nonnull %1) #14
+  %8626 = call ptr @lj_trace_alloc(ptr noundef %8625, ptr noundef nonnull %1) #15
   store ptr %8626, ptr %64, align 8, !tbaa !47
   store ptr null, ptr %71, align 8, !tbaa !52
   br label %.backedge.backedge
@@ -17095,7 +17095,7 @@ asm_snap_prev.exit275:                            ; preds = %8612, %8583, %8622
 
 8627:                                             ; preds = %asm_snap_prev.exit275
   %8628 = load ptr, ptr %59, align 8, !tbaa !44
-  call void @lj_trace_err(ptr noundef %8628, i32 noundef 31) #15
+  call void @lj_trace_err(ptr noundef %8628, i32 noundef 31) #16
   unreachable
 
 8629:                                             ; preds = %asm_snap_prev.exit275
@@ -17261,7 +17261,7 @@ asm_snap_fixup_mcofs.exit:                        ; preds = %.lr.ph.i282, %8688
   %8713 = getelementptr inbounds nuw i8, ptr %8698, i64 6
   store i16 0, ptr %8713, align 2, !tbaa !115
   %8714 = load ptr, ptr %8631, align 8, !tbaa !4
-  call void @lj_mcode_sync(ptr noundef %8714, ptr noundef %8693) #14
+  call void @lj_mcode_sync(ptr noundef %8714, ptr noundef %8693) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   ret void
 }
@@ -17435,7 +17435,7 @@ asm_snap_alloc.exit:                              ; preds = %asm_snap_alloc.exit
 96:                                               ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %98 = load ptr, ptr %97, align 8, !tbaa !44
-  tail call void @lj_trace_err(ptr noundef %98, i32 noundef 30) #15
+  tail call void @lj_trace_err(ptr noundef %98, i32 noundef 30) #16
   unreachable
 
 99:                                               ; preds = %93
@@ -17689,7 +17689,7 @@ emit_loadi.exit:                                  ; preds = %emit_loadi.exit.sin
   br i1 %137, label %138, label %checkmclim.exit, !prof !108
 
 138:                                              ; preds = %emit_loadi.exit
-  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #16
+  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #17
   unreachable
 
 checkmclim.exit:                                  ; preds = %emit_loadi.exit
@@ -17719,7 +17719,7 @@ define internal fastcc void @asm_mclimit(ptr noundef nonnull readonly captures(n
   %9 = ptrtoint ptr %7 to i64
   %10 = add i64 %8, 256
   %11 = sub i64 %10, %9
-  tail call void @lj_mcode_limiterr(ptr noundef %3, i64 noundef %11) #15
+  tail call void @lj_mcode_limiterr(ptr noundef %3, i64 noundef %11) #16
   unreachable
 }
 
@@ -19601,8 +19601,8 @@ emit_op.exit:                                     ; preds = %38, %47, %70
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 {
@@ -19671,7 +19671,7 @@ define internal fastcc range(i32 0, 256) i32 @ra_restore(ptr noundef nonnull cap
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %39 = load ptr, ptr %38, align 8, !tbaa !44
-  tail call void @lj_trace_err(ptr noundef %39, i32 noundef 30) #15
+  tail call void @lj_trace_err(ptr noundef %39, i32 noundef 30) #16
   unreachable
 
 40:                                               ; preds = %34
@@ -19883,7 +19883,7 @@ define internal fastcc range(i32 -2147483648, 2147483645) i32 @ra_spill(ptr noun
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %31 = load ptr, ptr %30, align 8, !tbaa !44
-  tail call void @lj_trace_err(ptr noundef %31, i32 noundef 30) #15
+  tail call void @lj_trace_err(ptr noundef %31, i32 noundef 30) #16
   unreachable
 
 32:                                               ; preds = %26
@@ -20177,7 +20177,7 @@ asm_snap_canremat.exit:                           ; preds = %.preheader, %.threa
   br i1 %145, label %146, label %.critedge, !prof !108
 
 146:                                              ; preds = %140
-  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #16
+  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #17
   unreachable
 
 asm_snap_canremat.exit.thread:                    ; preds = %128, %127
@@ -23583,7 +23583,7 @@ asm_guardcc.exit203:                              ; preds = %282, %286, %298
   br i1 %316, label %317, label %checkmclim.exit183, !prof !108
 
 317:                                              ; preds = %313
-  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #16
+  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #17
   unreachable
 
 checkmclim.exit183:                               ; preds = %313
@@ -24792,7 +24792,7 @@ emit_rr.exit372:                                  ; preds = %emit_rr.exit368, %8
   br i1 %894, label %895, label %checkmclim.exit, !prof !108
 
 895:                                              ; preds = %emit_rr.exit372
-  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #16
+  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #17
   unreachable
 
 checkmclim.exit:                                  ; preds = %emit_rr.exit372
@@ -25687,7 +25687,7 @@ emit_movrr.exit:                                  ; preds = %emit_rr.exit.i, %em
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 186
   store i16 %91, ptr %94, align 2, !tbaa !20
   %95 = load ptr, ptr %88, align 8, !tbaa !44
-  %96 = tail call i32 @lj_ir_emit(ptr noundef %95) #14
+  %96 = tail call i32 @lj_ir_emit(ptr noundef %95) #15
   %97 = and i32 %96, 65535
   %98 = trunc nuw i32 %1 to i8
   %99 = load ptr, ptr %88, align 8, !tbaa !44
@@ -26018,7 +26018,7 @@ define internal fastcc range(i32 0, 256) i32 @asm_fuseload(ptr noundef nonnull %
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %51 = load ptr, ptr %50, align 8, !tbaa !44
-  tail call void @lj_trace_err(ptr noundef %51, i32 noundef 30) #15
+  tail call void @lj_trace_err(ptr noundef %51, i32 noundef 30) #16
   unreachable
 
 52:                                               ; preds = %46
@@ -26958,7 +26958,7 @@ emit_op.exit62:                                   ; preds = %146, %123, %114, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @asm_isk32(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @asm_isk32(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #12 {
   %4 = icmp samesign ult i32 %1, 32768
   br i1 %4, label %5, label %.thread
 
@@ -29278,7 +29278,7 @@ emit_loadi.exit:                                  ; preds = %emit_rr.exit9.i, %e
   br i1 %223, label %224, label %34, !prof !108
 
 224:                                              ; preds = %emit_loadi.exit
-  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #16
+  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #17
   unreachable
 
 ._crit_edge.loopexit:                             ; preds = %34
@@ -29335,7 +29335,7 @@ checkmclim.exit22:                                ; preds = %13, %2
   br i1 %25, label %26, label %checkmclim.exit22, !prof !108, !llvm.loop !181
 
 26:                                               ; preds = %13
-  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #16
+  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #17
   unreachable
 
 27:                                               ; preds = %checkmclim.exit22
@@ -29365,7 +29365,7 @@ checkmclim.exit:                                  ; preds = %31, %27
   br i1 %43, label %44, label %checkmclim.exit, !prof !108, !llvm.loop !182
 
 44:                                               ; preds = %31
-  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #16
+  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #17
   unreachable
 
 45:                                               ; preds = %checkmclim.exit
@@ -30058,7 +30058,7 @@ emit_rmro.exit:                                   ; preds = %43, %58
   %64 = load ptr, ptr %63, align 8, !tbaa !44
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 128
   %66 = load ptr, ptr %65, align 8, !tbaa !46
-  call void @lj_ir_kvalue(ptr noundef %66, ptr noundef nonnull %5, ptr noundef nonnull %11) #14
+  call void @lj_ir_kvalue(ptr noundef %66, ptr noundef nonnull %5, ptr noundef nonnull %11) #15
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !20
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -30854,7 +30854,7 @@ emit_rr.exit35:                                   ; preds = %emit_rr.exit31, %23
   br i1 %243, label %244, label %checkmclim.exit, !prof !108
 
 244:                                              ; preds = %emit_rr.exit35
-  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #16
+  tail call fastcc void @asm_mclimit(ptr noundef nonnull %0) #17
   unreachable
 
 checkmclim.exit:                                  ; preds = %emit_rr.exit35
@@ -30892,28 +30892,28 @@ emit_rr.exit39:                                   ; preds = %checkmclim.exit, %2
 declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -30926,12 +30926,13 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { noreturn }
+attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

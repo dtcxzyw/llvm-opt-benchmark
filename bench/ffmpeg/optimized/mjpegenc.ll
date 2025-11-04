@@ -191,7 +191,7 @@ define i32 @ff_mjpeg_encode_stuffing(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %27 ]
   %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !53
-  call void @ff_mjpeg_encode_huffman_init(ptr noundef %29) #7
+  call void @ff_mjpeg_encode_huffman_init(ptr noundef %29) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %.preheader.i, label %27, !llvm.loop !57
@@ -217,37 +217,37 @@ define i32 @ff_mjpeg_encode_stuffing(ptr noundef %0) local_unnamed_addr #0 {
 mjpeg_build_optimal_huffman.exit:                 ; preds = %30, %.preheader.i
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 18000
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 18017
-  call void @ff_mjpeg_encode_huffman_close(ptr noundef nonnull %4, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 12) #7
+  call void @ff_mjpeg_encode_huffman_close(ptr noundef nonnull %4, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef 12) #8
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 18029
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 18046
-  call void @ff_mjpeg_encode_huffman_close(ptr noundef nonnull %5, ptr noundef nonnull %44, ptr noundef nonnull %45, i32 noundef 12) #7
+  call void @ff_mjpeg_encode_huffman_close(ptr noundef nonnull %5, ptr noundef nonnull %44, ptr noundef nonnull %45, i32 noundef 12) #8
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 18058
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 18075
-  call void @ff_mjpeg_encode_huffman_close(ptr noundef nonnull %6, ptr noundef nonnull %46, ptr noundef nonnull %47, i32 noundef 256) #7
+  call void @ff_mjpeg_encode_huffman_close(ptr noundef nonnull %6, ptr noundef nonnull %46, ptr noundef nonnull %47, i32 noundef 256) #8
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 18331
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 18348
-  call void @ff_mjpeg_encode_huffman_close(ptr noundef nonnull %7, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 256) #7
+  call void @ff_mjpeg_encode_huffman_close(ptr noundef nonnull %7, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef 256) #8
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %42, ptr noundef nonnull %43) #7
+  call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %42, ptr noundef nonnull %43) #8
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %44, ptr noundef nonnull %45) #7
+  call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %44, ptr noundef nonnull %45) #8
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 336
-  call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %46, ptr noundef nonnull %47) #7
+  call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %46, ptr noundef nonnull %47) #8
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 848
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 1104
-  call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %48, ptr noundef nonnull %49) #7
+  call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %48, ptr noundef nonnull %49) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 1616
-  call fastcc void @init_uni_ac_vlc(ptr noundef nonnull %54, ptr noundef nonnull %58) #8
+  call fastcc void @init_uni_ac_vlc(ptr noundef nonnull %54, ptr noundef nonnull %58) #9
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 9808
-  call fastcc void @init_uni_ac_vlc(ptr noundef nonnull %56, ptr noundef nonnull %59) #8
+  call fastcc void @init_uni_ac_vlc(ptr noundef nonnull %56, ptr noundef nonnull %59) #9
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 6560
   store ptr %58, ptr %60, align 8, !tbaa !64
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 6552
@@ -269,7 +269,7 @@ mjpeg_build_optimal_huffman.exit:                 ; preds = %30, %.preheader.i
   %74 = load i32, ptr %73, align 8, !tbaa !73
   %75 = icmp sgt i32 %74, 1
   %76 = zext i1 %75 to i32
-  call void @ff_mjpeg_encode_picture_header(ptr noundef %65, ptr noundef nonnull %11, ptr noundef %68, ptr noundef %69, ptr noundef nonnull %70, i32 noundef 0, ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef %76) #7
+  call void @ff_mjpeg_encode_picture_header(ptr noundef %65, ptr noundef nonnull %11, ptr noundef %68, ptr noundef %69, ptr noundef nonnull %70, i32 noundef 0, ptr noundef nonnull %71, ptr noundef nonnull %72, i32 noundef %76) #8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 4824
   %78 = load ptr, ptr %77, align 8, !tbaa !50
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 4816
@@ -356,7 +356,7 @@ mjpeg_encode_picture_header.exit:                 ; preds = %94, %mjpeg_build_op
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %mjpeg_encode_picture_header.exit
   %.049.lcssa.i = phi i64 [ 0, %mjpeg_encode_picture_header.exit ], [ %124, %._crit_edge.loopexit.i ]
-  %125 = call i32 @ff_mpv_reallocate_putbitbuffer(ptr noundef nonnull %0, i64 noundef %.049.lcssa.i, i64 noundef %.049.lcssa.i) #7
+  %125 = call i32 @ff_mpv_reallocate_putbitbuffer(ptr noundef nonnull %0, i64 noundef %.049.lcssa.i, i64 noundef %.049.lcssa.i) #8
   %126 = load i64, ptr %119, align 8, !tbaa !55
   %.not64.i = icmp eq i64 %126, 0
   %.pre71.i = load i32, ptr %84, align 4, !tbaa !52
@@ -442,7 +442,7 @@ mjpeg_encode_picture_header.exit:                 ; preds = %94, %mjpeg_build_op
   br label %186
 
 185:                                              ; preds = %170
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %186
 
 186:                                              ; preds = %185, %177
@@ -499,7 +499,7 @@ put_bits.exit.i:                                  ; preds = %186, %167
   br label %217
 
 216:                                              ; preds = %201
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %217
 
 217:                                              ; preds = %216, %208
@@ -554,20 +554,20 @@ mjpeg_encode_picture_frame.exit:                  ; preds = %219, %._crit_edge.i
   %242 = sdiv i32 %.pre-phi76, 4
   %243 = add nsw i32 %242, 1000
   %244 = sext i32 %243 to i64
-  %245 = call i32 @ff_mpv_reallocate_putbitbuffer(ptr noundef nonnull %0, i64 noundef %241, i64 noundef %244) #7
+  %245 = call i32 @ff_mpv_reallocate_putbitbuffer(ptr noundef nonnull %0, i64 noundef %241, i64 noundef %244) #8
   %246 = icmp slt i32 %245, 0
   br i1 %246, label %247, label %250
 
 247:                                              ; preds = %235
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %249 = load ptr, ptr %248, align 8, !tbaa !68
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %249, i32 noundef 16, ptr noundef nonnull @.str) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %249, i32 noundef 16, ptr noundef nonnull @.str) #8
   br label %320
 
 250:                                              ; preds = %235
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 6792
   %252 = load i32, ptr %251, align 8, !tbaa !74
-  call void @ff_mjpeg_escape_FF(ptr noundef nonnull %11, i32 noundef %252) #7
+  call void @ff_mjpeg_escape_FF(ptr noundef nonnull %11, i32 noundef %252) #8
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %254 = load i32, ptr %253, align 8, !tbaa !73
   %255 = icmp sgt i32 %254, 1
@@ -620,7 +620,7 @@ mjpeg_encode_picture_frame.exit:                  ; preds = %219, %._crit_edge.i
   br label %put_bits.exit.i51
 
 285:                                              ; preds = %269
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %put_bits.exit.i51
 
 put_bits.exit.i51:                                ; preds = %285, %277, %266
@@ -660,7 +660,7 @@ put_bits.exit.i51:                                ; preds = %285, %277, %266
   br label %put_marker.exit
 
 307:                                              ; preds = %291
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %put_marker.exit
 
 put_marker.exit:                                  ; preds = %288, %299, %307
@@ -792,11 +792,11 @@ define internal range(i32 -2147483648, 1) i32 @mjpeg_encode_init(ptr noundef %0)
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.92) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.92) #8
   br label %52
 
 12:                                               ; preds = %1
-  %13 = tail call i32 @ff_mjpeg_encode_check_pix_fmt(ptr noundef nonnull %0) #7
+  %13 = tail call i32 @ff_mjpeg_encode_check_pix_fmt(ptr noundef nonnull %0) #8
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %52, label %15
 
@@ -813,26 +813,26 @@ define internal range(i32 -2147483648, 1) i32 @mjpeg_encode_init(ptr noundef %0)
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19, %15
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.93) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.93) #8
   br label %52
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8128
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8140
-  tail call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull @ff_mjpeg_bits_dc_luminance, ptr noundef nonnull @ff_mjpeg_val_dc) #7
+  tail call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull @ff_mjpeg_bits_dc_luminance, ptr noundef nonnull @ff_mjpeg_val_dc) #8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8164
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8176
-  tail call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull @ff_mjpeg_bits_dc_chrominance, ptr noundef nonnull @ff_mjpeg_val_dc) #7
+  tail call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull @ff_mjpeg_bits_dc_chrominance, ptr noundef nonnull @ff_mjpeg_val_dc) #8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8200
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8456
-  tail call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull @ff_mjpeg_bits_ac_luminance, ptr noundef nonnull @ff_mjpeg_val_ac_luminance) #7
+  tail call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull @ff_mjpeg_bits_ac_luminance, ptr noundef nonnull @ff_mjpeg_val_ac_luminance) #8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8968
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 9224
-  tail call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull @ff_mjpeg_bits_ac_chrominance, ptr noundef nonnull @ff_mjpeg_val_ac_chrominance) #7
+  tail call void @ff_mjpeg_build_huffman_codes(ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull @ff_mjpeg_bits_ac_chrominance, ptr noundef nonnull @ff_mjpeg_val_ac_chrominance) #8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 9736
-  tail call fastcc void @init_uni_ac_vlc(ptr noundef nonnull %29, ptr noundef nonnull %33) #8
+  tail call fastcc void @init_uni_ac_vlc(ptr noundef nonnull %29, ptr noundef nonnull %33) #9
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 17928
-  tail call fastcc void @init_uni_ac_vlc(ptr noundef nonnull %31, ptr noundef nonnull %34) #8
+  tail call fastcc void @init_uni_ac_vlc(ptr noundef nonnull %31, ptr noundef nonnull %34) #9
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 6536
   store i32 -1023, ptr %35, align 8, !tbaa !118
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 6540
@@ -845,7 +845,7 @@ define internal range(i32 -2147483648, 1) i32 @mjpeg_encode_init(ptr noundef %0)
   store ptr %34, ptr %39, align 8, !tbaa !66
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 6568
   store ptr %34, ptr %40, align 8, !tbaa !67
-  %41 = tail call i32 @ff_mpv_encode_init(ptr noundef nonnull %0) #7
+  %41 = tail call i32 @ff_mpv_encode_init(ptr noundef nonnull %0) #8
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %52, label %43
 
@@ -883,8 +883,8 @@ define internal noundef i32 @mjpeg_encode_close(ptr noundef %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !100
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 26736
-  tail call void @av_freep(ptr noundef nonnull %4) #7
-  %5 = tail call i32 @ff_mpv_encode_end(ptr noundef %0) #7
+  tail call void @av_freep(ptr noundef nonnull %4) #8
+  %5 = tail call i32 @ff_mpv_encode_end(ptr noundef %0) #8
   ret i32 0
 }
 
@@ -914,7 +914,7 @@ define internal i32 @mjpeg_get_supported_config(ptr noundef %0, ptr noundef %1, 
   br label %21
 
 19:                                               ; preds = %6
-  %20 = tail call i32 @ff_default_get_supported_config(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #7
+  %20 = tail call i32 @ff_default_get_supported_config(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #8
   br label %21
 
 21:                                               ; preds = %19, %14
@@ -941,12 +941,12 @@ define internal i32 @amv_encode_picture(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.99, i32 noundef %9) #7
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.100) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.99, i32 noundef %9) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.100) #8
   br label %36
 
 16:                                               ; preds = %11, %4
-  %17 = tail call ptr @av_frame_clone(ptr noundef %2) #7
+  %17 = tail call ptr @av_frame_clone(ptr noundef %2) #8
   store ptr %17, ptr %5, align 8, !tbaa !122
   %.not21 = icmp eq ptr %17, null
   br i1 %.not21, label %36, label %.preheader
@@ -979,8 +979,8 @@ define internal i32 @amv_encode_picture(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond.not, label %34, label %20, !llvm.loop !124
 
 34:                                               ; preds = %20
-  %35 = tail call i32 @ff_mpv_encode_picture(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %17, ptr noundef %3) #7
-  call void @av_frame_free(ptr noundef nonnull %5) #7
+  %35 = tail call i32 @ff_mpv_encode_picture(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %17, ptr noundef %3) #8
+  call void @av_frame_free(ptr noundef nonnull %5) #8
   br label %36
 
 36:                                               ; preds = %16, %34, %15
@@ -1022,7 +1022,7 @@ define internal noundef i32 @mjpeg_amv_encode_picture_header(ptr noundef %0) #0 
   %17 = load i32, ptr %16, align 8, !tbaa !73
   %18 = icmp sgt i32 %17, 1
   %19 = zext i1 %18 to i32
-  tail call void @ff_mjpeg_encode_picture_header(ptr noundef %6, ptr noundef nonnull %7, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %19) #7
+  tail call void @ff_mjpeg_encode_picture_header(ptr noundef %6, ptr noundef nonnull %7, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %19) #8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4824
   %21 = load ptr, ptr %20, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4816
@@ -1248,7 +1248,7 @@ define internal fastcc range(i32 -12, 1) i32 @alloc_huffman(ptr noundef captures
   %9 = sext i8 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = sext i32 %10 to i64
-  %12 = tail call ptr @av_malloc_array(i64 noundef %11, i64 noundef 256) #7
+  %12 = tail call ptr @av_malloc_array(i64 noundef %11, i64 noundef 256) #8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 26736
   store ptr %12, ptr %13, align 8, !tbaa !56
   %.not = icmp eq ptr %12, null
@@ -1278,7 +1278,7 @@ define internal fastcc void @encode_block(ptr noundef %0, ptr noundef readonly c
   %.117 = select i1 %6, i64 336, i64 1104
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 %.
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 %.115
-  tail call void @ff_mjpeg_encode_dc(ptr noundef nonnull %17, i32 noundef %16, ptr noundef nonnull %18, ptr noundef nonnull %19) #7
+  tail call void @ff_mjpeg_encode_dc(ptr noundef nonnull %17, i32 noundef %16, ptr noundef nonnull %18, ptr noundef nonnull %19) #8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 %.116
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 %.117
   store i32 %11, ptr %14, align 4, !tbaa !62
@@ -1362,7 +1362,7 @@ define internal fastcc void @encode_block(ptr noundef %0, ptr noundef readonly c
   br label %72
 
 71:                                               ; preds = %56
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %72
 
 72:                                               ; preds = %71, %63
@@ -1438,7 +1438,7 @@ put_bits.exit:                                    ; preds = %52, %72
   br label %117
 
 116:                                              ; preds = %101
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %117
 
 117:                                              ; preds = %116, %108
@@ -1485,7 +1485,7 @@ put_bits.exit70:                                  ; preds = %97, %117
   br label %142
 
 141:                                              ; preds = %126
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %142
 
 142:                                              ; preds = %141, %133
@@ -1554,7 +1554,7 @@ put_sbits.exit:                                   ; preds = %122, %142
   br label %178
 
 177:                                              ; preds = %160
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %178
 
 178:                                              ; preds = %177, %169
@@ -1766,11 +1766,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree norecurse nosync nounwind optsize memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1778,9 +1778,10 @@ attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #3 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { cold }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

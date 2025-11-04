@@ -267,7 +267,7 @@ thread-pre-split:                                 ; preds = %.lr.ph.split, %thre
 
 66:                                               ; preds = %60
   %67 = add nuw nsw i32 %.1745, %64
-  %68 = call ptr %0(ptr noundef %.1, ptr noundef %1, i32 noundef %64) #13
+  %68 = call ptr %0(ptr noundef %.1, ptr noundef %1, i32 noundef %64) #14
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.thread1424, label %..thread_crit_edge
 
@@ -2353,7 +2353,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 967:                                              ; preds = %962
   %968 = add nuw nsw i32 %.9753, %965
-  %969 = call ptr %0(ptr noundef %.9, ptr noundef %1, i32 noundef %965) #13
+  %969 = call ptr %0(ptr noundef %.9, ptr noundef %1, i32 noundef %965) #14
   %970 = icmp eq ptr %969, null
   br i1 %970, label %.thread1424, label %.thread1296
 
@@ -2423,7 +2423,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 989:                                              ; preds = %984
   %990 = add nuw nsw i32 %.147581727, %987
-  %991 = call ptr %0(ptr noundef %.141729, ptr noundef %1, i32 noundef %987) #13
+  %991 = call ptr %0(ptr noundef %.141729, ptr noundef %1, i32 noundef %987) #14
   %992 = icmp eq ptr %991, null
   br i1 %992, label %.thread1424, label %.thread1303
 
@@ -2567,7 +2567,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 1040:                                             ; preds = %1035
   %1041 = add nuw nsw i32 %.187621761, %1038
-  %1042 = call ptr %0(ptr noundef %.181763, ptr noundef %1, i32 noundef %1038) #13
+  %1042 = call ptr %0(ptr noundef %.181763, ptr noundef %1, i32 noundef %1038) #14
   %1043 = icmp eq ptr %1042, null
   br i1 %1043, label %.thread1424, label %.thread1310
 
@@ -2637,7 +2637,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 1063:                                             ; preds = %1058
   %1064 = add nuw nsw i32 %.227661777, %1061
-  %1065 = call ptr %0(ptr noundef %.221779, ptr noundef %1, i32 noundef %1061) #13
+  %1065 = call ptr %0(ptr noundef %.221779, ptr noundef %1, i32 noundef %1061) #14
   %1066 = icmp eq ptr %1065, null
   br i1 %1066, label %.thread1424, label %1067
 
@@ -2727,7 +2727,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 1089:                                             ; preds = %1084
   %1090 = add nuw nsw i32 %.277711805, %1087
-  %1091 = call ptr %0(ptr noundef %.271807, ptr noundef %1, i32 noundef %1087) #13
+  %1091 = call ptr %0(ptr noundef %.271807, ptr noundef %1, i32 noundef %1087) #14
   %1092 = icmp eq ptr %1091, null
   br i1 %1092, label %.thread1424, label %1093
 
@@ -2821,7 +2821,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 1125:                                             ; preds = %1120
   %1126 = add nuw nsw i32 %.327761834, %1123
-  %1127 = call ptr %0(ptr noundef %.321836, ptr noundef %1, i32 noundef %1123) #13
+  %1127 = call ptr %0(ptr noundef %.321836, ptr noundef %1, i32 noundef %1123) #14
   %1128 = icmp eq ptr %1127, null
   br i1 %1128, label %.thread1424, label %1129
 
@@ -2886,7 +2886,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 1148:                                             ; preds = %1143
   %1149 = add nuw nsw i32 %.377811850, %1146
-  %1150 = call ptr %0(ptr noundef %.371852, ptr noundef %1, i32 noundef %1146) #13
+  %1150 = call ptr %0(ptr noundef %.371852, ptr noundef %1, i32 noundef %1146) #14
   %1151 = icmp eq ptr %1150, null
   br i1 %1151, label %.thread1424, label %1152
 
@@ -2998,7 +2998,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 1189:                                             ; preds = %1184
   %1190 = add nuw nsw i32 %.42786, %1187
-  %1191 = call ptr %0(ptr noundef %.42, ptr noundef %1, i32 noundef %1187) #13
+  %1191 = call ptr %0(ptr noundef %.42, ptr noundef %1, i32 noundef %1187) #14
   %1192 = icmp eq ptr %1191, null
   br i1 %1192, label %.thread1424, label %1157, !llvm.loop !46
 
@@ -3027,7 +3027,7 @@ stbsp__lead_sign.exit1250:                        ; preds = %903, %.sink.split.i
 
 1202:                                             ; preds = %1196
   %1203 = add nuw nsw i32 %.1745, %1200
-  %1204 = call ptr %0(ptr noundef %.1, ptr noundef %1, i32 noundef %1200) #13
+  %1204 = call ptr %0(ptr noundef %.1, ptr noundef %1, i32 noundef %1200) #14
   br label %.thread1424
 
 .thread1424:                                      ; preds = %66, %967, %989, %1040, %1063, %1089, %1125, %1148, %1189, %1202, %1195, %1196
@@ -3782,7 +3782,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -3791,35 +3791,35 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3829,12 +3829,13 @@ attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

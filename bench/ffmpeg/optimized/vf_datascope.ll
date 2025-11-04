@@ -113,14 +113,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @ff_draw_supported_pixel_formats(i32 noundef 0) #15
-  %5 = tail call i32 @ff_set_common_formats2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4) #15
+  %4 = tail call ptr @ff_draw_supported_pixel_formats(i32 noundef 0) #16
+  %5 = tail call i32 @ff_set_common_formats2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4) #16
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #15
+  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #16
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %14, label %9
 
@@ -138,7 +138,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @pixscope_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #15
+  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #16
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %14, label %9
 
@@ -159,13 +159,13 @@ define internal void @oscilloscope_uninit(ptr noundef readonly captures(none) %0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 896
-  tail call void @av_freep(ptr noundef nonnull %4) #15
+  tail call void @av_freep(ptr noundef nonnull %4) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @oscilloscope_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #15
+  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #16
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %12, label %9
 
@@ -208,22 +208,22 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %19 = load i32, ptr %18, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %21 = load i32, ptr %20, align 4, !tbaa !43
-  %22 = tail call ptr @ff_get_video_buffer(ptr noundef %12, i32 noundef %19, i32 noundef %21) #15
+  %22 = tail call ptr @ff_get_video_buffer(ptr noundef %12, i32 noundef %19, i32 noundef %21) #16
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %23, label %24
 
 23:                                               ; preds = %2
-  call void @av_frame_free(ptr noundef nonnull %3) #15
+  call void @av_frame_free(ptr noundef nonnull %3) #16
   br label %136
 
 24:                                               ; preds = %2
-  %25 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %22, ptr noundef %1) #15
+  %25 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %22, ptr noundef %1) #16
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 320
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %29 = load i32, ptr %18, align 8, !tbaa !42
   %30 = load i32, ptr %20, align 4, !tbaa !43
-  tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef 0, i32 noundef 0, i32 noundef %29, i32 noundef %30) #15
+  tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef 0, i32 noundef 0, i32 noundef %29, i32 noundef %30) #16
   %31 = icmp sgt i32 %., 0
   br i1 %31, label %.lr.ph, label %._crit_edge
 
@@ -267,15 +267,15 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %50 = load i32, ptr %49, align 4, !tbaa !49
   %51 = add nsw i32 %50, %46
-  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %51) #15
-  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
+  %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %51) #16
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
   %54 = trunc i64 %53 to i32
   %55 = mul nsw i32 %54, 10
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %57 = load i32, ptr %56, align 8, !tbaa !50
   %58 = add nsw i32 %57, %48
-  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %58) #15
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
+  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %58) #16
+  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
   %61 = trunc i64 %60 to i32
   %62 = mul nsw i32 %61, 10
   %63 = load i32, ptr %20, align 4, !tbaa !43
@@ -311,13 +311,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.0119 = phi i32 [ 0, %.lr.ph121 ], [ %100, %draw_text.exit ]
   %82 = load i32, ptr %49, align 4, !tbaa !49
   %83 = add nsw i32 %82, %.0119
-  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %83) #15
+  %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %83) #16
   %85 = mul i32 %.0119, 12
   %reass.add = add i32 %69, %85
   %reass.mul = mul i32 %reass.add, %.0106.lcssa
   %86 = add i32 %reass.mul, %62
   %87 = add nsw i32 %86, -2
-  tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %68, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef 0, i32 noundef %87, i32 noundef %55, i32 noundef 10) #15
+  tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %68, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef 0, i32 noundef %87, i32 noundef %55, i32 noundef 10) #16
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %98, %81
@@ -340,7 +340,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %94 = load i32, ptr %72, align 4, !tbaa !58
   %95 = shl nuw nsw i64 %92, 3
   %96 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %95
-  tail call void @ff_blend_mask(ptr noundef nonnull %26, ptr noundef nonnull %70, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef %93, i32 noundef %94, ptr noundef nonnull %96, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i, i32 noundef %.018.us.i) #15
+  tail call void @ff_blend_mask(ptr noundef nonnull %26, ptr noundef nonnull %70, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef %93, i32 noundef %94, ptr noundef nonnull %96, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i, i32 noundef %.018.us.i) #16
   %97 = add nsw i32 %.0.us.i, 8
   br label %98
 
@@ -359,13 +359,13 @@ draw_text.exit:                                   ; preds = %.split.us.i
   %.0102122 = phi i32 [ 0, %.lr.ph123 ], [ %119, %draw_text.exit115 ]
   %102 = load i32, ptr %56, align 8, !tbaa !50
   %103 = add nsw i32 %102, %.0102122
-  %104 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %103) #15
+  %104 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %103) #16
   %105 = mul nsw i32 %.0102122, %43
   %106 = add i32 %105, %54
   %107 = mul i32 %106, 10
   %108 = add nsw i32 %107, %77
   %109 = add nsw i32 %108, -2
-  tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %76, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef %109, i32 noundef 0, i32 noundef 10, i32 noundef %62) #15
+  tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %76, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef %109, i32 noundef 0, i32 noundef 10, i32 noundef %62) #16
   br label %.split.i
 
 .split.i:                                         ; preds = %117, %101
@@ -383,7 +383,7 @@ draw_text.exit:                                   ; preds = %.split.us.i
   %114 = load i32, ptr %80, align 4, !tbaa !58
   %115 = shl nuw nsw i64 %112, 3
   %116 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %115
-  tail call void @ff_blend_mask(ptr noundef nonnull %26, ptr noundef nonnull %78, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef %113, i32 noundef %114, ptr noundef nonnull %116, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %108, i32 noundef %.018.i) #15
+  tail call void @ff_blend_mask(ptr noundef nonnull %26, ptr noundef nonnull %78, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef %113, i32 noundef %114, ptr noundef nonnull %116, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %108, i32 noundef %.018.i) #16
   br label %117
 
 117:                                              ; preds = %111, %.split.i
@@ -418,14 +418,14 @@ draw_text.exit115:                                ; preds = %.split.i
   store i32 %.0106.lcssa, ptr %126, align 8, !tbaa !67
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 472
   %128 = load ptr, ptr %127, align 8, !tbaa !68
-  %129 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %7) #16
+  %129 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %7) #17
   %130 = icmp sgt i32 %121, 39
   %131 = sdiv i32 %121, 20
   %132 = select i1 %130, i32 %131, i32 1
   %133 = tail call i32 @llvm.smin.i32(i32 %129, i32 %132)
-  %134 = call i32 @ff_filter_execute(ptr noundef %7, ptr noundef %128, ptr noundef nonnull %4, ptr noundef null, i32 noundef %133) #15
-  call void @av_frame_free(ptr noundef nonnull %3) #15
-  %135 = call i32 @ff_filter_frame(ptr noundef nonnull %12, ptr noundef nonnull %22) #15
+  %134 = call i32 @ff_filter_execute(ptr noundef %7, ptr noundef %128, ptr noundef nonnull %4, ptr noundef null, i32 noundef %133) #16
+  call void @av_frame_free(ptr noundef nonnull %3) #16
+  %135 = call i32 @ff_filter_frame(ptr noundef nonnull %12, ptr noundef nonnull %22) #16
   br label %136
 
 136:                                              ; preds = %120, %23
@@ -448,7 +448,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %11 = load float, ptr %10, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !70
-  %14 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %13) #15
+  %14 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %13) #16
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %14, ptr %15, align 4, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -457,12 +457,12 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %19 = load i32, ptr %18, align 8, !tbaa !71
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %21 = load i32, ptr %20, align 4, !tbaa !72
-  %22 = tail call i32 @ff_draw_init2(ptr noundef nonnull %16, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef 0) #15
+  %22 = tail call i32 @ff_draw_init2(ptr noundef nonnull %16, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef 0) #16
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 16, ptr noundef nonnull @.str.8) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 16, ptr noundef nonnull @.str.8) #16
   br label %66
 
 25:                                               ; preds = %1
@@ -470,7 +470,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %27 = fptoui float %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 252
   store i32 -1, ptr %2, align 4
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %28, ptr noundef nonnull %2) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %28, ptr noundef nonnull %2) #16
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 320
   store i8 0, ptr %3, align 1, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -479,7 +479,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   store i8 0, ptr %31, align 1, !tbaa !51
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %27, ptr %32, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %29, ptr noundef nonnull %3) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %29, ptr noundef nonnull %3) #16
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 184
   store i8 -1, ptr %4, align 1, !tbaa !51
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -488,7 +488,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   store i8 0, ptr %35, align 1, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 -1, ptr %36, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %33, ptr noundef nonnull %4) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %33, ptr noundef nonnull %4) #16
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 388
   store i8 77, ptr %5, align 1, !tbaa !51
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -497,7 +497,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   store i8 77, ptr %39, align 1, !tbaa !51
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 -1, ptr %40, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %37, ptr noundef nonnull %5) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %37, ptr noundef nonnull %5) #16
   %41 = load ptr, ptr %16, align 8, !tbaa !73
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load i32, ptr %42, align 8, !tbaa !74
@@ -701,7 +701,7 @@ define internal noundef i32 @filter_mono(ptr noundef readonly captures(none) %0,
   %81 = load ptr, ptr %58, align 8, !tbaa !80
   %82 = load i32, ptr %43, align 4, !tbaa !49
   %83 = add nsw i32 %82, %.06981.us.us
-  call void %81(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %78, i32 noundef %83, ptr noundef nonnull %6) #15
+  call void %81(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %78, i32 noundef %83, ptr noundef nonnull %6) #16
   %factor.op.mul.reass.us.us.us = mul i32 %31, %.07078.us.us.us
   %84 = add i32 %64, %factor.op.mul.reass.us.us.us
   br label %85
@@ -721,7 +721,7 @@ define internal noundef i32 @filter_mono(ptr noundef readonly captures(none) %0,
   %91 = load ptr, ptr %62, align 8, !tbaa !83
   %92 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4, !tbaa !84
-  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 256, ptr noundef %91, i32 noundef %93) #15
+  %94 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 256, ptr noundef %91, i32 noundef %93) #16
   %95 = mul nsw i32 %.076.us.us.us, 10
   %96 = add i32 %75, %95
   br label %.split.us.i.us.us.us
@@ -750,7 +750,7 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %104 = load i32, ptr %68, align 4, !tbaa !58
   %105 = shl nuw nsw i64 %102, 3
   %106 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %105
-  call void @ff_blend_mask(ptr noundef nonnull %59, ptr noundef nonnull %63, ptr noundef %15, ptr noundef nonnull %66, i32 noundef %103, i32 noundef %104, ptr noundef nonnull %106, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i.us.us.us, i32 noundef %.018.us.i.us.us.us) #15
+  call void @ff_blend_mask(ptr noundef nonnull %59, ptr noundef nonnull %63, ptr noundef %15, ptr noundef nonnull %66, i32 noundef %103, i32 noundef %104, ptr noundef nonnull %106, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i.us.us.us, i32 noundef %.018.us.i.us.us.us) #16
   %107 = add nsw i32 %.0.us.i.us.us.us, 8
   br label %108
 
@@ -803,7 +803,7 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %122 = load ptr, ptr %58, align 8, !tbaa !80
   %123 = load i32, ptr %43, align 4, !tbaa !49
   %124 = add nsw i32 %123, %.06981.us
-  call void %122(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %117, i32 noundef %124, ptr noundef nonnull %6) #15
+  call void %122(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %117, i32 noundef %124, ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %125 = add i32 %.07078.us84, 1
@@ -932,7 +932,7 @@ define internal noundef i32 @filter_color(ptr noundef readonly captures(none) %0
   %80 = load ptr, ptr %58, align 8, !tbaa !80
   %81 = load i32, ptr %43, align 4, !tbaa !49
   %82 = add nsw i32 %81, %.06880.us.us
-  call void %80(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %77, i32 noundef %82, ptr noundef nonnull %6) #15
+  call void %80(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %77, i32 noundef %82, ptr noundef nonnull %6) #16
   %factor.op.mul.reass.us.us.us = mul i32 %31, %.06977.us.us.us
   %83 = add i32 %63, %factor.op.mul.reass.us.us.us
   br label %84
@@ -952,7 +952,7 @@ define internal noundef i32 @filter_color(ptr noundef readonly captures(none) %0
   %90 = load ptr, ptr %62, align 8, !tbaa !83
   %91 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4, !tbaa !84
-  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 256, ptr noundef %90, i32 noundef %92) #15
+  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 256, ptr noundef %90, i32 noundef %92) #16
   %94 = mul nsw i32 %.075.us.us.us, 10
   %95 = add i32 %74, %94
   br label %.split.us.i.us.us.us
@@ -981,7 +981,7 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %103 = load i32, ptr %67, align 4, !tbaa !58
   %104 = shl nuw nsw i64 %101, 3
   %105 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %104
-  call void @ff_blend_mask(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %15, ptr noundef nonnull %65, i32 noundef %102, i32 noundef %103, ptr noundef nonnull %105, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i.us.us.us, i32 noundef %.018.us.i.us.us.us) #15
+  call void @ff_blend_mask(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %15, ptr noundef nonnull %65, i32 noundef %102, i32 noundef %103, ptr noundef nonnull %105, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i.us.us.us, i32 noundef %.018.us.i.us.us.us) #16
   %106 = add nsw i32 %.0.us.i.us.us.us, 8
   br label %107
 
@@ -1034,7 +1034,7 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %121 = load ptr, ptr %58, align 8, !tbaa !80
   %122 = load i32, ptr %43, align 4, !tbaa !49
   %123 = add nsw i32 %122, %.06880.us
-  call void %121(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %116, i32 noundef %123, ptr noundef nonnull %6) #15
+  call void %121(ptr noundef nonnull %59, ptr noundef nonnull %5, ptr noundef %13, i32 noundef %116, i32 noundef %123, ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %124 = add i32 %.06977.us83, 1
@@ -1166,12 +1166,12 @@ define internal noundef i32 @filter_color2(ptr noundef readonly captures(none) %
   %81 = load ptr, ptr %59, align 8, !tbaa !80
   %82 = load i32, ptr %44, align 4, !tbaa !49
   %83 = add nsw i32 %82, %.08191.us.us
-  call void %81(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %14, i32 noundef %78, i32 noundef %83, ptr noundef nonnull %7) #15
+  call void %81(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %14, i32 noundef %78, i32 noundef %83, ptr noundef nonnull %7) #16
   %84 = load ptr, ptr %61, align 8, !tbaa !81
-  call void %84(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+  call void %84(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %85 = mul i32 %32, %.08287.us.us.us
   %86 = add nsw i32 %85, %.fr102
-  call void @ff_fill_rectangle(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %86, i32 noundef %74, i32 noundef %32, i32 noundef %37) #15
+  call void @ff_fill_rectangle(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %86, i32 noundef %74, i32 noundef %32, i32 noundef %37) #16
   %87 = add nsw i32 %86, 2
   br label %88
 
@@ -1190,7 +1190,7 @@ define internal noundef i32 @filter_color2(ptr noundef readonly captures(none) %
   %94 = load ptr, ptr %65, align 8, !tbaa !83
   %95 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !84
-  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef %94, i32 noundef %96) #15
+  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef %94, i32 noundef %96) #16
   %98 = mul nsw i32 %.086.us.us.us, 10
   %99 = add i32 %75, %98
   br label %.split.us.i.us.us.us
@@ -1219,7 +1219,7 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %107 = load i32, ptr %67, align 4, !tbaa !58
   %108 = shl nuw nsw i64 %105, 3
   %109 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %108
-  call void @ff_blend_mask(ptr noundef nonnull %60, ptr noundef nonnull %6, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %106, i32 noundef %107, ptr noundef nonnull %109, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i.us.us.us, i32 noundef %.018.us.i.us.us.us) #15
+  call void @ff_blend_mask(ptr noundef nonnull %60, ptr noundef nonnull %6, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %106, i32 noundef %107, ptr noundef nonnull %109, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i.us.us.us, i32 noundef %.018.us.i.us.us.us) #16
   %110 = add nsw i32 %.0.us.i.us.us.us, 8
   br label %111
 
@@ -1275,12 +1275,12 @@ draw_text.exit.us.us.us:                          ; preds = %.split.us.i.us.us.u
   %126 = load ptr, ptr %59, align 8, !tbaa !80
   %127 = load i32, ptr %44, align 4, !tbaa !49
   %128 = add nsw i32 %127, %.08191.us
-  call void %126(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %14, i32 noundef %121, i32 noundef %128, ptr noundef nonnull %7) #15
+  call void %126(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %14, i32 noundef %121, i32 noundef %128, ptr noundef nonnull %7) #16
   %129 = load ptr, ptr %61, align 8, !tbaa !81
-  call void %129(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+  call void %129(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %130 = mul i32 %32, %.08287.us94
   %131 = add nsw i32 %130, %.fr102
-  call void @ff_fill_rectangle(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %131, i32 noundef %133, i32 noundef %32, i32 noundef %37) #15
+  call void @ff_fill_rectangle(ptr noundef nonnull %60, ptr noundef nonnull %5, ptr noundef %16, ptr noundef nonnull %62, i32 noundef %131, i32 noundef %133, i32 noundef %32, i32 noundef %37) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1615,7 +1615,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %20 = load i32, ptr %19, align 8, !tbaa !52
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %22 = load i32, ptr %21, align 4, !tbaa !58
-  %23 = tail call ptr @ff_get_video_buffer(ptr noundef %18, i32 noundef %20, i32 noundef %22) #15
+  %23 = tail call ptr @ff_get_video_buffer(ptr noundef %18, i32 noundef %20, i32 noundef %22) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1631,12 +1631,12 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   br i1 %.not, label %24, label %25
 
 24:                                               ; preds = %2
-  call void @av_frame_free(ptr noundef nonnull %3) #15
+  call void @av_frame_free(ptr noundef nonnull %3) #16
   br label %373
 
 25:                                               ; preds = %2
-  %26 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %23, ptr noundef nonnull %1) #15
-  %27 = tail call i32 @av_frame_copy(ptr noundef nonnull %23, ptr noundef nonnull %1) #15
+  %26 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %23, ptr noundef nonnull %1) #16
+  %27 = tail call i32 @av_frame_copy(ptr noundef nonnull %23, ptr noundef nonnull %1) #16
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 44
   %29 = load i32, ptr %28, align 4, !tbaa !104
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -1736,7 +1736,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %90 = load i32, ptr %89, align 8, !tbaa !52
   %91 = getelementptr inbounds nuw i8, ptr %23, i64 108
   %92 = load i32, ptr %91, align 4, !tbaa !58
-  tail call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %90, i32 noundef %92, i32 noundef %.1280, i32 noundef %.1284, i32 noundef %29, i32 noundef %46) #15
+  tail call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %90, i32 noundef %92, i32 noundef %.1280, i32 noundef %.1284, i32 noundef %29, i32 noundef %46) #16
   %93 = load i32, ptr %33, align 4, !tbaa !107
   %94 = icmp sgt i32 %93, 0
   %.pre396 = load i32, ptr %30, align 8, !tbaa !106
@@ -1779,7 +1779,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %113 = add nsw i32 %111, %112
   %114 = load i32, ptr %97, align 8, !tbaa !112
   %115 = add nsw i32 %114, %107
-  call void %109(ptr noundef nonnull %86, ptr noundef nonnull %10, ptr noundef %110, i32 noundef %113, i32 noundef %115, ptr noundef nonnull %11) #15
+  call void %109(ptr noundef nonnull %86, ptr noundef nonnull %10, ptr noundef %110, i32 noundef %113, i32 noundef %115, ptr noundef nonnull %11) #16
   %116 = load i32, ptr %28, align 4, !tbaa !104
   %117 = add nsw i32 %116, -4
   %118 = load i32, ptr %30, align 8, !tbaa !106
@@ -1790,7 +1790,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %123 = mul i32 %32, %122
   %124 = add i32 %123, %.1280
   %125 = add i32 %124, %121
-  call void @ff_fill_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %10, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %125, i32 noundef %106, i32 noundef %32, i32 noundef %35) #15
+  call void @ff_fill_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %10, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %125, i32 noundef %106, i32 noundef %32, i32 noundef %35) #16
   %gep = getelementptr inbounds nuw [80 x i16], ptr %invariant.gep342, i64 %indvars.iv363
   br label %126
 
@@ -1856,7 +1856,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %159 = load i32, ptr %158, align 8, !tbaa !112
   %160 = add nsw i32 %159, -2
   %161 = add nsw i32 %151, 4
-  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %152, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %153, i32 noundef %154, i32 noundef %157, i32 noundef %160, i32 noundef %161, i32 noundef 1) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %152, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %153, i32 noundef %154, i32 noundef %157, i32 noundef %160, i32 noundef %161, i32 noundef 1) #16
   %162 = getelementptr inbounds nuw i8, ptr %15, i64 336
   %163 = load i32, ptr %89, align 8, !tbaa !52
   %164 = load i32, ptr %91, align 4, !tbaa !58
@@ -1866,7 +1866,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %168 = add nsw i32 %167, -1
   %169 = load i32, ptr %30, align 8, !tbaa !106
   %170 = add nsw i32 %169, 2
-  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %163, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef 1) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %163, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef 1) #16
   %171 = load i32, ptr %89, align 8, !tbaa !52
   %172 = load i32, ptr %91, align 4, !tbaa !58
   %173 = load i32, ptr %155, align 4, !tbaa !111
@@ -1875,7 +1875,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %176 = add nsw i32 %175, -1
   %177 = load i32, ptr %33, align 4, !tbaa !107
   %178 = add nsw i32 %177, 2
-  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %171, i32 noundef %172, i32 noundef %174, i32 noundef %176, i32 noundef 1, i32 noundef %178) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %171, i32 noundef %172, i32 noundef %174, i32 noundef %176, i32 noundef 1, i32 noundef %178) #16
   %179 = load i32, ptr %89, align 8, !tbaa !52
   %180 = load i32, ptr %91, align 4, !tbaa !58
   %181 = load i32, ptr %155, align 4, !tbaa !111
@@ -1884,7 +1884,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %184 = add nsw i32 %183, -2
   %185 = load i32, ptr %33, align 4, !tbaa !107
   %186 = add nsw i32 %185, 4
-  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %152, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %179, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef 1, i32 noundef %186) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %152, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %179, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef 1, i32 noundef %186) #16
   %187 = load i32, ptr %89, align 8, !tbaa !52
   %188 = load i32, ptr %91, align 4, !tbaa !58
   %189 = load i32, ptr %155, align 4, !tbaa !111
@@ -1895,7 +1895,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %194 = add nsw i32 %192, %193
   %195 = load i32, ptr %30, align 8, !tbaa !106
   %196 = add nsw i32 %195, 3
-  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %187, i32 noundef %188, i32 noundef %190, i32 noundef %194, i32 noundef %196, i32 noundef 1) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %187, i32 noundef %188, i32 noundef %190, i32 noundef %194, i32 noundef %196, i32 noundef 1) #16
   %197 = load i32, ptr %89, align 8, !tbaa !52
   %198 = load i32, ptr %91, align 4, !tbaa !58
   %199 = load i32, ptr %155, align 4, !tbaa !111
@@ -1906,7 +1906,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %204 = add nsw i32 %202, %203
   %205 = load i32, ptr %30, align 8, !tbaa !106
   %206 = add nsw i32 %205, 4
-  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %152, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %197, i32 noundef %198, i32 noundef %200, i32 noundef %204, i32 noundef %206, i32 noundef 1) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %152, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %197, i32 noundef %198, i32 noundef %200, i32 noundef %204, i32 noundef %206, i32 noundef 1) #16
   %207 = load i32, ptr %89, align 8, !tbaa !52
   %208 = load i32, ptr %91, align 4, !tbaa !58
   %209 = load i32, ptr %155, align 4, !tbaa !111
@@ -1917,7 +1917,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %214 = add nsw i32 %213, -1
   %215 = load i32, ptr %33, align 4, !tbaa !107
   %216 = add nsw i32 %215, 2
-  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %207, i32 noundef %208, i32 noundef %212, i32 noundef %214, i32 noundef 1, i32 noundef %216) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %207, i32 noundef %208, i32 noundef %212, i32 noundef %214, i32 noundef 1, i32 noundef %216) #16
   %217 = load i32, ptr %89, align 8, !tbaa !52
   %218 = load i32, ptr %91, align 4, !tbaa !58
   %219 = load i32, ptr %155, align 4, !tbaa !111
@@ -1928,7 +1928,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %224 = add nsw i32 %223, -2
   %225 = load i32, ptr %33, align 4, !tbaa !107
   %226 = add nsw i32 %225, 5
-  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %152, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %217, i32 noundef %218, i32 noundef %222, i32 noundef %224, i32 noundef 1, i32 noundef %226) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %86, ptr noundef nonnull %152, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %217, i32 noundef %218, i32 noundef %222, i32 noundef %224, i32 noundef 1, i32 noundef %226) #16
   %227 = load i32, ptr %30, align 8, !tbaa !106
   %228 = load i32, ptr %33, align 4, !tbaa !107
   %229 = mul nsw i32 %228, %227
@@ -2057,7 +2057,7 @@ draw_text.exit.preheader:                         ; preds = %.split.us.i
   %276 = load i32, ptr %91, align 4, !tbaa !58
   %277 = shl nuw nsw i64 %274, 3
   %278 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %277
-  call void @ff_blend_mask(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %275, i32 noundef %276, ptr noundef nonnull %278, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i, i32 noundef %.018.us.i) #15
+  call void @ff_blend_mask(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %275, i32 noundef %276, ptr noundef nonnull %278, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i, i32 noundef %.018.us.i) #16
   %279 = add nsw i32 %.0.us.i, 8
   br label %280
 
@@ -2094,7 +2094,7 @@ draw_text.exit.loopexit:                          ; preds = %.split.us.i311
   %297 = load i32, ptr %296, align 4, !tbaa !84
   %298 = getelementptr inbounds nuw double, ptr %8, i64 %290
   %299 = load double, ptr %298, align 8, !tbaa !116
-  %300 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.39, i32 noundef %289, double noundef %293, i32 noundef %295, i32 noundef %297, double noundef %299) #15
+  %300 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.39, i32 noundef %289, double noundef %293, i32 noundef %295, i32 noundef %297, double noundef %299) #16
   %301 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv390
   %302 = load ptr, ptr %301, align 8, !tbaa !131
   %303 = load i32, ptr %28, align 4, !tbaa !104
@@ -2125,7 +2125,7 @@ draw_text.exit.loopexit:                          ; preds = %.split.us.i311
   %314 = load i32, ptr %91, align 4, !tbaa !58
   %315 = shl nuw nsw i64 %312, 3
   %316 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %315
-  call void @ff_blend_mask(ptr noundef nonnull %86, ptr noundef %302, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %313, i32 noundef %314, ptr noundef nonnull %316, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i314, i32 noundef %.018.us.i313) #15
+  call void @ff_blend_mask(ptr noundef nonnull %86, ptr noundef %302, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %313, i32 noundef %314, ptr noundef nonnull %316, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i314, i32 noundef %.018.us.i313) #16
   %317 = add nsw i32 %.0.us.i314, 8
   br label %318
 
@@ -2174,7 +2174,7 @@ draw_text.exit324.preheader:                      ; preds = %.split.us.i318
   %335 = load i32, ptr %91, align 4, !tbaa !58
   %336 = shl nuw nsw i64 %333, 3
   %337 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %336
-  call void @ff_blend_mask(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %334, i32 noundef %335, ptr noundef nonnull %337, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i321, i32 noundef %.018.us.i320) #15
+  call void @ff_blend_mask(ptr noundef nonnull %86, ptr noundef nonnull %162, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %334, i32 noundef %335, ptr noundef nonnull %337, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i321, i32 noundef %.018.us.i320) #16
   %338 = add nsw i32 %.0.us.i321, 8
   br label %339
 
@@ -2198,7 +2198,7 @@ draw_text.exit324.preheader:                      ; preds = %.split.us.i318
   %346 = zext i8 %343 to i64
   %347 = getelementptr inbounds nuw double, ptr %7, i64 %346
   %348 = load double, ptr %347, align 8, !tbaa !116
-  %349 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.41, i32 noundef %345, double noundef %348) #15
+  %349 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.41, i32 noundef %345, double noundef %348) #16
   %350 = getelementptr inbounds nuw ptr, ptr %328, i64 %indvars.iv393
   %351 = load ptr, ptr %350, align 8, !tbaa !131
   %352 = load i32, ptr %28, align 4, !tbaa !104
@@ -2228,7 +2228,7 @@ draw_text.exit324.preheader:                      ; preds = %.split.us.i318
   %363 = load i32, ptr %91, align 4, !tbaa !58
   %364 = shl nuw nsw i64 %361, 3
   %365 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %364
-  call void @ff_blend_mask(ptr noundef nonnull %86, ptr noundef %351, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %362, i32 noundef %363, ptr noundef nonnull %365, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i328, i32 noundef %.018.us.i327) #15
+  call void @ff_blend_mask(ptr noundef nonnull %86, ptr noundef %351, ptr noundef nonnull %23, ptr noundef nonnull %88, i32 noundef %362, i32 noundef %363, ptr noundef nonnull %365, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i328, i32 noundef %.018.us.i327) #16
   %366 = add nsw i32 %.0.us.i328, 8
   br label %367
 
@@ -2246,8 +2246,8 @@ draw_text.exit331:                                ; preds = %.split.us.i325
   br i1 %371, label %341, label %draw_text.exit324._crit_edge, !llvm.loop !133
 
 draw_text.exit324._crit_edge:                     ; preds = %draw_text.exit331, %draw_text.exit324.preheader
-  call void @av_frame_free(ptr noundef nonnull %3) #15
-  %372 = call i32 @ff_filter_frame(ptr noundef %18, ptr noundef nonnull %23) #15
+  call void @av_frame_free(ptr noundef nonnull %3) #16
+  %372 = call i32 @ff_filter_frame(ptr noundef %18, ptr noundef nonnull %23) #16
   br label %373
 
 373:                                              ; preds = %draw_text.exit324._crit_edge, %24
@@ -2275,17 +2275,17 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
   %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !70
-  %14 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %13) #15
+  %14 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %13) #16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 52
   store i32 %14, ptr %15, align 4, !tbaa !134
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %17 = load i32, ptr %12, align 4, !tbaa !70
-  %18 = tail call i32 @ff_draw_init(ptr noundef nonnull %16, i32 noundef %17, i32 noundef 0) #15
+  %18 = tail call i32 @ff_draw_init(ptr noundef nonnull %16, i32 noundef %17, i32 noundef 0) #16
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 16, ptr noundef nonnull @.str.8) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 16, ptr noundef nonnull @.str.8) #16
   br label %120
 
 21:                                               ; preds = %1
@@ -2301,7 +2301,7 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
   %28 = fmul nsz float %27, 2.550000e+02
   %29 = fptoui float %28 to i8
   store i8 %29, ptr %25, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %22, ptr noundef nonnull %2) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %22, ptr noundef nonnull %2) #16
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 268
   store i8 0, ptr %3, align 1, !tbaa !51
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -2310,10 +2310,10 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
   store i8 0, ptr %32, align 1, !tbaa !51
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 -1, ptr %33, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %30, ptr noundef nonnull %3) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %30, ptr noundef nonnull %3) #16
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 336
   store i32 -1, ptr %4, align 4
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %34, ptr noundef nonnull %4) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %34, ptr noundef nonnull %4) #16
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 404
   store i8 0, ptr %5, align 1, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -2322,7 +2322,7 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
   store i8 0, ptr %37, align 1, !tbaa !51
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 -1, ptr %38, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %35, ptr noundef nonnull %5) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %35, ptr noundef nonnull %5) #16
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 472
   store i8 0, ptr %6, align 1, !tbaa !51
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -2331,7 +2331,7 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
   store i8 -1, ptr %41, align 1, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 -1, ptr %42, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %39, ptr noundef nonnull %6) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %39, ptr noundef nonnull %6) #16
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 540
   store i8 -1, ptr %7, align 1, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -2340,7 +2340,7 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
   store i8 0, ptr %45, align 1, !tbaa !51
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 -1, ptr %46, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %43, ptr noundef nonnull %7) #15
+  call void @ff_draw_color(ptr noundef nonnull %16, ptr noundef nonnull %43, ptr noundef nonnull %7) #16
   %47 = load ptr, ptr %16, align 8, !tbaa !136
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !77
@@ -2367,7 +2367,7 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
   store ptr %39, ptr %59, align 8, !tbaa !131
   store ptr %34, ptr %60, align 8, !tbaa !131
   %63 = load i32, ptr %12, align 4, !tbaa !70
-  %64 = call i32 @ff_fill_rgba_map(ptr noundef nonnull %61, i32 noundef %63) #15
+  %64 = call i32 @ff_fill_rgba_map(ptr noundef nonnull %61, i32 noundef %63) #16
   %.pre = load ptr, ptr %16, align 8, !tbaa !136
   br label %69
 
@@ -2406,7 +2406,7 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
 
 82:                                               ; preds = %78, %69
   %83 = load ptr, ptr %8, align 8, !tbaa !25
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %83, i32 noundef 16, ptr noundef nonnull @.str.42) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %83, i32 noundef 16, ptr noundef nonnull @.str.42) #16
   br label %120
 
 84:                                               ; preds = %78
@@ -2445,7 +2445,7 @@ define internal range(i32 -2147483648, 1) i32 @pixscope_config_input(ptr noundef
 
 108:                                              ; preds = %104, %84
   %109 = load ptr, ptr %8, align 8, !tbaa !25
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %109, i32 noundef 24, ptr noundef nonnull @.str.43) #15
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %109, i32 noundef 24, ptr noundef nonnull @.str.43) #16
   %110 = load i32, ptr %93, align 4, !tbaa !111
   %111 = load i32, ptr %75, align 8, !tbaa !42
   %112 = load i32, ptr %101, align 8, !tbaa !106
@@ -2470,10 +2470,10 @@ declare i32 @av_frame_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @ff_blend_rectangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #10
 
 declare i32 @ff_draw_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -2568,7 +2568,7 @@ define internal i32 @oscilloscope_filter_frame(ptr noundef readonly captures(non
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %65 = load ptr, ptr %43, align 8, !tbaa !149
-  call void %65(ptr noundef nonnull %44, ptr noundef nonnull %3, ptr noundef nonnull %1, i32 noundef %.098.i, i32 noundef %.0101.i, ptr noundef nonnull %4) #15
+  call void %65(ptr noundef nonnull %44, ptr noundef nonnull %3, ptr noundef nonnull %1, i32 noundef %.098.i, i32 noundef %.0101.i, ptr noundef nonnull %4) #16
   %66 = load i32, ptr %4, align 16, !tbaa !84
   %67 = trunc i32 %66 to i16
   %68 = load ptr, ptr %25, align 8, !tbaa !150
@@ -2737,7 +2737,7 @@ draw_scope.exit:                                  ; preds = %157
   %179 = load i32, ptr %178, align 4, !tbaa !162
   %180 = mul nsw i32 %179, 20
   %181 = add nsw i32 %180, %177
-  call void @ff_blend_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %167, ptr noundef %1, ptr noundef nonnull %51, i32 noundef %168, i32 noundef %169, i32 noundef %171, i32 noundef %173, i32 noundef %175, i32 noundef %181) #15
+  call void @ff_blend_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %167, ptr noundef %1, ptr noundef nonnull %51, i32 noundef %168, i32 noundef %169, i32 noundef %171, i32 noundef %173, i32 noundef %175, i32 noundef %181) #16
   %182 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %183 = load i32, ptr %182, align 8, !tbaa !163
   %.not = icmp eq i32 %183, 0
@@ -2755,7 +2755,7 @@ draw_scope.exit:                                  ; preds = %157
   %191 = load i32, ptr %172, align 8, !tbaa !159
   %192 = load i32, ptr %174, align 8, !tbaa !160
   %193 = add nsw i32 %192, -1
-  call void @ff_fill_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %190, i32 noundef %191, i32 noundef %193, i32 noundef 1) #15
+  call void @ff_fill_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %190, i32 noundef %191, i32 noundef %193, i32 noundef 1) #16
   br label %194
 
 194:                                              ; preds = %188, %194
@@ -2768,7 +2768,7 @@ draw_scope.exit:                                  ; preds = %157
   %200 = sdiv i32 %199, 4
   %201 = add nsw i32 %200, %196
   %202 = load i32, ptr %174, align 8, !tbaa !160
-  call void @ff_fill_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %195, i32 noundef %201, i32 noundef %202, i32 noundef 1) #15
+  call void @ff_fill_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %195, i32 noundef %201, i32 noundef %202, i32 noundef 1) #16
   %203 = add nuw nsw i32 %.0129144, 1
   %exitcond.not = icmp eq i32 %203, 5
   br i1 %exitcond.not, label %.preheader142, label %194, !llvm.loop !164
@@ -2783,7 +2783,7 @@ draw_scope.exit:                                  ; preds = %157
   %209 = add nsw i32 %208, %204
   %210 = load i32, ptr %172, align 8, !tbaa !159
   %211 = load i32, ptr %176, align 4, !tbaa !161
-  call void @ff_fill_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %209, i32 noundef %210, i32 noundef 1, i32 noundef %211) #15
+  call void @ff_fill_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %209, i32 noundef %210, i32 noundef 1, i32 noundef %211) #16
   %212 = add nuw nsw i32 %.1130145, 1
   %exitcond154.not = icmp eq i32 %212, 10
   br i1 %exitcond154.not, label %213, label %.preheader142, !llvm.loop !165
@@ -2795,13 +2795,13 @@ draw_scope.exit:                                  ; preds = %157
   %217 = add i32 %216, %215
   %218 = load i32, ptr %172, align 8, !tbaa !159
   %219 = load i32, ptr %176, align 4, !tbaa !161
-  call void @ff_fill_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %217, i32 noundef %218, i32 noundef 1, i32 noundef %219) #15
+  call void @ff_fill_rectangle(ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %217, i32 noundef %218, i32 noundef 1, i32 noundef %219) #16
   br label %220
 
 220:                                              ; preds = %213, %184, %draw_scope.exit
   %221 = getelementptr inbounds nuw i8, ptr %12, i64 912
   %222 = load ptr, ptr %221, align 8, !tbaa !166
-  call void %222(ptr noundef nonnull %12, ptr noundef nonnull %1) #15
+  call void %222(ptr noundef nonnull %12, ptr noundef nonnull %1) #16
   %223 = load i32, ptr %16, align 8, !tbaa !140
   %224 = icmp sgt i32 %223, 0
   %.pre = load i32, ptr %52, align 4, !tbaa !154
@@ -2950,7 +2950,7 @@ draw_scope.exit:                                  ; preds = %157
   %298 = load i32, ptr %297, align 4, !tbaa !84
   %299 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv167
   %300 = load i32, ptr %299, align 4, !tbaa !84
-  %301 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.58, i32 noundef %293, double noundef %296, i32 noundef %298, i32 noundef %300) #15
+  %301 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.58, i32 noundef %293, double noundef %296, i32 noundef %298, i32 noundef %300) #16
   %302 = load i32, ptr %170, align 4, !tbaa !158
   %303 = mul nsw i32 %.3149, 280
   %304 = or disjoint i32 %303, 2
@@ -2981,7 +2981,7 @@ draw_scope.exit:                                  ; preds = %157
   %316 = load i32, ptr %42, align 4, !tbaa !58
   %317 = shl nuw nsw i64 %314, 3
   %318 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %317
-  call void @ff_blend_mask(ptr noundef nonnull %44, ptr noundef nonnull %284, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %315, i32 noundef %316, ptr noundef nonnull %318, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i, i32 noundef %.018.us.i) #15
+  call void @ff_blend_mask(ptr noundef nonnull %44, ptr noundef nonnull %284, ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %315, i32 noundef %316, ptr noundef nonnull %318, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i, i32 noundef %.018.us.i) #16
   %319 = add nsw i32 %.0.us.i, 8
   br label %320
 
@@ -3006,7 +3006,7 @@ draw_text.exit:                                   ; preds = %.split.us.i
   br i1 %326, label %285, label %.loopexit, !llvm.loop !172
 
 .loopexit:                                        ; preds = %323, %262, %259, %._crit_edge
-  %327 = call i32 @ff_filter_frame(ptr noundef %15, ptr noundef nonnull %1) #15
+  %327 = call i32 @ff_filter_frame(ptr noundef %15, ptr noundef nonnull %1) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3029,17 +3029,17 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %15 = load i32, ptr %14, align 4, !tbaa !70
-  %16 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %15) #15
+  %16 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %15) #16
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store i32 %16, ptr %17, align 8, !tbaa !173
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %19 = load i32, ptr %14, align 4, !tbaa !70
-  %20 = tail call i32 @ff_draw_init(ptr noundef nonnull %18, i32 noundef %19, i32 noundef 0) #15
+  %20 = tail call i32 @ff_draw_init(ptr noundef nonnull %18, i32 noundef %19, i32 noundef 0) #16
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %11, i32 noundef 16, ptr noundef nonnull @.str.8) #15
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %11, i32 noundef 16, ptr noundef nonnull @.str.8) #16
   br label %99
 
 23:                                               ; preds = %1
@@ -3051,10 +3051,10 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   store i8 0, ptr %26, align 1, !tbaa !51
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 -1, ptr %27, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %24, ptr noundef nonnull %2) #15
+  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %24, ptr noundef nonnull %2) #16
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 376
   store i32 -1, ptr %3, align 4
-  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %28, ptr noundef nonnull %3) #15
+  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %28, ptr noundef nonnull %3) #16
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 444
   store i8 0, ptr %4, align 1, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -3063,7 +3063,7 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   store i8 0, ptr %31, align 1, !tbaa !51
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 -1, ptr %32, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %29, ptr noundef nonnull %4) #15
+  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %29, ptr noundef nonnull %4) #16
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 512
   store i8 0, ptr %5, align 1, !tbaa !51
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -3072,7 +3072,7 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   store i8 -1, ptr %35, align 1, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 -1, ptr %36, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %33, ptr noundef nonnull %5) #15
+  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %33, ptr noundef nonnull %5) #16
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 580
   store i8 -1, ptr %6, align 1, !tbaa !51
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -3081,7 +3081,7 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   store i8 0, ptr %39, align 1, !tbaa !51
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 -1, ptr %40, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %37, ptr noundef nonnull %6) #15
+  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %37, ptr noundef nonnull %6) #16
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 648
   store i8 0, ptr %7, align 1, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -3090,7 +3090,7 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   store i8 -1, ptr %43, align 1, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 -1, ptr %44, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %41, ptr noundef nonnull %7) #15
+  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %41, ptr noundef nonnull %7) #16
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 716
   store i8 -1, ptr %8, align 1, !tbaa !51
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -3099,7 +3099,7 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   store i8 -1, ptr %47, align 1, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store i8 -1, ptr %48, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %45, ptr noundef nonnull %8) #15
+  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %45, ptr noundef nonnull %8) #16
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 784
   store i8 -128, ptr %9, align 1, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -3108,7 +3108,7 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   store i8 -128, ptr %51, align 1, !tbaa !51
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 -1, ptr %52, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %49, ptr noundef nonnull %9) #15
+  call void @ff_draw_color(ptr noundef nonnull %18, ptr noundef nonnull %49, ptr noundef nonnull %9) #16
   %53 = load ptr, ptr %18, align 8, !tbaa !152
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i8, ptr %54, align 8, !tbaa !77
@@ -3135,7 +3135,7 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   store ptr %33, ptr %65, align 8, !tbaa !131
   store ptr %28, ptr %66, align 8, !tbaa !131
   %69 = load i32, ptr %14, align 4, !tbaa !70
-  %70 = call i32 @ff_fill_rgba_map(ptr noundef nonnull %67, i32 noundef %69) #15
+  %70 = call i32 @ff_fill_rgba_map(ptr noundef nonnull %67, i32 noundef %69) #16
   %.pre = load ptr, ptr %18, align 8, !tbaa !152
   br label %75
 
@@ -3173,10 +3173,10 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %88 = load i32, ptr %87, align 4, !tbaa !43
   %89 = sitofp i32 %88 to double
-  %90 = call nsz double @hypot(double noundef %86, double noundef %89) #17
+  %90 = call nsz double @hypot(double noundef %86, double noundef %89) #18
   %91 = fptosi double %90 to i32
   %92 = sext i32 %91 to i64
-  %93 = call noalias ptr @av_calloc(i64 noundef %92, i64 noundef 8) #15
+  %93 = call noalias ptr @av_calloc(i64 noundef %92, i64 noundef 8) #16
   %94 = getelementptr inbounds nuw i8, ptr %13, i64 896
   store ptr %93, ptr %94, align 8, !tbaa !150
   %.not66 = icmp eq ptr %93, null
@@ -3826,7 +3826,7 @@ define internal fastcc void @update_oscilloscope(ptr readonly captures(none) %.3
   %9 = fmul nsz float %8, 2.550000e+02
   %10 = fptoui float %9 to i8
   store i8 %10, ptr %6, align 1, !tbaa !51
-  call void @ff_draw_color(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1) #15
+  call void @ff_draw_color(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1) #16
   %11 = getelementptr inbounds nuw i8, ptr %.72.val, i64 32
   %12 = load float, ptr %11, align 8, !tbaa !182
   %13 = getelementptr inbounds nuw i8, ptr %.32.val.0.val, i64 44
@@ -3847,7 +3847,7 @@ define internal fastcc void @update_oscilloscope(ptr readonly captures(none) %.3
   store i32 %25, ptr %26, align 8, !tbaa !160
   %27 = sitofp i32 %22 to double
   %28 = sitofp i32 %14 to double
-  %29 = call nsz double @hypot(double noundef %27, double noundef %28) #17
+  %29 = call nsz double @hypot(double noundef %27, double noundef %28) #18
   %30 = fptosi double %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %.72.val, i64 24
   %32 = load float, ptr %31, align 8, !tbaa !184
@@ -3913,10 +3913,10 @@ define internal fastcc void @update_oscilloscope(ptr readonly captures(none) %.3
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sin.f64(double) #10
 
 declare void @av_freep(ptr noundef) local_unnamed_addr #2
@@ -3927,16 +3927,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #14
+declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3949,14 +3949,15 @@ attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind willreturn memory(none) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -975,7 +975,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$prot
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %2, align 8, !noalias !15, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #27
   br label %"_ZN4core3ptr32drop_in_place$LT$proto..File$GT$17hfc6f59b7e7a5b4d7E.exit"
 
 "_ZN4core3ptr32drop_in_place$LT$proto..File$GT$17hfc6f59b7e7a5b4d7E.exit": ; preds = %6, %11, %15
@@ -1038,7 +1038,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$core..option..Option$LT$prot
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %2, align 8, !noalias !28, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #27
   br label %"_ZN4core3ptr33drop_in_place$LT$proto..Entry$GT$17hcbdb79baf25f1b6aE.exit"
 
 "_ZN4core3ptr33drop_in_place$LT$proto..Entry$GT$17hcbdb79baf25f1b6aE.exit": ; preds = %6, %11, %15
@@ -1097,7 +1097,7 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$prot
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..raw_vec..RawVec$LT$proto..ContextOperation$GT$$GT$17h89f3ddc0a2649909E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #27
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..raw_vec..RawVec$LT$proto..ContextOperation$GT$$GT$17h89f3ddc0a2649909E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #28
           to label %24 unwind label %22
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb3f08c1515069434E.llvm.17929084834415715485.exit.i.i": ; preds = %6
@@ -1116,13 +1116,13 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$prot
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %2, align 8, !noalias !49, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %18, i64 noundef %14) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %18, i64 noundef %14) #27
   br label %"_ZN4core3ptr35drop_in_place$LT$proto..Context$GT$17ha8e40daac456103cE.exit"
 
 22:                                               ; preds = %11
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 24:                                               ; preds = %11
@@ -1174,7 +1174,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$prot
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %2, align 8, !noalias !55, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #27
   br label %"_ZN4core3ptr38drop_in_place$LT$proto..CodeAction$GT$17h695a884fbbcaaa00E.exit"
 
 "_ZN4core3ptr38drop_in_place$LT$proto..CodeAction$GT$17h695a884fbbcaaa00E.exit": ; preds = %6, %11, %15
@@ -1222,7 +1222,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$prot
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !64, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #27
   br label %"_ZN4core3ptr39drop_in_place$LT$proto..ProjectPath$GT$17h55622bd25983dbe8E.exit"
 
 "_ZN4core3ptr39drop_in_place$LT$proto..ProjectPath$GT$17h55622bd25983dbe8E.exit": ; preds = %6, %10, %14
@@ -1317,7 +1317,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$prot
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %3, align 8, !noalias !76, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #27
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit.i.i.i": ; preds = %14, %10, %5
@@ -1340,7 +1340,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$prot
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %2, align 8, !noalias !91, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %22, i64 noundef %18) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %22, i64 noundef %18) #27
   br label %"_ZN4core3ptr41drop_in_place$LT$proto..MarkupContent$GT$17h569624a2f1c55f4dE.exit.i.i.i"
 
 "_ZN4core3ptr41drop_in_place$LT$proto..MarkupContent$GT$17h569624a2f1c55f4dE.exit.i.i.i": ; preds = %24, %20, %16
@@ -1371,7 +1371,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$prot
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..raw_vec..RawVec$LT$proto..SignatureInformation$GT$$GT$17h892b5514daba5b14E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #27
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..raw_vec..RawVec$LT$proto..SignatureInformation$GT$$GT$17h892b5514daba5b14E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #28
           to label %24 unwind label %22
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfa39bd8a1fff8041E.llvm.17929084834415715485.exit.i.i": ; preds = %6
@@ -1390,13 +1390,13 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$prot
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %2, align 8, !noalias !112, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %18, i64 noundef %14) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %18, i64 noundef %14) #27
   br label %"_ZN4core3ptr41drop_in_place$LT$proto..SignatureHelp$GT$17h3022f8a6e06110e4E.exit"
 
 22:                                               ; preds = %11
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 24:                                               ; preds = %11
@@ -1433,7 +1433,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$allo
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !117, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #27
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E.exit": ; preds = %6, %10, %14
@@ -1481,7 +1481,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$prot
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !126, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #27
   br label %"_ZN4core3ptr42drop_in_place$LT$proto..LanguageServer$GT$17h91c2b8168175c138E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$proto..LanguageServer$GT$17h91c2b8168175c138E.exit": ; preds = %6, %10, %14
@@ -1530,7 +1530,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$prot
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %2, align 8, !noalias !138, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %16, i64 noundef %12) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %16, i64 noundef %12) #27
   br label %"_ZN4core3ptr54drop_in_place$LT$proto..task_source_kind..Language$GT$17h86c4b24e928f541aE.exit.i.i.i"
 
 "_ZN4core3ptr54drop_in_place$LT$proto..task_source_kind..Language$GT$17h86c4b24e928f541aE.exit.i.i.i": ; preds = %18, %14, %9
@@ -1601,7 +1601,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$prot
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !156, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #27
   br label %"_ZN4core3ptr45drop_in_place$LT$proto..DiagnosticSummary$GT$17he44a88638b6d7d9cE.exit"
 
 "_ZN4core3ptr45drop_in_place$LT$proto..DiagnosticSummary$GT$17he44a88638b6d7d9cE.exit": ; preds = %6, %10, %14
@@ -1632,7 +1632,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$prot
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..string..String$GT$$GT$17h3c3009cc6c2e2b02E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #27
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..string..String$GT$$GT$17h3c3009cc6c2e2b02E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #28
           to label %24 unwind label %22
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h98693b37a1f37171E.llvm.17929084834415715485.exit.i.i": ; preds = %6
@@ -1651,13 +1651,13 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$prot
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %2, align 8, !noalias !177, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %18, i64 noundef %14) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %18, i64 noundef %14) #27
   br label %"_ZN4core3ptr46drop_in_place$LT$proto..ParticipantProject$GT$17h60e5cc4e4b86dcd6E.exit"
 
 22:                                               ; preds = %11
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 24:                                               ; preds = %11
@@ -1714,7 +1714,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$prot
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %2, align 8, !noalias !182, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %13, i64 noundef %9) #27
   br label %"_ZN4core3ptr57drop_in_place$LT$proto..context_message_status..Error$GT$17h4ae217b200471b4bE.exit.i.i.i"
 
 "_ZN4core3ptr57drop_in_place$LT$proto..context_message_status..Error$GT$17h4ae217b200471b4bE.exit.i.i.i": ; preds = %15, %11, %7
@@ -1762,7 +1762,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$prot
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8, !noalias !199, !nonnull !13, !noundef !13
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #26
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef %8) #27
   br label %"_ZN4core3ptr58drop_in_place$LT$proto..resolve_state..LspResolveState$GT$17ha36d8d297b2ba311E.exit"
 
 "_ZN4core3ptr58drop_in_place$LT$proto..resolve_state..LspResolveState$GT$17ha36d8d297b2ba311E.exit": ; preds = %6, %10, %14
@@ -1772,7 +1772,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$prot
 
 ; Function Attrs: cold inlinehint noreturn nounwind nonlazybind uwtable
 define hidden void @_ZN4core4hint21unreachable_unchecked18precondition_check17h70898b74e61a4646E.llvm.17923508281735383458() unnamed_addr #5 {
-  tail call void @_ZN4core9panicking14panic_nounwind17hb98133c151c787e4E(ptr noalias noundef nonnull readonly align 1 @anon.9415c28180495f5b1c91957a67e356d1.0.llvm.17923508281735383458, i64 noundef 82) #29
+  tail call void @_ZN4core9panicking14panic_nounwind17hb98133c151c787e4E(ptr noalias noundef nonnull readonly align 1 @anon.9415c28180495f5b1c91957a67e356d1.0.llvm.17923508281735383458, i64 noundef 82) #30
   unreachable
 }
 
@@ -2871,7 +2871,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit18: ; preds = %67
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %88, %82, %75
@@ -2903,7 +2903,7 @@ common.resume:                                    ; preds = %88, %82, %75
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..Call$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h32dd399a16d77622E.llvm.17923508281735383458.exit": ; preds = %81
@@ -2927,7 +2927,7 @@ common.resume:                                    ; preds = %88, %82, %75
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..Call$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h41f575ec88bc7246E.llvm.17923508281735383458.exit": ; preds = %87
@@ -2956,7 +2956,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..Call$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -2983,7 +2983,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..Call$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -3010,7 +3010,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..Call$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -3478,7 +3478,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %114
 125:                                              ; preds = %123
   %126 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..File$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he0deb0e881249252E.exit": ; preds = %122
@@ -3506,7 +3506,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %114
 132:                                              ; preds = %130
   %133 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..File$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6677074dbab2a8ddE.exit": ; preds = %129
@@ -3530,7 +3530,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %114
 138:                                              ; preds = %136
   %139 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..File$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb85ed026d2ddb7efE.exit": ; preds = %135
@@ -3554,7 +3554,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 143:                                              ; preds = %141
   %144 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..File$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdcacf704a468dd90E.exit": ; preds = %_ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread
@@ -3578,7 +3578,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 149:                                              ; preds = %147
   %150 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..File$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd4d0995ad5f4543bE.exit": ; preds = %146
@@ -3844,7 +3844,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %58
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..Room$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc17141c5430b243aE.exit": ; preds = %63
@@ -3871,7 +3871,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %58
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..Room$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h73f0991d228ad98eE.exit": ; preds = %70
@@ -3894,7 +3894,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %58
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..Room$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h53f3d5769850ec3dE.exit": ; preds = %76
@@ -3917,7 +3917,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %58
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..Room$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdfc4eadbe5709e72E.exit": ; preds = %82
@@ -3941,7 +3941,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %58
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..Room$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hab3a184792615de6E.exit": ; preds = %88
@@ -4052,7 +4052,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -4088,7 +4088,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..Test$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -4331,7 +4331,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %63
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..User$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha6ddbe56bf6a30a1E.llvm.17923508281735383458.exit": ; preds = %67
@@ -4359,7 +4359,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %63
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..User$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h970a169cfb316479E.llvm.17923508281735383458.exit": ; preds = %74
@@ -4383,7 +4383,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %63
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..User$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd034bd617cb1c3a4E.llvm.17923508281735383458.exit": ; preds = %80
@@ -4412,7 +4412,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..User$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -4439,7 +4439,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..User$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -4466,7 +4466,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..User$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -4802,7 +4802,7 @@ _ZN5prost8encoding7message5merge17hc00995a03dd9753bE.exit.thread: ; preds = %_ZN
 93:                                               ; preds = %91
   %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %109, %103, %97, %91
@@ -4834,7 +4834,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 99:                                               ; preds = %97
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h99637d1929aa2d84E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -4857,7 +4857,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 105:                                              ; preds = %103
   %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc0a3b3f245a9e7d0E.llvm.17923508281735383458.exit": ; preds = %102
@@ -4881,7 +4881,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 111:                                              ; preds = %109
   %112 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN55_$LT$proto..View$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h998005d7e97eff5cE.llvm.17923508281735383458.exit": ; preds = %108
@@ -4910,7 +4910,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..View$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -4937,7 +4937,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..View$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -4964,7 +4964,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..View$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -4991,7 +4991,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN55_$LT$proto..View$u20$as$u20$pro
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -6071,7 +6071,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit76: ; preds = %250
 260:                                              ; preds = %258
   %261 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17heff4293874d5f198E.exit": ; preds = %257
@@ -6099,7 +6099,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit76: ; preds = %250
 267:                                              ; preds = %265
   %268 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0d3d8c796b587014E.exit": ; preds = %264
@@ -6123,7 +6123,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit76: ; preds = %250
 273:                                              ; preds = %271
   %274 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h88d0f0efe3ae6918E.exit": ; preds = %270
@@ -6147,7 +6147,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit76: ; preds = %250
 279:                                              ; preds = %277
   %280 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h39be429d9e8abe43E.exit": ; preds = %276
@@ -6171,7 +6171,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 284:                                              ; preds = %282
   %285 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h69d1803ba616440eE.exit": ; preds = %_ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread
@@ -6195,7 +6195,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 290:                                              ; preds = %288
   %291 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h39e25300219db402E.exit": ; preds = %287
@@ -6219,7 +6219,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 296:                                              ; preds = %294
   %297 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf8133c5ddbd12391E.exit": ; preds = %293
@@ -6243,7 +6243,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 302:                                              ; preds = %300
   %303 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcbc3cd5a4b6c686dE.exit": ; preds = %299
@@ -6267,7 +6267,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 308:                                              ; preds = %306
   %309 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h92bbdf4709524564E.exit": ; preds = %305
@@ -6291,7 +6291,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 314:                                              ; preds = %312
   %315 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7a6858d39ff6ac5fE.exit": ; preds = %311
@@ -6315,7 +6315,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 320:                                              ; preds = %318
   %321 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Entry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha4d4ebcfab77993dE.exit": ; preds = %317
@@ -6521,7 +6521,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %42
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Error$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4569eefd42a0cd52E.llvm.17923508281735383458.exit": ; preds = %54
@@ -6549,7 +6549,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %42
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Error$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfefbc3793caf449aE.llvm.17923508281735383458.exit": ; preds = %61
@@ -6572,7 +6572,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %42
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Error$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcc9a547e937004b6E.llvm.17923508281735383458.exit": ; preds = %67
@@ -6601,7 +6601,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Error$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -6628,7 +6628,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Error$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -6655,7 +6655,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Error$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -6780,7 +6780,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %35
@@ -6816,7 +6816,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Hello$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -7001,7 +7001,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -7033,7 +7033,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Nonce$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h34b3064325215366E.llvm.17923508281735383458.exit": ; preds = %56
@@ -7062,7 +7062,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Nonce$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -7089,7 +7089,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Nonce$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -7274,7 +7274,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -7306,7 +7306,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN56_$LT$proto..Range$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7c85ac3a56ca07c3E.llvm.17923508281735383458.exit": ; preds = %56
@@ -7335,7 +7335,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Range$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -7362,7 +7362,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Range$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -7414,7 +7414,7 @@ define hidden noundef align 8 ptr @"_ZN56_$LT$proto..Shell$u20$as$u20$prost..mes
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -7450,7 +7450,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN56_$LT$proto..Shell$u20$as$u20$pr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -7877,7 +7877,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit32: ; preds = %112
 122:                                              ; preds = %120
   %123 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %145, %139, %133, %127, %120
@@ -7909,7 +7909,7 @@ common.resume:                                    ; preds = %145, %139, %133, %1
 129:                                              ; preds = %127
   %130 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Anchor$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha45a2a646bdc5bdeE.exit": ; preds = %126
@@ -7933,7 +7933,7 @@ common.resume:                                    ; preds = %145, %139, %133, %1
 135:                                              ; preds = %133
   %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Anchor$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h801a173922f7edb4E.exit": ; preds = %132
@@ -7957,7 +7957,7 @@ common.resume:                                    ; preds = %145, %139, %133, %1
 141:                                              ; preds = %139
   %142 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Anchor$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc410fa41e27ee59aE.exit": ; preds = %138
@@ -7981,7 +7981,7 @@ common.resume:                                    ; preds = %145, %139, %133, %1
 147:                                              ; preds = %145
   %148 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Anchor$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5f9fb84e68490be0E.exit": ; preds = %144
@@ -8272,7 +8272,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit: ; preds = %73
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %93, %88, %81
@@ -8304,7 +8304,7 @@ common.resume:                                    ; preds = %93, %88, %81
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Follow$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8deeea1e3f0661f5E.llvm.17923508281735383458.exit": ; preds = %87
@@ -8328,7 +8328,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 95:                                               ; preds = %93
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Follow$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hca05e3845a828aacE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -8357,7 +8357,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN57_$LT$proto..Follow$u20$as$u20$p
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -8384,7 +8384,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN57_$LT$proto..Follow$u20$as$u20$p
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -8411,7 +8411,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN57_$LT$proto..Follow$u20$as$u20$p
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -8598,7 +8598,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit10: ; preds = %43
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %52
@@ -8630,7 +8630,7 @@ common.resume:                                    ; preds = %59, %52
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..PeerId$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb10ffdddd13d06b8E.llvm.17923508281735383458.exit": ; preds = %58
@@ -8659,7 +8659,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN57_$LT$proto..PeerId$u20$as$u20$p
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -8686,7 +8686,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN57_$LT$proto..PeerId$u20$as$u20$p
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -9342,7 +9342,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53: ; preds = %177
 191:                                              ; preds = %189
   %192 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h630f1dca938ea155E.exit": ; preds = %188
@@ -9370,7 +9370,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53: ; preds = %177
 198:                                              ; preds = %196
   %199 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h17f094ac604f5338E.exit": ; preds = %195
@@ -9394,7 +9394,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53: ; preds = %177
 204:                                              ; preds = %202
   %205 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8f99d5364d513684E.exit": ; preds = %201
@@ -9418,7 +9418,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53: ; preds = %177
 210:                                              ; preds = %208
   %211 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdcbe157ab61cf29cE.exit": ; preds = %207
@@ -9442,7 +9442,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53: ; preds = %177
 216:                                              ; preds = %214
   %217 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb478765d8e1c7b5aE.exit": ; preds = %213
@@ -9466,7 +9466,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53: ; preds = %177
 222:                                              ; preds = %220
   %223 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcd427501f51e743aE.exit": ; preds = %219
@@ -9490,7 +9490,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit.thread: ; preds = %_ZN
 227:                                              ; preds = %225
   %228 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h343df07e46e6b8b7E.exit": ; preds = %_ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit.thread
@@ -9514,7 +9514,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53.thread: ; preds = %_
 232:                                              ; preds = %230
   %233 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5d01ee8405358185E.exit": ; preds = %_ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53.thread
@@ -9537,7 +9537,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit53.thread: ; preds = %_
 238:                                              ; preds = %236
   %239 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..Symbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h17549cefe2caf5ddE.exit": ; preds = %235
@@ -9751,7 +9751,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %62, %55
@@ -9783,7 +9783,7 @@ common.resume:                                    ; preds = %62, %55
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN57_$LT$proto..ViewId$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2561d7f6700d3137E.llvm.17923508281735383458.exit": ; preds = %61
@@ -9812,7 +9812,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN57_$LT$proto..ViewId$u20$as$u20$p
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -9839,7 +9839,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN57_$LT$proto..ViewId$u20$as$u20$p
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -10106,7 +10106,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %63
 78:                                               ; preds = %76
   %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Channel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd05ef3e2c26090cdE.llvm.17923508281735383458.exit": ; preds = %75
@@ -10134,7 +10134,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %63
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Channel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd449739169c96711E.llvm.17923508281735383458.exit": ; preds = %82
@@ -10158,7 +10158,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %63
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Channel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h865a06a5559b027bE.llvm.17923508281735383458.exit": ; preds = %88
@@ -10181,7 +10181,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %63
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Channel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h33d7287bb639073dE.llvm.17923508281735383458.exit": ; preds = %94
@@ -10210,7 +10210,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN58_$LT$proto..Channel$u20$as$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -10237,7 +10237,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN58_$LT$proto..Channel$u20$as$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -10264,7 +10264,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN58_$LT$proto..Channel$u20$as$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -10291,7 +10291,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN58_$LT$proto..Channel$u20$as$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -10625,7 +10625,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit17: ; preds = %64
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %86, %80, %73
@@ -10657,7 +10657,7 @@ common.resume:                                    ; preds = %86, %80, %73
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Contact$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hebd8bbefe8e32cbbE.llvm.17923508281735383458.exit": ; preds = %79
@@ -10681,7 +10681,7 @@ common.resume:                                    ; preds = %86, %80, %73
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Contact$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb71c01e2eeeb5873E.llvm.17923508281735383458.exit": ; preds = %85
@@ -10710,7 +10710,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN58_$LT$proto..Contact$u20$as$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -10737,7 +10737,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN58_$LT$proto..Contact$u20$as$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -10764,7 +10764,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN58_$LT$proto..Contact$u20$as$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -10823,7 +10823,7 @@ define hidden noundef align 8 ptr @"_ZN58_$LT$proto..Context$u20$as$u20$prost..m
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -10859,7 +10859,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN58_$LT$proto..Context$u20$as$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -11388,7 +11388,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit46: ; preds = %142
 152:                                              ; preds = %150
   %153 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %177, %172, %167, %162, %157, %150
@@ -11420,7 +11420,7 @@ common.resume:                                    ; preds = %177, %172, %167, %1
 159:                                              ; preds = %157
   %160 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h528229f69dddca52E.exit": ; preds = %156
@@ -11444,7 +11444,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 164:                                              ; preds = %162
   %165 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h85d1582aece50171E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -11468,7 +11468,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit30.thread: ; preds = %_
 169:                                              ; preds = %167
   %170 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h85248312b572c7e6E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit30.thread
@@ -11492,7 +11492,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit38.thread: ; preds = %_
 174:                                              ; preds = %172
   %175 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h796156c7a3081ee0E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit38.thread
@@ -11516,7 +11516,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit46.thread: ; preds = %_
 179:                                              ; preds = %177
   %180 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4238671a8229ff19E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit46.thread
@@ -13840,7 +13840,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %94, %88, %82
@@ -13872,7 +13872,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit16.thread: ; preds = %_
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Follower$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h91e23b2d0a96fe3fE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit16.thread
@@ -13896,7 +13896,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit16.thread: ; preds = %_
 96:                                               ; preds = %94
   %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Follower$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h20f1395e1716fb3aE.llvm.17923508281735383458.exit": ; preds = %93
@@ -13925,7 +13925,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Follower$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -13952,7 +13952,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Follower$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -13979,7 +13979,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Follower$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -14275,7 +14275,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -14307,7 +14307,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..GetHover$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcd099ac7c907c0c0E.llvm.17923508281735383458.exit": ; preds = %86
@@ -14331,7 +14331,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..GetHover$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hedcf07cb875c53a1E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -14354,7 +14354,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..GetHover$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd1b53514f501beafE.llvm.17923508281735383458.exit": ; preds = %97
@@ -14383,7 +14383,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..GetHover$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -14410,7 +14410,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..GetHover$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -14437,7 +14437,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..GetHover$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -14464,7 +14464,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..GetHover$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -14511,7 +14511,7 @@ define hidden noundef align 8 ptr @"_ZN59_$LT$proto..GetUsers$u20$as$u20$prost..
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -14547,7 +14547,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..GetUsers$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -14656,7 +14656,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -14692,7 +14692,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..JoinRoom$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -14974,7 +14974,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18: ; preds = %71
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %90, %85, %79
@@ -15006,7 +15006,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Location$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he9dbd32d9430af1dE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -15030,7 +15030,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread: ; preds = %_
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Location$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9d932b2676887a27E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread
@@ -15059,7 +15059,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Location$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -15086,7 +15086,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Location$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -15113,7 +15113,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Location$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -15402,7 +15402,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit: ; preds = %73
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %93, %88, %81
@@ -15434,7 +15434,7 @@ common.resume:                                    ; preds = %93, %88, %81
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Unfollow$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hddf323bbcc714ef1E.llvm.17923508281735383458.exit": ; preds = %87
@@ -15458,7 +15458,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 95:                                               ; preds = %93
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Unfollow$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h40daf0705311299dE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -15487,7 +15487,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Unfollow$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -15514,7 +15514,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Unfollow$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -15541,7 +15541,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN59_$LT$proto..Unfollow$u20$as$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -16330,7 +16330,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit: ; preds = %"_ZN4core6
 239:                                              ; preds = %237
   %240 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %253, %247, %242, %237
@@ -16358,7 +16358,7 @@ common.resume:                                    ; preds = %253, %247, %242, %2
 244:                                              ; preds = %242
   %245 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb24753391e77fdb9E.exit": ; preds = %.loopexit63
@@ -16382,7 +16382,7 @@ common.resume:                                    ; preds = %253, %247, %242, %2
 249:                                              ; preds = %247
   %250 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf5b1a98eac622a4dE.exit": ; preds = %.loopexit62
@@ -16405,7 +16405,7 @@ common.resume:                                    ; preds = %253, %247, %242, %2
 255:                                              ; preds = %253
   %256 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcc33bc52196b1248E.exit.i": ; preds = %252
@@ -16484,7 +16484,7 @@ define hidden void @_ZN5prost7message7Message6decode17hd481fc4c55e9880fE(ptr dea
 22:                                               ; preds = %21
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 }
 
@@ -34912,7 +34912,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit18: ; preds = %88
 95:                                               ; preds = %93
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..DevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h52f2de589418de80E.llvm.17923508281735383458.exit": ; preds = %92
@@ -34940,7 +34940,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit18: ; preds = %88
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..DevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h340b4a4c92050a0dE.llvm.17923508281735383458.exit": ; preds = %99
@@ -34964,7 +34964,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit18: ; preds = %88
 108:                                              ; preds = %106
   %109 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..DevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8d76c528f83020e5E.llvm.17923508281735383458.exit": ; preds = %105
@@ -34988,7 +34988,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit18: ; preds = %88
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..DevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9eedf0572f5dd1bfE.llvm.17923508281735383458.exit": ; preds = %111
@@ -35017,7 +35017,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..DevServer$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -35044,7 +35044,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..DevServer$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -35071,7 +35071,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..DevServer$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -35098,7 +35098,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..DevServer$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -35164,7 +35164,7 @@ define hidden noundef align 8 ptr @"_ZN60_$LT$proto..Embedding$u20$as$u20$prost.
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %25, %18
@@ -35195,7 +35195,7 @@ common.resume:                                    ; preds = %25, %18
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..Embedding$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2e77bd44d5313c00E.llvm.17923508281735383458.exit": ; preds = %24
@@ -35224,7 +35224,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Embedding$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -35251,7 +35251,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Embedding$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -35944,7 +35944,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 173:                                              ; preds = %171
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd22d6db60a99af80E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -35972,7 +35972,7 @@ _ZN5prost8encoding7message5merge17hcd56012b9f1eacd7E.exit.thread: ; preds = %_ZN
 179:                                              ; preds = %177
   %180 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb2ebb160fc36c0abE.exit": ; preds = %_ZN5prost8encoding7message5merge17hcd56012b9f1eacd7E.exit.thread
@@ -35996,7 +35996,7 @@ _ZN5prost8encoding7message5merge17hcd56012b9f1eacd7E.exit.thread: ; preds = %_ZN
 185:                                              ; preds = %183
   %186 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h000802782bb25331E.exit": ; preds = %182
@@ -36020,7 +36020,7 @@ _ZN5prost8encoding7message5merge17hcd56012b9f1eacd7E.exit.thread: ; preds = %_ZN
 191:                                              ; preds = %189
   %192 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb7effeb14d78f520E.exit": ; preds = %188
@@ -36044,7 +36044,7 @@ _ZN5prost8encoding7message5merge17hcd56012b9f1eacd7E.exit.thread: ; preds = %_ZN
 197:                                              ; preds = %195
   %198 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h778c82026a378d8bE.exit": ; preds = %194
@@ -36068,7 +36068,7 @@ _ZN5prost8encoding7message5merge17h01dc47628d85f237E.exit.thread: ; preds = %_ZN
 202:                                              ; preds = %200
   %203 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5192fbff59e08132E.exit": ; preds = %_ZN5prost8encoding7message5merge17h01dc47628d85f237E.exit.thread
@@ -36092,7 +36092,7 @@ _ZN5prost8encoding7message5merge17heaad15302cf357ceE.exit.thread: ; preds = %_ZN
 207:                                              ; preds = %205
   %208 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h15cdd71923938f9aE.exit": ; preds = %_ZN5prost8encoding7message5merge17heaad15302cf357ceE.exit.thread
@@ -36192,7 +36192,7 @@ define hidden noundef align 8 ptr @"_ZN60_$LT$proto..Operation$u20$as$u20$prost.
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -36228,7 +36228,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Operation$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -36622,7 +36622,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %92
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %118, %112, %107, %101
@@ -36654,7 +36654,7 @@ _ZN5prost8encoding7message5merge17h5f2d9af9a4ba0937E.exit.thread: ; preds = %_ZN
 109:                                              ; preds = %107
   %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..Selection$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h833b1818829c70f1E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h5f2d9af9a4ba0937E.exit.thread
@@ -36678,7 +36678,7 @@ _ZN5prost8encoding7message5merge17h5f2d9af9a4ba0937E.exit20.thread: ; preds = %_
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..Selection$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hbaf26872f52f47acE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h5f2d9af9a4ba0937E.exit20.thread
@@ -36702,7 +36702,7 @@ _ZN5prost8encoding7message5merge17h5f2d9af9a4ba0937E.exit20.thread: ; preds = %_
 120:                                              ; preds = %118
   %121 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..Selection$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd95ddb1898808530E.llvm.17923508281735383458.exit": ; preds = %117
@@ -36731,7 +36731,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Selection$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -36758,7 +36758,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Selection$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -36785,7 +36785,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Selection$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -36812,7 +36812,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Selection$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -36998,7 +36998,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %42
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %58, %51
@@ -37030,7 +37030,7 @@ common.resume:                                    ; preds = %58, %51
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..Timestamp$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf436d12b1dc4587eE.llvm.17923508281735383458.exit": ; preds = %57
@@ -37059,7 +37059,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Timestamp$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -37086,7 +37086,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..Timestamp$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -37349,7 +37349,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit18: ; preds = %65
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %87, %81, %74
@@ -37381,7 +37381,7 @@ common.resume:                                    ; preds = %87, %81, %74
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..UndoCount$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb5e1ab74a00d6675E.llvm.17923508281735383458.exit": ; preds = %80
@@ -37405,7 +37405,7 @@ common.resume:                                    ; preds = %87, %81, %74
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN60_$LT$proto..UndoCount$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h904345cbb8d8a6bdE.llvm.17923508281735383458.exit": ; preds = %86
@@ -37434,7 +37434,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..UndoCount$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -37461,7 +37461,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..UndoCount$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -37488,7 +37488,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN60_$LT$proto..UndoCount$u20$as$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -38601,7 +38601,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 327:                                              ; preds = %325
   %328 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h14431e1badb405daE.exit": ; preds = %324
@@ -38629,7 +38629,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 334:                                              ; preds = %332
   %335 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17haf0ec14fd2c5942fE.exit": ; preds = %331
@@ -38653,7 +38653,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 340:                                              ; preds = %338
   %341 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he0ee4577528d6e57E.exit": ; preds = %337
@@ -38677,7 +38677,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 346:                                              ; preds = %344
   %347 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2507fb47b5c710caE.exit": ; preds = %343
@@ -38701,7 +38701,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 352:                                              ; preds = %350
   %353 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hbe67e7b890927db8E.exit": ; preds = %349
@@ -38725,7 +38725,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 358:                                              ; preds = %356
   %359 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hac07f5de0d20a739E.exit": ; preds = %355
@@ -38749,7 +38749,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 364:                                              ; preds = %362
   %365 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2fd00011c955856cE.exit": ; preds = %361
@@ -38773,7 +38773,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 370:                                              ; preds = %368
   %371 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hca588585cc203e38E.exit": ; preds = %367
@@ -38797,7 +38797,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 376:                                              ; preds = %374
   %377 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h76e9d3ffe3bcad53E.exit": ; preds = %373
@@ -38821,7 +38821,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 382:                                              ; preds = %380
   %383 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfde43625d060aaebE.exit": ; preds = %379
@@ -38845,7 +38845,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 388:                                              ; preds = %386
   %389 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h930b34e6d5834347E.exit": ; preds = %385
@@ -38869,7 +38869,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 394:                                              ; preds = %392
   %395 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h860d3df216a04913E.exit": ; preds = %391
@@ -38893,7 +38893,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 400:                                              ; preds = %398
   %401 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7062c2c0786a074dE.exit": ; preds = %397
@@ -38917,7 +38917,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 406:                                              ; preds = %404
   %407 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf8977e14886cb875E.exit": ; preds = %403
@@ -38941,7 +38941,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit110: ; preds = %320
 412:                                              ; preds = %410
   %413 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..BlameEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hbb9ea5e00c09934dE.exit": ; preds = %409
@@ -39128,7 +39128,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -39160,7 +39160,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..CancelCall$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he2369a60167225e1E.llvm.17923508281735383458.exit": ; preds = %56
@@ -39189,7 +39189,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..CancelCall$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -39216,7 +39216,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..CancelCall$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -39517,7 +39517,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit20: ; preds = %72
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %101, %95, %90, %84
@@ -39549,7 +39549,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..CodeAction$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8e8eeaf27618b6eeE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -39573,7 +39573,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit20.thread: ; preds = %_
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..CodeAction$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h097258f7a527c198E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit20.thread
@@ -39596,7 +39596,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit20.thread: ; preds = %_
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..CodeAction$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1d8aef0448cc10f4E.llvm.17923508281735383458.exit": ; preds = %100
@@ -39625,7 +39625,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..CodeAction$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -39652,7 +39652,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..CodeAction$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -39679,7 +39679,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..CodeAction$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -39706,7 +39706,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..CodeAction$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -40074,7 +40074,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 105:                                              ; preds = %103
   %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Completion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdc0bedd955afbeb3E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -40102,7 +40102,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread: ; preds = %_
 111:                                              ; preds = %109
   %112 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Completion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2e9bc423a6af2fdaE.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread
@@ -40126,7 +40126,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread: ; preds = %_
 117:                                              ; preds = %115
   %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Completion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h991e4d55e574f3d3E.exit": ; preds = %114
@@ -40150,7 +40150,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread: ; preds = %_
 123:                                              ; preds = %121
   %124 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Completion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h362f9966722524e3E.exit": ; preds = %120
@@ -40173,7 +40173,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread: ; preds = %_
 129:                                              ; preds = %127
   %130 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Completion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdfe91b97aaf24373E.exit": ; preds = %126
@@ -41284,7 +41284,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 276:                                              ; preds = %274
   %277 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0a9d0d432ee22bd7E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -41312,7 +41312,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 282:                                              ; preds = %280
   %283 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hbe918bf4d6fca29fE.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread
@@ -41336,7 +41336,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 288:                                              ; preds = %286
   %289 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17haf69d97477c0038bE.exit": ; preds = %285
@@ -41360,7 +41360,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 294:                                              ; preds = %292
   %295 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h144c4d33cbcb7860E.exit": ; preds = %291
@@ -41384,7 +41384,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 300:                                              ; preds = %298
   %301 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h46f627dc80f60346E.exit": ; preds = %297
@@ -41408,7 +41408,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 306:                                              ; preds = %304
   %307 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h96c8729586f1485dE.exit": ; preds = %303
@@ -41432,7 +41432,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 312:                                              ; preds = %310
   %313 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9149e2692715d5f7E.exit": ; preds = %309
@@ -41456,7 +41456,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 318:                                              ; preds = %316
   %319 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha74b40cc4a4f9fe8E.exit": ; preds = %315
@@ -41480,7 +41480,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 324:                                              ; preds = %322
   %325 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h38af8b85714ab743E.exit": ; preds = %321
@@ -41504,7 +41504,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 330:                                              ; preds = %328
   %331 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6d694f9772922cdcE.exit": ; preds = %327
@@ -41528,7 +41528,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 336:                                              ; preds = %334
   %337 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd1d998f6b7d176afE.exit": ; preds = %333
@@ -41552,7 +41552,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit32.thread: ; preds = %_
 342:                                              ; preds = %340
   %343 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..Diagnostic$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4a3378a1025e9e70E.exit": ; preds = %339
@@ -41846,7 +41846,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %63
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..HoverBlock$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0fef57fe7532e18cE.llvm.17923508281735383458.exit": ; preds = %71
@@ -41874,7 +41874,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %63
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..HoverBlock$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb66df886abb652eeE.llvm.17923508281735383458.exit": ; preds = %78
@@ -41898,7 +41898,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %63
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..HoverBlock$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7d37d270b303c483E.llvm.17923508281735383458.exit": ; preds = %84
@@ -41927,7 +41927,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..HoverBlock$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -41954,7 +41954,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..HoverBlock$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -41981,7 +41981,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..HoverBlock$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -42363,7 +42363,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit28: ; preds = %93
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %128, %122, %117, %112, %105
@@ -42395,7 +42395,7 @@ common.resume:                                    ; preds = %128, %122, %117, %1
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..InlayHints$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfc6c23fcab33feb2E.exit": ; preds = %111
@@ -42419,7 +42419,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..InlayHints$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h835b193ef0951f90E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -42443,7 +42443,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit28.thread: ; preds = %_
 124:                                              ; preds = %122
   %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..InlayHints$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5861070458c3d7ecE.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit28.thread
@@ -42466,7 +42466,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit28.thread: ; preds = %_
 130:                                              ; preds = %128
   %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..InlayHints$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h83b32524c55ed452E.exit": ; preds = %127
@@ -42569,7 +42569,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %21
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..LspWorkEnd$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5b7043cf3715781cE.llvm.17923508281735383458.exit": ; preds = %28
@@ -42602,7 +42602,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..LspWorkEnd$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -42789,7 +42789,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit10: ; preds = %43
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %52
@@ -42821,7 +42821,7 @@ common.resume:                                    ; preds = %59, %52
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..PointUtf16$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd9406cde262906aeE.llvm.17923508281735383458.exit": ; preds = %58
@@ -42850,7 +42850,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..PointUtf16$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -42877,7 +42877,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..PointUtf16$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -43038,7 +43038,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %24
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %52, %46, %39
@@ -43069,7 +43069,7 @@ common.resume:                                    ; preds = %52, %46, %39
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..RejoinRoom$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h496b09c02608849bE.llvm.17923508281735383458.exit": ; preds = %45
@@ -43092,7 +43092,7 @@ common.resume:                                    ; preds = %52, %46, %39
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..RejoinRoom$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3ab1659984683432E.llvm.17923508281735383458.exit": ; preds = %51
@@ -43121,7 +43121,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..RejoinRoom$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -43148,7 +43148,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..RejoinRoom$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -43175,7 +43175,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..RejoinRoom$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -43472,7 +43472,7 @@ _ZN5prost8encoding7message5merge17h020f7661ff7dc1e1E.exit: ; preds = %71
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %97, %92, %86, %79
@@ -43504,7 +43504,7 @@ common.resume:                                    ; preds = %97, %92, %86, %79
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..SaveBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h713ad510f5a2837cE.llvm.17923508281735383458.exit": ; preds = %85
@@ -43527,7 +43527,7 @@ common.resume:                                    ; preds = %97, %92, %86, %79
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..SaveBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf2d77f7e9e19936eE.llvm.17923508281735383458.exit": ; preds = %91
@@ -43551,7 +43551,7 @@ _ZN5prost8encoding7message5merge17h020f7661ff7dc1e1E.exit.thread: ; preds = %_ZN
 99:                                               ; preds = %97
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..SaveBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h80d4921ef4a0baccE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h020f7661ff7dc1e1E.exit.thread
@@ -43580,7 +43580,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..SaveBuffer$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -43607,7 +43607,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..SaveBuffer$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -43634,7 +43634,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..SaveBuffer$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -43661,7 +43661,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..SaveBuffer$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -43893,7 +43893,7 @@ _ZN5prost8encoding7message5merge17hc00995a03dd9753bE.exit.thread: ; preds = %_ZN
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %77, %71, %65
@@ -43925,7 +43925,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..UpdateView$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd54023b384bccff5E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -43948,7 +43948,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN61_$LT$proto..UpdateView$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5b8c90899f0e630cE.llvm.17923508281735383458.exit": ; preds = %76
@@ -43977,7 +43977,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..UpdateView$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44004,7 +44004,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..UpdateView$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44031,7 +44031,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN61_$LT$proto..UpdateView$u20$as$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44208,7 +44208,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %41
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..AddWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9a80749e746b07e7E.llvm.17923508281735383458.exit": ; preds = %48
@@ -44236,7 +44236,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %41
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..AddWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha6d173e249de8fdeE.llvm.17923508281735383458.exit": ; preds = %55
@@ -44265,7 +44265,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..AddWorktree$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44292,7 +44292,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..AddWorktree$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44499,7 +44499,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %63, %57
@@ -44531,7 +44531,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit12.thread: ; preds = %_
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..AnchorRange$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdc174d8ec7fe7d62E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit12.thread
@@ -44560,7 +44560,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..AnchorRange$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44587,7 +44587,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..AnchorRange$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44798,7 +44798,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit12: ; preds = %44
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %68, %62, %55
@@ -44830,7 +44830,7 @@ common.resume:                                    ; preds = %68, %62, %55
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BlameBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he07ee8906cb6beaaE.llvm.17923508281735383458.exit": ; preds = %61
@@ -44853,7 +44853,7 @@ common.resume:                                    ; preds = %68, %62, %55
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BlameBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha36e6f6d6bb55c8fE.llvm.17923508281735383458.exit": ; preds = %67
@@ -44882,7 +44882,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BlameBuffer$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44909,7 +44909,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BlameBuffer$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -44936,7 +44936,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BlameBuffer$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -45184,7 +45184,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %47
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %69, %63, %56
@@ -45215,7 +45215,7 @@ common.resume:                                    ; preds = %69, %63, %56
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferChunk$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hac02dacf318cb375E.llvm.17923508281735383458.exit": ; preds = %62
@@ -45239,7 +45239,7 @@ common.resume:                                    ; preds = %69, %63, %56
 71:                                               ; preds = %69
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferChunk$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfe94f0b769147d21E.llvm.17923508281735383458.exit": ; preds = %68
@@ -45268,7 +45268,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BufferChunk$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -45295,7 +45295,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BufferChunk$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -45322,7 +45322,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BufferChunk$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -45623,7 +45623,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit: ; preds = %74
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %100, %95, %89, %82
@@ -45655,7 +45655,7 @@ common.resume:                                    ; preds = %100, %95, %89, %82
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferSaved$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9a3d41e821bc8d38E.llvm.17923508281735383458.exit": ; preds = %88
@@ -45678,7 +45678,7 @@ common.resume:                                    ; preds = %100, %95, %89, %82
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferSaved$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2483a86f44a03179E.llvm.17923508281735383458.exit": ; preds = %94
@@ -45702,7 +45702,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferSaved$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h052d1dc8d8c3e870E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread
@@ -45731,7 +45731,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BufferSaved$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -45758,7 +45758,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BufferSaved$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -45785,7 +45785,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BufferSaved$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -45812,7 +45812,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..BufferSaved$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -46346,7 +46346,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit: ; preds = %141
 151:                                              ; preds = %149
   %152 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd79773d5dd463433E.exit": ; preds = %148
@@ -46374,7 +46374,7 @@ _ZN5prost8encoding7message5merge17he068690159738d1aE.exit.thread: ; preds = %_ZN
 157:                                              ; preds = %155
   %158 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h55b03eb0c18ccae2E.exit": ; preds = %_ZN5prost8encoding7message5merge17he068690159738d1aE.exit.thread
@@ -46398,7 +46398,7 @@ _ZN5prost8encoding7message5merge17he068690159738d1aE.exit.thread: ; preds = %_ZN
 163:                                              ; preds = %161
   %164 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h74b1e5689a8e5a78E.exit": ; preds = %160
@@ -46422,7 +46422,7 @@ _ZN5prost8encoding7message5merge17he068690159738d1aE.exit.thread: ; preds = %_ZN
 169:                                              ; preds = %167
   %170 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7c6c75c5031ff8a5E.exit": ; preds = %166
@@ -46446,7 +46446,7 @@ _ZN5prost8encoding7message5merge17he068690159738d1aE.exit.thread: ; preds = %_ZN
 175:                                              ; preds = %173
   %176 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfbb847d42940f6dcE.exit": ; preds = %172
@@ -46469,7 +46469,7 @@ _ZN5prost8encoding7message5merge17he068690159738d1aE.exit.thread: ; preds = %_ZN
 181:                                              ; preds = %179
   %182 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h450d50791cd5fdcbE.exit": ; preds = %178
@@ -46493,7 +46493,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 186:                                              ; preds = %184
   %187 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..BufferState$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h88569abcce1bd949E.exit": ; preds = %_ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread
@@ -46696,7 +46696,7 @@ _ZN5prost8encoding7message5merge17h8f5d03fa8ee48486E.exit.thread: ; preds = %_ZN
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %62, %55
@@ -46728,7 +46728,7 @@ common.resume:                                    ; preds = %62, %55
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..ChatMention$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5ce98cfa97c7cbdbE.llvm.17923508281735383458.exit": ; preds = %61
@@ -46757,7 +46757,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..ChatMention$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -46784,7 +46784,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..ChatMention$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -46969,7 +46969,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -47001,7 +47001,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..CloseBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6e1fcb5ede037301E.llvm.17923508281735383458.exit": ; preds = %56
@@ -47030,7 +47030,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..CloseBuffer$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -47057,7 +47057,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..CloseBuffer$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -47166,7 +47166,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -47202,7 +47202,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..DeclineCall$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -47322,7 +47322,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -47358,7 +47358,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..JoinChannel$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -47467,7 +47467,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -47503,7 +47503,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..JoinProject$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -47576,7 +47576,7 @@ define hidden noundef align 8 ptr @"_ZN62_$LT$proto..LspResponse$u20$as$u20$pros
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -47612,7 +47612,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..LspResponse$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -47797,7 +47797,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -47829,7 +47829,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..MoveChannel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5a75e56f9232c771E.llvm.17923508281735383458.exit": ; preds = %56
@@ -47858,7 +47858,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..MoveChannel$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -47885,7 +47885,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..MoveChannel$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -48062,7 +48062,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..OpenContext$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha04ac8ae2e54dc4eE.llvm.17923508281735383458.exit": ; preds = %48
@@ -48090,7 +48090,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..OpenContext$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17had6dbf7a29858feeE.llvm.17923508281735383458.exit": ; preds = %55
@@ -48119,7 +48119,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..OpenContext$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -48146,7 +48146,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..OpenContext$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -48612,7 +48612,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %124
 135:                                              ; preds = %133
   %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %162, %156, %150, %145, %139, %133
@@ -48644,7 +48644,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 141:                                              ; preds = %139
   %142 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..Participant$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h15e9d7c56421bbcbE.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -48667,7 +48667,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 147:                                              ; preds = %145
   %148 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..Participant$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3b1d666ddb8ac413E.exit": ; preds = %144
@@ -48691,7 +48691,7 @@ _ZN5prost8encoding7message5merge17hd589df77e55f8707E.exit.thread: ; preds = %_ZN
 152:                                              ; preds = %150
   %153 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..Participant$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h35b7fa9b552452e3E.exit": ; preds = %_ZN5prost8encoding7message5merge17hd589df77e55f8707E.exit.thread
@@ -48715,7 +48715,7 @@ _ZN5prost8encoding7message5merge17hd589df77e55f8707E.exit.thread: ; preds = %_ZN
 158:                                              ; preds = %156
   %159 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..Participant$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc6546314ccbaa226E.exit": ; preds = %155
@@ -48739,7 +48739,7 @@ _ZN5prost8encoding7message5merge17hd589df77e55f8707E.exit.thread: ; preds = %_ZN
 164:                                              ; preds = %162
   %165 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..Participant$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8db3c625ea6afc77E.exit": ; preds = %161
@@ -48918,7 +48918,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..ProjectPath$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7778bf05f49897e2E.llvm.17923508281735383458.exit": ; preds = %48
@@ -48946,7 +48946,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..ProjectPath$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h06d2402e9ba45bf5E.llvm.17923508281735383458.exit": ; preds = %55
@@ -48975,7 +48975,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..ProjectPath$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -49002,7 +49002,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..ProjectPath$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -49122,7 +49122,7 @@ _ZN5prost8encoding7message5merge17h05153f64d2eaaf6dE.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -49158,7 +49158,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..RoomUpdated$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -49835,7 +49835,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit41: ; preds = %145
 156:                                              ; preds = %154
   %157 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..SearchQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb203e5eaeeaa67acE.exit": ; preds = %153
@@ -49863,7 +49863,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit41: ; preds = %145
 163:                                              ; preds = %161
   %164 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..SearchQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h25be8c3fe1b23038E.exit": ; preds = %160
@@ -49887,7 +49887,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit41: ; preds = %145
 169:                                              ; preds = %167
   %170 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..SearchQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1e77ad348314bedfE.exit": ; preds = %166
@@ -49911,7 +49911,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit41: ; preds = %145
 175:                                              ; preds = %173
   %176 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..SearchQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1722cdfaa9906b98E.exit": ; preds = %172
@@ -49935,7 +49935,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit41: ; preds = %145
 181:                                              ; preds = %179
   %182 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..SearchQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd4304821f8bee40cE.exit": ; preds = %178
@@ -49959,7 +49959,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit41: ; preds = %145
 187:                                              ; preds = %185
   %188 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..SearchQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hec24bafe705e21feE.exit": ; preds = %184
@@ -49983,7 +49983,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit41: ; preds = %145
 193:                                              ; preds = %191
   %194 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..SearchQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h95bf90fb92df392dE.exit": ; preds = %190
@@ -50020,7 +50020,7 @@ define hidden void @"_ZN62_$LT$proto..TaskContext$u20$as$u20$prost..message..Mes
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #27
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #28
           to label %common.resume unwind label %24
 
 14:                                               ; preds = %10
@@ -50039,13 +50039,13 @@ define hidden void @"_ZN62_$LT$proto..TaskContext$u20$as$u20$prost..message..Mes
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %5, align 8, !noalias !6205, !nonnull !13, !noundef !13
-  call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %16) #26
+  call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %16) #27
   br label %_ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E.exit
 
 24:                                               ; preds = %12
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %27, %12
@@ -50068,7 +50068,7 @@ _ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E.exit: ; preds = %14, %18,
 27:                                               ; preds = %_ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E.exit
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #27
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #28
           to label %common.resume unwind label %39
 
 29:                                               ; preds = %_ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E.exit
@@ -50087,13 +50087,13 @@ _ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E.exit: ; preds = %14, %18,
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %3, align 8, !noalias !6221, !nonnull !13, !noundef !13
-  call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %35, i64 noundef %31) #26
+  call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %35, i64 noundef %31) #27
   br label %_ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E.exit3
 
 39:                                               ; preds = %27
   %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 _ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E.exit3: ; preds = %29, %33, %37
@@ -50227,7 +50227,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %29
 45:                                               ; preds = %43
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..TaskContext$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc45e70e70a62e9faE.llvm.17923508281735383458.exit": ; preds = %42
@@ -50254,7 +50254,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %29
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..TaskContext$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6b0cab44da4a74b5E.llvm.17923508281735383458.exit": ; preds = %49
@@ -50277,7 +50277,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %29
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..TaskContext$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcd99e1bb4d900c40E.llvm.17923508281735383458.exit": ; preds = %55
@@ -50306,7 +50306,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..TaskContext$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -50333,7 +50333,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..TaskContext$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -50360,7 +50360,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..TaskContext$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -50537,7 +50537,7 @@ _ZN5prost8encoding7message5merge17h4174e6ab3958ece0E.exit.thread: ; preds = %_ZN
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %51, %44
@@ -50568,7 +50568,7 @@ common.resume:                                    ; preds = %57, %51, %44
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..Transaction$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h875b961fbfb66ea6E.llvm.17923508281735383458.exit": ; preds = %50
@@ -50591,7 +50591,7 @@ common.resume:                                    ; preds = %57, %51, %44
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN62_$LT$proto..Transaction$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h60c765acfcce62a2E.llvm.17923508281735383458.exit": ; preds = %56
@@ -50620,7 +50620,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..Transaction$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -50647,7 +50647,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..Transaction$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -50674,7 +50674,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN62_$LT$proto..Transaction$u20$as$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -50783,7 +50783,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -50819,7 +50819,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..CallCanceled$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51096,7 +51096,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %90, %84, %77
@@ -51128,7 +51128,7 @@ common.resume:                                    ; preds = %90, %84, %77
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Collaborator$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h230b9b30dc951a98E.llvm.17923508281735383458.exit": ; preds = %83
@@ -51152,7 +51152,7 @@ common.resume:                                    ; preds = %90, %84, %77
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Collaborator$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha94fb2e4a574279eE.llvm.17923508281735383458.exit": ; preds = %89
@@ -51181,7 +51181,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..Collaborator$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51208,7 +51208,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..Collaborator$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51235,7 +51235,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..Collaborator$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51431,7 +51431,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %46
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %60, %54
@@ -51463,7 +51463,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..EditorAnchor$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9818816edb6f2042E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -51492,7 +51492,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..EditorAnchor$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51519,7 +51519,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..EditorAnchor$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51804,7 +51804,7 @@ _ZN5prost8encoding7message5merge17h3400c6e9c131bd61E.exit: ; preds = %71
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %97, %92, %86, %79
@@ -51836,7 +51836,7 @@ common.resume:                                    ; preds = %97, %92, %86, %79
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..IncomingCall$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd7ae2dc4385b714eE.llvm.17923508281735383458.exit": ; preds = %85
@@ -51859,7 +51859,7 @@ common.resume:                                    ; preds = %97, %92, %86, %79
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..IncomingCall$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1b39f911eaca341aE.llvm.17923508281735383458.exit": ; preds = %91
@@ -51883,7 +51883,7 @@ _ZN5prost8encoding7message5merge17h3400c6e9c131bd61E.exit.thread: ; preds = %_ZN
 99:                                               ; preds = %97
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..IncomingCall$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3e9a5a7b186fdbfaE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h3400c6e9c131bd61E.exit.thread
@@ -51912,7 +51912,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..IncomingCall$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51939,7 +51939,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..IncomingCall$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51966,7 +51966,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..IncomingCall$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -51993,7 +51993,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..IncomingCall$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -52180,7 +52180,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit10: ; preds = %43
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %52
@@ -52212,7 +52212,7 @@ common.resume:                                    ; preds = %59, %52
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..LabelOffsets$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9cc91d0a31f58690E.llvm.17923508281735383458.exit": ; preds = %58
@@ -52241,7 +52241,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LabelOffsets$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -52268,7 +52268,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LabelOffsets$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -52377,7 +52377,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -52413,7 +52413,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LeaveProject$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -52620,7 +52620,7 @@ _ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit.thread: ; preds = %_ZN
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %63, %57
@@ -52652,7 +52652,7 @@ _ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit12.thread: ; preds = %_
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..LocationLink$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1bfac9bc03d0db29E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit12.thread
@@ -52681,7 +52681,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LocationLink$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -52708,7 +52708,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LocationLink$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -53050,7 +53050,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit21: ; preds = %93
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..LspWorkStart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2f0f2bc2298d43e0E.llvm.17923508281735383458.exit": ; preds = %97
@@ -53078,7 +53078,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit21: ; preds = %93
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..LspWorkStart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf5dceb5e1dad111cE.llvm.17923508281735383458.exit": ; preds = %104
@@ -53102,7 +53102,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit21: ; preds = %93
 113:                                              ; preds = %111
   %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..LspWorkStart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h853d33dbcaa11b82E.llvm.17923508281735383458.exit": ; preds = %110
@@ -53126,7 +53126,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit21: ; preds = %93
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..LspWorkStart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha332c1362f6d861eE.llvm.17923508281735383458.exit": ; preds = %116
@@ -53155,7 +53155,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LspWorkStart$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -53182,7 +53182,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LspWorkStart$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -53209,7 +53209,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LspWorkStart$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -53236,7 +53236,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..LspWorkStart$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -53875,7 +53875,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit43: ; preds = %152
 163:                                              ; preds = %161
   %164 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Notification$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha86e75cf791af2afE.exit": ; preds = %160
@@ -53903,7 +53903,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit43: ; preds = %152
 170:                                              ; preds = %168
   %171 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Notification$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3d2a1a9f83ee8641E.exit": ; preds = %167
@@ -53927,7 +53927,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit43: ; preds = %152
 176:                                              ; preds = %174
   %177 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Notification$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h486ea1d58201aeffE.exit": ; preds = %173
@@ -53951,7 +53951,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit43: ; preds = %152
 182:                                              ; preds = %180
   %183 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Notification$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h637b396145c6ba10E.exit": ; preds = %179
@@ -53975,7 +53975,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit43: ; preds = %152
 188:                                              ; preds = %186
   %189 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Notification$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8bf835a5f488d389E.exit": ; preds = %185
@@ -53999,7 +53999,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit43: ; preds = %152
 194:                                              ; preds = %192
   %195 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Notification$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h13267a62037c6778E.exit": ; preds = %191
@@ -54023,7 +54023,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit43: ; preds = %152
 200:                                              ; preds = %198
   %201 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..Notification$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc25529409925088fE.exit": ; preds = %197
@@ -54223,7 +54223,7 @@ _ZN5prost8encoding7message5merge17h7f807b86d6c7635fE.exit: ; preds = %46
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %60, %54
@@ -54255,7 +54255,7 @@ _ZN5prost8encoding7message5merge17h7f807b86d6c7635fE.exit.thread: ; preds = %_ZN
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..ResolveState$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he8d58ef9d58115beE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7f807b86d6c7635fE.exit.thread
@@ -54284,7 +54284,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..ResolveState$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -54311,7 +54311,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..ResolveState$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -54646,7 +54646,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %72
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %100, %94, %88, %81
@@ -54677,7 +54677,7 @@ common.resume:                                    ; preds = %100, %94, %88, %81
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..ShareProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8a8d2d0b23c2694fE.llvm.17923508281735383458.exit": ; preds = %87
@@ -54701,7 +54701,7 @@ common.resume:                                    ; preds = %100, %94, %88, %81
 96:                                               ; preds = %94
   %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..ShareProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hef1ba10e0fc9bdb2E.llvm.17923508281735383458.exit": ; preds = %93
@@ -54725,7 +54725,7 @@ common.resume:                                    ; preds = %100, %94, %88, %81
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..ShareProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h94c62facbe66d0b1E.llvm.17923508281735383458.exit": ; preds = %99
@@ -54754,7 +54754,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..ShareProject$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -54781,7 +54781,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..ShareProject$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -54808,7 +54808,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..ShareProject$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -54835,7 +54835,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..ShareProject$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -54908,7 +54908,7 @@ _ZN5prost8encoding6string15encode_repeated17h1f0d56bdfcbeabfbE.exit: ; preds = %
 19:                                               ; preds = %_ZN5prost8encoding6string15encode_repeated17h1f0d56bdfcbeabfbE.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #27
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h012ae6e02e77a931E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #28
           to label %33 unwind label %31
 
 21:                                               ; preds = %_ZN5prost8encoding6string15encode_repeated17h1f0d56bdfcbeabfbE.exit
@@ -54927,13 +54927,13 @@ _ZN5prost8encoding6string15encode_repeated17h1f0d56bdfcbeabfbE.exit: ; preds = %
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %3, align 8, !noalias !6816, !nonnull !13, !noundef !13
-  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %27, i64 noundef %23) #26
+  call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %27, i64 noundef %23) #27
   br label %_ZN5prost8encoding8hash_map6encode17h69303a0780d7aa02E.exit
 
 31:                                               ; preds = %19
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 33:                                               ; preds = %19
@@ -55666,7 +55666,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 199:                                              ; preds = %197
   %200 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17haf1e57a6ca9d397eE.exit": ; preds = %196
@@ -55694,7 +55694,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 206:                                              ; preds = %204
   %207 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd5eac0e11bd08b5aE.exit": ; preds = %203
@@ -55717,7 +55717,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 212:                                              ; preds = %210
   %213 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8da8bdf40a954c3aE.exit": ; preds = %209
@@ -55740,7 +55740,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 218:                                              ; preds = %216
   %219 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h99ebc668d55f70f2E.exit": ; preds = %215
@@ -55764,7 +55764,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 224:                                              ; preds = %222
   %225 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h60e29a8a8c9819eeE.exit": ; preds = %221
@@ -55788,7 +55788,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 230:                                              ; preds = %228
   %231 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h664e2a688421cac2E.exit": ; preds = %227
@@ -55812,7 +55812,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 236:                                              ; preds = %234
   %237 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf2f0248344373f8eE.exit": ; preds = %233
@@ -55836,7 +55836,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 242:                                              ; preds = %240
   %243 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h25defc51b1dc9f04E.exit": ; preds = %239
@@ -55859,7 +55859,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 248:                                              ; preds = %246
   %249 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h20f3514effc1a3bcE.exit": ; preds = %245
@@ -55883,7 +55883,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit: ; preds = %189
 254:                                              ; preds = %252
   %255 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdaf9184e80c243f8E.exit": ; preds = %251
@@ -55907,7 +55907,7 @@ _ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit.thread: ; preds = %_ZN
 259:                                              ; preds = %257
   %260 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h544b31ceb8bca81dE.exit": ; preds = %_ZN5prost8encoding7message5merge17h1578c3900b89de62E.exit.thread
@@ -56116,7 +56116,7 @@ _ZN5prost8encoding7message5merge17h1fc53434525b2e96E.exit.thread: ; preds = %_ZN
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %61, %55
@@ -56148,7 +56148,7 @@ _ZN5prost8encoding7message5merge17h704c955a03ef6becE.exit.thread: ; preds = %_ZN
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..TemplatePair$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1de4e9d918b33848E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h704c955a03ef6becE.exit.thread
@@ -56177,7 +56177,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..TemplatePair$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -56204,7 +56204,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..TemplatePair$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -56415,7 +56415,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit12: ; preds = %44
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %68, %62, %55
@@ -56447,7 +56447,7 @@ common.resume:                                    ; preds = %68, %62, %55
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..UpdateBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha002cb9e06885194E.llvm.17923508281735383458.exit": ; preds = %61
@@ -56470,7 +56470,7 @@ common.resume:                                    ; preds = %68, %62, %55
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN63_$LT$proto..UpdateBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h948ee3abb88ebb40E.llvm.17923508281735383458.exit": ; preds = %67
@@ -56499,7 +56499,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..UpdateBuffer$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -56526,7 +56526,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..UpdateBuffer$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -56553,7 +56553,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN63_$LT$proto..UpdateBuffer$u20$as
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -56699,7 +56699,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -56730,7 +56730,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..BufferVersion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h76c075efdd74b575E.llvm.17923508281735383458.exit": ; preds = %40
@@ -56759,7 +56759,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..BufferVersion$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -56786,7 +56786,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..BufferVersion$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57050,7 +57050,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit17: ; preds = %64
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %86, %80, %73
@@ -57082,7 +57082,7 @@ common.resume:                                    ; preds = %86, %80, %73
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..ChannelMember$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdd3d7e08c89f51e6E.llvm.17923508281735383458.exit": ; preds = %79
@@ -57106,7 +57106,7 @@ common.resume:                                    ; preds = %86, %80, %73
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..ChannelMember$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3eb10a4c1d5368b1E.llvm.17923508281735383458.exit": ; preds = %85
@@ -57135,7 +57135,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..ChannelMember$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57162,7 +57162,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..ChannelMember$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57189,7 +57189,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..ChannelMember$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57309,7 +57309,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %27
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..CommitMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc3f9b9e833aa0ca2E.llvm.17923508281735383458.exit": ; preds = %32
@@ -57337,7 +57337,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %27
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..CommitMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcb21a8388b273f18E.llvm.17923508281735383458.exit": ; preds = %39
@@ -57366,7 +57366,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..CommitMessage$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57393,7 +57393,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..CommitMessage$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57583,7 +57583,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %45
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..CreateChannel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc50784b7f7020b03E.llvm.17923508281735383458.exit": ; preds = %52
@@ -57611,7 +57611,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %45
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..CreateChannel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8413476515588331E.llvm.17923508281735383458.exit": ; preds = %59
@@ -57640,7 +57640,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..CreateChannel$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57667,7 +57667,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..CreateChannel$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57776,7 +57776,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -57812,7 +57812,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..CreateContext$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -57921,7 +57921,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -57957,7 +57957,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..DeleteChannel$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -58016,7 +58016,7 @@ define hidden noundef align 8 ptr @"_ZN64_$LT$proto..Documentation$u20$as$u20$pr
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -58052,7 +58052,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..Documentation$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -58253,7 +58253,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %44
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %69, %63, %56
@@ -58285,7 +58285,7 @@ common.resume:                                    ; preds = %69, %63, %56
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..FormatBuffers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4f4a7ef172addf3eE.llvm.17923508281735383458.exit": ; preds = %62
@@ -58308,7 +58308,7 @@ common.resume:                                    ; preds = %69, %63, %56
 71:                                               ; preds = %69
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..FormatBuffers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he268fc8a18097751E.llvm.17923508281735383458.exit": ; preds = %68
@@ -58337,7 +58337,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..FormatBuffers$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -58364,7 +58364,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..FormatBuffers$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -58391,7 +58391,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..FormatBuffers$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -58687,7 +58687,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -58719,7 +58719,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..GetDefinition$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hceda69f2fa52ad04E.llvm.17923508281735383458.exit": ; preds = %86
@@ -58743,7 +58743,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..GetDefinition$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h732bcbd869acc6e8E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -58766,7 +58766,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..GetDefinition$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb2bf2a967a65c842E.llvm.17923508281735383458.exit": ; preds = %97
@@ -58795,7 +58795,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..GetDefinition$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -58822,7 +58822,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..GetDefinition$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -58849,7 +58849,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..GetDefinition$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -58876,7 +58876,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..GetDefinition$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -59172,7 +59172,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -59204,7 +59204,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..GetReferences$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hae1ec1d101bd3754E.llvm.17923508281735383458.exit": ; preds = %86
@@ -59228,7 +59228,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..GetReferences$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h52837770b1daf371E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -59251,7 +59251,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..GetReferences$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc3920300d1f3c86fE.llvm.17923508281735383458.exit": ; preds = %97
@@ -59280,7 +59280,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..GetReferences$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -59307,7 +59307,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..GetReferences$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -59334,7 +59334,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..GetReferences$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -59361,7 +59361,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..GetReferences$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -59690,7 +59690,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %83
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..HostedProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h711563f47f5d2859E.llvm.17923508281735383458.exit": ; preds = %91
@@ -59718,7 +59718,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %83
 101:                                              ; preds = %99
   %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..HostedProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h65d3f84f789f921cE.llvm.17923508281735383458.exit": ; preds = %98
@@ -59742,7 +59742,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %83
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..HostedProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb4719bfa6f29d167E.llvm.17923508281735383458.exit": ; preds = %104
@@ -59766,7 +59766,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %83
 113:                                              ; preds = %111
   %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..HostedProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h49c51060618fc268E.llvm.17923508281735383458.exit": ; preds = %110
@@ -59795,7 +59795,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..HostedProject$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -59822,7 +59822,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..HostedProject$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -59849,7 +59849,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..HostedProject$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -59876,7 +59876,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..HostedProject$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -60090,7 +60090,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %44
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..MarkupContent$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h61157f684cc34c5fE.llvm.17923508281735383458.exit": ; preds = %49
@@ -60118,7 +60118,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %44
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..MarkupContent$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h225639ca171fc79fE.llvm.17923508281735383458.exit": ; preds = %56
@@ -60147,7 +60147,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..MarkupContent$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -60174,7 +60174,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..MarkupContent$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -60481,7 +60481,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit16: ; preds = %46
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %90, %84, %78, %72, %65
@@ -60513,7 +60513,7 @@ common.resume:                                    ; preds = %90, %84, %78, %72, 
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..MultiLspQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7f8888ef21e840c0E.exit": ; preds = %71
@@ -60536,7 +60536,7 @@ common.resume:                                    ; preds = %90, %84, %78, %72, 
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..MultiLspQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6cf535ebe45b1816E.exit": ; preds = %77
@@ -60559,7 +60559,7 @@ common.resume:                                    ; preds = %90, %84, %78, %72, 
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..MultiLspQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h881b5316da4298e0E.exit": ; preds = %83
@@ -60582,7 +60582,7 @@ common.resume:                                    ; preds = %90, %84, %78, %72, 
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..MultiLspQuery$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h076600abb0118fd5E.exit": ; preds = %89
@@ -60693,7 +60693,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -60729,7 +60729,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..OpenNewBuffer$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -61092,7 +61092,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..PerformRename$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h72adc8d4b820a2fcE.exit": ; preds = %99
@@ -61120,7 +61120,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 109:                                              ; preds = %107
   %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..PerformRename$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hac65d96f053db4a5E.exit": ; preds = %106
@@ -61144,7 +61144,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..PerformRename$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0741a4c9f5571910E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -61168,7 +61168,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 120:                                              ; preds = %118
   %121 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..PerformRename$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0e54a64d5d0e956eE.exit": ; preds = %117
@@ -61191,7 +61191,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 126:                                              ; preds = %124
   %127 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..PerformRename$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17haf78645a4bfe6ce7E.exit": ; preds = %123
@@ -61489,7 +61489,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -61521,7 +61521,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..PrepareRename$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6085da627104a211E.llvm.17923508281735383458.exit": ; preds = %86
@@ -61545,7 +61545,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..PrepareRename$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h95bfeccb636a73e2E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -61568,7 +61568,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..PrepareRename$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h43549bad7daaa771E.llvm.17923508281735383458.exit": ; preds = %97
@@ -61597,7 +61597,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..PrepareRename$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -61624,7 +61624,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..PrepareRename$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -61651,7 +61651,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..PrepareRename$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -61678,7 +61678,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..PrepareRename$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -61814,7 +61814,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -61845,7 +61845,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..RejoinProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h487b0b8326df7b5bE.llvm.17923508281735383458.exit": ; preds = %40
@@ -61874,7 +61874,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..RejoinProject$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -61901,7 +61901,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..RejoinProject$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -62025,7 +62025,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -62056,7 +62056,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..ReloadBuffers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he5c479aad3b37236E.llvm.17923508281735383458.exit": ; preds = %40
@@ -62085,7 +62085,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..ReloadBuffers$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -62112,7 +62112,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..ReloadBuffers$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -62221,7 +62221,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -62257,7 +62257,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..RemoveContact$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -62434,7 +62434,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..RenameChannel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc6e564008a1e4945E.llvm.17923508281735383458.exit": ; preds = %48
@@ -62462,7 +62462,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..RenameChannel$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb54963c4e139a8beE.llvm.17923508281735383458.exit": ; preds = %55
@@ -62491,7 +62491,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..RenameChannel$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -62518,7 +62518,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..RenameChannel$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -62756,7 +62756,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit14: ; preds = %56
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %78, %72, %65
@@ -62788,7 +62788,7 @@ common.resume:                                    ; preds = %78, %72, %65
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..SignatureHelp$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hba551a61d63ec196E.llvm.17923508281735383458.exit": ; preds = %71
@@ -62812,7 +62812,7 @@ common.resume:                                    ; preds = %78, %72, %65
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..SignatureHelp$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h63f889f9e4c45608E.llvm.17923508281735383458.exit": ; preds = %77
@@ -62841,7 +62841,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..SignatureHelp$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -62868,7 +62868,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..SignatureHelp$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -62895,7 +62895,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..SignatureHelp$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63179,7 +63179,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit16: ; preds = %71
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %91, %85, %79
@@ -63211,7 +63211,7 @@ _ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit.thread: ; preds = %_ZN
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..TaskTemplates$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h693c2e1020ee683eE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit.thread
@@ -63235,7 +63235,7 @@ _ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit.thread: ; preds = %_ZN
 93:                                               ; preds = %91
   %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..TaskTemplates$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha7a5f5ba97071703E.llvm.17923508281735383458.exit": ; preds = %90
@@ -63264,7 +63264,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..TaskTemplates$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63291,7 +63291,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..TaskTemplates$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63318,7 +63318,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..TaskTemplates$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63581,7 +63581,7 @@ _ZN5prost8encoding7message5merge17he85ea4f52fc2612fE.exit: ; preds = %65
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..UpdateContext$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfccfb44073c26475E.llvm.17923508281735383458.exit": ; preds = %72
@@ -63609,7 +63609,7 @@ _ZN5prost8encoding7message5merge17he85ea4f52fc2612fE.exit: ; preds = %65
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..UpdateContext$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha34e665eb49411bcE.llvm.17923508281735383458.exit": ; preds = %79
@@ -63633,7 +63633,7 @@ _ZN5prost8encoding7message5merge17he85ea4f52fc2612fE.exit.thread: ; preds = %_ZN
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..UpdateContext$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb7a523a0450c76a2E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17he85ea4f52fc2612fE.exit.thread
@@ -63662,7 +63662,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..UpdateContext$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63689,7 +63689,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..UpdateContext$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63716,7 +63716,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..UpdateContext$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63852,7 +63852,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -63883,7 +63883,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN64_$LT$proto..UpdateProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9087d5e327f20228E.llvm.17923508281735383458.exit": ; preds = %40
@@ -63912,7 +63912,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..UpdateProject$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63939,7 +63939,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..UpdateProject$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -63998,7 +63998,7 @@ define hidden noundef align 8 ptr @"_ZN64_$LT$proto..UsersResponse$u20$as$u20$pr
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -64034,7 +64034,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN64_$LT$proto..UsersResponse$u20$a
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -64412,7 +64412,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %95
 106:                                              ; preds = %104
   %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %128, %122, %117, %111, %104
@@ -64444,7 +64444,7 @@ common.resume:                                    ; preds = %128, %122, %117, %1
 113:                                              ; preds = %111
   %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..BufferReloaded$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4db9828eb4e52dc1E.exit": ; preds = %110
@@ -64467,7 +64467,7 @@ common.resume:                                    ; preds = %128, %122, %117, %1
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..BufferReloaded$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1e1450a0938c109bE.exit": ; preds = %116
@@ -64491,7 +64491,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 124:                                              ; preds = %122
   %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..BufferReloaded$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4da0cea40d1db38bE.exit": ; preds = %_ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread
@@ -64515,7 +64515,7 @@ _ZN5prost8encoding7message5merge17h50b825a579579a95E.exit.thread: ; preds = %_ZN
 130:                                              ; preds = %128
   %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..BufferReloaded$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfbc691217a9b66b7E.exit": ; preds = %127
@@ -65136,7 +65136,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit49: ; preds = %165
 175:                                              ; preds = %173
   %176 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5741f7467dd30d45E.exit": ; preds = %172
@@ -65164,7 +65164,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit49: ; preds = %165
 182:                                              ; preds = %180
   %183 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb3c4f1380b209315E.exit": ; preds = %179
@@ -65188,7 +65188,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit49: ; preds = %165
 188:                                              ; preds = %186
   %189 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h39700356f8cea60fE.exit": ; preds = %185
@@ -65212,7 +65212,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit49: ; preds = %165
 194:                                              ; preds = %192
   %195 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0e1f978aea82edacE.exit": ; preds = %191
@@ -65236,7 +65236,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 199:                                              ; preds = %197
   %200 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb5363dc0472f460fE.exit": ; preds = %_ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread
@@ -65259,7 +65259,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 205:                                              ; preds = %203
   %206 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc52af52abdb302c0E.exit": ; preds = %202
@@ -65283,7 +65283,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 211:                                              ; preds = %209
   %212 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6146bfac8a126f9aE.exit": ; preds = %208
@@ -65307,7 +65307,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 217:                                              ; preds = %215
   %218 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h674bb77fb22bf72eE.exit": ; preds = %214
@@ -65684,7 +65684,7 @@ _ZN5prost8encoding7message5merge17h4174e6ab3958ece0E.exit.thread: ; preds = %_ZN
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %122, %117, %111, %105
@@ -65716,7 +65716,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 113:                                              ; preds = %111
   %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ContextMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4604a15648153f04E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -65740,7 +65740,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ContextMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h84735f6ab83c6568E.llvm.17923508281735383458.exit": ; preds = %116
@@ -65764,7 +65764,7 @@ _ZN5prost8encoding7message5merge17hb43e484424a4d36aE.exit.thread: ; preds = %_ZN
 124:                                              ; preds = %122
   %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ContextMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5adea6e91c1a80edE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hb43e484424a4d36aE.exit.thread
@@ -65793,7 +65793,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..ContextMessage$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -65820,7 +65820,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..ContextMessage$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -65847,7 +65847,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..ContextMessage$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -65874,7 +65874,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..ContextMessage$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -66026,7 +66026,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %24
 40:                                               ; preds = %38
   %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ContextVersion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h14711404f48fc38fE.llvm.17923508281735383458.exit": ; preds = %37
@@ -66053,7 +66053,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %24
 47:                                               ; preds = %45
   %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ContextVersion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdd5a77ddeff2bb0dE.llvm.17923508281735383458.exit": ; preds = %44
@@ -66076,7 +66076,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %24
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..ContextVersion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h60966ca57810f3a8E.llvm.17923508281735383458.exit": ; preds = %50
@@ -66105,7 +66105,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..ContextVersion$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -66132,7 +66132,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..ContextVersion$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -66159,7 +66159,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..ContextVersion$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -66393,7 +66393,7 @@ _ZN5prost8encoding7message5merge17hc00995a03dd9753bE.exit.thread: ; preds = %_ZN
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %74, %69, %62
@@ -66424,7 +66424,7 @@ common.resume:                                    ; preds = %74, %69, %62
 71:                                               ; preds = %69
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..FollowResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha1db46c07c8e578eE.llvm.17923508281735383458.exit": ; preds = %68
@@ -66448,7 +66448,7 @@ _ZN5prost8encoding7message5merge17hd16522015f705b4fE.exit.thread: ; preds = %_ZN
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..FollowResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h55992084a17dcb4bE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hd16522015f705b4fE.exit.thread
@@ -66477,7 +66477,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..FollowResponse$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -66504,7 +66504,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..FollowResponse$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -66531,7 +66531,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..FollowResponse$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -66913,7 +66913,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit28: ; preds = %93
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %128, %122, %117, %112, %105
@@ -66945,7 +66945,7 @@ common.resume:                                    ; preds = %128, %122, %117, %1
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetCodeActions$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h73058bdb3f8bab62E.exit": ; preds = %111
@@ -66969,7 +66969,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetCodeActions$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he175ef7d0b4ab44cE.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -66993,7 +66993,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit28.thread: ; preds = %_
 124:                                              ; preds = %122
   %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetCodeActions$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2b54c96f200b5a93E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit28.thread
@@ -67016,7 +67016,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit28.thread: ; preds = %_
 130:                                              ; preds = %128
   %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetCodeActions$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4cf61684b5441ae5E.exit": ; preds = %127
@@ -67314,7 +67314,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -67346,7 +67346,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetCompletions$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf4a377dca8b39f93E.llvm.17923508281735383458.exit": ; preds = %86
@@ -67370,7 +67370,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetCompletions$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4a2ac645a0a8f477E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -67393,7 +67393,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetCompletions$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha09f30bf951bdd08E.llvm.17923508281735383458.exit": ; preds = %97
@@ -67422,7 +67422,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..GetCompletions$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -67449,7 +67449,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..GetCompletions$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -67476,7 +67476,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..GetCompletions$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -67503,7 +67503,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..GetCompletions$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -67799,7 +67799,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -67831,7 +67831,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetDeclaration$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf66bdca78b78e062E.llvm.17923508281735383458.exit": ; preds = %86
@@ -67855,7 +67855,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetDeclaration$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc3c44e15b6a89645E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -67878,7 +67878,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..GetDeclaration$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hca3331f5e54ba7e8E.llvm.17923508281735383458.exit": ; preds = %97
@@ -67907,7 +67907,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..GetDeclaration$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -67934,7 +67934,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..GetDeclaration$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -67961,7 +67961,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..GetDeclaration$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -67988,7 +67988,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..GetDeclaration$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -68049,7 +68049,7 @@ define hidden noundef align 8 ptr @"_ZN65_$LT$proto..InlayHintLabel$u20$as$u20$p
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -68085,7 +68085,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..InlayHintLabel$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -68262,7 +68262,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..LanguageServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h90bad8f7ed0d5289E.llvm.17923508281735383458.exit": ; preds = %48
@@ -68290,7 +68290,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..LanguageServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0a1f2b236699129cE.llvm.17923508281735383458.exit": ; preds = %55
@@ -68319,7 +68319,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..LanguageServer$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -68346,7 +68346,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..LanguageServer$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -68531,7 +68531,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -68563,7 +68563,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..OpenBufferById$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdd026796855b2a50E.llvm.17923508281735383458.exit": ; preds = %56
@@ -68592,7 +68592,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..OpenBufferById$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -68619,7 +68619,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..OpenBufferById$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -68804,7 +68804,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -68836,7 +68836,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..RejoinWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd96ebc01240d74baE.llvm.17923508281735383458.exit": ; preds = %56
@@ -68865,7 +68865,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..RejoinWorktree$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -68892,7 +68892,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..RejoinWorktree$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -69001,7 +69001,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -69037,7 +69037,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..RequestContact$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -69089,7 +69089,7 @@ define hidden noundef align 8 ptr @"_ZN65_$LT$proto..TaskSourceKind$u20$as$u20$p
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -69125,7 +69125,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..TaskSourceKind$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -69234,7 +69234,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -69270,7 +69270,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..UnshareProject$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -69494,7 +69494,7 @@ define hidden noundef align 8 ptr @"_ZN65_$LT$proto..UpdateChannels$u20$as$u20$p
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %102, %96, %90, %84, %78, %72, %66, %60, %53
@@ -69525,7 +69525,7 @@ common.resume:                                    ; preds = %102, %96, %90, %84,
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h07783cab4a4aac5eE.exit": ; preds = %59
@@ -69548,7 +69548,7 @@ common.resume:                                    ; preds = %102, %96, %90, %84,
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf7cf0d466060a949E.exit": ; preds = %65
@@ -69571,7 +69571,7 @@ common.resume:                                    ; preds = %102, %96, %90, %84,
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h086f8c38c0f5f86cE.exit": ; preds = %71
@@ -69594,7 +69594,7 @@ common.resume:                                    ; preds = %102, %96, %90, %84,
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8072da32b5bd4a7cE.exit": ; preds = %77
@@ -69617,7 +69617,7 @@ common.resume:                                    ; preds = %102, %96, %90, %84,
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hae2499d8fa452a5aE.exit": ; preds = %83
@@ -69640,7 +69640,7 @@ common.resume:                                    ; preds = %102, %96, %90, %84,
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h28c055a51cfada88E.exit": ; preds = %89
@@ -69663,7 +69663,7 @@ common.resume:                                    ; preds = %102, %96, %90, %84,
 98:                                               ; preds = %96
   %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfdc39a376ac6c1e1E.exit": ; preds = %95
@@ -69686,7 +69686,7 @@ common.resume:                                    ; preds = %102, %96, %90, %84,
 104:                                              ; preds = %102
   %105 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h137c6c84e2ea6628E.exit": ; preds = %101
@@ -69890,7 +69890,7 @@ define hidden noundef align 8 ptr @"_ZN65_$LT$proto..UpdateContacts$u20$as$u20$p
 40:                                               ; preds = %38
   %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %69, %63, %57, %51, %45, %38
@@ -69921,7 +69921,7 @@ common.resume:                                    ; preds = %69, %63, %57, %51, 
 47:                                               ; preds = %45
   %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateContacts$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h053e9b489e3ef703E.exit": ; preds = %44
@@ -69944,7 +69944,7 @@ common.resume:                                    ; preds = %69, %63, %57, %51, 
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateContacts$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17heaa393ba02175c5cE.exit": ; preds = %50
@@ -69967,7 +69967,7 @@ common.resume:                                    ; preds = %69, %63, %57, %51, 
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateContacts$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hffd6f0d2c056edceE.exit": ; preds = %56
@@ -69990,7 +69990,7 @@ common.resume:                                    ; preds = %69, %63, %57, %51, 
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateContacts$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1ddd8292f5dcf547E.exit": ; preds = %62
@@ -70013,7 +70013,7 @@ common.resume:                                    ; preds = %69, %63, %57, %51, 
 71:                                               ; preds = %69
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateContacts$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9fbffe618269ca5cE.exit": ; preds = %68
@@ -70279,7 +70279,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %67
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateDiffBase$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd7240ce552f70a05E.llvm.17923508281735383458.exit": ; preds = %72
@@ -70307,7 +70307,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %67
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateDiffBase$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd58f9e6a614f5127E.llvm.17923508281735383458.exit": ; preds = %79
@@ -70331,7 +70331,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %67
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateDiffBase$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h367f5a66a089332dE.llvm.17923508281735383458.exit": ; preds = %85
@@ -70360,7 +70360,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..UpdateDiffBase$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -70387,7 +70387,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..UpdateDiffBase$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -70414,7 +70414,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..UpdateDiffBase$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -70525,7 +70525,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %20
 33:                                               ; preds = %31
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %31
@@ -70561,7 +70561,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN65_$LT$proto..UpdateUserPlan$u20$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -71142,7 +71142,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 154:                                              ; preds = %152
   %155 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4915ab5968a20610E.exit": ; preds = %151
@@ -71170,7 +71170,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 161:                                              ; preds = %159
   %162 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf44e4e496a69888cE.exit": ; preds = %158
@@ -71194,7 +71194,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 167:                                              ; preds = %165
   %168 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hed2fb2755d1fa716E.exit": ; preds = %164
@@ -71217,7 +71217,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 173:                                              ; preds = %171
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hea00fa75bbb42492E.exit": ; preds = %170
@@ -71240,7 +71240,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 179:                                              ; preds = %177
   %180 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb9a272b3dd2e4718E.exit": ; preds = %176
@@ -71263,7 +71263,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 185:                                              ; preds = %183
   %186 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcf3f385e3301c2daE.exit": ; preds = %182
@@ -71286,7 +71286,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 191:                                              ; preds = %189
   %192 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h49935fa8005e256fE.exit": ; preds = %188
@@ -71310,7 +71310,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 197:                                              ; preds = %195
   %198 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h70a05b382244a40dE.exit": ; preds = %194
@@ -71334,7 +71334,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 203:                                              ; preds = %201
   %204 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h09714e059f84069dE.exit": ; preds = %200
@@ -71358,7 +71358,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit42: ; preds = %147
 209:                                              ; preds = %207
   %210 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1285951799f7108eE.exit": ; preds = %206
@@ -71480,7 +71480,7 @@ _ZN5prost8encoding7message5merge17hd3144540f42f63deE.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -71516,7 +71516,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..AddNotification$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -71787,7 +71787,7 @@ _ZN5prost8encoding7message5merge17hc97e5584cdf6eef1E.exit: ; preds = %66
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %86, %81, %74
@@ -71819,7 +71819,7 @@ common.resume:                                    ; preds = %86, %81, %74
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..ApplyCodeAction$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc08d0ee1aff3cbffE.llvm.17923508281735383458.exit": ; preds = %80
@@ -71843,7 +71843,7 @@ _ZN5prost8encoding7message5merge17hc97e5584cdf6eef1E.exit.thread: ; preds = %_ZN
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..ApplyCodeAction$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc81058346c5d1a21E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hc97e5584cdf6eef1E.exit.thread
@@ -71872,7 +71872,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..ApplyCodeAction$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -71899,7 +71899,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..ApplyCodeAction$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -71926,7 +71926,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..ApplyCodeAction$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -72103,7 +72103,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..CheckFileExists$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he827066ab8f63e1eE.llvm.17923508281735383458.exit": ; preds = %48
@@ -72131,7 +72131,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..CheckFileExists$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha78e2070669c10aeE.llvm.17923508281735383458.exit": ; preds = %55
@@ -72160,7 +72160,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..CheckFileExists$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -72187,7 +72187,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..CheckFileExists$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -72307,7 +72307,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %27
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..CommitPermalink$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6b84082d7879e8b0E.llvm.17923508281735383458.exit": ; preds = %32
@@ -72335,7 +72335,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %27
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..CommitPermalink$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb91afd1d776a9850E.llvm.17923508281735383458.exit": ; preds = %39
@@ -72364,7 +72364,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..CommitPermalink$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -72391,7 +72391,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..CommitPermalink$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -72571,7 +72571,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit8: ; preds = %45
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..ContextMetadata$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h28d03f4ceb55f761E.llvm.17923508281735383458.exit": ; preds = %49
@@ -72599,7 +72599,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit8: ; preds = %45
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..ContextMetadata$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hccefcaf0ab4de7faE.llvm.17923508281735383458.exit": ; preds = %56
@@ -72628,7 +72628,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..ContextMetadata$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -72655,7 +72655,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..ContextMetadata$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -72835,7 +72835,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit8: ; preds = %45
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..CreateDevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h48db1ab02dedfcb5E.llvm.17923508281735383458.exit": ; preds = %49
@@ -72863,7 +72863,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit8: ; preds = %45
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..CreateDevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h11872be2bd7d791cE.llvm.17923508281735383458.exit": ; preds = %56
@@ -72892,7 +72892,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..CreateDevServer$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -72919,7 +72919,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..CreateDevServer$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73028,7 +73028,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -73064,7 +73064,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..DeleteDevServer$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73173,7 +73173,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -73209,7 +73209,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..JoinChannelChat$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73478,7 +73478,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %67
 78:                                               ; preds = %76
   %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..LspWorkProgress$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he2520e5729f00a6bE.llvm.17923508281735383458.exit": ; preds = %75
@@ -73506,7 +73506,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %67
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..LspWorkProgress$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3c16c1866e6c07cfE.llvm.17923508281735383458.exit": ; preds = %82
@@ -73530,7 +73530,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %67
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..LspWorkProgress$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h67a4ba6f5ea48260E.llvm.17923508281735383458.exit": ; preds = %88
@@ -73559,7 +73559,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..LspWorkProgress$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73586,7 +73586,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..LspWorkProgress$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73613,7 +73613,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..LspWorkProgress$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73799,7 +73799,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %25
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %63, %57, %51, %44
@@ -73830,7 +73830,7 @@ common.resume:                                    ; preds = %63, %57, %51, %44
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..RejoinedProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5df5a27dd78ce3dfE.llvm.17923508281735383458.exit": ; preds = %50
@@ -73853,7 +73853,7 @@ common.resume:                                    ; preds = %63, %57, %51, %44
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..RejoinedProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he21ea8b3d899ae1bE.llvm.17923508281735383458.exit": ; preds = %56
@@ -73876,7 +73876,7 @@ common.resume:                                    ; preds = %63, %57, %51, %44
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..RejoinedProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hed94e8e7ee5409c1E.llvm.17923508281735383458.exit": ; preds = %62
@@ -73905,7 +73905,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RejoinedProject$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73932,7 +73932,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RejoinedProject$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73959,7 +73959,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RejoinedProject$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -73986,7 +73986,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RejoinedProject$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -74241,7 +74241,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %66
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..RenameDevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h55222bb08243dc0aE.llvm.17923508281735383458.exit": ; preds = %70
@@ -74269,7 +74269,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %66
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..RenameDevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4604a49f22e71cb3E.llvm.17923508281735383458.exit": ; preds = %77
@@ -74293,7 +74293,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %66
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..RenameDevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he9dce32a18d32f64E.llvm.17923508281735383458.exit": ; preds = %83
@@ -74322,7 +74322,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RenameDevServer$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -74349,7 +74349,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RenameDevServer$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -74376,7 +74376,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RenameDevServer$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -74565,7 +74565,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %46
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..RepositoryEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2033fe920e41d3c2E.llvm.17923508281735383458.exit": ; preds = %51
@@ -74593,7 +74593,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %46
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..RepositoryEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0bbac676c8ad76e3E.llvm.17923508281735383458.exit": ; preds = %58
@@ -74622,7 +74622,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RepositoryEntry$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -74649,7 +74649,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..RepositoryEntry$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -74785,7 +74785,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -74816,7 +74816,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..ResharedProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9715dea58fe2e043E.llvm.17923508281735383458.exit": ; preds = %40
@@ -74845,7 +74845,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..ResharedProject$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -74872,7 +74872,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..ResharedProject$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -75113,7 +75113,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit12: ; preds = %47
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %72, %66, %59
@@ -75145,7 +75145,7 @@ common.resume:                                    ; preds = %72, %66, %59
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..UpdateFollowers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha1ad326dfc182a3eE.llvm.17923508281735383458.exit": ; preds = %65
@@ -75168,7 +75168,7 @@ common.resume:                                    ; preds = %72, %66, %59
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN66_$LT$proto..UpdateFollowers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf688760f392fd703E.llvm.17923508281735383458.exit": ; preds = %71
@@ -75197,7 +75197,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..UpdateFollowers$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -75224,7 +75224,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..UpdateFollowers$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -75251,7 +75251,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN66_$LT$proto..UpdateFollowers$u20
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -75436,7 +75436,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -75468,7 +75468,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..ChannelMessageId$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hbdbb50886f8599e4E.llvm.17923508281735383458.exit": ; preds = %56
@@ -75497,7 +75497,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ChannelMessageId$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -75524,7 +75524,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ChannelMessageId$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -75611,7 +75611,7 @@ define hidden noundef align 8 ptr @"_ZN67_$LT$proto..ContextOperation$u20$as$u20
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -75647,7 +75647,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ContextOperation$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -75977,7 +75977,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit19: ; preds = %87
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..CopyProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h40338c9bb780e5d8E.llvm.17923508281735383458.exit": ; preds = %91
@@ -76005,7 +76005,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit19: ; preds = %87
 101:                                              ; preds = %99
   %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..CopyProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3e63edd37fea9110E.llvm.17923508281735383458.exit": ; preds = %98
@@ -76029,7 +76029,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit19: ; preds = %87
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..CopyProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8eca0ddb263c40f1E.llvm.17923508281735383458.exit": ; preds = %104
@@ -76053,7 +76053,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit19: ; preds = %87
 113:                                              ; preds = %111
   %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..CopyProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd4be0a40f8c849dfE.llvm.17923508281735383458.exit": ; preds = %110
@@ -76082,7 +76082,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..CopyProjectEntry$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -76109,7 +76109,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..CopyProjectEntry$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -76136,7 +76136,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..CopyProjectEntry$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -76163,7 +76163,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..CopyProjectEntry$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -76528,7 +76528,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..DevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2f74dd74476de696E.exit": ; preds = %99
@@ -76556,7 +76556,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 109:                                              ; preds = %107
   %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..DevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h08974ab2cd338c93E.exit": ; preds = %106
@@ -76580,7 +76580,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 115:                                              ; preds = %113
   %116 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..DevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdd038c2f1c19ed50E.exit": ; preds = %112
@@ -76604,7 +76604,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 121:                                              ; preds = %119
   %122 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..DevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9d4c1a368741a6ceE.exit": ; preds = %118
@@ -76627,7 +76627,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 127:                                              ; preds = %125
   %128 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..DevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he78b621a3b464275E.exit": ; preds = %124
@@ -76838,7 +76838,7 @@ _ZN5prost8encoding7message5merge17h3bb34a62981d7d0aE.exit.thread: ; preds = %_ZN
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %64, %57
@@ -76870,7 +76870,7 @@ common.resume:                                    ; preds = %64, %57
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..ExcerptInsertion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h284cd03a288754a4E.llvm.17923508281735383458.exit": ; preds = %63
@@ -76899,7 +76899,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ExcerptInsertion$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -76926,7 +76926,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ExcerptInsertion$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -77027,7 +77027,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %21
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..FuzzySearchUsers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h43a9ac9c3bae1bd8E.llvm.17923508281735383458.exit": ; preds = %28
@@ -77060,7 +77060,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..FuzzySearchUsers$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -77292,7 +77292,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %74, %68, %62
@@ -77324,7 +77324,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit14.thread: ; preds = %_
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..GetHoverResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h46694e01ac4a6c89E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit14.thread
@@ -77347,7 +77347,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit14.thread: ; preds = %_
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..GetHoverResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7dbe247e1dd0d765E.llvm.17923508281735383458.exit": ; preds = %73
@@ -77376,7 +77376,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..GetHoverResponse$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -77403,7 +77403,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..GetHoverResponse$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -77430,7 +77430,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..GetHoverResponse$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -77552,7 +77552,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %24
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %34
@@ -77588,7 +77588,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..GetNotifications$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -77884,7 +77884,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -77916,7 +77916,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..GetSignatureHelp$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9655c3ea9c0280aeE.llvm.17923508281735383458.exit": ; preds = %86
@@ -77940,7 +77940,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..GetSignatureHelp$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h698da4e87462e024E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -77963,7 +77963,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..GetSignatureHelp$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3a928ea9817a20b8E.llvm.17923508281735383458.exit": ; preds = %97
@@ -77992,7 +77992,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..GetSignatureHelp$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78019,7 +78019,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..GetSignatureHelp$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78046,7 +78046,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..GetSignatureHelp$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78073,7 +78073,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..GetSignatureHelp$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78132,7 +78132,7 @@ define hidden noundef align 8 ptr @"_ZN67_$LT$proto..InlayHintTooltip$u20$as$u20
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -78168,7 +78168,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..InlayHintTooltip$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78463,7 +78463,7 @@ _ZN5prost8encoding7message5merge17h05153f64d2eaaf6dE.exit.thread: ; preds = %_ZN
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %92, %87, %80
@@ -78495,7 +78495,7 @@ common.resume:                                    ; preds = %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..JoinRoomResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc9281184618d656dE.llvm.17923508281735383458.exit": ; preds = %86
@@ -78519,7 +78519,7 @@ _ZN5prost8encoding7message5merge17h358ea88bc2aa069dE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..JoinRoomResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h20de4d3c14773990E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h358ea88bc2aa069dE.exit.thread
@@ -78548,7 +78548,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..JoinRoomResponse$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78575,7 +78575,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..JoinRoomResponse$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78602,7 +78602,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..JoinRoomResponse$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78789,7 +78789,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit10: ; preds = %43
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %52
@@ -78821,7 +78821,7 @@ common.resume:                                    ; preds = %59, %52
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..LamportTimestamp$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5164906e1040542dE.llvm.17923508281735383458.exit": ; preds = %58
@@ -78850,7 +78850,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..LamportTimestamp$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78877,7 +78877,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..LamportTimestamp$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -78986,7 +78986,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -79022,7 +79022,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..LeaveChannelChat$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -79385,7 +79385,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..OnTypeFormatting$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9237fe747b00101aE.exit": ; preds = %99
@@ -79413,7 +79413,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %90
 109:                                              ; preds = %107
   %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..OnTypeFormatting$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1c0a090fc81cbc48E.exit": ; preds = %106
@@ -79437,7 +79437,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..OnTypeFormatting$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0b1349ae94b5f5ebE.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -79461,7 +79461,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 120:                                              ; preds = %118
   %121 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..OnTypeFormatting$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h49cb271b429e17c2E.exit": ; preds = %117
@@ -79484,7 +79484,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 126:                                              ; preds = %124
   %127 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..OnTypeFormatting$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfdee9869f9973f1cE.exit": ; preds = %123
@@ -79738,7 +79738,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %64
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..OpenBufferByPath$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd0c742650c5e92cbE.llvm.17923508281735383458.exit": ; preds = %69
@@ -79766,7 +79766,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %64
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..OpenBufferByPath$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hba89c258fb889903E.llvm.17923508281735383458.exit": ; preds = %76
@@ -79790,7 +79790,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %64
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..OpenBufferByPath$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha82da4d1aa0f0ebdE.llvm.17923508281735383458.exit": ; preds = %82
@@ -79819,7 +79819,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..OpenBufferByPath$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -79846,7 +79846,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..OpenBufferByPath$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -79873,7 +79873,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..OpenBufferByPath$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -80219,7 +80219,7 @@ _ZN5prost8encoding7message5merge17h06e648807201089aE.exit: ; preds = %87
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %113, %108, %102, %95
@@ -80251,7 +80251,7 @@ common.resume:                                    ; preds = %113, %108, %102, %9
 104:                                              ; preds = %102
   %105 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..ResolveInlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3547dda3ac618a48E.llvm.17923508281735383458.exit": ; preds = %101
@@ -80275,7 +80275,7 @@ common.resume:                                    ; preds = %113, %108, %102, %9
 110:                                              ; preds = %108
   %111 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..ResolveInlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdc2faadeb895bf06E.llvm.17923508281735383458.exit": ; preds = %107
@@ -80299,7 +80299,7 @@ _ZN5prost8encoding7message5merge17h06e648807201089aE.exit.thread: ; preds = %_ZN
 115:                                              ; preds = %113
   %116 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..ResolveInlayHint$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1676a0c918ee8686E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h06e648807201089aE.exit.thread
@@ -80328,7 +80328,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ResolveInlayHint$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -80355,7 +80355,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ResolveInlayHint$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -80382,7 +80382,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ResolveInlayHint$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -80409,7 +80409,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..ResolveInlayHint$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -80709,7 +80709,7 @@ _ZN5prost8encoding7message5merge17hc00995a03dd9753bE.exit.thread: ; preds = %_ZN
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %95, %90, %84
@@ -80741,7 +80741,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..UpdateActiveView$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0d277ab07349b17eE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -80765,7 +80765,7 @@ _ZN5prost8encoding7message5merge17hd16522015f705b4fE.exit.thread: ; preds = %_ZN
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..UpdateActiveView$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd2d6c137d6497c39E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hd16522015f705b4fE.exit.thread
@@ -80794,7 +80794,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..UpdateActiveView$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -80821,7 +80821,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..UpdateActiveView$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -80848,7 +80848,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..UpdateActiveView$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -81119,7 +81119,7 @@ _ZN5prost8encoding7message5merge17he068690159738d1aE.exit: ; preds = %66
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %86, %81, %74
@@ -81151,7 +81151,7 @@ common.resume:                                    ; preds = %86, %81, %74
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..UpdateBufferFile$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8cd016dbaaa46101E.llvm.17923508281735383458.exit": ; preds = %80
@@ -81175,7 +81175,7 @@ _ZN5prost8encoding7message5merge17he068690159738d1aE.exit.thread: ; preds = %_ZN
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..UpdateBufferFile$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hac90a53f9a09e0fdE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17he068690159738d1aE.exit.thread
@@ -81204,7 +81204,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..UpdateBufferFile$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -81231,7 +81231,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..UpdateBufferFile$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -81258,7 +81258,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..UpdateBufferFile$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -81436,7 +81436,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %41
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..UpdateInviteInfo$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hff193ef02e54b41eE.llvm.17923508281735383458.exit": ; preds = %49
@@ -81464,7 +81464,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %41
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..UpdateInviteInfo$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hed62a2bddef9f61eE.llvm.17923508281735383458.exit": ; preds = %56
@@ -81493,7 +81493,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..UpdateInviteInfo$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -81520,7 +81520,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..UpdateInviteInfo$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -81707,7 +81707,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit10: ; preds = %43
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %52
@@ -81739,7 +81739,7 @@ common.resume:                                    ; preds = %59, %52
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..VectorClockEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2d1206e9482a84a6E.llvm.17923508281735383458.exit": ; preds = %58
@@ -81768,7 +81768,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..VectorClockEntry$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -81795,7 +81795,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..VectorClockEntry$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -82150,7 +82150,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit18: ; preds = %85
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..WorktreeMetadata$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h83664118dffe3819E.llvm.17923508281735383458.exit": ; preds = %89
@@ -82178,7 +82178,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit18: ; preds = %85
 99:                                               ; preds = %97
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..WorktreeMetadata$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7bc638b5024ab4d7E.llvm.17923508281735383458.exit": ; preds = %96
@@ -82202,7 +82202,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit18: ; preds = %85
 105:                                              ; preds = %103
   %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..WorktreeMetadata$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha7d13fbc2cb39f68E.llvm.17923508281735383458.exit": ; preds = %102
@@ -82226,7 +82226,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit18: ; preds = %85
 111:                                              ; preds = %109
   %112 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN67_$LT$proto..WorktreeMetadata$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he39fc2721de36677E.llvm.17923508281735383458.exit": ; preds = %108
@@ -82255,7 +82255,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..WorktreeMetadata$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -82282,7 +82282,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..WorktreeMetadata$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -82309,7 +82309,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..WorktreeMetadata$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -82336,7 +82336,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN67_$LT$proto..WorktreeMetadata$u2
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -82521,7 +82521,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -82553,7 +82553,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..AckChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he11480b1951927fbE.llvm.17923508281735383458.exit": ; preds = %56
@@ -82582,7 +82582,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..AckChannelMessage$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -82609,7 +82609,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..AckChannelMessage$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -82745,7 +82745,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -82776,7 +82776,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..AdvertiseContexts$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfb80e3a95d41f4b0E.llvm.17923508281735383458.exit": ; preds = %40
@@ -82805,7 +82805,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..AdvertiseContexts$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -82832,7 +82832,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..AdvertiseContexts$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -83019,7 +83019,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %42
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %58, %51
@@ -83051,7 +83051,7 @@ common.resume:                                    ; preds = %58, %51
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..ChannelMembership$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd9c77d389e410caaE.llvm.17923508281735383458.exit": ; preds = %57
@@ -83080,7 +83080,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..ChannelMembership$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -83107,7 +83107,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..ChannelMembership$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -83234,7 +83234,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %23
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..ComputeEmbeddings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2cd4103599413185E.llvm.17923508281735383458.exit": ; preds = %32
@@ -83261,7 +83261,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %23
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..ComputeEmbeddings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4521801d12e81fc8E.llvm.17923508281735383458.exit": ; preds = %39
@@ -83290,7 +83290,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..ComputeEmbeddings$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -83317,7 +83317,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..ComputeEmbeddings$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -83646,7 +83646,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit20: ; preds = %84
 95:                                               ; preds = %93
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..DiagnosticSummary$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd25efc4ffec62a34E.llvm.17923508281735383458.exit": ; preds = %92
@@ -83674,7 +83674,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit20: ; preds = %84
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..DiagnosticSummary$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd67767802403f233E.llvm.17923508281735383458.exit": ; preds = %99
@@ -83698,7 +83698,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit20: ; preds = %84
 108:                                              ; preds = %106
   %109 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..DiagnosticSummary$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdf92cb4e04e88ca3E.llvm.17923508281735383458.exit": ; preds = %105
@@ -83722,7 +83722,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit20: ; preds = %84
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..DiagnosticSummary$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd0fc4469ae188133E.llvm.17923508281735383458.exit": ; preds = %111
@@ -83751,7 +83751,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..DiagnosticSummary$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -83778,7 +83778,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..DiagnosticSummary$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -83805,7 +83805,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..DiagnosticSummary$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -83832,7 +83832,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..DiagnosticSummary$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -84116,7 +84116,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18: ; preds = %72
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %91, %86, %80
@@ -84148,7 +84148,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..DocumentHighlight$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1372b3568ca9fdabE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -84172,7 +84172,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread: ; preds = %_
 93:                                               ; preds = %91
   %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..DocumentHighlight$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3362437b0f35c7f5E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit18.thread
@@ -84201,7 +84201,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..DocumentHighlight$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -84228,7 +84228,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..DocumentHighlight$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -84255,7 +84255,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..DocumentHighlight$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -84507,7 +84507,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit13: ; preds = %62
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetChannelMembers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3507db988a4a2cd5E.llvm.17923508281735383458.exit": ; preds = %69
@@ -84535,7 +84535,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit13: ; preds = %62
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetChannelMembers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0eca147086b9775bE.llvm.17923508281735383458.exit": ; preds = %76
@@ -84559,7 +84559,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit13: ; preds = %62
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetChannelMembers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hec53b8cf37c9b386E.llvm.17923508281735383458.exit": ; preds = %82
@@ -84588,7 +84588,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetChannelMembers$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -84615,7 +84615,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetChannelMembers$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -84642,7 +84642,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetChannelMembers$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -84938,7 +84938,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -84970,7 +84970,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetImplementation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6d516f47d8d06b0fE.llvm.17923508281735383458.exit": ; preds = %86
@@ -84994,7 +84994,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetImplementation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h909f5eefd2bba122E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -85017,7 +85017,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetImplementation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcd547060de92303cE.llvm.17923508281735383458.exit": ; preds = %97
@@ -85046,7 +85046,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetImplementation$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85073,7 +85073,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetImplementation$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85100,7 +85100,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetImplementation$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85127,7 +85127,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetImplementation$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85304,7 +85304,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetProjectSymbols$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h19a9f668b172993cE.llvm.17923508281735383458.exit": ; preds = %48
@@ -85332,7 +85332,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetProjectSymbols$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1cd12a2b8472e738E.llvm.17923508281735383458.exit": ; preds = %55
@@ -85361,7 +85361,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetProjectSymbols$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85388,7 +85388,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetProjectSymbols$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85684,7 +85684,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -85716,7 +85716,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetTypeDefinition$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf8dc8c4f45b1e353E.llvm.17923508281735383458.exit": ; preds = %86
@@ -85740,7 +85740,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetTypeDefinition$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc52f6746108e7d9bE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -85763,7 +85763,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..GetTypeDefinition$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hafcf5cf66f9a3ad9E.llvm.17923508281735383458.exit": ; preds = %97
@@ -85792,7 +85792,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetTypeDefinition$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85819,7 +85819,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetTypeDefinition$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85846,7 +85846,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetTypeDefinition$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85873,7 +85873,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..GetTypeDefinition$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -85982,7 +85982,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -86018,7 +86018,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..JoinChannelBuffer$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -86127,7 +86127,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -86163,7 +86163,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..JoinHostedProject$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -86434,7 +86434,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %67
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %87, %82, %75
@@ -86466,7 +86466,7 @@ common.resume:                                    ; preds = %87, %82, %75
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..LspExtExpandMacro$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcf5f96956c058f84E.llvm.17923508281735383458.exit": ; preds = %81
@@ -86490,7 +86490,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..LspExtExpandMacro$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h614a54b9ec0c4f41E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -86519,7 +86519,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..LspExtExpandMacro$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -86546,7 +86546,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..LspExtExpandMacro$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -86573,7 +86573,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..LspExtExpandMacro$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -86682,7 +86682,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -86718,7 +86718,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..RefreshInlayHints$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -86831,7 +86831,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %24
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..ShutdownDevServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3ad89635f405373dE.llvm.17923508281735383458.exit": ; preds = %31
@@ -86864,7 +86864,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..ShutdownDevServer$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87152,7 +87152,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %67
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %97, %91, %85, %78
@@ -87184,7 +87184,7 @@ common.resume:                                    ; preds = %97, %91, %85, %78
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..UpdateDiagnostics$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h629daf5b87add6fbE.llvm.17923508281735383458.exit": ; preds = %84
@@ -87208,7 +87208,7 @@ common.resume:                                    ; preds = %97, %91, %85, %78
 93:                                               ; preds = %91
   %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..UpdateDiagnostics$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6d231575eb5e1f6dE.llvm.17923508281735383458.exit": ; preds = %90
@@ -87231,7 +87231,7 @@ common.resume:                                    ; preds = %97, %91, %85, %78
 99:                                               ; preds = %97
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN68_$LT$proto..UpdateDiagnostics$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h88c15b6f1ae54915E.llvm.17923508281735383458.exit": ; preds = %96
@@ -87260,7 +87260,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..UpdateDiagnostics$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87287,7 +87287,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..UpdateDiagnostics$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87314,7 +87314,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..UpdateDiagnostics$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87341,7 +87341,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN68_$LT$proto..UpdateDiagnostics$u
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87552,7 +87552,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit12: ; preds = %44
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %68, %62, %55
@@ -87584,7 +87584,7 @@ common.resume:                                    ; preds = %68, %62, %55
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..AckBufferOperation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h14233930bb772a29E.llvm.17923508281735383458.exit": ; preds = %61
@@ -87607,7 +87607,7 @@ common.resume:                                    ; preds = %68, %62, %55
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..AckBufferOperation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h262f1767b0f1b3a1E.llvm.17923508281735383458.exit": ; preds = %67
@@ -87636,7 +87636,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..AckBufferOperation$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87663,7 +87663,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..AckBufferOperation$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87690,7 +87690,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..AckBufferOperation$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87897,7 +87897,7 @@ _ZN5prost8encoding7message5merge17h30f2b13a953cb03aE.exit: ; preds = %45
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %53
@@ -87929,7 +87929,7 @@ _ZN5prost8encoding7message5merge17h30f2b13a953cb03aE.exit.thread: ; preds = %_ZN
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..ChannelMessageSent$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb62142e7195a3d43E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h30f2b13a953cb03aE.exit.thread
@@ -87958,7 +87958,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ChannelMessageSent$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -87985,7 +87985,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ChannelMessageSent$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -88349,7 +88349,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %83
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..CreateProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc0c914d96e4a12c2E.llvm.17923508281735383458.exit": ; preds = %91
@@ -88377,7 +88377,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %83
 101:                                              ; preds = %99
   %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..CreateProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h97f9ae1e0d37b920E.llvm.17923508281735383458.exit": ; preds = %98
@@ -88401,7 +88401,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %83
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..CreateProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb23314512c7d3223E.llvm.17923508281735383458.exit": ; preds = %104
@@ -88425,7 +88425,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %83
 113:                                              ; preds = %111
   %114 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..CreateProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h54e386f1bd41e409E.llvm.17923508281735383458.exit": ; preds = %110
@@ -88454,7 +88454,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..CreateProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -88481,7 +88481,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..CreateProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -88508,7 +88508,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..CreateProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -88535,7 +88535,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..CreateProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -88742,7 +88742,7 @@ _ZN5prost8encoding7message5merge17h05153f64d2eaaf6dE.exit.thread: ; preds = %_ZN
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %61, %55
@@ -88774,7 +88774,7 @@ _ZN5prost8encoding7message5merge17h358ea88bc2aa069dE.exit.thread: ; preds = %_ZN
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..CreateRoomResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha873a7b8bd14031bE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h358ea88bc2aa069dE.exit.thread
@@ -88803,7 +88803,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..CreateRoomResponse$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -88830,7 +88830,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..CreateRoomResponse$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -88939,7 +88939,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -88975,7 +88975,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..DeleteNotification$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -89272,7 +89272,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %63
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %85, %79, %72
@@ -89304,7 +89304,7 @@ common.resume:                                    ; preds = %85, %79, %72
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..DeleteProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4b42bb95e5393184E.llvm.17923508281735383458.exit": ; preds = %78
@@ -89328,7 +89328,7 @@ common.resume:                                    ; preds = %85, %79, %72
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..DeleteProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha0dd20465be0fe79E.llvm.17923508281735383458.exit": ; preds = %84
@@ -89357,7 +89357,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..DeleteProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -89384,7 +89384,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..DeleteProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -89411,7 +89411,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..DeleteProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -89596,7 +89596,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -89628,7 +89628,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..ExpandProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h058b4eed36816fdeE.llvm.17923508281735383458.exit": ; preds = %56
@@ -89657,7 +89657,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ExpandProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -89684,7 +89684,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ExpandProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -89869,7 +89869,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -89901,7 +89901,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..GetChannelMessages$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0398d3d8ddd7c049E.llvm.17923508281735383458.exit": ; preds = %56
@@ -89930,7 +89930,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..GetChannelMessages$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -89957,7 +89957,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..GetChannelMessages$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -90504,7 +90504,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %145
 155:                                              ; preds = %153
   %156 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..InlayHintLabelPart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfcd90e0c20f368f8E.exit": ; preds = %152
@@ -90532,7 +90532,7 @@ _ZN5prost8encoding7message5merge17haa808282b4a4e9afE.exit.thread: ; preds = %_ZN
 161:                                              ; preds = %159
   %162 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..InlayHintLabelPart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb5c88608c38003b4E.exit": ; preds = %_ZN5prost8encoding7message5merge17haa808282b4a4e9afE.exit.thread
@@ -90556,7 +90556,7 @@ _ZN5prost8encoding7message5merge17haa808282b4a4e9afE.exit.thread: ; preds = %_ZN
 167:                                              ; preds = %165
   %168 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..InlayHintLabelPart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha2ddd50e4e36d019E.exit": ; preds = %164
@@ -90580,7 +90580,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit.thread: ; preds = %_ZN
 172:                                              ; preds = %170
   %173 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..InlayHintLabelPart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h179dabf6c6c3bd9cE.exit": ; preds = %_ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit.thread
@@ -90604,7 +90604,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit33.thread: ; preds = %_
 177:                                              ; preds = %175
   %178 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..InlayHintLabelPart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcdda896b8c826dfeE.exit": ; preds = %_ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit33.thread
@@ -90628,7 +90628,7 @@ _ZN5prost8encoding7message5merge17h6977062826e63b1dE.exit33.thread: ; preds = %_
 183:                                              ; preds = %181
   %184 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..InlayHintLabelPart$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h156aeba912796d80E.exit": ; preds = %180
@@ -90715,7 +90715,7 @@ define hidden noundef align 8 ptr @"_ZN69_$LT$proto..InlayHintsResponse$u20$as$u
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %25, %18
@@ -90746,7 +90746,7 @@ common.resume:                                    ; preds = %25, %18
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..InlayHintsResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h814c7bd4b77b1c5dE.llvm.17923508281735383458.exit": ; preds = %24
@@ -90775,7 +90775,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..InlayHintsResponse$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -90802,7 +90802,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..InlayHintsResponse$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -90911,7 +90911,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -90947,7 +90947,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..LeaveChannelBuffer$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -91243,7 +91243,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -91275,7 +91275,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..LinkedEditingRange$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hafa39c861ce9a226E.llvm.17923508281735383458.exit": ; preds = %86
@@ -91299,7 +91299,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..LinkedEditingRange$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h740e4917805ffa08E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -91322,7 +91322,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..LinkedEditingRange$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h128738656119db0bE.llvm.17923508281735383458.exit": ; preds = %97
@@ -91351,7 +91351,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..LinkedEditingRange$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -91378,7 +91378,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..LinkedEditingRange$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -91405,7 +91405,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..LinkedEditingRange$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -91432,7 +91432,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..LinkedEditingRange$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -91541,7 +91541,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -91577,7 +91577,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..OpenBufferResponse$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -91713,7 +91713,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -91744,7 +91744,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..ParticipantProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7e4ce5e3c190792bE.llvm.17923508281735383458.exit": ; preds = %40
@@ -91773,7 +91773,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ParticipantProject$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -91800,7 +91800,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ParticipantProject$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92073,7 +92073,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit18: ; preds = %67
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %88, %82, %75
@@ -92105,7 +92105,7 @@ common.resume:                                    ; preds = %88, %82, %75
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..PendingParticipant$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h10c0d4b46e55ba81E.llvm.17923508281735383458.exit": ; preds = %81
@@ -92129,7 +92129,7 @@ common.resume:                                    ; preds = %88, %82, %75
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..PendingParticipant$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0475151190b017faE.llvm.17923508281735383458.exit": ; preds = %87
@@ -92158,7 +92158,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..PendingParticipant$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92185,7 +92185,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..PendingParticipant$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92212,7 +92212,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..PendingParticipant$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92285,7 +92285,7 @@ define hidden noundef align 8 ptr @"_ZN69_$LT$proto..ProjectTransaction$u20$as$u
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %25, %18
@@ -92316,7 +92316,7 @@ common.resume:                                    ; preds = %25, %18
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..ProjectTransaction$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h32f9e606256a418eE.llvm.17923508281735383458.exit": ; preds = %24
@@ -92345,7 +92345,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ProjectTransaction$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92372,7 +92372,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ProjectTransaction$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92431,7 +92431,7 @@ define hidden noundef align 8 ptr @"_ZN69_$LT$proto..ReconnectDevServer$u20$as$u
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -92467,7 +92467,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..ReconnectDevServer$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92639,7 +92639,7 @@ _ZN5prost8encoding7message5merge17h05153f64d2eaaf6dE.exit.thread: ; preds = %_ZN
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %54, %48, %41
@@ -92670,7 +92670,7 @@ common.resume:                                    ; preds = %54, %48, %41
 50:                                               ; preds = %48
   %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..RejoinRoomResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h99291cb8b6d3d506E.llvm.17923508281735383458.exit": ; preds = %47
@@ -92693,7 +92693,7 @@ common.resume:                                    ; preds = %54, %48, %41
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..RejoinRoomResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he8fef9010c95c94dE.llvm.17923508281735383458.exit": ; preds = %53
@@ -92722,7 +92722,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..RejoinRoomResponse$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92749,7 +92749,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..RejoinRoomResponse$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -92776,7 +92776,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..RejoinRoomResponse$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -93028,7 +93028,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %64
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..RenameProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5ca5dee2e7170108E.llvm.17923508281735383458.exit": ; preds = %69
@@ -93056,7 +93056,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %64
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..RenameProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h53282418953f333aE.llvm.17923508281735383458.exit": ; preds = %76
@@ -93080,7 +93080,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %64
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..RenameProjectEntry$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h86e622dbaae11a79E.llvm.17923508281735383458.exit": ; preds = %82
@@ -93109,7 +93109,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..RenameProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -93136,7 +93136,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..RenameProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -93163,7 +93163,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..RenameProjectEntry$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -93544,7 +93544,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit23: ; preds = %98
 108:                                              ; preds = %106
   %109 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..SendChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd34f2f0756e5840aE.exit": ; preds = %105
@@ -93572,7 +93572,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit23: ; preds = %98
 115:                                              ; preds = %113
   %116 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..SendChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7198015d7eea90a6E.exit": ; preds = %112
@@ -93596,7 +93596,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 120:                                              ; preds = %118
   %121 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..SendChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h30baf6ee41a27ddeE.exit": ; preds = %_ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread
@@ -93619,7 +93619,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 126:                                              ; preds = %124
   %127 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..SendChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h54b9574cf0eb235cE.exit": ; preds = %123
@@ -93643,7 +93643,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 132:                                              ; preds = %130
   %133 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..SendChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdd73c74bf910535dE.exit": ; preds = %129
@@ -93781,7 +93781,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -93812,7 +93812,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..SynchronizeBuffers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h871515e6807c5504E.llvm.17923508281735383458.exit": ; preds = %40
@@ -93841,7 +93841,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..SynchronizeBuffers$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -93868,7 +93868,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..SynchronizeBuffers$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -93988,7 +93988,7 @@ _ZN5prost8encoding7message5merge17hd3144540f42f63deE.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -94024,7 +94024,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..UpdateNotification$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -94134,7 +94134,7 @@ define hidden noundef align 8 ptr @"_ZN69_$LT$proto..UpdateUserChannels$u20$as$u
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %36, %30, %23
@@ -94165,7 +94165,7 @@ common.resume:                                    ; preds = %36, %30, %23
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..UpdateUserChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd7f8f11a986e34fdE.llvm.17923508281735383458.exit": ; preds = %29
@@ -94188,7 +94188,7 @@ common.resume:                                    ; preds = %36, %30, %23
 38:                                               ; preds = %36
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..UpdateUserChannels$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdb5a4226143e3aa8E.llvm.17923508281735383458.exit": ; preds = %35
@@ -94217,7 +94217,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..UpdateUserChannels$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -94244,7 +94244,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..UpdateUserChannels$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -94271,7 +94271,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..UpdateUserChannels$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -94537,7 +94537,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %66
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..UpdateUserSettings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6214e8f76f43819dE.llvm.17923508281735383458.exit": ; preds = %74
@@ -94565,7 +94565,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %66
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..UpdateUserSettings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3fb3d1c1638edd81E.llvm.17923508281735383458.exit": ; preds = %81
@@ -94589,7 +94589,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %66
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN69_$LT$proto..UpdateUserSettings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3c764d73287a0f11E.llvm.17923508281735383458.exit": ; preds = %87
@@ -94618,7 +94618,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..UpdateUserSettings$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -94645,7 +94645,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..UpdateUserSettings$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -94672,7 +94672,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN69_$LT$proto..UpdateUserSettings$
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -94781,7 +94781,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -94817,7 +94817,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..AddWorktreeResponse
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95006,7 +95006,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %40
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..BlameBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3ff496399c6336f4E.llvm.17923508281735383458.exit": ; preds = %45
@@ -95033,7 +95033,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %40
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..BlameBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h15a4d39e0c3cbf9bE.llvm.17923508281735383458.exit": ; preds = %52
@@ -95056,7 +95056,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %40
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..BlameBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb1bf7c40abdc7bb4E.llvm.17923508281735383458.exit": ; preds = %58
@@ -95080,7 +95080,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %40
 67:                                               ; preds = %65
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..BlameBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4744049be1d074e1E.llvm.17923508281735383458.exit": ; preds = %64
@@ -95109,7 +95109,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..BlameBufferResponse
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95136,7 +95136,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..BlameBufferResponse
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95163,7 +95163,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..BlameBufferResponse
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95190,7 +95190,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..BlameBufferResponse
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95314,7 +95314,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -95345,7 +95345,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..ChannelParticipants$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17haca8eb0b5c3d37c0E.llvm.17923508281735383458.exit": ; preds = %40
@@ -95374,7 +95374,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..ChannelParticipants
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95401,7 +95401,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..ChannelParticipants
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95628,7 +95628,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit: ; preds = %50
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %73, %67, %61
@@ -95660,7 +95660,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..CreateBufferForPeer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha74b4a61f5dcec28E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -95683,7 +95683,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..CreateBufferForPeer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd08f2d0250c42080E.llvm.17923508281735383458.exit": ; preds = %72
@@ -95712,7 +95712,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..CreateBufferForPeer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95739,7 +95739,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..CreateBufferForPeer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95766,7 +95766,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..CreateBufferForPeer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95893,7 +95893,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %23
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..GetCachedEmbeddings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1f10838d7721d6f0E.llvm.17923508281735383458.exit": ; preds = %32
@@ -95920,7 +95920,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %23
 42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..GetCachedEmbeddings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4e233d82595927bcE.llvm.17923508281735383458.exit": ; preds = %39
@@ -95949,7 +95949,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..GetCachedEmbeddings
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -95976,7 +95976,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..GetCachedEmbeddings
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -96077,7 +96077,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %21
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..GetLlmTokenResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h056f5684965f856aE.llvm.17923508281735383458.exit": ; preds = %28
@@ -96110,7 +96110,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..GetLlmTokenResponse
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -96180,7 +96180,7 @@ define hidden noundef align 8 ptr @"_ZN70_$LT$proto..InlayHintLabelParts$u20$as$
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -96216,7 +96216,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..InlayHintLabelParts
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -96478,7 +96478,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %63
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %85, %79, %72
@@ -96510,7 +96510,7 @@ common.resume:                                    ; preds = %85, %79, %72
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..InviteChannelMember$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h139b9fb809de6adeE.llvm.17923508281735383458.exit": ; preds = %78
@@ -96534,7 +96534,7 @@ common.resume:                                    ; preds = %85, %79, %72
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..InviteChannelMember$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hce6d2b5a55e18504E.llvm.17923508281735383458.exit": ; preds = %84
@@ -96563,7 +96563,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..InviteChannelMember
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -96590,7 +96590,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..InviteChannelMember
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -96617,7 +96617,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..InviteChannelMember
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -97043,7 +97043,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit30: ; preds = %105
 115:                                              ; preds = %113
   %116 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %150, %144, %138, %132, %126, %120, %113
@@ -97074,7 +97074,7 @@ common.resume:                                    ; preds = %150, %144, %138, %1
 122:                                              ; preds = %120
   %123 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..JoinProjectResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf6a03a0d44f7adecE.exit": ; preds = %119
@@ -97097,7 +97097,7 @@ common.resume:                                    ; preds = %150, %144, %138, %1
 128:                                              ; preds = %126
   %129 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..JoinProjectResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7d9a897bd1e21c8eE.exit": ; preds = %125
@@ -97120,7 +97120,7 @@ common.resume:                                    ; preds = %150, %144, %138, %1
 134:                                              ; preds = %132
   %135 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..JoinProjectResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9fc7fac64b9d8268E.exit": ; preds = %131
@@ -97144,7 +97144,7 @@ common.resume:                                    ; preds = %150, %144, %138, %1
 140:                                              ; preds = %138
   %141 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..JoinProjectResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hbfc79b4de71e7734E.exit": ; preds = %137
@@ -97168,7 +97168,7 @@ common.resume:                                    ; preds = %150, %144, %138, %1
 146:                                              ; preds = %144
   %147 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..JoinProjectResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5bcefc60c2eec1f9E.exit": ; preds = %143
@@ -97192,7 +97192,7 @@ common.resume:                                    ; preds = %150, %144, %138, %1
 152:                                              ; preds = %150
   %153 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..JoinProjectResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc65c4ec6f99e9fb3E.exit": ; preds = %149
@@ -97371,7 +97371,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..ListRemoteDirectory$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h982480f9cbf52dbaE.llvm.17923508281735383458.exit": ; preds = %48
@@ -97399,7 +97399,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..ListRemoteDirectory$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h466dbda948d9d158E.llvm.17923508281735383458.exit": ; preds = %55
@@ -97428,7 +97428,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..ListRemoteDirectory
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -97455,7 +97455,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..ListRemoteDirectory
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -97651,7 +97651,7 @@ _ZN5prost8encoding7message5merge17he2562ffb569fb5b8E.exit: ; preds = %45
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %53
@@ -97683,7 +97683,7 @@ _ZN5prost8encoding7message5merge17he2562ffb569fb5b8E.exit.thread: ; preds = %_ZN
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..OpenBufferForSymbol$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb5e8da89396cfe3cE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17he2562ffb569fb5b8E.exit.thread
@@ -97712,7 +97712,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..OpenBufferForSymbol
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -97739,7 +97739,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..OpenBufferForSymbol
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -97859,7 +97859,7 @@ _ZN5prost8encoding7message5merge17hba10aff240a38169E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -97895,7 +97895,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..OpenContextResponse
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -97947,7 +97947,7 @@ define hidden noundef align 8 ptr @"_ZN70_$LT$proto..ParticipantLocation$u20$as$
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -97983,7 +97983,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..ParticipantLocation
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -98168,7 +98168,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -98200,7 +98200,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..RemoveChannelMember$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h078065335b8343e9E.llvm.17923508281735383458.exit": ; preds = %56
@@ -98229,7 +98229,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..RemoveChannelMember
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -98256,7 +98256,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..RemoveChannelMember
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -98452,7 +98452,7 @@ _ZN5prost8encoding7message5merge17hd406ea17e563457eE.exit: ; preds = %45
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %53
@@ -98484,7 +98484,7 @@ _ZN5prost8encoding7message5merge17hd406ea17e563457eE.exit.thread: ; preds = %_ZN
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..StartLanguageServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h533e9579446dd348E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hd406ea17e563457eE.exit.thread
@@ -98513,7 +98513,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..StartLanguageServer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -98540,7 +98540,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..StartLanguageServer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -98687,7 +98687,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -98718,7 +98718,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..SynchronizeContexts$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb9b08a7c9902298cE.llvm.17923508281735383458.exit": ; preds = %40
@@ -98747,7 +98747,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..SynchronizeContexts
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -98774,7 +98774,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..SynchronizeContexts
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -98910,7 +98910,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -98941,7 +98941,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN70_$LT$proto..UpdateChannelBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc5be3c8d956d0864E.llvm.17923508281735383458.exit": ; preds = %40
@@ -98970,7 +98970,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..UpdateChannelBuffer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -98997,7 +98997,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN70_$LT$proto..UpdateChannelBuffer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -99219,7 +99219,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit12: ; preds = %47
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %68, %62, %55
@@ -99250,7 +99250,7 @@ common.resume:                                    ; preds = %68, %62, %55
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..ChannelBufferVersion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc8cfc3f5405a1772E.llvm.17923508281735383458.exit": ; preds = %61
@@ -99274,7 +99274,7 @@ common.resume:                                    ; preds = %68, %62, %55
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..ChannelBufferVersion$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h63c9af7bd01c30d3E.llvm.17923508281735383458.exit": ; preds = %67
@@ -99303,7 +99303,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ChannelBufferVersio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -99330,7 +99330,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ChannelBufferVersio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -99357,7 +99357,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ChannelBufferVersio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -99553,7 +99553,7 @@ _ZN5prost8encoding7message5merge17h30f2b13a953cb03aE.exit: ; preds = %45
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %53
@@ -99585,7 +99585,7 @@ _ZN5prost8encoding7message5merge17h30f2b13a953cb03aE.exit.thread: ; preds = %_ZN
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..ChannelMessageUpdate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc4127a62be79b460E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h30f2b13a953cb03aE.exit.thread
@@ -99614,7 +99614,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ChannelMessageUpdat
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -99641,7 +99641,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ChannelMessageUpdat
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -99693,7 +99693,7 @@ define hidden noundef align 8 ptr @"_ZN71_$LT$proto..ContextMessageStatus$u20$as
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -99729,7 +99729,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ContextMessageStatu
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100000,7 +100000,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit16: ; preds = %66
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %86, %80, %74
@@ -100032,7 +100032,7 @@ _ZN5prost8encoding7message5merge17hf61f6efcd85da3c2E.exit.thread: ; preds = %_ZN
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..FindSearchCandidates$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb095b9663674c0beE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hf61f6efcd85da3c2E.exit.thread
@@ -100056,7 +100056,7 @@ _ZN5prost8encoding7message5merge17hf61f6efcd85da3c2E.exit.thread: ; preds = %_ZN
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..FindSearchCandidates$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6b999b1deab62c51E.llvm.17923508281735383458.exit": ; preds = %85
@@ -100085,7 +100085,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..FindSearchCandidate
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100112,7 +100112,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..FindSearchCandidate
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100139,7 +100139,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..FindSearchCandidate
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100248,7 +100248,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -100284,7 +100284,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..JoinDevServerProjec
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100393,7 +100393,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -100429,7 +100429,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..MarkNotificationRea
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100589,7 +100589,7 @@ _ZN5prost8encoding7message5merge17h730547f4c84a4dc6E.exit: ; preds = %33
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..ParameterInformation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h98da3455489b630dE.llvm.17923508281735383458.exit": ; preds = %40
@@ -100617,7 +100617,7 @@ _ZN5prost8encoding7message5merge17h730547f4c84a4dc6E.exit.thread: ; preds = %_ZN
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..ParameterInformation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6be08fad9d41e7f0E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h730547f4c84a4dc6E.exit.thread
@@ -100646,7 +100646,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ParameterInformatio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100673,7 +100673,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ParameterInformatio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100869,7 +100869,7 @@ _ZN5prost8encoding7message5merge17h2c9a828e5346c83dE.exit.thread: ; preds = %_ZN
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %59, %52
@@ -100901,7 +100901,7 @@ common.resume:                                    ; preds = %59, %52
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..ProjectEntryResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hba77499bbb0b6592E.llvm.17923508281735383458.exit": ; preds = %58
@@ -100930,7 +100930,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ProjectEntryRespons
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -100957,7 +100957,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ProjectEntryRespons
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -101016,7 +101016,7 @@ define hidden noundef align 8 ptr @"_ZN71_$LT$proto..RejoinChannelBuffers$u20$as
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -101052,7 +101052,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..RejoinChannelBuffer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -101111,7 +101111,7 @@ define hidden noundef align 8 ptr @"_ZN71_$LT$proto..RejoinRemoteProjects$u20$as
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -101147,7 +101147,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..RejoinRemoteProject
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -101332,7 +101332,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -101364,7 +101364,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..RemoveChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2facf942926ad2feE.llvm.17923508281735383458.exit": ; preds = %56
@@ -101393,7 +101393,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..RemoveChannelMessag
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -101420,7 +101420,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..RemoveChannelMessag
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -101682,7 +101682,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %63
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %85, %79, %72
@@ -101714,7 +101714,7 @@ common.resume:                                    ; preds = %85, %79, %72
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..SetChannelMemberRole$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17haa5b7a63d7615bebE.llvm.17923508281735383458.exit": ; preds = %78
@@ -101738,7 +101738,7 @@ common.resume:                                    ; preds = %85, %79, %72
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..SetChannelMemberRole$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb6691ae05024742fE.llvm.17923508281735383458.exit": ; preds = %84
@@ -101767,7 +101767,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SetChannelMemberRol
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -101794,7 +101794,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SetChannelMemberRol
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -101821,7 +101821,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SetChannelMemberRol
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -102008,7 +102008,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %42
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %58, %51
@@ -102040,7 +102040,7 @@ common.resume:                                    ; preds = %58, %51
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..SetChannelVisibility$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h11e2334246bdf11cE.llvm.17923508281735383458.exit": ; preds = %57
@@ -102069,7 +102069,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SetChannelVisibilit
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -102096,7 +102096,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SetChannelVisibilit
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -102205,7 +102205,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -102241,7 +102241,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..ShareProjectRespons
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -102553,7 +102553,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %78
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..SignatureInformation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcd2128e052f94c28E.llvm.17923508281735383458.exit": ; preds = %86
@@ -102581,7 +102581,7 @@ _ZN5prost8encoding7message5merge17h730547f4c84a4dc6E.exit.thread: ; preds = %_ZN
 95:                                               ; preds = %93
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..SignatureInformation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h33862c98eb4a0dcbE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h730547f4c84a4dc6E.exit.thread
@@ -102604,7 +102604,7 @@ _ZN5prost8encoding7message5merge17h730547f4c84a4dc6E.exit.thread: ; preds = %_ZN
 101:                                              ; preds = %99
   %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..SignatureInformation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h54ffdd229b3098f7E.llvm.17923508281735383458.exit": ; preds = %98
@@ -102628,7 +102628,7 @@ _ZN5prost8encoding7message5merge17h730547f4c84a4dc6E.exit.thread: ; preds = %_ZN
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..SignatureInformation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h228d0563ac82cd88E.llvm.17923508281735383458.exit": ; preds = %104
@@ -102657,7 +102657,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SignatureInformatio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -102684,7 +102684,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SignatureInformatio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -102711,7 +102711,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SignatureInformatio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -102738,7 +102738,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..SignatureInformatio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -103106,7 +103106,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %92
 104:                                              ; preds = %102
   %105 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..UpdateChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha753c26a8d9f8910E.exit": ; preds = %101
@@ -103134,7 +103134,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %92
 111:                                              ; preds = %109
   %112 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..UpdateChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hac9f74f8c3d5370dE.exit": ; preds = %108
@@ -103158,7 +103158,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 116:                                              ; preds = %114
   %117 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..UpdateChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h74aaae739489c8c2E.exit": ; preds = %_ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread
@@ -103182,7 +103182,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 122:                                              ; preds = %120
   %123 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..UpdateChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5aeb14c8d261c651E.exit": ; preds = %119
@@ -103205,7 +103205,7 @@ _ZN5prost8encoding7message5merge17hffe2d34d3aa0ab07E.exit.thread: ; preds = %_ZN
 128:                                              ; preds = %126
   %129 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..UpdateChannelMessage$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc3afdbc19a5a31ceE.exit": ; preds = %125
@@ -103414,7 +103414,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit12: ; preds = %44
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %68, %62, %55
@@ -103446,7 +103446,7 @@ common.resume:                                    ; preds = %68, %62, %55
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..UpdateLanguageServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h957517a1f2b4a4fbE.llvm.17923508281735383458.exit": ; preds = %61
@@ -103469,7 +103469,7 @@ common.resume:                                    ; preds = %68, %62, %55
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN71_$LT$proto..UpdateLanguageServer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha599c4fd8ee75a5aE.llvm.17923508281735383458.exit": ; preds = %67
@@ -103498,7 +103498,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..UpdateLanguageServe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -103525,7 +103525,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..UpdateLanguageServe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -103552,7 +103552,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN71_$LT$proto..UpdateLanguageServe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -103761,7 +103761,7 @@ _ZN5prost8encoding7message5merge17h9302f5e60531cae4E.exit.thread: ; preds = %_ZN
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %63, %56
@@ -103793,7 +103793,7 @@ common.resume:                                    ; preds = %63, %56
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..CreateChannelResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h208d45862566aca1E.llvm.17923508281735383458.exit": ; preds = %62
@@ -103822,7 +103822,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..CreateChannelRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -103849,7 +103849,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..CreateChannelRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104037,7 +104037,7 @@ _ZN5prost8encoding7message5merge17hba10aff240a38169E.exit: ; preds = %44
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..CreateContextResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h030b39621189aa21E.llvm.17923508281735383458.exit": ; preds = %51
@@ -104065,7 +104065,7 @@ _ZN5prost8encoding7message5merge17hba10aff240a38169E.exit.thread: ; preds = %_ZN
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..CreateContextResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf6051cea3aa14fc8E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hba10aff240a38169E.exit.thread
@@ -104094,7 +104094,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..CreateContextRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104121,7 +104121,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..CreateContextRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104180,7 +104180,7 @@ define hidden noundef align 8 ptr @"_ZN72_$LT$proto..DevServerInstructions$u20$a
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -104216,7 +104216,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..DevServerInstructio
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104336,7 +104336,7 @@ _ZN5prost8encoding7message5merge17h011c9219c3e6e5c4E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -104372,7 +104372,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..FormatBuffersRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104431,7 +104431,7 @@ define hidden noundef align 8 ptr @"_ZN72_$LT$proto..GetDefinitionResponse$u20$a
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -104467,7 +104467,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..GetDefinitionRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104763,7 +104763,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit: ; preds = %68
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %98, %92, %87, %80
@@ -104795,7 +104795,7 @@ common.resume:                                    ; preds = %98, %92, %87, %80
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..GetDocumentHighlights$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8478db9c27585bb0E.llvm.17923508281735383458.exit": ; preds = %86
@@ -104819,7 +104819,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..GetDocumentHighlights$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfb07b9eec643b0f1E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -104842,7 +104842,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 100:                                              ; preds = %98
   %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..GetDocumentHighlights$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h88a808dd603c3e6eE.llvm.17923508281735383458.exit": ; preds = %97
@@ -104871,7 +104871,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..GetDocumentHighligh
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104898,7 +104898,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..GetDocumentHighligh
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104925,7 +104925,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..GetDocumentHighligh
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -104952,7 +104952,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..GetDocumentHighligh
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -105011,7 +105011,7 @@ define hidden noundef align 8 ptr @"_ZN72_$LT$proto..GetReferencesResponse$u20$a
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -105047,7 +105047,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..GetReferencesRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -105327,7 +105327,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %60
 71:                                               ; preds = %69
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..LiveKitConnectionInfo$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h8cfaa3b241810767E.llvm.17923508281735383458.exit": ; preds = %68
@@ -105355,7 +105355,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %60
 78:                                               ; preds = %76
   %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..LiveKitConnectionInfo$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h28776d78993ab098E.llvm.17923508281735383458.exit": ; preds = %75
@@ -105379,7 +105379,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %60
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..LiveKitConnectionInfo$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4206953d74318576E.llvm.17923508281735383458.exit": ; preds = %81
@@ -105408,7 +105408,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..LiveKitConnectionIn
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -105435,7 +105435,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..LiveKitConnectionIn
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -105462,7 +105462,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..LiveKitConnectionIn
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -105521,7 +105521,7 @@ define hidden noundef align 8 ptr @"_ZN72_$LT$proto..MultiLspQueryResponse$u20$a
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -105557,7 +105557,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..MultiLspQueryRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -105677,7 +105677,7 @@ _ZN5prost8encoding7message5merge17h011c9219c3e6e5c4E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -105713,7 +105713,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..PerformRenameRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106057,7 +106057,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit20: ; preds = %73
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %102, %96, %91, %85
@@ -106089,7 +106089,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 93:                                               ; preds = %91
   %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..PrepareRenameResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h87ce39caa9416973E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -106113,7 +106113,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit20.thread: ; preds = %_
 98:                                               ; preds = %96
   %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..PrepareRenameResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9b010a38725afd37E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit20.thread
@@ -106136,7 +106136,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit20.thread: ; preds = %_
 104:                                              ; preds = %102
   %105 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..PrepareRenameResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1aec095e7d044617E.llvm.17923508281735383458.exit": ; preds = %101
@@ -106165,7 +106165,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..PrepareRenameRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106192,7 +106192,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..PrepareRenameRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106219,7 +106219,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..PrepareRenameRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106246,7 +106246,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..PrepareRenameRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106432,7 +106432,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %25
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %63, %57, %51, %44
@@ -106463,7 +106463,7 @@ common.resume:                                    ; preds = %63, %57, %51, %44
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..RejoinedChannelBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h102f1ae077aad20aE.llvm.17923508281735383458.exit": ; preds = %50
@@ -106486,7 +106486,7 @@ common.resume:                                    ; preds = %63, %57, %51, %44
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..RejoinedChannelBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7c196312dc084ce3E.llvm.17923508281735383458.exit": ; preds = %56
@@ -106509,7 +106509,7 @@ common.resume:                                    ; preds = %63, %57, %51, %44
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..RejoinedChannelBuffer$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h79661748f82b6120E.llvm.17923508281735383458.exit": ; preds = %62
@@ -106538,7 +106538,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..RejoinedChannelBuff
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106565,7 +106565,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..RejoinedChannelBuff
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106592,7 +106592,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..RejoinedChannelBuff
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106619,7 +106619,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..RejoinedChannelBuff
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106739,7 +106739,7 @@ _ZN5prost8encoding7message5merge17h011c9219c3e6e5c4E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -106775,7 +106775,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..ReloadBuffersRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -106895,7 +106895,7 @@ _ZN5prost8encoding7message5merge17h9302f5e60531cae4E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -106931,7 +106931,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..RenameChannelRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107067,7 +107067,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -107098,7 +107098,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN72_$LT$proto..ShareDevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h15c05eaead7caf8aE.llvm.17923508281735383458.exit": ; preds = %40
@@ -107127,7 +107127,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..ShareDevServerProje
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107154,7 +107154,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..ShareDevServerProje
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107213,7 +107213,7 @@ define hidden noundef align 8 ptr @"_ZN72_$LT$proto..TaskTemplatesResponse$u20$a
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -107249,7 +107249,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN72_$LT$proto..TaskTemplatesRespon
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107455,7 +107455,7 @@ _ZN5prost8encoding7message5merge17h41f6a6e46dd18d69E.exit: ; preds = %47
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %61, %55
@@ -107487,7 +107487,7 @@ _ZN5prost8encoding7message5merge17h41f6a6e46dd18d69E.exit.thread: ; preds = %_ZN
 63:                                               ; preds = %61
   %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..AddProjectCollaborator$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf8bb3588102263a6E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h41f6a6e46dd18d69E.exit.thread
@@ -107516,7 +107516,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..AddProjectCollabora
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107543,7 +107543,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..AddProjectCollabora
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107720,7 +107720,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..CreateDevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hd7dd41ce0743019dE.llvm.17923508281735383458.exit": ; preds = %48
@@ -107748,7 +107748,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..CreateDevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h307dadbf1f108955E.llvm.17923508281735383458.exit": ; preds = %55
@@ -107777,7 +107777,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..CreateDevServerProj
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107804,7 +107804,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..CreateDevServerProj
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107913,7 +107913,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -107949,7 +107949,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..DeleteDevServerProj
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -107996,7 +107996,7 @@ define hidden noundef align 8 ptr @"_ZN73_$LT$proto..GetChannelMessagesById$u20$
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -108032,7 +108032,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..GetChannelMessagesB
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -108117,7 +108117,7 @@ define hidden noundef align 8 ptr @"_ZN73_$LT$proto..GetCodeActionsResponse$u20$
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %25, %18
@@ -108148,7 +108148,7 @@ common.resume:                                    ; preds = %25, %18
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..GetCodeActionsResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h65a508e4953a4aadE.llvm.17923508281735383458.exit": ; preds = %24
@@ -108177,7 +108177,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..GetCodeActionsRespo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -108204,7 +108204,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..GetCodeActionsRespo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -108289,7 +108289,7 @@ define hidden noundef align 8 ptr @"_ZN73_$LT$proto..GetCompletionsResponse$u20$
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %25, %18
@@ -108320,7 +108320,7 @@ common.resume:                                    ; preds = %25, %18
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..GetCompletionsResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h28fc386654045ee1E.llvm.17923508281735383458.exit": ; preds = %24
@@ -108349,7 +108349,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..GetCompletionsRespo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -108376,7 +108376,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..GetCompletionsRespo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -108435,7 +108435,7 @@ define hidden noundef align 8 ptr @"_ZN73_$LT$proto..GetDeclarationResponse$u20$
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -108471,7 +108471,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..GetDeclarationRespo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -108580,7 +108580,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -108616,7 +108616,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..IncomingContactRequ
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -108838,7 +108838,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %42
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %58, %51
@@ -108870,7 +108870,7 @@ common.resume:                                    ; preds = %58, %51
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..RespondToChannelInvite$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h03b8c5b64016a962E.llvm.17923508281735383458.exit": ; preds = %57
@@ -108899,7 +108899,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..RespondToChannelInv
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -108926,7 +108926,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..RespondToChannelInv
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -109050,7 +109050,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -109081,7 +109081,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..RestartLanguageServers$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3750aaada905099cE.llvm.17923508281735383458.exit": ; preds = %40
@@ -109110,7 +109110,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..RestartLanguageServ
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -109137,7 +109137,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..RestartLanguageServ
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -109399,7 +109399,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %63
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %85, %79, %72
@@ -109431,7 +109431,7 @@ common.resume:                                    ; preds = %85, %79, %72
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..SetRoomParticipantRole$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf25cd344d48c3d3cE.llvm.17923508281735383458.exit": ; preds = %78
@@ -109455,7 +109455,7 @@ common.resume:                                    ; preds = %85, %79, %72
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..SetRoomParticipantRole$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcd9b5202778eab37E.llvm.17923508281735383458.exit": ; preds = %84
@@ -109484,7 +109484,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..SetRoomParticipantR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -109511,7 +109511,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..SetRoomParticipantR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -109538,7 +109538,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..SetRoomParticipantR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -109734,7 +109734,7 @@ _ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit: ; preds = %46
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %60, %54
@@ -109766,7 +109766,7 @@ _ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit.thread: ; preds = %_ZN
 62:                                               ; preds = %60
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..TaskContextForLocation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h508fa0964cdf9930E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h8087fe1ad5cb5e57E.exit.thread
@@ -109795,7 +109795,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..TaskContextForLocat
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -109822,7 +109822,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..TaskContextForLocat
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -109958,7 +109958,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -109989,7 +109989,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..UpdateDevServerProject$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfab9dc47fcd39c6aE.llvm.17923508281735383458.exit": ; preds = %40
@@ -110018,7 +110018,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..UpdateDevServerProj
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -110045,7 +110045,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN73_$LT$proto..UpdateDevServerProj
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -110464,7 +110464,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %109
 120:                                              ; preds = %118
   %121 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h05b38a0be9d8af94E.exit": ; preds = %117
@@ -110492,7 +110492,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %109
 127:                                              ; preds = %125
   %128 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb4cbb2ee7a98a028E.exit": ; preds = %124
@@ -110516,7 +110516,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %109
 133:                                              ; preds = %131
   %134 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hcdd60e28ffda44ecE.exit": ; preds = %130
@@ -110540,7 +110540,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %109
 139:                                              ; preds = %137
   %140 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he30c7d589fb23f51E.exit": ; preds = %136
@@ -110564,7 +110564,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %109
 145:                                              ; preds = %143
   %146 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h646a5dc4d734271cE.exit": ; preds = %142
@@ -110686,7 +110686,7 @@ _ZN5prost8encoding7message5merge17h011c9219c3e6e5c4E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -110722,7 +110722,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..ApplyCodeActionResp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -110936,7 +110936,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %44
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..CheckFileExistsResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h7c566a6cdb24e0b5E.llvm.17923508281735383458.exit": ; preds = %49
@@ -110964,7 +110964,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %44
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..CheckFileExistsResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9516d5a11d894e66E.llvm.17923508281735383458.exit": ; preds = %56
@@ -110993,7 +110993,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..CheckFileExistsResp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -111020,7 +111020,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..CheckFileExistsResp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -111263,7 +111263,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %63
 70:                                               ; preds = %68
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..CreateDevServerResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2666c7f9caa43c55E.llvm.17923508281735383458.exit": ; preds = %67
@@ -111291,7 +111291,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %63
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..CreateDevServerResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hfa20f5c08d49a2efE.llvm.17923508281735383458.exit": ; preds = %74
@@ -111315,7 +111315,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit11: ; preds = %63
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..CreateDevServerResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h296ab02db94acc56E.llvm.17923508281735383458.exit": ; preds = %80
@@ -111344,7 +111344,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..CreateDevServerResp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -111371,7 +111371,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..CreateDevServerResp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -111398,7 +111398,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..CreateDevServerResp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -111483,7 +111483,7 @@ define hidden noundef align 8 ptr @"_ZN74_$LT$proto..DevServerProjectsUpdate$u20
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %25, %18
@@ -111514,7 +111514,7 @@ common.resume:                                    ; preds = %25, %18
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..DevServerProjectsUpdate$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h02283fc7b6e21888E.llvm.17923508281735383458.exit": ; preds = %24
@@ -111543,7 +111543,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..DevServerProjectsUp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -111570,7 +111570,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..DevServerProjectsUp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -111742,7 +111742,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %26
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %42, %35
@@ -111774,7 +111774,7 @@ common.resume:                                    ; preds = %42, %35
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..JoinChannelChatResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4d044e63fba17d3fE.llvm.17923508281735383458.exit": ; preds = %41
@@ -111803,7 +111803,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..JoinChannelChatResp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -111830,7 +111830,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..JoinChannelChatResp
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -112017,7 +112017,7 @@ _ZN5prost8encoding5int325merge17h5d081bdb4d311b85E.exit: ; preds = %42
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %58, %51
@@ -112049,7 +112049,7 @@ common.resume:                                    ; preds = %58, %51
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..RespondToContactRequest$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc56091f748bbeff6E.llvm.17923508281735383458.exit": ; preds = %57
@@ -112078,7 +112078,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..RespondToContactReq
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -112105,7 +112105,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..RespondToContactReq
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -112376,7 +112376,7 @@ _ZN5prost8encoding7message5merge17ha774c84c3d5c63efE.exit: ; preds = %66
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %86, %81, %74
@@ -112408,7 +112408,7 @@ common.resume:                                    ; preds = %86, %81, %74
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..UpdateDiagnosticSummary$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h16d38862e2760d69E.llvm.17923508281735383458.exit": ; preds = %80
@@ -112432,7 +112432,7 @@ _ZN5prost8encoding7message5merge17ha774c84c3d5c63efE.exit.thread: ; preds = %_ZN
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN74_$LT$proto..UpdateDiagnosticSummary$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h15b18e56987a3656E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17ha774c84c3d5c63efE.exit.thread
@@ -112461,7 +112461,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..UpdateDiagnosticSum
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -112488,7 +112488,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..UpdateDiagnosticSum
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -112515,7 +112515,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN74_$LT$proto..UpdateDiagnosticSum
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -112694,7 +112694,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %44
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN75_$LT$proto..CountLanguageModelTokens$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc8f58e4243449518E.llvm.17923508281735383458.exit": ; preds = %49
@@ -112722,7 +112722,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %44
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN75_$LT$proto..CountLanguageModelTokens$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hacb3b788264004b3E.llvm.17923508281735383458.exit": ; preds = %56
@@ -112751,7 +112751,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..CountLanguageModelT
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -112778,7 +112778,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..CountLanguageModelT
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -112950,7 +112950,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %26
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %42, %35
@@ -112982,7 +112982,7 @@ common.resume:                                    ; preds = %42, %35
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN75_$LT$proto..GetNotificationsResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h5a143acaf41b2b7bE.llvm.17923508281735383458.exit": ; preds = %41
@@ -113011,7 +113011,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..GetNotificationsRes
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -113038,7 +113038,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..GetNotificationsRes
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -113158,7 +113158,7 @@ _ZN5prost8encoding7message5merge17h5e688ef5f678fbadE.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -113194,7 +113194,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..GetSignatureHelpRes
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -113379,7 +113379,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit10: ; preds = %42
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %57, %50
@@ -113411,7 +113411,7 @@ common.resume:                                    ; preds = %57, %50
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN75_$LT$proto..LspExtSwitchSourceHeader$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha043822dfe65993dE.llvm.17923508281735383458.exit": ; preds = %56
@@ -113440,7 +113440,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..LspExtSwitchSourceH
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -113467,7 +113467,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..LspExtSwitchSourceH
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -113587,7 +113587,7 @@ _ZN5prost8encoding7message5merge17h9750251c43844655E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -113623,7 +113623,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..OnTypeFormattingRes
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -113732,7 +113732,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -113768,7 +113768,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..RegenerateDevServer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -113888,7 +113888,7 @@ _ZN5prost8encoding7message5merge17h06e648807201089aE.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -113924,7 +113924,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN75_$LT$proto..ResolveInlayHintRes
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -113983,7 +113983,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$proto..ComputeEmbeddingsResponse$u
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -114019,7 +114019,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..ComputeEmbeddingsRe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -114104,7 +114104,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$proto..GetChannelMembersResponse$u
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %25, %18
@@ -114135,7 +114135,7 @@ common.resume:                                    ; preds = %25, %18
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..GetChannelMembersResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf2d46a79376976ebE.llvm.17923508281735383458.exit": ; preds = %24
@@ -114164,7 +114164,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..GetChannelMembersRe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -114191,7 +114191,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..GetChannelMembersRe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -114250,7 +114250,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$proto..GetImplementationResponse$u
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -114286,7 +114286,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..GetImplementationRe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -114345,7 +114345,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$proto..GetProjectSymbolsResponse$u
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -114381,7 +114381,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..GetProjectSymbolsRe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -114440,7 +114440,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$proto..GetTypeDefinitionResponse$u
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -114476,7 +114476,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..GetTypeDefinitionRe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -114535,7 +114535,7 @@ define hidden noundef align 8 ptr @"_ZN76_$LT$proto..InlayHintLabelPartTooltip$u
 15:                                               ; preds = %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %13
@@ -114571,7 +114571,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..InlayHintLabelPartT
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -114949,7 +114949,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit24: ; preds = %94
 104:                                              ; preds = %102
   %105 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..JoinChannelBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc99f30cce5198f80E.exit": ; preds = %101
@@ -114977,7 +114977,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit24: ; preds = %94
 111:                                              ; preds = %109
   %112 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..JoinChannelBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17ha73d982d9bcc99aaE.exit": ; preds = %108
@@ -115001,7 +115001,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit24: ; preds = %94
 117:                                              ; preds = %115
   %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..JoinChannelBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he094f7c192108edcE.exit": ; preds = %114
@@ -115024,7 +115024,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit24: ; preds = %94
 123:                                              ; preds = %121
   %124 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..JoinChannelBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h62c11a7227835441E.exit": ; preds = %120
@@ -115047,7 +115047,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit24: ; preds = %94
 129:                                              ; preds = %127
   %130 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..JoinChannelBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h15a81e6efa070d30E.exit": ; preds = %126
@@ -115071,7 +115071,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit24: ; preds = %94
 135:                                              ; preds = %133
   %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..JoinChannelBufferResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h43e9d44c3810dbfcE.exit": ; preds = %132
@@ -115241,7 +115241,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit8: ; preds = %42
 49:                                               ; preds = %47
   %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..LspExtExpandMacroResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h88e7c26cb1516fe3E.llvm.17923508281735383458.exit": ; preds = %46
@@ -115269,7 +115269,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit8: ; preds = %42
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..LspExtExpandMacroResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h470b9064a88793fbE.llvm.17923508281735383458.exit": ; preds = %53
@@ -115298,7 +115298,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..LspExtExpandMacroRe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -115325,7 +115325,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..LspExtExpandMacroRe
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -115526,7 +115526,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit: ; preds = %48
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %62, %56
@@ -115558,7 +115558,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..RemoveProjectCollaborator$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h1c8b769f53a72d59E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -115587,7 +115587,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..RemoveProjectCollab
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -115614,7 +115614,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..RemoveProjectCollab
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -115941,7 +115941,7 @@ _ZN5prost8encoding7message5merge17hd41c09f03030dc88E.exit.thread: ; preds = %_ZN
 95:                                               ; preds = %93
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..SlashCommandOutputSection$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hb28bbe8c9da1d1c7E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hd41c09f03030dc88E.exit.thread
@@ -115969,7 +115969,7 @@ _ZN5prost8encoding7message5merge17hd41c09f03030dc88E.exit.thread: ; preds = %_ZN
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..SlashCommandOutputSection$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hf9fcf6b43ee48c70E.llvm.17923508281735383458.exit": ; preds = %99
@@ -115993,7 +115993,7 @@ _ZN5prost8encoding7message5merge17hd41c09f03030dc88E.exit.thread: ; preds = %_ZN
 108:                                              ; preds = %106
   %109 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..SlashCommandOutputSection$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he8173edfc8872784E.llvm.17923508281735383458.exit": ; preds = %105
@@ -116017,7 +116017,7 @@ _ZN5prost8encoding7message5merge17hd41c09f03030dc88E.exit.thread: ; preds = %_ZN
 114:                                              ; preds = %112
   %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..SlashCommandOutputSection$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h3ab093f3c6b8d043E.llvm.17923508281735383458.exit": ; preds = %111
@@ -116046,7 +116046,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..SlashCommandOutputS
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116073,7 +116073,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..SlashCommandOutputS
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116100,7 +116100,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..SlashCommandOutputS
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116127,7 +116127,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..SlashCommandOutputS
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116324,7 +116324,7 @@ _ZN5prost8encoding7message5merge17hd589df77e55f8707E.exit: ; preds = %49
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %63, %57
@@ -116356,7 +116356,7 @@ _ZN5prost8encoding7message5merge17hd589df77e55f8707E.exit.thread: ; preds = %_ZN
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..UpdateParticipantLocation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h05105dc5bf25bf7eE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hd589df77e55f8707E.exit.thread
@@ -116385,7 +116385,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..UpdateParticipantLo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116412,7 +116412,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..UpdateParticipantLo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116704,7 +116704,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit20: ; preds = %75
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %94, %89, %83
@@ -116736,7 +116736,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread: ; preds = %_ZN
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..UpdateProjectCollaborator$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h42baec3ec3406c30E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit.thread
@@ -116760,7 +116760,7 @@ _ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit20.thread: ; preds = %_
 96:                                               ; preds = %94
   %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN76_$LT$proto..UpdateProjectCollaborator$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h55c6df4baab21f1dE.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17h209f30d03de6ae47E.exit20.thread
@@ -116789,7 +116789,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..UpdateProjectCollab
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116816,7 +116816,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..UpdateProjectCollab
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116843,7 +116843,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN76_$LT$proto..UpdateProjectCollab
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -116974,7 +116974,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -117010,7 +117010,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..ExpandProjectEntryR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -117182,7 +117182,7 @@ _ZN5prost8encoding4bool5merge17h2b659aaaee90513aE.exit: ; preds = %26
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %42, %35
@@ -117214,7 +117214,7 @@ common.resume:                                    ; preds = %42, %35
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN77_$LT$proto..GetChannelMessagesResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2550877957ffc909E.llvm.17923508281735383458.exit": ; preds = %41
@@ -117243,7 +117243,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..GetChannelMessagesR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -117270,7 +117270,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..GetChannelMessagesR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -117597,7 +117597,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %72
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN77_$LT$proto..GetPrivateUserInfoResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h303516e18516468eE.llvm.17923508281735383458.exit": ; preds = %79
@@ -117625,7 +117625,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %72
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN77_$LT$proto..GetPrivateUserInfoResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17heeca091ffad766a1E.llvm.17923508281735383458.exit": ; preds = %86
@@ -117648,7 +117648,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %72
 95:                                               ; preds = %93
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN77_$LT$proto..GetPrivateUserInfoResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h82e96052d4834309E.llvm.17923508281735383458.exit": ; preds = %92
@@ -117672,7 +117672,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %72
 101:                                              ; preds = %99
   %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN77_$LT$proto..GetPrivateUserInfoResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h0aa863fb9f74b909E.llvm.17923508281735383458.exit": ; preds = %98
@@ -117701,7 +117701,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..GetPrivateUserInfoR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -117728,7 +117728,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..GetPrivateUserInfoR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -117755,7 +117755,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..GetPrivateUserInfoR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -117782,7 +117782,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..GetPrivateUserInfoR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -117867,7 +117867,7 @@ define hidden noundef align 8 ptr @"_ZN77_$LT$proto..LinkedEditingRangeResponse$
 20:                                               ; preds = %18
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %25, %18
@@ -117898,7 +117898,7 @@ common.resume:                                    ; preds = %25, %18
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN77_$LT$proto..LinkedEditingRangeResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h542a0ced17e3a7e9E.llvm.17923508281735383458.exit": ; preds = %24
@@ -117927,7 +117927,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..LinkedEditingRangeR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -117954,7 +117954,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..LinkedEditingRangeR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118013,7 +118013,7 @@ define hidden noundef align 8 ptr @"_ZN77_$LT$proto..ReconnectDevServerResponse$
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -118049,7 +118049,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..ReconnectDevServerR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118169,7 +118169,7 @@ _ZN5prost8encoding7message5merge17h30f2b13a953cb03aE.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -118205,7 +118205,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..SendChannelMessageR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118264,7 +118264,7 @@ define hidden noundef align 8 ptr @"_ZN77_$LT$proto..SynchronizeBuffersResponse$
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -118300,7 +118300,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN77_$LT$proto..SynchronizeBuffersR
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118359,7 +118359,7 @@ define hidden noundef align 8 ptr @"_ZN78_$LT$proto..GetCachedEmbeddingsResponse
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -118395,7 +118395,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN78_$LT$proto..GetCachedEmbeddings
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118496,7 +118496,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %21
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN78_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hc3114571a9c553bcE.llvm.17923508281735383458.exit": ; preds = %28
@@ -118529,7 +118529,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN78_$LT$proto..GetSupermavenApiKey
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118588,7 +118588,7 @@ define hidden noundef align 8 ptr @"_ZN78_$LT$proto..ListRemoteDirectoryResponse
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -118624,7 +118624,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN78_$LT$proto..ListRemoteDirectory
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118733,7 +118733,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -118769,7 +118769,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN78_$LT$proto..OpenBufferForSymbol
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118828,7 +118828,7 @@ define hidden noundef align 8 ptr @"_ZN78_$LT$proto..SynchronizeContextsResponse
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -118864,7 +118864,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN78_$LT$proto..SynchronizeContexts
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -118973,7 +118973,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %20
 32:                                               ; preds = %30
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %30
@@ -119009,7 +119009,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN79_$LT$proto..AcceptTermsOfServic
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -119056,7 +119056,7 @@ define hidden noundef align 8 ptr @"_ZN79_$LT$proto..FindSearchCandidatesRespons
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -119092,7 +119092,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN79_$LT$proto..FindSearchCandidate
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -119151,7 +119151,7 @@ define hidden noundef align 8 ptr @"_ZN79_$LT$proto..RejoinChannelBuffersRespons
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -119187,7 +119187,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN79_$LT$proto..RejoinChannelBuffer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -119246,7 +119246,7 @@ define hidden noundef align 8 ptr @"_ZN79_$LT$proto..RejoinRemoteProjectsRespons
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -119282,7 +119282,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN79_$LT$proto..RejoinRemoteProject
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -119341,7 +119341,7 @@ define hidden noundef align 8 ptr @"_ZN80_$LT$proto..GetDocumentHighlightsRespon
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %14
@@ -119377,7 +119377,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN80_$LT$proto..GetDocumentHighligh
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -119648,7 +119648,7 @@ _ZN5prost8encoding7message5merge17hbdf540b1ae4f5d2eE.exit: ; preds = %66
 76:                                               ; preds = %74
   %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %86, %81, %74
@@ -119680,7 +119680,7 @@ common.resume:                                    ; preds = %86, %81, %74
 83:                                               ; preds = %81
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN81_$LT$proto..ApplyCompletionAdditionalEdits$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h2fd6d675d09264e0E.llvm.17923508281735383458.exit": ; preds = %80
@@ -119704,7 +119704,7 @@ _ZN5prost8encoding7message5merge17hbdf540b1ae4f5d2eE.exit.thread: ; preds = %_ZN
 88:                                               ; preds = %86
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN81_$LT$proto..ApplyCompletionAdditionalEdits$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17he1ef4aae44a7da71E.llvm.17923508281735383458.exit": ; preds = %_ZN5prost8encoding7message5merge17hbdf540b1ae4f5d2eE.exit.thread
@@ -119733,7 +119733,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN81_$LT$proto..ApplyCompletionAddi
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -119760,7 +119760,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN81_$LT$proto..ApplyCompletionAddi
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -119787,7 +119787,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN81_$LT$proto..ApplyCompletionAddi
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -119907,7 +119907,7 @@ _ZN5prost8encoding7message5merge17h91044d4f8197bc51E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -119943,7 +119943,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN81_$LT$proto..CreateDevServerProj
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -120233,7 +120233,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit20: ; preds = %68
 78:                                               ; preds = %76
   %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %95, %89, %83, %76
@@ -120265,7 +120265,7 @@ common.resume:                                    ; preds = %95, %89, %83, %76
 85:                                               ; preds = %83
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN81_$LT$proto..ResolveCompletionDocumentation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h354dccb5cad1638fE.llvm.17923508281735383458.exit": ; preds = %82
@@ -120288,7 +120288,7 @@ common.resume:                                    ; preds = %95, %89, %83, %76
 91:                                               ; preds = %89
   %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN81_$LT$proto..ResolveCompletionDocumentation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6be6adfa58b0ac9cE.llvm.17923508281735383458.exit": ; preds = %88
@@ -120312,7 +120312,7 @@ common.resume:                                    ; preds = %95, %89, %83, %76
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN81_$LT$proto..ResolveCompletionDocumentation$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h4af67aa5ad517a02E.llvm.17923508281735383458.exit": ; preds = %94
@@ -120341,7 +120341,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN81_$LT$proto..ResolveCompletionDo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -120368,7 +120368,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN81_$LT$proto..ResolveCompletionDo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -120395,7 +120395,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN81_$LT$proto..ResolveCompletionDo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -120422,7 +120422,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN81_$LT$proto..ResolveCompletionDo
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -120534,7 +120534,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %21
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN82_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6c8aef060d5e2cf7E.llvm.17923508281735383458.exit": ; preds = %28
@@ -120567,7 +120567,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN82_$LT$proto..ValidateDevServerPr
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -120677,7 +120677,7 @@ _ZN5prost8encoding6uint325merge17h60ad18543922f3e8E.exit: ; preds = %20
 33:                                               ; preds = %31
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %31
@@ -120713,7 +120713,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN83_$LT$proto..CountLanguageModelT
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -120814,7 +120814,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %21
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN83_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hdd41d13883486d9aE.llvm.17923508281735383458.exit": ; preds = %28
@@ -120847,7 +120847,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN83_$LT$proto..LspExtSwitchSourceH
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -121024,7 +121024,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 51:                                               ; preds = %49
   %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN83_$LT$proto..RegenerateDevServerTokenResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h6329d098c33447c6E.llvm.17923508281735383458.exit": ; preds = %48
@@ -121052,7 +121052,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit: ; preds = %43
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN83_$LT$proto..RegenerateDevServerTokenResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h01ad2867ae437a8dE.llvm.17923508281735383458.exit": ; preds = %55
@@ -121081,7 +121081,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN83_$LT$proto..RegenerateDevServer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -121108,7 +121108,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN83_$LT$proto..RegenerateDevServer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -121244,7 +121244,7 @@ _ZN5prost8encoding6uint645merge17h530affd82cb10c10E.exit: ; preds = %23
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 common.resume:                                    ; preds = %41, %34
@@ -121275,7 +121275,7 @@ common.resume:                                    ; preds = %41, %34
 43:                                               ; preds = %41
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN83_$LT$proto..UpdateChannelBufferCollaborators$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hce15ec9937681446E.llvm.17923508281735383458.exit": ; preds = %40
@@ -121304,7 +121304,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN83_$LT$proto..UpdateChannelBuffer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -121331,7 +121331,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN83_$LT$proto..UpdateChannelBuffer
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -121451,7 +121451,7 @@ _ZN5prost8encoding7message5merge17h9750251c43844655E.exit.thread: ; preds = %_ZN
 34:                                               ; preds = %32
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit.i": ; preds = %32
@@ -121487,7 +121487,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN89_$LT$proto..ApplyCompletionAddi
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN4core3ptr46drop_in_place$LT$prost..error..DecodeError$GT$17h95115699121329b6E.exit": ; preds = %3
@@ -121958,7 +121958,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit29: ; preds = %115
 126:                                              ; preds = %124
   %127 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN89_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h29bc8a7edb878369E.exit": ; preds = %123
@@ -121986,7 +121986,7 @@ _ZN5prost8encoding6string5merge17hcfd9f1a39663fd8bE.exit29: ; preds = %115
 133:                                              ; preds = %131
   %134 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN89_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hbde2f15284fc370bE.exit": ; preds = %130
@@ -122010,7 +122010,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread: ; preds = %_ZN
 138:                                              ; preds = %136
   %139 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN89_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9c68dbdc24039f48E.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit.thread
@@ -122034,7 +122034,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit25.thread: ; preds = %_
 143:                                              ; preds = %141
   %144 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN89_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h034bf9660952744eE.exit": ; preds = %_ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit25.thread
@@ -122058,7 +122058,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit25.thread: ; preds = %_
 149:                                              ; preds = %147
   %150 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN89_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17hbc14f228e0b74ccfE.exit": ; preds = %146
@@ -122081,7 +122081,7 @@ _ZN5prost8encoding7message5merge17h7dc1704325e3dc7bE.exit25.thread: ; preds = %_
 155:                                              ; preds = %153
   %156 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #29
   unreachable
 
 "_ZN89_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$prost..message..Message$GT$11merge_field28_$u7b$$u7b$closure$u7d$$u7d$17h9daa7ccdf303efa4E.exit": ; preds = %152
@@ -124373,8 +124373,8 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #23
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #26
 
 attributes #0 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -124402,10 +124402,11 @@ attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #26 = { nounwind }
-attributes #27 = { cold }
-attributes #28 = { cold noreturn nounwind }
-attributes #29 = { noreturn nounwind }
+attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nounwind }
+attributes #28 = { cold }
+attributes #29 = { cold noreturn nounwind }
+attributes #30 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

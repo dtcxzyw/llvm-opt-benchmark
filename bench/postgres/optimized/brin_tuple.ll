@@ -23,19 +23,19 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
-  %10 = tail call ptr @palloc(i64 noundef %9) #9
+  %10 = tail call ptr @palloc(i64 noundef %9) #10
   %11 = load i32, ptr %6, align 8
   %12 = sext i32 %11 to i64
-  %13 = tail call ptr @palloc0(i64 noundef %12) #9
+  %13 = tail call ptr @palloc0(i64 noundef %12) #10
   %14 = load i32, ptr %6, align 8
   %15 = add i32 %14, 7
   %16 = sdiv i32 %15, 8
   %17 = sext i32 %16 to i64
-  %18 = tail call ptr @palloc(i64 noundef %17) #9
+  %18 = tail call ptr @palloc(i64 noundef %17) #10
   %19 = load i32, ptr %6, align 8
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 3
-  %22 = tail call ptr @palloc(i64 noundef %21) #9
+  %22 = tail call ptr @palloc(i64 noundef %21) #10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 8
@@ -94,7 +94,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %55 = load ptr, ptr %54, align 8
-  tail call void %50(ptr noundef nonnull %0, i64 noundef %53, ptr noundef %55) #9
+  tail call void %50(ptr noundef nonnull %0, i64 noundef %53, ptr noundef %55) #10
   br label %56
 
 56:                                               ; preds = %51, %45
@@ -131,7 +131,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %71
-  %76 = tail call ptr @detoast_external_attr(ptr noundef nonnull %72) #9
+  %76 = tail call ptr @detoast_external_attr(ptr noundef nonnull %72) #10
   %77 = ptrtoint ptr %76 to i64
   %.pre = load i8, ptr %76, align 1
   br label %78
@@ -178,7 +178,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
 
 103:                                              ; preds = %88, %100
   %.0132 = phi i8 [ %102, %100 ], [ 0, %88 ]
-  %104 = tail call i64 @toast_compress_datum(i64 noundef %.0143, i8 noundef signext %.0132) #9
+  %104 = tail call i64 @toast_compress_datum(i64 noundef %.0143, i8 noundef signext %.0132) #10
   %.not161 = icmp eq i64 %104, 0
   br i1 %.not161, label %107, label %105
 
@@ -186,7 +186,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   br i1 %74, label %106, label %.thread
 
 106:                                              ; preds = %105
-  tail call void @pfree(ptr noundef nonnull %.pre-phi) #9
+  tail call void @pfree(ptr noundef nonnull %.pre-phi) #10
   br label %.thread
 
 107:                                              ; preds = %103, %85, %82, %78
@@ -251,7 +251,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %133 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %132, ptr @CurrentMemoryContext, align 8
   %134 = load i32, ptr %6, align 8
-  %135 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %134) #9
+  %135 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %134) #10
   %136 = load ptr, ptr %23, align 8
   %137 = load i32, ptr %136, align 8
   %138 = icmp sgt i32 %137, 0
@@ -280,7 +280,7 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
   %147 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv.i
   %148 = load ptr, ptr %147, align 8
   %149 = load i32, ptr %148, align 8
-  tail call void @TupleDescInitEntry(ptr noundef %135, i16 noundef signext %.120.i, ptr noundef null, i32 noundef %149, i32 noundef -1, i32 noundef 0) #9
+  tail call void @TupleDescInitEntry(ptr noundef %135, i16 noundef signext %.120.i, ptr noundef null, i32 noundef %149, i32 noundef -1, i32 noundef 0) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %150 = load ptr, ptr %141, align 8
   %151 = load i16, ptr %150, align 8
@@ -308,11 +308,11 @@ define dso_local noundef ptr @brin_form_tuple(ptr noundef %0, i32 noundef %1, pt
 
 brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread, %._crit_edge24.i
   %157 = phi ptr [ %135, %._crit_edge24.i ], [ %129, %._crit_edge.thread ]
-  %158 = tail call i64 @heap_compute_data_size(ptr noundef %157, ptr noundef %10, ptr noundef %13) #9
+  %158 = tail call i64 @heap_compute_data_size(ptr noundef %157, ptr noundef %10, ptr noundef %13) #10
   %159 = add nsw i64 %.0153, 7
   %160 = add i64 %159, %158
   %161 = and i64 %160, -8
-  %162 = tail call ptr @palloc0(i64 noundef %161) #9
+  %162 = tail call ptr @palloc0(i64 noundef %161) #10
   store i32 %1, ptr %162, align 4
   %163 = trunc i64 %.0153 to i8
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 4
@@ -326,7 +326,7 @@ brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread,
   %169 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %168, ptr @CurrentMemoryContext, align 8
   %170 = load i32, ptr %6, align 8
-  %171 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %170) #9
+  %171 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %170) #10
   %172 = load ptr, ptr %23, align 8
   %173 = load i32, ptr %172, align 8
   %174 = icmp sgt i32 %173, 0
@@ -355,7 +355,7 @@ brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread,
   %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv.i169
   %184 = load ptr, ptr %183, align 8
   %185 = load i32, ptr %184, align 8
-  tail call void @TupleDescInitEntry(ptr noundef %171, i16 noundef signext %.120.i170, ptr noundef null, i32 noundef %185, i32 noundef -1, i32 noundef 0) #9
+  tail call void @TupleDescInitEntry(ptr noundef %171, i16 noundef signext %.120.i170, ptr noundef null, i32 noundef %185, i32 noundef -1, i32 noundef 0) #10
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i169, 1
   %186 = load ptr, ptr %177, align 8
   %187 = load i16, ptr %186, align 8
@@ -384,10 +384,10 @@ brtuple_disk_tupdesc.exit:                        ; preds = %._crit_edge.thread,
 brtuple_disk_tupdesc.exit178:                     ; preds = %brtuple_disk_tupdesc.exit, %._crit_edge24.i162
   %193 = phi ptr [ %171, %._crit_edge24.i162 ], [ %165, %brtuple_disk_tupdesc.exit ]
   %194 = getelementptr inbounds nuw i8, ptr %162, i64 %.0153
-  call void @heap_fill_tuple(ptr noundef %193, ptr noundef %10, ptr noundef %13, ptr noundef nonnull %194, i64 noundef %158, ptr noundef nonnull %5, ptr noundef %18) #9
-  call void @pfree(ptr noundef %10) #9
-  call void @pfree(ptr noundef %13) #9
-  call void @pfree(ptr noundef %18) #9
+  call void @heap_fill_tuple(ptr noundef %193, ptr noundef %10, ptr noundef %13, ptr noundef nonnull %194, i64 noundef %158, ptr noundef nonnull %5, ptr noundef %18) #10
+  call void @pfree(ptr noundef %10) #10
+  call void @pfree(ptr noundef %13) #10
+  call void @pfree(ptr noundef %18) #10
   %195 = icmp sgt i32 %.0148.lcssa250, 0
   br i1 %195, label %.lr.ph207.preheader, label %._crit_edge208
 
@@ -400,7 +400,7 @@ brtuple_disk_tupdesc.exit178:                     ; preds = %brtuple_disk_tupdes
   %196 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv229
   %197 = load i64, ptr %196, align 8
   %198 = inttoptr i64 %197 to ptr
-  call void @pfree(ptr noundef %198) #9
+  call void @pfree(ptr noundef %198) #10
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !12
@@ -559,7 +559,7 @@ define dso_local noundef ptr @brin_form_placeholder_tuple(ptr noundef readonly c
   %narrow = add nsw i32 %9, 12
   %10 = and i32 %narrow, -8
   %11 = sext i32 %10 to i64
-  %12 = tail call ptr @palloc0(i64 noundef %11) #9
+  %12 = tail call ptr @palloc0(i64 noundef %11) #10
   store i32 %1, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = trunc i32 %narrow to i8
@@ -608,7 +608,7 @@ define dso_local noundef ptr @brin_form_placeholder_tuple(ptr noundef readonly c
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @brin_free_tuple(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #9
+  tail call void @pfree(ptr noundef %0) #10
   ret void
 }
 
@@ -623,7 +623,7 @@ define dso_local ptr @brin_copy_tuple(ptr noundef readonly captures(none) %0, i6
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5, %4
-  %9 = tail call ptr @palloc(i64 noundef %1) #9
+  %9 = tail call ptr @palloc(i64 noundef %1) #10
   br label %14
 
 10:                                               ; preds = %5
@@ -631,7 +631,7 @@ define dso_local ptr @brin_copy_tuple(ptr noundef readonly captures(none) %0, i6
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @repalloc(ptr noundef %2, i64 noundef %1) #9
+  %13 = tail call ptr @repalloc(ptr noundef %2, i64 noundef %1) #10
   store i64 %1, ptr %3, align 8
   br label %14
 
@@ -675,32 +675,32 @@ define dso_local ptr @brin_new_memtuple(ptr noundef readonly captures(none) %0) 
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 3
   %13 = add nsw i64 %8, %12
-  %14 = tail call ptr @palloc0(i64 noundef %13) #9
+  %14 = tail call ptr @palloc0(i64 noundef %13) #10
   %15 = load i32, ptr %9, align 8
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 3
-  %18 = tail call ptr @palloc(i64 noundef %17) #9
+  %18 = tail call ptr @palloc(i64 noundef %17) #10
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %2, align 8
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
-  %23 = tail call ptr @palloc(i64 noundef %22) #9
+  %23 = tail call ptr @palloc(i64 noundef %22) #10
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %2, align 8
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = tail call ptr @palloc(i64 noundef %27) #9
+  %28 = tail call ptr @palloc(i64 noundef %27) #10
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 1, ptr %30, align 1
   %31 = load ptr, ptr @CurrentMemoryContext, align 8
-  %32 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %31, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #9
+  %32 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %31, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #10
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %32, ptr %33, align 8
-  tail call void @MemoryContextReset(ptr noundef %32) #9
+  tail call void @MemoryContextReset(ptr noundef %32) #10
   %34 = load ptr, ptr %2, align 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
@@ -759,7 +759,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 define dso_local noundef ptr @brin_memtuple_initialize(ptr noundef returned %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @MemoryContextReset(ptr noundef %4) #9
+  tail call void @MemoryContextReset(ptr noundef %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -824,7 +824,7 @@ define dso_local ptr @brin_deform_tuple(ptr noundef captures(none) %0, ptr nound
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @MemoryContextReset(ptr noundef %6) #9
+  tail call void @MemoryContextReset(ptr noundef %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
@@ -993,7 +993,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   store ptr %111, ptr @CurrentMemoryContext, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %114 = load i32, ptr %113, align 8
-  %115 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %114) #9
+  %115 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %114) #10
   %116 = load ptr, ptr %66, align 8
   %117 = load i32, ptr %116, align 8
   %118 = icmp sgt i32 %117, 0
@@ -1023,7 +1023,7 @@ brin_memtuple_initialize.exit:                    ; preds = %19, %4
   %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i.i
   %129 = load ptr, ptr %128, align 8
   %130 = load i32, ptr %129, align 8
-  tail call void @TupleDescInitEntry(ptr noundef %115, i16 noundef signext %.120.i.i, ptr noundef null, i32 noundef %130, i32 noundef -1, i32 noundef 0) #9
+  tail call void @TupleDescInitEntry(ptr noundef %115, i16 noundef signext %.120.i.i, ptr noundef null, i32 noundef %130, i32 noundef -1, i32 noundef 0) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %131 = load ptr, ptr %122, align 8
   %132 = load i16, ptr %131, align 8
@@ -1157,9 +1157,9 @@ brtuple_disk_tupdesc.exit.i:                      ; preds = %._crit_edge24.i.i, 
   br label %fetch_att.exit.i
 
 194:                                              ; preds = %.split.i.i, %179
-  %195 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %196 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef range(i32 -32768, 32768) %178) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #9
+  %195 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %196 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef range(i32 -32768, 32768) %178) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #10
   unreachable
 
 197:                                              ; preds = %173
@@ -1219,7 +1219,7 @@ fetch_att.exit.i:                                 ; preds = %197, %192, %189, %1
   br label %231
 
 228:                                              ; preds = %205
-  %229 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %174) #11
+  %229 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %174) #12
   %230 = add i64 %229, 1
   br label %231
 
@@ -1307,7 +1307,7 @@ brin_deconstruct_tuple.exit:                      ; preds = %.loopexit.i, %brtup
   %276 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %277 = load i16, ptr %276, align 8
   %278 = sext i16 %277 to i32
-  %279 = tail call i64 @datumCopy(i64 noundef %269, i1 noundef zeroext %275, i32 noundef %278) #9
+  %279 = tail call i64 @datumCopy(i64 noundef %269, i1 noundef zeroext %275, i32 noundef %278) #10
   %280 = load ptr, ptr %260, align 8
   %281 = getelementptr inbounds nuw i64, ptr %280, i64 %indvars.iv
   store i64 %279, ptr %281, align 8
@@ -1378,14 +1378,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1394,11 +1394,12 @@ attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argme
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

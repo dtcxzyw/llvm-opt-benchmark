@@ -19,7 +19,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %0, align 8, !tbaa !3
-  %4 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 1552) #16
+  %4 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 1552) #17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %55, label %6
 
@@ -48,13 +48,13 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   store ptr %7, ptr %17, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 1544
   store ptr null, ptr %18, align 8, !tbaa !24
-  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #16
+  %19 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #17
   store ptr %19, ptr %3, align 8, !tbaa !32
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.loopexit, label %20
 
 20:                                               ; preds = %6
-  %21 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #16
+  %21 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #17
   store ptr %21, ptr %18, align 8, !tbaa !24
   %22 = icmp eq ptr %21, null
   br i1 %22, label %55, label %23
@@ -64,7 +64,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   br label %.outer.split
 
 .outer.split.us:                                  ; preds = %.outer
-  %24 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.2) #16
+  %24 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.2) #17
   br label %.loopexit
 
 .outer.split:                                     ; preds = %23, %.outer
@@ -72,7 +72,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   br label %25
 
 25:                                               ; preds = %.outer.split, %27
-  %26 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.2) #16
+  %26 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.2) #17
   %.not47 = icmp eq ptr %26, null
   br i1 %.not47, label %.loopexit.loopexit, label %27
 
@@ -136,9 +136,9 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr @IsFormatSupported, ptr %52, align 8, !tbaa !45
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %53, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @BlockingReadStream, ptr noundef nonnull @BlockingWriteStream, ptr noundef nonnull @BlockingGetStreamReadAvailable, ptr noundef nonnull @BlockingGetStreamWriteAvailable) #16
+  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %53, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @BlockingReadStream, ptr noundef nonnull @BlockingWriteStream, ptr noundef nonnull @BlockingGetStreamReadAvailable, ptr noundef nonnull @BlockingGetStreamWriteAvailable) #17
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %54, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @PaUtil_DummyRead, ptr noundef nonnull @PaUtil_DummyWrite, ptr noundef nonnull @PaUtil_DummyGetReadAvailable, ptr noundef nonnull @PaUtil_DummyGetWriteAvailable) #16
+  call void @PaUtil_InitializeStreamInterface(ptr noundef nonnull %54, ptr noundef nonnull @CloseStream, ptr noundef nonnull @StartStream, ptr noundef nonnull @StopStream, ptr noundef nonnull @AbortStream, ptr noundef nonnull @IsStreamStopped, ptr noundef nonnull @IsStreamActive, ptr noundef nonnull @GetStreamTime, ptr noundef nonnull @PaUtil_DummyGetCpuLoad, ptr noundef nonnull @PaUtil_DummyRead, ptr noundef nonnull @PaUtil_DummyWrite, ptr noundef nonnull @PaUtil_DummyGetReadAvailable, ptr noundef nonnull @PaUtil_DummyGetWriteAvailable) #17
   br label %55
 
 55:                                               ; preds = %20, %2, %.loopexit
@@ -161,8 +161,8 @@ declare ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal void @Terminate(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   %3 = load ptr, ptr %2, align 8, !tbaa !24
-  tail call void @free(ptr noundef %3) #16
-  tail call void @PaUtil_FreeMemory(ptr noundef %0) #16
+  tail call void @free(ptr noundef %3) #17
+  tail call void @PaUtil_FreeMemory(ptr noundef %0) #17
   ret void
 }
 
@@ -170,7 +170,7 @@ define internal void @Terminate(ptr noundef %0) #0 {
 define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = alloca %struct.sio_par, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @sio_initpar(ptr noundef nonnull %10) #16
+  call void @sio_initpar(ptr noundef nonnull %10) #17
   %.not = icmp ne ptr %3, null
   br i1 %.not, label %11, label %43
 
@@ -363,26 +363,26 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   %.pn = getelementptr %struct.PaDeviceInfo, ptr %0, i64 %.pn115
   %.0.in = getelementptr i8, ptr %.pn, i64 272
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !13
-  %85 = call ptr @sio_open(ptr noundef %.0, i32 noundef %.1, i32 noundef 0) #16
+  %85 = call ptr @sio_open(ptr noundef %.0, i32 noundef %.1, i32 noundef 0) #17
   %86 = icmp eq ptr %85, null
   br i1 %86, label %sndioSetFmt.exit.thread, label %87
 
 87:                                               ; preds = %84
-  %88 = call i32 @sio_setpar(ptr noundef nonnull %85, ptr noundef nonnull %10) #16
+  %88 = call i32 @sio_setpar(ptr noundef nonnull %85, ptr noundef nonnull %10) #17
   %.not116 = icmp eq i32 %88, 0
   br i1 %.not116, label %89, label %90
 
 89:                                               ; preds = %87
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 90:                                               ; preds = %87
-  %91 = call i32 @sio_getpar(ptr noundef nonnull %85, ptr noundef nonnull %10) #16
+  %91 = call i32 @sio_getpar(ptr noundef nonnull %85, ptr noundef nonnull %10) #17
   %.not117 = icmp eq i32 %91, 0
   br i1 %.not117, label %92, label %93
 
 92:                                               ; preds = %90
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 93:                                               ; preds = %90
@@ -446,7 +446,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   br label %sndioGetFmt.exit
 
 123:                                              ; preds = %100, %93, %107, %110, %116, %104
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %107
@@ -464,7 +464,7 @@ sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %1
   br i1 %.not120, label %131, label %130
 
 130:                                              ; preds = %125
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 131:                                              ; preds = %125, %sndioGetFmt.exit
@@ -481,7 +481,7 @@ sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %1
   br i1 %.not122, label %139, label %138
 
 138:                                              ; preds = %133
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 139:                                              ; preds = %133, %131
@@ -495,34 +495,34 @@ sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %1
   br i1 %or.cond, label %146, label %147
 
 146:                                              ; preds = %139
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 147:                                              ; preds = %139
-  %148 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 520) #16
+  %148 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 520) #17
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %151
 
 150:                                              ; preds = %147
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 151:                                              ; preds = %147
   %.not123 = icmp eq ptr %7, null
   %.v = select i1 %.not123, i64 168, i64 72
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  call void @PaUtil_InitializeStreamRepresentation(ptr noundef nonnull %148, ptr noundef nonnull %152, ptr noundef %7, ptr noundef %8) #16
+  call void @PaUtil_InitializeStreamRepresentation(ptr noundef nonnull %148, ptr noundef nonnull %152, ptr noundef %7, ptr noundef %8) #17
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 80
   %154 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %155 = load i32, ptr %154, align 4, !tbaa !60
   %156 = zext i32 %155 to i64
-  %157 = call i32 @PaUtil_InitializeBufferProcessor(ptr noundef nonnull %153, i32 noundef %.095, i64 noundef %.093, i64 noundef %.sink.i, i32 noundef %.094, i64 noundef %.092, i64 noundef %.sink.i, double noundef %4, i64 noundef %6, i64 noundef %5, i64 noundef %156, i32 noundef 0, ptr noundef %7, ptr noundef %8) #16
+  %157 = call i32 @PaUtil_InitializeBufferProcessor(ptr noundef nonnull %153, i32 noundef %.095, i64 noundef %.093, i64 noundef %.sink.i, i32 noundef %.094, i64 noundef %.092, i64 noundef %.sink.i, double noundef %4, i64 noundef %6, i64 noundef %5, i64 noundef %156, i32 noundef 0, ptr noundef %7, ptr noundef %8) #17
   %.not124 = icmp eq i32 %157, 0
   br i1 %.not124, label %159, label %158
 
 158:                                              ; preds = %151
-  call void @PaUtil_FreeMemory(ptr noundef nonnull %148) #16
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @PaUtil_FreeMemory(ptr noundef nonnull %148) #17
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 159:                                              ; preds = %151
@@ -536,15 +536,15 @@ sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %1
   %165 = load i32, ptr %94, align 4, !tbaa !55
   %166 = mul i32 %164, %165
   %167 = zext i32 %166 to i64
-  %168 = call noalias ptr @malloc(i64 noundef %167) #17
+  %168 = call noalias ptr @malloc(i64 noundef %167) #18
   %169 = getelementptr inbounds nuw i8, ptr %148, i64 480
   store ptr %168, ptr %169, align 8, !tbaa !61
   %170 = icmp eq ptr %168, null
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %160
-  call void @PaUtil_FreeMemory(ptr noundef nonnull %148) #16
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @PaUtil_FreeMemory(ptr noundef nonnull %148) #17
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 172:                                              ; preds = %160, %159
@@ -558,7 +558,7 @@ sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %1
   %178 = load i32, ptr %94, align 4, !tbaa !55
   %179 = mul i32 %177, %178
   %180 = zext i32 %179 to i64
-  %181 = call noalias ptr @malloc(i64 noundef %180) #17
+  %181 = call noalias ptr @malloc(i64 noundef %180) #18
   %182 = getelementptr inbounds nuw i8, ptr %148, i64 488
   store ptr %181, ptr %182, align 8, !tbaa !71
   %183 = icmp eq ptr %181, null
@@ -567,9 +567,9 @@ sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %1
 184:                                              ; preds = %173
   %185 = getelementptr inbounds nuw i8, ptr %148, i64 480
   %186 = load ptr, ptr %185, align 8, !tbaa !61
-  call void @free(ptr noundef %186) #16
-  call void @PaUtil_FreeMemory(ptr noundef nonnull %148) #16
-  call void @sio_close(ptr noundef nonnull %85) #16
+  call void @free(ptr noundef %186) #17
+  call void @PaUtil_FreeMemory(ptr noundef nonnull %148) #17
+  call void @sio_close(ptr noundef nonnull %85) #17
   br label %sndioSetFmt.exit.thread
 
 187:                                              ; preds = %173
@@ -578,7 +578,7 @@ sndioGetFmt.exit:                                 ; preds = %119, %116, %113, %1
   %189 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %190 = load i32, ptr %189, align 4, !tbaa !73
   %191 = zext i32 %190 to i64
-  %192 = call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef nonnull %153) #16
+  %192 = call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef nonnull %153) #17
   %193 = add i64 %192, %191
   %194 = uitofp i64 %193 to double
   %195 = load i32, ptr %79, align 4, !tbaa !59
@@ -645,14 +645,14 @@ define internal noundef i32 @CloseStream(ptr noundef %0) #0 {
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %10 = load i64, ptr %9, align 8, !tbaa !84
-  %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #16
+  %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #17
   %.not8.i = icmp eq i32 %11, 0
   br i1 %.not8.i, label %12, label %StopStream.exit
 
 12:                                               ; preds = %8, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %14 = load ptr, ptr %13, align 8, !tbaa !79
-  %15 = call i32 @sio_stop(ptr noundef %14) #16
+  %15 = call i32 @sio_stop(ptr noundef %14) #17
   br label %StopStream.exit
 
 StopStream.exit:                                  ; preds = %8, %12
@@ -669,7 +669,7 @@ StopStream.exit:                                  ; preds = %8, %12
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %22 = load ptr, ptr %21, align 8, !tbaa !61
-  call void @free(ptr noundef %22) #16
+  call void @free(ptr noundef %22) #17
   %.pre = load i32, ptr %17, align 8, !tbaa !78
   br label %23
 
@@ -682,17 +682,17 @@ StopStream.exit:                                  ; preds = %8, %12
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %28 = load ptr, ptr %27, align 8, !tbaa !71
-  call void @free(ptr noundef %28) #16
+  call void @free(ptr noundef %28) #17
   br label %29
 
 29:                                               ; preds = %26, %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %31 = load ptr, ptr %30, align 8, !tbaa !79
-  call void @sio_close(ptr noundef %31) #16
-  call void @PaUtil_TerminateStreamRepresentation(ptr noundef nonnull %0) #16
+  call void @sio_close(ptr noundef %31) #17
+  call void @PaUtil_TerminateStreamRepresentation(ptr noundef nonnull %0) #17
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @PaUtil_TerminateBufferProcessor(ptr noundef nonnull %32) #16
-  call void @PaUtil_FreeMemory(ptr noundef nonnull %0) #16
+  call void @PaUtil_TerminateBufferProcessor(ptr noundef nonnull %32) #17
+  call void @PaUtil_FreeMemory(ptr noundef nonnull %0) #17
   ret i32 0
 }
 
@@ -713,10 +713,10 @@ define internal range(i32 -9999, 1) i32 @StartStream(ptr noundef %0) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  tail call void @PaUtil_ResetBufferProcessor(ptr noundef nonnull %9) #16
+  tail call void @PaUtil_ResetBufferProcessor(ptr noundef nonnull %9) #17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %11 = load ptr, ptr %10, align 8, !tbaa !79
-  %12 = tail call i32 @sio_start(ptr noundef %11) #16
+  %12 = tail call i32 @sio_start(ptr noundef %11) #17
   %.not28 = icmp eq i32 %12, 0
   br i1 %.not28, label %45, label %13
 
@@ -754,7 +754,7 @@ define internal range(i32 -9999, 1) i32 @StartStream(ptr noundef %0) #0 {
   %.02734 = phi i32 [ %38, %.lr.ph ], [ %32, %.lr.ph.preheader ]
   %33 = load ptr, ptr %10, align 8, !tbaa !79
   %34 = load ptr, ptr %26, align 8, !tbaa !71
-  %35 = tail call i64 @sio_write(ptr noundef %33, ptr noundef %34, i64 noundef %28) #16
+  %35 = tail call i64 @sio_write(ptr noundef %33, ptr noundef %34, i64 noundef %28) #17
   %36 = load i64, ptr %7, align 8, !tbaa !90
   %37 = add i64 %36, %35
   store i64 %37, ptr %7, align 8, !tbaa !90
@@ -770,7 +770,7 @@ define internal range(i32 -9999, 1) i32 @StartStream(ptr noundef %0) #0 {
 
 41:                                               ; preds = %.loopexit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %43 = tail call i32 @pthread_create(ptr noundef nonnull %42, ptr noundef null, ptr noundef nonnull @sndioThread, ptr noundef nonnull %0) #16
+  %43 = tail call i32 @pthread_create(ptr noundef nonnull %42, ptr noundef null, ptr noundef nonnull @sndioThread, ptr noundef nonnull %0) #17
   %.not32 = icmp eq i32 %43, 0
   br i1 %.not32, label %44, label %45
 
@@ -801,14 +801,14 @@ define internal range(i32 -9999, 1) i32 @StopStream(ptr noundef captures(none) %
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %10 = load i64, ptr %9, align 8, !tbaa !84
-  %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #16
+  %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #17
   %.not8 = icmp eq i32 %11, 0
   br i1 %.not8, label %12, label %16
 
 12:                                               ; preds = %8, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %14 = load ptr, ptr %13, align 8, !tbaa !79
-  %15 = call i32 @sio_stop(ptr noundef %14) #16
+  %15 = call i32 @sio_stop(ptr noundef %14) #17
   %.not9 = icmp eq i32 %15, 0
   %. = select i1 %.not9, i32 -9999, i32 0
   br label %16
@@ -838,14 +838,14 @@ define internal range(i32 -9999, 1) i32 @AbortStream(ptr noundef captures(none) 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %10 = load i64, ptr %9, align 8, !tbaa !84
-  %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #16
+  %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #17
   %.not8.i = icmp eq i32 %11, 0
   br i1 %.not8.i, label %12, label %StopStream.exit
 
 12:                                               ; preds = %8, %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %14 = load ptr, ptr %13, align 8, !tbaa !79
-  %15 = call i32 @sio_stop(ptr noundef %14) #16
+  %15 = call i32 @sio_stop(ptr noundef %14) #17
   %.not9.i = icmp eq i32 %15, 0
   %..i = select i1 %.not9.i, i32 -9999, i32 0
   br label %StopStream.exit
@@ -927,7 +927,7 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
   %.03242 = phi i32 [ %30, %27 ], [ %20, %.lr.ph.preheader ]
   %22 = load ptr, ptr %9, align 8, !tbaa !79
   %23 = zext i32 %.03242 to i64
-  %24 = call i64 @sio_read(ptr noundef %22, ptr noundef %.043, i64 noundef %23) #16
+  %24 = call i64 @sio_read(ptr noundef %22, ptr noundef %.043, i64 noundef %23) #17
   %25 = trunc i64 %24 to i32
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.loopexit, label %27
@@ -943,11 +943,11 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
   %31 = load i64, ptr %10, align 8, !tbaa !95
   %32 = add i64 %31, %spec.select39
   store i64 %32, ptr %10, align 8, !tbaa !95
-  call void @PaUtil_SetInputFrameCount(ptr noundef nonnull %11, i64 noundef %spec.select39) #16
+  call void @PaUtil_SetInputFrameCount(ptr noundef nonnull %11, i64 noundef %spec.select39) #17
   %33 = load ptr, ptr %6, align 8, !tbaa !61
   %34 = load i32, ptr %7, align 4, !tbaa !93
-  call void @PaUtil_SetInterleavedInputChannels(ptr noundef nonnull %11, i32 noundef 0, ptr noundef %33, i32 noundef %34) #16
-  %35 = call i64 @PaUtil_CopyInput(ptr noundef nonnull %11, ptr noundef nonnull %4, i64 noundef %spec.select39) #16
+  call void @PaUtil_SetInterleavedInputChannels(ptr noundef nonnull %11, i32 noundef 0, ptr noundef %33, i32 noundef %34) #17
+  %35 = call i64 @PaUtil_CopyInput(ptr noundef nonnull %11, ptr noundef nonnull %4, i64 noundef %spec.select39) #17
   %36 = trunc i64 %35 to i32
   %.not38 = icmp eq i32 %spec.select, %36
   br i1 %.not38, label %12, label %.loopexit
@@ -980,11 +980,11 @@ define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr
   %14 = zext i32 %13 to i64
   %spec.select28 = call i64 @llvm.umin.i64(i64 %.02630, i64 %14)
   %spec.select = trunc nuw i64 %spec.select28 to i32
-  call void @PaUtil_SetOutputFrameCount(ptr noundef nonnull %7, i64 noundef %spec.select28) #16
+  call void @PaUtil_SetOutputFrameCount(ptr noundef nonnull %7, i64 noundef %spec.select28) #17
   %15 = load ptr, ptr %8, align 8, !tbaa !71
   %16 = load i32, ptr %9, align 8, !tbaa !87
-  call void @PaUtil_SetInterleavedOutputChannels(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %15, i32 noundef %16) #16
-  %17 = call i64 @PaUtil_CopyOutput(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %spec.select28) #16
+  call void @PaUtil_SetInterleavedOutputChannels(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %15, i32 noundef %16) #17
+  %17 = call i64 @PaUtil_CopyOutput(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %spec.select28) #17
   %18 = trunc i64 %17 to i32
   %.not27 = icmp eq i32 %spec.select, %18
   br i1 %.not27, label %19, label %._crit_edge
@@ -997,7 +997,7 @@ define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr
   %24 = load i32, ptr %10, align 4, !tbaa !88
   %25 = mul i32 %23, %24
   %26 = zext i32 %25 to i64
-  %27 = call i64 @sio_write(ptr noundef %20, ptr noundef %21, i64 noundef %26) #16
+  %27 = call i64 @sio_write(ptr noundef %20, ptr noundef %21, i64 noundef %26) #17
   %28 = and i64 %27, 4294967295
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %._crit_edge, label %30
@@ -1021,29 +1021,29 @@ define internal i64 @BlockingGetStreamReadAvailable(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8, !tbaa !79
-  %5 = call i32 @sio_pollfd(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1) #16
+  %5 = call i32 @sio_pollfd(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1) #17
   %6 = sext i32 %5 to i64
   br label %7
 
 7:                                                ; preds = %10, %1
-  %8 = call i32 @poll(ptr noundef nonnull %2, i64 noundef %6, i32 noundef 0) #16
+  %8 = call i32 @poll(ptr noundef nonnull %2, i64 noundef %6, i32 noundef 0) #17
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @__errno_location() #18
+  %11 = tail call ptr @__errno_location() #19
   %12 = load i32, ptr %11, align 4, !tbaa !81
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %7, label %14, !llvm.loop !97
 
 14:                                               ; preds = %10
-  call void @perror(ptr noundef nonnull @.str.4) #19
-  call void @abort() #20
+  call void @perror(ptr noundef nonnull @.str.4) #20
+  call void @abort() #21
   unreachable
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %3, align 8, !tbaa !79
-  %17 = call i32 @sio_revents(ptr noundef %16, ptr noundef nonnull %2) #16
+  %17 = call i32 @sio_revents(ptr noundef %16, ptr noundef nonnull %2) #17
   %18 = and i32 %17, 1
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %25, label %19
@@ -1068,29 +1068,29 @@ define internal i64 @BlockingGetStreamWriteAvailable(ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8, !tbaa !79
-  %5 = call i32 @sio_pollfd(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 4) #16
+  %5 = call i32 @sio_pollfd(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 4) #17
   %6 = sext i32 %5 to i64
   br label %7
 
 7:                                                ; preds = %10, %1
-  %8 = call i32 @poll(ptr noundef nonnull %2, i64 noundef %6, i32 noundef 0) #16
+  %8 = call i32 @poll(ptr noundef nonnull %2, i64 noundef %6, i32 noundef 0) #17
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @__errno_location() #18
+  %11 = tail call ptr @__errno_location() #19
   %12 = load i32, ptr %11, align 4, !tbaa !81
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %7, label %14, !llvm.loop !98
 
 14:                                               ; preds = %10
-  call void @perror(ptr noundef nonnull @.str.4) #19
-  call void @abort() #20
+  call void @perror(ptr noundef nonnull @.str.4) #20
+  call void @abort() #21
   unreachable
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %3, align 8, !tbaa !79
-  %17 = call i32 @sio_revents(ptr noundef %16, ptr noundef nonnull %2) #16
+  %17 = call i32 @sio_revents(ptr noundef %16, ptr noundef nonnull %2) #17
   %18 = and i32 %17, 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %28, label %19
@@ -1226,7 +1226,7 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   %.05465 = phi i32 [ %41, %40 ], [ %11, %.lr.ph.preheader ]
   %35 = load ptr, ptr %19, align 8, !tbaa !79
   %36 = zext i32 %.05465 to i64
-  %37 = call i64 @sio_read(ptr noundef %35, ptr noundef %.066, i64 noundef %36) #16
+  %37 = call i64 @sio_read(ptr noundef %35, ptr noundef %.066, i64 noundef %36) #17
   %38 = trunc i64 %37 to i32
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.loopexit, label %40
@@ -1285,7 +1285,7 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   %64 = uitofp i64 %.pre73 to double
   %65 = fdiv double %64, %.pre-phi
   store double %65, ptr %25, align 8, !tbaa !104
-  call void @PaUtil_BeginBufferProcessing(ptr noundef nonnull %26, ptr noundef nonnull %2, i64 noundef 0) #16
+  call void @PaUtil_BeginBufferProcessing(ptr noundef nonnull %26, ptr noundef nonnull %2, i64 noundef 0) #17
   %66 = load i32, ptr %17, align 8, !tbaa !78
   %67 = and i32 %66, 1
   %.not59 = icmp eq i32 %67, 0
@@ -1294,10 +1294,10 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
 68:                                               ; preds = %63
   %69 = load i32, ptr %4, align 8, !tbaa !86
   %70 = zext i32 %69 to i64
-  call void @PaUtil_SetOutputFrameCount(ptr noundef nonnull %26, i64 noundef %70) #16
+  call void @PaUtil_SetOutputFrameCount(ptr noundef nonnull %26, i64 noundef %70) #17
   %71 = load ptr, ptr %27, align 8, !tbaa !71
   %72 = load i32, ptr %12, align 8, !tbaa !87
-  call void @PaUtil_SetInterleavedOutputChannels(ptr noundef nonnull %26, i32 noundef 0, ptr noundef %71, i32 noundef %72) #16
+  call void @PaUtil_SetInterleavedOutputChannels(ptr noundef nonnull %26, i32 noundef 0, ptr noundef %71, i32 noundef %72) #17
   %.pre75 = load i32, ptr %17, align 8, !tbaa !78
   br label %73
 
@@ -1310,15 +1310,15 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
 76:                                               ; preds = %73
   %77 = load i32, ptr %4, align 8, !tbaa !86
   %78 = zext i32 %77 to i64
-  call void @PaUtil_SetInputFrameCount(ptr noundef nonnull %26, i64 noundef %78) #16
+  call void @PaUtil_SetInputFrameCount(ptr noundef nonnull %26, i64 noundef %78) #17
   %79 = load ptr, ptr %18, align 8, !tbaa !61
   %80 = load i32, ptr %6, align 4, !tbaa !93
-  call void @PaUtil_SetInterleavedInputChannels(ptr noundef nonnull %26, i32 noundef 0, ptr noundef %79, i32 noundef %80) #16
+  call void @PaUtil_SetInterleavedInputChannels(ptr noundef nonnull %26, i32 noundef 0, ptr noundef %79, i32 noundef %80) #17
   br label %81
 
 81:                                               ; preds = %76, %73
   store i32 0, ptr %3, align 4, !tbaa !81
-  %82 = call i64 @PaUtil_EndBufferProcessing(ptr noundef nonnull %26, ptr noundef nonnull %3) #16
+  %82 = call i64 @PaUtil_EndBufferProcessing(ptr noundef nonnull %26, ptr noundef nonnull %3) #17
   %83 = load i32, ptr %3, align 4, !tbaa !81
   %.not61 = icmp eq i32 %83, 0
   br i1 %.not61, label %84, label %.loopexit
@@ -1332,7 +1332,7 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
 87:                                               ; preds = %84
   %88 = load ptr, ptr %19, align 8, !tbaa !79
   %89 = load ptr, ptr %27, align 8, !tbaa !71
-  %90 = call i64 @sio_write(ptr noundef %88, ptr noundef %89, i64 noundef %28) #16
+  %90 = call i64 @sio_write(ptr noundef %88, ptr noundef %89, i64 noundef %28) #17
   %91 = trunc i64 %90 to i32
   %92 = icmp ugt i32 %14, %91
   br i1 %92, label %.loopexit, label %93
@@ -1401,16 +1401,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #15
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1428,12 +1428,13 @@ attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { cold }
-attributes #20 = { noreturn nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { cold }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

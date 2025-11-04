@@ -98,7 +98,7 @@ define ptr @BrotliDecoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noalias dereferenceable_or_null(5744) ptr @malloc(i64 noundef 5744) #21
+  %7 = tail call noalias dereferenceable_or_null(5744) ptr @malloc(i64 noundef 5744) #22
   br label %11
 
 8:                                                ; preds = %3
@@ -106,7 +106,7 @@ define ptr @BrotliDecoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond3, label %9, label %.thread
 
 9:                                                ; preds = %8
-  %10 = tail call ptr %0(ptr noundef %2, i64 noundef 5744) #22
+  %10 = tail call ptr %0(ptr noundef %2, i64 noundef 5744) #23
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -115,7 +115,7 @@ define ptr @BrotliDecoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @BrotliDecoderStateInit(ptr noundef nonnull %.0, ptr noundef %0, ptr noundef %1, ptr noundef %2) #22
+  %14 = tail call i32 @BrotliDecoderStateInit(ptr noundef nonnull %.0, ptr noundef %0, ptr noundef %1, ptr noundef %2) #23
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %.thread
 
@@ -123,7 +123,7 @@ define ptr @BrotliDecoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond, label %17, label %16
 
 16:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %.0) #22
+  tail call void @free(ptr noundef nonnull %.0) #23
   br label %.thread
 
 17:                                               ; preds = %15
@@ -131,7 +131,7 @@ define ptr @BrotliDecoderCreateInstance(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond7, label %18, label %.thread
 
 18:                                               ; preds = %17
-  tail call void %1(ptr noundef %2, ptr noundef nonnull %.0) #22
+  tail call void %1(ptr noundef %2, ptr noundef nonnull %.0) #23
   br label %.thread
 
 .thread:                                          ; preds = %8, %13, %16, %18, %17, %11
@@ -157,8 +157,8 @@ define void @BrotliDecoderDestroyInstance(ptr noundef %0) local_unnamed_addr #1 
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !17
-  tail call void @BrotliDecoderStateCleanup(ptr noundef nonnull %0) #22
-  tail call void %4(ptr noundef %6, ptr noundef nonnull %0) #22
+  tail call void @BrotliDecoderStateCleanup(ptr noundef nonnull %0) #23
+  tail call void %4(ptr noundef %6, ptr noundef nonnull %0) #23
   br label %7
 
 7:                                                ; preds = %1, %2
@@ -178,7 +178,7 @@ define range(i32 0, 2) i32 @BrotliDecoderAttachDictionary(ptr noundef captures(n
   %8 = load ptr, ptr %5, align 8, !tbaa !18
   %9 = load i32, ptr %8, align 8, !tbaa !19
   %10 = zext i32 %9 to i64
-  %11 = tail call i32 @BrotliSharedDictionaryAttach(ptr noundef nonnull %8, i32 noundef %1, i64 noundef %2, ptr noundef %3) #22
+  %11 = tail call i32 @BrotliSharedDictionaryAttach(ptr noundef nonnull %8, i32 noundef %1, i64 noundef %2, ptr noundef %3) #23
   %.not16 = icmp eq i32 %11, 0
   br i1 %.not16, label %AttachCompoundDictionary.exit.thread, label %.preheader
 
@@ -215,7 +215,7 @@ define range(i32 0, 2) i32 @BrotliDecoderAttachDictionary(ptr noundef captures(n
 29:                                               ; preds = %27
   %30 = load ptr, ptr %12, align 8, !tbaa !27
   %31 = load ptr, ptr %17, align 8, !tbaa !17
-  %32 = tail call ptr %30(ptr noundef %31, i64 noundef 480) #22
+  %32 = tail call ptr %30(ptr noundef %31, i64 noundef 480) #23
   %.not29.i = icmp eq ptr %32, null
   br i1 %.not29.i, label %AttachCompoundDictionary.exit.thread, label %.thread.i
 
@@ -297,7 +297,7 @@ define range(i32 0, 2) i32 @BrotliDecoderDecompress(i64 noundef %0, ptr noundef 
   store i64 %11, ptr %9, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8, !tbaa !24
-  %12 = call i32 @BrotliDecoderStateInit(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null) #22
+  %12 = call i32 @BrotliDecoderStateInit(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null) #23
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %16, label %13
 
@@ -305,7 +305,7 @@ define range(i32 0, 2) i32 @BrotliDecoderDecompress(i64 noundef %0, ptr noundef 
   %14 = call i32 @BrotliDecoderDecompressStream(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %6)
   %15 = load i64, ptr %6, align 8, !tbaa !25
   store i64 %15, ptr %2, align 8, !tbaa !25
-  call void @BrotliDecoderStateCleanup(ptr noundef nonnull %5) #22
+  call void @BrotliDecoderStateCleanup(ptr noundef nonnull %5) #23
   %.not7 = icmp eq i32 %14, 1
   %spec.store.select = zext i1 %.not7 to i32
   br label %16
@@ -687,7 +687,7 @@ BrotliBitReaderUnload.exit:                       ; preds = %155, %157
   br i1 %178, label %.backedge.backedge, label %BrotliPullByte.exit444
 
 179:                                              ; preds = %171
-  %180 = call i32 @BrotliWarmupBitReader(ptr noundef nonnull %9) #22
+  %180 = call i32 @BrotliWarmupBitReader(ptr noundef nonnull %9) #23
   %.not393 = icmp eq i32 %180, 0
   br i1 %.not393, label %.backedge.backedge, label %181
 
@@ -822,7 +822,7 @@ BrotliPullByte.exit444:                           ; preds = %.lr.ph620
   store i32 %250, ptr %54, align 4, !tbaa !49
   %251 = load ptr, ptr %61, align 8, !tbaa !27
   %252 = load ptr, ptr %62, align 8, !tbaa !17
-  %253 = call ptr %251(ptr noundef %252, i64 noundef 12336) #22
+  %253 = call ptr %251(ptr noundef %252, i64 noundef 12336) #23
   store ptr %253, ptr %87, align 8, !tbaa !50
   %254 = icmp eq ptr %253, null
   br i1 %254, label %.backedge.backedge, label %255
@@ -834,7 +834,7 @@ BrotliPullByte.exit444:                           ; preds = %.lr.ph620
   br label %257
 
 257:                                              ; preds = %255, %171
-  call void @BrotliDecoderStateMetablockBegin(ptr noundef nonnull %0) #22
+  call void @BrotliDecoderStateMetablockBegin(ptr noundef nonnull %0) #23
   store i32 4, ptr %0, align 8, !tbaa !3
   br label %258
 
@@ -899,7 +899,7 @@ BrotliBitReaderNormalize.exit428:                 ; preds = %BrotliJumpToByteBou
   %284 = load ptr, ptr %90, align 8, !tbaa !53
   %285 = load i32, ptr %50, align 4, !tbaa !54
   %286 = sext i32 %285 to i64
-  call void %282(ptr noundef %284, i64 noundef %286) #22
+  call void %282(ptr noundef %284, i64 noundef %286) #23
   br label %.backedge.backedge
 
 .thread515:                                       ; preds = %260, %280
@@ -1216,7 +1216,7 @@ BrotliPullByte.exit442:                           ; preds = %.lr.ph
   %436 = load ptr, ptr %61, align 8, !tbaa !27
   %437 = load ptr, ptr %62, align 8, !tbaa !17
   %438 = load i64, ptr %63, align 8, !tbaa !25
-  %439 = call ptr %436(ptr noundef %437, i64 noundef %438) #22
+  %439 = call ptr %436(ptr noundef %437, i64 noundef %438) #23
   store ptr %439, ptr %64, align 8, !tbaa !73
   %440 = icmp eq ptr %439, null
   br i1 %440, label %.backedge.backedge, label %441
@@ -1444,13 +1444,13 @@ BrotliCalculateDistanceCodeLimit.exit:            ; preds = %524, %549
 
 558:                                              ; preds = %554
   %559 = load i64, ptr %65, align 8, !tbaa !79
-  %560 = call i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef nonnull %0, ptr noundef nonnull %71, i64 noundef 256, i64 noundef 256, i64 noundef %559) #22
+  %560 = call i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef nonnull %0, ptr noundef nonnull %71, i64 noundef 256, i64 noundef 256, i64 noundef %559) #23
   %561 = and i32 %560, 1
   %562 = load i64, ptr %73, align 8, !tbaa !25
-  %563 = call i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef nonnull %0, ptr noundef nonnull %72, i64 noundef 704, i64 noundef 704, i64 noundef %562) #22
+  %563 = call i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef nonnull %0, ptr noundef nonnull %72, i64 noundef 704, i64 noundef 704, i64 noundef %562) #23
   %564 = and i32 %561, %563
   %565 = load i64, ptr %69, align 8, !tbaa !80
-  %566 = call i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef nonnull %0, ptr noundef nonnull %74, i64 noundef %.0319, i64 noundef %.0318, i64 noundef %565) #22
+  %566 = call i32 @BrotliDecoderHuffmanTreeGroupInit(ptr noundef nonnull %0, ptr noundef nonnull %74, i64 noundef %.0319, i64 noundef %.0318, i64 noundef %565) #23
   %567 = and i32 %564, %566
   %.not376 = icmp eq i32 %567, 0
   br i1 %.not376, label %.thread558, label %.thread723
@@ -1830,7 +1830,7 @@ CopyFromCompoundDictionary.exit:                  ; preds = %703, %736
   br i1 %757, label %.backedge.backedge, label %758
 
 758:                                              ; preds = %755
-  call void @BrotliDecoderStateCleanupAfterMetablock(ptr noundef nonnull %0) #22
+  call void @BrotliDecoderStateCleanupAfterMetablock(ptr noundef nonnull %0) #23
   %759 = load i32, ptr %51, align 4
   %760 = and i32 %759, 1
   %.not363 = icmp eq i32 %760, 0
@@ -3107,7 +3107,7 @@ ReadSimpleHuffmanSymbols.exit._crit_edge:         ; preds = %.preheader.i, %Read
   %106 = phi i64 [ %105, %101 ], [ %.pre252, %ReadSimpleHuffmanSymbols.exit ], [ 0, %.preheader.i ]
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 1048
   %108 = trunc i64 %106 to i32
-  %109 = tail call i32 @BrotliBuildSimpleHuffmanTable(ptr noundef %2, i32 noundef 8, ptr noundef nonnull %107, i32 noundef %108) #22
+  %109 = tail call i32 @BrotliBuildSimpleHuffmanTable(ptr noundef %2, i32 noundef 8, ptr noundef nonnull %107, i32 noundef %108) #23
   %.not88 = icmp eq ptr %3, null
   br i1 %.not88, label %112, label %110
 
@@ -3250,7 +3250,7 @@ BrotliSafeGetBits.exit.i:                         ; preds = %BrotliPullByte.exit
 
 ReadCodeLengthCodeLengths.exit:                   ; preds = %._crit_edge.i101
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 912
-  tail call void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef nonnull %169, ptr noundef nonnull %15, ptr noundef nonnull %14) #22
+  tail call void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef nonnull %169, ptr noundef nonnull %15, ptr noundef nonnull %14) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 2488
   %171 = getelementptr inbounds nuw i8, ptr %4, i64 1040
@@ -3307,7 +3307,7 @@ ReadCodeLengthCodeLengths.exit:                   ; preds = %._crit_edge.i101
   %192 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 1040
   %194 = getelementptr inbounds nuw i8, ptr %4, i64 2488
-  %195 = tail call i32 @BrotliWarmupBitReader(ptr noundef nonnull %6) #22
+  %195 = tail call i32 @BrotliWarmupBitReader(ptr noundef nonnull %6) #23
   %.not.i104 = icmp eq i32 %195, 0
   br i1 %.not.i104, label %.loopexit162.ReadSymbolCodeLengths.exit.thread_crit_edge, label %.preheader.i105
 
@@ -3716,7 +3716,7 @@ thread-pre-split:                                 ; preds = %select.unfold.i, %R
 
 thread-pre-split.thread:                          ; preds = %281, %thread-pre-split
   %384 = load ptr, ptr %193, align 8, !tbaa !57
-  %385 = tail call i32 @BrotliBuildHuffmanTable(ptr noundef %2, i32 noundef 8, ptr noundef %384, ptr noundef nonnull %14) #22
+  %385 = tail call i32 @BrotliBuildHuffmanTable(ptr noundef %2, i32 noundef 8, ptr noundef %384, ptr noundef nonnull %14) #23
   %.not82 = icmp eq ptr %3, null
   br i1 %.not82, label %388, label %386
 
@@ -3977,7 +3977,7 @@ BrotliCopyBytes.exit:                             ; preds = %BrotliBitReaderNorm
 38:                                               ; preds = %BrotliCopyBytes.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %40 = load ptr, ptr %39, align 8, !tbaa !53
-  call void %37(ptr noundef %40, ptr noundef nonnull %2, i64 noundef %14) #22
+  call void %37(ptr noundef %40, ptr noundef nonnull %2, i64 noundef %14) #23
   %.pre = load i32, ptr %4, align 4, !tbaa !54
   br label %41
 
@@ -4028,7 +4028,7 @@ BrotliGetRemainingBytes.exit:                     ; preds = %44, %54
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %65 = load ptr, ptr %64, align 8, !tbaa !53
   %66 = zext nneg i32 %spec.select43 to i64
-  call void %62(ptr noundef %65, ptr noundef %49, i64 noundef %66) #22
+  call void %62(ptr noundef %65, ptr noundef %49, i64 noundef %66) #23
   %.pre58 = load ptr, ptr %48, align 8, !tbaa !40
   %.pre59 = load i32, ptr %4, align 4, !tbaa !54
   br label %67
@@ -4091,7 +4091,7 @@ define internal fastcc range(i32 -31, 3) i32 @DecodeContextMap(i64 noundef range
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !17
-  %19 = tail call ptr %16(ptr noundef %18, i64 noundef %0) #22
+  %19 = tail call ptr %16(ptr noundef %18, i64 noundef %0) #23
   store ptr %19, ptr %2, align 8, !tbaa !24
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.critedge, label %21
@@ -4465,7 +4465,7 @@ define internal fastcc range(i32 0, 2) i32 @BrotliEnsureRingBuffer(ptr noundef c
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = sext i32 %7 to i64
   %15 = add nsw i64 %14, 542
-  %16 = tail call ptr %11(ptr noundef %13, i64 noundef %15) #22
+  %16 = tail call ptr %11(ptr noundef %13, i64 noundef %15) #23
   store ptr %16, ptr %2, align 8, !tbaa !43
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
@@ -4498,7 +4498,7 @@ define internal fastcc range(i32 0, 2) i32 @BrotliEnsureRingBuffer(ptr noundef c
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !16
   %36 = load ptr, ptr %12, align 8, !tbaa !17
-  tail call void %35(ptr noundef %36, ptr noundef nonnull %3) #22
+  tail call void %35(ptr noundef %36, ptr noundef nonnull %3) #23
   br label %37
 
 37:                                               ; preds = %29, %19
@@ -4546,7 +4546,7 @@ GetCompoundDictionarySize.exit:                   ; preds = %1, %8
   br i1 %.not, label %16, label %.thread131
 
 16:                                               ; preds = %GetCompoundDictionarySize.exit
-  %17 = tail call i32 @BrotliWarmupBitReader(ptr noundef nonnull %6) #22
+  %17 = tail call i32 @BrotliWarmupBitReader(ptr noundef nonnull %6) #23
   %18 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %18, label %ProcessCommandsInternal.exit [
     i32 7, label %.preheader236
@@ -6069,7 +6069,7 @@ BitMask.exit475.i:                                ; preds = %788, %782
   br label %914
 
 908:                                              ; preds = %897
-  %909 = tail call i32 @BrotliTransformDictionaryWord(ptr noundef %906, ptr noundef nonnull %899, i32 noundef %663, ptr noundef nonnull %.0377.i, i32 noundef %.0388.i) #22
+  %909 = tail call i32 @BrotliTransformDictionaryWord(ptr noundef %906, ptr noundef nonnull %899, i32 noundef %663, ptr noundef nonnull %.0377.i, i32 noundef %.0388.i) #23
   %910 = icmp eq i32 %909, 0
   br i1 %910, label %911, label %914
 
@@ -7568,7 +7568,7 @@ BitMask.exit475.i:                                ; preds = %622, %616
   br label %748
 
 742:                                              ; preds = %731
-  %743 = tail call i32 @BrotliTransformDictionaryWord(ptr noundef %740, ptr noundef nonnull %733, i32 noundef %497, ptr noundef nonnull %.0377.i, i32 noundef %.0388.i) #22
+  %743 = tail call i32 @BrotliTransformDictionaryWord(ptr noundef %740, ptr noundef nonnull %733, i32 noundef %497, ptr noundef nonnull %.0377.i, i32 noundef %.0388.i) #23
   %744 = icmp eq i32 %743, 0
   br i1 %744, label %745, label %748
 
@@ -9739,25 +9739,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #20
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #21
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9779,10 +9779,11 @@ attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #16 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind allocsize(0) }
-attributes #22 = { nounwind }
+attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

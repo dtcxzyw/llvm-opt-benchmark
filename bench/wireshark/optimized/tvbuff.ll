@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noalias noundef ptr @tvb_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
-  %3 = tail call noalias ptr @g_slice_alloc(i64 noundef %2) #17
+  %3 = tail call noalias ptr @g_slice_alloc(i64 noundef %2) #18
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
@@ -115,7 +115,7 @@ define void @tvb_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %2, label %.preheader.i
 
 2:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @.str.2) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @.str.2) #19
   unreachable
 
 .preheader.i:                                     ; preds = %1, %tvb_free_internal.exit.i
@@ -150,7 +150,7 @@ define void @tvb_free_chain(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %2, label %.preheader
 
 2:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @.str.2) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @.str.2) #19
   unreachable
 
 .preheader:                                       ; preds = %1, %tvb_free_internal.exit
@@ -189,7 +189,7 @@ define nonnull ptr @tvb_new_chain(ptr noundef captures(address_is_null) %0, ptr 
   br i1 %.not.i, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.3) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.3) #19
   unreachable
 
 5:                                                ; preds = %2
@@ -201,7 +201,7 @@ define nonnull ptr @tvb_new_chain(ptr noundef captures(address_is_null) %0, ptr 
   br label %.preheader.i
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @.str.4) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @.str.4) #19
   unreachable
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -226,7 +226,7 @@ define hidden void @tvb_add_to_chain(ptr noundef captures(address_is_null) %0, p
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.3) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.3) #19
   unreachable
 
 4:                                                ; preds = %2
@@ -238,7 +238,7 @@ define hidden void @tvb_add_to_chain(ptr noundef captures(address_is_null) %0, p
   br label %.preheader
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @.str.4) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @.str.4) #19
   unreachable
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -262,7 +262,7 @@ define hidden void @tvb_check_offset_length(ptr noundef readonly captures(none) 
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  tail call void @except_throw(i64 noundef 1, i64 noundef %8, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %8, ptr noundef null) #19
   unreachable
 
 check_offset_length.exit:                         ; preds = %5
@@ -281,7 +281,7 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @.str.5) #19
   unreachable
 
 9:                                                ; preds = %4
@@ -335,7 +335,7 @@ _tvb_captured_length_remaining.exit.thread:       ; preds = %15
   br i1 %32, label %_tvb_captured_length_remaining.exit79, label %.thread
 
 .thread:                                          ; preds = %_tvb_captured_length_remaining.exit.thread, %31
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 396, ptr noundef nonnull @.str.6) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 396, ptr noundef nonnull @.str.6) #19
   unreachable
 
 _tvb_captured_length_remaining.exit79:            ; preds = %31
@@ -349,7 +349,7 @@ _tvb_captured_length_remaining.exit79:            ; preds = %31
   %36 = add nuw nsw i32 %.071, 1
   %37 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %36)
   %38 = zext nneg i32 %.071 to i64
-  %39 = tail call noalias ptr @g_malloc(i64 noundef %38) #17
+  %39 = tail call noalias ptr @g_malloc(i64 noundef %38) #18
   %40 = zext nneg i8 %13 to i32
   %.pre99 = load i8, ptr %37, align 1
   br label %41
@@ -374,7 +374,7 @@ _tvb_captured_length_remaining.exit79:            ; preds = %31
 52:                                               ; preds = %_tvb_captured_length_remaining.exit79
   %53 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %.071)
   %54 = zext nneg i32 %.071 to i64
-  %55 = tail call noalias ptr @g_malloc(i64 noundef %54) #17
+  %55 = tail call noalias ptr @g_malloc(i64 noundef %54) #18
   %.not92 = icmp eq i32 %.071, 1
   br i1 %.not92, label %._crit_edge, label %.lr.ph
 
@@ -564,7 +564,7 @@ check_offset_length_no_exception.exit.i:          ; preds = %43
   br label %ensure_contiguous_no_exception.exit
 
 68:                                               ; preds = %61
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #19
   unreachable
 
 ensure_contiguous_no_exception.exit:              ; preds = %8, %11, %15, %24, %27, %31, %34, %38, %44, %47, %51, %58, %66
@@ -580,12 +580,12 @@ ensure_contiguous_no_exception.exit:              ; preds = %8, %11, %15, %24, %
   br i1 %.not, label %72, label %73
 
 72:                                               ; preds = %71
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @.str.33) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @.str.33) #19
   unreachable
 
 73:                                               ; preds = %71
   %74 = zext nneg i32 %.0 to i64
-  tail call void @except_throw(i64 noundef 1, i64 noundef %74, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %74, ptr noundef null) #19
   unreachable
 
 ensure_contiguous_no_exception.exit.thread:       ; preds = %check_offset_length_no_exception.exit.i, %ensure_contiguous_no_exception.exit
@@ -617,7 +617,7 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @.str.5) #19
   unreachable
 
 9:                                                ; preds = %4
@@ -672,7 +672,7 @@ _tvb_captured_length_remaining.exit.thread:       ; preds = %15
   br i1 %33, label %_tvb_captured_length_remaining.exit73, label %.thread
 
 .thread:                                          ; preds = %_tvb_captured_length_remaining.exit.thread, %32
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @.str.7) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @.str.7) #19
   unreachable
 
 _tvb_captured_length_remaining.exit73:            ; preds = %32
@@ -684,7 +684,7 @@ _tvb_captured_length_remaining.exit73:            ; preds = %32
   %.064 = add nuw i32 %.065, %37
   %38 = tail call fastcc ptr @ensure_contiguous(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %.064)
   %39 = zext nneg i32 %.065 to i64
-  %40 = tail call noalias ptr @g_malloc(i64 noundef %39) #17
+  %40 = tail call noalias ptr @g_malloc(i64 noundef %39) #18
   %41 = add nsw i32 %.065, -1
   %.not81 = icmp eq i32 %.065, 1
   br i1 %.not81, label %._crit_edge, label %.lr.ph
@@ -787,7 +787,7 @@ define ptr @tvb_clone_offset_len(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %11, %10
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @.str.5) #19
   unreachable
 
 16:                                               ; preds = %11
@@ -825,12 +825,12 @@ define ptr @tvb_clone_offset_len(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %or.cond.i, label %34, label %tvb_generic_clone_offset_len.exit, !prof !15
 
 34:                                               ; preds = %29, %23, %20, %16
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @.str.30) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @.str.30) #19
   unreachable
 
 tvb_generic_clone_offset_len.exit:                ; preds = %29
   %35 = zext nneg i32 %2 to i64
-  %36 = tail call noalias ptr @g_malloc(i64 noundef %35) #17
+  %36 = tail call noalias ptr @g_malloc(i64 noundef %35) #18
   %37 = tail call ptr @tvb_memcpy(ptr noundef nonnull %0, ptr noundef %36, i32 noundef %1, i64 noundef %35)
   %38 = tail call ptr @tvb_new_real_data(ptr noundef %36, i32 noundef %2, i32 noundef %2)
   tail call void @tvb_set_free_cb(ptr noundef %38, ptr noundef nonnull @g_free)
@@ -861,7 +861,7 @@ define i32 @tvb_captured_length(ptr noundef readonly captures(address_is_null) %
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2, %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 538, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 538, ptr noundef nonnull @.str.5) #19
   unreachable
 
 7:                                                ; preds = %2
@@ -882,7 +882,7 @@ define i32 @tvb_captured_length_remaining(ptr noundef readonly captures(address_
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @.str.5) #19
   unreachable
 
 8:                                                ; preds = %3
@@ -929,7 +929,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 578, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 578, ptr noundef nonnull @.str.5) #19
   unreachable
 
 8:                                                ; preds = %3
@@ -998,7 +998,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
 
 39:                                               ; preds = %.sink.split, %32, %29, %16, %13
   %.0.i9.i.ph = phi i64 [ 1, %13 ], [ 4, %16 ], [ 1, %29 ], [ 4, %32 ], [ %.37.i.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #19
   unreachable
 
 40:                                               ; preds = %27, %10
@@ -1014,7 +1014,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %43
-  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #19
   unreachable
 
 48:                                               ; preds = %43
@@ -1025,7 +1025,7 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   br i1 %.not12, label %53, label %52
 
 52:                                               ; preds = %48
-  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #19
   unreachable
 
 53:                                               ; preds = %48
@@ -1035,11 +1035,11 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
-  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #19
   unreachable
 
 58:                                               ; preds = %53
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 59:                                               ; preds = %40
@@ -1062,7 +1062,7 @@ define noundef zeroext i1 @tvb_bytes_exist(ptr noundef readonly captures(address
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @.str.5) #19
   unreachable
 
 9:                                                ; preds = %4
@@ -1115,7 +1115,7 @@ define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @.str.31) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @.str.31) #19
   unreachable
 
 7:                                                ; preds = %5
@@ -1123,7 +1123,7 @@ define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr
   br i1 %.not25, label %8, label %9
 
 8:                                                ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 299, ptr noundef nonnull @.str.32) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 299, ptr noundef nonnull @.str.32) #19
   unreachable
 
 9:                                                ; preds = %7
@@ -1248,7 +1248,7 @@ define void @tvb_ensure_bytes_exist64(ptr noundef readonly captures(address_is_n
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 6:                                                ; preds = %3
@@ -1269,7 +1269,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 652, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 652, ptr noundef nonnull @.str.5) #19
   unreachable
 
 9:                                                ; preds = %4
@@ -1277,7 +1277,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 12:                                               ; preds = %9
@@ -1297,7 +1297,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not52, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #19
   unreachable
 
 21:                                               ; preds = %17
@@ -1308,7 +1308,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not53, label %26, label %25
 
 25:                                               ; preds = %21
-  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #19
   unreachable
 
 26:                                               ; preds = %21
@@ -1318,11 +1318,11 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not54, label %30, label %29
 
 29:                                               ; preds = %26
-  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #19
   unreachable
 
 30:                                               ; preds = %26
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 31:                                               ; preds = %12
@@ -1343,7 +1343,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not47, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #19
   unreachable
 
 41:                                               ; preds = %37
@@ -1354,7 +1354,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not48, label %46, label %45
 
 45:                                               ; preds = %41
-  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #19
   unreachable
 
 46:                                               ; preds = %41
@@ -1364,11 +1364,11 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not49, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #19
   unreachable
 
 50:                                               ; preds = %46
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 51:                                               ; preds = %14, %35
@@ -1379,7 +1379,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %51
-  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #19
   unreachable
 
 56:                                               ; preds = %51
@@ -1396,7 +1396,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not57, label %62, label %61
 
 61:                                               ; preds = %58
-  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #19
   unreachable
 
 62:                                               ; preds = %58
@@ -1407,7 +1407,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not58, label %67, label %66
 
 66:                                               ; preds = %62
-  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #19
   unreachable
 
 67:                                               ; preds = %62
@@ -1417,11 +1417,11 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly captures(address_is_nul
   br i1 %.not59, label %71, label %70
 
 70:                                               ; preds = %67
-  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #19
   unreachable
 
 71:                                               ; preds = %67
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 }
 
@@ -1437,7 +1437,7 @@ define zeroext i1 @tvb_offset_exists(ptr noundef readonly captures(address_is_nu
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @.str.5) #19
   unreachable
 
 8:                                                ; preds = %3
@@ -1484,7 +1484,7 @@ define i32 @tvb_reported_length(ptr noundef readonly captures(address_is_null) %
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2, %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @.str.5) #19
   unreachable
 
 7:                                                ; preds = %2
@@ -1505,7 +1505,7 @@ define i32 @tvb_reported_length_remaining(ptr noundef readonly captures(address_
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 757, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 757, ptr noundef nonnull @.str.5) #19
   unreachable
 
 8:                                                ; preds = %3
@@ -1553,7 +1553,7 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly captures(a
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 775, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 775, ptr noundef nonnull @.str.5) #19
   unreachable
 
 8:                                                ; preds = %3
@@ -1622,7 +1622,7 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly captures(a
 
 39:                                               ; preds = %.sink.split, %13, %16, %29, %32
   %.0.i.ph = phi i64 [ 4, %32 ], [ 1, %29 ], [ 4, %16 ], [ 1, %13 ], [ %..i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
 compute_offset.exit:                              ; preds = %27, %10
@@ -1637,7 +1637,7 @@ compute_offset.exit:                              ; preds = %27, %10
   ret i32 %43
 
 44:                                               ; preds = %compute_offset.exit
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 }
 
@@ -1653,7 +1653,7 @@ define void @tvb_set_reported_length(ptr noundef captures(address_is_null) %0, i
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 795, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 795, ptr noundef nonnull @.str.5) #19
   unreachable
 
 8:                                                ; preds = %3
@@ -1663,7 +1663,7 @@ define void @tvb_set_reported_length(ptr noundef captures(address_is_null) %0, i
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 13:                                               ; preds = %8
@@ -1703,7 +1703,7 @@ define void @tvb_fix_reported_length(ptr noundef captures(address_is_null) %0) l
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2, %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 814, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 814, ptr noundef nonnull @.str.5) #19
   unreachable
 
 7:                                                ; preds = %2
@@ -1715,7 +1715,7 @@ define void @tvb_fix_reported_length(ptr noundef captures(address_is_null) %0) l
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 815, ptr noundef nonnull @.str.8) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 815, ptr noundef nonnull @.str.8) #19
   unreachable
 
 14:                                               ; preds = %7
@@ -1747,7 +1747,7 @@ define hidden i32 @tvb_offset_from_real_beginning_counter(ptr noundef %0, i32 no
   ret i32 %8
 
 9:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 828) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 828) #19
   unreachable
 }
 
@@ -1761,7 +1761,7 @@ define i32 @tvb_offset_from_real_beginning(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not.i, label %6, label %tvb_offset_from_real_beginning_counter.exit
 
 6:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 828) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 828) #19
   unreachable
 
 tvb_offset_from_real_beginning_counter.exit:      ; preds = %1
@@ -1781,7 +1781,7 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 928, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 928, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -1789,7 +1789,7 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @.str.10) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @.str.10) #19
   unreachable
 
 13:                                               ; preds = %10
@@ -1889,7 +1889,7 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
 
 61:                                               ; preds = %.sink.split, %45, %51, %54, %38, %35, %22, %19
   %.0.i.ph = phi i64 [ 1, %19 ], [ 4, %22 ], [ 1, %35 ], [ 4, %38 ], [ 4, %54 ], [ 1, %51 ], [ 1, %45 ], [ %..i29.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
 check_offset_length.exit:                         ; preds = %50
@@ -1905,7 +1905,7 @@ check_offset_length.exit:                         ; preds = %50
 65:                                               ; preds = %62
   %66 = zext i32 %47 to i64
   %67 = getelementptr i8, ptr %64, i64 %66
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1, ptr noundef align 1 %67, i64 noundef range(i64 0, 4294967296) %3, i1 noundef false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1, ptr noundef align 1 %67, i64 noundef range(i64 0, 4294967296) %3, i1 noundef false) #20
   br label %76
 
 68:                                               ; preds = %62
@@ -1925,7 +1925,7 @@ check_offset_length.exit:                         ; preds = %50
   br i1 %.not24, label %76, label %75
 
 75:                                               ; preds = %.critedge
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 960) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 960) #19
   unreachable
 
 76:                                               ; preds = %.critedge, %73, %65
@@ -1945,7 +1945,7 @@ define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 987, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 987, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -2052,7 +2052,7 @@ define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
 
 62:                                               ; preds = %.sink.split, %42, %46, %52, %55, %35, %32, %19, %16
   %.0.i.ph = phi i64 [ 1, %16 ], [ 4, %19 ], [ 1, %32 ], [ 4, %35 ], [ 4, %55 ], [ 1, %52 ], [ 1, %46 ], [ 1, %42 ], [ %..i29.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
 check_offset_length.exit:                         ; preds = %51
@@ -2061,7 +2061,7 @@ check_offset_length.exit:                         ; preds = %51
 
 64:                                               ; preds = %check_offset_length.exit
   %65 = zext i32 %spec.select to i64
-  %66 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %65) #20
+  %66 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %65) #21
   %67 = tail call ptr @tvb_memcpy(ptr noundef nonnull %1, ptr noundef %66, i32 noundef %44, i64 noundef %65)
   br label %68
 
@@ -2098,7 +2098,7 @@ define internal fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 893, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 893, ptr noundef nonnull @.str.5) #19
   unreachable
 
 9:                                                ; preds = %4
@@ -2134,7 +2134,7 @@ define internal fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %
   br i1 %.not30, label %27, label %26
 
 26:                                               ; preds = %23
-  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #19
   unreachable
 
 27:                                               ; preds = %23
@@ -2145,7 +2145,7 @@ define internal fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %
   br i1 %.not31, label %32, label %31
 
 31:                                               ; preds = %27
-  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #19
   unreachable
 
 32:                                               ; preds = %27
@@ -2155,11 +2155,11 @@ define internal fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %
   br i1 %.not32, label %36, label %35
 
 35:                                               ; preds = %32
-  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #19
   unreachable
 
 36:                                               ; preds = %32
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 37:                                               ; preds = %20, %14
@@ -3963,7 +3963,7 @@ define ptr @tvb_get_string_bytes(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %9, label %10, label %validate_single_byte_ascii_encoding.exit
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36) #19
   unreachable
 
 validate_single_byte_ascii_encoding.exit:         ; preds = %6
@@ -3971,7 +3971,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %validate_single_byte_ascii_encoding.exit
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2934, ptr noundef nonnull @.str.37) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2934, ptr noundef nonnull @.str.37) #19
   unreachable
 
 13:                                               ; preds = %validate_single_byte_ascii_encoding.exit
@@ -3979,7 +3979,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2935, ptr noundef nonnull @.str.38) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2935, ptr noundef nonnull @.str.38) #19
   unreachable
 
 16:                                               ; preds = %13
@@ -3997,7 +3997,7 @@ tvb_get_raw_string.exit:                          ; preds = %16, %18
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i)
   %22 = add i32 %.0.i, 1
   %23 = sext i32 %22 to i64
-  %24 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %23) #20
+  %24 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %23) #21
   %25 = sext i32 %.0.i to i64
   %26 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %24, i32 noundef %1, i64 noundef %25)
   %27 = getelementptr i8, ptr %24, i64 %25
@@ -4078,7 +4078,7 @@ define noundef ptr @tvb_get_string_time(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %17, label %18, label %validate_single_byte_ascii_encoding.exit
 
 18:                                               ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36) #19
   unreachable
 
 validate_single_byte_ascii_encoding.exit:         ; preds = %6
@@ -4086,7 +4086,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %.not, label %19, label %20
 
 19:                                               ; preds = %validate_single_byte_ascii_encoding.exit
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1857, ptr noundef nonnull @.str.11) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1857, ptr noundef nonnull @.str.11) #19
   unreachable
 
 20:                                               ; preds = %validate_single_byte_ascii_encoding.exit
@@ -4094,7 +4094,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %20
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2934, ptr noundef nonnull @.str.37) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2934, ptr noundef nonnull @.str.37) #19
   unreachable
 
 23:                                               ; preds = %20
@@ -4102,7 +4102,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %23
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2935, ptr noundef nonnull @.str.38) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2935, ptr noundef nonnull @.str.38) #19
   unreachable
 
 26:                                               ; preds = %23
@@ -4120,7 +4120,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i)
   %32 = add i32 %.0.i, 1
   %33 = sext i32 %32 to i64
-  %34 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %33) #20
+  %34 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %33) #21
   %35 = sext i32 %.0.i to i64
   %36 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %34, i32 noundef %1, i64 noundef %35)
   %37 = getelementptr i8, ptr %34, i64 %35
@@ -4162,7 +4162,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
 
 50:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 noundef 0, i64 noundef 56, i1 noundef false) #19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 noundef 0, i64 noundef 56, i1 noundef false) #20
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 -1, ptr %51, align 8
   store i64 0, ptr %4, align 8
@@ -4176,7 +4176,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.092, ptr noundef nonnull @.str.12, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %7) #19
+  %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.092, ptr noundef nonnull @.str.12, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %7) #20
   %59 = icmp sgt i32 %58, 2
   br i1 %59, label %60, label %.thread155
 
@@ -4204,15 +4204,15 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %75 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.092, ptr noundef nonnull @.str.13, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %8, ptr noundef nonnull %7) #19
+  %75 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.092, ptr noundef nonnull @.str.13, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %8, ptr noundef nonnull %7) #20
   %76 = icmp sgt i32 %75, 1
   br i1 %76, label %77, label %.thread155
 
 77:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %78 = call i64 @time(ptr noundef null) #19
+  %78 = call i64 @time(ptr noundef null) #20
   store i64 %78, ptr %9, align 8
-  %79 = call ptr @gmtime(ptr noundef nonnull %9) #19
+  %79 = call ptr @gmtime(ptr noundef nonnull %9) #20
   %.not123 = icmp eq ptr %79, null
   br i1 %.not123, label %89, label %80
 
@@ -4293,7 +4293,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.193, ptr noundef nonnull @.str.14, ptr noundef nonnull %124, ptr noundef nonnull %10, ptr noundef nonnull %7) #19
+  %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.193, ptr noundef nonnull @.str.14, ptr noundef nonnull %124, ptr noundef nonnull %10, ptr noundef nonnull %7) #20
   %126 = icmp slt i32 %125, 2
   br i1 %126, label %.thread155.sink.split, label %127
 
@@ -4395,7 +4395,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %162 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %163 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.395, ptr noundef nonnull @.str.15, ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7) #19
+  %163 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.395, ptr noundef nonnull @.str.15, ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7) #20
   %164 = icmp slt i32 %163, 2
   br i1 %164, label %parse_month_name.exit.thread149, label %165
 
@@ -4439,7 +4439,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %183 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.496, ptr noundef nonnull @.str.18, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %7) #19
+  %183 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.496, ptr noundef nonnull @.str.18, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %7) #20
   %184 = icmp slt i32 %183, 3
   br i1 %184, label %188, label %185
 
@@ -4498,7 +4498,7 @@ parse_month_name.exit:                            ; preds = %180, %175, %189
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %199
-  %203 = tail call ptr @__errno_location() #21
+  %203 = tail call ptr @__errno_location() #22
   %204 = load i32, ptr %203, align 4
   %.not124 = icmp eq i32 %204, 0
   br i1 %.not124, label %205, label %.thread155
@@ -4575,7 +4575,7 @@ define i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @tvb_get_ipv6(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %2, ptr noundef align 1 dereferenceable(16) %4, i64 noundef 16, i1 noundef false) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %2, ptr noundef align 1 dereferenceable(16) %4, i64 noundef 16, i1 noundef false) #20
   ret void
 }
 
@@ -4617,7 +4617,7 @@ define hidden range(i32 -1, 17) i32 @tvb_get_ipv6_addr_with_prefix_len(ptr nound
 6:                                                ; preds = %4
   %7 = add nuw nsw i32 %3, 7
   %8 = lshr i32 %7, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(16) %2, i8 noundef 0, i64 noundef 16, i1 noundef false) #19
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(16) %2, i8 noundef 0, i64 noundef 16, i1 noundef false) #20
   %9 = zext nneg i32 %8 to i64
   %10 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %2, i32 noundef %1, i64 noundef %9)
   %11 = and i32 %3, 7
@@ -4801,7 +4801,7 @@ define ptr @tvb_get_bits_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %16, label %tvb_reported_length.exit, label %17
 
 17:                                               ; preds = %13, %12
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 746, ptr noundef nonnull @.str.5) #19
   unreachable
 
 tvb_reported_length.exit:                         ; preds = %13
@@ -5143,7 +5143,7 @@ define i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 no
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2460, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2460, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -5212,7 +5212,7 @@ define i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 no
 
 41:                                               ; preds = %.sink.split, %34, %31, %18, %15
   %.0.i9.i.ph = phi i64 [ 1, %15 ], [ 4, %18 ], [ 1, %31 ], [ 4, %34 ], [ %.37.i.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #19
   unreachable
 
 42:                                               ; preds = %29, %12
@@ -5232,7 +5232,7 @@ define i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 no
   %51 = getelementptr i8, ptr %48, i64 %50
   %52 = zext i8 %3 to i32
   %53 = zext i32 %spec.select to i64
-  %54 = tail call ptr @memchr(ptr noundef %51, i32 noundef %52, i64 noundef %53) #22
+  %54 = tail call ptr @memchr(ptr noundef %51, i32 noundef %52, i64 noundef %53) #23
   %55 = icmp eq ptr %54, null
   br i1 %55, label %tvb_find_uint8_generic.exit, label %56
 
@@ -5263,7 +5263,7 @@ define i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 no
 70:                                               ; preds = %68
   %71 = zext i8 %3 to i32
   %72 = zext i32 %spec.select to i64
-  %73 = tail call ptr @memchr(ptr noundef nonnull %69, i32 noundef %71, i64 noundef %72) #22
+  %73 = tail call ptr @memchr(ptr noundef nonnull %69, i32 noundef %71, i64 noundef %72) #23
   %.not13.i = icmp eq ptr %73, null
   br i1 %.not13.i, label %tvb_find_uint8_generic.exit, label %74
 
@@ -5350,7 +5350,7 @@ define i32 @tvb_find_uint16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 
 
 35:                                               ; preds = %.sink.split, %28, %25, %12, %9
   %.0.i9.i.ph = phi i64 [ 1, %9 ], [ 4, %12 ], [ 1, %25 ], [ 4, %28 ], [ %.37.i.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #19
   unreachable
 
 36:                                               ; preds = %23, %6
@@ -5412,7 +5412,7 @@ define i32 @tvb_ws_mempbrk_pattern_uint8(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2581, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2581, ptr noundef nonnull @.str.5) #19
   unreachable
 
 11:                                               ; preds = %6
@@ -5481,7 +5481,7 @@ define i32 @tvb_ws_mempbrk_pattern_uint8(ptr noundef %0, i32 noundef %1, i32 nou
 
 42:                                               ; preds = %.sink.split, %35, %32, %19, %16
   %.0.i9.i.ph = phi i64 [ 1, %16 ], [ 4, %19 ], [ 1, %32 ], [ 4, %35 ], [ %.37.i.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #19
   unreachable
 
 43:                                               ; preds = %30, %13
@@ -5561,7 +5561,7 @@ define i32 @tvb_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2622, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2622, ptr noundef nonnull @.str.5) #19
   unreachable
 
 8:                                                ; preds = %3
@@ -5650,7 +5650,7 @@ define i32 @tvb_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 50:                                               ; preds = %.sink.split, %40, %43, %30, %27, %16, %13
   %.0.i.ph = phi i64 [ 1, %13 ], [ 4, %16 ], [ 1, %27 ], [ 4, %30 ], [ 4, %43 ], [ 1, %40 ], [ %..i29.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
 check_offset_length.exit:                         ; preds = %10, %37
@@ -5668,7 +5668,7 @@ check_offset_length.exit:                         ; preds = %10, %37
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %54
-  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #19
   unreachable
 
 61:                                               ; preds = %54
@@ -5679,7 +5679,7 @@ check_offset_length.exit:                         ; preds = %10, %37
   br i1 %.not13, label %66, label %65
 
 65:                                               ; preds = %61
-  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 4, ptr noundef null) #19
   unreachable
 
 66:                                               ; preds = %61
@@ -5689,11 +5689,11 @@ check_offset_length.exit:                         ; preds = %10, %37
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %66
-  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 2, ptr noundef null) #19
   unreachable
 
 71:                                               ; preds = %66
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 72:                                               ; preds = %check_offset_length.exit
@@ -5714,7 +5714,7 @@ define i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %6, label %.preheader, label %7
 
 7:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2652, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2652, ptr noundef nonnull @.str.5) #19
   unreachable
 
 .preheader:                                       ; preds = %3, %.preheader
@@ -5745,7 +5745,7 @@ define i32 @tvb_strnlen(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2673, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2673, ptr noundef nonnull @.str.5) #19
   unreachable
 
 9:                                                ; preds = %4
@@ -5834,7 +5834,7 @@ define i32 @tvb_strnlen(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
 
 51:                                               ; preds = %.sink.split, %41, %44, %31, %28, %17, %14
   %.0.i.ph = phi i64 [ 1, %14 ], [ 4, %17 ], [ 1, %28 ], [ 4, %31 ], [ 4, %44 ], [ 1, %41 ], [ %..i29.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
 check_offset_length.exit:                         ; preds = %11, %38
@@ -5913,7 +5913,7 @@ define range(i32 -1, 1) i32 @tvb_strneql(ptr noundef %0, i32 noundef %1, ptr nou
   br label %ensure_contiguous_no_exception.exit
 
 40:                                               ; preds = %33
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #19
   unreachable
 
 ensure_contiguous_no_exception.exit:              ; preds = %30, %38
@@ -5922,7 +5922,7 @@ ensure_contiguous_no_exception.exit:              ; preds = %30, %38
   br i1 %.not, label %ensure_contiguous_no_exception.exit.thread, label %41
 
 41:                                               ; preds = %ensure_contiguous_no_exception.exit
-  %42 = tail call i32 @strncmp(ptr noundef nonnull %.0.i, ptr noundef %2, i64 noundef %3) #22
+  %42 = tail call i32 @strncmp(ptr noundef nonnull %.0.i, ptr noundef %2, i64 noundef %3) #23
   %43 = icmp ne i32 %42, 0
   %44 = sext i1 %43 to i32
   br label %ensure_contiguous_no_exception.exit.thread
@@ -6002,7 +6002,7 @@ define range(i32 -1, 1) i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr
   br label %ensure_contiguous_no_exception.exit
 
 40:                                               ; preds = %33
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #19
   unreachable
 
 ensure_contiguous_no_exception.exit:              ; preds = %30, %38
@@ -6088,7 +6088,7 @@ define range(i32 -1, 1) i32 @tvb_memeql(ptr noundef %0, i32 noundef %1, ptr noun
   br label %ensure_contiguous_no_exception.exit
 
 40:                                               ; preds = %33
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #19
   unreachable
 
 ensure_contiguous_no_exception.exit:              ; preds = %30, %38
@@ -6203,7 +6203,7 @@ define ptr @tvb_get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef %1
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3066, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3066, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -6233,7 +6233,7 @@ define ptr @tvb_get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr noundef 
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3078, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3078, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -6257,7 +6257,7 @@ define ptr @tvb_get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef %
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3090, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3090, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -6281,7 +6281,7 @@ define ptr @tvb_get_ascii_7bits_string(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3104, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3104, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -6311,7 +6311,7 @@ define ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3293, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3293, ptr noundef nonnull @.str.5) #19
   unreachable
 
 11:                                               ; preds = %6
@@ -6319,7 +6319,7 @@ define ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %11
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 14:                                               ; preds = %11
@@ -6700,7 +6700,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %9, %8
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4630, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4630, ptr noundef nonnull @.str.5) #19
   unreachable
 
 14:                                               ; preds = %9
@@ -6723,7 +6723,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %24 = shl i32 %.042, 1
   %25 = or disjoint i32 %24, 1
   %26 = sext i32 %25 to i64
-  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %26) #20
+  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %26) #21
   %28 = icmp sgt i32 %.042, 0
   br i1 %28, label %.lr.ph, label %._crit_edge
 
@@ -6865,7 +6865,7 @@ define ptr @tvb_get_stringz_enc(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3788, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 3788, ptr noundef nonnull @.str.5) #19
   unreachable
 
 11:                                               ; preds = %6
@@ -7347,11 +7347,11 @@ tvb_get_iso_646_stringz.exit:                     ; preds = %172, %175
   br label %214
 
 177:                                              ; preds = %11, %11, %11
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.19) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.19) #19
   unreachable
 
 178:                                              ; preds = %11
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.20) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.20) #19
   unreachable
 
 179:                                              ; preds = %11
@@ -7469,7 +7469,7 @@ define range(i32 0, -1) i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 no
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4072, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4072, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -7545,7 +7545,7 @@ define range(i32 0, -1) i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 no
 
 46:                                               ; preds = %.sink.split.i, %41, %34, %31, %18, %15
   %.0.i.ph.i = phi i64 [ 1, %15 ], [ 4, %18 ], [ 1, %31 ], [ 4, %34 ], [ 1, %41 ], [ %.37.i.i.i, %.sink.split.i ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph.i, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph.i, ptr noundef null) #19
   unreachable
 
 check_offset_length.exit.i:                       ; preds = %41
@@ -7555,7 +7555,7 @@ check_offset_length.exit.i:                       ; preds = %41
   ]
 
 47:                                               ; preds = %check_offset_length.exit.i
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4011, ptr noundef nonnull @.str.39) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4011, ptr noundef nonnull @.str.39) #19
   unreachable
 
 48:                                               ; preds = %check_offset_length.exit.i
@@ -7569,11 +7569,11 @@ check_offset_length.exit.i:                       ; preds = %41
   ]
 
 50:                                               ; preds = %49
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #19
   unreachable
 
 51:                                               ; preds = %49
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4029, ptr noundef nonnull @.str.40) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4029, ptr noundef nonnull @.str.40) #19
   unreachable
 
 52:                                               ; preds = %49
@@ -7581,7 +7581,7 @@ check_offset_length.exit.i:                       ; preds = %41
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %52
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4035, ptr noundef nonnull @.str.41) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4035, ptr noundef nonnull @.str.41) #19
   unreachable
 
 55:                                               ; preds = %52
@@ -7635,7 +7635,7 @@ define range(i32 0, 2147483647) i32 @tvb_get_raw_bytes_as_string(ptr noundef %0,
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4096, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4096, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -7643,7 +7643,7 @@ define range(i32 0, 2147483647) i32 @tvb_get_raw_bytes_as_string(ptr noundef %0,
   br i1 %.not24, label %11, label %12
 
 11:                                               ; preds = %10
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4099, ptr noundef nonnull @.str.21) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4099, ptr noundef nonnull @.str.21) #19
   unreachable
 
 12:                                               ; preds = %10
@@ -7651,7 +7651,7 @@ define range(i32 0, 2147483647) i32 @tvb_get_raw_bytes_as_string(ptr noundef %0,
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4101, ptr noundef nonnull @.str.22) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4101, ptr noundef nonnull @.str.22) #19
   unreachable
 
 15:                                               ; preds = %12
@@ -7885,7 +7885,7 @@ define i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4194, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4194, ptr noundef nonnull @.str.5) #19
   unreachable
 
 12:                                               ; preds = %7
@@ -8002,7 +8002,7 @@ define i32 @tvb_find_line_end_unquoted(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4318, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4318, ptr noundef nonnull @.str.5) #19
   unreachable
 
 11:                                               ; preds = %6
@@ -8135,7 +8135,7 @@ define i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %4, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4464, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4464, ptr noundef nonnull @.str.5) #19
   unreachable
 
 9:                                                ; preds = %4
@@ -8183,7 +8183,7 @@ define noundef i32 @tvb_skip_wsp_return(ptr noundef %0, i32 noundef %1) local_un
   br i1 %7, label %.lr.ph, label %.critedge
 
 8:                                                ; preds = %3, %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4492, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4492, ptr noundef nonnull @.str.5) #19
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge7
@@ -8220,7 +8220,7 @@ define hidden i32 @tvb_skip_uint8(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4507, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4507, ptr noundef nonnull @.str.5) #19
   unreachable
 
 10:                                               ; preds = %5
@@ -8263,7 +8263,7 @@ define i32 @tvb_get_token_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4538, ptr noundef nonnull @.str.5) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4538, ptr noundef nonnull @.str.5) #19
   unreachable
 
 12:                                               ; preds = %7
@@ -8347,7 +8347,7 @@ define ptr @tvb_bytes_to_str_punct(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4603, ptr noundef nonnull @.str.26) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4603, ptr noundef nonnull @.str.26) #19
   unreachable
 
 8:                                                ; preds = %5
@@ -8382,7 +8382,7 @@ define ptr @tvb_bytes_to_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4730, ptr noundef nonnull @.str.26) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4730, ptr noundef nonnull @.str.26) #19
   unreachable
 
 7:                                                ; preds = %4
@@ -8409,7 +8409,7 @@ define i32 @tvb_find_tvb(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4744, ptr noundef nonnull @.str.28) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 4744, ptr noundef nonnull @.str.28) #19
   unreachable
 
 11:                                               ; preds = %6
@@ -8435,7 +8435,7 @@ define i32 @tvb_find_tvb(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %.not18.i.i, label %24, label %ensure_contiguous_no_exception.exit.i
 
 24:                                               ; preds = %19
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #19
   unreachable
 
 ensure_contiguous_no_exception.exit.i:            ; preds = %19
@@ -8448,7 +8448,7 @@ ensure_contiguous_no_exception.exit.i.ensure_contiguous.exit_crit_edge: ; preds 
   br label %ensure_contiguous.exit
 
 27:                                               ; preds = %ensure_contiguous_no_exception.exit.i
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @.str.33) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @.str.33) #19
   unreachable
 
 ensure_contiguous.exit:                           ; preds = %ensure_contiguous_no_exception.exit.i.ensure_contiguous.exit_crit_edge, %16
@@ -8468,7 +8468,7 @@ ensure_contiguous.exit:                           ; preds = %ensure_contiguous_n
   br i1 %.not18.i.i23, label %36, label %ensure_contiguous_no_exception.exit.i20
 
 36:                                               ; preds = %31
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 869) #19
   unreachable
 
 ensure_contiguous_no_exception.exit.i20:          ; preds = %31
@@ -8477,7 +8477,7 @@ ensure_contiguous_no_exception.exit.i20:          ; preds = %31
   br i1 %38, label %39, label %ensure_contiguous.exit24
 
 39:                                               ; preds = %ensure_contiguous_no_exception.exit.i20
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @.str.33) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @.str.33) #19
   unreachable
 
 ensure_contiguous.exit24:                         ; preds = %ensure_contiguous.exit, %ensure_contiguous_no_exception.exit.i20
@@ -8551,7 +8551,7 @@ ensure_contiguous.exit24:                         ; preds = %ensure_contiguous.e
 
 72:                                               ; preds = %.sink.split, %68, %61, %58, %46, %43
   %.0.i.ph = phi i64 [ 1, %43 ], [ 4, %46 ], [ 1, %58 ], [ 4, %61 ], [ 1, %68 ], [ %.37.i.i, %.sink.split ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #18
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
 check_offset_length.exit:                         ; preds = %68
@@ -8595,7 +8595,7 @@ define i32 @tvb_raw_offset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %10, label %tvb_offset_from_real_beginning.exit
 
 10:                                               ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 828) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 828) #19
   unreachable
 
 tvb_offset_from_real_beginning.exit:              ; preds = %5
@@ -8848,7 +8848,7 @@ default.unreachable76:                            ; preds = %.split
   unreachable
 
 117:                                              ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 4874) #18
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 4874) #19
   unreachable
 
 .thread73:                                        ; preds = %52, %.lr.ph, %44, %38, %21, %.preheader89, %.preheader87, %.preheader, %.thread70, %.thread, %84, %67, %60, %58
@@ -8922,29 +8922,29 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #14
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8960,15 +8960,16 @@ attributes #10 = { mustprogress nocallback nofree nounwind null_pointer_is_valid
 attributes #11 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { allocsize(0) }
-attributes #18 = { noreturn }
-attributes #19 = { nounwind }
-attributes #20 = { allocsize(1) }
-attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { allocsize(0) }
+attributes #19 = { noreturn }
+attributes #20 = { nounwind }
+attributes #21 = { allocsize(1) }
+attributes #22 = { nounwind willreturn memory(none) }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull %3) #5
+  %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %71
 
@@ -39,7 +39,7 @@ define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 48, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 48, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   br label %71
 
 8:                                                ; preds = %5
@@ -62,7 +62,7 @@ define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17, %13, %8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 57, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 57, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #6
   br label %71
 
 22:                                               ; preds = %17
@@ -79,7 +79,7 @@ define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not26, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = call i32 @SUNNonlinSolFree(ptr noundef nonnull %25) #5
+  %30 = call i32 @SUNNonlinSolFree(ptr noundef nonnull %25) #6
   %.pre = load ptr, ptr %3, align 8, !tbaa !14
   br label %31
 
@@ -89,17 +89,17 @@ define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   store ptr %1, ptr %33, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 176
   store i32 0, ptr %34, align 8, !tbaa !28
-  %35 = call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #5
+  %35 = call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #6
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %31
-  %38 = call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #5
+  %38 = call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #6
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %37
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 83, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 83, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #6
   br label %71
 
 41:                                               ; preds = %37, %31
@@ -107,24 +107,24 @@ define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   %42 = load ptr, ptr %3, align 8, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 168
   %44 = load ptr, ptr %43, align 8, !tbaa !16
-  %45 = call i32 @SUNNonlinSolSetSysFn(ptr noundef %44, ptr noundef nonnull %mriStep_NlsFPFunction.sink) #5
+  %45 = call i32 @SUNNonlinSolSetSysFn(ptr noundef %44, ptr noundef nonnull %mriStep_NlsFPFunction.sink) #6
   %.not27 = icmp eq i32 %45, 0
   br i1 %.not27, label %47, label %46
 
 46:                                               ; preds = %41
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 89, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 89, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #6
   br label %71
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr %3, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 168
   %50 = load ptr, ptr %49, align 8, !tbaa !16
-  %51 = call i32 @SUNNonlinSolSetConvTestFn(ptr noundef %50, ptr noundef nonnull @mriStep_NlsConvTest, ptr noundef %0) #5
+  %51 = call i32 @SUNNonlinSolSetConvTestFn(ptr noundef %50, ptr noundef nonnull @mriStep_NlsConvTest, ptr noundef %0) #6
   %.not28 = icmp eq i32 %51, 0
   br i1 %.not28, label %53, label %52
 
 52:                                               ; preds = %47
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 99, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 99, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
   br label %71
 
 53:                                               ; preds = %47
@@ -133,12 +133,12 @@ define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   %56 = load ptr, ptr %55, align 8, !tbaa !16
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 296
   %58 = load i32, ptr %57, align 8, !tbaa !29
-  %59 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef %56, i32 noundef %58) #5
+  %59 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef %56, i32 noundef %58) #6
   %.not29 = icmp eq i32 %59, 0
   br i1 %.not29, label %61, label %60
 
 60:                                               ; preds = %53
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 108, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 108, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #6
   br label %71
 
 61:                                               ; preds = %53
@@ -157,7 +157,7 @@ define i32 @mriStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not31, label %69, label %70
 
 69:                                               ; preds = %66
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 120, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 120, ptr noundef nonnull @__func__.mriStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #6
   br label %71
 
 70:                                               ; preds = %66
@@ -190,7 +190,7 @@ define i32 @mriStep_NlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.mriStep_NlsResidual, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %8 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.mriStep_NlsResidual, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %68
 
@@ -201,7 +201,7 @@ define i32 @mriStep_NlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %13 = load ptr, ptr %4, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 584
   %15 = load ptr, ptr %14, align 8, !tbaa !36
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %15) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %15) #6
   %16 = load ptr, ptr %5, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %18 = load ptr, ptr %17, align 8, !tbaa !30
@@ -224,7 +224,7 @@ define i32 @mriStep_NlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %35 = load ptr, ptr %34, align 8, !tbaa !47
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !48
-  %38 = call i32 %18(double noundef %21, ptr noundef %23, ptr noundef %35, ptr noundef %37) #5
+  %38 = call i32 %18(double noundef %21, ptr noundef %23, ptr noundef %35, ptr noundef %37) #6
   %39 = load ptr, ptr %5, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 416
   %41 = load i64, ptr %40, align 8, !tbaa !49
@@ -265,7 +265,7 @@ define i32 @mriStep_NlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %65 = load ptr, ptr %64, align 8, !tbaa !47
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %65, ptr %66, align 16, !tbaa !47
-  %67 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #5
+  %67 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #6
   %.not12 = icmp eq i32 %67, 0
   %. = select i1 %.not12, i32 0, i32 -28
   br label %68
@@ -285,7 +285,7 @@ define i32 @mriStep_NlsFPFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.mriStep_NlsFPFunction, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %6 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.mriStep_NlsFPFunction, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %60
 
@@ -296,7 +296,7 @@ define i32 @mriStep_NlsFPFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %11 = load ptr, ptr %4, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 584
   %13 = load ptr, ptr %12, align 8, !tbaa !36
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #6
   %14 = load ptr, ptr %5, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %16 = load ptr, ptr %15, align 8, !tbaa !30
@@ -319,7 +319,7 @@ define i32 @mriStep_NlsFPFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %33 = load ptr, ptr %32, align 8, !tbaa !47
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !48
-  %36 = call i32 %16(double noundef %19, ptr noundef %21, ptr noundef %33, ptr noundef %35) #5
+  %36 = call i32 %16(double noundef %19, ptr noundef %21, ptr noundef %33, ptr noundef %35) #6
   %37 = load ptr, ptr %5, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 416
   %39 = load i64, ptr %38, align 8, !tbaa !49
@@ -349,7 +349,7 @@ define i32 @mriStep_NlsFPFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %57 = load ptr, ptr %56, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 136
   %59 = load ptr, ptr %58, align 8, !tbaa !51
-  call void @N_VLinearSum(double noundef %45, ptr noundef %57, double noundef 1.000000e+00, ptr noundef %59, ptr noundef %1) #5
+  call void @N_VLinearSum(double noundef %45, ptr noundef %57, double noundef 1.000000e+00, ptr noundef %59, ptr noundef %1) #6
   br label %60
 
 60:                                               ; preds = %42, %7, %3, %43
@@ -369,7 +369,7 @@ define i32 @mriStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %5, ptr noundef nonnull @__func__.mriStep_NlsConvTest, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  %10 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %5, ptr noundef nonnull @__func__.mriStep_NlsConvTest, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %49
 
@@ -381,8 +381,8 @@ define i32 @mriStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
   br i1 %.not18, label %15, label %49
 
 15:                                               ; preds = %11
-  %16 = call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %4) #5
-  %17 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %0, ptr noundef nonnull %9) #5
+  %16 = call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %4) #6
+  %17 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %0, ptr noundef nonnull %9) #6
   %.not19 = icmp eq i32 %17, 0
   br i1 %.not19, label %18, label %49
 
@@ -449,7 +449,7 @@ declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_add
 define i32 @mriStep_SetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetNlsRhsFn, ptr noundef nonnull %3) #5
+  %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetNlsRhsFn, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %11
 
@@ -478,7 +478,7 @@ define i32 @mriStep_SetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 define i32 @mriStep_GetNonlinearSystemData(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetNonlinearSystemData, ptr noundef nonnull %9) #5
+  %10 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetNonlinearSystemData, ptr noundef nonnull %9) #6
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %37
 
@@ -530,7 +530,7 @@ define range(i32 -29, 1) i32 @mriStep_NlsInit(ptr noundef %0) local_unnamed_addr
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 202, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 202, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #6
   br label %26
 
 6:                                                ; preds = %1
@@ -542,12 +542,12 @@ define range(i32 -29, 1) i32 @mriStep_NlsInit(ptr noundef %0) local_unnamed_addr
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %.mriStep_NlsLSetup = select i1 %.not, ptr null, ptr @mriStep_NlsLSetup
-  %12 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef %.mriStep_NlsLSetup) #5
+  %12 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef %.mriStep_NlsLSetup) #6
   %.not20 = icmp eq i32 %12, 0
   br i1 %.not20, label %14, label %13
 
 13:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 220, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 220, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #6
   br label %26
 
 14:                                               ; preds = %6
@@ -557,23 +557,23 @@ define range(i32 -29, 1) i32 @mriStep_NlsInit(ptr noundef %0) local_unnamed_addr
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %.mriStep_NlsLSolve = select i1 %.not21, ptr null, ptr @mriStep_NlsLSolve
-  %19 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %18, ptr noundef %.mriStep_NlsLSolve) #5
+  %19 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %18, ptr noundef %.mriStep_NlsLSolve) #6
   %.not22 = icmp eq i32 %19, 0
   br i1 %.not22, label %21, label %20
 
 20:                                               ; preds = %14
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 233, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 233, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #6
   br label %26
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %23 = load ptr, ptr %22, align 8, !tbaa !16
-  %24 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %23) #5
+  %24 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %23) #6
   %.not23 = icmp eq i32 %24, 0
   br i1 %.not23, label %26, label %25
 
 25:                                               ; preds = %21
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 242, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 242, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #6
   br label %26
 
 26:                                               ; preds = %21, %25, %20, %13, %5
@@ -589,7 +589,7 @@ define i32 @mriStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.mriStep_NlsLSetup, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %6 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.mriStep_NlsLSetup, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %56
 
@@ -639,7 +639,7 @@ define i32 @mriStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
   %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 632
   %39 = load ptr, ptr %38, align 8, !tbaa !66
-  %40 = call i32 %15(ptr noundef %16, i32 noundef %10, double noundef %18, ptr noundef %20, ptr noundef %32, ptr noundef nonnull %33, ptr noundef %35, ptr noundef %37, ptr noundef %39) #5
+  %40 = call i32 %15(ptr noundef %16, i32 noundef %10, double noundef %18, ptr noundef %20, ptr noundef %32, ptr noundef nonnull %33, ptr noundef %35, ptr noundef %37, ptr noundef %39) #6
   %41 = load ptr, ptr %5, align 8, !tbaa !14
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 304
   %43 = load i32, ptr %42, align 8, !tbaa !67
@@ -684,7 +684,7 @@ define i32 @mriStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %1, ptr noundef nonnull @__func__.mriStep_NlsLSolve, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  %6 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %1, ptr noundef nonnull @__func__.mriStep_NlsLSolve, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %39
 
@@ -692,7 +692,7 @@ define i32 @mriStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   %8 = load ptr, ptr %4, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load ptr, ptr %9, align 8, !tbaa !16
-  %11 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %10, ptr noundef nonnull %5) #5
+  %11 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %10, ptr noundef nonnull %5) #6
   %.not9 = icmp eq i32 %11, 0
   br i1 %.not9, label %12, label %39
 
@@ -720,7 +720,7 @@ define i32 @mriStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %34 = load double, ptr %33, align 8, !tbaa !73
   %35 = load i32, ptr %5, align 4, !tbaa !46
-  %36 = call i32 %15(ptr noundef %16, ptr noundef %0, double noundef %18, ptr noundef %20, ptr noundef %32, double noundef %34, i32 noundef %35) #5
+  %36 = call i32 %15(ptr noundef %16, ptr noundef %0, double noundef %18, ptr noundef %20, ptr noundef %32, double noundef %34, i32 noundef %35) #6
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %39, label %38
 
@@ -753,7 +753,7 @@ define range(i32 903, 902) i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) loca
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 275, ptr noundef nonnull @__func__.mriStep_Nls, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 275, ptr noundef nonnull @__func__.mriStep_Nls, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #6
   br label %93
 
 9:                                                ; preds = %2
@@ -842,7 +842,7 @@ define range(i32 903, 902) i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) loca
   %.048 = zext i1 %.048.shrunk to i32
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %61 = load ptr, ptr %60, align 8, !tbaa !78
-  tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %61) #5
+  tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %61) #6
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %63 = load double, ptr %62, align 8, !tbaa !79
   %64 = fmul double %63, 1.000000e-01
@@ -855,16 +855,16 @@ define range(i32 903, 902) i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) loca
   %70 = load ptr, ptr %60, align 8, !tbaa !78
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %72 = load ptr, ptr %71, align 8, !tbaa !80
-  %73 = tail call i32 @SUNNonlinSolSolve(ptr noundef %67, ptr noundef %69, ptr noundef %70, ptr noundef %72, double noundef %63, i32 noundef %.048, ptr noundef nonnull %0) #5
+  %73 = tail call i32 @SUNNonlinSolSolve(ptr noundef %67, ptr noundef %69, ptr noundef %70, ptr noundef %72, double noundef %63, i32 noundef %.048, ptr noundef nonnull %0) #6
   %74 = load ptr, ptr %66, align 8, !tbaa !16
-  %75 = call i32 @SUNNonlinSolGetNumIters(ptr noundef %74, ptr noundef nonnull %3) #5
+  %75 = call i32 @SUNNonlinSolGetNumIters(ptr noundef %74, ptr noundef nonnull %3) #6
   %76 = load i64, ptr %3, align 8, !tbaa !74
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 432
   %78 = load i64, ptr %77, align 8, !tbaa !81
   %79 = add nsw i64 %78, %76
   store i64 %79, ptr %77, align 8, !tbaa !81
   %80 = load ptr, ptr %66, align 8, !tbaa !16
-  %81 = call i32 @SUNNonlinSolGetNumConvFails(ptr noundef %80, ptr noundef nonnull %4) #5
+  %81 = call i32 @SUNNonlinSolGetNumConvFails(ptr noundef %80, ptr noundef nonnull %4) #6
   %82 = load i64, ptr %4, align 8, !tbaa !74
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 440
   %84 = load i64, ptr %83, align 8, !tbaa !82
@@ -882,7 +882,7 @@ define range(i32 903, 902) i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) loca
   %89 = load ptr, ptr %68, align 8, !tbaa !33
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %91 = load ptr, ptr %90, align 8, !tbaa !36
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %88, double noundef 1.000000e+00, ptr noundef %89, ptr noundef %91) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %88, double noundef 1.000000e+00, ptr noundef %89, ptr noundef %91) #6
   br label %93
 
 92:                                               ; preds = %59
@@ -895,11 +895,11 @@ define range(i32 903, 902) i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) loca
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #2
+declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
 declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
@@ -920,20 +920,21 @@ declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr nou
 declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

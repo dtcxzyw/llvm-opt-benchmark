@@ -103,7 +103,7 @@ define range(i32 0, 29) i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef
 32:                                               ; preds = %.lr.ph.split
   %33 = zext i32 %30 to i64
   %34 = shl nuw nsw i64 %33, 4
-  %35 = tail call ptr @cli_safer_realloc(ptr noundef %17, i64 noundef %34) #13
+  %35 = tail call ptr @cli_safer_realloc(ptr noundef %17, i64 noundef %34) #14
   %.not.i12550 = icmp eq ptr %35, null
   br i1 %.not.i12550, label %ptr_register_glob_fixedid.exit, label %36
 
@@ -129,7 +129,7 @@ define range(i32 0, 29) i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef
   store ptr %24, ptr %48, align 8, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 %spec.select.i, ptr %49, align 8, !tbaa !42
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef %24, i32 noundef %spec.select.i, i32 noundef %30) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef %24, i32 noundef %spec.select.i, i32 noundef %30) #14
   br label %ptr_register_glob_fixedid.exit
 
 ptr_register_glob_fixedid.exit:                   ; preds = %._crit_edge.i, %32
@@ -162,7 +162,7 @@ ptr_register_glob_fixedid.exit:                   ; preds = %._crit_edge.i, %32
 65:                                               ; preds = %._crit_edge
   %66 = zext i32 %61 to i64
   %67 = shl nuw nsw i64 %66, 4
-  %68 = tail call ptr @cli_safer_realloc(ptr noundef %55, i64 noundef %67) #13
+  %68 = tail call ptr @cli_safer_realloc(ptr noundef %55, i64 noundef %67) #14
   %.not.i12555 = icmp eq ptr %68, null
   br i1 %.not.i12555, label %ptr_register_glob_fixedid.exit12556, label %69
 
@@ -187,11 +187,11 @@ ptr_register_glob_fixedid.exit:                   ; preds = %._crit_edge.i, %32
   store ptr %58, ptr %78, align 8, !tbaa !40
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 %spec.select.i12553, ptr %79, align 8, !tbaa !42
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef %58, i32 noundef %spec.select.i12553, i32 noundef %61) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef %58, i32 noundef %spec.select.i12553, i32 noundef %61) #14
   br label %ptr_register_glob_fixedid.exit12556
 
 ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i12551
-  %80 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #13
+  %80 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !56
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -228,7 +228,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not, label %100, label %109
 
 100:                                              ; preds = %97
-  %101 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #13
+  %101 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %102 = load i64, ptr %7, align 8, !tbaa !59
   %103 = icmp sgt i64 %102, %90
   br i1 %103, label %108, label %104
@@ -241,7 +241,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond, label %108, label %109
 
 108:                                              ; preds = %104, %100
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str, i32 noundef %98) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str, i32 noundef %98) #14
   br label %.loopexit17718
 
 109:                                              ; preds = %104, %97
@@ -2023,7 +2023,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %790, label %.thread14010.thread, label %791
 
 .thread14010.thread:                              ; preds = %778, %.thread14010
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #14
   br label %allocate_stack.exit.thread
 
 791:                                              ; preds = %.thread14010
@@ -2111,7 +2111,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %827, label %.thread14027.thread, label %828
 
 .thread14027.thread:                              ; preds = %816, %.thread14027
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #14
   br label %allocate_stack.exit.thread
 
 828:                                              ; preds = %.thread14027
@@ -2216,7 +2216,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %873, label %.thread14044.thread, label %874
 
 .thread14044.thread:                              ; preds = %858, %.thread14044
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #14
   br label %allocate_stack.exit.thread
 
 874:                                              ; preds = %.thread14044
@@ -2325,7 +2325,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %921, label %.thread14061.thread, label %922
 
 .thread14061.thread:                              ; preds = %906, %.thread14061
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #14
   br label %allocate_stack.exit.thread
 
 922:                                              ; preds = %.thread14061
@@ -2434,7 +2434,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %969, label %.thread14078.thread, label %970
 
 .thread14078.thread:                              ; preds = %954, %.thread14078
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #14
   br label %allocate_stack.exit.thread
 
 970:                                              ; preds = %.thread14078
@@ -2529,7 +2529,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11584.not, label %.thread14095.thread, label %1011
 
 .thread14095.thread:                              ; preds = %999, %.thread14095
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #14
   br label %allocate_stack.exit.thread
 
 1011:                                             ; preds = %.thread14095
@@ -2618,7 +2618,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not17716, label %.thread14112.thread, label %1048
 
 .thread14112.thread:                              ; preds = %1037, %.thread14112
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #14
   br label %allocate_stack.exit.thread
 
 1048:                                             ; preds = %.thread14112
@@ -2726,7 +2726,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not17715, label %.thread14129.thread, label %1095
 
 .thread14129.thread:                              ; preds = %1080, %.thread14129
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #14
   br label %allocate_stack.exit.thread
 
 1095:                                             ; preds = %.thread14129
@@ -2837,7 +2837,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not17714, label %.thread14146.thread, label %1144
 
 .thread14146.thread:                              ; preds = %1129, %.thread14146
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #14
   br label %allocate_stack.exit.thread
 
 1144:                                             ; preds = %.thread14146
@@ -2951,7 +2951,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond17694, label %1194, label %.thread17599
 
 .thread17599:                                     ; preds = %.thread14163, %1176
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #14
   br label %allocate_stack.exit.thread
 
 1194:                                             ; preds = %.thread14163
@@ -3032,7 +3032,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1229, label %.thread14180.thread, label %1230
 
 .thread14180.thread:                              ; preds = %1217, %.thread14180
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1230:                                             ; preds = %.thread14180
@@ -3120,7 +3120,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1266, label %.thread14197.thread, label %1267
 
 .thread14197.thread:                              ; preds = %1255, %.thread14197
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1267:                                             ; preds = %.thread14197
@@ -3225,7 +3225,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1312, label %.thread14214.thread, label %1313
 
 .thread14214.thread:                              ; preds = %1297, %.thread14214
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1313:                                             ; preds = %.thread14214
@@ -3334,7 +3334,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1360, label %.thread14231.thread, label %1361
 
 .thread14231.thread:                              ; preds = %1345, %.thread14231
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1361:                                             ; preds = %.thread14231
@@ -3443,7 +3443,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1408, label %.thread14248.thread, label %1409
 
 .thread14248.thread:                              ; preds = %1393, %.thread14248
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1409:                                             ; preds = %.thread14248
@@ -3524,7 +3524,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11459.not, label %.thread14265.thread, label %1444
 
 .thread14265.thread:                              ; preds = %1432, %.thread14265
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1444:                                             ; preds = %.thread14265
@@ -3613,7 +3613,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not17710, label %.thread14282.thread, label %1481
 
 .thread14282.thread:                              ; preds = %1470, %.thread14282
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1481:                                             ; preds = %.thread14282
@@ -3721,7 +3721,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not17709, label %.thread14299.thread, label %1528
 
 .thread14299.thread:                              ; preds = %1513, %.thread14299
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1528:                                             ; preds = %.thread14299
@@ -3832,7 +3832,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not17708, label %.thread14316.thread, label %1577
 
 .thread14316.thread:                              ; preds = %1562, %.thread14316
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1577:                                             ; preds = %.thread14316
@@ -3946,7 +3946,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond17695, label %1627, label %.thread17627
 
 .thread17627:                                     ; preds = %.thread14333, %1609
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #14
   br label %allocate_stack.exit.thread
 
 1627:                                             ; preds = %.thread14333
@@ -4048,7 +4048,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1672, label %1673, label %1674
 
 1673:                                             ; preds = %.thread14350
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #14
   br label %allocate_stack.exit.thread
 
 1674:                                             ; preds = %.thread14350
@@ -4145,7 +4145,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1716, label %1717, label %1718
 
 1717:                                             ; preds = %.thread14367
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #14
   br label %allocate_stack.exit.thread
 
 1718:                                             ; preds = %.thread14367
@@ -4255,7 +4255,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1768, label %1769, label %.thread14384.thread
 
 1769:                                             ; preds = %.thread14384
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #14
   br label %allocate_stack.exit.thread
 
 .thread14384.thread:                              ; preds = %1751, %.thread14384
@@ -4370,7 +4370,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1821, label %1822, label %.thread14401.thread
 
 1822:                                             ; preds = %.thread14401
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #14
   br label %allocate_stack.exit.thread
 
 .thread14401.thread:                              ; preds = %1803, %.thread14401
@@ -4483,7 +4483,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1872, label %1873, label %.thread14418.thread
 
 1873:                                             ; preds = %.thread14418
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #14
   br label %allocate_stack.exit.thread
 
 .thread14418.thread:                              ; preds = %1854, %.thread14418
@@ -4586,7 +4586,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1918, label %1919, label %1920
 
 1919:                                             ; preds = %.thread14435
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #14
   br label %allocate_stack.exit.thread
 
 1920:                                             ; preds = %.thread14435
@@ -4683,7 +4683,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %1962, label %1963, label %1964
 
 1963:                                             ; preds = %.thread14452
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #14
   br label %allocate_stack.exit.thread
 
 1964:                                             ; preds = %.thread14452
@@ -4793,7 +4793,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %2014, label %2015, label %.thread14469.thread
 
 2015:                                             ; preds = %.thread14469
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #14
   br label %allocate_stack.exit.thread
 
 .thread14469.thread:                              ; preds = %1997, %.thread14469
@@ -4908,7 +4908,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %2067, label %2068, label %.thread14486.thread
 
 2068:                                             ; preds = %.thread14486
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #14
   br label %allocate_stack.exit.thread
 
 .thread14486.thread:                              ; preds = %2049, %.thread14486
@@ -5021,7 +5021,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %2118, label %2119, label %.thread14503.thread
 
 2119:                                             ; preds = %.thread14503
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #14
   br label %allocate_stack.exit.thread
 
 .thread14503.thread:                              ; preds = %2100, %.thread14503
@@ -5124,7 +5124,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %2164, label %2165, label %2166
 
 2165:                                             ; preds = %.thread14520
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #14
   br label %allocate_stack.exit.thread
 
 2166:                                             ; preds = %.thread14520
@@ -5221,7 +5221,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %2208, label %2209, label %2210
 
 2209:                                             ; preds = %.thread14537
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #14
   br label %allocate_stack.exit.thread
 
 2210:                                             ; preds = %.thread14537
@@ -5331,7 +5331,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %2260, label %2261, label %.thread14554.thread
 
 2261:                                             ; preds = %.thread14554
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #14
   br label %allocate_stack.exit.thread
 
 .thread14554.thread:                              ; preds = %2243, %.thread14554
@@ -5446,7 +5446,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %2313, label %2314, label %.thread14571.thread
 
 2314:                                             ; preds = %.thread14571
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #14
   br label %allocate_stack.exit.thread
 
 .thread14571.thread:                              ; preds = %2295, %.thread14571
@@ -5559,7 +5559,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %2364, label %2365, label %.thread14588.thread
 
 2365:                                             ; preds = %.thread14588
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #14
   br label %allocate_stack.exit.thread
 
 .thread14588.thread:                              ; preds = %2346, %.thread14588
@@ -10851,7 +10851,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %.not.i12543, label %4952, label %4953
 
 4952:                                             ; preds = %4941
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12546
 
 4953:                                             ; preds = %4941
@@ -10869,7 +10869,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
 4962:                                             ; preds = %4953
   %4963 = sub nsw i64 0, %4960
   %4964 = getelementptr inbounds i8, ptr %4958, i64 %4963
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %4964) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %4964) #14
   br label %cli_stack_free.exit12546
 
 4965:                                             ; preds = %4953
@@ -10877,7 +10877,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   br i1 %4966, label %4967, label %4968
 
 4967:                                             ; preds = %4965
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12546
 
 4968:                                             ; preds = %4965
@@ -10893,7 +10893,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
 
 4975:                                             ; preds = %4968
   %4976 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12546
 
 cli_stack_free.exit12546:                         ; preds = %4952, %4962, %4967, %4968, %4975
@@ -10922,7 +10922,7 @@ cli_stack_free.exit12546:                         ; preds = %4952, %4962, %4967,
   %4988 = load ptr, ptr %5, align 8, !tbaa !89
   %4989 = zext i32 %4987 to i64
   %4990 = shl nuw nsw i64 %4989, 4
-  %4991 = tail call ptr @cli_safer_realloc(ptr noundef %4988, i64 noundef %4990) #13
+  %4991 = tail call ptr @cli_safer_realloc(ptr noundef %4988, i64 noundef %4990) #14
   %.not.i12557 = icmp eq ptr %4991, null
   br i1 %.not.i12557, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -10980,7 +10980,7 @@ cli_stack_free.exit12546:                         ; preds = %4952, %4962, %4967,
   br i1 %.not.i12539, label %5019, label %5020
 
 5019:                                             ; preds = %5008
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12542
 
 5020:                                             ; preds = %5008
@@ -10998,7 +10998,7 @@ cli_stack_free.exit12546:                         ; preds = %4952, %4962, %4967,
 5029:                                             ; preds = %5020
   %5030 = sub nsw i64 0, %5027
   %5031 = getelementptr inbounds i8, ptr %5025, i64 %5030
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5031) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5031) #14
   br label %cli_stack_free.exit12542
 
 5032:                                             ; preds = %5020
@@ -11006,7 +11006,7 @@ cli_stack_free.exit12546:                         ; preds = %4952, %4962, %4967,
   br i1 %5033, label %5034, label %5035
 
 5034:                                             ; preds = %5032
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12542
 
 5035:                                             ; preds = %5032
@@ -11022,7 +11022,7 @@ cli_stack_free.exit12546:                         ; preds = %4952, %4962, %4967,
 
 5042:                                             ; preds = %5035
   %5043 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12542
 
 cli_stack_free.exit12542:                         ; preds = %5019, %5029, %5034, %5035, %5042
@@ -11051,7 +11051,7 @@ cli_stack_free.exit12542:                         ; preds = %5019, %5029, %5034,
   %5055 = load ptr, ptr %5, align 8, !tbaa !89
   %5056 = zext i32 %5054 to i64
   %5057 = shl nuw nsw i64 %5056, 4
-  %5058 = tail call ptr @cli_safer_realloc(ptr noundef %5055, i64 noundef %5057) #13
+  %5058 = tail call ptr @cli_safer_realloc(ptr noundef %5055, i64 noundef %5057) #14
   %.not.i12559 = icmp eq ptr %5058, null
   br i1 %.not.i12559, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -11117,7 +11117,7 @@ cli_stack_free.exit12542:                         ; preds = %5019, %5029, %5034,
   br i1 %.not.i12535, label %5090, label %5091
 
 5090:                                             ; preds = %5079
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12538
 
 5091:                                             ; preds = %5079
@@ -11135,7 +11135,7 @@ cli_stack_free.exit12542:                         ; preds = %5019, %5029, %5034,
 5100:                                             ; preds = %5091
   %5101 = sub nsw i64 0, %5098
   %5102 = getelementptr inbounds i8, ptr %5096, i64 %5101
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5102) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5102) #14
   br label %cli_stack_free.exit12538
 
 5103:                                             ; preds = %5091
@@ -11143,7 +11143,7 @@ cli_stack_free.exit12542:                         ; preds = %5019, %5029, %5034,
   br i1 %5104, label %5105, label %5106
 
 5105:                                             ; preds = %5103
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12538
 
 5106:                                             ; preds = %5103
@@ -11159,7 +11159,7 @@ cli_stack_free.exit12542:                         ; preds = %5019, %5029, %5034,
 
 5113:                                             ; preds = %5106
   %5114 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12538
 
 cli_stack_free.exit12538:                         ; preds = %5090, %5100, %5105, %5106, %5113
@@ -11193,7 +11193,7 @@ cli_stack_free.exit12538:                         ; preds = %5090, %5100, %5105,
   %5127 = load ptr, ptr %5, align 8, !tbaa !89
   %5128 = zext i32 %5126 to i64
   %5129 = shl nuw nsw i64 %5128, 4
-  %5130 = tail call ptr @cli_safer_realloc(ptr noundef %5127, i64 noundef %5129) #13
+  %5130 = tail call ptr @cli_safer_realloc(ptr noundef %5127, i64 noundef %5129) #14
   %.not.i12562 = icmp eq ptr %5130, null
   br i1 %.not.i12562, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -11259,7 +11259,7 @@ cli_stack_free.exit12538:                         ; preds = %5090, %5100, %5105,
   br i1 %.not.i12531, label %5162, label %5163
 
 5162:                                             ; preds = %5151
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12534
 
 5163:                                             ; preds = %5151
@@ -11277,7 +11277,7 @@ cli_stack_free.exit12538:                         ; preds = %5090, %5100, %5105,
 5172:                                             ; preds = %5163
   %5173 = sub nsw i64 0, %5170
   %5174 = getelementptr inbounds i8, ptr %5168, i64 %5173
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5174) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5174) #14
   br label %cli_stack_free.exit12534
 
 5175:                                             ; preds = %5163
@@ -11285,7 +11285,7 @@ cli_stack_free.exit12538:                         ; preds = %5090, %5100, %5105,
   br i1 %5176, label %5177, label %5178
 
 5177:                                             ; preds = %5175
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12534
 
 5178:                                             ; preds = %5175
@@ -11301,7 +11301,7 @@ cli_stack_free.exit12538:                         ; preds = %5090, %5100, %5105,
 
 5185:                                             ; preds = %5178
   %5186 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12534
 
 cli_stack_free.exit12534:                         ; preds = %5162, %5172, %5177, %5178, %5185
@@ -11336,7 +11336,7 @@ cli_stack_free.exit12534:                         ; preds = %5162, %5172, %5177,
   %5200 = load ptr, ptr %5, align 8, !tbaa !89
   %5201 = zext i32 %5199 to i64
   %5202 = shl nuw nsw i64 %5201, 4
-  %5203 = tail call ptr @cli_safer_realloc(ptr noundef %5200, i64 noundef %5202) #13
+  %5203 = tail call ptr @cli_safer_realloc(ptr noundef %5200, i64 noundef %5202) #14
   %.not.i12565 = icmp eq ptr %5203, null
   br i1 %.not.i12565, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -11402,7 +11402,7 @@ cli_stack_free.exit12534:                         ; preds = %5162, %5172, %5177,
   br i1 %.not.i12527, label %5235, label %5236
 
 5235:                                             ; preds = %5224
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12530
 
 5236:                                             ; preds = %5224
@@ -11420,7 +11420,7 @@ cli_stack_free.exit12534:                         ; preds = %5162, %5172, %5177,
 5245:                                             ; preds = %5236
   %5246 = sub nsw i64 0, %5243
   %5247 = getelementptr inbounds i8, ptr %5241, i64 %5246
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5247) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5247) #14
   br label %cli_stack_free.exit12530
 
 5248:                                             ; preds = %5236
@@ -11428,7 +11428,7 @@ cli_stack_free.exit12534:                         ; preds = %5162, %5172, %5177,
   br i1 %5249, label %5250, label %5251
 
 5250:                                             ; preds = %5248
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12530
 
 5251:                                             ; preds = %5248
@@ -11444,7 +11444,7 @@ cli_stack_free.exit12534:                         ; preds = %5162, %5172, %5177,
 
 5258:                                             ; preds = %5251
   %5259 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12530
 
 cli_stack_free.exit12530:                         ; preds = %5235, %5245, %5250, %5251, %5258
@@ -11478,7 +11478,7 @@ cli_stack_free.exit12530:                         ; preds = %5235, %5245, %5250,
   %5272 = load ptr, ptr %5, align 8, !tbaa !89
   %5273 = zext i32 %5271 to i64
   %5274 = shl nuw nsw i64 %5273, 4
-  %5275 = tail call ptr @cli_safer_realloc(ptr noundef %5272, i64 noundef %5274) #13
+  %5275 = tail call ptr @cli_safer_realloc(ptr noundef %5272, i64 noundef %5274) #14
   %.not.i12568 = icmp eq ptr %5275, null
   br i1 %.not.i12568, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -11501,7 +11501,7 @@ cli_stack_free.exit12530:                         ; preds = %5235, %5245, %5250,
   br i1 %.not.i12523, label %5289, label %5290
 
 5289:                                             ; preds = %5278
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12526
 
 5290:                                             ; preds = %5278
@@ -11519,7 +11519,7 @@ cli_stack_free.exit12530:                         ; preds = %5235, %5245, %5250,
 5299:                                             ; preds = %5290
   %5300 = sub nsw i64 0, %5297
   %5301 = getelementptr inbounds i8, ptr %5295, i64 %5300
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5301) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5301) #14
   br label %cli_stack_free.exit12526
 
 5302:                                             ; preds = %5290
@@ -11527,7 +11527,7 @@ cli_stack_free.exit12530:                         ; preds = %5235, %5245, %5250,
   br i1 %5303, label %5304, label %5305
 
 5304:                                             ; preds = %5302
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12526
 
 5305:                                             ; preds = %5302
@@ -11543,7 +11543,7 @@ cli_stack_free.exit12530:                         ; preds = %5235, %5245, %5250,
 
 5312:                                             ; preds = %5305
   %5313 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12526
 
 cli_stack_free.exit12526:                         ; preds = %5289, %5299, %5304, %5305, %5312
@@ -11568,7 +11568,7 @@ cli_stack_free.exit12526:                         ; preds = %5289, %5299, %5304,
   %5322 = load ptr, ptr %5, align 8, !tbaa !89
   %5323 = zext i32 %5321 to i64
   %5324 = shl nuw nsw i64 %5323, 4
-  %5325 = tail call ptr @cli_safer_realloc(ptr noundef %5322, i64 noundef %5324) #13
+  %5325 = tail call ptr @cli_safer_realloc(ptr noundef %5322, i64 noundef %5324) #14
   %.not.i12571 = icmp eq ptr %5325, null
   br i1 %.not.i12571, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -11591,7 +11591,7 @@ cli_stack_free.exit12526:                         ; preds = %5289, %5299, %5304,
   br i1 %.not.i12519, label %5339, label %5340
 
 5339:                                             ; preds = %5328
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12522
 
 5340:                                             ; preds = %5328
@@ -11609,7 +11609,7 @@ cli_stack_free.exit12526:                         ; preds = %5289, %5299, %5304,
 5349:                                             ; preds = %5340
   %5350 = sub nsw i64 0, %5347
   %5351 = getelementptr inbounds i8, ptr %5345, i64 %5350
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5351) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5351) #14
   br label %cli_stack_free.exit12522
 
 5352:                                             ; preds = %5340
@@ -11617,7 +11617,7 @@ cli_stack_free.exit12526:                         ; preds = %5289, %5299, %5304,
   br i1 %5353, label %5354, label %5355
 
 5354:                                             ; preds = %5352
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12522
 
 5355:                                             ; preds = %5352
@@ -11633,7 +11633,7 @@ cli_stack_free.exit12526:                         ; preds = %5289, %5299, %5304,
 
 5362:                                             ; preds = %5355
   %5363 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12522
 
 cli_stack_free.exit12522:                         ; preds = %5339, %5349, %5354, %5355, %5362
@@ -11658,7 +11658,7 @@ cli_stack_free.exit12522:                         ; preds = %5339, %5349, %5354,
   %5372 = load ptr, ptr %5, align 8, !tbaa !89
   %5373 = zext i32 %5371 to i64
   %5374 = shl nuw nsw i64 %5373, 4
-  %5375 = tail call ptr @cli_safer_realloc(ptr noundef %5372, i64 noundef %5374) #13
+  %5375 = tail call ptr @cli_safer_realloc(ptr noundef %5372, i64 noundef %5374) #14
   %.not.i12574 = icmp eq ptr %5375, null
   br i1 %.not.i12574, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -11681,7 +11681,7 @@ cli_stack_free.exit12522:                         ; preds = %5339, %5349, %5354,
   br i1 %.not.i12515, label %5389, label %5390
 
 5389:                                             ; preds = %5378
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12518
 
 5390:                                             ; preds = %5378
@@ -11699,7 +11699,7 @@ cli_stack_free.exit12522:                         ; preds = %5339, %5349, %5354,
 5399:                                             ; preds = %5390
   %5400 = sub nsw i64 0, %5397
   %5401 = getelementptr inbounds i8, ptr %5395, i64 %5400
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5401) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5401) #14
   br label %cli_stack_free.exit12518
 
 5402:                                             ; preds = %5390
@@ -11707,7 +11707,7 @@ cli_stack_free.exit12522:                         ; preds = %5339, %5349, %5354,
   br i1 %5403, label %5404, label %5405
 
 5404:                                             ; preds = %5402
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12518
 
 5405:                                             ; preds = %5402
@@ -11723,7 +11723,7 @@ cli_stack_free.exit12522:                         ; preds = %5339, %5349, %5354,
 
 5412:                                             ; preds = %5405
   %5413 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12518
 
 cli_stack_free.exit12518:                         ; preds = %5389, %5399, %5404, %5405, %5412
@@ -11748,7 +11748,7 @@ cli_stack_free.exit12518:                         ; preds = %5389, %5399, %5404,
   %5422 = load ptr, ptr %5, align 8, !tbaa !89
   %5423 = zext i32 %5421 to i64
   %5424 = shl nuw nsw i64 %5423, 4
-  %5425 = tail call ptr @cli_safer_realloc(ptr noundef %5422, i64 noundef %5424) #13
+  %5425 = tail call ptr @cli_safer_realloc(ptr noundef %5422, i64 noundef %5424) #14
   %.not.i12577 = icmp eq ptr %5425, null
   br i1 %.not.i12577, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -11771,7 +11771,7 @@ cli_stack_free.exit12518:                         ; preds = %5389, %5399, %5404,
   br i1 %.not.i12511, label %5439, label %5440
 
 5439:                                             ; preds = %5428
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit12514
 
 5440:                                             ; preds = %5428
@@ -11789,7 +11789,7 @@ cli_stack_free.exit12518:                         ; preds = %5389, %5399, %5404,
 5449:                                             ; preds = %5440
   %5450 = sub nsw i64 0, %5447
   %5451 = getelementptr inbounds i8, ptr %5445, i64 %5450
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5451) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5451) #14
   br label %cli_stack_free.exit12514
 
 5452:                                             ; preds = %5440
@@ -11797,7 +11797,7 @@ cli_stack_free.exit12518:                         ; preds = %5389, %5399, %5404,
   br i1 %5453, label %5454, label %5455
 
 5454:                                             ; preds = %5452
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit12514
 
 5455:                                             ; preds = %5452
@@ -11813,7 +11813,7 @@ cli_stack_free.exit12518:                         ; preds = %5389, %5399, %5404,
 
 5462:                                             ; preds = %5455
   %5463 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit12514
 
 cli_stack_free.exit12514:                         ; preds = %5439, %5449, %5454, %5455, %5462
@@ -11838,7 +11838,7 @@ cli_stack_free.exit12514:                         ; preds = %5439, %5449, %5454,
   %5472 = load ptr, ptr %5, align 8, !tbaa !89
   %5473 = zext i32 %5471 to i64
   %5474 = shl nuw nsw i64 %5473, 4
-  %5475 = tail call ptr @cli_safer_realloc(ptr noundef %5472, i64 noundef %5474) #13
+  %5475 = tail call ptr @cli_safer_realloc(ptr noundef %5472, i64 noundef %5474) #14
   %.not.i12580 = icmp eq ptr %5475, null
   br i1 %.not.i12580, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -11861,7 +11861,7 @@ cli_stack_free.exit12514:                         ; preds = %5439, %5449, %5454,
   br i1 %.not.i12510, label %5489, label %5490
 
 5489:                                             ; preds = %5478
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #14
   br label %cli_stack_free.exit
 
 5490:                                             ; preds = %5478
@@ -11879,7 +11879,7 @@ cli_stack_free.exit12514:                         ; preds = %5439, %5449, %5454,
 5499:                                             ; preds = %5490
   %5500 = sub nsw i64 0, %5497
   %5501 = getelementptr inbounds i8, ptr %5495, i64 %5500
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5501) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %.05382, ptr noundef nonnull %5501) #14
   br label %cli_stack_free.exit
 
 5502:                                             ; preds = %5490
@@ -11887,7 +11887,7 @@ cli_stack_free.exit12514:                         ; preds = %5439, %5449, %5454,
   br i1 %5503, label %5504, label %5505
 
 5504:                                             ; preds = %5502
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.18) #14
   br label %cli_stack_free.exit
 
 5505:                                             ; preds = %5502
@@ -11903,7 +11903,7 @@ cli_stack_free.exit12514:                         ; preds = %5439, %5449, %5454,
 
 5512:                                             ; preds = %5505
   %5513 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.sroa.0.0) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.0) #14
   br label %cli_stack_free.exit
 
 cli_stack_free.exit:                              ; preds = %5489, %5499, %5504, %5505, %5512
@@ -11928,7 +11928,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %5522 = load ptr, ptr %5, align 8, !tbaa !89
   %5523 = zext i32 %5521 to i64
   %5524 = shl nuw nsw i64 %5523, 4
-  %5525 = tail call ptr @cli_safer_realloc(ptr noundef %5522, i64 noundef %5524) #13
+  %5525 = tail call ptr @cli_safer_realloc(ptr noundef %5522, i64 noundef %5524) #14
   %.not.i12583 = icmp eq ptr %5525, null
   br i1 %.not.i12583, label %allocate_stack.exit.thread.thread, label %allocate_stack.exit.thread.thread.sink.split
 
@@ -17518,7 +17518,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8024 = zext i16 %8023 to i64
   %8025 = getelementptr inbounds nuw ptr, ptr @cli_apicalls0, i64 %8024
   %8026 = load ptr, ptr %8025, align 8, !tbaa !37
-  %8027 = tail call i32 %8026(ptr noundef %1, i32 noundef %.77174, i32 noundef %.77165) #13
+  %8027 = tail call i32 %8026(ptr noundef %1, i32 noundef %.77174, i32 noundef %.77165) #14
   %8028 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8029 = load i32, ptr %8028, align 8, !tbaa !63
   %8030 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -17668,7 +17668,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
 
 8097:                                             ; preds = %.thread16546, %8073
   %.77142 = phi ptr [ %8078, %8073 ], [ %8096, %.thread16546 ]
-  %8098 = tail call i32 %8061(ptr noundef %1, ptr noundef %.77142, i32 noundef %.87134) #13
+  %8098 = tail call i32 %8061(ptr noundef %1, ptr noundef %.77142, i32 noundef %.87134) #14
   %8099 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8100 = load i32, ptr %8099, align 8, !tbaa !63
   %8101 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -17735,7 +17735,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8128 = zext i16 %8127 to i64
   %8129 = getelementptr inbounds nuw ptr, ptr @cli_apicalls2, i64 %8128
   %8130 = load ptr, ptr %8129, align 8, !tbaa !37
-  %8131 = tail call i32 %8130(ptr noundef %1, i32 noundef %.87092) #13
+  %8131 = tail call i32 %8130(ptr noundef %1, i32 noundef %.87092) #14
   %8132 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8133 = load i32, ptr %8132, align 8, !tbaa !63
   %8134 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -17802,7 +17802,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8162 = zext i16 %8161 to i64
   %8163 = getelementptr inbounds nuw ptr, ptr @cli_apicalls3, i64 %8162
   %8164 = load ptr, ptr %8163, align 8, !tbaa !37
-  %8165 = tail call ptr %8164(ptr noundef %1, i32 noundef %.87076) #13
+  %8165 = tail call ptr %8164(ptr noundef %1, i32 noundef %.87076) #14
   %8166 = call fastcc i64 @ptr_register_glob(ptr noundef %5, ptr noundef %8165, i32 noundef %.87076)
   %8167 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8168 = load i32, ptr %8167, align 8, !tbaa !63
@@ -18047,7 +18047,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8271 = zext i16 %8270 to i64
   %8272 = getelementptr inbounds nuw ptr, ptr @cli_apicalls4, i64 %8271
   %8273 = load ptr, ptr %8272, align 8, !tbaa !37
-  %8274 = tail call i32 %8273(ptr noundef %1, ptr noundef nonnull %8213, i32 noundef %.87053, i32 noundef %.87044, i32 noundef %.87035, i32 noundef %.87026) #13
+  %8274 = tail call i32 %8273(ptr noundef %1, ptr noundef nonnull %8213, i32 noundef %.87053, i32 noundef %.87044, i32 noundef %.87035, i32 noundef %.87026) #14
   %8275 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8276 = load i32, ptr %8275, align 8, !tbaa !63
   %8277 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -18071,7 +18071,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8286 = zext i16 %8285 to i64
   %8287 = getelementptr inbounds nuw ptr, ptr @cli_apicalls5, i64 %8286
   %8288 = load ptr, ptr %8287, align 8, !tbaa !37
-  %8289 = tail call i32 %8288(ptr noundef %1) #13
+  %8289 = tail call i32 %8288(ptr noundef %1) #14
   %8290 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8291 = load i32, ptr %8290, align 8, !tbaa !63
   %8292 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -18181,7 +18181,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8338 = zext i16 %8337 to i64
   %8339 = getelementptr inbounds nuw ptr, ptr @cli_apicalls6, i64 %8338
   %8340 = load ptr, ptr %8339, align 8, !tbaa !37
-  %8341 = tail call ptr %8340(ptr noundef %1, i32 noundef %.86965, i32 noundef %.86956) #13
+  %8341 = tail call ptr %8340(ptr noundef %1, i32 noundef %.86965, i32 noundef %.86956) #14
   %8342 = call fastcc i64 @ptr_register_glob(ptr noundef %5, ptr noundef %8341, i32 noundef %.86956)
   %8343 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8344 = load i32, ptr %8343, align 8, !tbaa !63
@@ -18335,7 +18335,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8409 = zext i16 %8408 to i64
   %8410 = getelementptr inbounds nuw ptr, ptr @cli_apicalls7, i64 %8409
   %8411 = load ptr, ptr %8410, align 8, !tbaa !37
-  %8412 = tail call i32 %8411(ptr noundef %1, i32 noundef %.86926, i32 noundef %.86917, i32 noundef %.86908) #13
+  %8412 = tail call i32 %8411(ptr noundef %1, i32 noundef %.86926, i32 noundef %.86917, i32 noundef %.86908) #14
   %8413 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8414 = load i32, ptr %8413, align 8, !tbaa !63
   %8415 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -18541,7 +18541,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8501 = zext i16 %8500 to i64
   %8502 = getelementptr inbounds nuw ptr, ptr @cli_apicalls8, i64 %8501
   %8503 = load ptr, ptr %8502, align 8, !tbaa !37
-  %8504 = tail call i32 %8503(ptr noundef %1, ptr noundef nonnull %8459, i32 noundef %.86878, ptr noundef nonnull %8497, i32 noundef %.86869) #13
+  %8504 = tail call i32 %8503(ptr noundef %1, ptr noundef nonnull %8459, i32 noundef %.86878, ptr noundef nonnull %8497, i32 noundef %.86869) #14
   %8505 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8506 = load i32, ptr %8505, align 8, !tbaa !63
   %8507 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -18699,7 +18699,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8572 = zext i16 %8571 to i64
   %8573 = getelementptr inbounds nuw ptr, ptr @cli_apicalls9, i64 %8572
   %8574 = load ptr, ptr %8573, align 8, !tbaa !37
-  %8575 = tail call i32 %8574(ptr noundef %1, ptr noundef nonnull %8550, i32 noundef %.86791, i32 noundef %.86782) #13
+  %8575 = tail call i32 %8574(ptr noundef %1, ptr noundef nonnull %8550, i32 noundef %.86791, i32 noundef %.86782) #14
   %8576 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %8577 = load i32, ptr %8576, align 8, !tbaa !63
   %8578 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -18719,7 +18719,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
 
 8584:                                             ; preds = %7982
   %8585 = zext i8 %7984 to i32
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.7, i32 noundef %8585) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.7, i32 noundef %8585) #14
   br label %allocate_stack.exit.thread
 
 8586:                                             ; preds = %109, %109, %109, %109, %109
@@ -18776,16 +18776,16 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %8621, label %8622, label %8623
 
 8622:                                             ; preds = %8620
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.20, i32 noundef %8604) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.20, i32 noundef %8604) #14
   br label %allocate_stack.exit.thread
 
 8623:                                             ; preds = %8620
-  %8624 = tail call noalias dereferenceable_or_null(65552) ptr @malloc(i64 noundef 65552) #14
+  %8624 = tail call noalias dereferenceable_or_null(65552) ptr @malloc(i64 noundef 65552) #15
   %.not35.i = icmp eq ptr %8624, null
   br i1 %.not35.i, label %8625, label %8626
 
 8625:                                             ; preds = %8623
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.21, i64 noundef 65552) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.21, i64 noundef 65552) #14
   br label %allocate_stack.exit.thread
 
 8626:                                             ; preds = %8623
@@ -18842,7 +18842,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br label %8655
 
 8654:                                             ; preds = %8631
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8) #13
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8) #14
   br label %allocate_stack.exit.thread
 
 8655:                                             ; preds = %.lr.ph17731, %8732
@@ -18992,7 +18992,7 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   %8740 = load ptr, ptr %5, align 8, !tbaa !89
   %8741 = zext i32 %8739 to i64
   %8742 = shl nuw nsw i64 %8741, 4
-  %8743 = tail call ptr @cli_safer_realloc(ptr noundef %8740, i64 noundef %8742) #13
+  %8743 = tail call ptr @cli_safer_realloc(ptr noundef %8740, i64 noundef %8742) #14
   %.not.i12586 = icmp eq ptr %8743, null
   br i1 %.not.i12586, label %ptr_register_stack.exit12588, label %8744
 
@@ -20426,7 +20426,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   br i1 %9409, label %9410, label %.thread17255.thread
 
 9410:                                             ; preds = %.thread17255
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, i32 noundef %.66334) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, i32 noundef %.66334) #14
   %.pre17747 = load i8, ptr %110, align 4, !tbaa !60
   br label %.thread17255.thread
 
@@ -20760,7 +20760,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 
 9570:                                             ; preds = %9564
   %9571 = sext i32 %.66313 to i64
-  %9572 = tail call i32 @memcmp(ptr noundef %.56305, ptr noundef %.66299, i64 noundef %9571) #15
+  %9572 = tail call i32 @memcmp(ptr noundef %.56305, ptr noundef %.66299, i64 noundef %9571) #16
   %9573 = zext i32 %9567 to i64
   %9574 = getelementptr inbounds nuw i8, ptr %.05402, i64 %9573
   store i32 %9572, ptr %9574, align 4, !tbaa !34
@@ -21852,7 +21852,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   br i1 %10096, label %10097, label %.thread17561.thread
 
 10097:                                            ; preds = %.thread17561
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i32 noundef %.65235) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i32 noundef %.65235) #14
   %.pre = load i8, ptr %110, align 4, !tbaa !60
   br label %.thread17561.thread
 
@@ -21864,7 +21864,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   br i1 %.not9389, label %10100, label %10120
 
 10100:                                            ; preds = %.thread17561.thread
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #14
   %10101 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
   %10102 = load i32, ptr %10101, align 8, !tbaa !63
   %10103 = getelementptr inbounds nuw i8, ptr %.013718, i64 8
@@ -21966,7 +21966,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
   %.zext = zext nneg i8 %10157 to i32
   %10158 = urem i8 %111, 5
   %.zext17689 = zext nneg i8 %10158 to i32
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12, i32 noundef %.zext, i32 noundef %.zext17689) #13
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.12, i32 noundef %.zext, i32 noundef %.zext17689) #14
   br label %.loopexit17718
 
 allocate_stack.exit.thread.thread.sink.split:     ; preds = %5519, %5469, %5419, %5369, %5319, %5269, %5196, %5124, %5051, %4984
@@ -22060,7 +22060,7 @@ jump.exit:                                        ; preds = %4917, %4905, %alloc
   br i1 %.not11829, label %10187, label %10177
 
 10177:                                            ; preds = %.loopexit17718
-  %10178 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #13
+  %10178 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %10179 = load i64, ptr %6, align 8, !tbaa !59
   %10180 = load i64, ptr %7, align 8, !tbaa !59
   %10181 = sub nsw i64 %10180, %10179
@@ -22069,7 +22069,7 @@ jump.exit:                                        ; preds = %4917, %4905, %alloc
   %10184 = sub nsw i64 %10183, %10182
   %10185 = mul nsw i64 %10181, 1000000
   %10186 = add nsw i64 %10184, %10185
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i64 noundef %10186, i32 noundef %98) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i64 noundef %10186, i32 noundef %98) #14
   br label %10187
 
 10187:                                            ; preds = %10177, %.loopexit17718
@@ -22079,8 +22079,8 @@ jump.exit:                                        ; preds = %4917, %4905, %alloc
 10189:                                            ; preds = %10187
   %10190 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   %10191 = load ptr, ptr %10190, align 8, !tbaa !106
-  tail call void @cli_event_error_str(ptr noundef %10191, ptr noundef nonnull @.str.14) #13
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #13
+  tail call void @cli_event_error_str(ptr noundef %10191, ptr noundef nonnull @.str.14) #14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #14
   br label %10192
 
 10192:                                            ; preds = %10189, %10187
@@ -22090,15 +22090,15 @@ jump.exit:                                        ; preds = %4917, %4905, %alloc
 .lr.ph.i:                                         ; preds = %10192, %.lr.ph.i
   %.08.i = phi ptr [ %10193, %.lr.ph.i ], [ %.sroa.0.1, %10192 ]
   %10193 = load ptr, ptr %.08.i, align 8, !tbaa !86
-  tail call void @free(ptr noundef nonnull %.08.i) #13
+  tail call void @free(ptr noundef nonnull %.08.i) #14
   %.not.i12672 = icmp eq ptr %10193, null
   br i1 %.not.i12672, label %cli_stack_destroy.exit, label %.lr.ph.i
 
 cli_stack_destroy.exit:                           ; preds = %.lr.ph.i, %10192
   %10194 = load ptr, ptr %5, align 8, !tbaa !89
-  tail call void @free(ptr noundef %10194) #13
+  tail call void @free(ptr noundef %10194) #14
   %10195 = load ptr, ptr %64, align 8, !tbaa !52
-  tail call void @free(ptr noundef %10195) #13
+  tail call void @free(ptr noundef %10195) #14
   %10196 = icmp eq i32 %.15272, 22
   %10197 = select i1 %10196, i32 0, i32 %.15272
   br label %.thread13775
@@ -22270,7 +22270,7 @@ define internal fastcc range(i64 -9223372036854775808, 9223372032559808513) i64 
 10:                                               ; preds = %4
   %11 = zext i32 %7 to i64
   %12 = shl nuw nsw i64 %11, 4
-  %13 = tail call ptr @cli_safer_realloc(ptr noundef %9, i64 noundef %12) #13
+  %13 = tail call ptr @cli_safer_realloc(ptr noundef %9, i64 noundef %12) #14
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %ptr_register_glob_fixedid.exit, label %14
 
@@ -22293,7 +22293,7 @@ define internal fastcc range(i64 -9223372036854775808, 9223372032559808513) i64 
   store ptr %1, ptr %23, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %2, ptr %24, align 8, !tbaa !42
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %7) #13
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %7) #14
   %25 = sext i32 %7 to i64
   %26 = shl nsw i64 %25, 32
   br label %ptr_register_glob_fixedid.exit
@@ -22334,19 +22334,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -22361,10 +22361,11 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

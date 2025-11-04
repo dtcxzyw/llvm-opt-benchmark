@@ -21,14 +21,14 @@ define range(i32 -12, 1) i32 @ff_slice_buffer_init(ptr noundef initializes((0, 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %2, ptr %9, align 4, !tbaa !15
   %10 = sext i32 %1 to i64
-  %11 = tail call noalias ptr @av_calloc(i64 noundef %10, i64 noundef 8) #11
+  %11 = tail call noalias ptr @av_calloc(i64 noundef %10, i64 noundef 8) #12
   store ptr %11, ptr %0, align 8, !tbaa !16
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %5
   %13 = sext i32 %2 to i64
-  %14 = tail call ptr @av_malloc_array(i64 noundef %13, i64 noundef 8) #11
+  %14 = tail call ptr @av_malloc_array(i64 noundef %13, i64 noundef 8) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !17
   %.not34 = icmp eq ptr %14, null
@@ -44,12 +44,12 @@ define range(i32 -12, 1) i32 @ff_slice_buffer_init(ptr noundef initializes((0, 8
   br label %19
 
 18:                                               ; preds = %12
-  tail call void @av_freep(ptr noundef nonnull %0) #11
+  tail call void @av_freep(ptr noundef nonnull %0) #12
   br label %29
 
 19:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %20 = tail call ptr @av_malloc_array(i64 noundef %17, i64 noundef 2) #11
+  %20 = tail call ptr @av_malloc_array(i64 noundef %17, i64 noundef 2) #12
   %21 = load ptr, ptr %15, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   store ptr %20, ptr %22, align 8, !tbaa !18
@@ -65,13 +65,13 @@ define range(i32 -12, 1) i32 @ff_slice_buffer_init(ptr noundef initializes((0, 8
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, -1
   %23 = load ptr, ptr %15, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next47
-  tail call void @av_freep(ptr noundef %24) #11
+  tail call void @av_freep(ptr noundef %24) #12
   %25 = icmp sgt i64 %indvars.iv46, 1
   br i1 %25, label %.lr.ph40, label %._crit_edge41, !llvm.loop !19
 
 ._crit_edge41:                                    ; preds = %.lr.ph40, %.preheader
-  tail call void @av_freep(ptr noundef nonnull %15) #11
-  tail call void @av_freep(ptr noundef nonnull %0) #11
+  tail call void @av_freep(ptr noundef nonnull %15) #12
+  tail call void @av_freep(ptr noundef nonnull %0) #12
   br label %29
 
 26:                                               ; preds = %19
@@ -104,8 +104,8 @@ define ptr @ff_slice_buffer_load_line(ptr noundef captures(none) %0, i32 noundef
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 7:                                                ; preds = %2
@@ -263,13 +263,13 @@ ff_slice_buffer_flush.exit:                       ; preds = %17, %1, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %25 = load ptr, ptr %18, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.next
-  tail call void @av_freep(ptr noundef %26) #11
+  tail call void @av_freep(ptr noundef %26) #12
   %27 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %ff_slice_buffer_flush.exit
-  tail call void @av_freep(ptr noundef nonnull %18) #11
-  tail call void @av_freep(ptr noundef nonnull %0) #11
+  tail call void @av_freep(ptr noundef nonnull %18) #12
+  tail call void @av_freep(ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -1310,33 +1310,33 @@ spatial_compose53i_buffered_init.exit.us:         ; preds = %ff_slice_buffer_loa
   br i1 %144, label %100, label %._crit_edge, !llvm.loop !44
 
 .split.us:                                        ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 .split29.us:                                      ; preds = %47
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 .split31.us:                                      ; preds = %67
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 .split33.us:                                      ; preds = %86
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 .split38.us:                                      ; preds = %115
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 .split40.us:                                      ; preds = %133
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 ._crit_edge:                                      ; preds = %spatial_compose53i_buffered_init.exit.us, %spatial_compose97i_buffered_init.exit.us, %.lr.ph, %7
@@ -1445,8 +1445,8 @@ avpriv_mirror.exit.i:                             ; preds = %.lr.ph.i, %.prehead
   br i1 %63, label %ff_slice_buffer_load_line.exit.i, label %64
 
 64:                                               ; preds = %61
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 ff_slice_buffer_load_line.exit.i:                 ; preds = %61
@@ -1491,8 +1491,8 @@ avpriv_mirror.exit91.i:                           ; preds = %.lr.ph124.i, %.preh
   br i1 %82, label %ff_slice_buffer_load_line.exit96.i, label %83
 
 83:                                               ; preds = %80
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 ff_slice_buffer_load_line.exit96.i:               ; preds = %80
@@ -1514,7 +1514,7 @@ ff_slice_buffer_load_line.exit96.i:               ; preds = %80
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %0, align 8, !tbaa !46
-  tail call void %94(ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %71, ptr noundef %90, i32 noundef %28) #11
+  tail call void %94(ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %71, ptr noundef %90, i32 noundef %28) #12
   br label %vertical_compose97iH0.exit.i
 
 95:                                               ; preds = %89
@@ -1625,7 +1625,7 @@ vertical_compose97iH0.exit.i:                     ; preds = %.lr.ph.i111.i, %ver
 
 155:                                              ; preds = %vertical_compose97iH0.exit.i
   %156 = load ptr, ptr %18, align 8, !tbaa !54
-  tail call void %156(ptr noundef %48, ptr noundef %3, i32 noundef %28) #11
+  tail call void %156(ptr noundef %48, ptr noundef %3, i32 noundef %28) #12
   br label %157
 
 157:                                              ; preds = %155, %vertical_compose97iH0.exit.i
@@ -1634,7 +1634,7 @@ vertical_compose97iH0.exit.i:                     ; preds = %.lr.ph.i111.i, %ver
 
 159:                                              ; preds = %157
   %160 = load ptr, ptr %18, align 8, !tbaa !54
-  tail call void %160(ptr noundef %49, ptr noundef %3, i32 noundef %28) #11
+  tail call void %160(ptr noundef %49, ptr noundef %3, i32 noundef %28) #12
   br label %spatial_compose97i_dy_buffered.exit
 
 spatial_compose97i_dy_buffered.exit:              ; preds = %157, %159
@@ -1680,8 +1680,8 @@ avpriv_mirror.exit.i42:                           ; preds = %.lr.ph.i54, %.prehe
   br i1 %177, label %ff_slice_buffer_load_line.exit.i53, label %178
 
 178:                                              ; preds = %175
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 ff_slice_buffer_load_line.exit.i53:               ; preds = %175
@@ -1726,8 +1726,8 @@ avpriv_mirror.exit81.i:                           ; preds = %.lr.ph100.i, %.preh
   br i1 %196, label %ff_slice_buffer_load_line.exit86.i, label %197
 
 197:                                              ; preds = %194
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 67) #12
+  tail call void @abort() #13
   unreachable
 
 ff_slice_buffer_load_line.exit86.i:               ; preds = %194
@@ -4111,8 +4111,8 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4125,8 +4125,9 @@ attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(argmem: rea
 attributes #8 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

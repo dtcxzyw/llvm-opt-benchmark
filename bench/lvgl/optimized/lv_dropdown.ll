@@ -50,7 +50,7 @@ define internal void @lv_dropdown_constructor(ptr readnone captures(none) %0, pt
   %13 = and i8 %8, -64
   %14 = or disjoint i8 %13, 56
   store i8 %14, ptr %7, align 8
-  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1024) #7
+  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1024) #8
   br label %15
 
 15:                                               ; preds = %22, %2
@@ -90,7 +90,7 @@ define internal void @lv_dropdown_constructor(ptr readnone captures(none) %0, pt
   br i1 %.not29.i, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void @lv_free(ptr noundef nonnull %31) #7
+  tail call void @lv_free(ptr noundef nonnull %31) #8
   %.pre.i = load i8, ptr %7, align 8
   br label %33
 
@@ -99,19 +99,19 @@ define internal void @lv_dropdown_constructor(ptr readnone captures(none) %0, pt
   %35 = or i8 %34, 16
   store i8 %35, ptr %7, align 8
   store ptr @.str.5, ptr %4, align 8, !tbaa !17
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %1) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %1) #8
   %36 = load ptr, ptr %3, align 8, !tbaa !3
   %.not30.i = icmp eq ptr %36, null
   br i1 %.not30.i, label %lv_dropdown_set_options_static.exit, label %37
 
 37:                                               ; preds = %33
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %36) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %36) #8
   br label %lv_dropdown_set_options_static.exit
 
 lv_dropdown_set_options_static.exit:              ; preds = %33, %37
-  %38 = tail call ptr @lv_obj_get_screen(ptr noundef nonnull %1) #7
-  %39 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %38) #7
-  tail call void @lv_obj_class_init_obj(ptr noundef %39) #7
+  %38 = tail call ptr @lv_obj_get_screen(ptr noundef nonnull %1) #8
+  %39 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %38) #8
+  tail call void @lv_obj_class_init_obj(ptr noundef %39) #8
   store ptr %39, ptr %3, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store ptr %1, ptr %40, align 8, !tbaa !27
@@ -126,7 +126,7 @@ define internal void @lv_dropdown_destructor(ptr readnone captures(none) %0, ptr
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @lv_obj_delete(ptr noundef nonnull %4) #7
+  tail call void @lv_obj_delete(ptr noundef nonnull %4) #8
   store ptr null, ptr %3, align 8, !tbaa !3
   br label %6
 
@@ -140,7 +140,7 @@ define internal void @lv_dropdown_destructor(ptr readnone captures(none) %0, ptr
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load ptr, ptr %11, align 8, !tbaa !17
-  tail call void @lv_free(ptr noundef %12) #7
+  tail call void @lv_free(ptr noundef %12) #8
   store ptr null, ptr %11, align 8, !tbaa !17
   br label %13
 
@@ -150,21 +150,21 @@ define internal void @lv_dropdown_destructor(ptr readnone captures(none) %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_dropdown_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdown_class, ptr noundef %1) #7
+  %3 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdown_class, ptr noundef %1) #8
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %4, label %.critedge95
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @lv_event_get_code(ptr noundef %1) #7
-  %6 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
+  %5 = tail call i32 @lv_event_get_code(ptr noundef %1) #8
+  %6 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #8
   %7 = icmp eq i32 %5, 19
   br i1 %7, label %8, label %23
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @lv_obj_get_group(ptr noundef %6) #7
-  %10 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %9) #7
-  %11 = tail call ptr @lv_indev_active() #7
-  %12 = tail call i32 @lv_indev_get_type(ptr noundef %11) #7
+  %9 = tail call ptr @lv_obj_get_group(ptr noundef %6) #8
+  %10 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %9) #8
+  %11 = tail call ptr @lv_indev_active() #8
+  %12 = tail call i32 @lv_indev_get_type(ptr noundef %11) #8
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %14, label %.critedge95
 
@@ -180,13 +180,13 @@ lv_dropdown_close.exit:                           ; preds = %14
   %17 = load i32, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 100
   store i32 %17, ptr %18, align 4, !tbaa !20
-  tail call void @lv_obj_remove_state(ptr noundef nonnull %6, i16 noundef zeroext 1) #7
+  tail call void @lv_obj_remove_state(ptr noundef nonnull %6, i16 noundef zeroext 1) #8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i32 65535, ptr %19, align 4, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !3
-  tail call void @lv_obj_add_flag(ptr noundef %21, i32 noundef 1) #7
-  %22 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %6, i32 noundef 39, ptr noundef null) #7
+  tail call void @lv_obj_add_flag(ptr noundef %21, i32 noundef 1) #8
+  %22 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %6, i32 noundef 39, ptr noundef null) #8
   br label %.critedge95
 
 23:                                               ; preds = %4
@@ -202,13 +202,13 @@ lv_dropdown_close.exit:                           ; preds = %14
   br label %.preheader.i98
 
 lv_dropdown_close.exit99:                         ; preds = %25
-  tail call void @lv_obj_remove_state(ptr noundef nonnull %6, i16 noundef zeroext 1) #7
+  tail call void @lv_obj_remove_state(ptr noundef nonnull %6, i16 noundef zeroext 1) #8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i32 65535, ptr %26, align 4, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %28 = load ptr, ptr %27, align 8, !tbaa !3
-  tail call void @lv_obj_add_flag(ptr noundef %28, i32 noundef 1) #7
-  %29 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %6, i32 noundef 39, ptr noundef null) #7
+  tail call void @lv_obj_add_flag(ptr noundef %28, i32 noundef 1) #8
+  %29 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %6, i32 noundef 39, ptr noundef null) #8
   br label %.critedge95
 
 30:                                               ; preds = %23
@@ -227,23 +227,23 @@ lv_dropdown_close.exit99:                         ; preds = %25
   br label %.critedge95
 
 32:                                               ; preds = %30
-  %33 = tail call zeroext i1 @lv_obj_refresh_self_size(ptr noundef %6) #7
+  %33 = tail call zeroext i1 @lv_obj_refresh_self_size(ptr noundef %6) #8
   br label %.critedge95
 
 34:                                               ; preds = %30
-  %35 = tail call zeroext i1 @lv_obj_refresh_self_size(ptr noundef %6) #7
+  %35 = tail call zeroext i1 @lv_obj_refresh_self_size(ptr noundef %6) #8
   br label %.critedge95
 
 36:                                               ; preds = %30
-  %37 = tail call ptr @lv_event_get_param(ptr noundef %1) #7
-  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef 0, i8 noundef zeroext 90) #7
-  %39 = tail call i32 @lv_font_get_line_height(ptr noundef %38) #7
+  %37 = tail call ptr @lv_event_get_param(ptr noundef %1) #8
+  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef %6, i32 noundef 0, i8 noundef zeroext 90) #8
+  %39 = tail call i32 @lv_font_get_line_height(ptr noundef %38) #8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %39, ptr %40, align 4, !tbaa !29
   br label %.critedge95
 
 41:                                               ; preds = %30
-  %42 = tail call i32 @lv_event_get_key(ptr noundef %1) #7
+  %42 = tail call i32 @lv_event_get_key(ptr noundef %1) #8
   %43 = and i32 %42, -2
   %or.cond4 = icmp eq i32 %43, 18
   br i1 %or.cond4, label %44, label %57
@@ -258,7 +258,7 @@ lv_dropdown_close.exit99:                         ; preds = %25
 lv_dropdown_is_open.exit:                         ; preds = %44
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %46 = load ptr, ptr %45, align 8, !tbaa !3
-  %47 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %46, i32 noundef 1) #7
+  %47 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %46, i32 noundef 1) #8
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %lv_dropdown_is_open.exit
@@ -297,7 +297,7 @@ lv_dropdown_is_open.exit:                         ; preds = %44
 lv_dropdown_is_open.exit105:                      ; preds = %58
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %60 = load ptr, ptr %59, align 8, !tbaa !3
-  %61 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %60, i32 noundef 1) #7
+  %61 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %60, i32 noundef 1) #8
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %lv_dropdown_is_open.exit105
@@ -325,7 +325,7 @@ lv_dropdown_is_open.exit105:                      ; preds = %58
   br label %.critedge95
 
 72:                                               ; preds = %57
-  %73 = tail call ptr @lv_indev_get_active_obj() #7
+  %73 = tail call ptr @lv_indev_get_active_obj() #8
   %.not90 = icmp eq ptr %73, %6
   br i1 %.not90, label %.critedge95, label %74
 
@@ -343,7 +343,7 @@ lv_dropdown_is_open.exit105:                      ; preds = %58
 lv_dropdown_is_open.exit109:                      ; preds = %75
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %77 = load ptr, ptr %76, align 8, !tbaa !3
-  %78 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %77, i32 noundef 1) #7
+  %78 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %77, i32 noundef 1) #8
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %lv_dropdown_is_open.exit109
@@ -351,7 +351,7 @@ lv_dropdown_is_open.exit109:                      ; preds = %75
   br label %.critedge95
 
 80:                                               ; preds = %lv_dropdown_is_open.exit109
-  %81 = tail call i32 @lv_event_get_rotary_diff(ptr noundef %1) #7
+  %81 = tail call i32 @lv_event_get_rotary_diff(ptr noundef %1) #8
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %83 = load i32, ptr %82, align 4, !tbaa !20
   %84 = add i32 %83, %81
@@ -374,11 +374,11 @@ lv_dropdown_is_open.exit109:                      ; preds = %75
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_dropdownlist_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 1024) #7
-  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 4) #7
-  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 131072) #7
-  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1) #7
-  %3 = tail call ptr @lv_label_create(ptr noundef %1) #7
+  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 1024) #8
+  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 4) #8
+  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 131072) #8
+  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1) #8
+  %3 = tail call ptr @lv_label_create(ptr noundef %1) #8
   ret void
 }
 
@@ -398,31 +398,31 @@ define internal void @lv_dropdown_list_event(ptr readnone captures(none) %0, ptr
   %5 = alloca %struct.lv_point_t, align 4
   %6 = alloca %struct.lv_point_t, align 4
   %7 = alloca i32, align 4
-  %8 = tail call i32 @lv_event_get_code(ptr noundef %1) #7
+  %8 = tail call i32 @lv_event_get_code(ptr noundef %1) #8
   %.not = icmp eq i32 %8, 32
   br i1 %.not, label %.thread, label %19
 
 .thread:                                          ; preds = %2
-  %9 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
-  %10 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
+  %9 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #8
+  %10 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !27
-  %13 = tail call ptr @lv_event_get_layer(ptr noundef %1) #7
+  %13 = tail call ptr @lv_event_get_layer(ptr noundef %1) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull %17) #7
+  %18 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull %17) #8
   br i1 %18, label %115, label %draw_list.exit
 
 19:                                               ; preds = %2
-  %20 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %1) #7
+  %20 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %1) #8
   %.not17 = icmp eq i32 %20, 1
   br i1 %.not17, label %21, label %list_press_handler.exit
 
 21:                                               ; preds = %19
-  %22 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
+  %22 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   switch i32 %8, label %list_press_handler.exit [
@@ -432,15 +432,15 @@ define internal void @lv_dropdown_list_event(ptr readnone captures(none) %0, ptr
   ]
 
 25:                                               ; preds = %21
-  %26 = tail call ptr @lv_indev_active() #7
-  %27 = tail call ptr @lv_indev_get_scroll_obj(ptr noundef %26) #7
+  %26 = tail call ptr @lv_indev_active() #8
+  %27 = tail call ptr @lv_indev_get_scroll_obj(ptr noundef %26) #8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %list_press_handler.exit
 
 29:                                               ; preds = %25
   %.val = load ptr, ptr %23, align 8, !tbaa !27
-  %30 = tail call ptr @lv_indev_active() #7
-  %31 = tail call i32 @lv_indev_get_type(ptr noundef %30) #7
+  %30 = tail call ptr @lv_indev_active() #8
+  %31 = tail call i32 @lv_indev_get_type(ptr noundef %30) #8
   %32 = icmp eq i32 %31, 4
   br i1 %32, label %33, label %40
 
@@ -449,27 +449,27 @@ define internal void @lv_dropdown_list_event(ptr readnone captures(none) %0, ptr
   %35 = load i32, ptr %34, align 4, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %.val, i64 104
   store i32 %35, ptr %36, align 8, !tbaa !21
-  %37 = tail call ptr @lv_obj_get_group(ptr noundef %.val) #7
-  %38 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %37) #7
+  %37 = tail call ptr @lv_obj_get_group(ptr noundef %.val) #8
+  %38 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %37) #8
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %33
-  tail call void @lv_group_set_editing(ptr noundef %37, i1 noundef zeroext false) #7
+  tail call void @lv_group_set_editing(ptr noundef %37, i1 noundef zeroext false) #8
   br label %40
 
 40:                                               ; preds = %39, %33, %29
-  %41 = tail call i32 @lv_indev_get_type(ptr noundef %30) #7
+  %41 = tail call i32 @lv_indev_get_type(ptr noundef %30) #8
   %42 = icmp eq i32 %41, 1
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %40
-  %44 = tail call i32 @lv_indev_get_type(ptr noundef %30) #7
+  %44 = tail call i32 @lv_indev_get_type(ptr noundef %30) #8
   %45 = icmp eq i32 %44, 3
   br i1 %45, label %46, label %70
 
 46:                                               ; preds = %43, %40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @lv_indev_get_point(ptr noundef %30, ptr noundef nonnull %6) #7
+  call void @lv_indev_get_point(ptr noundef %30, ptr noundef nonnull %6) #8
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !29
   %49 = getelementptr i8, ptr %.val, i64 64
@@ -478,7 +478,7 @@ define internal void @lv_dropdown_list_event(ptr readnone captures(none) %0, ptr
   br i1 %50, label %.thread.i, label %get_label.exit.i.i
 
 get_label.exit.i.i:                               ; preds = %46
-  %51 = call ptr @lv_obj_get_child(ptr noundef nonnull %.val.i.i, i32 noundef 0) #7
+  %51 = call ptr @lv_obj_get_child(ptr noundef nonnull %.val.i.i, i32 noundef 0) #8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread.i, label %53
 
@@ -486,9 +486,9 @@ get_label.exit.i.i:                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 44
   %55 = load i32, ptr %54, align 4, !tbaa !31
   %56 = sub i32 %48, %55
-  %57 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %51, i32 noundef 0, i8 noundef zeroext 90) #7
-  %58 = call i32 @lv_font_get_line_height(ptr noundef %57) #7
-  %59 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %51, i32 noundef 0, i8 noundef zeroext 92) #7
+  %57 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %51, i32 noundef 0, i8 noundef zeroext 90) #8
+  %58 = call i32 @lv_font_get_line_height(ptr noundef %57) #8
+  %59 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %51, i32 noundef 0, i8 noundef zeroext 92) #8
   %60 = ptrtoint ptr %59 to i64
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %60 to i32
   %61 = sdiv i32 %.sroa.0.0.extract.trunc.i.i.i, 2
@@ -519,20 +519,20 @@ get_label.exit.i.i:                               ; preds = %46
   br label %.preheader.i.i
 
 lv_dropdown_close.exit.i:                         ; preds = %70, %.thread.i
-  call void @lv_obj_remove_state(ptr noundef nonnull %.val, i16 noundef zeroext 1) #7
+  call void @lv_obj_remove_state(ptr noundef nonnull %.val, i16 noundef zeroext 1) #8
   %71 = getelementptr inbounds nuw i8, ptr %.val, i64 108
   store i32 65535, ptr %71, align 4, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %73 = load ptr, ptr %72, align 8, !tbaa !3
-  call void @lv_obj_add_flag(ptr noundef %73, i32 noundef 1) #7
-  %74 = call i32 @lv_obj_send_event(ptr noundef nonnull %.val, i32 noundef 39, ptr noundef null) #7
+  call void @lv_obj_add_flag(ptr noundef %73, i32 noundef 1) #8
+  %74 = call i32 @lv_obj_send_event(ptr noundef nonnull %.val, i32 noundef 39, ptr noundef null) #8
   %75 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %76 = load ptr, ptr %75, align 8, !tbaa !19
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %list_release_handler.exit
 
 78:                                               ; preds = %lv_dropdown_close.exit.i
-  call void @lv_obj_invalidate(ptr noundef nonnull %.val) #7
+  call void @lv_obj_invalidate(ptr noundef nonnull %.val) #8
   br label %list_release_handler.exit
 
 list_release_handler.exit:                        ; preds = %lv_dropdown_close.exit.i, %78
@@ -540,28 +540,28 @@ list_release_handler.exit:                        ; preds = %lv_dropdown_close.e
   %79 = getelementptr inbounds nuw i8, ptr %.val, i64 100
   %80 = load i32, ptr %79, align 4, !tbaa !20
   store i32 %80, ptr %7, align 4, !tbaa !32
-  %81 = call i32 @lv_obj_send_event(ptr noundef nonnull %.val, i32 noundef 35, ptr noundef nonnull %7) #7
+  %81 = call i32 @lv_obj_send_event(ptr noundef nonnull %.val, i32 noundef 35, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %list_press_handler.exit
 
 82:                                               ; preds = %21
-  %83 = tail call ptr @lv_indev_active() #7
+  %83 = tail call ptr @lv_indev_active() #8
   %.not.i = icmp eq ptr %83, null
   br i1 %.not.i, label %list_press_handler.exit, label %84
 
 84:                                               ; preds = %82
-  %85 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %83) #7
+  %85 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %83) #8
   %86 = icmp eq i32 %85, 1
   br i1 %86, label %90, label %87
 
 87:                                               ; preds = %84
-  %88 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %83) #7
+  %88 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %83) #8
   %89 = icmp eq i32 %88, 3
   br i1 %89, label %90, label %list_press_handler.exit
 
 90:                                               ; preds = %87, %84
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @lv_indev_get_point(ptr noundef nonnull %83, ptr noundef nonnull %5) #7
+  call void @lv_indev_get_point(ptr noundef nonnull %83, ptr noundef nonnull %5) #8
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %92 = load i32, ptr %91, align 4, !tbaa !29
   %93 = getelementptr i8, ptr %24, i64 64
@@ -570,7 +570,7 @@ list_release_handler.exit:                        ; preds = %lv_dropdown_close.e
   br i1 %94, label %get_id_on_point.exit.i, label %get_label.exit.i.i20
 
 get_label.exit.i.i20:                             ; preds = %90
-  %95 = call ptr @lv_obj_get_child(ptr noundef nonnull %.val.i.i19, i32 noundef 0) #7
+  %95 = call ptr @lv_obj_get_child(ptr noundef nonnull %.val.i.i19, i32 noundef 0) #8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %get_id_on_point.exit.i, label %97
 
@@ -578,9 +578,9 @@ get_label.exit.i.i20:                             ; preds = %90
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 44
   %99 = load i32, ptr %98, align 4, !tbaa !31
   %100 = sub i32 %92, %99
-  %101 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %95, i32 noundef 0, i8 noundef zeroext 90) #7
-  %102 = call i32 @lv_font_get_line_height(ptr noundef %101) #7
-  %103 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %95, i32 noundef 0, i8 noundef zeroext 92) #7
+  %101 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %95, i32 noundef 0, i8 noundef zeroext 90) #8
+  %102 = call i32 @lv_font_get_line_height(ptr noundef %101) #8
+  %103 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %95, i32 noundef 0, i8 noundef zeroext 92) #8
   %104 = ptrtoint ptr %103 to i64
   %.sroa.0.0.extract.trunc.i.i.i21 = trunc i64 %104 to i32
   %105 = sdiv i32 %.sroa.0.0.extract.trunc.i.i.i21, 2
@@ -598,14 +598,14 @@ get_id_on_point.exit.i:                           ; preds = %97, %get_label.exit
   %.018.i.i24 = phi i32 [ %spec.select.i.i23, %97 ], [ 0, %get_label.exit.i.i20 ], [ 0, %90 ]
   %112 = getelementptr inbounds nuw i8, ptr %24, i64 108
   store i32 %.018.i.i24, ptr %112, align 4, !tbaa !22
-  call void @lv_obj_invalidate(ptr noundef nonnull %22) #7
+  call void @lv_obj_invalidate(ptr noundef nonnull %22) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %list_press_handler.exit
 
 113:                                              ; preds = %21
   %114 = getelementptr inbounds nuw i8, ptr %24, i64 108
   store i32 65535, ptr %114, align 4, !tbaa !22
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %22) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %22) #8
   br label %list_press_handler.exit
 
 115:                                              ; preds = %.thread
@@ -655,7 +655,7 @@ get_id_on_point.exit.i:                           ; preds = %97, %get_label.exit
 
 draw_list.exit:                                   ; preds = %.thread, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %134 = call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %1) #7
+  %134 = call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %1) #8
   br label %list_press_handler.exit
 
 list_press_handler.exit:                          ; preds = %get_id_on_point.exit.i, %87, %82, %draw_list.exit, %21, %113, %25, %list_release_handler.exit, %19
@@ -664,8 +664,8 @@ list_press_handler.exit:                          ; preds = %get_id_on_point.exi
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_dropdown_create(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_dropdown_class, ptr noundef %0) #7
-  tail call void @lv_obj_class_init_obj(ptr noundef %2) #7
+  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_dropdown_class, ptr noundef %0) #8
+  tail call void @lv_obj_class_init_obj(ptr noundef %2) #8
   ret ptr %2
 }
 
@@ -689,7 +689,7 @@ define void @lv_dropdown_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 7:                                                ; preds = %3
   store ptr %1, ptr %4, align 8, !tbaa !19
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   br label %8
 
 8:                                                ; preds = %3, %7
@@ -746,7 +746,7 @@ define void @lv_dropdown_set_options(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 0, ptr %18, align 4, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %19, align 8, !tbaa !21
-  %20 = tail call i64 @lv_strlen(ptr noundef nonnull %1) #7
+  %20 = tail call i64 @lv_strlen(ptr noundef nonnull %1) #8
   %21 = add i64 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load ptr, ptr %22, align 8, !tbaa !17
@@ -761,12 +761,12 @@ define void @lv_dropdown_set_options(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %24
-  tail call void @lv_free(ptr noundef nonnull %23) #7
+  tail call void @lv_free(ptr noundef nonnull %23) #8
   store ptr null, ptr %22, align 8, !tbaa !17
   br label %30
 
 30:                                               ; preds = %29, %24, %16
-  %31 = tail call ptr @lv_malloc(i64 noundef %21) #7
+  %31 = tail call ptr @lv_malloc(i64 noundef %21) #8
   store ptr %31, ptr %22, align 8, !tbaa !17
   %.not36 = icmp eq ptr %31, null
   br i1 %.not36, label %.preheader39, label %32
@@ -775,19 +775,19 @@ define void @lv_dropdown_set_options(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.preheader39
 
 32:                                               ; preds = %30
-  %33 = tail call ptr @lv_strcpy(ptr noundef nonnull %31, ptr noundef nonnull %1) #7
+  %33 = tail call ptr @lv_strcpy(ptr noundef nonnull %31, ptr noundef nonnull %1) #8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, -17
   store i8 %36, ptr %34, align 8
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %.not37 = icmp eq ptr %38, null
   br i1 %.not37, label %40, label %39
 
 39:                                               ; preds = %32
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %38) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %38) #8
   br label %40
 
 40:                                               ; preds = %32, %39
@@ -863,7 +863,7 @@ define void @lv_dropdown_set_options_static(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not29, label %28, label %27
 
 27:                                               ; preds = %24
-  tail call void @lv_free(ptr noundef nonnull %26) #7
+  tail call void @lv_free(ptr noundef nonnull %26) #8
   %.pre = load i8, ptr %20, align 8
   br label %28
 
@@ -873,14 +873,14 @@ define void @lv_dropdown_set_options_static(ptr noundef %0, ptr noundef %1) loca
   store i8 %30, ptr %20, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %31, align 8, !tbaa !17
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %.not30 = icmp eq ptr %33, null
   br i1 %.not30, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %33) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %33) #8
   br label %35
 
 35:                                               ; preds = %34, %28
@@ -912,7 +912,7 @@ define void @lv_dropdown_add_option(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not67, label %14, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @lv_strdup(ptr noundef %.pre) #7
+  %10 = tail call ptr @lv_strdup(ptr noundef %.pre) #8
   store ptr %10, ptr %.phi.trans.insert, align 8, !tbaa !17
   %.not68 = icmp eq ptr %10, null
   br i1 %.not68, label %.preheader80, label %.thread
@@ -935,17 +935,17 @@ define void @lv_dropdown_add_option(ptr noundef %0, ptr noundef %1, i32 noundef 
 17:                                               ; preds = %.thread, %14
   %18 = phi ptr [ %13, %.thread ], [ %15, %14 ]
   %19 = phi ptr [ %10, %.thread ], [ %.pre, %14 ]
-  %20 = tail call i64 @lv_strlen(ptr noundef nonnull %19) #7
+  %20 = tail call i64 @lv_strlen(ptr noundef nonnull %19) #8
   br label %21
 
 21:                                               ; preds = %14, %17
   %22 = phi ptr [ %18, %17 ], [ %15, %14 ]
   %23 = phi i64 [ %20, %17 ], [ 0, %14 ]
-  %24 = tail call i64 @lv_strlen(ptr noundef nonnull %1) #7
+  %24 = tail call i64 @lv_strlen(ptr noundef nonnull %1) #8
   %25 = load ptr, ptr %22, align 8, !tbaa !17
   %26 = add i64 %23, 4
   %27 = add i64 %26, %24
-  %28 = tail call ptr @lv_realloc(ptr noundef %25, i64 noundef %27) #7
+  %28 = tail call ptr @lv_realloc(ptr noundef %25, i64 noundef %27) #8
   store ptr %28, ptr %22, align 8, !tbaa !17
   %.not69 = icmp eq ptr %28, null
   br i1 %.not69, label %.preheader77, label %29
@@ -999,14 +999,14 @@ define void @lv_dropdown_add_option(ptr noundef %0, ptr noundef %1, i32 noundef 
   %47 = load ptr, ptr %22, align 8, !tbaa !17
   %48 = load ptr, ptr @lv_text_encoded_get_char_id, align 8, !tbaa !36
   %49 = add i32 %.056, 1
-  %50 = tail call i32 %48(ptr noundef %47, i32 noundef %.056) #7
-  tail call void @lv_text_ins(ptr noundef %47, i32 noundef %50, ptr noundef nonnull @.str.2) #7
+  %50 = tail call i32 %48(ptr noundef %47, i32 noundef %.056) #8
+  tail call void @lv_text_ins(ptr noundef %47, i32 noundef %50, ptr noundef nonnull @.str.2) #8
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader79, %46, %43, %.loopexit
   %.2 = phi i32 [ %49, %46 ], [ %.056, %43 ], [ 0, %.loopexit ], [ 0, %.preheader79 ]
   %51 = add i64 %24, 3
-  %52 = tail call ptr @lv_malloc(i64 noundef %51) #7
+  %52 = tail call ptr @lv_malloc(i64 noundef %51) #8
   %.not74 = icmp eq ptr %52, null
   br i1 %.not74, label %.preheader78, label %53
 
@@ -1014,33 +1014,33 @@ define void @lv_dropdown_add_option(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.preheader78
 
 53:                                               ; preds = %.loopexit.thread
-  %54 = tail call ptr @lv_strcpy(ptr noundef nonnull %52, ptr noundef nonnull %1) #7
+  %54 = tail call ptr @lv_strcpy(ptr noundef nonnull %52, ptr noundef nonnull %1) #8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %56 = load i32, ptr %55, align 8, !tbaa !23
   %57 = icmp ult i32 %2, %56
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %53
-  %59 = tail call ptr @lv_strcat(ptr noundef nonnull %52, ptr noundef nonnull @.str.2) #7
+  %59 = tail call ptr @lv_strcat(ptr noundef nonnull %52, ptr noundef nonnull @.str.2) #8
   br label %60
 
 60:                                               ; preds = %58, %53
   %61 = load ptr, ptr %22, align 8, !tbaa !17
   %62 = load ptr, ptr @lv_text_encoded_get_char_id, align 8, !tbaa !36
-  %63 = tail call i32 %62(ptr noundef %61, i32 noundef %.2) #7
-  tail call void @lv_text_ins(ptr noundef %61, i32 noundef %63, ptr noundef nonnull %52) #7
-  tail call void @lv_free(ptr noundef nonnull %52) #7
+  %63 = tail call i32 %62(ptr noundef %61, i32 noundef %.2) #8
+  tail call void @lv_text_ins(ptr noundef %61, i32 noundef %63, ptr noundef nonnull %52) #8
+  tail call void @lv_free(ptr noundef nonnull %52) #8
   %64 = load i32, ptr %55, align 8, !tbaa !23
   %65 = add i32 %64, 1
   store i32 %65, ptr %55, align 8, !tbaa !23
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %67 = load ptr, ptr %66, align 8, !tbaa !3
   %.not75 = icmp eq ptr %67, null
   br i1 %.not75, label %69, label %68
 
 68:                                               ; preds = %60
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %67) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %67) #8
   br label %69
 
 69:                                               ; preds = %60, %68
@@ -1077,7 +1077,7 @@ define void @lv_dropdown_clear_options(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void @lv_free(ptr noundef nonnull %4) #7
+  tail call void @lv_free(ptr noundef nonnull %4) #8
   %.pre = load i8, ptr %7, align 8
   br label %12
 
@@ -1088,14 +1088,14 @@ define void @lv_dropdown_clear_options(ptr noundef %0) local_unnamed_addr #0 {
   store i8 %14, ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %15, align 8, !tbaa !23
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %.not13 = icmp eq ptr %17, null
   br i1 %.not13, label %19, label %18
 
 18:                                               ; preds = %12
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %17) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %17) #8
   br label %19
 
 19:                                               ; preds = %12, %18, %2
@@ -1135,7 +1135,7 @@ define void @lv_dropdown_set_selected(ptr noundef %0, i32 noundef %1, i1 noundef
   br label %18
 
 18:                                               ; preds = %17, %8
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   br label %19
 
 19:                                               ; preds = %4, %18
@@ -1150,20 +1150,20 @@ define internal fastcc void @position_to_selected(ptr noundef %0, i1 noundef zer
   br i1 %4, label %get_label.exit.thread, label %get_label.exit
 
 get_label.exit:                                   ; preds = %2
-  %5 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #7
+  %5 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %get_label.exit.thread, label %7
 
 7:                                                ; preds = %get_label.exit
-  %8 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %5) #7
-  %9 = tail call i32 @lv_obj_get_content_height(ptr noundef nonnull %0) #7
+  %8 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %5) #8
+  %9 = tail call i32 @lv_obj_get_content_height(ptr noundef nonnull %0) #8
   %.not = icmp sgt i32 %8, %9
   br i1 %.not, label %10, label %get_label.exit.thread
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %5, i32 noundef 0, i8 noundef zeroext 90) #7
-  %12 = tail call i32 @lv_font_get_line_height(ptr noundef %11) #7
-  %13 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %5, i32 noundef 0, i8 noundef zeroext 92) #7
+  %11 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %5, i32 noundef 0, i8 noundef zeroext 90) #8
+  %12 = tail call i32 @lv_font_get_line_height(ptr noundef %11) #8
+  %13 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %5, i32 noundef 0, i8 noundef zeroext 92) #8
   %14 = ptrtoint ptr %13 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %14 to i32
   %15 = add nsw i32 %12, %.sroa.0.0.extract.trunc.i
@@ -1171,9 +1171,9 @@ get_label.exit:                                   ; preds = %2
   %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = mul i32 %15, %17
   %19 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_scroll_to_y(ptr noundef %19, i32 noundef %18, i1 noundef zeroext %1) #7
+  tail call void @lv_obj_scroll_to_y(ptr noundef %19, i32 noundef %18, i1 noundef zeroext %1) #8
   %20 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_invalidate(ptr noundef %20) #7
+  tail call void @lv_obj_invalidate(ptr noundef %20) #8
   br label %get_label.exit.thread
 
 get_label.exit.thread:                            ; preds = %2, %7, %get_label.exit, %10
@@ -1202,7 +1202,7 @@ define void @lv_dropdown_set_dir(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %12 = and i8 %5, -16
   %13 = or disjoint i8 %12, %11
   store i8 %13, ptr %4, align 8
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   br label %14
 
 14:                                               ; preds = %3, %9
@@ -1220,7 +1220,7 @@ define void @lv_dropdown_set_symbol(ptr noundef %0, ptr noundef %1) local_unname
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %4, align 8, !tbaa !18
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   ret void
 }
 
@@ -1245,7 +1245,7 @@ define void @lv_dropdown_set_selected_highlight(ptr noundef captures(address_is_
   br i1 %.not6, label %12, label %11
 
 11:                                               ; preds = %3
-  tail call void @lv_obj_invalidate(ptr noundef nonnull %10) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %10) #8
   br label %12
 
 12:                                               ; preds = %11, %3
@@ -1339,7 +1339,7 @@ define void @lv_dropdown_get_selected_str(ptr noundef readonly captures(address_
   br i1 %.not37, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @lv_strlen(ptr noundef nonnull %6) #7
+  %8 = tail call i64 @lv_strlen(ptr noundef nonnull %6) #8
   %.not55 = icmp eq i64 %8, 0
   br i1 %.not55, label %.critedge, label %.lr.ph
 
@@ -1456,7 +1456,7 @@ lv_dropdown_get_options.exit:                     ; preds = %2
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = icmp eq ptr %4, null
   %spec.select.i = select i1 %5, ptr @.str.3, ptr %4
-  %6 = tail call i64 @lv_strlen(ptr noundef %1) #7
+  %6 = tail call i64 @lv_strlen(ptr noundef %1) #8
   %7 = load i8, ptr %spec.select.i, align 1, !tbaa !24
   %.not32 = icmp eq i8 %7, 0
   br i1 %.not32, label %._crit_edge, label %.preheader
@@ -1489,7 +1489,7 @@ lv_dropdown_get_options.exit:                     ; preds = %2
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %.critedge
-  %17 = tail call i32 @lv_memcmp(ptr noundef nonnull %.02334, ptr noundef %1, i64 noundef %6) #7
+  %17 = tail call i32 @lv_memcmp(ptr noundef nonnull %.02334, ptr noundef %1, i64 noundef %6) #8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %._crit_edge, label %._crit_edge38
 
@@ -1569,35 +1569,35 @@ define void @lv_dropdown_open(ptr noundef %0) local_unnamed_addr #0 {
   br label %.preheader
 
 2:                                                ; preds = %1
-  tail call void @lv_obj_add_state(ptr noundef nonnull %0, i16 noundef zeroext 1) #7
+  tail call void @lv_obj_add_state(ptr noundef nonnull %0, i16 noundef zeroext 1) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !3
-  %5 = tail call ptr @lv_obj_get_screen(ptr noundef nonnull %0) #7
-  tail call void @lv_obj_set_parent(ptr noundef %4, ptr noundef %5) #7
+  %5 = tail call ptr @lv_obj_get_screen(ptr noundef nonnull %0) #8
+  tail call void @lv_obj_set_parent(ptr noundef %4, ptr noundef %5) #8
   %6 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_move_to_index(ptr noundef %6, i32 noundef -1) #7
+  tail call void @lv_obj_move_to_index(ptr noundef %6, i32 noundef -1) #8
   %7 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_remove_flag(ptr noundef %7, i32 noundef 1) #7
-  %8 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 38, ptr noundef null) #7
+  tail call void @lv_obj_remove_flag(ptr noundef %7, i32 noundef 1) #8
+  %8 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 38, ptr noundef null) #8
   %.val = load ptr, ptr %3, align 8, !tbaa !3
   %9 = icmp eq ptr %.val, null
   br i1 %9, label %get_label.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #7
+  %11 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #8
   br label %get_label.exit
 
 get_label.exit:                                   ; preds = %2, %10
   %.0.i = phi ptr [ %11, %10 ], [ null, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8, !tbaa !17
-  tail call void @lv_label_set_text_static(ptr noundef %.0.i, ptr noundef %13) #7
+  tail call void @lv_label_set_text_static(ptr noundef %.0.i, ptr noundef %13) #8
   %14 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_set_width(ptr noundef %14, i32 noundef 1073741823) #7
-  tail call void @lv_obj_update_layout(ptr noundef %.0.i) #7
+  tail call void @lv_obj_set_width(ptr noundef %14, i32 noundef 1073741823) #8
+  tail call void @lv_obj_update_layout(ptr noundef %.0.i) #8
   %15 = load ptr, ptr %3, align 8, !tbaa !3
-  %16 = tail call i32 @lv_obj_get_width(ptr noundef %15) #7
-  %17 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #7
+  %16 = tail call i32 @lv_obj_get_width(ptr noundef %15) #8
+  %17 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #8
   %.not84 = icmp sgt i32 %16, %17
   br i1 %.not84, label %25, label %18
 
@@ -1612,22 +1612,22 @@ get_label.exit:                                   ; preds = %2, %10
 
 22:                                               ; preds = %18, %18
   %23 = load ptr, ptr %3, align 8, !tbaa !3
-  %24 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #7
-  tail call void @lv_obj_set_width(ptr noundef %23, i32 noundef %24) #7
+  %24 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #8
+  tail call void @lv_obj_set_width(ptr noundef %23, i32 noundef %24) #8
   br label %25
 
 25:                                               ; preds = %18, %22, %get_label.exit
-  %26 = tail call i32 @lv_obj_get_height(ptr noundef %.0.i) #7
+  %26 = tail call i32 @lv_obj_get_height(ptr noundef %.0.i) #8
   %27 = load ptr, ptr %3, align 8, !tbaa !3
-  %28 = tail call ptr @lv_obj_get_style_prop(ptr noundef %27, i32 noundef 0, i8 noundef zeroext 48) #7
+  %28 = tail call ptr @lv_obj_get_style_prop(ptr noundef %27, i32 noundef 0, i8 noundef zeroext 48) #8
   %29 = ptrtoint ptr %28 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %29 to i32
   %30 = load ptr, ptr %3, align 8, !tbaa !3
-  %31 = tail call ptr @lv_obj_get_style_prop(ptr noundef %30, i32 noundef 0, i8 noundef zeroext 16) #7
+  %31 = tail call ptr @lv_obj_get_style_prop(ptr noundef %30, i32 noundef 0, i8 noundef zeroext 16) #8
   %32 = ptrtoint ptr %31 to i64
   %.sroa.0.0.extract.trunc.i86 = trunc i64 %32 to i32
   %33 = load ptr, ptr %3, align 8, !tbaa !3
-  %34 = tail call ptr @lv_obj_get_style_prop(ptr noundef %33, i32 noundef 0, i8 noundef zeroext 17) #7
+  %34 = tail call ptr @lv_obj_get_style_prop(ptr noundef %33, i32 noundef 0, i8 noundef zeroext 17) #8
   %35 = ptrtoint ptr %34 to i64
   %.sroa.0.0.extract.trunc.i87 = trunc i64 %35 to i32
   %factor = shl i32 %.sroa.0.0.extract.trunc.i, 1
@@ -1644,16 +1644,16 @@ get_label.exit:                                   ; preds = %2, %10
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %45 = load i32, ptr %44, align 4, !tbaa !41
   %46 = add nsw i32 %45, %38
-  %47 = tail call ptr @lv_display_get_default() #7
-  %48 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %47) #7
+  %47 = tail call ptr @lv_display_get_default() #8
+  %48 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %47) #8
   %49 = icmp sgt i32 %46, %48
   br i1 %49, label %50, label %88
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %52 = load i32, ptr %51, align 4, !tbaa !31
-  %53 = tail call ptr @lv_display_get_default() #7
-  %54 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %53) #7
+  %53 = tail call ptr @lv_display_get_default() #8
+  %54 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %53) #8
   %55 = load i32, ptr %44, align 4, !tbaa !41
   %56 = sub nsw i32 %54, %55
   %57 = icmp sgt i32 %52, %56
@@ -1665,8 +1665,8 @@ get_label.exit:                                   ; preds = %2, %10
   br label %88
 
 61:                                               ; preds = %50
-  %62 = tail call ptr @lv_display_get_default() #7
-  %63 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %62) #7
+  %62 = tail call ptr @lv_display_get_default() #8
+  %63 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %62) #8
   %64 = load i32, ptr %44, align 4, !tbaa !41
   %65 = xor i32 %64, -1
   %66 = add i32 %63, %65
@@ -1684,8 +1684,8 @@ get_label.exit:                                   ; preds = %2, %10
   br i1 %73, label %74, label %88
 
 74:                                               ; preds = %70
-  %75 = tail call ptr @lv_display_get_default() #7
-  %76 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %75) #7
+  %75 = tail call ptr @lv_display_get_default() #8
+  %76 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %75) #8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %78 = load i32, ptr %77, align 4, !tbaa !41
   %79 = sub nsw i32 %76, %78
@@ -1693,8 +1693,8 @@ get_label.exit:                                   ; preds = %2, %10
   br i1 %80, label %81, label %86
 
 81:                                               ; preds = %74
-  %82 = tail call ptr @lv_display_get_default() #7
-  %83 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %82) #7
+  %82 = tail call ptr @lv_display_get_default() #8
+  %83 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %82) #8
   %84 = load i32, ptr %77, align 4, !tbaa !41
   %85 = sub nsw i32 %83, %84
   br label %88
@@ -1708,7 +1708,7 @@ get_label.exit:                                   ; preds = %2, %10
   %.0 = phi i32 [ %60, %58 ], [ %66, %61 ], [ %38, %43 ], [ %85, %81 ], [ %87, %86 ], [ %38, %70 ], [ %38, %67 ]
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0, i32 %38)
   %89 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_set_height(ptr noundef %89, i32 noundef %spec.select) #7
+  tail call void @lv_obj_set_height(ptr noundef %89, i32 noundef %spec.select) #8
   tail call fastcc void @position_to_selected(ptr noundef nonnull %0, i1 noundef zeroext false)
   %90 = tail call range(i32 0, 8) i32 @llvm.ctpop.i32(i32 %.076)
   %91 = icmp eq i32 %90, 1
@@ -1720,12 +1720,12 @@ get_label.exit:                                   ; preds = %2, %10
   %94 = zext nneg i32 %92 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lv_dropdown_open, i64 %94
   %switch.load = load i32, ptr %switch.gep, align 4
-  tail call void @lv_obj_align_to(ptr noundef %93, ptr noundef nonnull %0, i32 noundef %switch.load, i32 noundef 0, i32 noundef 0) #7
+  tail call void @lv_obj_align_to(ptr noundef %93, ptr noundef nonnull %0, i32 noundef %switch.load, i32 noundef 0, i32 noundef 0) #8
   br label %95
 
 95:                                               ; preds = %.split, %88
   %96 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_update_layout(ptr noundef %96) #7
+  tail call void @lv_obj_update_layout(ptr noundef %96) #8
   %97 = load i8, ptr %39, align 8
   %98 = and i8 %97, 15
   %.off = add nsw i8 %98, -1
@@ -1734,32 +1734,32 @@ get_label.exit:                                   ; preds = %2, %10
 
 99:                                               ; preds = %95
   %100 = load ptr, ptr %3, align 8, !tbaa !3
-  %101 = tail call i32 @lv_obj_get_y(ptr noundef %100) #7
+  %101 = tail call i32 @lv_obj_get_y(ptr noundef %100) #8
   %102 = load ptr, ptr %3, align 8, !tbaa !3
-  %103 = tail call i32 @lv_obj_get_y2(ptr noundef %102) #7
-  %104 = tail call ptr @lv_display_get_default() #7
-  %105 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %104) #7
+  %103 = tail call i32 @lv_obj_get_y2(ptr noundef %102) #8
+  %104 = tail call ptr @lv_display_get_default() #8
+  %105 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %104) #8
   %.not85 = icmp slt i32 %103, %105
   br i1 %.not85, label %113, label %106
 
 106:                                              ; preds = %99
   %107 = load ptr, ptr %3, align 8, !tbaa !3
-  %108 = tail call ptr @lv_display_get_default() #7
-  %109 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %108) #7
+  %108 = tail call ptr @lv_display_get_default() #8
+  %109 = tail call i32 @lv_display_get_vertical_resolution(ptr noundef %108) #8
   %110 = xor i32 %103, -1
   %111 = add i32 %101, %110
   %112 = add i32 %111, %109
-  tail call void @lv_obj_set_y(ptr noundef %107, i32 noundef %112) #7
+  tail call void @lv_obj_set_y(ptr noundef %107, i32 noundef %112) #8
   br label %113
 
 113:                                              ; preds = %95, %99, %106
   %114 = load ptr, ptr %12, align 8, !tbaa !17
-  %115 = tail call i32 @lv_obj_calculate_style_text_align(ptr noundef %.0.i, i32 noundef 0, ptr noundef %114) #7
+  %115 = tail call i32 @lv_obj_calculate_style_text_align(ptr noundef %.0.i, i32 noundef 0, ptr noundef %114) #8
   %switch.selectcmp = icmp eq i32 %115, 3
   %switch.select = select i1 %switch.selectcmp, i32 3, i32 1
   %switch.selectcmp96 = icmp eq i32 %115, 2
   %switch.select97 = select i1 %switch.selectcmp96, i32 2, i32 %switch.select
-  tail call void @lv_obj_align(ptr noundef %.0.i, i32 noundef %switch.select97, i32 noundef 0, i32 noundef 0) #7
+  tail call void @lv_obj_align(ptr noundef %.0.i, i32 noundef %switch.select97, i32 noundef 0, i32 noundef 0) #8
   ret void
 }
 
@@ -1812,13 +1812,13 @@ define void @lv_dropdown_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %.preheader
 
 2:                                                ; preds = %1
-  tail call void @lv_obj_remove_state(ptr noundef nonnull %0, i16 noundef zeroext 1) #7
+  tail call void @lv_obj_remove_state(ptr noundef nonnull %0, i16 noundef zeroext 1) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 65535, ptr %3, align 4, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !3
-  tail call void @lv_obj_add_flag(ptr noundef %5, i32 noundef 1) #7
-  %6 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 39, ptr noundef null) #7
+  tail call void @lv_obj_add_flag(ptr noundef %5, i32 noundef 1) #8
+  %6 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 39, ptr noundef null) #8
   ret void
 }
 
@@ -1837,7 +1837,7 @@ define zeroext i1 @lv_dropdown_is_open(ptr noundef readonly captures(address_is_
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !3
-  %5 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %4, i32 noundef 1) #7
+  %5 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %4, i32 noundef 1) #8
   %not. = xor i1 %5, true
   ret i1 %not.
 }
@@ -1867,8 +1867,8 @@ declare ptr @lv_indev_active() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @btn_release_handler(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = tail call ptr @lv_indev_active() #7
-  %4 = tail call ptr @lv_indev_get_scroll_obj(ptr noundef %3) #7
+  %3 = tail call ptr @lv_indev_active() #8
+  %4 = tail call ptr @lv_indev_get_scroll_obj(ptr noundef %3) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %26
 
@@ -1882,16 +1882,16 @@ define internal fastcc void @btn_release_handler(ptr noundef %0) unnamed_addr #0
 lv_dropdown_is_open.exit:                         ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %8, i32 noundef 1) #7
+  %9 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %8, i32 noundef 1) #8
   br i1 %9, label %25, label %lv_dropdown_close.exit
 
 lv_dropdown_close.exit:                           ; preds = %lv_dropdown_is_open.exit
-  tail call void @lv_obj_remove_state(ptr noundef nonnull %0, i16 noundef zeroext 1) #7
+  tail call void @lv_obj_remove_state(ptr noundef nonnull %0, i16 noundef zeroext 1) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 65535, ptr %10, align 4, !tbaa !22
   %11 = load ptr, ptr %7, align 8, !tbaa !3
-  tail call void @lv_obj_add_flag(ptr noundef %11, i32 noundef 1) #7
-  %12 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 39, ptr noundef null) #7
+  tail call void @lv_obj_add_flag(ptr noundef %11, i32 noundef 1) #8
+  %12 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 39, ptr noundef null) #8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1903,23 +1903,23 @@ lv_dropdown_close.exit:                           ; preds = %lv_dropdown_is_open
   store i32 %16, ptr %13, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %16, ptr %2, align 4, !tbaa !32
-  %18 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 35, ptr noundef nonnull %2) #7
+  %18 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 35, ptr noundef nonnull %2) #8
   %.not22 = icmp eq i32 %18, 1
   br i1 %.not22, label %19, label %.critedge
 
 19:                                               ; preds = %17
-  call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
+  call void @lv_obj_invalidate(ptr noundef nonnull %0) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
 20:                                               ; preds = %19, %lv_dropdown_close.exit
-  %21 = call i32 @lv_indev_get_type(ptr noundef %3) #7
+  %21 = call i32 @lv_indev_get_type(ptr noundef %3) #8
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
-  %24 = call ptr @lv_obj_get_group(ptr noundef nonnull %0) #7
-  call void @lv_group_set_editing(ptr noundef %24, i1 noundef zeroext false) #7
+  %24 = call ptr @lv_obj_get_group(ptr noundef nonnull %0) #8
+  call void @lv_group_set_editing(ptr noundef %24, i1 noundef zeroext false) #8
   br label %30
 
 25:                                               ; preds = %lv_dropdown_is_open.exit
@@ -1931,7 +1931,7 @@ lv_dropdown_close.exit:                           ; preds = %lv_dropdown_is_open
   %28 = load i32, ptr %27, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %28, ptr %29, align 4, !tbaa !20
-  tail call void @lv_obj_invalidate(ptr noundef %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef %0) #8
   br label %30
 
 .critedge:                                        ; preds = %17
@@ -1965,24 +1965,24 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %8 = alloca %struct.lv_draw_label_dsc_t, align 8
   %9 = alloca %struct.lv_point_t, align 4
   %10 = alloca %struct.lv_area_t, align 4
-  %11 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #7
-  %12 = tail call ptr @lv_event_get_layer(ptr noundef %0) #7
-  %13 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 0, i8 noundef zeroext 48) #7
+  %11 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #8
+  %12 = tail call ptr @lv_event_get_layer(ptr noundef %0) #8
+  %13 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 0, i8 noundef zeroext 48) #8
   %14 = ptrtoint ptr %13 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %14 to i32
-  %15 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 0, i8 noundef zeroext 18) #7
+  %15 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 0, i8 noundef zeroext 18) #8
   %16 = ptrtoint ptr %15 to i64
   %.sroa.0.0.extract.trunc.i61 = trunc i64 %16 to i32
   %17 = add nsw i32 %.sroa.0.0.extract.trunc.i61, %.sroa.0.0.extract.trunc.i
-  %18 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 0, i8 noundef zeroext 19) #7
+  %18 = tail call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 0, i8 noundef zeroext 19) #8
   %19 = ptrtoint ptr %18 to i64
   %.sroa.0.0.extract.trunc.i62 = trunc i64 %19 to i32
   %20 = add nsw i32 %.sroa.0.0.extract.trunc.i62, %.sroa.0.0.extract.trunc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @lv_draw_label_dsc_init(ptr noundef nonnull %2) #7
+  call void @lv_draw_label_dsc_init(ptr noundef nonnull %2) #8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %12, ptr %21, align 8, !tbaa !42
-  call void @lv_obj_init_draw_label_dsc(ptr noundef %11, i32 noundef 131072, ptr noundef nonnull %2) #7
+  call void @lv_obj_init_draw_label_dsc(ptr noundef %11, i32 noundef 131072, ptr noundef nonnull %2) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !19
@@ -1996,7 +1996,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not37.i, label %31, label %27
 
 27:                                               ; preds = %24
-  %28 = call i64 @lv_strlen(ptr noundef nonnull %26) #7
+  %28 = call i64 @lv_strlen(ptr noundef nonnull %26) #8
   %.not55.i = icmp eq i64 %28, 0
   br i1 %.not55.i, label %.critedge.i, label %.lr.ph.i
 
@@ -2075,7 +2075,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   %56 = load i8, ptr %55, align 8
   %57 = and i8 %56, 15
   %58 = icmp eq i8 %57, 1
-  %59 = call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 0, i8 noundef zeroext 39) #7
+  %59 = call ptr @lv_obj_get_style_prop(ptr noundef %11, i32 noundef 0, i8 noundef zeroext 39) #8
   %60 = ptrtoint ptr %59 to i64
   %61 = and i64 %60, 4294967295
   %62 = icmp eq i64 %61, 1
@@ -2086,7 +2086,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   br i1 %.not60, label %121, label %65
 
 65:                                               ; preds = %lv_dropdown_get_selected_str.exit
-  %66 = call i32 @lv_image_src_get_type(ptr noundef nonnull %64) #7
+  %66 = call i32 @lv_image_src_get_type(ptr noundef nonnull %64) #8
   %67 = icmp eq i32 %66, 2
   br i1 %67, label %68, label %81
 
@@ -2101,7 +2101,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   %75 = load i32, ptr %74, align 4, !tbaa !52
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %77 = load i32, ptr %76, align 4, !tbaa !53
-  call void @lv_text_get_size(ptr noundef nonnull %4, ptr noundef %69, ptr noundef %71, i32 noundef %73, i32 noundef %75, i32 noundef 536870911, i32 noundef %77) #7
+  call void @lv_text_get_size(ptr noundef nonnull %4, ptr noundef %69, ptr noundef %71, i32 noundef %73, i32 noundef %75, i32 noundef 536870911, i32 noundef %77) #8
   %78 = load i32, ptr %4, align 4, !tbaa !54
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !29
@@ -2111,7 +2111,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
 81:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %82 = load ptr, ptr %63, align 8, !tbaa !18
-  %83 = call i32 @lv_image_decoder_get_info(ptr noundef %82, ptr noundef nonnull %5) #7
+  %83 = call i32 @lv_image_decoder_get_info(ptr noundef %82, ptr noundef nonnull %5) #8
   %84 = icmp eq i32 %83, 1
   %85 = load i64, ptr %5, align 8
   %86 = lshr i64 %85, 32
@@ -2146,12 +2146,12 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   br i1 %spec.select, label %103, label %104
 
 103:                                              ; preds = %91
-  call void @lv_area_align(ptr noundef nonnull %92, ptr noundef nonnull %6, i32 noundef 7, i32 noundef %17, i32 noundef 0) #7
+  call void @lv_area_align(ptr noundef nonnull %92, ptr noundef nonnull %6, i32 noundef 7, i32 noundef %17, i32 noundef 0) #8
   br label %106
 
 104:                                              ; preds = %91
   %105 = sub nsw i32 0, %20
-  call void @lv_area_align(ptr noundef nonnull %92, ptr noundef nonnull %6, i32 noundef 8, i32 noundef %105, i32 noundef 0) #7
+  call void @lv_area_align(ptr noundef nonnull %92, ptr noundef nonnull %6, i32 noundef 8, i32 noundef %105, i32 noundef 0) #8
   br label %106
 
 106:                                              ; preds = %104, %103
@@ -2161,20 +2161,20 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   %108 = load ptr, ptr %63, align 8, !tbaa !18
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %108, ptr %109, align 8, !tbaa !60
-  call void @lv_draw_label(ptr noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %6) #7
+  call void @lv_draw_label(ptr noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %6) #8
   br label %120
 
 110:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @lv_draw_image_dsc_init(ptr noundef nonnull %7) #7
+  call void @lv_draw_image_dsc_init(ptr noundef nonnull %7) #8
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %12, ptr %111, align 8, !tbaa !61
-  call void @lv_obj_init_draw_image_dsc(ptr noundef nonnull %11, i32 noundef 131072, ptr noundef nonnull %7) #7
+  call void @lv_obj_init_draw_image_dsc(ptr noundef nonnull %11, i32 noundef 131072, ptr noundef nonnull %7) #8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %113 = sdiv i32 %.055, 2
   %114 = sdiv i32 %.054, 2
-  call void @lv_point_set(ptr noundef nonnull %112, i32 noundef %113, i32 noundef %114) #7
-  %115 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %11, i32 noundef 131072, i8 noundef zeroext 110) #7
+  call void @lv_point_set(ptr noundef nonnull %112, i32 noundef %113, i32 noundef %114) #8
+  %115 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %11, i32 noundef 131072, i8 noundef zeroext 110) #8
   %116 = ptrtoint ptr %115 to i64
   %.sroa.0.0.extract.trunc.i64 = trunc i64 %116 to i32
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 68
@@ -2182,7 +2182,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   %118 = load ptr, ptr %63, align 8, !tbaa !18
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %118, ptr %119, align 8, !tbaa !66
-  call void @lv_draw_image(ptr noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
+  call void @lv_draw_image(ptr noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %120
 
@@ -2192,10 +2192,10 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
 
 121:                                              ; preds = %120, %lv_dropdown_get_selected_str.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @lv_draw_label_dsc_init(ptr noundef nonnull %8) #7
+  call void @lv_draw_label_dsc_init(ptr noundef nonnull %8) #8
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %12, ptr %122, align 8, !tbaa !42
-  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull %8) #7
+  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull %8) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %124 = load ptr, ptr %123, align 8, !tbaa !50
@@ -2205,7 +2205,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   %128 = load i32, ptr %127, align 4, !tbaa !52
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 124
   %130 = load i32, ptr %129, align 4, !tbaa !53
-  call void @lv_text_get_size(ptr noundef nonnull %9, ptr noundef nonnull %.0, ptr noundef %124, i32 noundef %126, i32 noundef %128, i32 noundef 536870911, i32 noundef %130) #7
+  call void @lv_text_get_size(ptr noundef nonnull %9, ptr noundef nonnull %.0, ptr noundef %124, i32 noundef %126, i32 noundef %128, i32 noundef 536870911, i32 noundef %130) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %132 = load i32, ptr %131, align 8, !tbaa !57
@@ -2230,7 +2230,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %121
-  call void @lv_area_align(ptr noundef nonnull %131, ptr noundef nonnull %10, i32 noundef 9, i32 noundef 0, i32 noundef 0) #7
+  call void @lv_area_align(ptr noundef nonnull %131, ptr noundef nonnull %10, i32 noundef 9, i32 noundef 0, i32 noundef 0) #8
   br label %152
 
 148:                                              ; preds = %121
@@ -2238,11 +2238,11 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
 
 149:                                              ; preds = %148
   %150 = sub nsw i32 0, %20
-  call void @lv_area_align(ptr noundef nonnull %131, ptr noundef nonnull %10, i32 noundef 8, i32 noundef %150, i32 noundef 0) #7
+  call void @lv_area_align(ptr noundef nonnull %131, ptr noundef nonnull %10, i32 noundef 8, i32 noundef %150, i32 noundef 0) #8
   br label %152
 
 151:                                              ; preds = %148
-  call void @lv_area_align(ptr noundef nonnull %131, ptr noundef nonnull %10, i32 noundef 7, i32 noundef %17, i32 noundef 0) #7
+  call void @lv_area_align(ptr noundef nonnull %131, ptr noundef nonnull %10, i32 noundef 7, i32 noundef %17, i32 noundef 0) #8
   br label %152
 
 152:                                              ; preds = %149, %151, %147
@@ -2260,7 +2260,7 @@ lv_dropdown_get_selected_str.exit:                ; preds = %.critedge2.i, %31, 
   br label %160
 
 160:                                              ; preds = %156, %152
-  call void @lv_draw_label(ptr noundef %12, ptr noundef nonnull %8, ptr noundef nonnull %10) #7
+  call void @lv_draw_label(ptr noundef %12, ptr noundef nonnull %8, ptr noundef nonnull %10) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2328,13 +2328,13 @@ define internal fastcc void @draw_box(ptr noundef readonly captures(none) %0, pt
   br label %get_label.exit
 
 get_label.exit:                                   ; preds = %13, %8
-  %17 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %10, i32 noundef 262144, i8 noundef zeroext 90) #7
-  %18 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %10, i32 noundef 262144, i8 noundef zeroext 92) #7
+  %17 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %10, i32 noundef 262144, i8 noundef zeroext 90) #8
+  %18 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %10, i32 noundef 262144, i8 noundef zeroext 92) #8
   %19 = ptrtoint ptr %18 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %19 to i32
-  %20 = tail call i32 @lv_font_get_line_height(ptr noundef %17) #7
+  %20 = tail call i32 @lv_font_get_line_height(ptr noundef %17) #8
   %.val = load ptr, ptr %9, align 8, !tbaa !3, !nonnull !68, !noundef !68
-  %21 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #7
+  %21 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %23 = load i32, ptr %22, align 4, !tbaa !31
@@ -2358,11 +2358,11 @@ get_label.exit:                                   ; preds = %13, %8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %36, ptr %37, align 4, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #7
+  call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %38, align 8, !tbaa !70
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %10, i32 noundef 262144, ptr noundef nonnull %6) #7
-  call void @lv_draw_rect(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #7
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %10, i32 noundef 262144, ptr noundef nonnull %6) #8
+  call void @lv_draw_rect(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #8
   store i16 %12, ptr %11, align 4, !tbaa !67
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 62
   %40 = load i16, ptr %39, align 2
@@ -2403,11 +2403,11 @@ define internal fastcc void @draw_box_label(ptr noundef readonly captures(none) 
 
 19:                                               ; preds = %15, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @lv_draw_label_dsc_init(ptr noundef nonnull %5) #7
+  call void @lv_draw_label_dsc_init(ptr noundef nonnull %5) #8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %20, align 8, !tbaa !42
-  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %12, i32 noundef 262144, ptr noundef nonnull %5) #7
-  %21 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %12, i32 noundef 262144, i8 noundef zeroext 92) #7
+  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %12, i32 noundef 262144, ptr noundef nonnull %5) #8
+  %21 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %12, i32 noundef 262144, i8 noundef zeroext 92) #8
   %22 = ptrtoint ptr %21 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %22 to i32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 92
@@ -2417,14 +2417,14 @@ define internal fastcc void @draw_box_label(ptr noundef readonly captures(none) 
   br i1 %24, label %get_label.exit.thread, label %get_label.exit
 
 get_label.exit:                                   ; preds = %19
-  %25 = call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #7
+  %25 = call ptr @lv_obj_get_child(ptr noundef nonnull %.val, i32 noundef 0) #8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %get_label.exit.thread, label %27
 
 27:                                               ; preds = %get_label.exit
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !50
-  %30 = call i32 @lv_font_get_line_height(ptr noundef %29) #7
+  %30 = call i32 @lv_font_get_line_height(ptr noundef %29) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !31
@@ -2449,7 +2449,7 @@ get_label.exit:                                   ; preds = %19
   store i32 %45, ptr %46, align 4, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %48 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %7, ptr noundef nonnull %47, ptr noundef nonnull %6) #7
+  %48 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %7, ptr noundef nonnull %47, ptr noundef nonnull %6) #8
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %27
@@ -2457,10 +2457,10 @@ get_label.exit:                                   ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !33
-  %51 = call ptr @lv_label_get_text(ptr noundef nonnull %25) #7
+  %51 = call ptr @lv_label_get_text(ptr noundef nonnull %25) #8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %51, ptr %52, align 8, !tbaa !60
-  call void @lv_draw_label(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %50) #7
+  call void @lv_draw_label(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %50) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
@@ -2503,16 +2503,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2521,8 +2521,9 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

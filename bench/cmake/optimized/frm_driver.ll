@@ -47,7 +47,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Position_Form_Cursor(ptr noundef read
   %18 = load i32, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !18
-  %21 = tail call i32 @wmove(ptr noundef nonnull %4, i32 noundef %18, i32 noundef %20) #13
+  %21 = tail call i32 @wmove(ptr noundef nonnull %4, i32 noundef %18, i32 noundef %20) #14
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %23 = load i32, ptr %22, align 8, !tbaa !19
   %24 = and i32 %23, 4
@@ -89,7 +89,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Position_Form_Cursor(ptr noundef read
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %54 = load i32, ptr %53, align 4, !tbaa !31
   %55 = sub i32 %52, %54
-  %56 = tail call i32 @wmove(ptr noundef %16, i32 noundef %47, i32 noundef %55) #13
+  %56 = tail call i32 @wmove(ptr noundef %16, i32 noundef %47, i32 noundef %55) #14
   br label %.sink.split
 
 57:                                               ; preds = %32
@@ -98,7 +98,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Position_Form_Cursor(ptr noundef read
 
 .sink.split:                                      ; preds = %57, %39
   %.sink = phi ptr [ %16, %39 ], [ %58, %57 ]
-  tail call void @wcursyncup(ptr noundef %.sink) #13
+  tail call void @wcursyncup(ptr noundef %.sink) #14
   br label %59
 
 59:                                               ; preds = %.sink.split, %2, %5, %1
@@ -116,7 +116,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   br i1 %.not, label %2, label %4
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @__errno_location() #14
+  %3 = tail call ptr @__errno_location() #15
   store i32 -2, ptr %3, align 4, !tbaa !32
   br label %159
 
@@ -133,7 +133,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   br i1 %.not119, label %10, label %12
 
 10:                                               ; preds = %7, %4
-  %11 = tail call ptr @__errno_location() #14
+  %11 = tail call ptr @__errno_location() #15
   store i32 -1, ptr %11, align 4, !tbaa !32
   br label %159
 
@@ -231,7 +231,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   %69 = sext i16 %68 to i32
   %70 = add nsw i32 %69, -1
   %71 = add nsw i32 %70, %.pre-phi
-  %72 = tail call i32 @copywin(ptr noundef nonnull %6, ptr noundef %20, i32 noundef 0, i32 noundef %63, i32 noundef %66, i32 noundef %69, i32 noundef %66, i32 noundef %71, i32 noundef 0) #13
+  %72 = tail call i32 @copywin(ptr noundef nonnull %6, ptr noundef %20, i32 noundef 0, i32 noundef %63, i32 noundef %66, i32 noundef %69, i32 noundef %66, i32 noundef %71, i32 noundef 0) #14
   br label %.sink.split
 
 73:                                               ; preds = %38
@@ -301,7 +301,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   br i1 %or.cond, label %._crit_edge, label %104
 
 104:                                              ; preds = %98
-  %105 = tail call zeroext i1 @is_linetouched(ptr noundef nonnull %97, i32 noundef %.0101133) #13
+  %105 = tail call zeroext i1 @is_linetouched(ptr noundef nonnull %97, i32 noundef %.0101133) #14
   br i1 %105, label %._crit_edge, label %106
 
 106:                                              ; preds = %104
@@ -340,7 +340,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   br i1 %or.cond3, label %121, label %119
 
 119:                                              ; preds = %112
-  %120 = tail call zeroext i1 @is_linetouched(ptr noundef nonnull %111, i32 noundef %.0140) #13
+  %120 = tail call zeroext i1 @is_linetouched(ptr noundef nonnull %111, i32 noundef %.0140) #14
   br i1 %120, label %121, label %.loopexit
 
 121:                                              ; preds = %.lr.ph142.split, %112, %119
@@ -380,12 +380,12 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
   %144 = sext i16 %143 to i32
   %145 = add nsw i32 %138, -1
   %146 = add nsw i32 %145, %144
-  %147 = tail call i32 @copywin(ptr noundef %128, ptr noundef %20, i32 noundef %.1102, i32 noundef 0, i32 noundef %135, i32 noundef %138, i32 noundef %141, i32 noundef %146, i32 noundef 0) #13
+  %147 = tail call i32 @copywin(ptr noundef %128, ptr noundef %20, i32 noundef %.1102, i32 noundef 0, i32 noundef %135, i32 noundef %138, i32 noundef %141, i32 noundef %146, i32 noundef 0) #14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %106, %31, %62, %127, %.loopexit, %._crit_edge
   %.sink = phi ptr [ %20, %._crit_edge ], [ %20, %.loopexit ], [ %20, %127 ], [ %20, %62 ], [ %6, %31 ], [ %20, %106 ]
-  tail call void @wsyncup(ptr noundef %.sink) #13
+  tail call void @wsyncup(ptr noundef %.sink) #14
   br label %148
 
 148:                                              ; preds = %.sink.split, %19
@@ -402,7 +402,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Refresh_Current_Field(ptr noundef cap
 
 155:                                              ; preds = %148, %150
   %156 = phi i32 [ %154, %150 ], [ -1, %148 ]
-  %157 = tail call i32 @wtouchln(ptr noundef %149, i32 noundef 0, i32 noundef %156, i32 noundef 0) #13
+  %157 = tail call i32 @wtouchln(ptr noundef %149, i32 noundef 0, i32 noundef %156, i32 noundef 0) #14
   %158 = tail call i32 @_nc_Position_Form_Cursor(ptr noundef nonnull %0)
   br label %159
 
@@ -469,13 +469,13 @@ define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef ca
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %28 = load i32, ptr %27, align 4, !tbaa !49
   %29 = or i32 %28, %26
-  tail call void @wbkgdset(ptr noundef %24, i32 noundef %29) #13
+  tail call void @wbkgdset(ptr noundef %24, i32 noundef %29) #14
   %30 = load ptr, ptr %23, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !50
-  %33 = tail call i32 @wattrset(ptr noundef %30, i32 noundef %32) #13
+  %33 = tail call i32 @wattrset(ptr noundef %30, i32 noundef %32) #14
   %34 = load ptr, ptr %23, align 8, !tbaa !4
-  %35 = tail call i32 @werase(ptr noundef %34) #13
+  %35 = tail call i32 @werase(ptr noundef %34) #14
   %36 = load i32, ptr %9, align 8, !tbaa !19
   %37 = and i32 %36, 4
   %.not52 = icmp eq i32 %37, 0
@@ -550,8 +550,8 @@ define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef ca
   %82 = load i16, ptr %81, align 4, !tbaa !27
   %83 = sext i16 %82 to i32
   %84 = add nsw i32 %83, -1
-  %85 = tail call i32 @copywin(ptr noundef %70, ptr noundef %69, i32 noundef 0, i32 noundef 0, i32 noundef %73, i32 noundef %76, i32 noundef %80, i32 noundef %84, i32 noundef 0) #13
-  tail call void @wsyncup(ptr noundef %69) #13
+  %85 = tail call i32 @copywin(ptr noundef %70, ptr noundef %69, i32 noundef 0, i32 noundef 0, i32 noundef %73, i32 noundef %76, i32 noundef %80, i32 noundef %84, i32 noundef 0) #14
+  tail call void @wsyncup(ptr noundef %69) #14
   %86 = load ptr, ptr %23, align 8, !tbaa !4
   tail call fastcc void @Buffer_To_Window(ptr noundef %0, ptr noundef %86)
   %87 = load i16, ptr %0, align 8, !tbaa !34
@@ -611,11 +611,11 @@ define internal fastcc void @Synchronize_Buffer(ptr noundef captures(none) %0) u
   br i1 %24, label %25, label %.critedge.i
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @wmove(ptr noundef nonnull %8, i32 noundef %.02933.i, i32 noundef 0) #13
+  %26 = tail call i32 @wmove(ptr noundef nonnull %8, i32 noundef %.02933.i, i32 noundef 0) #14
   %27 = sext i32 %.02734.i to i64
   %28 = getelementptr inbounds i8, ptr %14, i64 %27
   %29 = load i32, ptr %21, align 8, !tbaa !26
-  %30 = tail call i32 @winnstr(ptr noundef nonnull %8, ptr noundef %28, i32 noundef %29) #13
+  %30 = tail call i32 @winnstr(ptr noundef nonnull %8, ptr noundef %28, i32 noundef %29) #14
   %31 = add nsw i32 %30, %.02734.i
   %32 = add nuw nsw i32 %.02933.i, 1
   %exitcond.not.i = icmp eq i32 %.02933.i, %18
@@ -659,7 +659,7 @@ Window_To_Buffer.exit:                            ; preds = %40, %.critedge.thre
   %45 = load i32, ptr %44, align 8, !tbaa !17
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = load i32, ptr %46, align 4, !tbaa !18
-  %48 = tail call i32 @wmove(ptr noundef %43, i32 noundef %45, i32 noundef %47) #13
+  %48 = tail call i32 @wmove(ptr noundef %43, i32 noundef %45, i32 noundef %47) #14
   br label %49
 
 49:                                               ; preds = %Window_To_Buffer.exit, %1
@@ -723,8 +723,8 @@ After_End_Of_Data.exit:                           ; preds = %20, %22
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %After_End_Of_Data.exit
-  %32 = tail call i32 @wmove(ptr noundef %1, i32 noundef 0, i32 noundef 0) #13
-  %33 = tail call i32 @waddnstr(ptr noundef %1, ptr noundef %19, i32 noundef %29) #13
+  %32 = tail call i32 @wmove(ptr noundef %1, i32 noundef 0, i32 noundef 0) #14
+  %33 = tail call i32 @waddnstr(ptr noundef %1, ptr noundef %19, i32 noundef %29) #14
   br label %34
 
 34:                                               ; preds = %31, %After_End_Of_Data.exit
@@ -778,8 +778,8 @@ After_End_Of_Data.exit:                           ; preds = %14, %16
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %After_End_Of_Data.exit
-  %26 = tail call i32 @wmove(ptr noundef nonnull %1, i32 noundef %.01720, i32 noundef 0) #13
-  %27 = tail call i32 @waddnstr(ptr noundef nonnull %1, ptr noundef %.021, i32 noundef %23) #13
+  %26 = tail call i32 @wmove(ptr noundef nonnull %1, i32 noundef %.01720, i32 noundef 0) #14
+  %27 = tail call i32 @waddnstr(ptr noundef nonnull %1, ptr noundef %.021, i32 noundef %23) #14
   br label %28
 
 28:                                               ; preds = %After_End_Of_Data.exit, %25
@@ -826,7 +826,7 @@ define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i16, ptr %23, align 8, !tbaa !30
   %25 = sext i16 %24 to i32
-  %26 = tail call ptr @derwin(ptr noundef %13, i32 noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25) #13
+  %26 = tail call ptr @derwin(ptr noundef %13, i32 noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25) #14
   %.not43 = icmp eq ptr %26, null
   br i1 %.not43, label %98, label %27
 
@@ -843,7 +843,7 @@ define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %35 = load i32, ptr %34, align 4, !tbaa !49
   %36 = or i32 %35, %33
-  tail call void @wbkgdset(ptr noundef nonnull %26, i32 noundef %36) #13
+  tail call void @wbkgdset(ptr noundef nonnull %26, i32 noundef %36) #14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i32, ptr %37, align 8, !tbaa !50
   br label %43
@@ -859,8 +859,8 @@ define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef 
 
 43:                                               ; preds = %40, %39, %31
   %.sink = phi i32 [ %38, %31 ], [ %42, %40 ], [ 0, %39 ]
-  %44 = tail call i32 @wattrset(ptr noundef nonnull %26, i32 noundef %.sink) #13
-  %45 = tail call i32 @werase(ptr noundef nonnull %26) #13
+  %44 = tail call i32 @wattrset(ptr noundef nonnull %26, i32 noundef %.sink) #14
+  %45 = tail call i32 @werase(ptr noundef nonnull %26) #14
   br i1 %1, label %96, label %46
 
 46:                                               ; preds = %43
@@ -941,8 +941,8 @@ After_End_Of_Data.exit.i:                         ; preds = %80, %78
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %After_End_Of_Data.exit.i
-  %90 = tail call i32 @wmove(ptr noundef nonnull %26, i32 noundef %.01720.i, i32 noundef 0) #13
-  %91 = tail call i32 @waddnstr(ptr noundef nonnull %26, ptr noundef %.021.i, i32 noundef %87) #13
+  %90 = tail call i32 @wmove(ptr noundef nonnull %26, i32 noundef %.01720.i, i32 noundef 0) #14
+  %91 = tail call i32 @waddnstr(ptr noundef nonnull %26, ptr noundef %.021.i, i32 noundef %87) #14
   br label %92
 
 92:                                               ; preds = %89, %After_End_Of_Data.exit.i
@@ -957,8 +957,8 @@ Buffer_To_Window.exit:                            ; preds = %92, %.thread.i, %66
   br label %96
 
 96:                                               ; preds = %Buffer_To_Window.exit, %43
-  tail call void @wsyncup(ptr noundef nonnull %26) #13
-  %97 = tail call i32 @delwin(ptr noundef nonnull %26) #13
+  tail call void @wsyncup(ptr noundef nonnull %26) #14
+  %97 = tail call i32 @delwin(ptr noundef nonnull %26) #14
   br label %98
 
 98:                                               ; preds = %12, %2, %96
@@ -1300,16 +1300,16 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
   %72 = load ptr, ptr %21, align 8, !tbaa !4
   tail call fastcc void @Window_To_Buffer(ptr noundef %72, ptr noundef nonnull %7)
   %73 = load ptr, ptr %21, align 8, !tbaa !4
-  %74 = tail call i32 @werase(ptr noundef %73) #13
+  %74 = tail call i32 @werase(ptr noundef %73) #14
   %75 = load ptr, ptr %21, align 8, !tbaa !4
   tail call fastcc void @Perform_Justification(ptr noundef %7, ptr noundef %75)
   %76 = load ptr, ptr %21, align 8, !tbaa !4
-  tail call void @wsyncup(ptr noundef %76) #13
+  tail call void @wsyncup(ptr noundef %76) #14
   br label %77
 
 77:                                               ; preds = %53, %51, %71, %63, %58, %55, %35
   %78 = load ptr, ptr %21, align 8, !tbaa !4
-  %79 = tail call i32 @delwin(ptr noundef %78) #13
+  %79 = tail call i32 @delwin(ptr noundef %78) #14
   br label %80
 
 80:                                               ; preds = %77, %27, %23, %20
@@ -1340,7 +1340,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
 ._crit_edge:                                      ; preds = %80, %89, %84
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %97 = load i32, ptr %96, align 8, !tbaa !26
-  %98 = tail call ptr @newpad(i32 noundef %.pre, i32 noundef %97) #13
+  %98 = tail call ptr @newpad(i32 noundef %.pre, i32 noundef %97) #14
   br label %115
 
 99:                                               ; preds = %89
@@ -1365,7 +1365,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load i16, ptr %111, align 8, !tbaa !30
   %113 = sext i16 %112 to i32
-  %114 = tail call ptr @derwin(ptr noundef %107, i32 noundef %87, i32 noundef %94, i32 noundef %110, i32 noundef %113) #13
+  %114 = tail call ptr @derwin(ptr noundef %107, i32 noundef %87, i32 noundef %94, i32 noundef %110, i32 noundef %113) #14
   br label %115
 
 115:                                              ; preds = %106, %._crit_edge
@@ -1384,11 +1384,11 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %122 = load i32, ptr %121, align 4, !tbaa !49
   %123 = or i32 %122, %120
-  tail call void @wbkgdset(ptr noundef nonnull %.0, i32 noundef %123) #13
+  tail call void @wbkgdset(ptr noundef nonnull %.0, i32 noundef %123) #14
   %124 = load ptr, ptr %21, align 8, !tbaa !4
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %126 = load i32, ptr %125, align 8, !tbaa !50
-  %127 = tail call i32 @wattrset(ptr noundef %124, i32 noundef %126) #13
+  %127 = tail call i32 @wattrset(ptr noundef %124, i32 noundef %126) #14
   %128 = load i32, ptr %81, align 8, !tbaa !19
   %129 = and i32 %128, 4
   %.not113 = icmp eq i32 %129, 0
@@ -1414,7 +1414,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
 
 144:                                              ; preds = %137, %130, %116
   %145 = load ptr, ptr %21, align 8, !tbaa !4
-  %146 = tail call i32 @werase(ptr noundef %145) #13
+  %146 = tail call i32 @werase(ptr noundef %145) #14
   %147 = load ptr, ptr %21, align 8, !tbaa !4
   tail call fastcc void @Buffer_To_Window(ptr noundef %1, ptr noundef %147)
   br label %163
@@ -1439,11 +1439,11 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
 
 158:                                              ; preds = %151
   %159 = load ptr, ptr %21, align 8, !tbaa !4
-  %160 = tail call i32 @werase(ptr noundef %159) #13
+  %160 = tail call i32 @werase(ptr noundef %159) #14
   %161 = load ptr, ptr %21, align 8, !tbaa !4
   tail call fastcc void @Undo_Justification(ptr noundef %1, ptr noundef %161)
   %162 = load ptr, ptr %21, align 8, !tbaa !4
-  tail call void @wsyncup(ptr noundef %162) #13
+  tail call void @wsyncup(ptr noundef %162) #14
   br label %163
 
 163:                                              ; preds = %148, %151, %158, %144
@@ -1460,7 +1460,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef captur
 
 170:                                              ; preds = %163, %165
   %171 = phi i32 [ %169, %165 ], [ -1, %163 ]
-  %172 = tail call i32 @wtouchln(ptr noundef %164, i32 noundef 0, i32 noundef %171, i32 noundef 0) #13
+  %172 = tail call i32 @wtouchln(ptr noundef %164, i32 noundef 0, i32 noundef %171, i32 noundef 0) #14
   br label %173
 
 173:                                              ; preds = %18, %170
@@ -1502,11 +1502,11 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr noundef readon
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @wmove(ptr noundef nonnull %0, i32 noundef %.02933, i32 noundef 0) #13
+  %18 = tail call i32 @wmove(ptr noundef nonnull %0, i32 noundef %.02933, i32 noundef 0) #14
   %19 = sext i32 %.02734 to i64
   %20 = getelementptr inbounds i8, ptr %6, i64 %19
   %21 = load i32, ptr %13, align 8, !tbaa !26
-  %22 = tail call i32 @winnstr(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %21) #13
+  %22 = tail call i32 @winnstr(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %21) #14
   %23 = add nsw i32 %22, %.02734
   %24 = add nuw nsw i32 %.02933, 1
   %exitcond.not = icmp eq i32 %.02933, %10
@@ -1623,8 +1623,8 @@ After_End_Of_Data.exit:                           ; preds = %20, %22
 
 45:                                               ; preds = %31, %40, %34
   %.0 = phi i32 [ 0, %31 ], [ %44, %40 ], [ %39, %34 ]
-  %46 = tail call i32 @wmove(ptr noundef %1, i32 noundef 0, i32 noundef %.0) #13
-  %47 = tail call i32 @waddnstr(ptr noundef %1, ptr noundef %19, i32 noundef %29) #13
+  %46 = tail call i32 @wmove(ptr noundef %1, i32 noundef 0, i32 noundef %.0) #14
+  %47 = tail call i32 @waddnstr(ptr noundef %1, ptr noundef %19, i32 noundef %29) #14
   br label %48
 
 48:                                               ; preds = %45, %After_End_Of_Data.exit
@@ -1751,7 +1751,7 @@ tailrecurse:                                      ; preds = %17
   br i1 %.not25, label %.loopexit29, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call zeroext i1 %28(ptr noundef %1, ptr noundef %.tr2837) #13
+  %30 = tail call zeroext i1 %28(ptr noundef %1, ptr noundef %.tr2837) #14
   br label %.loopexit29
 
 .loopexit29:                                      ; preds = %17, %tailrecurse, %11, %3, %26, %29
@@ -1878,7 +1878,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
 
 14:                                               ; preds = %10, %7
   %15 = phi ptr [ %9, %7 ], [ %spec.select, %10 ]
-  %16 = tail call i32 @werase(ptr noundef %15) #13
+  %16 = tail call i32 @werase(ptr noundef %15) #14
   %17 = trunc i32 %1 to i16
   store i16 %17, ptr %4, align 4, !tbaa !47
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2038,7 +2038,7 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @__errno_location() #14
+  %4 = tail call ptr @__errno_location() #15
   store i32 -2, ptr %4, align 4, !tbaa !32
   br label %129
 
@@ -2049,7 +2049,7 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not41, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @__errno_location() #14
+  %9 = tail call ptr @__errno_location() #15
   store i32 -11, ptr %9, align 4, !tbaa !32
   br label %129
 
@@ -2158,7 +2158,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   br i1 %.not42, label %80, label %78
 
 78:                                               ; preds = %74
-  %79 = tail call ptr @__errno_location() #14
+  %79 = tail call ptr @__errno_location() #15
   store i32 -5, ptr %79, align 4, !tbaa !32
   br label %129
 
@@ -2168,7 +2168,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   br i1 %.not43, label %82, label %84
 
 82:                                               ; preds = %80
-  %83 = tail call ptr @__errno_location() #14
+  %83 = tail call ptr @__errno_location() #15
   store i32 -7, ptr %83, align 4, !tbaa !32
   br label %129
 
@@ -2207,11 +2207,11 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw ptr, ptr @form_driver.Generic_Methods, i64 %94
   %104 = load ptr, ptr %103, align 8, !tbaa !92
-  %105 = tail call i32 %104(ptr noundef nonnull %98, ptr noundef nonnull %0) #13
+  %105 = tail call i32 %104(ptr noundef nonnull %98, ptr noundef nonnull %0) #14
   br label %.thread51
 
 106:                                              ; preds = %99
-  %107 = tail call i32 %98(ptr noundef nonnull %0) #13
+  %107 = tail call i32 %98(ptr noundef nonnull %0) #14
   br label %.thread51
 
 108:                                              ; preds = %84
@@ -2219,7 +2219,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   br i1 %109, label %.thread51, label %110
 
 110:                                              ; preds = %108
-  %111 = tail call ptr @__ctype_b_loc() #14
+  %111 = tail call ptr @__ctype_b_loc() #15
   %112 = load ptr, ptr %111, align 8, !tbaa !93
   %113 = zext nneg i32 %1 to i64
   %114 = getelementptr inbounds nuw i16, ptr %112, i64 %113
@@ -2245,7 +2245,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
 .thread51:                                        ; preds = %86, %96, %92, %106, %102, %108, %110, %117, %125
   %.2 = phi i32 [ -8, %108 ], [ %126, %125 ], [ -8, %117 ], [ -8, %110 ], [ -1, %96 ], [ -1, %92 ], [ %105, %102 ], [ %107, %106 ], [ -8, %86 ]
   %127 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0)
-  %128 = tail call ptr @__errno_location() #14
+  %128 = tail call ptr @__errno_location() #15
   store i32 %.2, ptr %128, align 4, !tbaa !32
   br label %129
 
@@ -2311,7 +2311,7 @@ define internal i32 @Page_Navigation(ptr noundef readonly captures(none) %0, ptr
   %30 = load i16, ptr %1, align 8, !tbaa !45
   %31 = or i16 %30, 2
   store i16 %31, ptr %1, align 8, !tbaa !45
-  tail call void %28(ptr noundef nonnull %1) #13
+  tail call void %28(ptr noundef nonnull %1) #14
   %32 = load i16, ptr %1, align 8, !tbaa !45
   %33 = and i16 %32, -3
   store i16 %33, ptr %1, align 8, !tbaa !45
@@ -2327,14 +2327,14 @@ define internal i32 @Page_Navigation(ptr noundef readonly captures(none) %0, ptr
   %38 = load i16, ptr %1, align 8, !tbaa !45
   %39 = or i16 %38, 2
   store i16 %39, ptr %1, align 8, !tbaa !45
-  tail call void %36(ptr noundef nonnull %1) #13
+  tail call void %36(ptr noundef nonnull %1) #14
   %40 = load i16, ptr %1, align 8, !tbaa !45
   %41 = and i16 %40, -3
   store i16 %41, ptr %1, align 8, !tbaa !45
   br label %42
 
 42:                                               ; preds = %34, %37
-  %43 = tail call i32 %0(ptr noundef nonnull %1) #13
+  %43 = tail call i32 %0(ptr noundef nonnull %1) #14
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %45 = load ptr, ptr %44, align 8, !tbaa !98
   %.not30 = icmp eq ptr %45, null
@@ -2344,7 +2344,7 @@ define internal i32 @Page_Navigation(ptr noundef readonly captures(none) %0, ptr
   %47 = load i16, ptr %1, align 8, !tbaa !45
   %48 = or i16 %47, 2
   store i16 %48, ptr %1, align 8, !tbaa !45
-  tail call void %45(ptr noundef nonnull %1) #13
+  tail call void %45(ptr noundef nonnull %1) #14
   %49 = load i16, ptr %1, align 8, !tbaa !45
   %50 = and i16 %49, -3
   store i16 %50, ptr %1, align 8, !tbaa !45
@@ -2360,7 +2360,7 @@ define internal i32 @Page_Navigation(ptr noundef readonly captures(none) %0, ptr
   %55 = load i16, ptr %1, align 8, !tbaa !45
   %56 = or i16 %55, 2
   store i16 %56, ptr %1, align 8, !tbaa !45
-  tail call void %53(ptr noundef nonnull %1) #13
+  tail call void %53(ptr noundef nonnull %1) #14
   %57 = load i16, ptr %1, align 8, !tbaa !45
   %58 = and i16 %57, -3
   store i16 %58, ptr %1, align 8, !tbaa !45
@@ -2428,14 +2428,14 @@ define internal i32 @Inter_Field_Navigation(ptr noundef readonly captures(none) 
   %30 = load i16, ptr %1, align 8, !tbaa !45
   %31 = or i16 %30, 2
   store i16 %31, ptr %1, align 8, !tbaa !45
-  tail call void %28(ptr noundef nonnull %1) #13
+  tail call void %28(ptr noundef nonnull %1) #14
   %32 = load i16, ptr %1, align 8, !tbaa !45
   %33 = and i16 %32, -3
   store i16 %33, ptr %1, align 8, !tbaa !45
   br label %34
 
 34:                                               ; preds = %.loopexit, %29
-  %35 = tail call i32 %0(ptr noundef nonnull %1) #13
+  %35 = tail call i32 %0(ptr noundef nonnull %1) #14
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %37 = load ptr, ptr %36, align 8, !tbaa !99
   %.not17 = icmp eq ptr %37, null
@@ -2445,7 +2445,7 @@ define internal i32 @Inter_Field_Navigation(ptr noundef readonly captures(none) 
   %39 = load i16, ptr %1, align 8, !tbaa !45
   %40 = or i16 %39, 2
   store i16 %40, ptr %1, align 8, !tbaa !45
-  tail call void %37(ptr noundef nonnull %1) #13
+  tail call void %37(ptr noundef nonnull %1) #14
   %41 = load i16, ptr %1, align 8, !tbaa !45
   %42 = and i16 %41, -3
   store i16 %42, ptr %1, align 8, !tbaa !45
@@ -2470,7 +2470,7 @@ define internal i32 @Vertical_Scrolling(ptr noundef readonly captures(none) %0, 
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %2
-  %13 = tail call i32 %0(ptr noundef nonnull %1) #13
+  %13 = tail call i32 %0(ptr noundef nonnull %1) #14
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %19
 
@@ -2500,7 +2500,7 @@ define internal i32 @Horizontal_Scrolling(ptr noundef readonly captures(none) %0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
-  %13 = tail call i32 %0(ptr noundef nonnull %1) #13
+  %13 = tail call i32 %0(ptr noundef nonnull %1) #14
   br label %14
 
 14:                                               ; preds = %2, %12
@@ -2577,7 +2577,7 @@ define internal i32 @Field_Editing(ptr noundef readonly captures(address) %0, pt
   br i1 %.not20, label %47, label %41
 
 41:                                               ; preds = %.thread
-  %42 = tail call i32 %0(ptr noundef nonnull %1) #13
+  %42 = tail call i32 %0(ptr noundef nonnull %1) #14
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %47
 
@@ -2630,11 +2630,11 @@ tailrecurse:                                      ; preds = %6
   br i1 %.not16, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call zeroext i1 %17(i32 noundef %1, ptr noundef %.tr1826) #13
+  %19 = tail call zeroext i1 %17(i32 noundef %1, ptr noundef %.tr1826) #14
   br label %.loopexit19
 
 .loopexit:                                        ; preds = %tailrecurse, %3, %15
-  %20 = tail call ptr @__ctype_b_loc() #14
+  %20 = tail call ptr @__ctype_b_loc() #15
   %21 = load ptr, ptr %20, align 8, !tbaa !93
   %22 = and i32 %1, 255
   %23 = zext nneg i32 %22 to i64
@@ -2685,7 +2685,7 @@ define internal fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef range
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !4
-  %24 = tail call i32 @werase(ptr noundef %23) #13
+  %24 = tail call i32 @werase(ptr noundef %23) #14
   br label %25
 
 25:                                               ; preds = %21, %18, %14, %10, %8
@@ -2697,7 +2697,7 @@ define internal fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef range
   br i1 %.not45, label %32, label %30
 
 30:                                               ; preds = %25
-  %31 = tail call i32 @waddch(ptr noundef %29, i32 noundef %1) #13
+  %31 = tail call i32 @waddch(ptr noundef %29, i32 noundef %1) #14
   br label %70
 
 32:                                               ; preds = %25
@@ -2707,15 +2707,15 @@ define internal fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef range
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !26
   %38 = add nsw i32 %37, -1
-  %39 = tail call i32 @wmove(ptr noundef %29, i32 noundef %34, i32 noundef %38) #13
+  %39 = tail call i32 @wmove(ptr noundef %29, i32 noundef %34, i32 noundef %38) #14
   %40 = load ptr, ptr %28, align 8, !tbaa !4
-  %41 = tail call i32 @winch(ptr noundef %40) #13
+  %41 = tail call i32 @winch(ptr noundef %40) #14
   %42 = and i32 %41, 255
   %43 = load ptr, ptr %28, align 8, !tbaa !4
   %44 = load i32, ptr %33, align 8, !tbaa !17
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !18
-  %47 = tail call i32 @wmove(ptr noundef %43, i32 noundef %44, i32 noundef %46) #13
+  %47 = tail call i32 @wmove(ptr noundef %43, i32 noundef %44, i32 noundef %46) #14
   %48 = load ptr, ptr %3, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %50 = load i32, ptr %49, align 4, !tbaa !48
@@ -2746,7 +2746,7 @@ define internal fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef range
 
 67:                                               ; preds = %65, %32
   %68 = load ptr, ptr %28, align 8, !tbaa !4
-  %69 = tail call i32 @winsch(ptr noundef %68, i32 noundef %1) #13
+  %69 = tail call i32 @winsch(ptr noundef %68, i32 noundef %1) #14
   br label %70
 
 70:                                               ; preds = %67, %30
@@ -2904,7 +2904,7 @@ define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef captures(add
   br i1 %.not111128, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader126
-  %22 = tail call ptr @__ctype_b_loc() #14
+  %22 = tail call ptr @__ctype_b_loc() #15
   %23 = load ptr, ptr %22, align 8, !tbaa !93
   br label %24
 
@@ -2935,7 +2935,7 @@ define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef captures(add
   br i1 %.not112, label %.critedge118.thread, label %38
 
 38:                                               ; preds = %.critedge
-  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
   %40 = trunc i64 %39 to i32
   %41 = icmp ult i32 %17, %40
   br i1 %41, label %42, label %.critedge118.thread
@@ -2961,7 +2961,7 @@ define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef captures(add
   br i1 %18, label %.lr.ph133, label %.critedge118.thread
 
 .lr.ph133:                                        ; preds = %57
-  %58 = tail call ptr @__ctype_b_loc() #14
+  %58 = tail call ptr @__ctype_b_loc() #15
   %59 = load ptr, ptr %58, align 8, !tbaa !93
   %60 = zext i32 %17 to i64
   br label %62
@@ -3087,7 +3087,7 @@ Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %112, %.p
 
 .critedge118:                                     ; preds = %24, %62, %.thread, %Synchronize_Linked_Fields.exit, %42, %3, %7
   %.sink = phi i32 [ -2, %7 ], [ -2, %3 ], [ -1, %42 ], [ %.2100, %Synchronize_Linked_Fields.exit ], [ 0, %.thread ], [ -2, %62 ], [ -2, %24 ]
-  %122 = tail call ptr @__errno_location() #14
+  %122 = tail call ptr @__errno_location() #15
   store i32 %.sink, ptr %122, align 4, !tbaa !32
   ret i32 %.sink
 }
@@ -3200,7 +3200,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   %64 = add nsw i32 %63, 1
   %65 = mul nsw i32 %64, %60
   %66 = sext i32 %65 to i64
-  %67 = tail call noalias ptr @malloc(i64 noundef %66) #16
+  %67 = tail call noalias ptr @malloc(i64 noundef %66) #17
   %.not171 = icmp eq ptr %67, null
   br i1 %.not171, label %68, label %73
 
@@ -3288,7 +3288,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
 108:                                              ; preds = %._crit_edge
   %109 = load i32, ptr %14, align 4, !tbaa !24
   %110 = load i32, ptr %16, align 8, !tbaa !26
-  %111 = tail call ptr @newpad(i32 noundef %109, i32 noundef %110) #13
+  %111 = tail call ptr @newpad(i32 noundef %109, i32 noundef %110) #14
   %.not175.not = icmp eq ptr %111, null
   br i1 %.not175.not, label %112, label %119
 
@@ -3315,26 +3315,26 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   br label %.thread187
 
 .thread187:                                       ; preds = %.critedge183, %116, %115
-  tail call void @free(ptr noundef nonnull %67) #13
+  tail call void @free(ptr noundef nonnull %67) #14
   br label %.critedge185
 
 119:                                              ; preds = %108
   %120 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %121 = load ptr, ptr %120, align 8, !tbaa !4
-  %122 = tail call i32 @delwin(ptr noundef %121) #13
+  %122 = tail call i32 @delwin(ptr noundef %121) #14
   store ptr %111, ptr %120, align 8, !tbaa !4
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %124 = load i32, ptr %123, align 4, !tbaa !48
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %126 = load i32, ptr %125, align 4, !tbaa !49
   %127 = or i32 %126, %124
-  tail call void @wbkgdset(ptr noundef nonnull %111, i32 noundef %127) #13
+  tail call void @wbkgdset(ptr noundef nonnull %111, i32 noundef %127) #14
   %128 = load ptr, ptr %120, align 8, !tbaa !4
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %130 = load i32, ptr %129, align 8, !tbaa !50
-  %131 = tail call i32 @wattrset(ptr noundef %128, i32 noundef %130) #13
+  %131 = tail call i32 @wattrset(ptr noundef %128, i32 noundef %130) #14
   %132 = load ptr, ptr %120, align 8, !tbaa !4
-  %133 = tail call i32 @werase(ptr noundef %132) #13
+  %133 = tail call i32 @werase(ptr noundef %132) #14
   %134 = load ptr, ptr %120, align 8, !tbaa !4
   %.not.i = icmp eq ptr %134, null
   br i1 %.not.i, label %Buffer_To_Window.exit.thread, label %.thread.i
@@ -3380,8 +3380,8 @@ After_End_Of_Data.exit.i:                         ; preds = %147, %145
   br i1 %155, label %156, label %159
 
 156:                                              ; preds = %After_End_Of_Data.exit.i
-  %157 = tail call i32 @wmove(ptr noundef nonnull %134, i32 noundef %.01720.i, i32 noundef 0) #13
-  %158 = tail call i32 @waddnstr(ptr noundef nonnull %134, ptr noundef %.021.i, i32 noundef %154) #13
+  %157 = tail call i32 @wmove(ptr noundef nonnull %134, i32 noundef %.01720.i, i32 noundef 0) #14
+  %158 = tail call i32 @waddnstr(ptr noundef nonnull %134, ptr noundef %.021.i, i32 noundef %154) #14
   br label %159
 
 159:                                              ; preds = %156, %After_End_Of_Data.exit.i
@@ -3405,17 +3405,17 @@ Buffer_To_Window.exit.thread211:                  ; preds = %.thread.i, %Buffer_
 Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Window.exit.thread211, %Buffer_To_Window.exit
   %165 = phi ptr [ %.pr214, %Buffer_To_Window.exit.thread211 ], [ null, %Buffer_To_Window.exit ], [ null, %119 ]
   %166 = phi i32 [ %164, %Buffer_To_Window.exit.thread211 ], [ -1, %Buffer_To_Window.exit ], [ -1, %119 ]
-  %167 = tail call i32 @wtouchln(ptr noundef %165, i32 noundef 0, i32 noundef %166, i32 noundef 0) #13
+  %167 = tail call i32 @wtouchln(ptr noundef %165, i32 noundef 0, i32 noundef %166, i32 noundef 0) #14
   %168 = load ptr, ptr %120, align 8, !tbaa !4
   %169 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %170 = load i32, ptr %169, align 8, !tbaa !17
   %171 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %172 = load i32, ptr %171, align 4, !tbaa !18
-  %173 = tail call i32 @wmove(ptr noundef %168, i32 noundef %170, i32 noundef %172) #13
+  %173 = tail call i32 @wmove(ptr noundef %168, i32 noundef %170, i32 noundef %172) #14
   br label %174
 
 174:                                              ; preds = %Buffer_To_Window.exit.thread, %._crit_edge
-  tail call void @free(ptr noundef %20) #13
+  tail call void @free(ptr noundef %20) #14
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %176 = load ptr, ptr %175, align 8, !tbaa !65
   %.not179 = icmp eq ptr %0, %176
@@ -3491,7 +3491,7 @@ define internal fastcc range(i32 -2, 1) i32 @Synchronize_Field(ptr noundef captu
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %24, align 8, !tbaa !4
-  %26 = tail call i32 @werase(ptr noundef %25) #13
+  %26 = tail call i32 @werase(ptr noundef %25) #14
   %27 = load i32, ptr %9, align 8, !tbaa !19
   %28 = and i32 %27, 4
   %.not36 = icmp eq i32 %28, 0
@@ -4960,7 +4960,7 @@ define internal i32 @FE_New_Line(ptr noundef %0) #0 {
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load ptr, ptr %29, align 8, !tbaa !4
-  %31 = tail call i32 @wclrtoeol(ptr noundef %30) #13
+  %31 = tail call i32 @wclrtoeol(ptr noundef %30) #14
   %32 = load i16, ptr %0, align 8, !tbaa !45
   %33 = or i16 %32, 16
   store i16 %33, ptr %0, align 8, !tbaa !45
@@ -4974,7 +4974,7 @@ define internal i32 @FE_New_Line(ptr noundef %0) #0 {
 .critedge:                                        ; preds = %12, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !4
-  %39 = tail call i32 @wclrtoeol(ptr noundef %38) #13
+  %39 = tail call i32 @wclrtoeol(ptr noundef %38) #14
   %40 = load i32, ptr %7, align 8, !tbaa !17
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %7, align 8, !tbaa !17
@@ -5094,21 +5094,21 @@ define internal i32 @FE_New_Line(ptr noundef %0) #0 {
 After_End_Of_Data.exit:                           ; preds = %101, %103
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %108 = load ptr, ptr %107, align 8, !tbaa !4
-  %109 = tail call i32 @wclrtoeol(ptr noundef %108) #13
+  %109 = tail call i32 @wclrtoeol(ptr noundef %108) #14
   %110 = load i32, ptr %7, align 8, !tbaa !17
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr %7, align 8, !tbaa !17
   store i32 0, ptr %94, align 4, !tbaa !18
   %112 = load ptr, ptr %107, align 8, !tbaa !4
-  %113 = tail call i32 @wmove(ptr noundef %112, i32 noundef %111, i32 noundef 0) #13
+  %113 = tail call i32 @wmove(ptr noundef %112, i32 noundef %111, i32 noundef 0) #14
   %114 = load ptr, ptr %107, align 8, !tbaa !4
-  %115 = tail call i32 @winsdelln(ptr noundef %114, i32 noundef 1) #13
+  %115 = tail call i32 @winsdelln(ptr noundef %114, i32 noundef 1) #14
   %116 = load ptr, ptr %107, align 8, !tbaa !4
   %117 = ptrtoint ptr %.0.i to i64
   %118 = ptrtoint ptr %97 to i64
   %119 = sub i64 %117, %118
   %120 = trunc i64 %119 to i32
-  %121 = tail call i32 @waddnstr(ptr noundef %116, ptr noundef %97, i32 noundef %120) #13
+  %121 = tail call i32 @waddnstr(ptr noundef %116, ptr noundef %97, i32 noundef %120) #14
   %122 = load i16, ptr %0, align 8, !tbaa !45
   %123 = or i16 %122, 16
   store i16 %123, ptr %0, align 8, !tbaa !45
@@ -5139,15 +5139,15 @@ define internal range(i32 -12, 1) i32 @FE_Insert_Character(ptr noundef captures(
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !26
   %17 = add nsw i32 %16, -1
-  %18 = tail call i32 @wmove(ptr noundef %11, i32 noundef %13, i32 noundef %17) #13
+  %18 = tail call i32 @wmove(ptr noundef %11, i32 noundef %13, i32 noundef %17) #14
   %19 = load ptr, ptr %10, align 8, !tbaa !4
-  %20 = tail call i32 @winch(ptr noundef %19) #13
+  %20 = tail call i32 @winch(ptr noundef %19) #14
   %21 = and i32 %20, 255
   %22 = load ptr, ptr %10, align 8, !tbaa !4
   %23 = load i32, ptr %12, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !18
-  %26 = tail call i32 @wmove(ptr noundef %22, i32 noundef %23, i32 noundef %25) #13
+  %26 = tail call i32 @wmove(ptr noundef %22, i32 noundef %23, i32 noundef %25) #14
   %27 = load ptr, ptr %2, align 8, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 36
   %29 = load i32, ptr %28, align 4, !tbaa !48
@@ -5178,7 +5178,7 @@ define internal range(i32 -12, 1) i32 @FE_Insert_Character(ptr noundef captures(
 
 .critedge:                                        ; preds = %9, %44
   %46 = load ptr, ptr %10, align 8, !tbaa !4
-  %47 = tail call i32 @winsch(ptr noundef %46, i32 noundef 32) #13
+  %47 = tail call i32 @winsch(ptr noundef %46, i32 noundef 32) #14
   %48 = tail call fastcc i32 @Wrapping_Not_Necessary_Or_Wrapping_Ok(ptr noundef nonnull %0)
   br label %49
 
@@ -5274,7 +5274,7 @@ define internal range(i32 -12, 1) i32 @FE_Insert_Line(ptr noundef captures(none)
   store i32 0, ptr %56, align 4, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %58 = load ptr, ptr %57, align 8, !tbaa !4
-  %59 = tail call i32 @winsdelln(ptr noundef %58, i32 noundef 1) #13
+  %59 = tail call i32 @winsdelln(ptr noundef %58, i32 noundef 1) #14
   br label %60
 
 60:                                               ; preds = %.thread, %35, %.thread15, %.critedge, %54, %1
@@ -5286,7 +5286,7 @@ define internal range(i32 -12, 1) i32 @FE_Insert_Line(ptr noundef captures(none)
 define internal noundef i32 @FE_Delete_Character(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = tail call i32 @wdelch(ptr noundef %3) #13
+  %4 = tail call i32 @wdelch(ptr noundef %3) #14
   ret i32 0
 }
 
@@ -5380,7 +5380,7 @@ After_End_Of_Data.exit46:                         ; preds = %38, %40
 .critedge:                                        ; preds = %After_End_Of_Data.exit46
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load ptr, ptr %55, align 8, !tbaa !4
-  %57 = tail call i32 @winsdelln(ptr noundef %56, i32 noundef -1) #13
+  %57 = tail call i32 @winsdelln(ptr noundef %56, i32 noundef -1) #14
   %58 = load ptr, ptr %2, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
   %60 = load ptr, ptr %59, align 8, !tbaa !52
@@ -5409,17 +5409,17 @@ After_End_Of_Data.exit46:                         ; preds = %38, %40
 Adjust_Cursor_Position.exit:                      ; preds = %.critedge, %75
   %76 = phi i32 [ %66, %.critedge ], [ 0, %75 ]
   %77 = load ptr, ptr %55, align 8, !tbaa !4
-  %78 = tail call i32 @wmove(ptr noundef %77, i32 noundef %76, i32 noundef %71) #13
+  %78 = tail call i32 @wmove(ptr noundef %77, i32 noundef %76, i32 noundef %71) #14
   %79 = load ptr, ptr %55, align 8, !tbaa !4
-  %80 = tail call i32 @waddnstr(ptr noundef %79, ptr noundef %27, i32 noundef %47) #13
+  %80 = tail call i32 @waddnstr(ptr noundef %79, ptr noundef %27, i32 noundef %47) #14
   br label %87
 
 81:                                               ; preds = %._crit_edge
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %83 = load ptr, ptr %82, align 8, !tbaa !4
-  %84 = tail call i32 @wmove(ptr noundef %83, i32 noundef %5, i32 noundef %11) #13
+  %84 = tail call i32 @wmove(ptr noundef %83, i32 noundef %5, i32 noundef %11) #14
   %85 = load ptr, ptr %82, align 8, !tbaa !4
-  %86 = tail call i32 @wdelch(ptr noundef %85) #13
+  %86 = tail call i32 @wdelch(ptr noundef %85) #14
   br label %87
 
 87:                                               ; preds = %1, %81, %Adjust_Cursor_Position.exit, %13, %After_End_Of_Data.exit46
@@ -5433,7 +5433,7 @@ define internal noundef i32 @FE_Delete_Line(ptr noundef captures(none) initializ
   store i32 0, ptr %2, align 4, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = tail call i32 @winsdelln(ptr noundef %4, i32 noundef -1) #13
+  %5 = tail call i32 @winsdelln(ptr noundef %4, i32 noundef -1) #14
   ret i32 0
 }
 
@@ -5509,9 +5509,9 @@ Adjust_Cursor_Position.exit:                      ; preds = %After_Last_Whitespa
   %49 = phi i32 [ %39, %After_Last_Whitespace_Character.exit ], [ 0, %48 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !4
-  %52 = tail call i32 @wmove(ptr noundef %51, i32 noundef %49, i32 noundef %44) #13
+  %52 = tail call i32 @wmove(ptr noundef %51, i32 noundef %49, i32 noundef %44) #14
   %53 = load ptr, ptr %50, align 8, !tbaa !4
-  %54 = tail call i32 @wclrtoeol(ptr noundef %53) #13
+  %54 = tail call i32 @wclrtoeol(ptr noundef %53) #14
   %55 = ptrtoint ptr %21 to i64
   %gepdiff = sub i32 %7, %14
   %56 = sext i32 %gepdiff to i64
@@ -5590,7 +5590,7 @@ After_End_Of_Data.exit:                           ; preds = %87, %89
   %93 = ptrtoint ptr %.0.i39 to i64
   %94 = sub i64 %83, %93
   %95 = trunc i64 %94 to i32
-  %96 = tail call i32 @waddnstr(ptr noundef %82, ptr noundef nonnull %77, i32 noundef %95) #13
+  %96 = tail call i32 @waddnstr(ptr noundef %82, ptr noundef nonnull %77, i32 noundef %95) #14
   br label %97
 
 97:                                               ; preds = %Get_Start_Of_Data.exit, %78, %After_End_Of_Data.exit, %1
@@ -5602,7 +5602,7 @@ After_End_Of_Data.exit:                           ; preds = %87, %89
 define internal noundef i32 @FE_Clear_To_End_Of_Line(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = tail call i32 @wclrtoeol(ptr noundef %3) #13
+  %4 = tail call i32 @wclrtoeol(ptr noundef %3) #14
   ret i32 0
 }
 
@@ -5610,7 +5610,7 @@ define internal noundef i32 @FE_Clear_To_End_Of_Line(ptr noundef readonly captur
 define internal noundef i32 @FE_Clear_To_End_Of_Form(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !4
-  %4 = tail call i32 @wclrtobot(ptr noundef %3) #13
+  %4 = tail call i32 @wclrtobot(ptr noundef %3) #14
   ret i32 0
 }
 
@@ -5622,7 +5622,7 @@ define internal noundef i32 @FE_Clear_Field(ptr noundef captures(none) initializ
   store i32 0, ptr %3, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  %6 = tail call i32 @werase(ptr noundef %5) #13
+  %6 = tail call i32 @werase(ptr noundef %5) #14
   ret i32 0
 }
 
@@ -6314,15 +6314,15 @@ define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !26
   %26 = add nsw i32 %25, -1
-  %27 = tail call i32 @wmove(ptr noundef %23, i32 noundef %8, i32 noundef %26) #13
+  %27 = tail call i32 @wmove(ptr noundef %23, i32 noundef %8, i32 noundef %26) #14
   %28 = load ptr, ptr %22, align 8, !tbaa !4
-  %29 = tail call i32 @winch(ptr noundef %28) #13
+  %29 = tail call i32 @winch(ptr noundef %28) #14
   %30 = and i32 %29, 255
   %31 = load ptr, ptr %22, align 8, !tbaa !4
   %32 = load i32, ptr %7, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !18
-  %35 = tail call i32 @wmove(ptr noundef %31, i32 noundef %32, i32 noundef %34) #13
+  %35 = tail call i32 @wmove(ptr noundef %31, i32 noundef %32, i32 noundef %34) #14
   %36 = load ptr, ptr %2, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i32, ptr %37, align 4, !tbaa !48
@@ -6381,11 +6381,11 @@ define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping
   br i1 %68, label %69, label %.critedge.i
 
 69:                                               ; preds = %.lr.ph.i
-  %70 = tail call i32 @wmove(ptr noundef nonnull %57, i32 noundef %.02933.i, i32 noundef 0) #13
+  %70 = tail call i32 @wmove(ptr noundef nonnull %57, i32 noundef %.02933.i, i32 noundef 0) #14
   %71 = sext i32 %.02734.i to i64
   %72 = getelementptr inbounds i8, ptr %61, i64 %71
   %73 = load i32, ptr %24, align 8, !tbaa !26
-  %74 = tail call i32 @winnstr(ptr noundef nonnull %57, ptr noundef %72, i32 noundef %73) #13
+  %74 = tail call i32 @winnstr(ptr noundef nonnull %57, ptr noundef %72, i32 noundef %73) #14
   %75 = add nsw i32 %74, %.02734.i
   %76 = add nuw nsw i32 %.02933.i, 1
   %exitcond.not.i = icmp eq i32 %.02933.i, %65
@@ -6459,9 +6459,9 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   br i1 %105, label %108, label %117
 
 108:                                              ; preds = %100
-  %109 = tail call i32 @wmove(ptr noundef %106, i32 noundef %107, i32 noundef %98) #13
+  %109 = tail call i32 @wmove(ptr noundef %106, i32 noundef %107, i32 noundef %98) #14
   %110 = load ptr, ptr %22, align 8, !tbaa !4
-  %111 = tail call i32 @wclrtoeol(ptr noundef %110) #13
+  %111 = tail call i32 @wclrtoeol(ptr noundef %110) #14
   %112 = load i32, ptr %33, align 4, !tbaa !18
   %.not54 = icmp slt i32 %112, %98
   br i1 %.not54, label %Window_To_Buffer.exit71, label %113
@@ -6476,9 +6476,9 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
 
 117:                                              ; preds = %100
   %118 = load i32, ptr %33, align 4, !tbaa !18
-  %119 = tail call i32 @wmove(ptr noundef %106, i32 noundef %107, i32 noundef %118) #13
+  %119 = tail call i32 @wmove(ptr noundef %106, i32 noundef %107, i32 noundef %118) #14
   %120 = load ptr, ptr %22, align 8, !tbaa !4
-  %121 = tail call i32 @wdelch(ptr noundef %120) #13
+  %121 = tail call i32 @wdelch(ptr noundef %120) #14
   %122 = load ptr, ptr %22, align 8, !tbaa !4
   %123 = load i32, ptr %58, align 4, !tbaa !48
   %124 = load ptr, ptr %60, align 8, !tbaa !52
@@ -6500,11 +6500,11 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   br i1 %131, label %132, label %.critedge.i62
 
 132:                                              ; preds = %.lr.ph.i59
-  %133 = tail call i32 @wmove(ptr noundef nonnull %122, i32 noundef %.02933.i61, i32 noundef 0) #13
+  %133 = tail call i32 @wmove(ptr noundef nonnull %122, i32 noundef %.02933.i61, i32 noundef 0) #14
   %134 = sext i32 %.02734.i60 to i64
   %135 = getelementptr inbounds i8, ptr %124, i64 %134
   %136 = load i32, ptr %24, align 8, !tbaa !26
-  %137 = tail call i32 @winnstr(ptr noundef nonnull %122, ptr noundef %135, i32 noundef %136) #13
+  %137 = tail call i32 @winnstr(ptr noundef nonnull %122, ptr noundef %135, i32 noundef %136) #14
   %138 = add nsw i32 %137, %.02734.i60
   %139 = add nuw nsw i32 %.02933.i61, 1
   %exitcond.not.i70 = icmp eq i32 %.02933.i61, %128
@@ -6582,7 +6582,7 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
   %.neg = sub i64 %24, %23
   %.neg76 = trunc i64 %.neg to i32
   %25 = add i32 %11, %.neg76
-  %26 = tail call noalias dereferenceable_or_null(2) ptr @malloc(i64 noundef 2) #16
+  %26 = tail call noalias dereferenceable_or_null(2) ptr @malloc(i64 noundef 2) #17
   store i16 32, ptr %26, align 1
   %.not.not = icmp sgt i32 %25, %3
   br i1 %.not.not, label %27, label %33
@@ -6590,9 +6590,9 @@ After_End_Of_Data.exit:                           ; preds = %17, %19
 27:                                               ; preds = %After_End_Of_Data.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !4
-  %30 = tail call i32 @wmove(ptr noundef %29, i32 noundef %1, i32 noundef 0) #13
+  %30 = tail call i32 @wmove(ptr noundef %29, i32 noundef %1, i32 noundef 0) #14
   %31 = load ptr, ptr %28, align 8, !tbaa !4
-  %32 = tail call i32 @winsnstr(ptr noundef %31, ptr noundef %2, i32 noundef %3) #13
+  %32 = tail call i32 @winsnstr(ptr noundef %31, ptr noundef %2, i32 noundef %3) #14
   br label %.thread.sink.split
 
 33:                                               ; preds = %After_End_Of_Data.exit
@@ -6688,26 +6688,26 @@ After_Last_Whitespace_Character.exit:             ; preds = %72, %74
 85:                                               ; preds = %After_Last_Whitespace_Character.exit
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %87 = load ptr, ptr %86, align 8, !tbaa !4
-  %88 = tail call i32 @wmove(ptr noundef %87, i32 noundef %1, i32 noundef %79) #13
+  %88 = tail call i32 @wmove(ptr noundef %87, i32 noundef %1, i32 noundef %79) #14
   %89 = load ptr, ptr %86, align 8, !tbaa !4
-  %90 = tail call i32 @wclrtoeol(ptr noundef %89) #13
+  %90 = tail call i32 @wclrtoeol(ptr noundef %89) #14
   %91 = load ptr, ptr %86, align 8, !tbaa !4
-  %92 = tail call i32 @wmove(ptr noundef %91, i32 noundef %1, i32 noundef 0) #13
+  %92 = tail call i32 @wmove(ptr noundef %91, i32 noundef %1, i32 noundef 0) #14
   %93 = load ptr, ptr %86, align 8, !tbaa !4
-  %94 = tail call i32 @winsnstr(ptr noundef %93, ptr noundef %2, i32 noundef %3) #13
+  %94 = tail call i32 @winsnstr(ptr noundef %93, ptr noundef %2, i32 noundef %3) #14
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %27, %85
   %.sink92.in = phi ptr [ %28, %27 ], [ %86, %85 ]
   %.sink92 = load ptr, ptr %.sink92.in, align 8, !tbaa !4
-  %95 = tail call i32 @wmove(ptr noundef %.sink92, i32 noundef %1, i32 noundef %3) #13
+  %95 = tail call i32 @wmove(ptr noundef %.sink92, i32 noundef %1, i32 noundef %3) #14
   %.sink = load ptr, ptr %.sink92.in, align 8, !tbaa !4
-  %96 = tail call i32 @winsnstr(ptr noundef %.sink, ptr noundef nonnull %26, i32 noundef 1) #13
+  %96 = tail call i32 @winsnstr(ptr noundef %.sink, ptr noundef nonnull %26, i32 noundef 1) #14
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %48, %After_Last_Whitespace_Character.exit, %37, %40
   %.0 = phi i32 [ -1, %40 ], [ %83, %After_Last_Whitespace_Character.exit ], [ -12, %48 ], [ -12, %37 ], [ 0, %.thread.sink.split ]
-  tail call void @free(ptr noundef %26) #13
+  tail call void @free(ptr noundef %26) #14
   ret i32 %.0
 }
 
@@ -6760,7 +6760,7 @@ tailrecurse:                                      ; preds = %9
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %.tr21, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !122
-  %21 = tail call zeroext i1 %20(ptr noundef %1, ptr noundef %.tr1722) #13
+  %21 = tail call zeroext i1 %20(ptr noundef %1, ptr noundef %.tr1722) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %tailrecurse, %9, %3, %18
@@ -6805,7 +6805,7 @@ tailrecurse:                                      ; preds = %9
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %.tr21, i64 80
   %20 = load ptr, ptr %19, align 8, !tbaa !123
-  %21 = tail call zeroext i1 %20(ptr noundef %1, ptr noundef %.tr1722) #13
+  %21 = tail call zeroext i1 %20(ptr noundef %1, ptr noundef %.tr1722) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %tailrecurse, %9, %3, %18
@@ -6821,8 +6821,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6837,10 +6837,11 @@ attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind allocsize(0) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

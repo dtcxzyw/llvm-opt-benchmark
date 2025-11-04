@@ -221,12 +221,12 @@ define hidden noundef zeroext i1 @SDL_CalculateSurfaceSize(i32 noundef %0, i32 n
   br i1 %49, label %58, label %50
 
 50:                                               ; preds = %48
-  %51 = call zeroext i1 @SDL_CalculateYUVSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
+  %51 = call zeroext i1 @SDL_CalculateYUVSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
   br i1 %51, label %SDL_CalculateRGBSize.exit26.thread, label %58
 
 SDL_CalculateRGBSize.exit26:                      ; preds = %17, %.critedge.i, %29, %37, %43
   %.str.30.sink.i = phi ptr [ @.str.28, %17 ], [ @.str.28, %.critedge.i ], [ @.str.29, %29 ], [ @.str.29, %37 ], [ @.str.30, %43 ]
-  %52 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.30.sink.i) #10
+  %52 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.30.sink.i) #11
   br i1 %52, label %SDL_CalculateRGBSize.exit26.thread, label %58
 
 SDL_CalculateRGBSize.exit26.thread:               ; preds = %43, %.split, %SDL_CalculateRGBSize.exit26, %50
@@ -264,7 +264,7 @@ define hidden ptr @SDL_CreateSurface_REAL(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
   br label %44
 
 9:                                                ; preds = %3
@@ -272,7 +272,7 @@ define hidden ptr @SDL_CreateSurface_REAL(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #10
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #11
   br label %44
 
 13:                                               ; preds = %9
@@ -280,7 +280,7 @@ define hidden ptr @SDL_CreateSurface_REAL(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #10
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #11
   br label %44
 
 17:                                               ; preds = %13
@@ -288,7 +288,7 @@ define hidden ptr @SDL_CreateSurface_REAL(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %18, label %19, label %44
 
 19:                                               ; preds = %17
-  %20 = call noalias ptr @SDL_malloc_REAL(i64 noundef 280) #10
+  %20 = call noalias ptr @SDL_malloc_REAL(i64 noundef 280) #11
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %44, label %21
 
@@ -316,9 +316,9 @@ define hidden ptr @SDL_CreateSurface_REAL(i32 noundef %0, i32 noundef %1, i32 no
   %34 = load i32, ptr %20, align 8
   %35 = and i32 %34, -2
   store i32 %35, ptr %20, align 8
-  %36 = call i64 @SDL_GetSIMDAlignment_REAL() #10
+  %36 = call i64 @SDL_GetSIMDAlignment_REAL() #11
   %37 = load i64, ptr %5, align 8
-  %38 = call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %36, i64 noundef %37) #10
+  %38 = call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %36, i64 noundef %37) #11
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %38, ptr %39, align 8
   %.not27 = icmp eq ptr %38, null
@@ -371,7 +371,7 @@ define internal fastcc noundef zeroext i1 @SDL_InitializeSurface(ptr noundef non
   br label %19
 
 19:                                               ; preds = %17, %9
-  %20 = tail call ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %3) #10
+  %20 = tail call ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %3) #11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %20, ptr %21, align 8
   %.not = icmp eq ptr %20, null
@@ -392,7 +392,7 @@ define internal fastcc noundef zeroext i1 @SDL_InitializeSurface(ptr noundef non
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
-  %29 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %3) #10
+  %29 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %3) #11
   br label %30
 
 30:                                               ; preds = %23, %28
@@ -408,7 +408,7 @@ define internal fastcc noundef zeroext i1 @SDL_InitializeSurface(ptr noundef non
   br i1 %34, label %36, label %SDL_SurfaceValid.exit.thread.i
 
 SDL_SurfaceValid.exit.thread.i:                   ; preds = %32
-  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_GetSurfaceProperties_REAL.exit
 
 36:                                               ; preds = %32
@@ -418,13 +418,13 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %32
   br i1 %.not.i, label %39, label %SDL_GetSurfaceProperties_REAL.exit
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @SDL_CreateProperties_REAL() #10
+  %40 = tail call i32 @SDL_CreateProperties_REAL() #11
   store i32 %40, ptr %37, align 4
   br label %SDL_GetSurfaceProperties_REAL.exit
 
 SDL_GetSurfaceProperties_REAL.exit:               ; preds = %SDL_SurfaceValid.exit.thread.i, %36, %39
   %.0.i = phi i32 [ 0, %SDL_SurfaceValid.exit.thread.i ], [ %40, %39 ], [ %38, %36 ]
-  %41 = tail call zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %5, i32 noundef %.0.i) #10
+  %41 = tail call zeroext i1 @SDL_CopyProperties_REAL(i32 noundef %5, i32 noundef %.0.i) #11
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %SDL_GetSurfaceProperties_REAL.exit
@@ -477,7 +477,7 @@ SDL_GetSurfaceProperties_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   br i1 %57, label %59, label %SDL_SurfaceValid.exit.thread.i75
 
 SDL_SurfaceValid.exit.thread.i75:                 ; preds = %55
-  %58 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %58 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceBlendMode_REAL.exit
 
 59:                                               ; preds = %55
@@ -491,7 +491,7 @@ SDL_SurfaceValid.exit.thread.i75:                 ; preds = %55
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %65) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %65) #11
   br label %SDL_SetSurfaceBlendMode_REAL.exit
 
 SDL_SetSurfaceBlendMode_REAL.exit:                ; preds = %48, %64, %59, %SDL_SurfaceValid.exit.thread.i75, %43, %51, %52
@@ -547,7 +547,7 @@ SDL_SurfaceValid.exit27:                          ; preds = %9
 ._crit_edge:                                      ; preds = %20
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8
-  tail call void @SDL_free_REAL(ptr noundef %19) #10
+  tail call void @SDL_free_REAL(ptr noundef %19) #11
   store ptr null, ptr %18, align 8
   store i32 0, ptr %14, align 8
   br label %SDL_RemoveSurfaceAlternateImages_REAL.exit
@@ -567,9 +567,9 @@ SDL_SurfaceValid.exit27:                          ; preds = %9
 SDL_RemoveSurfaceAlternateImages_REAL.exit:       ; preds = %SDL_SurfaceValid.exit27, %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %28 = load i32, ptr %27, align 4
-  tail call void @SDL_DestroyProperties_REAL(i32 noundef %28) #10
+  tail call void @SDL_DestroyProperties_REAL(i32 noundef %28) #11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %29) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %29) #11
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
@@ -615,7 +615,7 @@ SDL_UnlockSurface_REAL.exit.thread36:             ; preds = %41
 SDL_UnlockSurface_REAL.exit:                      ; preds = %41
   %46 = and i32 %42, -5
   store i32 %46, ptr %6, align 8
-  %47 = tail call zeroext i1 @SDL_RLESurface(ptr noundef nonnull %0) #10
+  %47 = tail call zeroext i1 @SDL_RLESurface(ptr noundef nonnull %0) #11
   %.pre.pre = load i32, ptr %30, align 8
   %48 = load i32, ptr %0, align 8
   %49 = and i32 %48, -5
@@ -630,7 +630,7 @@ SDL_UnlockSurface_REAL.exit:                      ; preds = %41
   br i1 %.not18, label %SDL_SurfaceValid.exit.i24, label %53
 
 53:                                               ; preds = %._crit_edge30
-  tail call void @SDL_UnRLESurface(ptr noundef nonnull %0, i1 noundef zeroext false) #10
+  tail call void @SDL_UnRLESurface(ptr noundef nonnull %0, i1 noundef zeroext false) #11
   br label %SDL_SurfaceValid.exit.i24
 
 SDL_SurfaceValid.exit.i24:                        ; preds = %._crit_edge30, %53
@@ -639,7 +639,7 @@ SDL_SurfaceValid.exit.i24:                        ; preds = %._crit_edge30, %53
   br i1 %55, label %57, label %SDL_SurfaceValid.exit.thread.i
 
 SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.exit.i24
-  %56 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %56 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfacePalette_REAL.exit
 
 57:                                               ; preds = %SDL_SurfaceValid.exit.i24
@@ -649,12 +649,12 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.ex
   br i1 %.not21.i, label %61, label %60
 
 60:                                               ; preds = %57
-  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %59) #10
+  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %59) #11
   store ptr null, ptr %58, align 8
   br label %61
 
 61:                                               ; preds = %60, %57
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %29) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %29) #11
   br label %SDL_SetSurfacePalette_REAL.exit
 
 SDL_SetSurfacePalette_REAL.exit:                  ; preds = %SDL_SurfaceValid.exit.thread.i, %61
@@ -671,11 +671,11 @@ SDL_SetSurfacePalette_REAL.exit:                  ; preds = %SDL_SurfaceValid.ex
   br i1 %.not20, label %69, label %68
 
 68:                                               ; preds = %64
-  tail call void @SDL_aligned_free_REAL(ptr noundef %67) #10
+  tail call void @SDL_aligned_free_REAL(ptr noundef %67) #11
   br label %70
 
 69:                                               ; preds = %64
-  tail call void @SDL_free_REAL(ptr noundef %67) #10
+  tail call void @SDL_free_REAL(ptr noundef %67) #11
   br label %70
 
 70:                                               ; preds = %68, %69, %SDL_SetSurfacePalette_REAL.exit
@@ -686,7 +686,7 @@ SDL_SetSurfacePalette_REAL.exit:                  ; preds = %SDL_SurfaceValid.ex
   br i1 %.not21, label %73, label %SDL_SurfaceValid.exit.thread
 
 73:                                               ; preds = %70
-  tail call void @SDL_free_REAL(ptr noundef nonnull %0) #10
+  tail call void @SDL_free_REAL(ptr noundef nonnull %0) #11
   br label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %1, %9, %5, %SDL_SurfaceValid.exit, %73, %70
@@ -704,7 +704,7 @@ define hidden ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %0, i32 noundef %1, i3
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #10
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #11
   br label %.thread
 
 11:                                               ; preds = %5
@@ -712,7 +712,7 @@ define hidden ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %0, i32 noundef %1, i3
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #10
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #11
   br label %.thread
 
 15:                                               ; preds = %11
@@ -720,7 +720,7 @@ define hidden ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %0, i32 noundef %1, i3
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #10
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #11
   br label %.thread
 
 19:                                               ; preds = %15
@@ -771,7 +771,7 @@ define hidden ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %0, i32 noundef %1, i3
   br i1 %41, label %SDL_CalculateRGBSize.exit26.thread.i, label %42
 
 42:                                               ; preds = %40
-  %43 = call zeroext i1 @SDL_CalculateYUVSize(i32 noundef %2, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6) #10
+  %43 = call zeroext i1 @SDL_CalculateYUVSize(i32 noundef %2, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6) #11
   br i1 %43, label %.SDL_CalculateRGBSize.exit26.thread.i_crit_edge, label %SDL_CalculateSurfaceSize.exit
 
 .SDL_CalculateRGBSize.exit26.thread.i_crit_edge:  ; preds = %42
@@ -779,7 +779,7 @@ define hidden ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %0, i32 noundef %1, i3
   br label %SDL_CalculateRGBSize.exit26.thread.i
 
 SDL_CalculateRGBSize.exit26.i:                    ; preds = %36
-  %44 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.30) #10
+  %44 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.30) #11
   br i1 %44, label %SDL_CalculateRGBSize.exit26.thread.i, label %SDL_CalculateSurfaceSize.exit
 
 SDL_CalculateSurfaceSize.exit:                    ; preds = %42, %SDL_CalculateRGBSize.exit26.i
@@ -798,11 +798,11 @@ SDL_CalculateRGBSize.exit26.thread.i:             ; preds = %36, %SDL_CalculateR
   br i1 %or.cond28, label %48, label %50
 
 48:                                               ; preds = %SDL_CalculateRGBSize.exit26.thread.i
-  %49 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #10
+  %49 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #11
   br label %.thread
 
 50:                                               ; preds = %SDL_CalculateRGBSize.exit26.thread.i, %19
-  %51 = call noalias ptr @SDL_malloc_REAL(i64 noundef 280) #10
+  %51 = call noalias ptr @SDL_malloc_REAL(i64 noundef 280) #11
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %.thread, label %52
 
@@ -828,7 +828,7 @@ SDL_SurfaceValid.exit:                            ; preds = %1
   br i1 %4, label %6, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceValid.exit
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %11
 
 6:                                                ; preds = %SDL_SurfaceValid.exit
@@ -838,7 +838,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceVali
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @SDL_CreateProperties_REAL() #10
+  %10 = tail call i32 @SDL_CreateProperties_REAL() #11
   store i32 %10, ptr %7, align 4
   br label %11
 
@@ -861,7 +861,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %9
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
@@ -907,7 +907,7 @@ define hidden float @SDL_GetDefaultSDRWhitePoint(i32 noundef %0) local_unnamed_a
 4:                                                ; preds = %1, %1
   %5 = icmp eq i32 %3, 16
   %.09.i = select i1 %5, float 2.030000e+02, float 1.000000e+00
-  %6 = tail call float @SDL_GetFloatProperty_REAL(i32 noundef 0, ptr noundef nonnull @.str.6, float noundef %.09.i) #10
+  %6 = tail call float @SDL_GetFloatProperty_REAL(i32 noundef 0, ptr noundef nonnull @.str.6, float noundef %.09.i) #11
   br label %SDL_GetSurfaceSDRWhitePoint.exit
 
 SDL_GetSurfaceSDRWhitePoint.exit:                 ; preds = %1, %4
@@ -943,7 +943,7 @@ SDL_SurfaceValid.exit:                            ; preds = %6
 SDL_SurfaceValid.exit.thread:                     ; preds = %6, %SDL_SurfaceValid.exit, %10
   %.010 = phi i32 [ %12, %10 ], [ 0, %SDL_SurfaceValid.exit ], [ 0, %6 ]
   %.09 = select i1 %5, float 2.030000e+02, float 1.000000e+00
-  %13 = tail call float @SDL_GetFloatProperty_REAL(i32 noundef %.010, ptr noundef nonnull @.str.6, float noundef %.09) #10
+  %13 = tail call float @SDL_GetFloatProperty_REAL(i32 noundef %.010, ptr noundef nonnull @.str.6, float noundef %.09) #11
   br label %14
 
 14:                                               ; preds = %2, %SDL_SurfaceValid.exit.thread
@@ -963,7 +963,7 @@ define hidden float @SDL_GetDefaultHDRHeadroom(i32 noundef %0) local_unnamed_add
   ]
 
 4:                                                ; preds = %1, %1
-  %5 = tail call float @SDL_GetFloatProperty_REAL(i32 noundef 0, ptr noundef nonnull @.str.7, float noundef 0.000000e+00) #10
+  %5 = tail call float @SDL_GetFloatProperty_REAL(i32 noundef 0, ptr noundef nonnull @.str.7, float noundef 0.000000e+00) #11
   br label %SDL_GetSurfaceHDRHeadroom.exit
 
 SDL_GetSurfaceHDRHeadroom.exit:                   ; preds = %1, %4
@@ -997,7 +997,7 @@ SDL_SurfaceValid.exit:                            ; preds = %5
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceValid.exit, %9
   %.08 = phi i32 [ %11, %9 ], [ 0, %SDL_SurfaceValid.exit ], [ 0, %5 ]
-  %12 = tail call float @SDL_GetFloatProperty_REAL(i32 noundef %.08, ptr noundef nonnull @.str.7, float noundef 0.000000e+00) #10
+  %12 = tail call float @SDL_GetFloatProperty_REAL(i32 noundef %.08, ptr noundef nonnull @.str.7, float noundef 0.000000e+00) #11
   br label %13
 
 13:                                               ; preds = %2, %SDL_SurfaceValid.exit.thread
@@ -1017,7 +1017,7 @@ SDL_SurfaceValid.exit:                            ; preds = %1
   br i1 %4, label %6, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceValid.exit
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %59
 
 6:                                                ; preds = %SDL_SurfaceValid.exit
@@ -1040,14 +1040,14 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceVali
   ]
 
 12:                                               ; preds = %9, %6
-  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #10
+  %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #11
   br label %59
 
 14:                                               ; preds = %9, %9, %9, %9
   %15 = lshr i32 %8, 8
   %16 = and i32 %15, 255
   %17 = shl nuw i32 1, %16
-  %18 = tail call ptr @SDL_CreatePalette_REAL(i32 noundef %17) #10
+  %18 = tail call ptr @SDL_CreatePalette_REAL(i32 noundef %17) #11
   %.not32 = icmp eq ptr %18, null
   br i1 %.not32, label %59, label %19
 
@@ -1095,8 +1095,8 @@ SDL_SurfaceValid.exit.i:                          ; preds = %19, %22
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %37
-  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #10
-  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %18) #10
+  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #11
+  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %18) #11
   %cond.fr37 = freeze i1 %46
   br i1 %cond.fr37, label %58, label %59
 
@@ -1111,7 +1111,7 @@ SDL_SurfaceValid.exit.i:                          ; preds = %19, %22
   br i1 %.not22.i, label %52, label %51
 
 51:                                               ; preds = %50
-  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %49) #10
+  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %49) #11
   br label %52
 
 52:                                               ; preds = %50, %51
@@ -1124,13 +1124,13 @@ SDL_SurfaceValid.exit.i:                          ; preds = %19, %22
 
 SDL_SetSurfacePalette_REAL.exit.thread:           ; preds = %47, %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %56) #10
-  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %18) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %56) #11
+  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %18) #11
   br label %58
 
 SDL_SetSurfacePalette_REAL.exit:                  ; preds = %SDL_SurfaceValid.exit.i
-  %57 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
-  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %18) #10
+  %57 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
+  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %18) #11
   %cond.fr = freeze i1 %57
   br i1 %cond.fr, label %58, label %59
 
@@ -1156,7 +1156,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %31
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
@@ -1177,7 +1177,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %8
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #10
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #11
   br label %31
 
 19:                                               ; preds = %8, %7
@@ -1191,7 +1191,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br i1 %.not22, label %24, label %23
 
 23:                                               ; preds = %22
-  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %21) #10
+  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %21) #11
   br label %24
 
 24:                                               ; preds = %23, %22
@@ -1207,7 +1207,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
 
 29:                                               ; preds = %24, %25, %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %30) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %30) #11
   br label %31
 
 31:                                               ; preds = %29, %17, %SDL_SurfaceValid.exit.thread
@@ -1252,7 +1252,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %30
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
@@ -1266,7 +1266,7 @@ SDL_SurfaceValid.exit15:                          ; preds = %7
   br i1 %10, label %12, label %SDL_SurfaceValid.exit15.thread
 
 SDL_SurfaceValid.exit15.thread:                   ; preds = %7, %SDL_SurfaceValid.exit15
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #10
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #11
   br label %30
 
 12:                                               ; preds = %SDL_SurfaceValid.exit15
@@ -1277,7 +1277,7 @@ SDL_SurfaceValid.exit15.thread:                   ; preds = %7, %SDL_SurfaceVali
   %17 = add nsw i32 %16, 1
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 3
-  %20 = tail call ptr @SDL_realloc_REAL(ptr noundef %14, i64 noundef %19) #11
+  %20 = tail call ptr @SDL_realloc_REAL(ptr noundef %14, i64 noundef %19) #12
   %.not.not = icmp eq ptr %20, null
   br i1 %.not.not, label %30, label %21
 
@@ -1346,7 +1346,7 @@ SDL_SurfaceValid.exit:                            ; preds = %4
   br i1 %7, label %9, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %30
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
@@ -1356,7 +1356,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
   %13 = add nsw i32 %11, 2
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 3
-  %16 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %15) #10
+  %16 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %15) #11
   %.not22 = icmp eq ptr %16, null
   br i1 %.not22, label %30, label %17
 
@@ -1405,7 +1405,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %SDL_SurfaceHasAlternateImages_REAL.exit, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %.loopexit
 
 SDL_SurfaceHasAlternateImages_REAL.exit:          ; preds = %SDL_SurfaceValid.exit
@@ -1425,7 +1425,7 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
   %13 = add nuw nsw i32 %8, 2
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 3
-  %16 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %15) #10
+  %16 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %15) #11
   %.not22.i = icmp eq ptr %16, null
   br i1 %.not22.i, label %._crit_edge108, label %17
 
@@ -1462,14 +1462,14 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
   %34 = sitofp i32 %33 to float
   %35 = fmul float %1, %34
   %36 = fpext float %35 to double
-  %37 = tail call double @SDL_round_REAL(double noundef %36) #10
+  %37 = tail call double @SDL_round_REAL(double noundef %36) #11
   %38 = fptosi double %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = sitofp i32 %40 to float
   %42 = fmul float %1, %41
   %43 = fpext float %42 to double
-  %44 = tail call double @SDL_round_REAL(double noundef %43) #10
+  %44 = tail call double @SDL_round_REAL(double noundef %43) #11
   %45 = fptosi double %44 to i32
   %46 = mul nsw i32 %45, %38
   %47 = load ptr, ptr %16, align 8
@@ -1478,7 +1478,7 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
 
 ._crit_edge:                                      ; preds = %68, %28
   %.072.lcssa = phi ptr [ null, %28 ], [ %.173, %68 ]
-  tail call void @SDL_free_REAL(ptr noundef nonnull %16) #10
+  tail call void @SDL_free_REAL(ptr noundef nonnull %16) #11
   %48 = getelementptr inbounds nuw i8, ptr %.072.lcssa, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, %38
@@ -1606,7 +1606,7 @@ SDL_SurfaceValid.exit:                            ; preds = %4
   br i1 %7, label %9, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %.thread
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
@@ -1657,7 +1657,7 @@ SDL_SurfaceValid.exit.i:                          ; preds = %27
   br i1 %33, label %35, label %SDL_SurfaceValid.exit.thread.i
 
 SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.exit.i
-  %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SurfaceValid.exit.i76
 
 35:                                               ; preds = %SDL_SurfaceValid.exit.i
@@ -1678,7 +1678,7 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.ex
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %36
-  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #10
+  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #11
   br label %SDL_SurfaceValid.exit.i76
 
 47:                                               ; preds = %36, %35
@@ -1692,7 +1692,7 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.ex
   br i1 %.not22.i, label %52, label %51
 
 51:                                               ; preds = %50
-  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %49) #10
+  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %49) #11
   br label %52
 
 52:                                               ; preds = %51, %50
@@ -1708,7 +1708,7 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.ex
 
 57:                                               ; preds = %53, %52, %47
   %58 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %58) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %58) #11
   br label %SDL_SurfaceValid.exit.i76
 
 SDL_SurfaceValid.exit.i76:                        ; preds = %57, %45, %SDL_SurfaceValid.exit.thread.i
@@ -1717,7 +1717,7 @@ SDL_SurfaceValid.exit.i76:                        ; preds = %57, %45, %SDL_Surfa
   br i1 %60, label %62, label %SDL_SurfaceValid.exit.thread.i77
 
 SDL_SurfaceValid.exit.thread.i77:                 ; preds = %SDL_SurfaceValid.exit.i76
-  %61 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %61 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceColorspace_REAL.exit
 
 62:                                               ; preds = %SDL_SurfaceValid.exit.i76
@@ -1742,7 +1742,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   %77 = and i32 %68, 24576
   store i32 -1, ptr %69, align 8
   store i32 %77, ptr %67, align 8
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %66) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %66) #11
   %78 = tail call zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %28, ptr noundef null, i32 noundef %3)
   %79 = getelementptr inbounds nuw i8, ptr %28, i64 264
   store i8 %70, ptr %79, align 8
@@ -1760,7 +1760,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   store i8 %74, ptr %73, align 2
   store i8 %76, ptr %75, align 1
   store i32 %68, ptr %67, align 8
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %66) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %66) #11
   br i1 %78, label %.thread, label %85
 
 85:                                               ; preds = %SDL_SetSurfaceColorspace_REAL.exit
@@ -1796,7 +1796,7 @@ SDL_SurfaceValid.exit:                            ; preds = %1
 ._crit_edge:                                      ; preds = %12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
-  tail call void @SDL_free_REAL(ptr noundef %11) #10
+  tail call void @SDL_free_REAL(ptr noundef %11) #11
   store ptr null, ptr %10, align 8
   store i32 0, ptr %6, align 8
   br label %SDL_SurfaceValid.exit.thread
@@ -1829,7 +1829,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %20
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
@@ -1844,7 +1844,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
 
 SDL_SurfaceValid.exit.i.i:                        ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %11) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %11) #11
   %.pre = load ptr, ptr %3, align 8
   %12 = icmp eq ptr %.pre, @SDL_surface_magic
   br i1 %12, label %SDL_SurfaceHasRLE_REAL.exit.i, label %SDL_SurfaceHasRLE_REAL.exit.thread.i
@@ -1887,7 +1887,7 @@ SDL_SurfaceValid.exit:                            ; preds = %3
   br i1 %6, label %8, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %3, %SDL_SurfaceValid.exit
-  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %7 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %26
 
 8:                                                ; preds = %SDL_SurfaceValid.exit
@@ -1902,7 +1902,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %3, %SDL_SurfaceVali
   br i1 %.not14, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #10
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #11
   br label %26
 
 15:                                               ; preds = %11, %8
@@ -1928,7 +1928,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %3, %SDL_SurfaceVali
   br i1 %.not15, label %26, label %25
 
 25:                                               ; preds = %24
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %16) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %16) #11
   br label %26
 
 26:                                               ; preds = %24, %25, %13, %SDL_SurfaceValid.exit.thread
@@ -1979,7 +1979,7 @@ SDL_SurfaceValid.exit:                            ; preds = %4
   br i1 %7, label %9, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %19
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
@@ -1990,7 +1990,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
   br i1 %.not9, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12) #10
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12) #11
   br label %19
 
 15:                                               ; preds = %9
@@ -2019,7 +2019,7 @@ SDL_SurfaceValid.exit:                            ; preds = %4
   br i1 %7, label %9, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %20
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
@@ -2043,7 +2043,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %19) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %19) #11
   br label %20
 
 20:                                               ; preds = %9, %18, %SDL_SurfaceValid.exit.thread
@@ -2087,7 +2087,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
   br label %13
 
 13:                                               ; preds = %12, %11
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %27
 
 15:                                               ; preds = %SDL_SurfaceValid.exit
@@ -2137,7 +2137,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %14
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
@@ -2155,7 +2155,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %13) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %13) #11
   br label %14
 
 14:                                               ; preds = %7, %12, %SDL_SurfaceValid.exit.thread
@@ -2183,7 +2183,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br label %7
 
 7:                                                ; preds = %6, %SDL_SurfaceValid.exit.thread
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %13
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
@@ -2213,7 +2213,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %33
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
@@ -2221,7 +2221,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.13) #10
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.13) #11
   br label %33
 
 11:                                               ; preds = %7
@@ -2271,7 +2271,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br label %30
 
 28:                                               ; preds = %11
-  %29 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #10
+  %29 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #11
   %.pre = load i32, ptr %13, align 8
   br label %30
 
@@ -2282,7 +2282,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br i1 %.not, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %12) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %12) #11
   br label %33
 
 33:                                               ; preds = %30, %32, %9, %SDL_SurfaceValid.exit.thread
@@ -2310,7 +2310,7 @@ SDL_SurfaceValid.exit:                            ; preds = %4
   br i1 %7, label %9, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %24
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
@@ -2405,7 +2405,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br label %SDL_SurfaceValid.exit.thread
 
 17:                                               ; preds = %7
-  %18 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %15) #10
+  %18 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %15) #11
   br label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit, %17, %16
@@ -2436,7 +2436,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br label %7
 
 7:                                                ; preds = %6, %SDL_SurfaceValid.exit.thread
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %14
 
 9:                                                ; preds = %SDL_SurfaceValid.exit
@@ -2444,7 +2444,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br i1 %.not8, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15) #10
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15) #11
   br label %14
 
 12:                                               ; preds = %9
@@ -2459,13 +2459,13 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_BlitSurfaceUnchecked_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call zeroext i1 @SDL_ValidateMap(ptr noundef %0, ptr noundef %2) #10
+  %5 = tail call zeroext i1 @SDL_ValidateMap(ptr noundef %0, ptr noundef %2) #11
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call zeroext i1 %8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #10
+  %9 = tail call zeroext i1 %8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #11
   br label %10
 
 10:                                               ; preds = %4, %6
@@ -2493,7 +2493,7 @@ SDL_SurfaceValid.exit:                            ; preds = %4
   br i1 %11, label %13, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #10
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 13:                                               ; preds = %SDL_SurfaceValid.exit
@@ -2507,7 +2507,7 @@ SDL_SurfaceValid.exit35:                          ; preds = %13
   br i1 %16, label %18, label %SDL_SurfaceValid.exit35.thread
 
 SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceValid.exit35
-  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #10
+  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 18:                                               ; preds = %SDL_SurfaceValid.exit35
@@ -2523,7 +2523,7 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   br i1 %.not28, label %26, label %24
 
 24:                                               ; preds = %21, %18
-  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #10
+  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 26:                                               ; preds = %21
@@ -2558,7 +2558,7 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
 
 42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %43 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
+  %43 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %7) #11
   br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %42
@@ -2589,7 +2589,7 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   store i32 %56, ptr %59, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  %61 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %6, ptr noundef nonnull %60, ptr noundef nonnull %8) #10
+  %61 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %6, ptr noundef nonnull %60, ptr noundef nonnull %8) #11
   br i1 %61, label %62, label %.critedge33
 
 62:                                               ; preds = %55
@@ -2632,17 +2632,17 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %88 = and i32 %84, -2049
   store i32 %88, ptr %83, align 8
-  call void @SDL_InvalidateMap(ptr noundef nonnull %87) #10
+  call void @SDL_InvalidateMap(ptr noundef nonnull %87) #11
   br label %89
 
 89:                                               ; preds = %86, %82
-  %90 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
+  %90 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #11
   br i1 %90, label %91, label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %93 = load ptr, ptr %92, align 8
-  %94 = call zeroext i1 %93(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %6) #10
+  %94 = call zeroext i1 %93(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %6) #11
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 .critedge:                                        ; preds = %42
@@ -2683,7 +2683,7 @@ SDL_SurfaceValid.exit:                            ; preds = %5
   br i1 %.not, label %SDL_SurfaceValid.exit.thread, label %16
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %5, %12, %SDL_SurfaceValid.exit
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #10
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
   br label %166
 
 16:                                               ; preds = %12
@@ -2703,7 +2703,7 @@ SDL_SurfaceValid.exit199:                         ; preds = %16
   br i1 %.not189, label %SDL_SurfaceValid.exit199.thread, label %24
 
 SDL_SurfaceValid.exit199.thread:                  ; preds = %16, %20, %SDL_SurfaceValid.exit199
-  %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #10
+  %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
   br label %166
 
 24:                                               ; preds = %20
@@ -2719,7 +2719,7 @@ SDL_SurfaceValid.exit199.thread:                  ; preds = %16, %20, %SDL_Surfa
   br i1 %.not191, label %32, label %30
 
 30:                                               ; preds = %27, %24
-  %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #10
+  %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
   br label %166
 
 32:                                               ; preds = %27
@@ -2727,7 +2727,7 @@ SDL_SurfaceValid.exit199.thread:                  ; preds = %16, %20, %SDL_Surfa
   br i1 %33, label %switch.lookup, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19) #10
+  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19) #11
   br label %166
 
 switch.lookup:                                    ; preds = %32
@@ -2875,37 +2875,37 @@ switch.lookup:                                    ; preds = %32
   %118 = fadd double %.3, %89
   %119 = fadd double %.3149, %94
   %120 = fadd double %.2, %94
-  %121 = tail call double @SDL_round_REAL(double noundef %.2164) #10
+  %121 = tail call double @SDL_round_REAL(double noundef %.2164) #11
   %122 = fptosi double %121 to i32
   store i32 %122, ptr %6, align 4
-  %123 = tail call double @SDL_round_REAL(double noundef %.2161) #10
+  %123 = tail call double @SDL_round_REAL(double noundef %.2161) #11
   %124 = fptosi double %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %124, ptr %125, align 4
   %126 = fsub double %.2158, %.2164
-  %127 = tail call double @SDL_round_REAL(double noundef %126) #10
+  %127 = tail call double @SDL_round_REAL(double noundef %126) #11
   %128 = fptosi double %127 to i32
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %128, ptr %129, align 4
   %130 = fsub double %.1155, %.2161
-  %131 = tail call double @SDL_round_REAL(double noundef %130) #10
+  %131 = tail call double @SDL_round_REAL(double noundef %130) #11
   %132 = fptosi double %131 to i32
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %132, ptr %133, align 4
-  %134 = tail call double @SDL_round_REAL(double noundef %117) #10
+  %134 = tail call double @SDL_round_REAL(double noundef %117) #11
   %135 = fptosi double %134 to i32
   store i32 %135, ptr %7, align 4
-  %136 = tail call double @SDL_round_REAL(double noundef %119) #10
+  %136 = tail call double @SDL_round_REAL(double noundef %119) #11
   %137 = fptosi double %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %137, ptr %138, align 4
   %139 = fsub double %118, %117
-  %140 = tail call double @SDL_round_REAL(double noundef %139) #10
+  %140 = tail call double @SDL_round_REAL(double noundef %139) #11
   %141 = fptosi double %140 to i32
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %141, ptr %142, align 4
   %143 = fsub double %120, %119
-  %144 = tail call double @SDL_round_REAL(double noundef %143) #10
+  %144 = tail call double @SDL_round_REAL(double noundef %143) #11
   %145 = fptosi double %144 to i32
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %145, ptr %146, align 4
@@ -2921,9 +2921,9 @@ switch.lookup:                                    ; preds = %32
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %152, ptr %153, align 4
-  %154 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %6) #10
+  %154 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %155 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %87, ptr noundef nonnull %7, ptr noundef nonnull %7) #10
+  %155 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %87, ptr noundef nonnull %7, ptr noundef nonnull %7) #11
   %156 = load i32, ptr %142, align 4
   %157 = icmp eq i32 %156, 0
   %158 = load i32, ptr %146, align 4
@@ -2948,7 +2948,7 @@ switch.lookup:                                    ; preds = %32
   ret i1 %.0140
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nounwind uwtable
@@ -2981,7 +2981,7 @@ define hidden zeroext i1 @SDL_BlitSurfaceUncheckedScaled_REAL(ptr noundef %0, pt
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21, %17, %13, %5
-  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20) #10
+  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20) #11
   br label %common.ret267
 
 27:                                               ; preds = %21
@@ -2995,7 +2995,7 @@ define hidden zeroext i1 @SDL_BlitSurfaceUncheckedScaled_REAL(ptr noundef %0, pt
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = or disjoint i32 %29, 2048
   store i32 %33, ptr %28, align 8
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %32) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %32) #11
   br label %34
 
 34:                                               ; preds = %31, %27
@@ -3040,7 +3040,7 @@ define hidden zeroext i1 @SDL_BlitSurfaceUncheckedScaled_REAL(ptr noundef %0, pt
   br i1 %51, label %.critedge, label %._crit_edge250
 
 .critedge:                                        ; preds = %45, %49
-  %52 = tail call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #10
+  %52 = tail call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #11
   br label %common.ret267
 
 ._crit_edge250:                                   ; preds = %40, %46, %46, %46, %46, %49, %41
@@ -3066,13 +3066,13 @@ common.ret267:                                    ; preds = %SDL_ConvertSurface_
   br label %common.ret267
 
 58:                                               ; preds = %._crit_edge250
-  %59 = tail call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef %2) #10
+  %59 = tail call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef %2) #11
   br i1 %59, label %60, label %common.ret267
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call zeroext i1 %62(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #10
+  %63 = tail call zeroext i1 %62(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #11
   br label %common.ret267
 
 64:                                               ; preds = %34
@@ -3109,7 +3109,7 @@ common.ret267:                                    ; preds = %SDL_ConvertSurface_
   br i1 %or.cond236, label %.critedge197, label %76
 
 76:                                               ; preds = %73
-  %77 = tail call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1) #10
+  %77 = tail call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1) #11
   br label %common.ret267
 
 .critedge197:                                     ; preds = %64, %69, %70, %70, %70, %70, %73, %65
@@ -3128,11 +3128,11 @@ SDL_SurfaceValid.exit.i:                          ; preds = %.critedge197
   br i1 %83, label %SDL_ConvertSurface_REAL.exit, label %SDL_ConvertSurface_REAL.exit.thread
 
 SDL_ConvertSurface_REAL.exit.thread:              ; preds = %SDL_SurfaceValid.exit.i
-  %84 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %84 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %common.ret267
 
 SDL_ConvertSurface_REAL.exit:                     ; preds = %SDL_SurfaceValid.exit.i
-  %85 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef 372645892) #10
+  %85 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef 372645892) #11
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %87 = load i32, ptr %86, align 4
   %88 = tail call ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef nonnull %0, i32 noundef 372645892, ptr noundef null, i32 noundef %85, i32 noundef %87)
@@ -3162,13 +3162,13 @@ SDL_SurfaceValid.exit.i213.thread:                ; preds = %SDL_SurfaceValid.ex
   br label %103
 
 SDL_SurfaceValid.exit.i213:                       ; preds = %SDL_SurfaceValid.exit.i209
-  %100 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %100 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   %.pre247 = load ptr, ptr %91, align 8
   %101 = icmp eq ptr %.pre247, @SDL_surface_magic
   br i1 %101, label %103, label %SDL_SurfaceValid.exit.thread.i214
 
 SDL_SurfaceValid.exit.thread.i214:                ; preds = %SDL_SurfaceValid.exit.i213
-  %102 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %102 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_GetSurfaceAlphaMod_REAL.exit
 
 103:                                              ; preds = %SDL_SurfaceValid.exit.i213.thread, %SDL_SurfaceValid.exit.i213
@@ -3225,13 +3225,13 @@ SDL_GetSurfaceAlphaMod_REAL.exit:                 ; preds = %SDL_SurfaceValid.ex
   %or.cond244 = or i1 %.not174, %or.cond243
   %.0137 = select i1 %or.cond244, i32 372645892, i32 %126
   %128 = call ptr @SDL_CreateSurface_REAL(i32 noundef %120, i32 noundef %123, i32 noundef %.0137)
-  %129 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef %128) #10
+  %129 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef %128) #11
   br i1 %129, label %130, label %SDL_BlitSurfaceUnchecked_REAL.exit217
 
 130:                                              ; preds = %.critedge203
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %132 = load ptr, ptr %131, align 8
-  %133 = call zeroext i1 %132(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %128, ptr noundef nonnull %8) #10
+  %133 = call zeroext i1 %132(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %128, ptr noundef nonnull %8) #11
   br label %SDL_BlitSurfaceUnchecked_REAL.exit217
 
 SDL_BlitSurfaceUnchecked_REAL.exit217:            ; preds = %.critedge203, %130
@@ -3262,7 +3262,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit217:            ; preds = %.critedge203, %130
   %144 = load i32, ptr %18, align 4
   %145 = load i32, ptr %22, align 4
   %146 = call ptr @SDL_CreateSurface_REAL(i32 noundef %144, i32 noundef %145, i32 noundef %140)
-  %147 = call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef nonnull %.0138, ptr noundef nonnull %6, ptr noundef %146, ptr noundef null, i32 noundef 1) #10
+  %147 = call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef nonnull %.0138, ptr noundef nonnull %6, ptr noundef %146, ptr noundef null, i32 noundef 1) #11
   %148 = call zeroext i1 @SDL_SetSurfaceColorMod_REAL(ptr noundef %146, i8 noundef zeroext %.0230261, i8 noundef zeroext %.0229263, i8 noundef zeroext %.0228265)
   %149 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %146, i8 noundef zeroext %.0227)
   %150 = load i32, ptr %7, align 4
@@ -3276,13 +3276,13 @@ SDL_BlitSurfaceUnchecked_REAL.exit217:            ; preds = %.critedge203, %130
   %155 = load i32, ptr %22, align 4
   %156 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %155, ptr %156, align 4
-  %157 = call zeroext i1 @SDL_ValidateMap(ptr noundef %146, ptr noundef %2) #10
+  %157 = call zeroext i1 @SDL_ValidateMap(ptr noundef %146, ptr noundef %2) #11
   br i1 %157, label %158, label %SDL_BlitSurfaceUnchecked_REAL.exit219
 
 158:                                              ; preds = %._crit_edge
   %159 = getelementptr inbounds nuw i8, ptr %146, i64 128
   %160 = load ptr, ptr %159, align 8
-  %161 = call zeroext i1 %160(ptr noundef %146, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull %3) #10
+  %161 = call zeroext i1 %160(ptr noundef %146, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull %3) #11
   br label %SDL_BlitSurfaceUnchecked_REAL.exit219
 
 SDL_BlitSurfaceUnchecked_REAL.exit219:            ; preds = %._crit_edge, %158
@@ -3292,7 +3292,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit219:            ; preds = %._crit_edge, %158
   br label %164
 
 162:                                              ; preds = %141
-  %163 = call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef nonnull %.0138, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1) #10
+  %163 = call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef nonnull %.0138, ptr noundef nonnull %6, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1) #11
   br label %164
 
 164:                                              ; preds = %162, %SDL_BlitSurfaceUnchecked_REAL.exit219
@@ -3317,11 +3317,11 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %12
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
-  %8 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %1) #10
+  %8 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %1) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, i32 noundef %8, i32 noundef %10)
@@ -3350,7 +3350,7 @@ SDL_SurfaceValid.exit:                            ; preds = %4
   br i1 %11, label %13, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceValid.exit
-  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #10
+  %12 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
   br label %122
 
 13:                                               ; preds = %SDL_SurfaceValid.exit
@@ -3364,7 +3364,7 @@ SDL_SurfaceValid.exit76:                          ; preds = %13
   br i1 %16, label %18, label %SDL_SurfaceValid.exit76.thread
 
 SDL_SurfaceValid.exit76.thread:                   ; preds = %13, %SDL_SurfaceValid.exit76
-  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #10
+  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
   br label %122
 
 18:                                               ; preds = %SDL_SurfaceValid.exit76
@@ -3380,7 +3380,7 @@ SDL_SurfaceValid.exit76.thread:                   ; preds = %13, %SDL_SurfaceVal
   br i1 %.not61, label %26, label %24
 
 24:                                               ; preds = %21, %18
-  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #10
+  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
   br label %122
 
 26:                                               ; preds = %21
@@ -3423,12 +3423,12 @@ SDL_SurfaceValid.exit76.thread:                   ; preds = %13, %SDL_SurfaceVal
   br i1 %.not63, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %5) #10
+  %43 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %5) #11
   br i1 %43, label %44, label %122
 
 44:                                               ; preds = %42, %38
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  %46 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %6, ptr noundef nonnull %45, ptr noundef nonnull %6) #10
+  %46 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %6, ptr noundef nonnull %45, ptr noundef nonnull %6) #11
   br i1 %46, label %47, label %122
 
 47:                                               ; preds = %44
@@ -3442,7 +3442,7 @@ SDL_SurfaceValid.exit76.thread:                   ; preds = %13, %SDL_SurfaceVal
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %53 = and i32 %49, -2049
   store i32 %53, ptr %48, align 8
-  call void @SDL_InvalidateMap(ptr noundef nonnull %52) #10
+  call void @SDL_InvalidateMap(ptr noundef nonnull %52) #11
   br label %54
 
 54:                                               ; preds = %51, %47
@@ -3483,12 +3483,12 @@ SDL_SurfaceValid.exit76.thread:                   ; preds = %13, %SDL_SurfaceVal
 70:                                               ; preds = %..critedge_crit_edge.us
   store i32 %61, ptr %68, align 4
   store i32 %61, ptr %65, align 4
-  %71 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
+  %71 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #11
   br i1 %71, label %SDL_BlitSurfaceUnchecked_REAL.exit78.us, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 SDL_BlitSurfaceUnchecked_REAL.exit78.us:          ; preds = %70
   %72 = load ptr, ptr %67, align 8
-  %73 = call zeroext i1 %72(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #10
+  %73 = call zeroext i1 %72(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #11
   br i1 %73, label %74, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 74:                                               ; preds = %SDL_BlitSurfaceUnchecked_REAL.exit78.us
@@ -3508,12 +3508,12 @@ SDL_BlitSurfaceUnchecked_REAL.exit78.us:          ; preds = %70
 
 81:                                               ; preds = %.lr.ph.us, %85
   %.05090.us = phi i32 [ 0, %.lr.ph.us ], [ %89, %85 ]
-  %82 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
+  %82 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #11
   br i1 %82, label %SDL_BlitSurfaceUnchecked_REAL.exit.us, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 SDL_BlitSurfaceUnchecked_REAL.exit.us:            ; preds = %81
   %83 = load ptr, ptr %67, align 8
-  %84 = call zeroext i1 %83(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #10
+  %84 = call zeroext i1 %83(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #11
   br i1 %84, label %85, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 85:                                               ; preds = %SDL_BlitSurfaceUnchecked_REAL.exit.us
@@ -3543,12 +3543,12 @@ SDL_BlitSurfaceUnchecked_REAL.exit.us:            ; preds = %81
   store i32 %92, ptr %8, align 4
   store i32 %61, ptr %68, align 4
   store i32 %61, ptr %65, align 4
-  %93 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
+  %93 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #11
   br i1 %93, label %SDL_BlitSurfaceUnchecked_REAL.exit78, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 SDL_BlitSurfaceUnchecked_REAL.exit78:             ; preds = %.critedge
   %94 = load ptr, ptr %67, align 8
-  %95 = call zeroext i1 %94(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #10
+  %95 = call zeroext i1 %94(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #11
   br i1 %95, label %96, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 96:                                               ; preds = %SDL_BlitSurfaceUnchecked_REAL.exit78
@@ -3582,12 +3582,12 @@ SDL_BlitSurfaceUnchecked_REAL.exit78:             ; preds = %.critedge
 
 106:                                              ; preds = %.lr.ph, %110
   %.098 = phi i32 [ 0, %.lr.ph ], [ %114, %110 ]
-  %107 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
+  %107 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #11
   br i1 %107, label %SDL_BlitSurfaceUnchecked_REAL.exit80, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 SDL_BlitSurfaceUnchecked_REAL.exit80:             ; preds = %106
   %108 = load ptr, ptr %105, align 8
-  %109 = call zeroext i1 %108(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #10
+  %109 = call zeroext i1 %108(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #11
   br i1 %109, label %110, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 110:                                              ; preds = %SDL_BlitSurfaceUnchecked_REAL.exit80
@@ -3607,13 +3607,13 @@ SDL_BlitSurfaceUnchecked_REAL.exit80:             ; preds = %106
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %61, ptr %116, align 4
   store i32 %61, ptr %65, align 4
-  %117 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
+  %117 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %2) #11
   br i1 %117, label %SDL_BlitSurfaceUnchecked_REAL.exit82, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 SDL_BlitSurfaceUnchecked_REAL.exit82:             ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %119 = load ptr, ptr %118, align 8
-  %120 = call zeroext i1 %119(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #10
+  %120 = call zeroext i1 %119(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8) #11
   br i1 %120, label %121, label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 121:                                              ; preds = %.critedge74, %SDL_BlitSurfaceUnchecked_REAL.exit82, %.critedge72
@@ -3650,7 +3650,7 @@ SDL_SurfaceValid.exit:                            ; preds = %6
   br i1 %13, label %15, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %6, %SDL_SurfaceValid.exit
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #10
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
   br label %128
 
 15:                                               ; preds = %SDL_SurfaceValid.exit
@@ -3664,7 +3664,7 @@ SDL_SurfaceValid.exit94:                          ; preds = %15
   br i1 %18, label %20, label %SDL_SurfaceValid.exit94.thread
 
 SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceValid.exit94
-  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #10
+  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
   br label %128
 
 20:                                               ; preds = %SDL_SurfaceValid.exit94
@@ -3680,7 +3680,7 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   br i1 %.not82, label %28, label %26
 
 26:                                               ; preds = %23, %20
-  %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #10
+  %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.18) #11
   br label %128
 
 28:                                               ; preds = %23
@@ -3688,7 +3688,7 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #10
+  %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #11
   br label %128
 
 32:                                               ; preds = %28
@@ -3731,12 +3731,12 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   br i1 %.not84, label %50, label %48
 
 48:                                               ; preds = %44
-  %49 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %7) #10
+  %49 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %7) #11
   br i1 %49, label %50, label %128
 
 50:                                               ; preds = %48, %44
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  %52 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %8, ptr noundef nonnull %51, ptr noundef nonnull %8) #10
+  %52 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %8, ptr noundef nonnull %51, ptr noundef nonnull %8) #11
   br i1 %52, label %53, label %128
 
 53:                                               ; preds = %50
@@ -3750,7 +3750,7 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %59 = and i32 %55, -2049
   store i32 %59, ptr %54, align 8
-  call void @SDL_InvalidateMap(ptr noundef nonnull %58) #10
+  call void @SDL_InvalidateMap(ptr noundef nonnull %58) #11
   br label %60
 
 60:                                               ; preds = %57, %53
@@ -3960,7 +3960,7 @@ SDL_SurfaceValid.exit:                            ; preds = %10
   br i1 %15, label %17, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %10, %SDL_SurfaceValid.exit
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #10
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
   br label %154
 
 17:                                               ; preds = %SDL_SurfaceValid.exit
@@ -3974,7 +3974,7 @@ SDL_SurfaceValid.exit267:                         ; preds = %17
   br i1 %20, label %22, label %SDL_SurfaceValid.exit267.thread
 
 SDL_SurfaceValid.exit267.thread:                  ; preds = %17, %SDL_SurfaceValid.exit267
-  %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #10
+  %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
   br label %154
 
 22:                                               ; preds = %SDL_SurfaceValid.exit267
@@ -4024,19 +4024,19 @@ SDL_SurfaceValid.exit267.thread:                  ; preds = %17, %SDL_SurfaceVal
 37:                                               ; preds = %34
   %38 = sitofp i32 %2 to float
   %39 = fmul float %6, %38
-  %40 = tail call float @SDL_roundf_REAL(float noundef %39) #10
+  %40 = tail call float @SDL_roundf_REAL(float noundef %39) #11
   %41 = fptosi float %40 to i32
   %42 = sitofp i32 %3 to float
   %43 = fmul float %6, %42
-  %44 = tail call float @SDL_roundf_REAL(float noundef %43) #10
+  %44 = tail call float @SDL_roundf_REAL(float noundef %43) #11
   %45 = fptosi float %44 to i32
   %46 = sitofp i32 %4 to float
   %47 = fmul float %6, %46
-  %48 = tail call float @SDL_roundf_REAL(float noundef %47) #10
+  %48 = tail call float @SDL_roundf_REAL(float noundef %47) #11
   %49 = fptosi float %48 to i32
   %50 = sitofp i32 %5 to float
   %51 = fmul float %6, %50
-  %52 = tail call float @SDL_roundf_REAL(float noundef %51) #10
+  %52 = tail call float @SDL_roundf_REAL(float noundef %51) #11
   %53 = fptosi float %52 to i32
   br label %54
 
@@ -4237,7 +4237,7 @@ SDL_SurfaceValid.exit:                            ; preds = %1
   br i1 %4, label %6, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceValid.exit
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %21
 
 6:                                                ; preds = %SDL_SurfaceValid.exit
@@ -4254,7 +4254,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceVali
   br i1 %.not8, label %16, label %13
 
 13:                                               ; preds = %9
-  tail call void @SDL_UnRLESurface(ptr noundef nonnull %0, i1 noundef zeroext true) #10
+  tail call void @SDL_UnRLESurface(ptr noundef nonnull %0, i1 noundef zeroext true) #11
   %14 = load i32, ptr %10, align 8
   %15 = or i32 %14, 4
   store i32 %15, ptr %10, align 8
@@ -4310,7 +4310,7 @@ SDL_SurfaceValid.exit:                            ; preds = %1
 15:                                               ; preds = %11
   %16 = and i32 %13, -5
   store i32 %16, ptr %12, align 8
-  %17 = tail call zeroext i1 @SDL_RLESurface(ptr noundef nonnull %0) #10
+  %17 = tail call zeroext i1 @SDL_RLESurface(ptr noundef nonnull %0) #11
   br label %18
 
 18:                                               ; preds = %15, %11
@@ -4337,7 +4337,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %17
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
@@ -4361,7 +4361,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   br label %17
 
 15:                                               ; preds = %10
-  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #10
+  %16 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #11
   br label %17
 
 17:                                               ; preds = %7, %15, %13, %11, %SDL_SurfaceValid.exit.thread
@@ -4381,7 +4381,7 @@ define internal fastcc zeroext i1 @SDL_FlipSurfaceHorizontal(ptr noundef readonl
   br i1 %or.cond62, label %.critedge, label %7
 
 .critedge:                                        ; preds = %1
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #11
   br label %46
 
 7:                                                ; preds = %1
@@ -4411,7 +4411,7 @@ define internal fastcc zeroext i1 @SDL_FlipSurfaceHorizontal(ptr noundef readonl
   br label %.lr.ph71
 
 24:                                               ; preds = %15
-  %25 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %21) #10
+  %25 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %21) #11
   %.not56 = icmp eq ptr %25, null
   br i1 %.not56, label %46, label %26
 
@@ -4469,7 +4469,7 @@ define internal fastcc zeroext i1 @SDL_FlipSurfaceHorizontal(ptr noundef readonl
 
 ._crit_edge72.thread:                             ; preds = %26, %._crit_edge72
   %45 = phi ptr [ %27, %._crit_edge72 ], [ %25, %26 ]
-  call void @SDL_free_REAL(ptr noundef nonnull %45) #10
+  call void @SDL_free_REAL(ptr noundef nonnull %45) #11
   br label %46
 
 46:                                               ; preds = %._crit_edge72.thread, %._crit_edge72, %24, %11, %7, %.critedge
@@ -4502,7 +4502,7 @@ define internal fastcc noundef zeroext i1 @SDL_FlipSurfaceVertical(ptr noundef r
   br label %19
 
 17:                                               ; preds = %5
-  %18 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %14) #10
+  %18 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %14) #11
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %34, label %._crit_edge39
 
@@ -4546,7 +4546,7 @@ define internal fastcc noundef zeroext i1 @SDL_FlipSurfaceVertical(ptr noundef r
   br i1 %15, label %34, label %33
 
 33:                                               ; preds = %._crit_edge
-  call void @SDL_free_REAL(ptr noundef nonnull %21) #10
+  call void @SDL_free_REAL(ptr noundef nonnull %21) #11
   br label %34
 
 34:                                               ; preds = %33, %._crit_edge, %17, %1
@@ -4572,7 +4572,7 @@ SDL_SurfaceValid.exit:                            ; preds = %5
   br i1 %13, label %15, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceValid.exit
-  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %.thread421
 
 15:                                               ; preds = %SDL_SurfaceValid.exit
@@ -4580,7 +4580,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceVali
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #10
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #11
   br label %.thread421
 
 19:                                               ; preds = %15
@@ -4632,7 +4632,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceVali
   br i1 %35, label %._crit_edge.thread, label %.thread
 
 ._crit_edge.thread:                               ; preds = %33, %._crit_edge
-  %36 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.23) #10
+  %36 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.23) #11
   br label %.thread421
 
 37:                                               ; preds = %19
@@ -4654,12 +4654,12 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceVali
   %42 = lshr i32 %1, 8
   %43 = and i32 %42, 255
   %44 = shl nuw i32 1, %43
-  %45 = tail call ptr @SDL_CreatePalette_REAL(i32 noundef %44) #10
+  %45 = tail call ptr @SDL_CreatePalette_REAL(i32 noundef %44) #11
   %.not318 = icmp eq ptr %45, null
   br i1 %.not318, label %.thread, label %46
 
 46:                                               ; preds = %41
-  tail call void @SDL_DitherPalette(ptr noundef nonnull %45) #10
+  tail call void @SDL_DitherPalette(ptr noundef nonnull %45) #11
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %38, %37, %46, %41
@@ -4699,7 +4699,7 @@ SDL_SurfaceValid.exit.i:                          ; preds = %57, %57, %57, %57
   br i1 %62, label %64, label %SDL_SurfaceValid.exit.thread.i
 
 SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.exit.i
-  %63 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %63 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SurfaceValid.exit.i368
 
 64:                                               ; preds = %SDL_SurfaceValid.exit.i
@@ -4720,7 +4720,7 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.ex
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %65
-  %75 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #10
+  %75 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9) #11
   br label %SDL_SurfaceValid.exit.i368
 
 76:                                               ; preds = %65, %64
@@ -4734,7 +4734,7 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.ex
   br i1 %.not22.i, label %81, label %80
 
 80:                                               ; preds = %79
-  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %78) #10
+  tail call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %78) #11
   br label %81
 
 81:                                               ; preds = %80, %79
@@ -4750,7 +4750,7 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.ex
 
 86:                                               ; preds = %82, %81, %76
   %87 = getelementptr inbounds nuw i8, ptr %55, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %87) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %87) #11
   br label %SDL_SurfaceValid.exit.i368
 
 SDL_SurfaceValid.exit.i368:                       ; preds = %56, %57, %SDL_SurfaceValid.exit.thread.i, %74, %86
@@ -4762,7 +4762,7 @@ SDL_SurfaceValid.exit.i368:                       ; preds = %56, %57, %SDL_Surfa
   br i1 %91, label %93, label %SDL_SurfaceValid.exit.thread.i369
 
 SDL_SurfaceValid.exit.thread.i369:                ; preds = %SDL_SurfaceValid.exit.i368
-  %92 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %92 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceColorspace_REAL.exit
 
 93:                                               ; preds = %SDL_SurfaceValid.exit.i368
@@ -4792,7 +4792,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %103 = load i32, ptr %102, align 8
   %104 = sext i32 %103 to i64
-  %105 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %104) #10
+  %105 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %104) #11
   %106 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store ptr %105, ptr %106, align 8
   %.not339 = icmp eq ptr %105, null
@@ -4846,7 +4846,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   %141 = and i32 %132, 24576
   store i32 -1, ptr %133, align 8
   store i32 %141, ptr %131, align 8
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %130) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %130) #11
   store i32 0, ptr %7, align 4
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %142, align 4
@@ -4896,7 +4896,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
 159:                                              ; preds = %156, %156, %156, %156, %152, %152, %152, %152
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @SDL_DetectPalette(ptr noundef nonnull %148, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
+  call void @SDL_DetectPalette(ptr noundef nonnull %148, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %160 = load i8, ptr %8, align 1, !range !19, !noundef !20
   %161 = trunc nuw i8 %160 to i1
   %.not = xor i1 %161, true
@@ -4967,13 +4967,13 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
 193:                                              ; preds = %180, %184, %.thread396
   %.0281 = phi i1 [ false, %180 ], [ true, %184 ], [ false, %.thread396 ]
   %.0280 = phi i8 [ 0, %180 ], [ %192, %184 ], [ 0, %.thread396 ]
-  %194 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %55) #10
+  %194 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %0, ptr noundef nonnull %55) #11
   br i1 %194, label %195, label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 195:                                              ; preds = %193
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %197 = load ptr, ptr %196, align 8
-  %198 = call zeroext i1 %197(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %55, ptr noundef nonnull %7) #10
+  %198 = call zeroext i1 %197(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %55, ptr noundef nonnull %7) #11
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %193, %195
@@ -5033,7 +5033,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %193, %195
   store i8 %138, ptr %137, align 2
   store i8 %140, ptr %139, align 1
   store i32 %132, ptr %131, align 8
-  call void @SDL_InvalidateMap(ptr noundef nonnull %130) #10
+  call void @SDL_InvalidateMap(ptr noundef nonnull %130) #11
   br i1 %.0.i371, label %223, label %.thread412
 
 223:                                              ; preds = %.loopexit
@@ -5061,7 +5061,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %193, %195
   %234 = load ptr, ptr %233, align 8
   %235 = sext i32 %228 to i64
   %236 = shl nsw i64 %235, 2
-  %237 = call i32 @SDL_memcmp_REAL(ptr noundef %232, ptr noundef %234, i64 noundef %236) #10
+  %237 = call i32 @SDL_memcmp_REAL(ptr noundef %232, ptr noundef %234, i64 noundef %236) #11
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %239, label %.thread399
 
@@ -5124,7 +5124,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %193, %195
 258:                                              ; preds = %256, %254
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %260 = load i32, ptr %259, align 4
-  %261 = call zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef nonnull %253, ptr noundef null, i32 noundef %260) #10
+  %261 = call zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef nonnull %253, ptr noundef null, i32 noundef %260) #11
   %262 = getelementptr inbounds nuw i8, ptr %253, i64 256
   %263 = load i32, ptr %262, align 8
   %264 = and i32 %263, -1025
@@ -5170,7 +5170,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %193, %195
   br i1 %.not340, label %SDL_SurfaceValid.exit.i373, label %277
 
 277:                                              ; preds = %.critedge354.thread
-  call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %.1283) #10
+  call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %.1283) #11
   br label %SDL_SurfaceValid.exit.i373
 
 SDL_SurfaceValid.exit.i373:                       ; preds = %.critedge354.thread, %277
@@ -5193,7 +5193,7 @@ SDL_SurfaceValid.exit.i373:                       ; preds = %.critedge354.thread
   %288 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %287, ptr %288, align 4
   %289 = getelementptr inbounds nuw i8, ptr %55, i64 100
-  %290 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %281, ptr noundef nonnull %6, ptr noundef nonnull %289) #10
+  %290 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %281, ptr noundef nonnull %6, ptr noundef nonnull %289) #11
   br label %SDL_SetSurfaceClipRect_REAL.exit
 
 SDL_SetSurfaceClipRect_REAL.exit:                 ; preds = %SDL_SurfaceValid.exit.i373, %280
@@ -5243,7 +5243,7 @@ SDL_SurfaceValid.exit.i378:                       ; preds = %.thread477, %294, %
   br i1 %303, label %305, label %SDL_SurfaceValid.exit.thread.i379
 
 SDL_SurfaceValid.exit.thread.i379:                ; preds = %SDL_SurfaceValid.exit.i378
-  %304 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %304 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceBlendMode_REAL.exit
 
 305:                                              ; preds = %SDL_SurfaceValid.exit.i378
@@ -5257,7 +5257,7 @@ SDL_SurfaceValid.exit.thread.i379:                ; preds = %SDL_SurfaceValid.ex
 
 310:                                              ; preds = %305
   %311 = getelementptr inbounds nuw i8, ptr %55, i64 120
-  call void @SDL_InvalidateMap(ptr noundef nonnull %311) #10
+  call void @SDL_InvalidateMap(ptr noundef nonnull %311) #11
   br label %SDL_SetSurfaceBlendMode_REAL.exit
 
 SDL_SetSurfaceBlendMode_REAL.exit:                ; preds = %310, %305, %SDL_SurfaceValid.exit.thread.i379, %.thread477
@@ -5271,7 +5271,7 @@ SDL_SurfaceValid.exit.i383:                       ; preds = %SDL_SetSurfaceBlend
   br i1 %314, label %316, label %SDL_SurfaceValid.exit.thread.i384
 
 SDL_SurfaceValid.exit.thread.i384:                ; preds = %SDL_SurfaceValid.exit.i383
-  %315 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %315 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceRLE_REAL.exit
 
 316:                                              ; preds = %SDL_SurfaceValid.exit.i383
@@ -5284,7 +5284,7 @@ SDL_SurfaceValid.exit.thread.i384:                ; preds = %SDL_SurfaceValid.ex
 
 SDL_SurfaceValid.exit.i.i.i:                      ; preds = %316
   %319 = getelementptr inbounds nuw i8, ptr %55, i64 120
-  call void @SDL_InvalidateMap(ptr noundef nonnull %319) #10
+  call void @SDL_InvalidateMap(ptr noundef nonnull %319) #11
   %.pre.i = load ptr, ptr %89, align 8
   %320 = icmp eq ptr %.pre.i, @SDL_surface_magic
   br i1 %320, label %SDL_SurfaceValid.exit.i.i.i.SDL_SurfaceHasRLE_REAL.exit.i.i_crit_edge, label %SDL_SurfaceHasRLE_REAL.exit.thread.i.i
@@ -5346,7 +5346,7 @@ SDL_SurfaceValid.exit15.i:                        ; preds = %339
   br i1 %342, label %344, label %SDL_SurfaceValid.exit15.thread.i
 
 SDL_SurfaceValid.exit15.thread.i:                 ; preds = %SDL_SurfaceValid.exit15.i, %339
-  %343 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #10
+  %343 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #11
   br i1 %343, label %360, label %.thread412
 
 344:                                              ; preds = %SDL_SurfaceValid.exit15.i
@@ -5355,7 +5355,7 @@ SDL_SurfaceValid.exit15.thread.i:                 ; preds = %SDL_SurfaceValid.ex
   %347 = add nsw i32 %346, 1
   %348 = sext i32 %347 to i64
   %349 = shl nsw i64 %348, 3
-  %350 = call ptr @SDL_realloc_REAL(ptr noundef %345, i64 noundef %349) #11
+  %350 = call ptr @SDL_realloc_REAL(ptr noundef %345, i64 noundef %349) #12
   %.not.not.i = icmp eq ptr %350, null
   br i1 %.not.not.i, label %.thread412, label %SDL_AddSurfaceAlternateImage_REAL.exit.thread
 
@@ -5375,7 +5375,7 @@ SDL_AddSurfaceAlternateImage_REAL.exit.thread:    ; preds = %344
   br label %360
 
 SDL_AddSurfaceAlternateImage_REAL.exit:           ; preds = %SDL_SurfaceValid.exit.i388
-  %359 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %359 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br i1 %359, label %360, label %.thread412
 
 360:                                              ; preds = %SDL_SurfaceValid.exit15.thread.i, %SDL_AddSurfaceAlternateImage_REAL.exit.thread, %SDL_AddSurfaceAlternateImage_REAL.exit
@@ -5390,7 +5390,7 @@ SDL_AddSurfaceAlternateImage_REAL.exit:           ; preds = %SDL_SurfaceValid.ex
   br i1 %.not347, label %365, label %364
 
 364:                                              ; preds = %.thread412
-  call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %.1283) #10
+  call void @SDL_DestroyPalette_REAL(ptr noundef nonnull %.1283) #11
   br label %365
 
 365:                                              ; preds = %364, %.thread412
@@ -5420,7 +5420,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %.not, label %16, label %18
 
 16:                                               ; preds = %12
-  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #10
+  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
   br label %.loopexit
 
 18:                                               ; preds = %12
@@ -5428,7 +5428,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %.not130, label %19, label %21
 
 19:                                               ; preds = %18
-  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.24) #10
+  %20 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.24) #11
   br label %.loopexit
 
 21:                                               ; preds = %18
@@ -5436,7 +5436,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %.not131, label %22, label %24
 
 22:                                               ; preds = %21
-  %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #10
+  %23 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
   br label %.loopexit
 
 24:                                               ; preds = %21
@@ -5444,7 +5444,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %.not132, label %25, label %27
 
 25:                                               ; preds = %24
-  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.25) #10
+  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.25) #11
   br label %.loopexit
 
 27:                                               ; preds = %24
@@ -5452,7 +5452,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %2) #10
+  %30 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %2) #11
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -5461,7 +5461,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %7) #10
+  %34 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %7) #11
   br label %35
 
 35:                                               ; preds = %33, %31
@@ -5470,7 +5470,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
-  %38 = tail call zeroext i1 @SDL_ConvertPixels_STB(i32 noundef %0, i32 noundef %1, i32 noundef 1196444237, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, i32 noundef %.0120, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %11) #10
+  %38 = tail call zeroext i1 @SDL_ConvertPixels_STB(i32 noundef %0, i32 noundef %1, i32 noundef 1196444237, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, i32 noundef %.0120, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %11) #11
   br label %.loopexit
 
 39:                                               ; preds = %35
@@ -5492,14 +5492,14 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %or.cond144, label %46, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call zeroext i1 @SDL_ConvertPixels_YUV_to_YUV(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, i32 noundef %.0120, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %11) #10
+  %45 = tail call zeroext i1 @SDL_ConvertPixels_YUV_to_YUV(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, i32 noundef %.0120, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %11) #11
   br label %.loopexit
 
 46:                                               ; preds = %40
   br i1 %41, label %.critedge, label %47
 
 47:                                               ; preds = %46
-  %48 = tail call zeroext i1 @SDL_ConvertPixels_YUV_to_RGB(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, i32 noundef %.0120, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %11) #10
+  %48 = tail call zeroext i1 @SDL_ConvertPixels_YUV_to_RGB(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, i32 noundef %.0120, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %11) #11
   br label %.loopexit
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %46
@@ -5510,7 +5510,7 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   br i1 %or.cond146, label %51, label %49
 
 49:                                               ; preds = %.critedge
-  %50 = tail call zeroext i1 @SDL_ConvertPixels_RGB_to_YUV(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, i32 noundef %.0120, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %11) #10
+  %50 = tail call zeroext i1 @SDL_ConvertPixels_RGB_to_YUV(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0117, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, i32 noundef %.0120, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %11) #11
   br label %.loopexit
 
 51:                                               ; preds = %.critedge
@@ -5573,13 +5573,13 @@ define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i3
   store i32 %0, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %1, ptr %78, align 4
-  %79 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %13, ptr noundef nonnull %14) #10
+  %79 = call zeroext i1 @SDL_ValidateMap(ptr noundef nonnull %13, ptr noundef nonnull %14) #11
   br i1 %79, label %80, label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %82 = load ptr, ptr %81, align 8
-  %83 = call zeroext i1 %82(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull %15) #10
+  %83 = call zeroext i1 %82(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull %15) #11
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %75, %80
@@ -5671,7 +5671,7 @@ define internal fastcc void @SDL_ConvertColorkeyToAlpha(ptr noundef nonnull %0) 
   br i1 %.not8.i, label %SDL_LockSurface_REAL.exit, label %29
 
 29:                                               ; preds = %25
-  tail call void @SDL_UnRLESurface(ptr noundef nonnull %0, i1 noundef zeroext true) #10
+  tail call void @SDL_UnRLESurface(ptr noundef nonnull %0, i1 noundef zeroext true) #11
   %30 = load i32, ptr %26, align 8
   %31 = or i32 %30, 4
   store i32 %31, ptr %26, align 8
@@ -5854,7 +5854,7 @@ SDL_UnlockSurface_REAL.exit.thread185:            ; preds = %106
 SDL_UnlockSurface_REAL.exit:                      ; preds = %106
   %112 = and i32 %108, -5
   store i32 %112, ptr %107, align 8
-  %113 = tail call zeroext i1 @SDL_RLESurface(ptr noundef nonnull %0) #10
+  %113 = tail call zeroext i1 @SDL_RLESurface(ptr noundef nonnull %0) #11
   %.pr.pre.pre = load ptr, ptr %2, align 8
   %114 = icmp eq ptr %.pr.pre.pre, @SDL_surface_magic
   %115 = load i32, ptr %0, align 8
@@ -5863,7 +5863,7 @@ SDL_UnlockSurface_REAL.exit:                      ; preds = %106
   br i1 %114, label %SDL_UnlockSurface_REAL.exit.thread, label %SDL_SurfaceValid.exit.thread.i140
 
 SDL_SurfaceValid.exit.thread.i140:                ; preds = %.loopexit, %SDL_UnlockSurface_REAL.exit
-  %117 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %117 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceColorKey_REAL.exit
 
 SDL_UnlockSurface_REAL.exit.thread:               ; preds = %103, %101, %SDL_UnlockSurface_REAL.exit.thread185, %SDL_UnlockSurface_REAL.exit
@@ -5878,7 +5878,7 @@ SDL_UnlockSurface_REAL.exit.thread:               ; preds = %103, %101, %SDL_Unl
   br i1 %.not14.i.not, label %122, label %124
 
 122:                                              ; preds = %120
-  %123 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #10
+  %123 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #11
   br label %SDL_SetSurfaceColorKey_REAL.exit
 
 124:                                              ; preds = %120, %SDL_UnlockSurface_REAL.exit.thread
@@ -5890,7 +5890,7 @@ SDL_UnlockSurface_REAL.exit.thread:               ; preds = %103, %101, %SDL_Unl
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %128) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %128) #11
   br label %SDL_SetSurfaceColorKey_REAL.exit
 
 SDL_SetSurfaceColorKey_REAL.exit:                 ; preds = %SDL_SurfaceValid.exit.thread.i140, %122, %124, %127
@@ -5899,7 +5899,7 @@ SDL_SetSurfaceColorKey_REAL.exit:                 ; preds = %SDL_SurfaceValid.ex
   br i1 %130, label %132, label %SDL_SurfaceValid.exit.thread.i143
 
 SDL_SurfaceValid.exit.thread.i143:                ; preds = %SDL_SetSurfaceColorKey_REAL.exit
-  %131 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %131 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceBlendMode_REAL.exit
 
 132:                                              ; preds = %SDL_SetSurfaceColorKey_REAL.exit
@@ -5912,7 +5912,7 @@ SDL_SurfaceValid.exit.thread.i143:                ; preds = %SDL_SetSurfaceColor
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %137) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %137) #11
   br label %SDL_SetSurfaceBlendMode_REAL.exit
 
 SDL_SetSurfaceBlendMode_REAL.exit:                ; preds = %15, %136, %132, %SDL_SurfaceValid.exit.thread.i143, %9, %18, %5, %19, %1
@@ -5931,7 +5931,7 @@ SDL_SurfaceValid.exit:                            ; preds = %1
   br i1 %4, label %6, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceValid.exit
-  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %5 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %16
 
 6:                                                ; preds = %SDL_SurfaceValid.exit
@@ -6016,7 +6016,7 @@ SDL_SurfaceValid.exit.i:                          ; preds = %23, %15
   br i1 %31, label %33, label %SDL_SurfaceValid.exit.thread.i
 
 SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.exit.i
-  %32 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %32 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceColorspace_REAL.exit
 
 33:                                               ; preds = %SDL_SurfaceValid.exit.i
@@ -6044,8 +6044,8 @@ define hidden zeroext i1 @SDL_ConvertPixels_REAL(i32 noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_PremultiplyAlpha_REAL(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #2 {
-  %10 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %2) #10
-  %11 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %5) #10
+  %10 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %2) #11
+  %11 = tail call i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef %5) #11
   %12 = tail call fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %10, i32 noundef 0, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %11, i32 noundef 0, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8)
   ret i1 %12
 }
@@ -6056,7 +6056,7 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %13
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #10
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
   br label %.thread
 
 16:                                               ; preds = %13
@@ -6064,7 +6064,7 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   br i1 %.not125, label %17, label %19
 
 17:                                               ; preds = %16
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.24) #10
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.24) #11
   br label %.thread
 
 19:                                               ; preds = %16
@@ -6072,7 +6072,7 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   br i1 %.not126, label %20, label %22
 
 20:                                               ; preds = %19
-  %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #10
+  %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #11
   br label %.thread
 
 22:                                               ; preds = %19
@@ -6080,7 +6080,7 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   br i1 %.not127, label %23, label %25
 
 23:                                               ; preds = %22
-  %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.25) #10
+  %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.25) #11
   br label %.thread
 
 25:                                               ; preds = %22
@@ -6354,7 +6354,7 @@ define internal fastcc zeroext i1 @SDL_PremultiplyAlphaPixelsAndColorspace(i32 n
   br i1 %.not.i190, label %SDL_PremultiplyAlpha_AXYZ8888.exit, label %.preheader.i186, !llvm.loop !35
 
 140:                                              ; preds = %58
-  %141 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #10
+  %141 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #11
   br label %148
 
 SDL_PremultiplyAlpha_AXYZ8888.exit:               ; preds = %._crit_edge.i189, %._crit_edge.i183, %._crit_edge.i, %.preheader.lr.ph.i185, %117, %.preheader.lr.ph.i167, %88, %.preheader.lr.ph.i, %59
@@ -6397,7 +6397,7 @@ SDL_SurfaceValid.exit:                            ; preds = %2
   br i1 %5, label %7, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit
-  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %23
 
 7:                                                ; preds = %SDL_SurfaceValid.exit
@@ -6438,7 +6438,7 @@ SDL_SurfaceValid.exit:                            ; preds = %5
   br i1 %10, label %SDL_SetSurfaceClipRect_REAL.exit, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceValid.exit
-  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %135
 
 SDL_SetSurfaceClipRect_REAL.exit:                 ; preds = %SDL_SurfaceValid.exit
@@ -6481,7 +6481,7 @@ SDL_SetSurfaceClipRect_REAL.exit:                 ; preds = %SDL_SurfaceValid.ex
 
 28:                                               ; preds = %.critedge, %24
   %29 = phi float [ %27, %24 ], [ 0.000000e+00, %.critedge ]
-  %30 = tail call float @SDL_roundf_REAL(float noundef %29) #10
+  %30 = tail call float @SDL_roundf_REAL(float noundef %29) #11
   %31 = fptoui float %30 to i8
   %32 = fcmp olt float %2, 0.000000e+00
   br i1 %32, label %37, label %33
@@ -6494,7 +6494,7 @@ SDL_SetSurfaceClipRect_REAL.exit:                 ; preds = %SDL_SurfaceValid.ex
 
 37:                                               ; preds = %28, %33
   %38 = phi float [ %36, %33 ], [ 0.000000e+00, %28 ]
-  %39 = tail call float @SDL_roundf_REAL(float noundef %38) #10
+  %39 = tail call float @SDL_roundf_REAL(float noundef %38) #11
   %40 = fptoui float %39 to i8
   %41 = fcmp olt float %3, 0.000000e+00
   br i1 %41, label %46, label %42
@@ -6507,7 +6507,7 @@ SDL_SetSurfaceClipRect_REAL.exit:                 ; preds = %SDL_SurfaceValid.ex
 
 46:                                               ; preds = %37, %42
   %47 = phi float [ %45, %42 ], [ 0.000000e+00, %37 ]
-  %48 = tail call float @SDL_roundf_REAL(float noundef %47) #10
+  %48 = tail call float @SDL_roundf_REAL(float noundef %47) #11
   %49 = fptoui float %48 to i8
   %50 = fcmp olt float %4, 0.000000e+00
   br i1 %50, label %SDL_SurfaceValid.exit.i100, label %51
@@ -6520,13 +6520,13 @@ SDL_SetSurfaceClipRect_REAL.exit:                 ; preds = %SDL_SurfaceValid.ex
 
 SDL_SurfaceValid.exit.i100:                       ; preds = %51, %46
   %55 = phi float [ %54, %51 ], [ 0.000000e+00, %46 ]
-  %56 = tail call float @SDL_roundf_REAL(float noundef %55) #10
+  %56 = tail call float @SDL_roundf_REAL(float noundef %55) #11
   %57 = load ptr, ptr %8, align 8
   %58 = icmp eq ptr %57, @SDL_surface_magic
   br i1 %58, label %60, label %SDL_SurfaceValid.exit.thread.i101
 
 SDL_SurfaceValid.exit.thread.i101:                ; preds = %SDL_SurfaceValid.exit.i100
-  %59 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %59 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_MapSurfaceRGBA_REAL.exit
 
 60:                                               ; preds = %SDL_SurfaceValid.exit.i100
@@ -6535,12 +6535,12 @@ SDL_SurfaceValid.exit.thread.i101:                ; preds = %SDL_SurfaceValid.ex
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @SDL_MapRGBA_REAL(ptr noundef %63, ptr noundef %65, i8 noundef zeroext %31, i8 noundef zeroext %40, i8 noundef zeroext %49, i8 noundef zeroext %61) #10
+  %66 = tail call i32 @SDL_MapRGBA_REAL(ptr noundef %63, ptr noundef %65, i8 noundef zeroext %31, i8 noundef zeroext %40, i8 noundef zeroext %49, i8 noundef zeroext %61) #11
   br label %SDL_MapSurfaceRGBA_REAL.exit
 
 SDL_MapSurfaceRGBA_REAL.exit:                     ; preds = %SDL_SurfaceValid.exit.thread.i101, %60
   %.0.i102 = phi i32 [ %66, %60 ], [ 1, %SDL_SurfaceValid.exit.thread.i101 ]
-  %67 = tail call zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef nonnull %0, ptr noundef null, i32 noundef %.0.i102) #10
+  %67 = tail call zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef nonnull %0, ptr noundef null, i32 noundef %.0.i102) #11
   br label %SDL_SurfaceValid.exit.i113
 
 68:                                               ; preds = %SDL_SetSurfaceClipRect_REAL.exit
@@ -6605,13 +6605,13 @@ SDL_SurfaceValid.exit.i108.thread:                ; preds = %SDL_SurfaceValid.ex
   br label %111
 
 SDL_SurfaceValid.exit.i108:                       ; preds = %SDL_SurfaceValid.exit.i104
-  %108 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %108 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   %.pre = load ptr, ptr %102, align 8
   %109 = icmp eq ptr %.pre, @SDL_surface_magic
   br i1 %109, label %111, label %SDL_SurfaceValid.exit.thread.i109
 
 SDL_SurfaceValid.exit.thread.i109:                ; preds = %SDL_SurfaceValid.exit.i108
-  %110 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %110 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_SetSurfaceBlendMode_REAL.exit
 
 111:                                              ; preds = %SDL_SurfaceValid.exit.i108.thread, %SDL_SurfaceValid.exit.i108
@@ -6624,7 +6624,7 @@ SDL_SurfaceValid.exit.thread.i109:                ; preds = %SDL_SurfaceValid.ex
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %101, i64 120
-  tail call void @SDL_InvalidateMap(ptr noundef nonnull %116) #10
+  tail call void @SDL_InvalidateMap(ptr noundef nonnull %116) #11
   br label %SDL_SetSurfaceBlendMode_REAL.exit
 
 SDL_SetSurfaceBlendMode_REAL.exit:                ; preds = %SDL_SurfaceValid.exit.thread.i109, %111, %115
@@ -6661,7 +6661,7 @@ SDL_SurfaceValid.exit.i113:                       ; preds = %SDL_MapSurfaceRGBA_
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %131, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %134 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %133) #10
+  %134 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %133) #11
   br label %SDL_SetSurfaceClipRect_REAL.exit117
 
 SDL_SetSurfaceClipRect_REAL.exit117:              ; preds = %SDL_SurfaceValid.exit.i113, %125
@@ -6686,7 +6686,7 @@ SDL_SurfaceValid.exit:                            ; preds = %5
   br i1 %8, label %10, label %SDL_SurfaceValid.exit.thread
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceValid.exit
-  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %16
 
 10:                                               ; preds = %SDL_SurfaceValid.exit
@@ -6694,7 +6694,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceVali
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @SDL_MapRGBA_REAL(ptr noundef %12, ptr noundef %14, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #10
+  %15 = tail call i32 @SDL_MapRGBA_REAL(ptr noundef %12, ptr noundef %14, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #11
   br label %16
 
 16:                                               ; preds = %10, %SDL_SurfaceValid.exit.thread
@@ -6714,7 +6714,7 @@ SDL_SurfaceValid.exit.i:                          ; preds = %4
   br i1 %7, label %9, label %SDL_SurfaceValid.exit.thread.i
 
 SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.exit.i, %4
-  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %SDL_MapSurfaceRGBA_REAL.exit
 
 9:                                                ; preds = %SDL_SurfaceValid.exit.i
@@ -6722,7 +6722,7 @@ SDL_SurfaceValid.exit.thread.i:                   ; preds = %SDL_SurfaceValid.ex
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @SDL_MapRGBA_REAL(ptr noundef %11, ptr noundef %13, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext -1) #10
+  %14 = tail call i32 @SDL_MapRGBA_REAL(ptr noundef %11, ptr noundef %13, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext -1) #11
   br label %SDL_MapSurfaceRGBA_REAL.exit
 
 SDL_MapSurfaceRGBA_REAL.exit:                     ; preds = %SDL_SurfaceValid.exit.thread.i, %9
@@ -6798,7 +6798,7 @@ SDL_SurfaceValid.exit:                            ; preds = %18
   br i1 %.not87, label %SDL_SurfaceValid.exit.thread, label %29
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %18, %25, %22, %SDL_SurfaceValid.exit
-  %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %99
 
 29:                                               ; preds = %25
@@ -6812,7 +6812,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %18, %25, %22, %SDL_
   br i1 %.not88, label %36, label %34
 
 34:                                               ; preds = %31, %29
-  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #10
+  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #11
   br label %99
 
 36:                                               ; preds = %31
@@ -6826,7 +6826,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %18, %25, %22, %SDL_
   br i1 %.not89, label %43, label %41
 
 41:                                               ; preds = %38, %36
-  %42 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #10
+  %42 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #11
   br label %99
 
 43:                                               ; preds = %38
@@ -6900,7 +6900,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %18, %25, %22, %SDL_
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %74 = load ptr, ptr %73, align 8
-  call void @SDL_GetRGBA_REAL(i32 noundef %.0..0..0..0.8, ptr noundef %72, ptr noundef %74, ptr noundef nonnull %.068, ptr noundef nonnull %.069, ptr noundef nonnull %.071, ptr noundef nonnull %.070) #10
+  call void @SDL_GetRGBA_REAL(i32 noundef %.0..0..0..0.8, ptr noundef %72, ptr noundef %74, ptr noundef nonnull %.068, ptr noundef nonnull %.069, ptr noundef nonnull %.071, ptr noundef nonnull %.070) #11
   br label %95
 
 75:                                               ; preds = %._crit_edge103, %69
@@ -7033,7 +7033,7 @@ SDL_SurfaceValid.exit:                            ; preds = %21
   br i1 %.not100, label %SDL_SurfaceValid.exit.thread, label %32
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_SurfaceValid.exit
-  %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %31 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %126
 
 32:                                               ; preds = %28
@@ -7047,7 +7047,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_
   br i1 %.not101, label %39, label %37
 
 37:                                               ; preds = %34, %32
-  %38 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #10
+  %38 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #11
   br label %126
 
 39:                                               ; preds = %34
@@ -7061,7 +7061,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_
   br i1 %.not102, label %46, label %44
 
 44:                                               ; preds = %41, %39
-  %45 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #10
+  %45 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #11
   br label %126
 
 46:                                               ; preds = %41
@@ -7265,7 +7265,7 @@ SDL_SurfaceValid.exit:                            ; preds = %7
   br i1 %.not55, label %SDL_SurfaceValid.exit.thread, label %20
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_SurfaceValid.exit
-  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %83
 
 20:                                               ; preds = %16
@@ -7279,7 +7279,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_S
   br i1 %.not56, label %27, label %25
 
 25:                                               ; preds = %22, %20
-  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #10
+  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #11
   br label %83
 
 27:                                               ; preds = %22
@@ -7293,7 +7293,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_S
   br i1 %.not57, label %34, label %32
 
 32:                                               ; preds = %29, %27
-  %33 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #10
+  %33 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #11
   br label %83
 
 34:                                               ; preds = %29
@@ -7365,7 +7365,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_S
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @SDL_MapRGBA_REAL(ptr noundef %63, ptr noundef %65, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #10
+  %66 = tail call i32 @SDL_MapRGBA_REAL(ptr noundef %63, ptr noundef %65, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #11
   store i32 %66, ptr %8, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr nonnull align 4 %8, i64 %43, i1 false)
   br label %79
@@ -7377,7 +7377,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_S
   br i1 %or.cond67, label %70, label %68
 
 68:                                               ; preds = %67
-  %69 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #10
+  %69 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #11
   br label %79
 
 70:                                               ; preds = %67
@@ -7439,7 +7439,7 @@ SDL_SurfaceValid.exit:                            ; preds = %7
   br i1 %.not84, label %SDL_SurfaceValid.exit.thread, label %19
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_SurfaceValid.exit
-  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #10
+  %18 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #11
   br label %136
 
 19:                                               ; preds = %15
@@ -7453,7 +7453,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
   br i1 %.not85, label %26, label %24
 
 24:                                               ; preds = %21, %19
-  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #10
+  %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #11
   br label %136
 
 26:                                               ; preds = %21
@@ -7467,7 +7467,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
   br i1 %.not86, label %33, label %31
 
 31:                                               ; preds = %28, %26
-  %32 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #10
+  %32 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.27) #11
   br label %136
 
 33:                                               ; preds = %28
@@ -7493,7 +7493,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
 
 44:                                               ; preds = %37, %39
   %45 = phi double [ %43, %39 ], [ 0.000000e+00, %37 ]
-  %46 = tail call double @SDL_round_REAL(double noundef %45) #10
+  %46 = tail call double @SDL_round_REAL(double noundef %45) #11
   %47 = fptoui double %46 to i8
   %48 = fcmp olt float %4, 0.000000e+00
   br i1 %48, label %54, label %49
@@ -7507,7 +7507,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
 
 54:                                               ; preds = %44, %49
   %55 = phi double [ %53, %49 ], [ 0.000000e+00, %44 ]
-  %56 = tail call double @SDL_round_REAL(double noundef %55) #10
+  %56 = tail call double @SDL_round_REAL(double noundef %55) #11
   %57 = fptoui double %56 to i8
   %58 = fcmp olt float %5, 0.000000e+00
   br i1 %58, label %64, label %59
@@ -7521,7 +7521,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
 
 64:                                               ; preds = %54, %59
   %65 = phi double [ %63, %59 ], [ 0.000000e+00, %54 ]
-  %66 = tail call double @SDL_round_REAL(double noundef %65) #10
+  %66 = tail call double @SDL_round_REAL(double noundef %65) #11
   %67 = fptoui double %66 to i8
   %68 = fcmp olt float %6, 0.000000e+00
   br i1 %68, label %74, label %69
@@ -7535,13 +7535,13 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
 
 74:                                               ; preds = %64, %69
   %75 = phi double [ %73, %69 ], [ 0.000000e+00, %64 ]
-  %76 = tail call double @SDL_round_REAL(double noundef %75) #10
+  %76 = tail call double @SDL_round_REAL(double noundef %75) #11
   %77 = fptoui double %76 to i8
   %78 = tail call zeroext i1 @SDL_WriteSurfacePixel_REAL(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %47, i8 noundef zeroext %57, i8 noundef zeroext %67, i8 noundef zeroext %77)
   br label %136
 
 .critedge:                                        ; preds = %33
-  %79 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #10
+  %79 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #11
   br label %136
 
 80:                                               ; preds = %34
@@ -7666,10 +7666,10 @@ declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #3
 
 declare void @SDL_aligned_free_REAL(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #7
 
 declare ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef) local_unnamed_addr #3
@@ -7682,19 +7682,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7704,11 +7704,12 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(1) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull %3) #5
+  %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %52
 
@@ -49,7 +49,7 @@ define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 48, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 48, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   br label %52
 
 8:                                                ; preds = %5
@@ -72,7 +72,7 @@ define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17, %13, %8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 57, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 57, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #6
   br label %52
 
 22:                                               ; preds = %17
@@ -89,7 +89,7 @@ define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not21, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = call i32 @SUNNonlinSolFree(ptr noundef nonnull %25) #5
+  %30 = call i32 @SUNNonlinSolFree(ptr noundef nonnull %25) #6
   %.pre = load ptr, ptr %3, align 8, !tbaa !14
   br label %31
 
@@ -99,12 +99,12 @@ define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   store ptr %1, ptr %33, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 136
   store i32 0, ptr %34, align 8, !tbaa !26
-  %35 = call i32 @SUNNonlinSolSetConvTestFn(ptr noundef nonnull %1, ptr noundef nonnull @arkStep_NlsConvTest, ptr noundef %0) #5
+  %35 = call i32 @SUNNonlinSolSetConvTestFn(ptr noundef nonnull %1, ptr noundef nonnull @arkStep_NlsConvTest, ptr noundef %0) #6
   %.not22 = icmp eq i32 %35, 0
   br i1 %.not22, label %37, label %36
 
 36:                                               ; preds = %31
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 77, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 77, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #6
   br label %52
 
 37:                                               ; preds = %31
@@ -113,12 +113,12 @@ define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 256
   %42 = load i32, ptr %41, align 8, !tbaa !27
-  %43 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef %40, i32 noundef %42) #5
+  %43 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef %40, i32 noundef %42) #6
   %.not23 = icmp eq i32 %43, 0
   br i1 %.not23, label %45, label %44
 
 44:                                               ; preds = %37
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 86, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 86, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #6
   br label %52
 
 45:                                               ; preds = %37
@@ -129,7 +129,7 @@ define i32 @arkStep_SetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not24, label %49, label %50
 
 49:                                               ; preds = %45
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 94, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 94, ptr noundef nonnull @__func__.arkStep_SetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #6
   br label %52
 
 50:                                               ; preds = %45
@@ -159,7 +159,7 @@ define i32 @arkStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %5, ptr noundef nonnull @__func__.arkStep_NlsConvTest, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  %10 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %5, ptr noundef nonnull @__func__.arkStep_NlsConvTest, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %49
 
@@ -171,8 +171,8 @@ define i32 @arkStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
   br i1 %.not18, label %15, label %49
 
 15:                                               ; preds = %11
-  %16 = call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %4) #5
-  %17 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %0, ptr noundef nonnull %9) #5
+  %16 = call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %4) #6
+  %17 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %0, ptr noundef nonnull %9) #6
   %.not19 = icmp eq i32 %17, 0
   br i1 %.not19, label %18, label %49
 
@@ -239,7 +239,7 @@ declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_add
 define i32 @arkStep_SetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNlsRhsFn, ptr noundef nonnull %3) #5
+  %4 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNlsRhsFn, ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %11
 
@@ -268,7 +268,7 @@ define i32 @arkStep_SetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull %2) #5
+  %3 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %63
 
@@ -276,7 +276,7 @@ define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !16
-  %8 = call i32 @SUNNonlinSolGetType(ptr noundef %7) #5
+  %8 = call i32 @SUNNonlinSolGetType(ptr noundef %7) #6
   %9 = icmp eq i32 %8, 0
   %10 = load ptr, ptr %2, align 8, !tbaa !14
   br i1 %9, label %11, label %31
@@ -321,13 +321,13 @@ define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
   br label %58
 
 30:                                               ; preds = %11
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 177, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 177, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #6
   br label %63
 
 31:                                               ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %33 = load ptr, ptr %32, align 8, !tbaa !16
-  %34 = call i32 @SUNNonlinSolGetType(ptr noundef %33) #5
+  %34 = call i32 @SUNNonlinSolGetType(ptr noundef %33) #6
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %57
 
@@ -372,11 +372,11 @@ define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
   br label %58
 
 56:                                               ; preds = %36
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 219, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 219, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #6
   br label %63
 
 57:                                               ; preds = %31
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 226, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 226, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #6
   br label %63
 
 58:                                               ; preds = %36, %52, %44, %11, %26, %18, %55, %47, %21, %29
@@ -384,12 +384,12 @@ define i32 @arkStep_SetNlsSysFn(ptr noundef %0) local_unnamed_addr #0 {
   %arkStep_NlsFPFunction_MassTDep.sink = phi ptr [ @arkStep_NlsFPFunction_MassFixed, %55 ], [ @arkStep_NlsFPFunction_MassIdent, %47 ], [ @arkStep_NlsResidual_MassIdent, %21 ], [ @arkStep_NlsResidual_MassFixed, %29 ], [ @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous, %18 ], [ @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous, %26 ], [ @arkStep_NlsResidual_MassTDep, %11 ], [ @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous, %44 ], [ @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous, %52 ], [ @arkStep_NlsFPFunction_MassTDep, %36 ]
   %59 = getelementptr inbounds nuw i8, ptr %.sink, i64 128
   %60 = load ptr, ptr %59, align 8, !tbaa !16
-  %61 = call i32 @SUNNonlinSolSetSysFn(ptr noundef %60, ptr noundef nonnull %arkStep_NlsFPFunction_MassTDep.sink) #5
+  %61 = call i32 @SUNNonlinSolSetSysFn(ptr noundef %60, ptr noundef nonnull %arkStep_NlsFPFunction_MassTDep.sink) #6
   %.not16 = icmp eq i32 %61, 0
   br i1 %.not16, label %63, label %62
 
 62:                                               ; preds = %58
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 233, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #5
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -22, i32 noundef 233, ptr noundef nonnull @__func__.arkStep_SetNlsSysFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #6
   br label %63
 
 63:                                               ; preds = %58, %1, %62, %57, %56, %30
@@ -414,7 +414,7 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassIdent_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %9 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassIdent_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %78
 
@@ -425,11 +425,11 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   %14 = load ptr, ptr %4, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 584
   %16 = load ptr, ptr %15, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %16) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %16) #6
   %17 = load ptr, ptr %5, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %19, ptr noundef nonnull %6) #5
+  %20 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %19, ptr noundef nonnull %6) #6
   %.not13 = icmp eq i32 %20, 0
   br i1 %.not13, label %21, label %78
 
@@ -453,7 +453,7 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !51
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef %34) #5
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef %34) #6
   %.pre17 = load ptr, ptr %5, align 8, !tbaa !14
   br label %59
 
@@ -474,7 +474,7 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   %49 = load ptr, ptr %48, align 8, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !53
-  %52 = call i32 %37(double noundef %40, ptr noundef %42, ptr noundef %49, ptr noundef %51) #5
+  %52 = call i32 %37(double noundef %40, ptr noundef %42, ptr noundef %49, ptr noundef %51) #6
   %53 = load ptr, ptr %5, align 8, !tbaa !14
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 392
   %55 = load i64, ptr %54, align 8, !tbaa !54
@@ -511,7 +511,7 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   %75 = load ptr, ptr %74, align 8, !tbaa !51
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %75, ptr %76, align 16, !tbaa !51
-  %77 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1) #5
+  %77 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1) #6
   %.not16 = icmp eq i32 %77, 0
   %. = select i1 %.not16, i32 0, i32 -28
   br label %78
@@ -536,7 +536,7 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassIdent, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %8 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassIdent, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %58
 
@@ -547,7 +547,7 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   %13 = load ptr, ptr %4, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 584
   %15 = load ptr, ptr %14, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %15) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %15) #6
   %16 = load ptr, ptr %5, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %18 = load ptr, ptr %17, align 8, !tbaa !29
@@ -565,7 +565,7 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   %30 = load ptr, ptr %29, align 8, !tbaa !51
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !53
-  %33 = call i32 %18(double noundef %21, ptr noundef %23, ptr noundef %30, ptr noundef %32) #5
+  %33 = call i32 %18(double noundef %21, ptr noundef %23, ptr noundef %30, ptr noundef %32) #6
   %34 = load ptr, ptr %5, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 392
   %36 = load i64, ptr %35, align 8, !tbaa !54
@@ -601,7 +601,7 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   %55 = load ptr, ptr %54, align 8, !tbaa !51
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %55, ptr %56, align 16, !tbaa !51
-  %57 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #5
+  %57 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #6
   %.not12 = icmp eq i32 %57, 0
   %. = select i1 %.not12, i32 0, i32 -28
   br label %58
@@ -627,7 +627,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassFixed_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %9 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassFixed_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %84
 
@@ -638,11 +638,11 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %14 = load ptr, ptr %4, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 584
   %16 = load ptr, ptr %15, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %16) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %16) #6
   %17 = load ptr, ptr %5, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %19, ptr noundef nonnull %6) #5
+  %20 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %19, ptr noundef nonnull %6) #6
   %.not16 = icmp eq i32 %20, 0
   br i1 %.not16, label %21, label %84
 
@@ -666,7 +666,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !51
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef %34) #5
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef %34) #6
   %.pre21 = load ptr, ptr %5, align 8, !tbaa !14
   br label %59
 
@@ -687,7 +687,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %49 = load ptr, ptr %48, align 8, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !53
-  %52 = call i32 %37(double noundef %40, ptr noundef %42, ptr noundef %49, ptr noundef %51) #5
+  %52 = call i32 %37(double noundef %40, ptr noundef %42, ptr noundef %49, ptr noundef %51) #6
   %53 = load ptr, ptr %5, align 8, !tbaa !14
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 392
   %55 = load i64, ptr %54, align 8, !tbaa !54
@@ -705,7 +705,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 344
   %62 = load ptr, ptr %61, align 8, !tbaa !58
   %63 = load ptr, ptr %4, align 8, !tbaa !40
-  %64 = call i32 %62(ptr noundef %63, ptr noundef %0, ptr noundef %1) #5
+  %64 = call i32 %62(ptr noundef %63, ptr noundef %0, ptr noundef %1) #6
   %.not19 = icmp eq i32 %64, 0
   br i1 %.not19, label %65, label %84
 
@@ -733,7 +733,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %81 = load ptr, ptr %80, align 8, !tbaa !51
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %81, ptr %82, align 16, !tbaa !51
-  %83 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1) #5
+  %83 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1) #6
   %.not20 = icmp eq i32 %83, 0
   %. = select i1 %.not20, i32 0, i32 -28
   br label %84
@@ -758,7 +758,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassFixed, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %8 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassFixed, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %64
 
@@ -769,7 +769,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %13 = load ptr, ptr %4, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 584
   %15 = load ptr, ptr %14, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %15) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %15) #6
   %16 = load ptr, ptr %5, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %18 = load ptr, ptr %17, align 8, !tbaa !29
@@ -787,7 +787,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %30 = load ptr, ptr %29, align 8, !tbaa !51
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !53
-  %33 = call i32 %18(double noundef %21, ptr noundef %23, ptr noundef %30, ptr noundef %32) #5
+  %33 = call i32 %18(double noundef %21, ptr noundef %23, ptr noundef %30, ptr noundef %32) #6
   %34 = load ptr, ptr %5, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 392
   %36 = load i64, ptr %35, align 8, !tbaa !54
@@ -804,7 +804,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 344
   %42 = load ptr, ptr %41, align 8, !tbaa !58
   %43 = load ptr, ptr %4, align 8, !tbaa !40
-  %44 = call i32 %42(ptr noundef %43, ptr noundef %0, ptr noundef %1) #5
+  %44 = call i32 %42(ptr noundef %43, ptr noundef %0, ptr noundef %1) #6
   %.not15 = icmp eq i32 %44, 0
   br i1 %.not15, label %45, label %64
 
@@ -832,7 +832,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %61 = load ptr, ptr %60, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %61, ptr %62, align 16, !tbaa !51
-  %63 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #5
+  %63 = call i32 @N_VLinearCombination(i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1) #6
   %.not16 = icmp eq i32 %63, 0
   %. = select i1 %.not16, i32 0, i32 -28
   br label %64
@@ -852,7 +852,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassTDep, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsResidual_MassTDep, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %72
 
@@ -863,7 +863,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = load ptr, ptr %4, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 584
   %13 = load ptr, ptr %12, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #6
   %14 = load ptr, ptr %5, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !56
@@ -874,7 +874,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds ptr, ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !51
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %0, double noundef -1.000000e+00, ptr noundef %16, ptr noundef %23) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %0, double noundef -1.000000e+00, ptr noundef %16, ptr noundef %23) #6
   %24 = load ptr, ptr %5, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 344
   %26 = load ptr, ptr %25, align 8, !tbaa !58
@@ -886,7 +886,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !51
-  %35 = call i32 %26(ptr noundef %27, ptr noundef %34, ptr noundef %1) #5
+  %35 = call i32 %26(ptr noundef %27, ptr noundef %34, ptr noundef %1) #6
   %.not13 = icmp eq i32 %35, 0
   br i1 %.not13, label %36, label %72
 
@@ -908,7 +908,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %51 = load ptr, ptr %50, align 8, !tbaa !51
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !53
-  %54 = call i32 %39(double noundef %42, ptr noundef %44, ptr noundef %51, ptr noundef %53) #5
+  %54 = call i32 %39(double noundef %42, ptr noundef %44, ptr noundef %51, ptr noundef %53) #6
   %55 = load ptr, ptr %5, align 8, !tbaa !14
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 392
   %57 = load i64, ptr %56, align 8, !tbaa !54
@@ -932,7 +932,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds ptr, ptr %66, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !51
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef %64, ptr noundef %71, ptr noundef %1) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef %64, ptr noundef %71, ptr noundef %1) #6
   br label %72
 
 72:                                               ; preds = %60, %36, %7, %3, %61
@@ -950,7 +950,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %7 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %70
 
@@ -961,11 +961,11 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   %12 = load ptr, ptr %4, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 584
   %14 = load ptr, ptr %13, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %11, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %14) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %11, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %14) #6
   %15 = load ptr, ptr %5, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8, !tbaa !16
-  %18 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %17, ptr noundef nonnull %6) #5
+  %18 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %17, ptr noundef nonnull %6) #6
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %19, label %70
 
@@ -989,7 +989,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !51
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %24, ptr noundef %32) #5
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %24, ptr noundef %32) #6
   %.pre14 = load ptr, ptr %5, align 8, !tbaa !14
   br label %57
 
@@ -1010,7 +1010,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !53
-  %50 = call i32 %35(double noundef %38, ptr noundef %40, ptr noundef %47, ptr noundef %49) #5
+  %50 = call i32 %35(double noundef %38, ptr noundef %40, ptr noundef %47, ptr noundef %49) #6
   %51 = load ptr, ptr %5, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 392
   %53 = load i64, ptr %52, align 8, !tbaa !54
@@ -1036,7 +1036,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   %67 = load ptr, ptr %66, align 8, !tbaa !51
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %69 = load ptr, ptr %68, align 8, !tbaa !56
-  call void @N_VLinearSum(double noundef %60, ptr noundef %67, double noundef 1.000000e+00, ptr noundef %69, ptr noundef %1) #5
+  call void @N_VLinearSum(double noundef %60, ptr noundef %67, double noundef 1.000000e+00, ptr noundef %69, ptr noundef %1) #6
   br label %70
 
 70:                                               ; preds = %56, %33, %8, %3, %57
@@ -1053,7 +1053,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent(ptr noundef %0, ptr noundef %1, ptr 
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassIdent, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassIdent, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %50
 
@@ -1064,7 +1064,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent(ptr noundef %0, ptr noundef %1, ptr 
   %11 = load ptr, ptr %4, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 584
   %13 = load ptr, ptr %12, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #6
   %14 = load ptr, ptr %5, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load ptr, ptr %15, align 8, !tbaa !29
@@ -1082,7 +1082,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent(ptr noundef %0, ptr noundef %1, ptr 
   %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !53
-  %31 = call i32 %16(double noundef %19, ptr noundef %21, ptr noundef %28, ptr noundef %30) #5
+  %31 = call i32 %16(double noundef %19, ptr noundef %21, ptr noundef %28, ptr noundef %30) #6
   %32 = load ptr, ptr %5, align 8, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 392
   %34 = load i64, ptr %33, align 8, !tbaa !54
@@ -1107,7 +1107,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent(ptr noundef %0, ptr noundef %1, ptr 
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !56
-  call void @N_VLinearSum(double noundef %40, ptr noundef %47, double noundef 1.000000e+00, ptr noundef %49, ptr noundef %1) #5
+  call void @N_VLinearSum(double noundef %40, ptr noundef %47, double noundef 1.000000e+00, ptr noundef %49, ptr noundef %1) #6
   br label %50
 
 50:                                               ; preds = %37, %7, %3, %38
@@ -1125,7 +1125,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %7 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %79
 
@@ -1136,11 +1136,11 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   %12 = load ptr, ptr %4, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 584
   %14 = load ptr, ptr %13, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %11, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %14) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %11, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %14) #6
   %15 = load ptr, ptr %5, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8, !tbaa !16
-  %18 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %17, ptr noundef nonnull %6) #5
+  %18 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %17, ptr noundef nonnull %6) #6
   %.not15 = icmp eq i32 %18, 0
   br i1 %.not15, label %19, label %79
 
@@ -1164,7 +1164,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !51
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %24, ptr noundef %32) #5
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %24, ptr noundef %32) #6
   %.pre19 = load ptr, ptr %5, align 8, !tbaa !14
   br label %57
 
@@ -1185,7 +1185,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !53
-  %50 = call i32 %35(double noundef %38, ptr noundef %40, ptr noundef %47, ptr noundef %49) #5
+  %50 = call i32 %35(double noundef %38, ptr noundef %40, ptr noundef %47, ptr noundef %49) #6
   %51 = load ptr, ptr %5, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 392
   %53 = load i64, ptr %52, align 8, !tbaa !54
@@ -1211,14 +1211,14 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   %67 = load ptr, ptr %66, align 8, !tbaa !51
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %69 = load ptr, ptr %68, align 8, !tbaa !56
-  call void @N_VLinearSum(double noundef %60, ptr noundef %67, double noundef 1.000000e+00, ptr noundef %69, ptr noundef %1) #5
+  call void @N_VLinearSum(double noundef %60, ptr noundef %67, double noundef 1.000000e+00, ptr noundef %69, ptr noundef %1) #6
   %70 = load ptr, ptr %5, align 8, !tbaa !14
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 352
   %72 = load ptr, ptr %71, align 8, !tbaa !59
   %73 = load ptr, ptr %4, align 8, !tbaa !40
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 232
   %75 = load double, ptr %74, align 8, !tbaa !60
-  %76 = call i32 %72(ptr noundef %73, ptr noundef %1, double noundef %75) #5
+  %76 = call i32 %72(ptr noundef %73, ptr noundef %1, double noundef %75) #6
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %79, label %78
 
@@ -1241,7 +1241,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassFixed, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassFixed, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %59
 
@@ -1252,7 +1252,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
   %11 = load ptr, ptr %4, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 584
   %13 = load ptr, ptr %12, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #6
   %14 = load ptr, ptr %5, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load ptr, ptr %15, align 8, !tbaa !29
@@ -1270,7 +1270,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
   %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !53
-  %31 = call i32 %16(double noundef %19, ptr noundef %21, ptr noundef %28, ptr noundef %30) #5
+  %31 = call i32 %16(double noundef %19, ptr noundef %21, ptr noundef %28, ptr noundef %30) #6
   %32 = load ptr, ptr %5, align 8, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 392
   %34 = load i64, ptr %33, align 8, !tbaa !54
@@ -1295,14 +1295,14 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !56
-  call void @N_VLinearSum(double noundef %40, ptr noundef %47, double noundef 1.000000e+00, ptr noundef %49, ptr noundef %1) #5
+  call void @N_VLinearSum(double noundef %40, ptr noundef %47, double noundef 1.000000e+00, ptr noundef %49, ptr noundef %1) #6
   %50 = load ptr, ptr %5, align 8, !tbaa !14
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 352
   %52 = load ptr, ptr %51, align 8, !tbaa !59
   %53 = load ptr, ptr %4, align 8, !tbaa !40
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 232
   %55 = load double, ptr %54, align 8, !tbaa !60
-  %56 = call i32 %52(ptr noundef %53, ptr noundef %1, double noundef %55) #5
+  %56 = call i32 %52(ptr noundef %53, ptr noundef %1, double noundef %55) #6
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %59, label %58
 
@@ -1324,7 +1324,7 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassTDep, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsFPFunction_MassTDep, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %61
 
@@ -1335,7 +1335,7 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
   %11 = load ptr, ptr %4, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 584
   %13 = load ptr, ptr %12, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %10, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %13) #6
   %14 = load ptr, ptr %5, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load ptr, ptr %15, align 8, !tbaa !29
@@ -1353,7 +1353,7 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
   %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !53
-  %31 = call i32 %16(double noundef %19, ptr noundef %21, ptr noundef %28, ptr noundef %30) #5
+  %31 = call i32 %16(double noundef %19, ptr noundef %21, ptr noundef %28, ptr noundef %30) #6
   %32 = load ptr, ptr %5, align 8, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 392
   %34 = load i64, ptr %33, align 8, !tbaa !54
@@ -1376,14 +1376,14 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds ptr, ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !51
-  call void @N_VScale(double noundef %40, ptr noundef %47, ptr noundef %1) #5
+  call void @N_VScale(double noundef %40, ptr noundef %47, ptr noundef %1) #6
   %48 = load ptr, ptr %5, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 352
   %50 = load ptr, ptr %49, align 8, !tbaa !59
   %51 = load ptr, ptr %4, align 8, !tbaa !40
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 232
   %53 = load double, ptr %52, align 8, !tbaa !60
-  %54 = call i32 %50(ptr noundef %51, ptr noundef %1, double noundef %53) #5
+  %54 = call i32 %50(ptr noundef %51, ptr noundef %1, double noundef %53) #6
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %61, label %56
 
@@ -1395,7 +1395,7 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
   %58 = load ptr, ptr %5, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8, !tbaa !56
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef 1.000000e+00, ptr noundef %60, ptr noundef %1) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef 1.000000e+00, ptr noundef %60, ptr noundef %1) #6
   br label %61
 
 61:                                               ; preds = %56, %38, %37, %7, %3, %57
@@ -1409,7 +1409,7 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
 define i32 @arkStep_GetNonlinearSystemData(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetNonlinearSystemData, ptr noundef nonnull %9) #5
+  %10 = call i32 @arkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.arkStep_GetNonlinearSystemData, ptr noundef nonnull %9) #6
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %32
 
@@ -1456,7 +1456,7 @@ define range(i32 -29, 1) i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 291, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 291, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #6
   br label %29
 
 6:                                                ; preds = %1
@@ -1468,12 +1468,12 @@ define range(i32 -29, 1) i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %.arkStep_NlsLSetup = select i1 %.not, ptr null, ptr @arkStep_NlsLSetup
-  %12 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef %.arkStep_NlsLSetup) #5
+  %12 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef %.arkStep_NlsLSetup) #6
   %.not23 = icmp eq i32 %12, 0
   br i1 %.not23, label %14, label %13
 
 13:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 309, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 309, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #6
   br label %29
 
 14:                                               ; preds = %6
@@ -1483,12 +1483,12 @@ define range(i32 -29, 1) i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %.arkStep_NlsLSolve = select i1 %.not24, ptr null, ptr @arkStep_NlsLSolve
-  %19 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %18, ptr noundef %.arkStep_NlsLSolve) #5
+  %19 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %18, ptr noundef %.arkStep_NlsLSolve) #6
   %.not25 = icmp eq i32 %19, 0
   br i1 %.not25, label %21, label %20
 
 20:                                               ; preds = %14
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 322, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 322, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #6
   br label %29
 
 21:                                               ; preds = %14
@@ -1497,18 +1497,18 @@ define range(i32 -29, 1) i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr
   br i1 %.not26, label %24, label %23
 
 23:                                               ; preds = %21
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 330, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 330, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #6
   br label %29
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %26 = load ptr, ptr %25, align 8, !tbaa !16
-  %27 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %26) #5
+  %27 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %26) #6
   %.not27 = icmp eq i32 %27, 0
   br i1 %.not27, label %29, label %28
 
 28:                                               ; preds = %24
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 339, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 339, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #6
   br label %29
 
 29:                                               ; preds = %24, %28, %23, %20, %13, %5
@@ -1524,7 +1524,7 @@ define i32 @arkStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsLSetup, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %2, ptr noundef nonnull @__func__.arkStep_NlsLSetup, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %51
 
@@ -1569,7 +1569,7 @@ define i32 @arkStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
   %32 = load ptr, ptr %31, align 8, !tbaa !68
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 632
   %34 = load ptr, ptr %33, align 8, !tbaa !69
-  %35 = call i32 %15(ptr noundef %16, i32 noundef %10, double noundef %18, ptr noundef %20, ptr noundef %27, ptr noundef nonnull %28, ptr noundef %30, ptr noundef %32, ptr noundef %34) #5
+  %35 = call i32 %15(ptr noundef %16, i32 noundef %10, double noundef %18, ptr noundef %20, ptr noundef %27, ptr noundef nonnull %28, ptr noundef %30, ptr noundef %32, ptr noundef %34) #6
   %36 = load ptr, ptr %5, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 264
   %38 = load i32, ptr %37, align 8, !tbaa !70
@@ -1614,7 +1614,7 @@ define i32 @arkStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %1, ptr noundef nonnull @__func__.arkStep_NlsLSolve, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  %6 = call i32 @arkStep_AccessARKODEStepMem(ptr noundef %1, ptr noundef nonnull @__func__.arkStep_NlsLSolve, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %34
 
@@ -1622,7 +1622,7 @@ define i32 @arkStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   %8 = load ptr, ptr %4, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8, !tbaa !16
-  %11 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %10, ptr noundef nonnull %5) #5
+  %11 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %10, ptr noundef nonnull %5) #6
   %.not9 = icmp eq i32 %11, 0
   br i1 %.not9, label %12, label %34
 
@@ -1645,7 +1645,7 @@ define i32 @arkStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 224
   %29 = load double, ptr %28, align 8, !tbaa !76
   %30 = load i32, ptr %5, align 4, !tbaa !31
-  %31 = call i32 %15(ptr noundef %16, ptr noundef %0, double noundef %18, ptr noundef %20, ptr noundef %27, double noundef %29, i32 noundef %30) #5
+  %31 = call i32 %15(ptr noundef %16, ptr noundef %0, double noundef %18, ptr noundef %20, ptr noundef %27, double noundef %29, i32 noundef %30) #6
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %34, label %33
 
@@ -1678,7 +1678,7 @@ define range(i32 903, 902) i32 @arkStep_Nls(ptr noundef %0, i32 noundef %1) loca
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 372, ptr noundef nonnull @__func__.arkStep_Nls, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 372, ptr noundef nonnull @__func__.arkStep_Nls, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #6
   br label %93
 
 9:                                                ; preds = %2
@@ -1767,7 +1767,7 @@ define range(i32 903, 902) i32 @arkStep_Nls(ptr noundef %0, i32 noundef %1) loca
   %.048 = zext i1 %.048.shrunk to i32
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %61 = load ptr, ptr %60, align 8, !tbaa !81
-  tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %61) #5
+  tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %61) #6
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %63 = load double, ptr %62, align 8, !tbaa !60
   %64 = fmul double %63, 1.000000e-01
@@ -1780,16 +1780,16 @@ define range(i32 903, 902) i32 @arkStep_Nls(ptr noundef %0, i32 noundef %1) loca
   %70 = load ptr, ptr %60, align 8, !tbaa !81
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %72 = load ptr, ptr %71, align 8, !tbaa !82
-  %73 = tail call i32 @SUNNonlinSolSolve(ptr noundef %67, ptr noundef %69, ptr noundef %70, ptr noundef %72, double noundef %63, i32 noundef %.048, ptr noundef nonnull %0) #5
+  %73 = tail call i32 @SUNNonlinSolSolve(ptr noundef %67, ptr noundef %69, ptr noundef %70, ptr noundef %72, double noundef %63, i32 noundef %.048, ptr noundef nonnull %0) #6
   %74 = load ptr, ptr %66, align 8, !tbaa !16
-  %75 = call i32 @SUNNonlinSolGetNumIters(ptr noundef %74, ptr noundef nonnull %3) #5
+  %75 = call i32 @SUNNonlinSolGetNumIters(ptr noundef %74, ptr noundef nonnull %3) #6
   %76 = load i64, ptr %3, align 8, !tbaa !77
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %78 = load i64, ptr %77, align 8, !tbaa !83
   %79 = add nsw i64 %78, %76
   store i64 %79, ptr %77, align 8, !tbaa !83
   %80 = load ptr, ptr %66, align 8, !tbaa !16
-  %81 = call i32 @SUNNonlinSolGetNumConvFails(ptr noundef %80, ptr noundef nonnull %4) #5
+  %81 = call i32 @SUNNonlinSolGetNumConvFails(ptr noundef %80, ptr noundef nonnull %4) #6
   %82 = load i64, ptr %4, align 8, !tbaa !77
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 416
   %84 = load i64, ptr %83, align 8, !tbaa !84
@@ -1807,7 +1807,7 @@ define range(i32 903, 902) i32 @arkStep_Nls(ptr noundef %0, i32 noundef %1) loca
   %89 = load ptr, ptr %68, align 8, !tbaa !39
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %91 = load ptr, ptr %90, align 8, !tbaa !42
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %88, double noundef 1.000000e+00, ptr noundef %89, ptr noundef %91) #5
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %88, double noundef 1.000000e+00, ptr noundef %89, ptr noundef %91) #6
   br label %93
 
 92:                                               ; preds = %59
@@ -1820,11 +1820,11 @@ define range(i32 903, 902) i32 @arkStep_Nls(ptr noundef %0, i32 noundef %1) loca
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #2
+declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
 declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1847,20 +1847,21 @@ declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

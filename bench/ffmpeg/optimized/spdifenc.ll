@@ -107,7 +107,7 @@ define internal range(i32 -1163346256, 1) i32 @spdif_write_header(ptr noundef %0
 24:                                               ; preds = %24, %21
   %.not21.not = phi i1 [ false, %21 ], [ true, %24 ]
   %indvars.iv = phi i64 [ 0, %21 ], [ 1, %24 ]
-  %25 = tail call noalias ptr @av_malloc(i64 noundef 61424) #7
+  %25 = tail call noalias ptr @av_malloc(i64 noundef 61424) #8
   %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   store ptr %25, ptr %26, align 8, !tbaa !40
   %.not = icmp eq ptr %25, null
@@ -115,7 +115,7 @@ define internal range(i32 -1163346256, 1) i32 @spdif_write_header(ptr noundef %0
   br i1 %brmerge, label %.critedge.loopexit, label %24
 
 27:                                               ; preds = %1
-  tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i32 noundef %10) #7
+  tail call void (ptr, ptr, ...) @avpriv_report_missing_feature(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i32 noundef %10) #8
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %24
@@ -150,7 +150,7 @@ define internal range(i32 -2147483648, 1) i32 @spdif_write_packet(ptr noundef %0
   store i32 0, ptr %16, align 8, !tbaa !47
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %18 = load ptr, ptr %17, align 8, !tbaa !37
-  %19 = tail call i32 %18(ptr noundef %0, ptr noundef %1) #7
+  %19 = tail call i32 %18(ptr noundef %0, ptr noundef %1) #8
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %110, label %21
 
@@ -171,7 +171,7 @@ define internal range(i32 -2147483648, 1) i32 @spdif_write_packet(ptr noundef %0
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %24
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.29) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.29) #8
   br label %110
 
 33:                                               ; preds = %24
@@ -188,11 +188,11 @@ define internal range(i32 -2147483648, 1) i32 @spdif_write_packet(ptr noundef %0
   br i1 %.not.i, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void @avio_wb16(ptr noundef %36, i32 noundef 63602) #7
+  tail call void @avio_wb16(ptr noundef %36, i32 noundef 63602) #8
   br label %spdif_put_16.exit
 
 41:                                               ; preds = %34
-  tail call void @avio_wl16(ptr noundef %36, i32 noundef 63602) #7
+  tail call void @avio_wl16(ptr noundef %36, i32 noundef 63602) #8
   br label %spdif_put_16.exit
 
 spdif_put_16.exit:                                ; preds = %40, %41
@@ -203,11 +203,11 @@ spdif_put_16.exit:                                ; preds = %40, %41
   br i1 %.not.i65, label %46, label %45
 
 45:                                               ; preds = %spdif_put_16.exit
-  tail call void @avio_wb16(ptr noundef %42, i32 noundef 19999) #7
+  tail call void @avio_wb16(ptr noundef %42, i32 noundef 19999) #8
   br label %spdif_put_16.exit66
 
 46:                                               ; preds = %spdif_put_16.exit
-  tail call void @avio_wl16(ptr noundef %42, i32 noundef 19999) #7
+  tail call void @avio_wl16(ptr noundef %42, i32 noundef 19999) #8
   br label %spdif_put_16.exit66
 
 spdif_put_16.exit66:                              ; preds = %45, %46
@@ -220,11 +220,11 @@ spdif_put_16.exit66:                              ; preds = %45, %46
   br i1 %.not.i67, label %53, label %52
 
 52:                                               ; preds = %spdif_put_16.exit66
-  tail call void @avio_wb16(ptr noundef %47, i32 noundef %49) #7
+  tail call void @avio_wb16(ptr noundef %47, i32 noundef %49) #8
   br label %spdif_put_16.exit68
 
 53:                                               ; preds = %spdif_put_16.exit66
-  tail call void @avio_wl16(ptr noundef %47, i32 noundef %49) #7
+  tail call void @avio_wl16(ptr noundef %47, i32 noundef %49) #8
   br label %spdif_put_16.exit68
 
 spdif_put_16.exit68:                              ; preds = %52, %53
@@ -236,11 +236,11 @@ spdif_put_16.exit68:                              ; preds = %52, %53
   br i1 %.not.i69, label %59, label %58
 
 58:                                               ; preds = %spdif_put_16.exit68
-  tail call void @avio_wb16(ptr noundef %54, i32 noundef %55) #7
+  tail call void @avio_wb16(ptr noundef %54, i32 noundef %55) #8
   br label %spdif_put_16.exit70
 
 59:                                               ; preds = %spdif_put_16.exit68
-  tail call void @avio_wl16(ptr noundef %54, i32 noundef %55) #7
+  tail call void @avio_wl16(ptr noundef %54, i32 noundef %55) #8
   br label %spdif_put_16.exit70
 
 spdif_put_16.exit70:                              ; preds = %59, %58, %33
@@ -257,7 +257,7 @@ spdif_put_16.exit70:                              ; preds = %59, %58, %33
   %67 = load ptr, ptr %7, align 8, !tbaa !42
   %68 = load i32, ptr %10, align 8, !tbaa !44
   %69 = and i32 %68, -2
-  tail call void @avio_write(ptr noundef %66, ptr noundef %67, i32 noundef %69) #7
+  tail call void @avio_write(ptr noundef %66, ptr noundef %67, i32 noundef %69) #8
   br label %86
 
 70:                                               ; preds = %spdif_put_16.exit70
@@ -266,7 +266,7 @@ spdif_put_16.exit70:                              ; preds = %59, %58, %33
   %73 = load i32, ptr %10, align 8, !tbaa !44
   %74 = add nsw i32 %73, 64
   %75 = sext i32 %74 to i64
-  tail call void @av_fast_malloc(ptr noundef nonnull %71, ptr noundef nonnull %72, i64 noundef %75) #7
+  tail call void @av_fast_malloc(ptr noundef nonnull %71, ptr noundef nonnull %72, i64 noundef %75) #8
   %76 = load ptr, ptr %71, align 8, !tbaa !52
   %.not63 = icmp eq ptr %76, null
   br i1 %.not63, label %110, label %77
@@ -275,13 +275,13 @@ spdif_put_16.exit70:                              ; preds = %59, %58, %33
   %78 = load ptr, ptr %7, align 8, !tbaa !42
   %79 = load i32, ptr %10, align 8, !tbaa !44
   %80 = ashr i32 %79, 1
-  tail call void @ff_spdif_bswap_buf16(ptr noundef nonnull %76, ptr noundef %78, i32 noundef %80) #7
+  tail call void @ff_spdif_bswap_buf16(ptr noundef nonnull %76, ptr noundef %78, i32 noundef %80) #8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !49
   %83 = load ptr, ptr %71, align 8, !tbaa !52
   %84 = load i32, ptr %10, align 8, !tbaa !44
   %85 = and i32 %84, -2
-  tail call void @avio_write(ptr noundef %82, ptr noundef %83, i32 noundef %85) #7
+  tail call void @avio_write(ptr noundef %82, ptr noundef %83, i32 noundef %85) #8
   br label %86
 
 86:                                               ; preds = %77, %64
@@ -306,23 +306,23 @@ spdif_put_16.exit70:                              ; preds = %59, %58, %33
   br i1 %.not.i71, label %102, label %101
 
 101:                                              ; preds = %89
-  tail call void @avio_wb16(ptr noundef %91, i32 noundef %98) #7
+  tail call void @avio_wb16(ptr noundef %91, i32 noundef %98) #8
   br label %spdif_put_16.exit72
 
 102:                                              ; preds = %89
-  tail call void @avio_wl16(ptr noundef %91, i32 noundef %98) #7
+  tail call void @avio_wl16(ptr noundef %91, i32 noundef %98) #8
   br label %spdif_put_16.exit72
 
 spdif_put_16.exit72:                              ; preds = %102, %101, %86
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %104 = load ptr, ptr %103, align 8, !tbaa !49
   %105 = zext nneg i32 %30 to i64
-  tail call void @ffio_fill(ptr noundef %104, i32 noundef 0, i64 noundef %105) #7
+  tail call void @ffio_fill(ptr noundef %104, i32 noundef 0, i64 noundef %105) #8
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %107 = load i32, ptr %106, align 8, !tbaa !51
   %108 = load i32, ptr %10, align 8, !tbaa !44
   %109 = load i32, ptr %22, align 8, !tbaa !48
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.30, i32 noundef %107, i32 noundef %108, i32 noundef %109) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.30, i32 noundef %107, i32 noundef %108, i32 noundef %109) #8
   br label %110
 
 110:                                              ; preds = %70, %21, %2, %spdif_put_16.exit72, %32
@@ -336,11 +336,11 @@ define internal void @spdif_deinit(ptr noundef readonly captures(none) %0) #0 {
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %1, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  tail call void @av_freep(ptr noundef nonnull %3) #7
+  tail call void @av_freep(ptr noundef nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  tail call void @av_freep(ptr noundef nonnull %4) #7
+  tail call void @av_freep(ptr noundef nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  tail call void @av_freep(ptr noundef nonnull %5) #7
+  tail call void @av_freep(ptr noundef nonnull %5) #8
   ret void
 }
 
@@ -404,7 +404,7 @@ define internal range(i32 -12, 1) i32 @spdif_header_eac3(ptr noundef readonly ca
   %29 = load i32, ptr %28, align 8, !tbaa !43
   %30 = add nsw i32 %29, %27
   %31 = sext i32 %30 to i64
-  %32 = tail call ptr @av_fast_realloc(ptr noundef %24, ptr noundef nonnull %25, i64 noundef %31) #7
+  %32 = tail call ptr @av_fast_realloc(ptr noundef %24, ptr noundef nonnull %25, i64 noundef %31) #8
   %.not33 = icmp eq ptr %32, null
   br i1 %.not33, label %56, label %33
 
@@ -474,7 +474,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_mpeg(ptr noundef %0,
   br i1 %or.cond, label %17, label %18
 
 17:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13) #8
   br label %41
 
 18:                                               ; preds = %2
@@ -482,7 +482,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_mpeg(ptr noundef %0,
   %20 = load i8, ptr %19, align 1, !tbaa !53
   %21 = and i8 %20, 1
   %22 = zext nneg i8 %21 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.14, i32 noundef %11, i32 noundef %14, i32 noundef %22) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.14, i32 noundef %11, i32 noundef %14, i32 noundef %22) #8
   %23 = icmp eq i32 %11, 2
   %24 = icmp ne i8 %21, 0
   %or.cond3 = and i1 %23, %24
@@ -609,11 +609,11 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_dts(ptr noundef %0, 
   br label %74
 
 72:                                               ; preds = %12
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.15) #8
   br label %spdif_header_dts4.exit
 
 73:                                               ; preds = %12
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %8) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %8) #8
   br label %spdif_header_dts4.exit
 
 74:                                               ; preds = %60, %49, %42, %13
@@ -631,7 +631,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_dts(ptr noundef %0, 
   br i1 %.not.i, label %79, label %80
 
 79:                                               ; preds = %78
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19) #8
   br label %spdif_header_dts4.exit
 
 80:                                               ; preds = %78
@@ -639,7 +639,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_dts(ptr noundef %0, 
   br i1 %.not62.i, label %81, label %82
 
 81:                                               ; preds = %80
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.20) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.20) #8
   br label %spdif_header_dts4.exit
 
 82:                                               ; preds = %80
@@ -657,7 +657,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_dts(ptr noundef %0, 
   br i1 %89, label %spdif_dts4_subtype.exit.i, label %90
 
 90:                                               ; preds = %.split.i.i, %82
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %77, i32 noundef %85, i32 noundef %83, i32 noundef %.047) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %77, i32 noundef %85, i32 noundef %83, i32 noundef %.047) #8
   br label %spdif_header_dts4.exit
 
 spdif_dts4_subtype.exit.i:                        ; preds = %.split.i.i
@@ -682,7 +682,7 @@ spdif_dts4_subtype.exit.i:                        ; preds = %.split.i.i
   br i1 %.not63.i, label %103, label %104
 
 103:                                              ; preds = %102
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.22) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.22) #8
   br label %104
 
 104:                                              ; preds = %103, %102
@@ -735,7 +735,7 @@ spdif_dts4_subtype.exit._crit_edge.i._crit_edge:  ; preds = %spdif_dts4_subtype.
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %127 = sext i32 %119 to i64
-  tail call void @av_fast_malloc(ptr noundef nonnull %125, ptr noundef nonnull %126, i64 noundef %127) #7
+  tail call void @av_fast_malloc(ptr noundef nonnull %125, ptr noundef nonnull %126, i64 noundef %127) #8
   %128 = load ptr, ptr %125, align 8, !tbaa !40
   %.not65.i = icmp eq ptr %128, null
   br i1 %.not65.i, label %spdif_header_dts4.exit, label %129
@@ -771,7 +771,7 @@ spdif_dts4_subtype.exit._crit_edge.i._crit_edge:  ; preds = %spdif_dts4_subtype.
 
 142:                                              ; preds = %139
   %143 = shl nuw nsw i32 %75, 5
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %143) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %143) #8
   br label %spdif_header_dts4.exit
 
 144:                                              ; preds = %139, %141, %140
@@ -814,7 +814,7 @@ spdif_dts4_subtype.exit._crit_edge.i._crit_edge:  ; preds = %spdif_dts4_subtype.
   br i1 %160, label %161, label %spdif_header_dts4.exit
 
 161:                                              ; preds = %158
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #7
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #8
   br label %spdif_header_dts4.exit
 
 spdif_header_dts4.exit:                           ; preds = %129, %118, %90, %81, %79, %156, %161, %158, %2, %142, %73, %72
@@ -832,12 +832,12 @@ define internal range(i32 -2147483648, 1) i32 @spdif_header_aac(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !41
-  %9 = call i32 @av_adts_header_parse(ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  %9 = call i32 @av_adts_header_parse(ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.23) #8
   br label %24
 
 12:                                               ; preds = %2
@@ -868,7 +868,7 @@ define internal range(i32 -2147483648, 1) i32 @spdif_header_aac(ptr noundef %0, 
   br label %24
 
 23:                                               ; preds = %12
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %13) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %13) #8
   br label %24
 
 24:                                               ; preds = %17, %19, %21, %23, %11
@@ -933,7 +933,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   %39 = shl nuw nsw i32 40, %38
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 108
   store i32 %39, ptr %40, align 4, !tbaa !62
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.25, i32 noundef %39) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.25, i32 noundef %39) #8
   br label %41
 
 41:                                               ; preds = %35, %16
@@ -960,7 +960,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   %56 = mul nuw nsw i32 %55, 2560
   %57 = sdiv i32 %56, %43
   %58 = sub nsw i32 %57, %50
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.26, i32 noundef %55, i32 noundef %57) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.26, i32 noundef %55, i32 noundef %57) #8
   %or.cond = icmp ugt i32 %58, 30711
   br i1 %or.cond, label %59, label %64
 
@@ -969,7 +969,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   %61 = load i16, ptr %52, align 4, !tbaa !64
   %62 = zext i16 %61 to i32
   %63 = load i32, ptr %42, align 4, !tbaa !62
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i32 noundef %62, i32 noundef %60, i32 noundef %63) #7
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i32 noundef %62, i32 noundef %60, i32 noundef %63) #8
   br label %64
 
 64:                                               ; preds = %59, %51, %44
@@ -1139,7 +1139,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   store i32 %.0132, ptr %49, align 8, !tbaa !63
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store i16 %48, ptr %135, align 4, !tbaa !64
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.28, i32 noundef %.0132, i32 noundef %74) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.28, i32 noundef %.0132, i32 noundef %74) #8
   %.not158 = icmp eq i32 %.0142, 0
   br i1 %.not158, label %136, label %138
 
@@ -1202,22 +1202,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1226,8 +1226,9 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

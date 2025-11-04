@@ -121,12 +121,12 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
   br label %264
 
 25:                                               ; preds = %15, %20, %17
-  %26 = call i32 @rand() #23
+  %26 = call i32 @rand() #24
   %trunc = trunc i32 %26 to i1
   br i1 %trunc, label %159, label %27
 
 27:                                               ; preds = %25
-  %28 = call i32 @rand() #23
+  %28 = call i32 @rand() #24
   %29 = and i32 %28, 16383
   %30 = zext nneg i32 %29 to i64
   br i1 %12, label %31, label %33
@@ -141,7 +141,7 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
 
 35:                                               ; preds = %33, %31
   %36 = phi ptr [ %32, %31 ], [ %34, %33 ]
-  %37 = call i32 @rand() #23
+  %37 = call i32 @rand() #24
   %38 = and i32 %37, 255
   %.not7.i = icmp eq i32 %29, 0
   br i1 %.not7.i, label %_ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit, label %.lr.ph.i.preheader
@@ -162,7 +162,7 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
   br i1 %.not.i, label %_ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit, label %.lr.ph.i, !llvm.loop !15
 
 _ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit: ; preds = %.lr.ph.i, %35
-  %44 = call i32 @rand() #23
+  %44 = call i32 @rand() #24
   %.val.i = load i64, ptr %5, align 8, !tbaa !4
   %45 = icmp ne i64 %.val.i, 0
   call void @llvm.assume(i1 %45)
@@ -290,7 +290,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 102:                                              ; preds = %95
   %103 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.5, i32 noundef 54)
-  call void @abort() #24
+  call void @abort() #25
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; preds = %94, %87
@@ -415,7 +415,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
 
 155:                                              ; preds = %.noexc65, %.noexc64, %108
   %.sink85.i.sink.i.ph.i.i.i = phi ptr [ %151, %.noexc65 ], [ %13, %108 ], [ %117, %.noexc64 ]
-  %156 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
+  %156 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %.noexc66 unwind label %23
 
 .noexc66:                                         ; preds = %155
@@ -504,7 +504,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
 
 193:                                              ; preds = %186
   %194 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.5, i32 noundef 54)
-  call void @abort() #24
+  call void @abort() #25
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit74: ; preds = %185, %.loopexit133
@@ -513,7 +513,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit74: 
 
 195:                                              ; preds = %_ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit74
   %.val.val.val.i.i.i = load ptr, ptr %.sroa.6.0.i.ph, align 8, !tbaa !17
-  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i, i64 noundef 24) #26
+  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i, i64 noundef 24) #27
   %.val1.i76 = load i64, ptr %5, align 8, !tbaa !4
   %196 = icmp ne i64 %.val1.i76, 0
   call void @llvm.assume(i1 %196)
@@ -598,7 +598,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 235:                                              ; preds = %228
   %236 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.5, i32 noundef 54)
-  call void @abort() #24
+  call void @abort() #25
   unreachable
 
 _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit94: ; preds = %227, %.loopexit
@@ -607,7 +607,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit94: 
 
 237:                                              ; preds = %_ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit94
   %.val.val.val.i.i.i96 = load ptr, ptr %.sroa.6.0.i83.ph, align 8, !tbaa !17
-  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i96, i64 noundef 24) #26
+  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i96, i64 noundef 24) #27
   %.val1.i97 = load i64, ptr %5, align 8, !tbaa !4
   %238 = icmp ne i64 %.val1.i97, 0
   call void @llvm.assume(i1 %238)
@@ -661,7 +661,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 249:                                              ; preds = %248
   %250 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.4, i32 noundef 143)
-  call void @abort() #24
+  call void @abort() #25
   unreachable
 
 251:                                              ; preds = %._crit_edge161, %._crit_edge
@@ -678,7 +678,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 255:                                              ; preds = %254
   %.val.val.val.i.i.i.i = load ptr, ptr %13, align 8, !tbaa !17
-  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i.i, i64 noundef 24) #26
+  call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i.i, i64 noundef 24) #27
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev.exit
 
 256:                                              ; preds = %251
@@ -708,7 +708,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   %262 = landingpad { ptr, i32 }
           catch ptr null
   %263 = extractvalue { ptr, i32 } %262, 0
-  call void @__clang_call_terminate(ptr %263) #24
+  call void @__clang_call_terminate(ptr %263) #25
   unreachable
 
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev.exit: ; preds = %254, %255, %.noexc1.i
@@ -717,7 +717,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 264:                                              ; preds = %.loopexit131, %.loopexit.split-lp, %23, %9
   %.pn27.pn = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %lpad.loopexit, %.loopexit131 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
+  call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn27.pn
 }
@@ -762,7 +762,7 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17No
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.val.val.i.i.i = load ptr, ptr %9, align 8, !tbaa !17
-  tail call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i, i64 noundef 24) #26
+  tail call void @_ZdlPvm(ptr noundef %.val.val.val.i.i.i, i64 noundef 24) #27
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE15destructor_implEv.exit
 
 10:                                               ; preds = %1
@@ -797,14 +797,14 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #24
+  call void @__clang_call_terminate(ptr %19) #25
   unreachable
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #24
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
@@ -822,13 +822,13 @@ declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 imma
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #12
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.bswap.i64(i64) #13
 
 declare noundef i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE11resize_implERNS0_12CommonFieldsEmb(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i1 noundef zeroext %2) #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE11resize_implERNS0_12CommonFieldsEmb(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i1 noundef zeroext %2) #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::container_internal::HashSetResizeHelper", align 8
   %5 = alloca %"class.std::allocator.12", align 1
   %6 = alloca %"class.std::allocator.12", align 1
@@ -986,7 +986,7 @@ _ZN4absl18container_internal19HashSetResizeHelper13DeallocateOldILm8ESaIcEEEvT0_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsILm8ELb1ELb1EEEbRNS0_12CommonFieldsEPvmmmRKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(56) %6) local_unnamed_addr #14 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19HashSetResizeHelper15InitializeSlotsILm8ELb1ELb1EEEbRNS0_12CommonFieldsEPvmmmRKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(56) %6) local_unnamed_addr #15 comdat align 2 {
   %8 = load i32, ptr %6, align 8, !tbaa !70
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1131,12 +1131,12 @@ declare void @_ZN4absl18container_internal19HashSetResizeHelper46InsertOldSooSlo
 declare void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare noundef ptr @_ZN4absl18container_internal24GetHashRefForEmptyHasherERKNS0_12CommonFieldsE(ptr noundef nonnull align 8 dereferenceable(32)) #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN4absl18container_internal31TypeErasedDerefAndApplyToSlotFnINS_13hash_internal4HashIiEEiEEmPKvPv(ptr noundef %0, ptr noundef %1) #16 comdat {
+define linkonce_odr dso_local noundef i64 @_ZN4absl18container_internal31TypeErasedDerefAndApplyToSlotFnINS_13hash_internal4HashIiEEiEEmPKvPv(ptr noundef %0, ptr noundef %1) #17 comdat {
   %3 = load ptr, ptr %1, align 8, !tbaa !78
   %4 = load i32, ptr %3, align 4, !tbaa !19
   %5 = zext i32 %4 to i64
@@ -1147,30 +1147,30 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl18container_internal31TypeEra
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl18container_internal19TransferRelocatableILm8EEEvPvS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17 comdat {
+define linkonce_odr dso_local void @_ZN4absl18container_internal19TransferRelocatableILm8EEEvPvS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #18 comdat {
   %4 = load i64, ptr %2, align 1
   store i64 %4, ptr %1, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4absl18container_internal20AllocateBackingArrayILm8ESaIcEEEPvS3_m(ptr noundef %0, i64 noundef %1) #14 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZN4absl18container_internal20AllocateBackingArrayILm8ESaIcEEEPvS3_m(ptr noundef %0, i64 noundef %1) #15 comdat personality ptr @__gxx_personality_v0 {
   %3 = add i64 %1, 7
   %4 = icmp slt i64 %3, 0
   br i1 %4, label %.noexc.i, label %_ZN4absl18container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit, !prof !22
 
 .noexc.i:                                         ; preds = %2
-  tail call void @_ZSt17__throw_bad_allocv() #27
+  tail call void @_ZSt17__throw_bad_allocv() #28
   unreachable
 
 _ZN4absl18container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; preds = %2
   %5 = and i64 %3, 9223372036854775800
-  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #25
+  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #26
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) #14 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) #15 comdat personality ptr @__gxx_personality_v0 {
   %.neg = select i1 %5, i64 -9, i64 -8
   %7 = select i1 %5, i64 9, i64 8
   %8 = add i64 %1, 15
@@ -1183,18 +1183,18 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal22DeallocateBack
   %15 = add i64 %14, 7
   %16 = add i64 %15, %12
   %17 = and i64 %16, -8
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %17) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %17) #27
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #18
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #19
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #20
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #21
 
 declare noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64, i64, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
@@ -1208,14 +1208,14 @@ declare void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_12CommonF
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_18container_internal12raw_hash_setINS2_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEE13destroy_slotsEvEUlPKNS2_6ctrl_tEPvE_vJSL_SM_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #7 personality ptr @__gxx_personality_v0 {
   %.val.val = load ptr, ptr %2, align 8, !tbaa !17
-  tail call void @_ZdlPvm(ptr noundef %.val.val, i64 noundef 24) #26
+  tail call void @_ZdlPvm(ptr noundef %.val.val, i64 noundef 24) #27
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_low_level_alloc_test.cc() #21 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_low_level_alloc_test.cc() #22 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext false, i1 noundef zeroext false)
   tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext true, i1 noundef zeroext false)
   tail call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 noundef zeroext true, i1 noundef zeroext true)
@@ -1223,10 +1223,10 @@ define internal void @_GLOBAL__sub_I_low_level_alloc_test.cc() #21 section ".tex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
@@ -1247,21 +1247,22 @@ attributes #9 = { cold nofree noreturn }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { mustprogress noinline uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nounwind }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { builtin nounwind }
-attributes #27 = { noreturn }
+attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { mustprogress noinline uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nounwind }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { builtin allocsize(0) }
+attributes #27 = { builtin nounwind }
+attributes #28 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

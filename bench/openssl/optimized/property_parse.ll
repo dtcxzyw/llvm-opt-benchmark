@@ -42,7 +42,7 @@ define ptr @ossl_parse_property(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %4, label %53, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @pd_compare) #9
+  %6 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @pd_compare) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %53, label %.preheader
 
@@ -50,7 +50,7 @@ define ptr @ossl_parse_property(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %.0.i = phi ptr [ %11, %.preheader ], [ %1, %5 ]
   %8 = load i8, ptr %.0.i, align 1, !tbaa !3
   %9 = sext i8 %8 to i32
-  %10 = tail call i32 @ossl_ctype_check(i32 noundef %9, i32 noundef 8) #9
+  %10 = tail call i32 @ossl_ctype_check(i32 noundef %9, i32 noundef 8) #10
   %.not.i = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br i1 %.not.i, label %skip_space.exit, label %.preheader, !llvm.loop !6
@@ -62,7 +62,7 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %.not57, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %skip_space.exit
-  %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 361) #9
+  %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 361) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %.lr.ph86
 
@@ -87,9 +87,9 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 370, ptr noundef nonnull @__func__.ossl_parse_property) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.1, ptr noundef nonnull %16) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 370, ptr noundef nonnull @__func__.ossl_parse_property) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.1, ptr noundef nonnull %16) #10
   br label %.thread
 
 27:                                               ; preds = %22
@@ -103,7 +103,7 @@ skip_space.exit:                                  ; preds = %.preheader
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %31 = load i8, ptr %.0.i.i, align 1, !tbaa !3
   %32 = sext i8 %31 to i32
-  %33 = tail call i32 @ossl_ctype_check(i32 noundef %32, i32 noundef 8) #9
+  %33 = tail call i32 @ossl_ctype_check(i32 noundef %32, i32 noundef 8) #10
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %34, label %.preheader.i, !llvm.loop !6
 
@@ -114,9 +114,9 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %.not34, label %36, label %39
 
 36:                                               ; preds = %34
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @__func__.ossl_parse_property) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 107, ptr noundef nonnull @.str.2, ptr noundef nonnull %16) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @__func__.ossl_parse_property) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 107, ptr noundef nonnull @.str.2, ptr noundef nonnull %16) #10
   br label %.thread
 
 37:                                               ; preds = %27
@@ -126,7 +126,7 @@ skip_space.exit:                                  ; preds = %.preheader
   br label %39
 
 39:                                               ; preds = %34, %37
-  %40 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %6, ptr noundef nonnull %15) #9
+  %40 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %6, ptr noundef nonnull %15) #10
   %.not35 = icmp eq i32 %40, 0
   br i1 %.not35, label %.thread, label %41
 
@@ -141,13 +141,13 @@ skip_space.exit:                                  ; preds = %.preheader
   %.0.i.i42 = getelementptr inbounds nuw i8, ptr %.pn.i41, i64 1
   %45 = load i8, ptr %.0.i.i42, align 1, !tbaa !3
   %46 = sext i8 %45 to i32
-  %47 = tail call i32 @ossl_ctype_check(i32 noundef %46, i32 noundef 8) #9
+  %47 = tail call i32 @ossl_ctype_check(i32 noundef %46, i32 noundef 8) #10
   %.not.i.i43 = icmp eq i32 %47, 0
   br i1 %.not.i.i43, label %.lr.ph, label %.preheader.i40, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader.i40
   store ptr %.0.i.i42, ptr %3, align 8, !tbaa !8
-  %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 361) #9
+  %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 361) #10
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread, label %.lr.ph86
 
@@ -157,9 +157,9 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %50, label %._crit_edge.thread, label %51
 
 51:                                               ; preds = %._crit_edge
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @__func__.ossl_parse_property) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 110, ptr noundef nonnull @.str.2, ptr noundef nonnull %42) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @__func__.ossl_parse_property) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 110, ptr noundef nonnull @.str.2, ptr noundef nonnull %42) #10
   br label %.thread
 
 ._crit_edge.thread:                               ; preds = %skip_space.exit, %._crit_edge
@@ -169,8 +169,8 @@ skip_space.exit:                                  ; preds = %.preheader
 .thread:                                          ; preds = %.lr.ph, %.lr.ph86, %39, %.lr.ph.preheader, %36, %26, %._crit_edge.thread, %51
   %.027 = phi ptr [ null, %51 ], [ %52, %._crit_edge.thread ], [ null, %26 ], [ null, %36 ], [ null, %.lr.ph.preheader ], [ null, %39 ], [ null, %.lr.ph86 ], [ null, %.lr.ph ]
   %.2 = phi ptr [ null, %51 ], [ null, %._crit_edge.thread ], [ %15, %26 ], [ %15, %36 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ], [ %15, %.lr.ph86 ], [ %15, %39 ]
-  tail call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str, i32 noundef 399) #9
-  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %6, ptr noundef nonnull @pd_free) #9
+  tail call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str, i32 noundef 399) #10
+  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %6, ptr noundef nonnull @pd_free) #10
   br label %53
 
 53:                                               ; preds = %2, %5, %.thread
@@ -198,7 +198,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   %5 = load ptr, ptr %1, align 8, !tbaa !8
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = sext i8 %6 to i32
-  %8 = tail call i32 @ossl_ctype_check(i32 noundef %7, i32 noundef 3) #9
+  %8 = tail call i32 @ossl_ctype_check(i32 noundef %7, i32 noundef 3) #10
   %.not36 = icmp eq i32 %8, 0
   br i1 %.not36, label %._crit_edge, label %.critedge.preheader
 
@@ -210,10 +210,10 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   br label %.critedge
 
 ._crit_edge:                                      ; preds = %33, %3
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @__func__.parse_name) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @__func__.parse_name) #10
   %10 = load ptr, ptr %1, align 8, !tbaa !8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 103, ptr noundef nonnull @.str.2, ptr noundef %10) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 103, ptr noundef nonnull @.str.2, ptr noundef %10) #10
   br label %47
 
 .critedge:                                        ; preds = %.critedge.backedge, %.critedge.preheader
@@ -226,7 +226,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
 12:                                               ; preds = %.critedge
   %13 = load i8, ptr %.1, align 1, !tbaa !3
   %14 = sext i8 %13 to i32
-  %15 = tail call i32 @ossl_tolower(i32 noundef %14) #9
+  %15 = tail call i32 @ossl_tolower(i32 noundef %14) #10
   %16 = trunc i32 %15 to i8
   %17 = add nuw nsw i64 %.124, 1
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 %.124
@@ -243,7 +243,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
 
 23:                                               ; preds = %19
   %24 = sext i8 %21 to i32
-  %25 = tail call i32 @ossl_ctype_check(i32 noundef %24, i32 noundef 7) #9
+  %25 = tail call i32 @ossl_ctype_check(i32 noundef %24, i32 noundef 7) #10
   %.not31 = icmp eq i32 %25, 0
   br i1 %.not31, label %26, label %.critedge.backedge
 
@@ -271,7 +271,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   %34 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %35 = load i8, ptr %34, align 1, !tbaa !3
   %36 = sext i8 %35 to i32
-  %37 = tail call i32 @ossl_ctype_check(i32 noundef %36, i32 noundef 3) #9
+  %37 = tail call i32 @ossl_ctype_check(i32 noundef %36, i32 noundef 3) #10
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %._crit_edge, label %.critedge.preheader
 
@@ -282,24 +282,24 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   br i1 %.not33, label %.preheader, label %40
 
 40:                                               ; preds = %38
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 88, ptr noundef nonnull @__func__.parse_name) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 88, ptr noundef nonnull @__func__.parse_name) #10
   %41 = load ptr, ptr %1, align 8, !tbaa !8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 100, ptr noundef nonnull @.str.2, ptr noundef %41) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 100, ptr noundef nonnull @.str.2, ptr noundef %41) #10
   br label %47
 
 .preheader:                                       ; preds = %38, %.preheader
   %.0.i = phi ptr [ %45, %.preheader ], [ %20, %38 ]
   %42 = load i8, ptr %.0.i, align 1, !tbaa !3
   %43 = sext i8 %42 to i32
-  %44 = tail call i32 @ossl_ctype_check(i32 noundef %43, i32 noundef 8) #9
+  %44 = tail call i32 @ossl_ctype_check(i32 noundef %43, i32 noundef 8) #10
   %.not.i = icmp eq i32 %44, 0
   %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br i1 %.not.i, label %skip_space.exit, label %.preheader, !llvm.loop !6
 
 skip_space.exit:                                  ; preds = %.preheader
   store ptr %.0.i, ptr %1, align 8, !tbaa !8
-  %46 = call i32 @ossl_property_name(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %9) #9
+  %46 = call i32 @ossl_property_name(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %9) #10
   store i32 %46, ptr %2, align 4, !tbaa !19
   br label %47
 
@@ -377,10 +377,10 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
   br label %26
 
 21:                                               ; preds = %.critedge.thread.i, %.critedge.i
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 209, ptr noundef nonnull @__func__.parse_string) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 209, ptr noundef nonnull @__func__.parse_string) #10
   %22 = sext i8 %9 to i32
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 106, ptr noundef nonnull @.str.12, i32 noundef %22, ptr noundef nonnull %11) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 106, ptr noundef nonnull @.str.12, i32 noundef %22, ptr noundef nonnull %11) #10
   br label %parse_string.exit
 
 23:                                               ; preds = %.critedge.i
@@ -390,14 +390,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
   br i1 %.not27.i, label %26, label %25
 
 25:                                               ; preds = %23
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @__func__.parse_string) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 109, ptr noundef nonnull @.str.2, ptr noundef nonnull %11) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @__func__.parse_string) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 109, ptr noundef nonnull @.str.2, ptr noundef nonnull %11) #10
   br label %29
 
 26:                                               ; preds = %23, %.thread.i
   %.023.lcssa4454.i = phi ptr [ %11, %.thread.i ], [ %19, %23 ]
-  %27 = call i32 @ossl_property_value(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %3) #9
+  %27 = call i32 @ossl_property_value(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %3) #10
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %27, ptr %28, align 8, !tbaa !3
   br label %29
@@ -412,7 +412,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.023.pn.i, i64 1
   %31 = load i8, ptr %.0.i.i, align 1, !tbaa !3
   %32 = sext i8 %31 to i32
-  %33 = call i32 @ossl_ctype_check(i32 noundef %32, i32 noundef 8) #9
+  %33 = call i32 @ossl_ctype_check(i32 noundef %32, i32 noundef 8) #10
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %skip_space.exit.i, label %30, !llvm.loop !6
 
@@ -459,7 +459,7 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
   %.022.i = phi i64 [ 0, %48 ], [ %74, %72 ]
   %51 = load i8, ptr %.023.i, align 1, !tbaa !3
   %52 = sext i8 %51 to i32
-  %53 = tail call i32 @ossl_isdigit(i32 noundef %52) #9
+  %53 = tail call i32 @ossl_isdigit(i32 noundef %52) #10
   %.not.i24 = icmp eq i32 %53, 0
   %54 = load i8, ptr %.023.i, align 1, !tbaa !3
   %55 = sext i8 %54 to i32
@@ -470,21 +470,21 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
   br label %66
 
 58:                                               ; preds = %50
-  %59 = tail call i32 @ossl_ctype_check(i32 noundef %55, i32 noundef 16) #9
+  %59 = tail call i32 @ossl_ctype_check(i32 noundef %55, i32 noundef 16) #10
   %.not26.i31 = icmp eq i32 %59, 0
   br i1 %.not26.i31, label %65, label %60
 
 60:                                               ; preds = %58
   %61 = load i8, ptr %.023.i, align 1, !tbaa !3
   %62 = sext i8 %61 to i32
-  %63 = tail call i32 @ossl_tolower(i32 noundef %62) #9
+  %63 = tail call i32 @ossl_tolower(i32 noundef %62) #10
   %64 = add nsw i32 %63, -87
   br label %66
 
 65:                                               ; preds = %58
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 138, ptr noundef nonnull @__func__.parse_hex) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 102, ptr noundef nonnull @.str.14, ptr noundef nonnull %49) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 138, ptr noundef nonnull @__func__.parse_hex) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 102, ptr noundef nonnull @.str.14, ptr noundef nonnull %49) #10
   br label %parse_hex.exit.thread
 
 66:                                               ; preds = %60, %56
@@ -496,9 +496,9 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %66
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 144, ptr noundef nonnull @__func__.parse_hex) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.13, ptr noundef nonnull %49) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 144, ptr noundef nonnull @__func__.parse_hex) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.13, ptr noundef nonnull %49) #10
   br label %parse_hex.exit.thread
 
 72:                                               ; preds = %66
@@ -507,14 +507,14 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
   %75 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !3
   %77 = sext i8 %76 to i32
-  %78 = tail call i32 @ossl_ctype_check(i32 noundef %77, i32 noundef 16) #9
+  %78 = tail call i32 @ossl_ctype_check(i32 noundef %77, i32 noundef 16) #10
   %.not27.i25 = icmp eq i32 %78, 0
   br i1 %.not27.i25, label %79, label %50, !llvm.loop !21
 
 79:                                               ; preds = %72
   %80 = load i8, ptr %75, align 1, !tbaa !3
   %81 = sext i8 %80 to i32
-  %82 = tail call i32 @ossl_ctype_check(i32 noundef %81, i32 noundef 8) #9
+  %82 = tail call i32 @ossl_ctype_check(i32 noundef %81, i32 noundef 8) #10
   %.not28.i26 = icmp eq i32 %82, 0
   br i1 %.not28.i26, label %83, label %.preheader
 
@@ -529,16 +529,16 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
   ]
 
 85:                                               ; preds = %83
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 153, ptr noundef nonnull @__func__.parse_hex) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 102, ptr noundef nonnull @.str.2, ptr noundef nonnull %49) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 153, ptr noundef nonnull @__func__.parse_hex) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 102, ptr noundef nonnull @.str.2, ptr noundef nonnull %49) #10
   br label %parse_hex.exit.thread
 
 86:                                               ; preds = %.preheader, %86
   %.0.i.i27 = phi ptr [ %90, %86 ], [ %75, %.preheader ]
   %87 = load i8, ptr %.0.i.i27, align 1, !tbaa !3
   %88 = sext i8 %87 to i32
-  %89 = tail call i32 @ossl_ctype_check(i32 noundef %88, i32 noundef 8) #9
+  %89 = tail call i32 @ossl_ctype_check(i32 noundef %88, i32 noundef 8) #10
   %.not.i.i28 = icmp eq i32 %89, 0
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 1
   br i1 %.not.i.i28, label %skip_space.exit.i29, label %86, !llvm.loop !6
@@ -552,7 +552,7 @@ skip_space.exit.i29:                              ; preds = %86
 
 93:                                               ; preds = %44
   %94 = sext i8 %46 to i32
-  %95 = tail call i32 @ossl_isdigit(i32 noundef %94) #9
+  %95 = tail call i32 @ossl_isdigit(i32 noundef %94) #10
   %.not = icmp eq i32 %95, 0
   br i1 %.not, label %._crit_edge, label %96
 
@@ -575,14 +575,14 @@ skip_space.exit.i29:                              ; preds = %86
 
 100:                                              ; preds = %97
   %101 = sext i8 %98 to i32
-  %102 = tail call i32 @ossl_isdigit(i32 noundef %101) #9
+  %102 = tail call i32 @ossl_isdigit(i32 noundef %101) #10
   %.not.i34 = icmp eq i32 %102, 0
   br i1 %.not.i34, label %103, label %104
 
 103:                                              ; preds = %100, %97
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 170, ptr noundef nonnull @__func__.parse_oct) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 104, ptr noundef nonnull @.str.2, ptr noundef nonnull %45) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 170, ptr noundef nonnull @__func__.parse_oct) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 104, ptr noundef nonnull @.str.2, ptr noundef nonnull %45) #10
   br label %parse_hex.exit.thread
 
 104:                                              ; preds = %100
@@ -594,9 +594,9 @@ skip_space.exit.i29:                              ; preds = %86
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %104
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 175, ptr noundef nonnull @__func__.parse_oct) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.13, ptr noundef nonnull %45) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 175, ptr noundef nonnull @__func__.parse_oct) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.13, ptr noundef nonnull %45) #10
   br label %parse_hex.exit.thread
 
 111:                                              ; preds = %104
@@ -606,7 +606,7 @@ skip_space.exit.i29:                              ; preds = %86
   %115 = getelementptr inbounds nuw i8, ptr %.022.i32, i64 1
   %116 = load i8, ptr %115, align 1, !tbaa !3
   %117 = sext i8 %116 to i32
-  %118 = tail call i32 @ossl_isdigit(i32 noundef %117) #9
+  %118 = tail call i32 @ossl_isdigit(i32 noundef %117) #10
   %.not27.i35 = icmp eq i32 %118, 0
   %.pre37.i = load i8, ptr %115, align 1, !tbaa !3
   %119 = and i8 %.pre37.i, -2
@@ -616,7 +616,7 @@ skip_space.exit.i29:                              ; preds = %86
 
 .critedge.i37:                                    ; preds = %111
   %120 = sext i8 %.pre37.i to i32
-  %121 = tail call i32 @ossl_ctype_check(i32 noundef %120, i32 noundef 8) #9
+  %121 = tail call i32 @ossl_ctype_check(i32 noundef %120, i32 noundef 8) #10
   %.not30.i = icmp eq i32 %121, 0
   br i1 %.not30.i, label %122, label %.preheader79
 
@@ -631,16 +631,16 @@ skip_space.exit.i29:                              ; preds = %86
   ]
 
 124:                                              ; preds = %122
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 183, ptr noundef nonnull @__func__.parse_oct) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 104, ptr noundef nonnull @.str.2, ptr noundef nonnull %45) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 183, ptr noundef nonnull @__func__.parse_oct) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 104, ptr noundef nonnull @.str.2, ptr noundef nonnull %45) #10
   br label %parse_hex.exit.thread
 
 125:                                              ; preds = %.preheader79, %125
   %.0.i.i38 = phi ptr [ %129, %125 ], [ %115, %.preheader79 ]
   %126 = load i8, ptr %.0.i.i38, align 1, !tbaa !3
   %127 = sext i8 %126 to i32
-  %128 = tail call i32 @ossl_ctype_check(i32 noundef %127, i32 noundef 8) #9
+  %128 = tail call i32 @ossl_ctype_check(i32 noundef %127, i32 noundef 8) #10
   %.not.i.i39 = icmp eq i32 %128, 0
   %129 = getelementptr inbounds nuw i8, ptr %.0.i.i38, i64 1
   br i1 %.not.i.i39, label %skip_space.exit.i40, label %125, !llvm.loop !6
@@ -655,7 +655,7 @@ skip_space.exit.i40:                              ; preds = %125
 132:                                              ; preds = %._crit_edge, %4
   %133 = phi i8 [ %.pre64, %._crit_edge ], [ %9, %4 ]
   %134 = sext i8 %133 to i32
-  %135 = tail call i32 @ossl_isdigit(i32 noundef %134) #9
+  %135 = tail call i32 @ossl_isdigit(i32 noundef %134) #10
   %.not21 = icmp eq i32 %135, 0
   br i1 %.not21, label %138, label %136
 
@@ -666,7 +666,7 @@ skip_space.exit.i40:                              ; preds = %125
 138:                                              ; preds = %132
   %139 = load i8, ptr %8, align 1, !tbaa !3
   %140 = sext i8 %139 to i32
-  %141 = tail call i32 @ossl_ctype_check(i32 noundef %140, i32 noundef 3) #9
+  %141 = tail call i32 @ossl_ctype_check(i32 noundef %140, i32 noundef 3) #10
   %.not22 = icmp eq i32 %141, 0
   br i1 %.not22, label %parse_hex.exit.thread, label %142
 
@@ -681,7 +681,7 @@ skip_space.exit.i40:                              ; preds = %125
 
 .preheader.i:                                     ; preds = %142
   %145 = sext i8 %144 to i32
-  %146 = tail call i32 @ossl_ctype_check(i32 noundef %145, i32 noundef 256) #9
+  %146 = tail call i32 @ossl_ctype_check(i32 noundef %145, i32 noundef 256) #10
   %.not38.i = icmp eq i32 %146, 0
   br i1 %.not38.i, label %.critedge.i43, label %.lr.ph.i42
 
@@ -691,7 +691,7 @@ skip_space.exit.i40:                              ; preds = %125
   %.02639.i = phi ptr [ %161, %160 ], [ %143, %.preheader.i ]
   %147 = load i8, ptr %.02639.i, align 1, !tbaa !3
   %148 = sext i8 %147 to i32
-  %149 = tail call i32 @ossl_ctype_check(i32 noundef %148, i32 noundef 8) #9
+  %149 = tail call i32 @ossl_ctype_check(i32 noundef %148, i32 noundef 8) #10
   %.not31.i = icmp eq i32 %149, 0
   br i1 %.not31.i, label %150, label %.critedge.loopexit.i
 
@@ -706,7 +706,7 @@ skip_space.exit.i40:                              ; preds = %125
   br i1 %154, label %155, label %160
 
 155:                                              ; preds = %153
-  %156 = tail call i32 @ossl_tolower(i32 noundef %152) #9
+  %156 = tail call i32 @ossl_tolower(i32 noundef %152) #10
   %157 = trunc i32 %156 to i8
   %158 = add nuw nsw i64 %.02440.i, 1
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 %.02440.i
@@ -719,7 +719,7 @@ skip_space.exit.i40:                              ; preds = %125
   %161 = getelementptr inbounds nuw i8, ptr %.02639.i, i64 1
   %162 = load i8, ptr %161, align 1, !tbaa !3
   %163 = sext i8 %162 to i32
-  %164 = tail call i32 @ossl_ctype_check(i32 noundef %163, i32 noundef 256) #9
+  %164 = tail call i32 @ossl_ctype_check(i32 noundef %163, i32 noundef 256) #10
   %.not.i48 = icmp eq i32 %164, 0
   br i1 %.not.i48, label %.critedge.loopexit.i, label %.lr.ph.i42, !llvm.loop !22
 
@@ -736,7 +736,7 @@ skip_space.exit.i40:                              ; preds = %125
   %.0.lcssa.i = phi i1 [ true, %.preheader.i ], [ %165, %.critedge.loopexit.i ]
   %166 = load i8, ptr %.026.lcssa.i, align 1, !tbaa !3
   %167 = sext i8 %166 to i32
-  %168 = tail call i32 @ossl_ctype_check(i32 noundef %167, i32 noundef 8) #9
+  %168 = tail call i32 @ossl_ctype_check(i32 noundef %167, i32 noundef 8) #10
   %.not33.i = icmp eq i32 %168, 0
   br i1 %.not33.i, label %169, label %172
 
@@ -748,9 +748,9 @@ skip_space.exit.i40:                              ; preds = %125
   ]
 
 171:                                              ; preds = %169
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @__func__.parse_unquoted) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 101, ptr noundef nonnull @.str.2, ptr noundef nonnull %.026.lcssa.i) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @__func__.parse_unquoted) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 101, ptr noundef nonnull @.str.2, ptr noundef nonnull %.026.lcssa.i) #10
   br label %parse_unquoted.exit
 
 172:                                              ; preds = %169, %169, %.critedge.i43
@@ -759,14 +759,14 @@ skip_space.exit.i40:                              ; preds = %125
   br i1 %.0.lcssa.i, label %176, label %174
 
 174:                                              ; preds = %172
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.parse_unquoted) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.parse_unquoted) #10
   %175 = load ptr, ptr %1, align 8, !tbaa !8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 109, ptr noundef nonnull @.str.2, ptr noundef %175) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 109, ptr noundef nonnull @.str.2, ptr noundef %175) #10
   br label %180
 
 176:                                              ; preds = %172
-  %177 = call i32 @ossl_property_value(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %3) #9
+  %177 = call i32 @ossl_property_value(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %3) #10
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %177, ptr %178, align 8, !tbaa !3
   %179 = icmp ne i32 %177, 0
@@ -781,7 +781,7 @@ skip_space.exit.i40:                              ; preds = %125
   %.0.i.i44 = phi ptr [ %.026.lcssa.i, %180 ], [ %185, %181 ]
   %182 = load i8, ptr %.0.i.i44, align 1, !tbaa !3
   %183 = sext i8 %182 to i32
-  %184 = call i32 @ossl_ctype_check(i32 noundef %183, i32 noundef 8) #9
+  %184 = call i32 @ossl_ctype_check(i32 noundef %183, i32 noundef 8) #10
   %.not.i.i45 = icmp eq i32 %184, 0
   %185 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 1
   br i1 %.not.i.i45, label %skip_space.exit.i46, label %181, !llvm.loop !6
@@ -819,18 +819,18 @@ parse_hex.exit.thread:                            ; preds = %124, %110, %103, %6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @stack_to_property_list(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #9
+  %3 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #10
   %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %5 = add nsw i32 %4, -1
   %6 = zext nneg i32 %5 to i64
   %7 = mul nuw nsw i64 %6, 24
   %8 = add nuw nsw i64 %7, 32
-  %9 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 321) #9
+  %9 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 321) #10
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %29, label %10
 
 10:                                               ; preds = %2
-  tail call void @OPENSSL_sk_sort(ptr noundef nonnull %1) #9
+  tail call void @OPENSSL_sk_sort(ptr noundef nonnull %1) #10
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, -2
@@ -849,7 +849,7 @@ define internal fastcc ptr @stack_to_property_list(ptr noundef %0, ptr noundef n
   %.02834 = phi i32 [ 0, %.lr.ph ], [ %.pre, %28 ]
   %18 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %15, i64 %indvars.iv
   %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %20 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %19) #9
+  %20 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %19) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !23
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %22 = load i8, ptr %21, align 4
@@ -863,11 +863,11 @@ define internal fastcc ptr @stack_to_property_list(ptr noundef %0, ptr noundef n
   br i1 %or.cond, label %26, label %28
 
 26:                                               ; preds = %16
-  tail call void @CRYPTO_free(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 332) #9
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.stack_to_property_list) #9
-  %27 = tail call ptr @ossl_property_name_str(ptr noundef %0, i32 noundef %.02834) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.15, ptr noundef %27) #9
+  tail call void @CRYPTO_free(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 332) #10
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.stack_to_property_list) #10
+  %27 = tail call ptr @ossl_property_name_str(ptr noundef %0, i32 noundef %.02834) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.15, ptr noundef %27) #10
   br label %29
 
 28:                                               ; preds = %16
@@ -888,7 +888,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @pd_free(ptr noundef %0) #0 {
-  tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 302) #9
+  tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 302) #10
   ret void
 }
 
@@ -899,7 +899,7 @@ define ptr @ossl_parse_query(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br i1 %5, label %73, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @pd_compare) #9
+  %7 = tail call ptr @OPENSSL_sk_new(ptr noundef nonnull @pd_compare) #10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %73, label %.preheader
 
@@ -907,7 +907,7 @@ define ptr @ossl_parse_query(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %.0.i = phi ptr [ %12, %.preheader ], [ %1, %6 ]
   %9 = load i8, ptr %.0.i, align 1, !tbaa !3
   %10 = sext i8 %9 to i32
-  %11 = tail call i32 @ossl_ctype_check(i32 noundef %10, i32 noundef 8) #9
+  %11 = tail call i32 @ossl_ctype_check(i32 noundef %10, i32 noundef 8) #10
   %.not.i = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br i1 %.not.i, label %skip_space.exit, label %.preheader, !llvm.loop !6
@@ -919,7 +919,7 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %.not71, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %skip_space.exit
-  %14 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 418) #9
+  %14 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 418) #10
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %.lr.ph83
 
@@ -939,7 +939,7 @@ skip_space.exit:                                  ; preds = %.preheader
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %20 = load i8, ptr %.0.i.i, align 1, !tbaa !3
   %21 = sext i8 %20 to i32
-  %22 = tail call i32 @ossl_ctype_check(i32 noundef %21, i32 noundef 8) #9
+  %22 = tail call i32 @ossl_ctype_check(i32 noundef %21, i32 noundef 8) #10
   %.not.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i, label %23, label %.preheader.i, !llvm.loop !6
 
@@ -960,7 +960,7 @@ skip_space.exit:                                  ; preds = %.preheader
   %.0.i.i43 = getelementptr inbounds nuw i8, ptr %.pn.i42, i64 1
   %29 = load i8, ptr %.0.i.i43, align 1, !tbaa !3
   %30 = sext i8 %29 to i32
-  %31 = tail call i32 @ossl_ctype_check(i32 noundef %30, i32 noundef 8) #9
+  %31 = tail call i32 @ossl_ctype_check(i32 noundef %30, i32 noundef 8) #10
   %.not.i.i44 = icmp eq i32 %31, 0
   br i1 %.not.i.i44, label %skip_space.exit.i45, label %.preheader.i41, !llvm.loop !6
 
@@ -990,12 +990,12 @@ match_ch.exit46:                                  ; preds = %.lr.ph83, %skip_spa
   %.0.i.i50 = getelementptr inbounds nuw i8, ptr %.pn.i49, i64 1
   %41 = load i8, ptr %.0.i.i50, align 1, !tbaa !3
   %42 = sext i8 %41 to i32
-  %43 = tail call i32 @ossl_ctype_check(i32 noundef %42, i32 noundef 8) #9
+  %43 = tail call i32 @ossl_ctype_check(i32 noundef %42, i32 noundef 8) #10
   %.not.i.i51 = icmp eq i32 %43, 0
   br i1 %.not.i.i51, label %.loopexit80, label %.preheader.i48, !llvm.loop !6
 
 44:                                               ; preds = %37
-  %45 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %38, ptr noundef nonnull @.str.3, i64 noundef 2) #9
+  %45 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %38, ptr noundef nonnull @.str.3, i64 noundef 2) #10
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %54
 
@@ -1007,7 +1007,7 @@ match_ch.exit46:                                  ; preds = %.lr.ph83, %skip_spa
   %.0.i.i55 = phi ptr [ %48, %47 ], [ %53, %49 ]
   %50 = load i8, ptr %.0.i.i55, align 1, !tbaa !3
   %51 = sext i8 %50 to i32
-  %52 = tail call i32 @ossl_ctype_check(i32 noundef %51, i32 noundef 8) #9
+  %52 = tail call i32 @ossl_ctype_check(i32 noundef %51, i32 noundef 8) #10
   %.not.i.i56 = icmp eq i32 %52, 0
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i55, i64 1
   br i1 %.not.i.i56, label %.loopexit80, label %49, !llvm.loop !6
@@ -1036,7 +1036,7 @@ match_ch.exit46:                                  ; preds = %.lr.ph83, %skip_spa
   br label %61
 
 61:                                               ; preds = %.loopexit80, %59, %23, %54
-  %62 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %7, ptr noundef nonnull %16) #9
+  %62 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %7, ptr noundef nonnull %16) #10
   %.not38 = icmp eq i32 %62, 0
   br i1 %.not38, label %.loopexit, label %63
 
@@ -1053,20 +1053,20 @@ match_ch.exit46:                                  ; preds = %.lr.ph83, %skip_spa
   %.0.i.i61 = getelementptr inbounds nuw i8, ptr %.pn.i60, i64 1
   %66 = load i8, ptr %.0.i.i61, align 1, !tbaa !3
   %67 = sext i8 %66 to i32
-  %68 = tail call i32 @ossl_ctype_check(i32 noundef %67, i32 noundef 8) #9
+  %68 = tail call i32 @ossl_ctype_check(i32 noundef %67, i32 noundef 8) #10
   %.not.i.i62 = icmp eq i32 %68, 0
   br i1 %.not.i.i62, label %skip_space.exit.i63, label %.preheader.i59, !llvm.loop !6
 
 skip_space.exit.i63:                              ; preds = %.preheader.i59
   store ptr %.0.i.i61, ptr %4, align 8, !tbaa !8
-  %69 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 418) #9
+  %69 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 418) #10
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.loopexit, label %.lr.ph83
 
 71:                                               ; preds = %63
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 455, ptr noundef nonnull @__func__.ossl_parse_query) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 110, ptr noundef nonnull @.str.2, ptr noundef nonnull %64) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 455, ptr noundef nonnull @__func__.ossl_parse_query) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 110, ptr noundef nonnull @.str.2, ptr noundef nonnull %64) #10
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %63, %skip_space.exit
@@ -1076,8 +1076,8 @@ skip_space.exit.i63:                              ; preds = %.preheader.i59
 .loopexit:                                        ; preds = %skip_space.exit.i63, %23, %match_ch.exit46, %61, %.lr.ph.preheader, %._crit_edge.thread, %71
   %.027 = phi ptr [ null, %71 ], [ %72, %._crit_edge.thread ], [ null, %.lr.ph.preheader ], [ null, %61 ], [ null, %match_ch.exit46 ], [ null, %23 ], [ null, %skip_space.exit.i63 ]
   %.1 = phi ptr [ null, %71 ], [ null, %._crit_edge.thread ], [ null, %.lr.ph.preheader ], [ null, %skip_space.exit.i63 ], [ %16, %23 ], [ %16, %match_ch.exit46 ], [ %16, %61 ]
-  tail call void @CRYPTO_free(ptr noundef %.1, ptr noundef nonnull @.str, i32 noundef 462) #9
-  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %7, ptr noundef nonnull @pd_free) #9
+  tail call void @CRYPTO_free(ptr noundef %.1, ptr noundef nonnull @.str, i32 noundef 462) #10
+  tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %7, ptr noundef nonnull @pd_free) #10
   br label %73
 
 73:                                               ; preds = %3, %6, %.loopexit
@@ -1249,7 +1249,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_property_free(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 531) #9
+  tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 531) #10
   ret void
 }
 
@@ -1264,7 +1264,7 @@ define noalias ptr @ossl_property_merge(ptr noundef readonly captures(none) %0, 
   %9 = sext i32 %8 to i64
   %10 = mul nsw i64 %9, 24
   %11 = add nsw i64 %10, 32
-  %12 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 549) #9
+  %12 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 549) #10
   %13 = icmp eq ptr %12, null
   br i1 %13, label %54, label %14
 
@@ -1365,17 +1365,17 @@ define range(i32 0, 2) i32 @ossl_property_parse_init(ptr noundef %0) local_unnam
   %.08 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw ptr, ptr @ossl_property_parse_init.predefined_names, i64 %.08
   %6 = load ptr, ptr %5, align 8, !tbaa !8
-  %7 = tail call i32 @ossl_property_name(ptr noundef %0, ptr noundef %6, i32 noundef 1) #9
+  %7 = tail call i32 @ossl_property_name(ptr noundef %0, ptr noundef %6, i32 noundef 1) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %2
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @ossl_property_value(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef 1) #9
+  %10 = tail call i32 @ossl_property_value(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef 1) #10
   %.not = icmp eq i32 %10, 1
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @ossl_property_value(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef 1) #9
+  %12 = tail call i32 @ossl_property_value(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef 1) #10
   %.not7 = icmp eq i32 %12, 2
   br i1 %.not7, label %13, label %.loopexit
 
@@ -1516,7 +1516,7 @@ put_char.exit:                                    ; preds = %21, %24
 
 50:                                               ; preds = %.sink.split, %37
   %51 = load i32, ptr %.153, align 8, !tbaa !14
-  %52 = tail call ptr @ossl_property_name_str(ptr noundef %0, i32 noundef %51) #9
+  %52 = tail call ptr @ossl_property_name_str(ptr noundef %0, i32 noundef %51) #10
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.loopexit, label %54
 
@@ -1595,7 +1595,7 @@ put_char.exit46:                                  ; preds = %67, %70
 79:                                               ; preds = %put_char.exit46
   %80 = getelementptr inbounds nuw i8, ptr %.153, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !3
-  %82 = tail call ptr @ossl_property_value_str(ptr noundef %0, i32 noundef %81) #9
+  %82 = tail call ptr @ossl_property_value_str(ptr noundef %0, i32 noundef %81) #10
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.loopexit, label %84
 
@@ -1631,7 +1631,7 @@ put_char.exit46:                                  ; preds = %67, %70
 
 97:                                               ; preds = %._crit_edge.i
   %98 = load ptr, ptr %5, align 8, !tbaa !8
-  %99 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %98, i64 noundef %95, ptr noundef nonnull @.str.16, i64 noundef %87) #9
+  %99 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %98, i64 noundef %95, ptr noundef nonnull @.str.16, i64 noundef %87) #10
   %.sink.v.i = tail call i64 @llvm.umin.i64(i64 %95, i64 %.1.lcssa.i)
   %.sink.i47 = getelementptr inbounds nuw i8, ptr %98, i64 %.sink.v.i
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %95, i64 %.1.lcssa.i)
@@ -1682,7 +1682,7 @@ declare ptr @ossl_property_name_str(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @put_str(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %6 = load i64, ptr %3, align 8, !tbaa !30
   %7 = add i64 %6, %5
   store i64 %7, ptr %3, align 8, !tbaa !30
@@ -1695,7 +1695,7 @@ define internal fastcc void @put_str(ptr noundef nonnull readonly captures(none)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.04860
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %10 = sext i8 %9 to i32
-  %11 = tail call i32 @ossl_ctype_check(i32 noundef %10, i32 noundef 7) #9
+  %11 = tail call i32 @ossl_ctype_check(i32 noundef %10, i32 noundef 7) #10
   %.not52 = icmp eq i32 %11, 0
   br i1 %.not52, label %12, label %17
 
@@ -1851,15 +1851,15 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
   %.0 = phi i64 [ 0, %2 ], [ %22, %18 ]
   %5 = load i8, ptr %.018, align 1, !tbaa !3
   %6 = sext i8 %5 to i32
-  %7 = tail call i32 @ossl_isdigit(i32 noundef %6) #9
+  %7 = tail call i32 @ossl_isdigit(i32 noundef %6) #10
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %4
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @__func__.parse_number) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @__func__.parse_number) #10
   %9 = load ptr, ptr %0, align 8, !tbaa !8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 105, ptr noundef nonnull @.str.2, ptr noundef %9) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 105, ptr noundef nonnull @.str.2, ptr noundef %9) #10
   br label %41
 
 10:                                               ; preds = %4
@@ -1871,10 +1871,10 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %10
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 109, ptr noundef nonnull @__func__.parse_number) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 109, ptr noundef nonnull @__func__.parse_number) #10
   %17 = load ptr, ptr %0, align 8, !tbaa !8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.13, ptr noundef %17) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.13, ptr noundef %17) #10
   br label %41
 
 18:                                               ; preds = %10
@@ -1884,14 +1884,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
   %22 = add i64 %21, %12
   %23 = load i8, ptr %20, align 1, !tbaa !3
   %24 = sext i8 %23 to i32
-  %25 = tail call i32 @ossl_isdigit(i32 noundef %24) #9
+  %25 = tail call i32 @ossl_isdigit(i32 noundef %24) #10
   %.not21 = icmp eq i32 %25, 0
   br i1 %.not21, label %26, label %4, !llvm.loop !35
 
 26:                                               ; preds = %18
   %27 = load i8, ptr %20, align 1, !tbaa !3
   %28 = sext i8 %27 to i32
-  %29 = tail call i32 @ossl_ctype_check(i32 noundef %28, i32 noundef 8) #9
+  %29 = tail call i32 @ossl_ctype_check(i32 noundef %28, i32 noundef 8) #10
   %.not22 = icmp eq i32 %29, 0
   br i1 %.not22, label %30, label %.preheader
 
@@ -1906,17 +1906,17 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
   ]
 
 32:                                               ; preds = %30
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @__func__.parse_number) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @__func__.parse_number) #10
   %33 = load ptr, ptr %0, align 8, !tbaa !8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 105, ptr noundef nonnull @.str.2, ptr noundef %33) #9
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 105, ptr noundef nonnull @.str.2, ptr noundef %33) #10
   br label %41
 
 34:                                               ; preds = %.preheader, %34
   %.0.i = phi ptr [ %38, %34 ], [ %20, %.preheader ]
   %35 = load i8, ptr %.0.i, align 1, !tbaa !3
   %36 = sext i8 %35 to i32
-  %37 = tail call i32 @ossl_ctype_check(i32 noundef %36, i32 noundef 8) #9
+  %37 = tail call i32 @ossl_ctype_check(i32 noundef %36, i32 noundef 8) #10
   %.not.i = icmp eq i32 %37, 0
   %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br i1 %.not.i, label %skip_space.exit, label %34, !llvm.loop !6
@@ -1959,25 +1959,25 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #7
+declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1987,10 +1987,11 @@ attributes #3 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-le
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

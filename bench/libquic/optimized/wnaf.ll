@@ -11,7 +11,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @BN_CTX_new() #5
+  %9 = tail call ptr @BN_CTX_new() #6
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread279, label %11
 
@@ -24,12 +24,12 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not241, label %19, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @EC_GROUP_get0_generator(ptr noundef %0) #5
+  %14 = tail call ptr @EC_GROUP_get0_generator(ptr noundef %0) #6
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 122, ptr noundef nonnull @.str, i32 noundef 266) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 122, ptr noundef nonnull @.str, i32 noundef 266) #6
   br label %.thread279
 
 17:                                               ; preds = %13
@@ -40,11 +40,11 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %.0221 = phi i64 [ %18, %17 ], [ %12, %11 ]
   %.0192 = phi ptr [ %14, %17 ], [ null, %11 ]
   %20 = shl nuw nsw i64 %.0221, 3
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #6
-  %22 = tail call noalias ptr @malloc(i64 noundef %20) #6
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #7
+  %22 = tail call noalias ptr @malloc(i64 noundef %20) #7
   %23 = add nuw nsw i64 %20, 8
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #6
-  %25 = tail call noalias ptr @malloc(i64 noundef %20) #6
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #7
+  %25 = tail call noalias ptr @malloc(i64 noundef %20) #7
   %.not283 = icmp eq ptr %24, null
   br i1 %.not283, label %.thread, label %26
 
@@ -62,7 +62,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not395, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %19, %26
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 286) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 286) #6
   br label %.thread279
 
 .lr.ph:                                           ; preds = %.preheader296, %139
@@ -71,7 +71,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %.0217352 = phi i64 [ %49, %139 ], [ 0, %.preheader296 ]
   %31 = icmp samesign ult i64 %.0217352, %12
   %. = select i1 %31, ptr %4, ptr %2
-  %32 = tail call i32 @BN_num_bits(ptr noundef %.) #5
+  %32 = tail call i32 @BN_num_bits(ptr noundef %.) #6
   %33 = icmp ugt i32 %32, 1999
   br i1 %33, label %43, label %34
 
@@ -103,17 +103,17 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %51 = select i1 %31, ptr %4, ptr %2
   %52 = trunc nuw nsw i64 %44 to i32
   %53 = getelementptr inbounds nuw i64, ptr %22, i64 %.0217352
-  %54 = tail call i32 @BN_is_zero(ptr noundef %51) #5
+  %54 = tail call i32 @BN_is_zero(ptr noundef %51) #6
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %59, label %55
 
 55:                                               ; preds = %43
-  %56 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #6
+  %56 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #7
   %.not101.i = icmp eq ptr %56, null
   br i1 %.not101.i, label %57, label %58
 
 57:                                               ; preds = %55
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 104) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 104) #6
   br label %.thread276
 
 58:                                               ; preds = %55
@@ -124,7 +124,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %60 = shl nuw nsw i32 1, %52
   %61 = shl nuw nsw i32 2, %52
   %62 = add nsw i32 %61, -1
-  %63 = tail call i32 @BN_is_negative(ptr noundef %51) #5
+  %63 = tail call i32 @BN_is_negative(ptr noundef %51) #6
   %.fr.i = freeze i32 %63
   %.not90.i = icmp eq i32 %.fr.i, 0
   %64 = load ptr, ptr %51, align 8, !tbaa !14
@@ -138,19 +138,19 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %66, %59
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 127) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 127) #6
   br label %.thread276
 
 71:                                               ; preds = %66
-  %72 = tail call i32 @BN_num_bits(ptr noundef nonnull %51) #5
+  %72 = tail call i32 @BN_num_bits(ptr noundef nonnull %51) #6
   %73 = zext i32 %72 to i64
   %74 = add nuw nsw i64 %73, 1
-  %75 = tail call noalias ptr @malloc(i64 noundef %74) #6
+  %75 = tail call noalias ptr @malloc(i64 noundef %74) #7
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %71
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 138) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 138) #6
   br label %.thread276
 
 78:                                               ; preds = %71
@@ -224,7 +224,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %103 = ashr i32 %.174.us.i, 1
   %104 = trunc i64 %101 to i32
   %105 = add i32 %104, %52
-  %106 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %51, i32 noundef %105) #5
+  %106 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %51, i32 noundef %105) #6
   %107 = shl nsw i32 %106, %52
   %108 = add nsw i32 %107, %103
   %109 = icmp sgt i32 %108, %61
@@ -271,7 +271,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond104.i, label %.split130.us.i, label %122
 
 .split130.us.i:                                   ; preds = %121, %93
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 171) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 171) #6
   br label %.thread276
 
 122:                                              ; preds = %121
@@ -286,7 +286,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond105.i, label %.critedge.thread.i, label %.split132.us.i
 
 .split132.us.i:                                   ; preds = %124, %96
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 181) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 181) #6
   br label %.thread276
 
 .critedge.thread.i:                               ; preds = %124, %122, %.critedge.i, %110
@@ -300,14 +300,14 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %129 = ashr i32 %.174.i, 1
   %130 = trunc i64 %127 to i32
   %131 = add i32 %130, %52
-  %132 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %51, i32 noundef %131) #5
+  %132 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %51, i32 noundef %131) #6
   %133 = shl nsw i32 %132, %52
   %134 = add nsw i32 %133, %129
   %135 = icmp sgt i32 %134, %61
   br i1 %135, label %.split136.us.i, label %.split.i
 
 .split136.us.i:                                   ; preds = %.critedge.thread.i, %.critedge.thread.us.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 192) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 192) #6
   br label %.thread276
 
 .split134.us.i:                                   ; preds = %110, %97
@@ -316,12 +316,12 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %.split134.us.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 198) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 198) #6
   br label %.thread276
 
 .thread276:                                       ; preds = %137, %.split136.us.i, %.split132.us.i, %.split130.us.i, %77, %70, %57
   %.077.ph.i = phi ptr [ %75, %137 ], [ null, %77 ], [ null, %70 ], [ null, %57 ], [ %75, %.split130.us.i ], [ %75, %.split132.us.i ], [ %75, %.split136.us.i ]
-  tail call void @free(ptr noundef %.077.ph.i) #5
+  tail call void @free(ptr noundef %.077.ph.i) #6
   %138 = getelementptr inbounds nuw ptr, ptr %24, i64 %.0217352
   store ptr null, ptr %138, align 8, !tbaa !6
   br label %.thread279
@@ -346,12 +346,12 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %.0199.lcssa = phi i64 [ 0, %.preheader296 ], [ %48, %._crit_edge.loopexit ]
   %143 = shl i64 %.0199.lcssa, 3
   %144 = add i64 %143, 8
-  %145 = tail call noalias ptr @malloc(i64 noundef %144) #6
+  %145 = tail call noalias ptr @malloc(i64 noundef %144) #7
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %._crit_edge
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 314) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 314) #6
   br label %.thread279
 
 148:                                              ; preds = %._crit_edge
@@ -372,7 +372,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
 154:                                              ; preds = %.lr.ph361, %157
   %.1197357 = phi ptr [ %.0196359, %.lr.ph361 ], [ %158, %157 ]
   %.0215356 = phi i64 [ 0, %.lr.ph361 ], [ %159, %157 ]
-  %155 = tail call ptr @EC_POINT_new(ptr noundef %0) #5
+  %155 = tail call ptr @EC_POINT_new(ptr noundef %0) #6
   store ptr %155, ptr %.1197357, align 8, !tbaa !21
   %156 = icmp eq ptr %155, null
   br i1 %156, label %.thread279, label %157
@@ -395,11 +395,11 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %163, label %165, label %164
 
 164:                                              ; preds = %._crit_edge362
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 332) #5
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 332) #6
   br label %.thread279
 
 165:                                              ; preds = %._crit_edge362
-  %166 = tail call ptr @EC_POINT_new(ptr noundef %0) #5
+  %166 = tail call ptr @EC_POINT_new(ptr noundef %0) #6
   %.not242 = icmp eq ptr %166, null
   br i1 %.not242, label %.thread279, label %.preheader289
 
@@ -414,7 +414,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
 168:                                              ; preds = %.lr.ph368
   %169 = load ptr, ptr %25, align 8, !tbaa !23
   %170 = load ptr, ptr %169, align 8, !tbaa !21
-  %171 = tail call i32 @EC_POINT_copy(ptr noundef %170, ptr noundef %3) #5
+  %171 = tail call i32 @EC_POINT_copy(ptr noundef %170, ptr noundef %3) #6
   %.not259 = icmp eq i32 %171, 0
   br i1 %.not259, label %.thread279, label %177
 
@@ -422,7 +422,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %173 = getelementptr inbounds nuw ptr, ptr %25, i64 %.2219367
   %174 = load ptr, ptr %173, align 8, !tbaa !23
   %175 = load ptr, ptr %174, align 8, !tbaa !21
-  %176 = tail call i32 @EC_POINT_copy(ptr noundef %175, ptr noundef %.0192) #5
+  %176 = tail call i32 @EC_POINT_copy(ptr noundef %175, ptr noundef %.0192) #6
   %.not258 = icmp eq i32 %176, 0
   br i1 %.not258, label %.thread279, label %177
 
@@ -436,7 +436,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %182 = getelementptr inbounds nuw ptr, ptr %25, i64 %.2219367
   %183 = load ptr, ptr %182, align 8, !tbaa !23
   %184 = load ptr, ptr %183, align 8, !tbaa !21
-  %185 = tail call i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef nonnull %166, ptr noundef %184, ptr noundef nonnull %.0189) #5
+  %185 = tail call i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef nonnull %166, ptr noundef %184, ptr noundef nonnull %.0189) #6
   %.not260 = icmp eq i32 %185, 0
   br i1 %.not260, label %.thread279, label %.lr.ph366.preheader
 
@@ -456,7 +456,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %191 = load ptr, ptr %190, align 8, !tbaa !21
   %192 = getelementptr i8, ptr %190, i64 -8
   %193 = load ptr, ptr %192, align 8, !tbaa !21
-  %194 = tail call i32 @EC_POINT_add(ptr noundef %0, ptr noundef %191, ptr noundef %193, ptr noundef nonnull %166, ptr noundef nonnull %.0189) #5
+  %194 = tail call i32 @EC_POINT_add(ptr noundef %0, ptr noundef %191, ptr noundef %193, ptr noundef nonnull %166, ptr noundef nonnull %.0189) #6
   %.not261 = icmp eq i32 %194, 0
   br i1 %.not261, label %.thread279, label %187
 
@@ -466,7 +466,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond449.not, label %._crit_edge369, label %.lr.ph368, !llvm.loop !28
 
 ._crit_edge369:                                   ; preds = %.loopexit287, %.preheader289
-  %196 = tail call i32 @EC_POINTs_make_affine(ptr noundef %0, i64 noundef %.0199.lcssa, ptr noundef nonnull %145, ptr noundef nonnull %.0189) #5
+  %196 = tail call i32 @EC_POINTs_make_affine(ptr noundef %0, i64 noundef %.0199.lcssa, ptr noundef nonnull %145, ptr noundef nonnull %.0189) #6
   %.not243 = icmp eq i32 %196, 0
   br i1 %.not243, label %.thread279, label %197
 
@@ -487,7 +487,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not248.us, label %200, label %.lr.ph374.us.preheader
 
 200:                                              ; preds = %.lr.ph382.split.us
-  %201 = tail call i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %.0189) #5
+  %201 = tail call i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %.0189) #6
   %.not249.us = icmp eq i32 %201, 0
   br i1 %.not249.us, label %.thread279, label %.lr.ph374.us.preheader
 
@@ -523,7 +523,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not252.us, label %214, label %216
 
 214:                                              ; preds = %213
-  %215 = tail call i32 @EC_POINT_invert(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0189) #5
+  %215 = tail call i32 @EC_POINT_invert(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0189) #6
   %.not253.us = icmp eq i32 %215, 0
   br i1 %.not253.us, label %.thread279, label %216
 
@@ -544,12 +544,12 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not255.us, label %227, label %225
 
 225:                                              ; preds = %218
-  %226 = tail call i32 @EC_POINT_copy(ptr noundef %1, ptr noundef %224) #5
+  %226 = tail call i32 @EC_POINT_copy(ptr noundef %1, ptr noundef %224) #6
   %.not257.us = icmp eq i32 %226, 0
   br i1 %.not257.us, label %.thread279, label %229
 
 227:                                              ; preds = %218
-  %228 = tail call i32 @EC_POINT_add(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef %224, ptr noundef nonnull %.0189) #5
+  %228 = tail call i32 @EC_POINT_add(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef %224, ptr noundef nonnull %.0189) #6
   %.not256.us = icmp eq i32 %228, 0
   br i1 %.not256.us, label %.thread279, label %229
 
@@ -570,7 +570,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %232, label %234, label %._crit_edge383.thread
 
 ._crit_edge383.thread:                            ; preds = %197, %._crit_edge383
-  %233 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef %0, ptr noundef %1) #5
+  %233 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef %0, ptr noundef %1) #6
   %.not247 = icmp eq i32 %233, 0
   br i1 %.not247, label %.thread279, label %238
 
@@ -579,7 +579,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %235, label %238, label %236
 
 236:                                              ; preds = %234
-  %237 = tail call i32 @EC_POINT_invert(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0189) #5
+  %237 = tail call i32 @EC_POINT_invert(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0189) #6
   %.not246 = icmp eq i32 %237, 0
   br i1 %.not246, label %.thread279, label %238
 
@@ -595,10 +595,10 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %.0194 = phi i32 [ 0, %8 ], [ 0, %16 ], [ 0, %147 ], [ 1, %238 ], [ 0, %._crit_edge383.thread ], [ 0, %236 ], [ 0, %._crit_edge369 ], [ 0, %165 ], [ 0, %164 ], [ 0, %.thread ], [ 0, %.thread276 ], [ 0, %214 ], [ 0, %225 ], [ 0, %227 ], [ 0, %200 ], [ 0, %.lr.ph366 ], [ 0, %168 ], [ 0, %172 ], [ 0, %181 ], [ 0, %154 ]
   %.0193 = phi ptr [ null, %8 ], [ null, %16 ], [ null, %147 ], [ %166, %238 ], [ %166, %._crit_edge383.thread ], [ %166, %236 ], [ %166, %._crit_edge369 ], [ null, %165 ], [ null, %164 ], [ null, %.thread ], [ null, %.thread276 ], [ %166, %214 ], [ %166, %225 ], [ %166, %227 ], [ %166, %200 ], [ %166, %.lr.ph366 ], [ %166, %168 ], [ %166, %172 ], [ %166, %181 ], [ null, %154 ]
   %.1191 = phi ptr [ null, %8 ], [ %.0190, %16 ], [ %.0190, %147 ], [ %.0190, %238 ], [ %.0190, %._crit_edge383.thread ], [ %.0190, %236 ], [ %.0190, %._crit_edge369 ], [ %.0190, %165 ], [ %.0190, %164 ], [ %.0190, %.thread ], [ %.0190, %.thread276 ], [ %.0190, %214 ], [ %.0190, %225 ], [ %.0190, %227 ], [ %.0190, %200 ], [ %.0190, %.lr.ph366 ], [ %.0190, %168 ], [ %.0190, %172 ], [ %.0190, %181 ], [ %.0190, %154 ]
-  tail call void @BN_CTX_free(ptr noundef %.1191) #5
-  tail call void @EC_POINT_free(ptr noundef %.0193) #5
-  tail call void @free(ptr noundef %.0205) #5
-  tail call void @free(ptr noundef %.0203) #5
+  tail call void @BN_CTX_free(ptr noundef %.1191) #6
+  tail call void @EC_POINT_free(ptr noundef %.0193) #6
+  tail call void @free(ptr noundef %.0205) #6
+  tail call void @free(ptr noundef %.0203) #6
   %.not262 = icmp eq ptr %.0204, null
   br i1 %.not262, label %243, label %.preheader284
 
@@ -610,14 +610,14 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
 .lr.ph389:                                        ; preds = %.preheader284, %.lr.ph389
   %240 = phi ptr [ %242, %.lr.ph389 ], [ %239, %.preheader284 ]
   %.0388 = phi ptr [ %241, %.lr.ph389 ], [ %.0204, %.preheader284 ]
-  tail call void @free(ptr noundef nonnull %240) #5
+  tail call void @free(ptr noundef nonnull %240) #6
   %241 = getelementptr inbounds nuw i8, ptr %.0388, i64 8
   %242 = load ptr, ptr %241, align 8, !tbaa !6
   %.not263 = icmp eq ptr %242, null
   br i1 %.not263, label %._crit_edge390, label %.lr.ph389, !llvm.loop !31
 
 ._crit_edge390:                                   ; preds = %.lr.ph389, %.preheader284
-  tail call void @free(ptr noundef nonnull %.0204) #5
+  tail call void @free(ptr noundef nonnull %.0204) #6
   br label %243
 
 243:                                              ; preds = %._crit_edge390, %.thread279
@@ -632,18 +632,18 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
 .lr.ph393:                                        ; preds = %.preheader, %.lr.ph393
   %245 = phi ptr [ %247, %.lr.ph393 ], [ %244, %.preheader ]
   %.2392 = phi ptr [ %246, %.lr.ph393 ], [ %.0198, %.preheader ]
-  tail call void @EC_POINT_clear_free(ptr noundef nonnull %245) #5
+  tail call void @EC_POINT_clear_free(ptr noundef nonnull %245) #6
   %246 = getelementptr inbounds nuw i8, ptr %.2392, i64 8
   %247 = load ptr, ptr %246, align 8, !tbaa !21
   %.not265 = icmp eq ptr %247, null
   br i1 %.not265, label %._crit_edge394, label %.lr.ph393, !llvm.loop !32
 
 ._crit_edge394:                                   ; preds = %.lr.ph393, %.preheader
-  tail call void @free(ptr noundef nonnull %.0198) #5
+  tail call void @free(ptr noundef nonnull %.0198) #6
   br label %248
 
 248:                                              ; preds = %._crit_edge394, %243
-  tail call void @free(ptr noundef %.0195) #5
+  tail call void @free(ptr noundef %.0195) #6
   ret i32 %.0194
 }
 
@@ -690,16 +690,17 @@ declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.abs.i8(i8, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0) }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

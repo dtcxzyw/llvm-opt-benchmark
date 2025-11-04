@@ -34,7 +34,7 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssemblerC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6asmjit9_abi_1_1011BaseEmitterC2ENS0_11EmitterTypeE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext 1) #12
+  tail call void @_ZN6asmjit9_abi_1_1011BaseEmitterC2ENS0_11EmitterTypeE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext 1) #13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6asmjit9_abi_1_1013BaseAssemblerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -49,13 +49,13 @@ declare void @_ZN6asmjit9_abi_1_1011BaseEmitterD2Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6asmjit9_abi_1_1011BaseEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #12
+  tail call void @_ZN6asmjit9_abi_1_1011BaseEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #13
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssemblerD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
-  tail call void @llvm.trap() #13
+  tail call void @llvm.trap() #14
   unreachable
 }
 
@@ -144,7 +144,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler7sectionEPNS0_7
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %28 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull @.str, ptr noundef nonnull %27, i32 noundef %9) #12
+  %28 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull @.str, ptr noundef nonnull %27, i32 noundef %9) #13
   br label %29
 
 29:                                               ; preds = %26, %22
@@ -184,7 +184,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssembler8newLabelEv(ptr dead_o
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %8 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE(ptr noundef nonnull align 8 dereferenceable(336) %5, ptr noundef nonnull %3) #12
+  %8 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE(ptr noundef nonnull align 8 dereferenceable(336) %5, ptr noundef nonnull %3) #13
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10, !prof !48
 
@@ -228,7 +228,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssembler13newNamedLabelEPKcmNS
 
 11:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %12 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEntryEPPNS0_10LabelEntryEPKcmNS0_9LabelTypeEj(ptr noundef nonnull align 8 dereferenceable(336) %9, ptr noundef nonnull %7, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) #12
+  %12 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEntryEPPNS0_10LabelEntryEPKcmNS0_9LabelTypeEj(ptr noundef nonnull align 8 dereferenceable(336) %9, ptr noundef nonnull %7, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) #13
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %14, !prof !48
 
@@ -280,14 +280,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler4bindERKNS0_5La
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
-  %17 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder9bindLabelERKNS0_5LabelEjm(ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef %9, i64 noundef %16) #12
+  %17 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder9bindLabelERKNS0_5LabelEjm(ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef %9, i64 noundef %16) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %6
-  tail call void @_ZN6asmjit9_abi_1_1012EmitterUtils13logLabelBoundEPNS0_13BaseAssemblerERKNS0_5LabelE(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #12
+  tail call void @_ZN6asmjit9_abi_1_1012EmitterUtils13logLabelBoundEPNS0_13BaseAssemblerERKNS0_5LabelE(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #13
   br label %22
 
 22:                                               ; preds = %21, %6
@@ -343,7 +343,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler5embedEPKvm(ptr
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %25 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %6, ptr noundef nonnull %24, i64 noundef %2) #12
+  %25 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %6, ptr noundef nonnull %24, i64 noundef %2) #13
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %29, label %27, !prof !48
 
@@ -359,7 +359,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler5embedEPKvm(ptr
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #13
+  tail call void @__clang_call_terminate(ptr %33) #14
   unreachable
 
 34:                                               ; preds = %27
@@ -401,8 +401,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler5embedEPKvm(ptr
   %57 = load i32, ptr %56, align 4, !tbaa !57
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load i8, ptr %58, align 8, !tbaa !62
-  %60 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %57, i8 noundef zeroext %59, i8 noundef zeroext 35, ptr noundef %1, i64 noundef %2, i64 noundef 1) #12
-  %61 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1, i8 noundef signext 10) #12
+  %60 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %57, i8 noundef zeroext %59, i8 noundef zeroext 35, ptr noundef %1, i64 noundef %2, i64 noundef 1) #13
+  %61 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1, i8 noundef signext 10) #13
   %62 = load ptr, ptr %49, align 8, !tbaa !43
   %63 = load i8, ptr %4, align 8
   %64 = icmp ugt i8 %63, 30
@@ -416,8 +416,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler5embedEPKvm(ptr
   %72 = load ptr, ptr %62, align 8, !tbaa !3
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = call noundef i32 %74(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef %67, i64 noundef %71) #12
-  %76 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %75 = call noundef i32 %74(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef %67, i64 noundef %71) #13
+  %76 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
@@ -490,7 +490,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load ptr, ptr %51, align 8, !tbaa !6
-  %53 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %52, ptr noundef nonnull %50, i64 noundef %34) #12
+  %53 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %52, ptr noundef nonnull %50, i64 noundef %34) #13
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %57, label %55, !prof !48
 
@@ -506,7 +506,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #13
+  tail call void @__clang_call_terminate(ptr %61) #14
   unreachable
 
 62:                                               ; preds = %55
@@ -593,8 +593,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
   %109 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %110 = load i32, ptr %109, align 4, !tbaa !57
   %111 = load i8, ptr %7, align 8, !tbaa !62
-  %112 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %110, i8 noundef zeroext %111, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #12
-  %113 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 1, i8 noundef signext 10) #12
+  %112 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %110, i8 noundef zeroext %111, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #13
+  %113 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 1, i8 noundef signext 10) #13
   %114 = load ptr, ptr %89, align 8, !tbaa !43
   %115 = load i8, ptr %6, align 8
   %116 = icmp ugt i8 %115, 30
@@ -608,8 +608,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
   %124 = load ptr, ptr %114, align 8, !tbaa !3
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(20) %114, ptr noundef %119, i64 noundef %123) #12
-  %128 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
+  %127 = call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(20) %114, ptr noundef %119, i64 noundef %123) #13
+  %128 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %129
 
@@ -633,7 +633,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !52
-  %13 = tail call noundef zeroext i1 @_ZNK6asmjit9_abi_1_1011BaseEmitter12isLabelValidEj(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %12) #12
+  %13 = tail call noundef zeroext i1 @_ZNK6asmjit9_abi_1_1011BaseEmitter12isLabelValidEj(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %12) #13
   br i1 %13, label %16, label %14, !prof !48
 
 14:                                               ; preds = %10
@@ -681,7 +681,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
   %46 = load ptr, ptr %45, align 8, !tbaa !29
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %5, align 8, !tbaa !6
-  %49 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %48, ptr noundef nonnull %47, i64 noundef %33) #12
+  %49 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %48, ptr noundef nonnull %47, i64 noundef %33) #13
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %53, label %51, !prof !48
 
@@ -697,7 +697,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #13
+  tail call void @__clang_call_terminate(ptr %57) #14
   unreachable
 
 58:                                               ; preds = %51
@@ -706,7 +706,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
 
 60:                                               ; preds = %58, %53, %35
   %61 = phi ptr [ %37, %58 ], [ %54, %53 ], [ %37, %35 ]
-  tail call void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef %61) #12
+  tail call void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef %61) #13
   %62 = getelementptr inbounds i8, ptr %61, i64 %33
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %64 = load ptr, ptr %63, align 8, !tbaa !29
@@ -750,8 +750,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
   %92 = load i8, ptr %91, align 1, !tbaa !72
   %93 = zext nneg i32 %81 to i64
   %94 = lshr i64 %33, %93
-  %95 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %87, i8 noundef zeroext %89, i8 noundef zeroext %92, ptr noundef %61, i64 noundef %94, i64 noundef 1) #12
-  %96 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1, i8 noundef signext 10) #12
+  %95 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %87, i8 noundef zeroext %89, i8 noundef zeroext %92, ptr noundef %61, i64 noundef %94, i64 noundef 1) #13
+  %96 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 1, i8 noundef signext 10) #13
   %97 = load ptr, ptr %73, align 8, !tbaa !43
   %98 = load i8, ptr %4, align 8
   %99 = icmp ugt i8 %98, 30
@@ -765,8 +765,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
   %107 = load ptr, ptr %97, align 8, !tbaa !3
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
-  %110 = call noundef i32 %109(ptr noundef nonnull align 8 dereferenceable(20) %97, ptr noundef %102, i64 noundef %106) #12
-  %111 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %110 = call noundef i32 %109(ptr noundef nonnull align 8 dereferenceable(20) %97, ptr noundef %102, i64 noundef %106) #13
+  %111 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 
@@ -847,7 +847,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %52 = load ptr, ptr %51, align 8, !tbaa !29
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  %54 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %8, ptr noundef nonnull %53, i64 noundef %34) #12
+  %54 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %8, ptr noundef nonnull %53, i64 noundef %34) #13
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %58, label %56, !prof !48
 
@@ -863,7 +863,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #13
+  tail call void @__clang_call_terminate(ptr %62) #14
   unreachable
 
 63:                                               ; preds = %56
@@ -887,18 +887,18 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %72, ptr %73, align 8, !tbaa !56
   store i8 0, ptr %72, align 8, !tbaa !56
-  %74 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 46) #12
+  %74 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 46) #13
   %75 = load ptr, ptr %67, align 8, !tbaa !43
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 4, !tbaa !57
   %78 = load i8, ptr %29, align 8, !tbaa !62
   %79 = getelementptr inbounds nuw i8, ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 %34
   %80 = load i8, ptr %79, align 1, !tbaa !72
-  %81 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter14formatDataTypeERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %77, i8 noundef zeroext %78, i8 noundef zeroext %80) #12
-  %82 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 32) #12
+  %81 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter14formatDataTypeERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %77, i8 noundef zeroext %78, i8 noundef zeroext %80) #13
+  %82 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 32) #13
   %83 = load i32, ptr %13, align 4, !tbaa !52
-  %84 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %83) #12
-  %85 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 10) #12
+  %84 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %83) #13
+  %85 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 10) #13
   %86 = load ptr, ptr %67, align 8, !tbaa !43
   %87 = load i8, ptr %5, align 8
   %88 = icmp ugt i8 %87, 30
@@ -912,14 +912,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %96 = load ptr, ptr %86, align 8, !tbaa !3
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
-  %99 = call noundef i32 %98(ptr noundef nonnull align 8 dereferenceable(20) %86, ptr noundef %91, i64 noundef %95) #12
-  %100 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  %99 = call noundef i32 %98(ptr noundef nonnull align 8 dereferenceable(20) %86, ptr noundef %91, i64 noundef %95) #13
+  %100 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %101
 
 101:                                              ; preds = %70, %65
   %102 = load ptr, ptr %7, align 8, !tbaa !6
-  %103 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %102, ptr noundef nonnull %4, i32 noundef 3) #12
+  %103 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %102, ptr noundef nonnull %4, i32 noundef 3) #13
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %107, label %105, !prof !48
 
@@ -993,7 +993,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 7
   store i8 0, ptr %146, align 1, !tbaa !88
   %147 = load ptr, ptr %7, align 8, !tbaa !6
-  %148 = call noundef ptr @_ZN6asmjit9_abi_1_1010CodeHolder12newLabelLinkEPNS0_10LabelEntryEjmlRKNS0_12OffsetFormatE(ptr noundef nonnull align 8 dereferenceable(336) %147, ptr noundef nonnull %23, i32 noundef %110, i64 noundef %118, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(8) %6) #12
+  %148 = call noundef ptr @_ZN6asmjit9_abi_1_1010CodeHolder12newLabelLinkEPNS0_10LabelEntryEjmlRKNS0_12OffsetFormatE(ptr noundef nonnull align 8 dereferenceable(336) %147, ptr noundef nonnull %23, i32 noundef %110, i64 noundef %118, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(8) %6) #13
   %149 = icmp eq ptr %148, null
   br i1 %149, label %150, label %152, !prof !28
 
@@ -1131,7 +1131,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %65 = load ptr, ptr %64, align 8, !tbaa !29
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 72
-  %67 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %8, ptr noundef nonnull %66, i64 noundef %47) #12
+  %67 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10growBufferEPNS0_10CodeBufferEm(ptr noundef nonnull align 8 dereferenceable(336) %8, ptr noundef nonnull %66, i64 noundef %47) #13
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %71, label %69, !prof !48
 
@@ -1147,7 +1147,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #13
+  tail call void @__clang_call_terminate(ptr %75) #14
   unreachable
 
 76:                                               ; preds = %69
@@ -1171,21 +1171,21 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %85, ptr %86, align 8, !tbaa !56
   store i8 0, ptr %85, align 8, !tbaa !56
-  %87 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 46) #12
+  %87 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 46) #13
   %88 = load ptr, ptr %80, align 8, !tbaa !43
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 4, !tbaa !57
   %91 = load i8, ptr %42, align 8, !tbaa !62
   %92 = getelementptr inbounds nuw i8, ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 %47
   %93 = load i8, ptr %92, align 1, !tbaa !72
-  %94 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter14formatDataTypeERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %90, i8 noundef zeroext %91, i8 noundef zeroext %93) #12
-  %95 = call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef -1) #12
+  %94 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter14formatDataTypeERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %90, i8 noundef zeroext %91, i8 noundef zeroext %93) #13
+  %95 = call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef -1) #13
   %96 = load i32, ptr %13, align 4, !tbaa !52
-  %97 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %96) #12
-  %98 = call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, ptr noundef nonnull @.str.2, i64 noundef -1) #12
+  %97 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %96) #13
+  %98 = call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, ptr noundef nonnull @.str.2, i64 noundef -1) #13
   %99 = load i32, ptr %26, align 4, !tbaa !52
-  %100 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %99) #12
-  %101 = call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, ptr noundef nonnull @.str.3, i64 noundef -1) #12
+  %100 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 0, ptr noundef nonnull %0, i32 noundef %99) #13
+  %101 = call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, ptr noundef nonnull @.str.3, i64 noundef -1) #13
   %102 = load ptr, ptr %80, align 8, !tbaa !43
   %103 = load i8, ptr %5, align 8
   %104 = icmp ugt i8 %103, 30
@@ -1199,8 +1199,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %112 = load ptr, ptr %102, align 8, !tbaa !3
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load ptr, ptr %113, align 8
-  %115 = call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(20) %102, ptr noundef %107, i64 noundef %111) #12
-  %116 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  %115 = call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(20) %102, ptr noundef %107, i64 noundef %111) #13
+  %116 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %117
 
@@ -1240,7 +1240,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
 141:                                              ; preds = %121, %117
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %142 = load ptr, ptr %7, align 8, !tbaa !6
-  %143 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %142, ptr noundef nonnull %6, i32 noundef 1) #12
+  %143 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %142, ptr noundef nonnull %6, i32 noundef 1) #13
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %145, label %167, !prof !48
 
@@ -1262,7 +1262,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %145
-  %161 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %147, i64 noundef 24, i64 noundef 8) #12
+  %161 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32) %147, i64 noundef 24, i64 noundef 8) #13
   br label %164
 
 162:                                              ; preds = %145
@@ -1370,12 +1370,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler7commentEPKcm(p
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %1, i64 noundef %2) #12
+  %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %1, i64 noundef %2) #13
   %20 = load ptr, ptr %14, align 8, !tbaa !43
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull @.str.4, i64 noundef 1) #12
+  %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull @.str.4, i64 noundef 1) #13
   br label %25
 
 25:                                               ; preds = %13, %11, %8
@@ -1385,7 +1385,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler7commentEPKcm(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler8onAttachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onAttachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) #12
+  %3 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onAttachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) #13
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %21
 
@@ -1422,7 +1422,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onAttachEPNS0_10CodeHolde
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(176) initializes((144, 176)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %4 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) #12
+  %4 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) #13
   ret i32 %4
 }
 
@@ -1448,8 +1448,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -1473,29 +1473,29 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind
 declare noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZN6asmjit9_abi_1_104Zone6_allocEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -1507,10 +1507,11 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #8 = { cold nofree noreturn }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

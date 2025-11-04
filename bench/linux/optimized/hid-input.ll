@@ -241,7 +241,7 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
   %44 = sext i32 %39 to i64
   %45 = getelementptr %struct.anon.2, ptr @hid_hat_to_axis, i64 %44
   %46 = load i32, ptr %45, align 8
-  tail call void @input_event(ptr noundef %16, i32 noundef %40, i32 noundef %43, i32 noundef %46) #11
+  tail call void @input_event(ptr noundef %16, i32 noundef %40, i32 noundef %43, i32 noundef %46) #12
   %47 = load i8, ptr %8, align 4
   %48 = zext i8 %47 to i32
   %49 = load i16, ptr %41, align 2
@@ -249,7 +249,7 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
   %51 = add nuw nsw i32 %50, 1
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %53 = load i32, ptr %52, align 4
-  tail call void @input_event(ptr noundef %16, i32 noundef %48, i32 noundef %51, i32 noundef %53) #11
+  tail call void @input_event(ptr noundef %16, i32 noundef %48, i32 noundef %51, i32 noundef %53) #12
   br label %.loopexit
 
 54:                                               ; preds = %22
@@ -425,7 +425,7 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %145
-  tail call void @input_event(ptr noundef %16, i32 noundef 1, i32 noundef 330, i32 noundef 1) #11
+  tail call void @input_event(ptr noundef %16, i32 noundef 1, i32 noundef 330, i32 noundef 1) #12
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 2136
   store i8 1, ptr %155, align 8
   br label %156
@@ -476,10 +476,10 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
 
 .preheader:                                       ; preds = %176, %.preheader
   %181 = phi i32 [ %182, %.preheader ], [ 0, %176 ]
-  tail call void @input_event(ptr noundef %16, i32 noundef 1, i32 noundef %179, i32 noundef 1) #11
-  tail call void @input_event(ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  tail call void @input_event(ptr noundef %16, i32 noundef 1, i32 noundef %179, i32 noundef 0) #11
-  tail call void @input_event(ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  tail call void @input_event(ptr noundef %16, i32 noundef 1, i32 noundef %179, i32 noundef 1) #12
+  tail call void @input_event(ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %16, i32 noundef 1, i32 noundef %179, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   %182 = add nuw nsw i32 %181, 1
   %183 = icmp eq i32 %182, %177
   br i1 %183, label %.loopexit, label %.preheader, !llvm.loop !11
@@ -546,7 +546,7 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
   %225 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %226 = load i16, ptr %225, align 2
   %227 = zext i16 %226 to i64
-  %228 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %224, i64 %227) #11, !srcloc !12
+  %228 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %224, i64 %227) #12, !srcloc !12
   %229 = icmp ult i8 %228, 2
   tail call void @llvm.assume(i1 %229)
   %230 = xor i8 %228, 1
@@ -556,7 +556,7 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
 
 233:                                              ; preds = %223
   %234 = load i32, ptr %2, align 4
-  tail call void @input_event(ptr noundef %16, i32 noundef 4, i32 noundef 4, i32 noundef %234) #11
+  tail call void @input_event(ptr noundef %16, i32 noundef 4, i32 noundef 4, i32 noundef %234) #12
   br label %235
 
 235:                                              ; preds = %233, %223, %221
@@ -565,7 +565,7 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
   %238 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %239 = load i16, ptr %238, align 2
   %240 = zext i16 %239 to i32
-  tail call void @input_event(ptr noundef %16, i32 noundef %237, i32 noundef %240, i32 noundef %204) #11
+  tail call void @input_event(ptr noundef %16, i32 noundef %237, i32 noundef %240, i32 noundef %204) #12
   %241 = load i32, ptr %55, align 4
   %242 = and i32 %241, 4
   %243 = icmp eq i32 %242, 0
@@ -579,12 +579,12 @@ define dso_local void @hidinput_hid_event(ptr noundef readonly captures(none) %0
   br i1 %248, label %249, label %.loopexit
 
 249:                                              ; preds = %244
-  tail call void @input_event(ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  tail call void @input_event(ptr noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   %250 = load i8, ptr %8, align 4
   %251 = zext i8 %250 to i32
   %252 = load i16, ptr %238, align 2
   %253 = zext i16 %252 to i32
-  tail call void @input_event(ptr noundef %16, i32 noundef %251, i32 noundef %253, i32 noundef 0) #11
+  tail call void @input_event(ptr noundef %16, i32 noundef %251, i32 noundef %253, i32 noundef 0) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %249, %244, %235, %214, %176, %167, %158, %132, %131, %109, %107, %106, %99, %86, %76, %76, %68, %36, %10, %4, %4
@@ -604,21 +604,21 @@ define internal fastcc void @hid_report_set_tool(ptr noundef captures(none) %0, 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %9 = zext i32 %5 to i64
-  %10 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 %9) #11, !srcloc !12
+  %10 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 %9) #12, !srcloc !12
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %7
-  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef 330, i32 noundef 0) #11
-  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef %5, i32 noundef 0) #11
-  tail call void @input_event(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef 330, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef %5, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   store i32 0, ptr %4, align 4
   br label %14
 
 14:                                               ; preds = %13, %7, %3
-  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef %2, i32 noundef 1) #11
+  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef %2, i32 noundef 1) #12
   store i32 %2, ptr %4, align 4
   ret void
 }
@@ -627,16 +627,16 @@ define internal fastcc void @hid_report_set_tool(ptr noundef captures(none) %0, 
 define internal fastcc void @hid_report_release_tool(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %5 = zext nneg i32 %2 to i64
-  %6 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %5) #11, !srcloc !12
+  %6 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %5) #12, !srcloc !12
   %7 = icmp ult i8 %6, 2
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i8 %6, 0
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
-  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef 330, i32 noundef 0) #11
-  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef %2, i32 noundef 0) #11
-  tail call void @input_event(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef 330, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %1, i32 noundef 1, i32 noundef %2, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2140
   store i32 0, ptr %10, align 4
   br label %11
@@ -673,10 +673,10 @@ define internal fastcc void @hidinput_handle_scroll(ptr noundef captures(none) %
   %24 = select i1 %22, i16 0, i16 %23
   %25 = add i16 %24, %18
   store i16 %25, ptr %15, align 4
-  tail call void @input_event(ptr noundef %1, i32 noundef 2, i32 noundef %9, i32 noundef %.sext) #11
+  tail call void @input_event(ptr noundef %1, i32 noundef 2, i32 noundef %9, i32 noundef %.sext) #12
   %26 = load i16, ptr %6, align 2
   %27 = zext i16 %26 to i32
-  tail call void @input_event(ptr noundef %1, i32 noundef 2, i32 noundef %27, i32 noundef %14) #11
+  tail call void @input_event(ptr noundef %1, i32 noundef 2, i32 noundef %27, i32 noundef %14) #12
   br label %28
 
 28:                                               ; preds = %5, %3
@@ -700,7 +700,7 @@ define dso_local void @hidinput_report_event(ptr noundef readonly captures(addre
   %10 = phi ptr [ %13, %.preheader ], [ %8, %6 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
-  tail call void @input_event(ptr noundef %12, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  tail call void @input_event(ptr noundef %12, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   %13 = load ptr, ptr %10, align 8
   %14 = icmp eq ptr %13, %7
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !13
@@ -982,7 +982,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %74 to i64
   %80 = getelementptr %struct.hid_usage, ptr %78, i64 %79
-  tail call void %72(ptr noundef %0, ptr noundef %73, ptr noundef %80) #11
+  tail call void %72(ptr noundef %0, ptr noundef %73, ptr noundef %80) #12
   %.pre = load ptr, ptr %61, align 8
   br label %81
 
@@ -1145,8 +1145,8 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
 
 .thread51:                                        ; preds = %144, %164, %171, %153, %126, %.loopexit70
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
-  %177 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %176, i32 noundef 3520, i64 noundef 64) #12
-  %178 = tail call ptr @input_allocate_device() #11
+  %177 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %176, i32 noundef 3520, i64 noundef 64) #13
+  %178 = tail call ptr @input_allocate_device() #12
   %179 = icmp ne ptr %177, null
   %180 = icmp ne ptr %178, null
   %181 = select i1 %179, i1 %180, i1 false
@@ -1210,8 +1210,8 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
 
 200:                                              ; preds = %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199
   %201 = phi ptr [ @.str.11, %199 ], [ @.str.10, %198 ], [ @.str.9, %197 ], [ @.str.8, %196 ], [ @.str.7, %195 ], [ @.str.6, %194 ], [ @.str.5, %193 ], [ @.str.4, %192 ], [ @.str.3, %191 ], [ @.str.2, %190 ], [ @.str.1, %189 ]
-  %202 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #11
-  %203 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %201) #11
+  %202 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #12
+  %203 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %201) #12
   %204 = icmp ult i64 %202, %203
   br i1 %204, label %211, label %205
 
@@ -1219,20 +1219,20 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %206 = getelementptr i8, ptr %93, i64 %202
   %207 = sub i64 0, %203
   %208 = getelementptr i8, ptr %206, i64 %207
-  %209 = tail call i32 @strcmp(ptr noundef %208, ptr noundef nonnull dereferenceable(1) %201) #11
+  %209 = tail call i32 @strcmp(ptr noundef %208, ptr noundef nonnull dereferenceable(1) %201) #12
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %215, label %211
 
 211:                                              ; preds = %205, %200
-  %212 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.12, ptr noundef nonnull %93, ptr noundef nonnull %201) #11
+  %212 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.12, ptr noundef nonnull %93, ptr noundef nonnull %201) #12
   %213 = getelementptr inbounds nuw i8, ptr %177, i64 32
   store ptr %212, ptr %213, align 8
   %214 = icmp eq ptr %212, null
   br i1 %214, label %.thread52, label %215
 
 .thread52:                                        ; preds = %.thread51, %211
-  tail call void @kfree(ptr noundef %177) #11
-  tail call void @input_free_device(ptr noundef %178) #11
+  tail call void @kfree(ptr noundef %177) #12
+  tail call void @input_free_device(ptr noundef %178) #12
   br label %.loopexit58.sink.split
 
 215:                                              ; preds = %189, %186, %182, %211, %205
@@ -1509,7 +1509,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br i1 %382, label %383, label %__hidinput_change_resolution_multipliers.exit
 
 383:                                              ; preds = %379
-  tail call void @hid_hw_request(ptr noundef %0, ptr noundef %341, i32 noundef 1) #11
+  tail call void @hid_hw_request(ptr noundef %0, ptr noundef %341, i32 noundef 1) #12
   %384 = load ptr, ptr %339, align 8
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 56
   %386 = load ptr, ptr %385, align 8
@@ -1517,7 +1517,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br i1 %387, label %390, label %388
 
 388:                                              ; preds = %383
-  %389 = tail call i32 %386(ptr noundef %0) #11
+  %389 = tail call i32 %386(ptr noundef %0) #12
   br label %390
 
 390:                                              ; preds = %388, %383, %376, %374
@@ -1561,7 +1561,7 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   br i1 %.not, label %__hidinput_change_resolution_multipliers.exit.thread, label %408
 
 408:                                              ; preds = %407, %__hidinput_change_resolution_multipliers.exit
-  %409 = tail call i32 @__hid_request(ptr noundef %0, ptr noundef %341, i32 noundef 9) #11
+  %409 = tail call i32 @__hid_request(ptr noundef %0, ptr noundef %341, i32 noundef 9) #12
   %410 = icmp eq i32 %409, 0
   br i1 %410, label %__hidinput_change_resolution_multipliers.exit.thread, label %411
 
@@ -1618,7 +1618,7 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   br i1 %446, label %447, label %__hidinput_change_resolution_multipliers.exit48
 
 447:                                              ; preds = %443
-  tail call void @hid_hw_request(ptr noundef %0, ptr noundef %341, i32 noundef 1) #11
+  tail call void @hid_hw_request(ptr noundef %0, ptr noundef %341, i32 noundef 1) #12
   %448 = load ptr, ptr %339, align 8
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 56
   %450 = load ptr, ptr %449, align 8
@@ -1626,7 +1626,7 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   br i1 %451, label %454, label %452
 
 452:                                              ; preds = %447
-  %453 = tail call i32 %450(ptr noundef %0) #11
+  %453 = tail call i32 %450(ptr noundef %0) #12
   br label %454
 
 454:                                              ; preds = %452, %447, %440, %438
@@ -1665,7 +1665,7 @@ __hidinput_change_resolution_multipliers.exit.thread: ; preds = %340, %407, %408
   br i1 %471, label %.loopexit62, label %340, !llvm.loop !36
 
 .loopexit62:                                      ; preds = %__hidinput_change_resolution_multipliers.exit.thread, %.thread54
-  tail call void @hid_setup_resolution_multiplier(ptr noundef %0) #11
+  tail call void @hid_setup_resolution_multiplier(ptr noundef %0) #12
   br label %__hidinput_change_resolution_multipliers.exit48
 
 __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443, %411, %.loopexit62
@@ -1685,7 +1685,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   br i1 %480, label %484, label %481
 
 481:                                              ; preds = %476
-  %482 = tail call i32 %479(ptr noundef %0, ptr noundef %477) #11
+  %482 = tail call i32 %479(ptr noundef %0, ptr noundef %477) #12
   %483 = icmp eq i32 %482, 0
   br i1 %483, label %484, label %.loopexit58
 
@@ -1752,10 +1752,10 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %477, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %528, align 8
   %532 = load ptr, ptr %485, align 8
-  tail call void @input_free_device(ptr noundef %532) #11
+  tail call void @input_free_device(ptr noundef %532) #12
   %533 = getelementptr inbounds nuw i8, ptr %477, i64 32
   %534 = load ptr, ptr %533, align 8
-  tail call void @kfree(ptr noundef %534) #11
+  tail call void @kfree(ptr noundef %534) #12
   br label %535
 
 535:                                              ; preds = %.loopexit57, %527
@@ -1819,11 +1819,11 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   br i1 %537, label %535, label %.thread55, !llvm.loop !41
 
 .thread55:                                        ; preds = %538, %.loopexit57
-  tail call void @kfree(ptr noundef %477) #11
+  tail call void @kfree(ptr noundef %477) #12
   br label %574
 
 569:                                              ; preds = %522
-  %570 = tail call i32 @input_register_device(ptr noundef %486) #11
+  %570 = tail call i32 @input_register_device(ptr noundef %486) #12
   %571 = icmp eq i32 %570, 0
   br i1 %571, label %572, label %.loopexit58
 
@@ -1843,7 +1843,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
 
 .loopexit58.sink.split:                           ; preds = %.loopexit59, %.thread52
   %.str.13.sink = phi ptr [ @.str.13, %.thread52 ], [ @.str, %.loopexit59 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %94, ptr noundef nonnull %.str.13.sink) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %94, ptr noundef nonnull %.str.13.sink) #14
   br label %.loopexit58
 
 .loopexit58:                                      ; preds = %569, %481, %.loopexit58.sink.split
@@ -1869,23 +1869,23 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   br i1 %587, label %591, label %590
 
 590:                                              ; preds = %.preheader.i49
-  tail call void @input_unregister_device(ptr noundef %589) #11
+  tail call void @input_unregister_device(ptr noundef %589) #12
   br label %592
 
 591:                                              ; preds = %.preheader.i49
-  tail call void @input_free_device(ptr noundef %589) #11
+  tail call void @input_free_device(ptr noundef %589) #12
   br label %592
 
 592:                                              ; preds = %591, %590
   %593 = getelementptr inbounds nuw i8, ptr %580, i64 32
   %594 = load ptr, ptr %593, align 8
-  tail call void @kfree(ptr noundef %594) #11
-  tail call void @kfree(ptr noundef %580) #11
+  tail call void @kfree(ptr noundef %594) #12
+  tail call void @kfree(ptr noundef %580) #12
   %595 = icmp eq ptr %581, %5
   br i1 %595, label %hidinput_disconnect.exit, label %.preheader.i49, !llvm.loop !43
 
 hidinput_disconnect.exit:                         ; preds = %592, %.loopexit58
-  %596 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %7) #11
+  %596 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %7) #12
   br label %.thread
 
 .thread:                                          ; preds = %38, %15, %hidinput_disconnect.exit, %.loopexit59, %.loopexit79
@@ -1966,7 +1966,7 @@ define internal void @hidinput_led_worker(ptr noundef %0) #1 align 16 {
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %38
-  tail call void %44(ptr noundef %2, ptr noundef %40, i32 noundef 9) #11
+  tail call void %44(ptr noundef %2, ptr noundef %40, i32 noundef 9) #12
   br label %.thread
 
 47:                                               ; preds = %38
@@ -1974,7 +1974,7 @@ define internal void @hidinput_led_worker(ptr noundef %0) #1 align 16 {
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %51 = load i32, ptr %50, align 8
-  %52 = tail call ptr @hid_alloc_report_buf(ptr noundef %40, i32 noundef 3264) #11
+  %52 = tail call ptr @hid_alloc_report_buf(ptr noundef %40, i32 noundef 3264) #12
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread, label %54
 
@@ -1984,20 +1984,20 @@ define internal void @hidinput_led_worker(ptr noundef %0) #1 align 16 {
   %57 = icmp ne i32 %51, 0
   %58 = zext i1 %57 to i32
   %59 = add nuw nsw i32 %56, %58
-  tail call void @hid_output_report(ptr noundef %40, ptr noundef nonnull %52) #11
+  tail call void @hid_output_report(ptr noundef %40, ptr noundef nonnull %52) #12
   %60 = zext nneg i32 %59 to i64
-  %61 = tail call i32 @hid_hw_output_report(ptr noundef %2, ptr noundef nonnull %52, i64 noundef %60) #11
+  %61 = tail call i32 @hid_hw_output_report(ptr noundef %2, ptr noundef nonnull %52, i64 noundef %60) #12
   %62 = icmp eq i32 %61, -38
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %54
   %64 = load i32, ptr %50, align 8
   %65 = trunc i32 %64 to i8
-  %66 = tail call i32 @hid_hw_raw_request(ptr noundef %2, i8 noundef zeroext %65, ptr noundef nonnull %52, i64 noundef %60, i32 noundef 1, i32 noundef 9) #11
+  %66 = tail call i32 @hid_hw_raw_request(ptr noundef %2, i8 noundef zeroext %65, ptr noundef nonnull %52, i64 noundef %60, i32 noundef 1, i32 noundef 9) #12
   br label %67
 
 67:                                               ; preds = %63, %54
-  tail call void @kfree(ptr noundef nonnull %52) #11
+  tail call void @kfree(ptr noundef nonnull %52) #12
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit9, %1, %67, %47, %46, %36
@@ -2035,24 +2035,24 @@ define dso_local void @hidinput_disconnect(ptr noundef %0) #1 align 16 {
   br i1 %12, label %16, label %15
 
 15:                                               ; preds = %.preheader
-  tail call void @input_unregister_device(ptr noundef %14) #11
+  tail call void @input_unregister_device(ptr noundef %14) #12
   br label %17
 
 16:                                               ; preds = %.preheader
-  tail call void @input_free_device(ptr noundef %14) #11
+  tail call void @input_free_device(ptr noundef %14) #12
   br label %17
 
 17:                                               ; preds = %16, %15
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = load ptr, ptr %18, align 8
-  tail call void @kfree(ptr noundef %19) #11
-  tail call void @kfree(ptr noundef %5) #11
+  tail call void @kfree(ptr noundef %19) #12
+  tail call void @kfree(ptr noundef %5) #12
   %20 = icmp eq ptr %6, %2
   br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %17, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 6296
-  %22 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %21) #11
+  %22 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %21) #12
   ret void
 }
 
@@ -2105,7 +2105,7 @@ define internal i32 @hidinput_input_event(ptr noundef %0, i32 noundef %1, i32 no
   ]
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @input_ff_event(ptr noundef %0, i32 noundef 21, i32 noundef %2, i32 noundef %3) #11
+  %8 = tail call i32 @input_ff_event(ptr noundef %0, i32 noundef 21, i32 noundef %2, i32 noundef %3) #12
   br label %57
 
 9:                                                ; preds = %4
@@ -2177,14 +2177,14 @@ define internal i32 @hidinput_input_event(ptr noundef %0, i32 noundef %1, i32 no
 
 .thread:                                          ; preds = %.loopexit7, %9, %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %51, ptr noundef nonnull @.str.15) #13
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %51, ptr noundef nonnull @.str.15) #14
   br label %57
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @hid_set_field(ptr noundef %25, i32 noundef %33, i32 noundef %3) #11
+  %53 = tail call i32 @hid_set_field(ptr noundef %25, i32 noundef %33, i32 noundef %3) #12
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 6296
   %55 = load ptr, ptr @system_wq, align 8
-  %56 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %55, ptr noundef nonnull %54) #11
+  %56 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %55, ptr noundef nonnull %54) #12
   br label %57
 
 57:                                               ; preds = %52, %.thread, %7, %4
@@ -2196,7 +2196,7 @@ define internal i32 @hidinput_input_event(ptr noundef %0, i32 noundef %1, i32 no
 define internal i32 @hidinput_open(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @hid_hw_open(ptr noundef %3) #11
+  %4 = tail call i32 @hid_hw_open(ptr noundef %3) #12
   ret i32 %4
 }
 
@@ -2204,7 +2204,7 @@ define internal i32 @hidinput_open(ptr noundef readonly captures(none) %0) #1 al
 define internal void @hidinput_close(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8
-  tail call void @hid_hw_close(ptr noundef %3) #11
+  tail call void @hid_hw_close(ptr noundef %3) #12
   ret void
 }
 
@@ -2240,10 +2240,10 @@ define internal noundef range(i32 -22, 1) i32 @hidinput_setkeycode(ptr noundef %
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %2, align 4
   %24 = zext i32 %23 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %24) #11, !srcloc !47
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %24) #12, !srcloc !47
   %25 = load i16, ptr %21, align 2
   %26 = zext i16 %25 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %26) #11, !srcloc !48
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %26) #12, !srcloc !48
   %27 = load i32, ptr %2, align 4
   %28 = getelementptr i8, ptr %5, i64 88
   br label %29
@@ -2322,7 +2322,7 @@ define internal noundef range(i32 -22, 1) i32 @hidinput_setkeycode(ptr noundef %
 
 72:                                               ; preds = %70
   %73 = zext nneg i32 %27 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %73) #11, !srcloc !48
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %73) #12, !srcloc !48
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %.loopexit9, %72, %70, %3
@@ -2494,7 +2494,7 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(
   br i1 %14, label %13, label %.loopexit16, !llvm.loop !52
 
 63:                                               ; preds = %3
-  %64 = call i32 @input_scancode_to_scalar(ptr noundef %1, ptr noundef nonnull %4) #11
+  %64 = call i32 @input_scancode_to_scalar(ptr noundef %1, ptr noundef nonnull %4) #12
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %.loopexit16
 
@@ -2683,7 +2683,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   br i1 %54, label %61, label %55
 
 55:                                               ; preds = %.thread
-  %56 = call i32 %53(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  %56 = call i32 %53(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #12
   %57 = icmp sgt i32 %56, 0
   %58 = lshr i32 %56, 30
   %59 = and i32 %58, 2
@@ -2723,7 +2723,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
 
 64:                                               ; preds = %61
   %65 = getelementptr i8, ptr %8, i64 42
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %65, i32 16, ptr elementtype(i8) %65) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %65, i32 16, ptr elementtype(i8) %65) #12, !srcloc !55
   %66 = load i32, ptr %2, align 4
   %67 = and i32 %66, 65535
   %68 = icmp samesign ult i32 %67, 256
@@ -2949,7 +2949,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 116, ptr %163, align 2
   store i32 767, ptr %5, align 4
   store ptr %161, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %161, i64 116) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %161, i64 116) #12, !srcloc !47
   br label %1317
 
 164:                                              ; preds = %158
@@ -2961,7 +2961,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 142, ptr %167, align 2
   store i32 767, ptr %5, align 4
   store ptr %165, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %165, i64 142) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %165, i64 142) #12, !srcloc !47
   br label %1317
 
 168:                                              ; preds = %158
@@ -2973,7 +2973,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 143, ptr %171, align 2
   store i32 767, ptr %5, align 4
   store ptr %169, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %169, i64 143) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %169, i64 143) #12, !srcloc !47
   br label %1317
 
 172:                                              ; preds = %158
@@ -2985,7 +2985,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 438, ptr %175, align 2
   store i32 767, ptr %5, align 4
   store ptr %173, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %173, i64 438) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %173, i64 438) #12, !srcloc !47
   br label %1317
 
 176:                                              ; preds = %158
@@ -2997,7 +2997,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 139, ptr %179, align 2
   store i32 767, ptr %5, align 4
   store ptr %177, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %177, i64 139) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %177, i64 139) #12, !srcloc !47
   br label %1317
 
 180:                                              ; preds = %158
@@ -3009,7 +3009,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 148, ptr %183, align 2
   store i32 767, ptr %5, align 4
   store ptr %181, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %181, i64 148) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %181, i64 148) #12, !srcloc !47
   br label %1317
 
 184:                                              ; preds = %158
@@ -3021,7 +3021,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 138, ptr %187, align 2
   store i32 767, ptr %5, align 4
   store ptr %185, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %185, i64 138) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %185, i64 138) #12, !srcloc !47
   br label %1317
 
 188:                                              ; preds = %158
@@ -3033,7 +3033,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 174, ptr %191, align 2
   store i32 767, ptr %5, align 4
   store ptr %189, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %189, i64 174) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %189, i64 174) #12, !srcloc !47
   br label %1317
 
 192:                                              ; preds = %158
@@ -3045,7 +3045,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 353, ptr %195, align 2
   store i32 767, ptr %5, align 4
   store ptr %193, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %193, i64 353) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %193, i64 353) #12, !srcloc !47
   br label %1317
 
 196:                                              ; preds = %158
@@ -3057,7 +3057,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 106, ptr %199, align 2
   store i32 767, ptr %5, align 4
   store ptr %197, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %197, i64 106) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %197, i64 106) #12, !srcloc !47
   br label %1317
 
 200:                                              ; preds = %158
@@ -3069,7 +3069,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 105, ptr %203, align 2
   store i32 767, ptr %5, align 4
   store ptr %201, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %201, i64 105) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %201, i64 105) #12, !srcloc !47
   br label %1317
 
 204:                                              ; preds = %158
@@ -3081,7 +3081,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 103, ptr %207, align 2
   store i32 767, ptr %5, align 4
   store ptr %205, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %205, i64 103) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %205, i64 103) #12, !srcloc !47
   br label %1317
 
 208:                                              ; preds = %158
@@ -3093,7 +3093,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 108, ptr %211, align 2
   store i32 767, ptr %5, align 4
   store ptr %209, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %209, i64 108) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %209, i64 108) #12, !srcloc !47
   br label %1317
 
 212:                                              ; preds = %158
@@ -3105,7 +3105,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 356, ptr %215, align 2
   store i32 767, ptr %5, align 4
   store ptr %213, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %213, i64 356) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %213, i64 356) #12, !srcloc !47
   br label %1317
 
 216:                                              ; preds = %158
@@ -3117,7 +3117,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 408, ptr %219, align 2
   store i32 767, ptr %5, align 4
   store ptr %217, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %217, i64 408) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %217, i64 408) #12, !srcloc !47
   br label %1317
 
 220:                                              ; preds = %155
@@ -3134,7 +3134,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 248, ptr %226, align 2
   store i32 767, ptr %5, align 4
   store ptr %224, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %224, i64 248) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %224, i64 248) #12, !srcloc !47
   br label %1317
 
 227:                                              ; preds = %155
@@ -3151,7 +3151,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 227, ptr %233, align 2
   store i32 767, ptr %5, align 4
   store ptr %231, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %231, i64 227) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %231, i64 227) #12, !srcloc !47
   br label %1317
 
 234:                                              ; preds = %155
@@ -3239,7 +3239,7 @@ switch.lookup:                                    ; preds = %240
 
 266:                                              ; preds = %262
   %267 = getelementptr i8, ptr %8, i64 145
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %267, i32 1, ptr elementtype(i8) %267) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %267, i32 1, ptr elementtype(i8) %267) #12, !srcloc !55
   %.val252 = load ptr, ptr %7, align 8
   %268 = getelementptr inbounds nuw i8, ptr %.val252, i64 144
   %269 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3301,7 +3301,7 @@ switch.lookup:                                    ; preds = %240
   store i16 315, ptr %297, align 2
   store i32 767, ptr %5, align 4
   store ptr %295, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %295, i64 315) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %295, i64 315) #12, !srcloc !47
   br label %1317
 
 298:                                              ; preds = %252
@@ -3313,7 +3313,7 @@ switch.lookup:                                    ; preds = %240
   store i16 314, ptr %301, align 2
   store i32 767, ptr %5, align 4
   store ptr %299, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %299, i64 314) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %299, i64 314) #12, !srcloc !47
   br label %1317
 
 302:                                              ; preds = %252
@@ -3329,7 +3329,7 @@ switch.lookup:                                    ; preds = %240
   store i16 247, ptr %307, align 2
   store i32 767, ptr %5, align 4
   store ptr %305, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %305, i64 247) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %305, i64 247) #12, !srcloc !47
   %308 = load i32, ptr %12, align 4
   %309 = or i32 %308, 4
   store i32 %309, ptr %12, align 4
@@ -3461,12 +3461,12 @@ switch.lookup:                                    ; preds = %240
 
 360:                                              ; preds = %356
   %361 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %361, i64 0) #11, !srcloc !56
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %361, i64 0) #12, !srcloc !56
   br label %364
 
 362:                                              ; preds = %356
   %363 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %363, i64 1) #11, !srcloc !56
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %363, i64 1) #12, !srcloc !56
   br label %364
 
 364:                                              ; preds = %362, %360, %356
@@ -3504,9 +3504,9 @@ switch.lookup:                                    ; preds = %240
   %375 = or i32 %374, 2
   store i32 %375, ptr %373, align 4
   %376 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %376, i32 2, ptr nonnull elementtype(i8) %376) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %376, i32 2, ptr nonnull elementtype(i8) %376) #12, !srcloc !55
   %377 = getelementptr i8, ptr %8, i64 89
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %377, i32 4, ptr elementtype(i8) %377) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %377, i32 4, ptr elementtype(i8) %377) #12, !srcloc !55
   br label %378
 
 378:                                              ; preds = %372, %367
@@ -3518,7 +3518,7 @@ switch.lookup:                                    ; preds = %240
   store i16 24, ptr %381, align 2
   store i32 63, ptr %5, align 4
   store ptr %379, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %379, i64 24) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %379, i64 24) #12, !srcloc !47
   br label %1317
 
 382:                                              ; preds = %364
@@ -3562,14 +3562,14 @@ switch.lookup:                                    ; preds = %240
   store i16 325, ptr %398, align 2
   store i32 767, ptr %5, align 4
   store ptr %396, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %396, i64 325) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %396, i64 325) #12, !srcloc !47
   br label %1317
 
 400:                                              ; preds = %392
   store i16 320, ptr %398, align 2
   store i32 767, ptr %5, align 4
   store ptr %396, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %396, i64 320) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %396, i64 320) #12, !srcloc !47
   br label %1317
 
 401:                                              ; preds = %382
@@ -3599,7 +3599,7 @@ switch.lookup:                                    ; preds = %240
   store i16 321, ptr %413, align 2
   store i32 767, ptr %5, align 4
   store ptr %411, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %411, i64 321) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %411, i64 321) #12, !srcloc !47
   br label %1317
 
 414:                                              ; preds = %364
@@ -3611,7 +3611,7 @@ switch.lookup:                                    ; preds = %240
   store i16 26, ptr %417, align 2
   store i32 63, ptr %5, align 4
   store ptr %415, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %415, i64 26) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %415, i64 26) #12, !srcloc !47
   br label %1317
 
 418:                                              ; preds = %364
@@ -3623,7 +3623,7 @@ switch.lookup:                                    ; preds = %240
   store i16 27, ptr %421, align 2
   store i32 63, ptr %5, align 4
   store ptr %419, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %419, i64 27) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %419, i64 27) #12, !srcloc !47
   br label %1317
 
 422:                                              ; preds = %364, %364, %364
@@ -3639,7 +3639,7 @@ switch.lookup:                                    ; preds = %240
   store i16 330, ptr %428, align 2
   store i32 767, ptr %5, align 4
   store ptr %426, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %426, i64 330) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %426, i64 330) #12, !srcloc !47
   br label %1317
 
 429:                                              ; preds = %364
@@ -3651,7 +3651,7 @@ switch.lookup:                                    ; preds = %240
   store i16 331, ptr %432, align 2
   store i32 767, ptr %5, align 4
   store ptr %430, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %430, i64 331) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %430, i64 331) #12, !srcloc !47
   br label %1317
 
 433:                                              ; preds = %364
@@ -3666,7 +3666,7 @@ switch.lookup:                                    ; preds = %240
   %440 = load i32, ptr %439, align 4
   %441 = or i32 %440, 2097152
   store i32 %441, ptr %439, align 4
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %434, i32 2, ptr elementtype(i8) %434) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %434, i32 2, ptr elementtype(i8) %434) #12, !srcloc !55
   br label %442
 
 442:                                              ; preds = %438, %433
@@ -3678,7 +3678,7 @@ switch.lookup:                                    ; preds = %240
   store i16 330, ptr %445, align 2
   store i32 767, ptr %5, align 4
   store ptr %443, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %443, i64 330) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %443, i64 330) #12, !srcloc !47
   br label %1317
 
 446:                                              ; preds = %364, %364
@@ -3690,7 +3690,7 @@ switch.lookup:                                    ; preds = %240
   store i16 332, ptr %449, align 2
   store i32 767, ptr %5, align 4
   store ptr %447, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %447, i64 332) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %447, i64 332) #12, !srcloc !47
   br label %1317
 
 450:                                              ; preds = %364, %364
@@ -3733,7 +3733,7 @@ switch.lookup:                                    ; preds = %240
   store i16 248, ptr %459, align 2
   store i32 767, ptr %5, align 4
   store ptr %457, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %457, i64 248) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %457, i64 248) #12, !srcloc !47
   br label %1317
 
 460:                                              ; preds = %454
@@ -3745,7 +3745,7 @@ switch.lookup:                                    ; preds = %240
   store i16 512, ptr %463, align 2
   store i32 767, ptr %5, align 4
   store ptr %461, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %461, i64 512) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %461, i64 512) #12, !srcloc !47
   br label %1317
 
 464:                                              ; preds = %454
@@ -3757,7 +3757,7 @@ switch.lookup:                                    ; preds = %240
   store i16 513, ptr %467, align 2
   store i32 767, ptr %5, align 4
   store ptr %465, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %465, i64 513) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %465, i64 513) #12, !srcloc !47
   br label %1317
 
 468:                                              ; preds = %454
@@ -3769,7 +3769,7 @@ switch.lookup:                                    ; preds = %240
   store i16 514, ptr %471, align 2
   store i32 767, ptr %5, align 4
   store ptr %469, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %469, i64 514) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %469, i64 514) #12, !srcloc !47
   br label %1317
 
 472:                                              ; preds = %454
@@ -3781,7 +3781,7 @@ switch.lookup:                                    ; preds = %240
   store i16 515, ptr %475, align 2
   store i32 767, ptr %5, align 4
   store ptr %473, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %473, i64 515) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %473, i64 515) #12, !srcloc !47
   br label %1317
 
 476:                                              ; preds = %454
@@ -3793,7 +3793,7 @@ switch.lookup:                                    ; preds = %240
   store i16 516, ptr %479, align 2
   store i32 767, ptr %5, align 4
   store ptr %477, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %477, i64 516) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %477, i64 516) #12, !srcloc !47
   br label %1317
 
 480:                                              ; preds = %454
@@ -3805,7 +3805,7 @@ switch.lookup:                                    ; preds = %240
   store i16 517, ptr %483, align 2
   store i32 767, ptr %5, align 4
   store ptr %481, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %481, i64 517) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %481, i64 517) #12, !srcloc !47
   br label %1317
 
 484:                                              ; preds = %454
@@ -3817,7 +3817,7 @@ switch.lookup:                                    ; preds = %240
   store i16 518, ptr %487, align 2
   store i32 767, ptr %5, align 4
   store ptr %485, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %485, i64 518) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %485, i64 518) #12, !srcloc !47
   br label %1317
 
 488:                                              ; preds = %454
@@ -3829,7 +3829,7 @@ switch.lookup:                                    ; preds = %240
   store i16 519, ptr %491, align 2
   store i32 767, ptr %5, align 4
   store ptr %489, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %489, i64 519) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %489, i64 519) #12, !srcloc !47
   br label %1317
 
 492:                                              ; preds = %454
@@ -3841,7 +3841,7 @@ switch.lookup:                                    ; preds = %240
   store i16 520, ptr %495, align 2
   store i32 767, ptr %5, align 4
   store ptr %493, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %493, i64 520) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %493, i64 520) #12, !srcloc !47
   br label %1317
 
 496:                                              ; preds = %454
@@ -3853,7 +3853,7 @@ switch.lookup:                                    ; preds = %240
   store i16 521, ptr %499, align 2
   store i32 767, ptr %5, align 4
   store ptr %497, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %497, i64 521) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %497, i64 521) #12, !srcloc !47
   br label %1317
 
 500:                                              ; preds = %454
@@ -3865,7 +3865,7 @@ switch.lookup:                                    ; preds = %240
   store i16 522, ptr %503, align 2
   store i32 767, ptr %5, align 4
   store ptr %501, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %501, i64 522) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %501, i64 522) #12, !srcloc !47
   br label %1317
 
 504:                                              ; preds = %454
@@ -3877,7 +3877,7 @@ switch.lookup:                                    ; preds = %240
   store i16 523, ptr %507, align 2
   store i32 767, ptr %5, align 4
   store ptr %505, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %505, i64 523) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %505, i64 523) #12, !srcloc !47
   br label %1317
 
 508:                                              ; preds = %454
@@ -3889,7 +3889,7 @@ switch.lookup:                                    ; preds = %240
   store i16 524, ptr %511, align 2
   store i32 767, ptr %5, align 4
   store ptr %509, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %509, i64 524) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %509, i64 524) #12, !srcloc !47
   br label %1317
 
 512:                                              ; preds = %454
@@ -3901,7 +3901,7 @@ switch.lookup:                                    ; preds = %240
   store i16 525, ptr %515, align 2
   store i32 767, ptr %5, align 4
   store ptr %513, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %513, i64 525) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %513, i64 525) #12, !srcloc !47
   br label %1317
 
 516:                                              ; preds = %454
@@ -3913,7 +3913,7 @@ switch.lookup:                                    ; preds = %240
   store i16 526, ptr %519, align 2
   store i32 767, ptr %5, align 4
   store ptr %517, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %517, i64 526) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %517, i64 526) #12, !srcloc !47
   br label %1317
 
 520:                                              ; preds = %454
@@ -3925,7 +3925,7 @@ switch.lookup:                                    ; preds = %240
   store i16 527, ptr %523, align 2
   store i32 767, ptr %5, align 4
   store ptr %521, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %521, i64 527) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %521, i64 527) #12, !srcloc !47
   br label %1317
 
 524:                                              ; preds = %61
@@ -4109,7 +4109,7 @@ switch.lookup:                                    ; preds = %240
   store i16 116, ptr %529, align 2
   store i32 767, ptr %5, align 4
   store ptr %527, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %527, i64 116) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %527, i64 116) #12, !srcloc !47
   br label %1317
 
 530:                                              ; preds = %524
@@ -4121,7 +4121,7 @@ switch.lookup:                                    ; preds = %240
   store i16 408, ptr %533, align 2
   store i32 767, ptr %5, align 4
   store ptr %531, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %531, i64 408) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %531, i64 408) #12, !srcloc !47
   br label %1317
 
 534:                                              ; preds = %524
@@ -4133,7 +4133,7 @@ switch.lookup:                                    ; preds = %240
   store i16 142, ptr %537, align 2
   store i32 767, ptr %5, align 4
   store ptr %535, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %535, i64 142) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %535, i64 142) #12, !srcloc !47
   br label %1317
 
 538:                                              ; preds = %524
@@ -4145,7 +4145,7 @@ switch.lookup:                                    ; preds = %240
   store i16 142, ptr %541, align 2
   store i32 767, ptr %5, align 4
   store ptr %539, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %539, i64 142) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %539, i64 142) #12, !srcloc !47
   br label %1317
 
 542:                                              ; preds = %524
@@ -4157,7 +4157,7 @@ switch.lookup:                                    ; preds = %240
   store i16 228, ptr %545, align 2
   store i32 767, ptr %5, align 4
   store ptr %543, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %543, i64 228) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %543, i64 228) #12, !srcloc !47
   br label %1317
 
 546:                                              ; preds = %524
@@ -4169,7 +4169,7 @@ switch.lookup:                                    ; preds = %240
   store i16 256, ptr %549, align 2
   store i32 767, ptr %5, align 4
   store ptr %547, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %547, i64 256) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %547, i64 256) #12, !srcloc !47
   br label %1317
 
 550:                                              ; preds = %524
@@ -4181,7 +4181,7 @@ switch.lookup:                                    ; preds = %240
   store i16 139, ptr %553, align 2
   store i32 767, ptr %5, align 4
   store ptr %551, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %551, i64 139) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %551, i64 139) #12, !srcloc !47
   br label %1317
 
 554:                                              ; preds = %524
@@ -4193,7 +4193,7 @@ switch.lookup:                                    ; preds = %240
   store i16 353, ptr %557, align 2
   store i32 767, ptr %5, align 4
   store ptr %555, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %555, i64 353) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %555, i64 353) #12, !srcloc !47
   br label %1317
 
 558:                                              ; preds = %524
@@ -4205,7 +4205,7 @@ switch.lookup:                                    ; preds = %240
   store i16 103, ptr %561, align 2
   store i32 767, ptr %5, align 4
   store ptr %559, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %559, i64 103) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %559, i64 103) #12, !srcloc !47
   br label %1317
 
 562:                                              ; preds = %524
@@ -4217,7 +4217,7 @@ switch.lookup:                                    ; preds = %240
   store i16 108, ptr %565, align 2
   store i32 767, ptr %5, align 4
   store ptr %563, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %563, i64 108) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %563, i64 108) #12, !srcloc !47
   br label %1317
 
 566:                                              ; preds = %524
@@ -4229,7 +4229,7 @@ switch.lookup:                                    ; preds = %240
   store i16 105, ptr %569, align 2
   store i32 767, ptr %5, align 4
   store ptr %567, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %567, i64 105) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %567, i64 105) #12, !srcloc !47
   br label %1317
 
 570:                                              ; preds = %524
@@ -4241,7 +4241,7 @@ switch.lookup:                                    ; preds = %240
   store i16 106, ptr %573, align 2
   store i32 767, ptr %5, align 4
   store ptr %571, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %571, i64 106) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %571, i64 106) #12, !srcloc !47
   br label %1317
 
 574:                                              ; preds = %524
@@ -4253,7 +4253,7 @@ switch.lookup:                                    ; preds = %240
   store i16 1, ptr %577, align 2
   store i32 767, ptr %5, align 4
   store ptr %575, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %575, i64 1) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %575, i64 1) #12, !srcloc !47
   br label %1317
 
 578:                                              ; preds = %524
@@ -4265,7 +4265,7 @@ switch.lookup:                                    ; preds = %240
   store i16 78, ptr %581, align 2
   store i32 767, ptr %5, align 4
   store ptr %579, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %579, i64 78) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %579, i64 78) #12, !srcloc !47
   br label %1317
 
 582:                                              ; preds = %524
@@ -4277,7 +4277,7 @@ switch.lookup:                                    ; preds = %240
   store i16 74, ptr %585, align 2
   store i32 767, ptr %5, align 4
   store ptr %583, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %583, i64 74) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %583, i64 74) #12, !srcloc !47
   br label %1317
 
 586:                                              ; preds = %524
@@ -4289,7 +4289,7 @@ switch.lookup:                                    ; preds = %240
   store i16 358, ptr %589, align 2
   store i32 767, ptr %5, align 4
   store ptr %587, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %587, i64 358) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %587, i64 358) #12, !srcloc !47
   br label %1317
 
 590:                                              ; preds = %524
@@ -4301,7 +4301,7 @@ switch.lookup:                                    ; preds = %240
   store i16 370, ptr %593, align 2
   store i32 767, ptr %5, align 4
   store ptr %591, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %591, i64 370) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %591, i64 370) #12, !srcloc !47
   br label %1317
 
 594:                                              ; preds = %524
@@ -4313,7 +4313,7 @@ switch.lookup:                                    ; preds = %240
   store i16 379, ptr %597, align 2
   store i32 767, ptr %5, align 4
   store ptr %595, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %595, i64 379) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %595, i64 379) #12, !srcloc !47
   br label %1317
 
 598:                                              ; preds = %524
@@ -4325,7 +4325,7 @@ switch.lookup:                                    ; preds = %240
   store i16 212, ptr %601, align 2
   store i32 767, ptr %5, align 4
   store ptr %599, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %599, i64 212) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %599, i64 212) #12, !srcloc !47
   br label %1317
 
 602:                                              ; preds = %524
@@ -4337,7 +4337,7 @@ switch.lookup:                                    ; preds = %240
   store i16 398, ptr %605, align 2
   store i32 767, ptr %5, align 4
   store ptr %603, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %603, i64 398) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %603, i64 398) #12, !srcloc !47
   br label %1317
 
 606:                                              ; preds = %524
@@ -4349,7 +4349,7 @@ switch.lookup:                                    ; preds = %240
   store i16 399, ptr %609, align 2
   store i32 767, ptr %5, align 4
   store ptr %607, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %607, i64 399) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %607, i64 399) #12, !srcloc !47
   br label %1317
 
 610:                                              ; preds = %524
@@ -4361,7 +4361,7 @@ switch.lookup:                                    ; preds = %240
   store i16 401, ptr %613, align 2
   store i32 767, ptr %5, align 4
   store ptr %611, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %611, i64 401) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %611, i64 401) #12, !srcloc !47
   br label %1317
 
 614:                                              ; preds = %524
@@ -4373,7 +4373,7 @@ switch.lookup:                                    ; preds = %240
   store i16 400, ptr %617, align 2
   store i32 767, ptr %5, align 4
   store ptr %615, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %615, i64 400) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %615, i64 400) #12, !srcloc !47
   br label %1317
 
 618:                                              ; preds = %524
@@ -4385,7 +4385,7 @@ switch.lookup:                                    ; preds = %240
   store i16 375, ptr %621, align 2
   store i32 767, ptr %5, align 4
   store ptr %619, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %619, i64 375) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %619, i64 375) #12, !srcloc !47
   br label %1317
 
 622:                                              ; preds = %524
@@ -4397,7 +4397,7 @@ switch.lookup:                                    ; preds = %240
   store i16 225, ptr %625, align 2
   store i32 767, ptr %5, align 4
   store ptr %623, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %623, i64 225) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %623, i64 225) #12, !srcloc !47
   br label %1317
 
 626:                                              ; preds = %524
@@ -4409,7 +4409,7 @@ switch.lookup:                                    ; preds = %240
   store i16 224, ptr %629, align 2
   store i32 767, ptr %5, align 4
   store ptr %627, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %627, i64 224) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %627, i64 224) #12, !srcloc !47
   br label %1317
 
 630:                                              ; preds = %524
@@ -4421,7 +4421,7 @@ switch.lookup:                                    ; preds = %240
   store i16 431, ptr %633, align 2
   store i32 767, ptr %5, align 4
   store ptr %631, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %631, i64 431) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %631, i64 431) #12, !srcloc !47
   br label %1317
 
 634:                                              ; preds = %524
@@ -4433,7 +4433,7 @@ switch.lookup:                                    ; preds = %240
   store i16 592, ptr %637, align 2
   store i32 767, ptr %5, align 4
   store ptr %635, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %635, i64 592) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %635, i64 592) #12, !srcloc !47
   br label %1317
 
 638:                                              ; preds = %524
@@ -4445,7 +4445,7 @@ switch.lookup:                                    ; preds = %240
   store i16 593, ptr %641, align 2
   store i32 767, ptr %5, align 4
   store ptr %639, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %639, i64 593) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %639, i64 593) #12, !srcloc !47
   br label %1317
 
 642:                                              ; preds = %524
@@ -4457,7 +4457,7 @@ switch.lookup:                                    ; preds = %240
   store i16 244, ptr %645, align 2
   store i32 767, ptr %5, align 4
   store ptr %643, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %643, i64 244) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %643, i64 244) #12, !srcloc !47
   br label %1317
 
 646:                                              ; preds = %524
@@ -4469,7 +4469,7 @@ switch.lookup:                                    ; preds = %240
   store i16 587, ptr %649, align 2
   store i32 767, ptr %5, align 4
   store ptr %647, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %647, i64 587) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %647, i64 587) #12, !srcloc !47
   br label %1317
 
 650:                                              ; preds = %524
@@ -4481,7 +4481,7 @@ switch.lookup:                                    ; preds = %240
   store i16 588, ptr %653, align 2
   store i32 767, ptr %5, align 4
   store ptr %651, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %651, i64 588) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %651, i64 588) #12, !srcloc !47
   br label %1317
 
 654:                                              ; preds = %524
@@ -4493,7 +4493,7 @@ switch.lookup:                                    ; preds = %240
   store i16 589, ptr %657, align 2
   store i32 767, ptr %5, align 4
   store ptr %655, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %655, i64 589) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %655, i64 589) #12, !srcloc !47
   br label %1317
 
 658:                                              ; preds = %524
@@ -4505,7 +4505,7 @@ switch.lookup:                                    ; preds = %240
   store i16 230, ptr %661, align 2
   store i32 767, ptr %5, align 4
   store ptr %659, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %659, i64 230) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %659, i64 230) #12, !srcloc !47
   br label %1317
 
 662:                                              ; preds = %524
@@ -4517,7 +4517,7 @@ switch.lookup:                                    ; preds = %240
   store i16 229, ptr %665, align 2
   store i32 767, ptr %5, align 4
   store ptr %663, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %663, i64 229) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %663, i64 229) #12, !srcloc !47
   br label %1317
 
 666:                                              ; preds = %524
@@ -4529,7 +4529,7 @@ switch.lookup:                                    ; preds = %240
   store i16 228, ptr %669, align 2
   store i32 767, ptr %5, align 4
   store ptr %667, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %667, i64 228) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %667, i64 228) #12, !srcloc !47
   br label %1317
 
 670:                                              ; preds = %524
@@ -4541,7 +4541,7 @@ switch.lookup:                                    ; preds = %240
   store i16 241, ptr %673, align 2
   store i32 767, ptr %5, align 4
   store ptr %671, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %671, i64 241) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %671, i64 241) #12, !srcloc !47
   br label %1317
 
 674:                                              ; preds = %524
@@ -4553,7 +4553,7 @@ switch.lookup:                                    ; preds = %240
   store i16 405, ptr %677, align 2
   store i32 767, ptr %5, align 4
   store ptr %675, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %675, i64 405) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %675, i64 405) #12, !srcloc !47
   br label %1317
 
 678:                                              ; preds = %524
@@ -4565,7 +4565,7 @@ switch.lookup:                                    ; preds = %240
   store i16 28, ptr %681, align 2
   store i32 767, ptr %5, align 4
   store ptr %679, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %679, i64 28) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %679, i64 28) #12, !srcloc !47
   br label %1317
 
 682:                                              ; preds = %524
@@ -4577,7 +4577,7 @@ switch.lookup:                                    ; preds = %240
   store i16 376, ptr %685, align 2
   store i32 767, ptr %5, align 4
   store ptr %683, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %683, i64 376) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %683, i64 376) #12, !srcloc !47
   br label %1317
 
 686:                                              ; preds = %524
@@ -4589,7 +4589,7 @@ switch.lookup:                                    ; preds = %240
   store i16 377, ptr %689, align 2
   store i32 767, ptr %5, align 4
   store ptr %687, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %687, i64 377) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %687, i64 377) #12, !srcloc !47
   br label %1317
 
 690:                                              ; preds = %524
@@ -4601,7 +4601,7 @@ switch.lookup:                                    ; preds = %240
   store i16 150, ptr %693, align 2
   store i32 767, ptr %5, align 4
   store ptr %691, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %691, i64 150) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %691, i64 150) #12, !srcloc !47
   br label %1317
 
 694:                                              ; preds = %524
@@ -4613,7 +4613,7 @@ switch.lookup:                                    ; preds = %240
   store i16 389, ptr %697, align 2
   store i32 767, ptr %5, align 4
   store ptr %695, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %695, i64 389) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %695, i64 389) #12, !srcloc !47
   br label %1317
 
 698:                                              ; preds = %524
@@ -4625,7 +4625,7 @@ switch.lookup:                                    ; preds = %240
   store i16 169, ptr %701, align 2
   store i32 767, ptr %5, align 4
   store ptr %699, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %699, i64 169) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %699, i64 169) #12, !srcloc !47
   br label %1317
 
 702:                                              ; preds = %524
@@ -4637,7 +4637,7 @@ switch.lookup:                                    ; preds = %240
   store i16 362, ptr %705, align 2
   store i32 767, ptr %5, align 4
   store ptr %703, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %703, i64 362) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %703, i64 362) #12, !srcloc !47
   br label %1317
 
 706:                                              ; preds = %524
@@ -4649,7 +4649,7 @@ switch.lookup:                                    ; preds = %240
   store i16 416, ptr %709, align 2
   store i32 767, ptr %5, align 4
   store ptr %707, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %707, i64 416) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %707, i64 416) #12, !srcloc !47
   br label %1317
 
 710:                                              ; preds = %524
@@ -4661,7 +4661,7 @@ switch.lookup:                                    ; preds = %240
   store i16 417, ptr %713, align 2
   store i32 767, ptr %5, align 4
   store ptr %711, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %711, i64 417) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %711, i64 417) #12, !srcloc !47
   br label %1317
 
 714:                                              ; preds = %524
@@ -4673,7 +4673,7 @@ switch.lookup:                                    ; preds = %240
   store i16 396, ptr %717, align 2
   store i32 767, ptr %5, align 4
   store ptr %715, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %715, i64 396) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %715, i64 396) #12, !srcloc !47
   br label %1317
 
 718:                                              ; preds = %524
@@ -4685,7 +4685,7 @@ switch.lookup:                                    ; preds = %240
   store i16 383, ptr %721, align 2
   store i32 767, ptr %5, align 4
   store ptr %719, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %719, i64 383) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %719, i64 383) #12, !srcloc !47
   br label %1317
 
 722:                                              ; preds = %524
@@ -4697,7 +4697,7 @@ switch.lookup:                                    ; preds = %240
   store i16 379, ptr %725, align 2
   store i32 767, ptr %5, align 4
   store ptr %723, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %723, i64 379) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %723, i64 379) #12, !srcloc !47
   br label %1317
 
 726:                                              ; preds = %524
@@ -4709,7 +4709,7 @@ switch.lookup:                                    ; preds = %240
   store i16 386, ptr %729, align 2
   store i32 767, ptr %5, align 4
   store ptr %727, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %727, i64 386) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %727, i64 386) #12, !srcloc !47
   br label %1317
 
 730:                                              ; preds = %524
@@ -4721,7 +4721,7 @@ switch.lookup:                                    ; preds = %240
   store i16 174, ptr %733, align 2
   store i32 767, ptr %5, align 4
   store ptr %731, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %731, i64 174) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %731, i64 174) #12, !srcloc !47
   br label %1317
 
 734:                                              ; preds = %524
@@ -4733,7 +4733,7 @@ switch.lookup:                                    ; preds = %240
   store i16 138, ptr %737, align 2
   store i32 767, ptr %5, align 4
   store ptr %735, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %735, i64 138) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %735, i64 138) #12, !srcloc !47
   br label %1317
 
 738:                                              ; preds = %524
@@ -4745,7 +4745,7 @@ switch.lookup:                                    ; preds = %240
   store i16 384, ptr %741, align 2
   store i32 767, ptr %5, align 4
   store ptr %739, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %739, i64 384) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %739, i64 384) #12, !srcloc !47
   br label %1317
 
 742:                                              ; preds = %524
@@ -4757,7 +4757,7 @@ switch.lookup:                                    ; preds = %240
   store i16 378, ptr %745, align 2
   store i32 767, ptr %5, align 4
   store ptr %743, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %743, i64 378) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %743, i64 378) #12, !srcloc !47
   br label %1317
 
 746:                                              ; preds = %524
@@ -4769,7 +4769,7 @@ switch.lookup:                                    ; preds = %240
   store i16 381, ptr %749, align 2
   store i32 767, ptr %5, align 4
   store ptr %747, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %747, i64 381) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %747, i64 381) #12, !srcloc !47
   br label %1317
 
 750:                                              ; preds = %524
@@ -4781,7 +4781,7 @@ switch.lookup:                                    ; preds = %240
   store i16 366, ptr %753, align 2
   store i32 767, ptr %5, align 4
   store ptr %751, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %751, i64 366) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %751, i64 366) #12, !srcloc !47
   br label %1317
 
 754:                                              ; preds = %524
@@ -4793,7 +4793,7 @@ switch.lookup:                                    ; preds = %240
   store i16 402, ptr %757, align 2
   store i32 767, ptr %5, align 4
   store ptr %755, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %755, i64 402) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %755, i64 402) #12, !srcloc !47
   br label %1317
 
 758:                                              ; preds = %524
@@ -4805,7 +4805,7 @@ switch.lookup:                                    ; preds = %240
   store i16 403, ptr %761, align 2
   store i32 767, ptr %5, align 4
   store ptr %759, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %759, i64 403) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %759, i64 403) #12, !srcloc !47
   br label %1317
 
 762:                                              ; preds = %524
@@ -4817,7 +4817,7 @@ switch.lookup:                                    ; preds = %240
   store i16 380, ptr %765, align 2
   store i32 767, ptr %5, align 4
   store ptr %763, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %763, i64 380) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %763, i64 380) #12, !srcloc !47
   br label %1317
 
 766:                                              ; preds = %524
@@ -4829,7 +4829,7 @@ switch.lookup:                                    ; preds = %240
   store i16 207, ptr %769, align 2
   store i32 767, ptr %5, align 4
   store ptr %767, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %767, i64 207) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %767, i64 207) #12, !srcloc !47
   br label %1317
 
 770:                                              ; preds = %524
@@ -4841,7 +4841,7 @@ switch.lookup:                                    ; preds = %240
   store i16 119, ptr %773, align 2
   store i32 767, ptr %5, align 4
   store ptr %771, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %771, i64 119) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %771, i64 119) #12, !srcloc !47
   br label %1317
 
 774:                                              ; preds = %524
@@ -4853,7 +4853,7 @@ switch.lookup:                                    ; preds = %240
   store i16 167, ptr %777, align 2
   store i32 767, ptr %5, align 4
   store ptr %775, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %775, i64 167) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %775, i64 167) #12, !srcloc !47
   br label %1317
 
 778:                                              ; preds = %524
@@ -4865,7 +4865,7 @@ switch.lookup:                                    ; preds = %240
   store i16 208, ptr %781, align 2
   store i32 767, ptr %5, align 4
   store ptr %779, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %779, i64 208) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %779, i64 208) #12, !srcloc !47
   br label %1317
 
 782:                                              ; preds = %524
@@ -4877,7 +4877,7 @@ switch.lookup:                                    ; preds = %240
   store i16 168, ptr %785, align 2
   store i32 767, ptr %5, align 4
   store ptr %783, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %783, i64 168) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %783, i64 168) #12, !srcloc !47
   br label %1317
 
 786:                                              ; preds = %524
@@ -4889,7 +4889,7 @@ switch.lookup:                                    ; preds = %240
   store i16 163, ptr %789, align 2
   store i32 767, ptr %5, align 4
   store ptr %787, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %787, i64 163) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %787, i64 163) #12, !srcloc !47
   br label %1317
 
 790:                                              ; preds = %524
@@ -4901,7 +4901,7 @@ switch.lookup:                                    ; preds = %240
   store i16 165, ptr %793, align 2
   store i32 767, ptr %5, align 4
   store ptr %791, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %791, i64 165) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %791, i64 165) #12, !srcloc !47
   br label %1317
 
 794:                                              ; preds = %524
@@ -4913,7 +4913,7 @@ switch.lookup:                                    ; preds = %240
   store i16 166, ptr %797, align 2
   store i32 767, ptr %5, align 4
   store ptr %795, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %795, i64 166) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %795, i64 166) #12, !srcloc !47
   br label %1317
 
 798:                                              ; preds = %524
@@ -4925,7 +4925,7 @@ switch.lookup:                                    ; preds = %240
   store i16 161, ptr %801, align 2
   store i32 767, ptr %5, align 4
   store ptr %799, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %799, i64 161) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %799, i64 161) #12, !srcloc !47
   br label %1317
 
 802:                                              ; preds = %524
@@ -4937,7 +4937,7 @@ switch.lookup:                                    ; preds = %240
   store i16 439, ptr %805, align 2
   store i32 767, ptr %5, align 4
   store ptr %803, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %803, i64 439) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %803, i64 439) #12, !srcloc !47
   br label %1317
 
 806:                                              ; preds = %524
@@ -4949,7 +4949,7 @@ switch.lookup:                                    ; preds = %240
   store i16 410, ptr %809, align 2
   store i32 767, ptr %5, align 4
   store ptr %807, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %807, i64 410) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %807, i64 410) #12, !srcloc !47
   br label %1317
 
 810:                                              ; preds = %524
@@ -4961,7 +4961,7 @@ switch.lookup:                                    ; preds = %240
   store i16 409, ptr %813, align 2
   store i32 767, ptr %5, align 4
   store ptr %811, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %811, i64 409) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %811, i64 409) #12, !srcloc !47
   br label %1317
 
 814:                                              ; preds = %524
@@ -4973,7 +4973,7 @@ switch.lookup:                                    ; preds = %240
   store i16 164, ptr %817, align 2
   store i32 767, ptr %5, align 4
   store ptr %815, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %815, i64 164) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %815, i64 164) #12, !srcloc !47
   br label %1317
 
 818:                                              ; preds = %524
@@ -4985,7 +4985,7 @@ switch.lookup:                                    ; preds = %240
   store i16 582, ptr %821, align 2
   store i32 767, ptr %5, align 4
   store ptr %819, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %819, i64 582) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %819, i64 582) #12, !srcloc !47
   br label %1317
 
 822:                                              ; preds = %524
@@ -4997,7 +4997,7 @@ switch.lookup:                                    ; preds = %240
   store i16 586, ptr %825, align 2
   store i32 767, ptr %5, align 4
   store ptr %823, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %823, i64 586) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %823, i64 586) #12, !srcloc !47
   br label %1317
 
 826:                                              ; preds = %524
@@ -5009,7 +5009,7 @@ switch.lookup:                                    ; preds = %240
   store i16 585, ptr %829, align 2
   store i32 767, ptr %5, align 4
   store ptr %827, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %827, i64 585) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %827, i64 585) #12, !srcloc !47
   br label %1317
 
 830:                                              ; preds = %524
@@ -5021,7 +5021,7 @@ switch.lookup:                                    ; preds = %240
   store i16 32, ptr %833, align 2
   store i32 63, ptr %5, align 4
   store ptr %831, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %831, i64 32) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %831, i64 32) #12, !srcloc !47
   br label %1317
 
 834:                                              ; preds = %524
@@ -5033,7 +5033,7 @@ switch.lookup:                                    ; preds = %240
   store i16 113, ptr %837, align 2
   store i32 767, ptr %5, align 4
   store ptr %835, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %835, i64 113) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %835, i64 113) #12, !srcloc !47
   br label %1317
 
 838:                                              ; preds = %524
@@ -5045,7 +5045,7 @@ switch.lookup:                                    ; preds = %240
   store i16 209, ptr %841, align 2
   store i32 767, ptr %5, align 4
   store ptr %839, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %839, i64 209) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %839, i64 209) #12, !srcloc !47
   br label %1317
 
 842:                                              ; preds = %524
@@ -5057,7 +5057,7 @@ switch.lookup:                                    ; preds = %240
   store i16 115, ptr %845, align 2
   store i32 767, ptr %5, align 4
   store ptr %843, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %843, i64 115) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %843, i64 115) #12, !srcloc !47
   br label %1317
 
 846:                                              ; preds = %524
@@ -5069,7 +5069,7 @@ switch.lookup:                                    ; preds = %240
   store i16 114, ptr %849, align 2
   store i32 767, ptr %5, align 4
   store ptr %847, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %847, i64 114) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %847, i64 114) #12, !srcloc !47
   br label %1317
 
 850:                                              ; preds = %524
@@ -5081,7 +5081,7 @@ switch.lookup:                                    ; preds = %240
   store i16 409, ptr %853, align 2
   store i32 767, ptr %5, align 4
   store ptr %851, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %851, i64 409) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %851, i64 409) #12, !srcloc !47
   br label %1317
 
 854:                                              ; preds = %524
@@ -5093,7 +5093,7 @@ switch.lookup:                                    ; preds = %240
   store i16 576, ptr %857, align 2
   store i32 767, ptr %5, align 4
   store ptr %855, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %855, i64 576) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %855, i64 576) #12, !srcloc !47
   br label %1317
 
 858:                                              ; preds = %524
@@ -5105,7 +5105,7 @@ switch.lookup:                                    ; preds = %240
   store i16 156, ptr %861, align 2
   store i32 767, ptr %5, align 4
   store ptr %859, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %859, i64 156) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %859, i64 156) #12, !srcloc !47
   br label %1317
 
 862:                                              ; preds = %524
@@ -5117,7 +5117,7 @@ switch.lookup:                                    ; preds = %240
   store i16 171, ptr %865, align 2
   store i32 767, ptr %5, align 4
   store ptr %863, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %863, i64 171) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %863, i64 171) #12, !srcloc !47
   br label %1317
 
 866:                                              ; preds = %524
@@ -5129,7 +5129,7 @@ switch.lookup:                                    ; preds = %240
   store i16 421, ptr %869, align 2
   store i32 767, ptr %5, align 4
   store ptr %867, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %867, i64 421) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %867, i64 421) #12, !srcloc !47
   br label %1317
 
 870:                                              ; preds = %524
@@ -5141,7 +5141,7 @@ switch.lookup:                                    ; preds = %240
   store i16 422, ptr %873, align 2
   store i32 767, ptr %5, align 4
   store ptr %871, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %871, i64 422) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %871, i64 422) #12, !srcloc !47
   br label %1317
 
 874:                                              ; preds = %524
@@ -5153,7 +5153,7 @@ switch.lookup:                                    ; preds = %240
   store i16 423, ptr %877, align 2
   store i32 767, ptr %5, align 4
   store ptr %875, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %875, i64 423) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %875, i64 423) #12, !srcloc !47
   br label %1317
 
 878:                                              ; preds = %524
@@ -5165,7 +5165,7 @@ switch.lookup:                                    ; preds = %240
   store i16 424, ptr %881, align 2
   store i32 767, ptr %5, align 4
   store ptr %879, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %879, i64 424) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %879, i64 424) #12, !srcloc !47
   br label %1317
 
 882:                                              ; preds = %524
@@ -5177,7 +5177,7 @@ switch.lookup:                                    ; preds = %240
   store i16 425, ptr %885, align 2
   store i32 767, ptr %5, align 4
   store ptr %883, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %883, i64 425) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %883, i64 425) #12, !srcloc !47
   br label %1317
 
 886:                                              ; preds = %524
@@ -5189,7 +5189,7 @@ switch.lookup:                                    ; preds = %240
   store i16 426, ptr %889, align 2
   store i32 767, ptr %5, align 4
   store ptr %887, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %887, i64 426) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %887, i64 426) #12, !srcloc !47
   br label %1317
 
 890:                                              ; preds = %524
@@ -5201,7 +5201,7 @@ switch.lookup:                                    ; preds = %240
   store i16 155, ptr %893, align 2
   store i32 767, ptr %5, align 4
   store ptr %891, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %891, i64 155) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %891, i64 155) #12, !srcloc !47
   br label %1317
 
 894:                                              ; preds = %524
@@ -5213,7 +5213,7 @@ switch.lookup:                                    ; preds = %240
   store i16 427, ptr %897, align 2
   store i32 767, ptr %5, align 4
   store ptr %895, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %895, i64 427) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %895, i64 427) #12, !srcloc !47
   br label %1317
 
 898:                                              ; preds = %524
@@ -5225,7 +5225,7 @@ switch.lookup:                                    ; preds = %240
   store i16 428, ptr %901, align 2
   store i32 767, ptr %5, align 4
   store ptr %899, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %899, i64 428) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %899, i64 428) #12, !srcloc !47
   br label %1317
 
 902:                                              ; preds = %524
@@ -5237,7 +5237,7 @@ switch.lookup:                                    ; preds = %240
   store i16 429, ptr %905, align 2
   store i32 767, ptr %5, align 4
   store ptr %903, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %903, i64 429) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %903, i64 429) #12, !srcloc !47
   br label %1317
 
 906:                                              ; preds = %524
@@ -5249,7 +5249,7 @@ switch.lookup:                                    ; preds = %240
   store i16 397, ptr %909, align 2
   store i32 767, ptr %5, align 4
   store ptr %907, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %907, i64 397) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %907, i64 397) #12, !srcloc !47
   br label %1317
 
 910:                                              ; preds = %524
@@ -5261,7 +5261,7 @@ switch.lookup:                                    ; preds = %240
   store i16 577, ptr %913, align 2
   store i32 767, ptr %5, align 4
   store ptr %911, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %911, i64 577) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %911, i64 577) #12, !srcloc !47
   br label %1317
 
 914:                                              ; preds = %524
@@ -5273,7 +5273,7 @@ switch.lookup:                                    ; preds = %240
   store i16 578, ptr %917, align 2
   store i32 767, ptr %5, align 4
   store ptr %915, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %915, i64 578) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %915, i64 578) #12, !srcloc !47
   br label %1317
 
 918:                                              ; preds = %524
@@ -5285,7 +5285,7 @@ switch.lookup:                                    ; preds = %240
   store i16 219, ptr %921, align 2
   store i32 767, ptr %5, align 4
   store ptr %919, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %919, i64 219) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %919, i64 219) #12, !srcloc !47
   br label %1317
 
 922:                                              ; preds = %524
@@ -5297,7 +5297,7 @@ switch.lookup:                                    ; preds = %240
   store i16 140, ptr %925, align 2
   store i32 767, ptr %5, align 4
   store ptr %923, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %923, i64 140) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %923, i64 140) #12, !srcloc !47
   br label %1317
 
 926:                                              ; preds = %524
@@ -5309,7 +5309,7 @@ switch.lookup:                                    ; preds = %240
   store i16 387, ptr %929, align 2
   store i32 767, ptr %5, align 4
   store ptr %927, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %927, i64 387) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %927, i64 387) #12, !srcloc !47
   br label %1317
 
 930:                                              ; preds = %524
@@ -5321,7 +5321,7 @@ switch.lookup:                                    ; preds = %240
   store i16 144, ptr %933, align 2
   store i32 767, ptr %5, align 4
   store ptr %931, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %931, i64 144) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %931, i64 144) #12, !srcloc !47
   br label %1317
 
 934:                                              ; preds = %524
@@ -5333,7 +5333,7 @@ switch.lookup:                                    ; preds = %240
   store i16 150, ptr %937, align 2
   store i32 767, ptr %5, align 4
   store ptr %935, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %935, i64 150) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %935, i64 150) #12, !srcloc !47
   br label %1317
 
 938:                                              ; preds = %524
@@ -5345,7 +5345,7 @@ switch.lookup:                                    ; preds = %240
   store i16 216, ptr %941, align 2
   store i32 767, ptr %5, align 4
   store ptr %939, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %939, i64 216) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %939, i64 216) #12, !srcloc !47
   br label %1317
 
 942:                                              ; preds = %524
@@ -5357,7 +5357,7 @@ switch.lookup:                                    ; preds = %240
   store i16 433, ptr %945, align 2
   store i32 767, ptr %5, align 4
   store ptr %943, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %943, i64 433) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %943, i64 433) #12, !srcloc !47
   br label %1317
 
 946:                                              ; preds = %524
@@ -5369,7 +5369,7 @@ switch.lookup:                                    ; preds = %240
   store i16 152, ptr %949, align 2
   store i32 767, ptr %5, align 4
   store ptr %947, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %947, i64 152) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %947, i64 152) #12, !srcloc !47
   br label %1317
 
 950:                                              ; preds = %524
@@ -5381,7 +5381,7 @@ switch.lookup:                                    ; preds = %240
   store i16 579, ptr %953, align 2
   store i32 767, ptr %5, align 4
   store ptr %951, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %951, i64 579) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %951, i64 579) #12, !srcloc !47
   br label %1317
 
 954:                                              ; preds = %524
@@ -5393,7 +5393,7 @@ switch.lookup:                                    ; preds = %240
   store i16 580, ptr %957, align 2
   store i32 767, ptr %5, align 4
   store ptr %955, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %955, i64 580) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %955, i64 580) #12, !srcloc !47
   br label %1317
 
 958:                                              ; preds = %524
@@ -5405,7 +5405,7 @@ switch.lookup:                                    ; preds = %240
   store i16 407, ptr %961, align 2
   store i32 767, ptr %5, align 4
   store ptr %959, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %959, i64 407) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %959, i64 407) #12, !srcloc !47
   br label %1317
 
 962:                                              ; preds = %524
@@ -5417,7 +5417,7 @@ switch.lookup:                                    ; preds = %240
   store i16 412, ptr %965, align 2
   store i32 767, ptr %5, align 4
   store ptr %963, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %963, i64 412) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %963, i64 412) #12, !srcloc !47
   br label %1317
 
 966:                                              ; preds = %524
@@ -5429,7 +5429,7 @@ switch.lookup:                                    ; preds = %240
   store i16 138, ptr %969, align 2
   store i32 767, ptr %5, align 4
   store ptr %967, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %967, i64 138) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %967, i64 138) #12, !srcloc !47
   br label %1317
 
 970:                                              ; preds = %524
@@ -5441,7 +5441,7 @@ switch.lookup:                                    ; preds = %240
   store i16 235, ptr %973, align 2
   store i32 767, ptr %5, align 4
   store ptr %971, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %971, i64 235) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %971, i64 235) #12, !srcloc !47
   br label %1317
 
 974:                                              ; preds = %524
@@ -5453,7 +5453,7 @@ switch.lookup:                                    ; preds = %240
   store i16 432, ptr %977, align 2
   store i32 767, ptr %5, align 4
   store ptr %975, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %975, i64 432) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %975, i64 432) #12, !srcloc !47
   br label %1317
 
 978:                                              ; preds = %524
@@ -5465,7 +5465,7 @@ switch.lookup:                                    ; preds = %240
   store i16 374, ptr %981, align 2
   store i32 767, ptr %5, align 4
   store ptr %979, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %979, i64 374) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %979, i64 374) #12, !srcloc !47
   br label %1317
 
 982:                                              ; preds = %524
@@ -5477,7 +5477,7 @@ switch.lookup:                                    ; preds = %240
   store i16 581, ptr %985, align 2
   store i32 767, ptr %5, align 4
   store ptr %983, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %983, i64 581) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %983, i64 581) #12, !srcloc !47
   br label %1317
 
 986:                                              ; preds = %524
@@ -5489,7 +5489,7 @@ switch.lookup:                                    ; preds = %240
   store i16 144, ptr %989, align 2
   store i32 767, ptr %5, align 4
   store ptr %987, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %987, i64 144) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %987, i64 144) #12, !srcloc !47
   br label %1317
 
 990:                                              ; preds = %524
@@ -5501,7 +5501,7 @@ switch.lookup:                                    ; preds = %240
   store i16 442, ptr %993, align 2
   store i32 767, ptr %5, align 4
   store ptr %991, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %991, i64 442) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %991, i64 442) #12, !srcloc !47
   br label %1317
 
 994:                                              ; preds = %524
@@ -5513,7 +5513,7 @@ switch.lookup:                                    ; preds = %240
   store i16 392, ptr %997, align 2
   store i32 767, ptr %5, align 4
   store ptr %995, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %995, i64 392) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %995, i64 392) #12, !srcloc !47
   br label %1317
 
 998:                                              ; preds = %524
@@ -5525,7 +5525,7 @@ switch.lookup:                                    ; preds = %240
   store i16 393, ptr %1001, align 2
   store i32 767, ptr %5, align 4
   store ptr %999, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %999, i64 393) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %999, i64 393) #12, !srcloc !47
   br label %1317
 
 1002:                                             ; preds = %524
@@ -5537,7 +5537,7 @@ switch.lookup:                                    ; preds = %240
   store i16 430, ptr %1005, align 2
   store i32 767, ptr %5, align 4
   store ptr %1003, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1003, i64 430) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1003, i64 430) #12, !srcloc !47
   br label %1317
 
 1006:                                             ; preds = %524
@@ -5549,7 +5549,7 @@ switch.lookup:                                    ; preds = %240
   store i16 358, ptr %1009, align 2
   store i32 767, ptr %5, align 4
   store ptr %1007, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1007, i64 358) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1007, i64 358) #12, !srcloc !47
   br label %1317
 
 1010:                                             ; preds = %524
@@ -5561,7 +5561,7 @@ switch.lookup:                                    ; preds = %240
   store i16 583, ptr %1013, align 2
   store i32 767, ptr %5, align 4
   store ptr %1011, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1011, i64 583) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1011, i64 583) #12, !srcloc !47
   br label %1317
 
 1014:                                             ; preds = %524
@@ -5573,7 +5573,7 @@ switch.lookup:                                    ; preds = %240
   store i16 181, ptr %1017, align 2
   store i32 767, ptr %5, align 4
   store ptr %1015, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1015, i64 181) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1015, i64 181) #12, !srcloc !47
   br label %1317
 
 1018:                                             ; preds = %524
@@ -5585,7 +5585,7 @@ switch.lookup:                                    ; preds = %240
   store i16 134, ptr %1021, align 2
   store i32 767, ptr %5, align 4
   store ptr %1019, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1019, i64 134) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1019, i64 134) #12, !srcloc !47
   br label %1317
 
 1022:                                             ; preds = %524
@@ -5597,7 +5597,7 @@ switch.lookup:                                    ; preds = %240
   store i16 206, ptr %1025, align 2
   store i32 767, ptr %5, align 4
   store ptr %1023, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1023, i64 206) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1023, i64 206) #12, !srcloc !47
   br label %1317
 
 1026:                                             ; preds = %524
@@ -5609,7 +5609,7 @@ switch.lookup:                                    ; preds = %240
   store i16 174, ptr %1029, align 2
   store i32 767, ptr %5, align 4
   store ptr %1027, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1027, i64 174) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1027, i64 174) #12, !srcloc !47
   br label %1317
 
 1030:                                             ; preds = %524
@@ -5621,7 +5621,7 @@ switch.lookup:                                    ; preds = %240
   store i16 234, ptr %1033, align 2
   store i32 767, ptr %5, align 4
   store ptr %1031, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1031, i64 234) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1031, i64 234) #12, !srcloc !47
   br label %1317
 
 1034:                                             ; preds = %524
@@ -5633,7 +5633,7 @@ switch.lookup:                                    ; preds = %240
   store i16 210, ptr %1037, align 2
   store i32 767, ptr %5, align 4
   store ptr %1035, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1035, i64 210) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1035, i64 210) #12, !srcloc !47
   br label %1317
 
 1038:                                             ; preds = %524
@@ -5645,7 +5645,7 @@ switch.lookup:                                    ; preds = %240
   store i16 130, ptr %1041, align 2
   store i32 767, ptr %5, align 4
   store ptr %1039, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1039, i64 130) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1039, i64 130) #12, !srcloc !47
   br label %1317
 
 1042:                                             ; preds = %524
@@ -5657,7 +5657,7 @@ switch.lookup:                                    ; preds = %240
   store i16 131, ptr %1045, align 2
   store i32 767, ptr %5, align 4
   store ptr %1043, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1043, i64 131) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1043, i64 131) #12, !srcloc !47
   br label %1317
 
 1046:                                             ; preds = %524
@@ -5669,7 +5669,7 @@ switch.lookup:                                    ; preds = %240
   store i16 133, ptr %1049, align 2
   store i32 767, ptr %5, align 4
   store ptr %1047, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1047, i64 133) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1047, i64 133) #12, !srcloc !47
   br label %1317
 
 1050:                                             ; preds = %524
@@ -5681,7 +5681,7 @@ switch.lookup:                                    ; preds = %240
   store i16 137, ptr %1053, align 2
   store i32 767, ptr %5, align 4
   store ptr %1051, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1051, i64 137) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1051, i64 137) #12, !srcloc !47
   br label %1317
 
 1054:                                             ; preds = %524
@@ -5693,7 +5693,7 @@ switch.lookup:                                    ; preds = %240
   store i16 135, ptr %1057, align 2
   store i32 767, ptr %5, align 4
   store ptr %1055, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1055, i64 135) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1055, i64 135) #12, !srcloc !47
   br label %1317
 
 1058:                                             ; preds = %524
@@ -5705,7 +5705,7 @@ switch.lookup:                                    ; preds = %240
   store i16 136, ptr %1061, align 2
   store i32 767, ptr %5, align 4
   store ptr %1059, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1059, i64 136) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1059, i64 136) #12, !srcloc !47
   br label %1317
 
 1062:                                             ; preds = %524
@@ -5717,7 +5717,7 @@ switch.lookup:                                    ; preds = %240
   store i16 217, ptr %1065, align 2
   store i32 767, ptr %5, align 4
   store ptr %1063, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1063, i64 217) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1063, i64 217) #12, !srcloc !47
   br label %1317
 
 1066:                                             ; preds = %524
@@ -5729,7 +5729,7 @@ switch.lookup:                                    ; preds = %240
   store i16 354, ptr %1069, align 2
   store i32 767, ptr %5, align 4
   store ptr %1067, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1067, i64 354) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1067, i64 354) #12, !srcloc !47
   br label %1317
 
 1070:                                             ; preds = %524
@@ -5741,7 +5741,7 @@ switch.lookup:                                    ; preds = %240
   store i16 172, ptr %1073, align 2
   store i32 767, ptr %5, align 4
   store ptr %1071, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1071, i64 172) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1071, i64 172) #12, !srcloc !47
   br label %1317
 
 1074:                                             ; preds = %524
@@ -5753,7 +5753,7 @@ switch.lookup:                                    ; preds = %240
   store i16 158, ptr %1077, align 2
   store i32 767, ptr %5, align 4
   store ptr %1075, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1075, i64 158) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1075, i64 158) #12, !srcloc !47
   br label %1317
 
 1078:                                             ; preds = %524
@@ -5765,7 +5765,7 @@ switch.lookup:                                    ; preds = %240
   store i16 159, ptr %1081, align 2
   store i32 767, ptr %5, align 4
   store ptr %1079, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1079, i64 159) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1079, i64 159) #12, !srcloc !47
   br label %1317
 
 1082:                                             ; preds = %524
@@ -5777,7 +5777,7 @@ switch.lookup:                                    ; preds = %240
   store i16 128, ptr %1085, align 2
   store i32 767, ptr %5, align 4
   store ptr %1083, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1083, i64 128) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1083, i64 128) #12, !srcloc !47
   br label %1317
 
 1086:                                             ; preds = %524
@@ -5789,7 +5789,7 @@ switch.lookup:                                    ; preds = %240
   store i16 173, ptr %1089, align 2
   store i32 767, ptr %5, align 4
   store ptr %1087, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1087, i64 173) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1087, i64 173) #12, !srcloc !47
   br label %1317
 
 1090:                                             ; preds = %524
@@ -5801,7 +5801,7 @@ switch.lookup:                                    ; preds = %240
   store i16 156, ptr %1093, align 2
   store i32 767, ptr %5, align 4
   store ptr %1091, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1091, i64 156) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1091, i64 156) #12, !srcloc !47
   br label %1317
 
 1094:                                             ; preds = %524
@@ -5813,7 +5813,7 @@ switch.lookup:                                    ; preds = %240
   store i16 418, ptr %1097, align 2
   store i32 767, ptr %5, align 4
   store ptr %1095, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1095, i64 418) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1095, i64 418) #12, !srcloc !47
   br label %1317
 
 1098:                                             ; preds = %524
@@ -5825,7 +5825,7 @@ switch.lookup:                                    ; preds = %240
   store i16 419, ptr %1101, align 2
   store i32 767, ptr %5, align 4
   store ptr %1099, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1099, i64 419) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1099, i64 419) #12, !srcloc !47
   br label %1317
 
 1102:                                             ; preds = %524
@@ -5837,7 +5837,7 @@ switch.lookup:                                    ; preds = %240
   store i16 420, ptr %1105, align 2
   store i32 767, ptr %5, align 4
   store ptr %1103, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1103, i64 420) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1103, i64 420) #12, !srcloc !47
   br label %1317
 
 1106:                                             ; preds = %524
@@ -5849,7 +5849,7 @@ switch.lookup:                                    ; preds = %240
   store i16 372, ptr %1109, align 2
   store i32 767, ptr %5, align 4
   store ptr %1107, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1107, i64 372) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1107, i64 372) #12, !srcloc !47
   br label %1317
 
 1110:                                             ; preds = %524
@@ -5861,7 +5861,7 @@ switch.lookup:                                    ; preds = %240
   store i16 177, ptr %1113, align 2
   store i32 767, ptr %5, align 4
   store ptr %1111, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1111, i64 177) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1111, i64 177) #12, !srcloc !47
   br label %1317
 
 1114:                                             ; preds = %524
@@ -5873,12 +5873,12 @@ switch.lookup:                                    ; preds = %240
   store i16 178, ptr %1117, align 2
   store i32 767, ptr %5, align 4
   store ptr %1115, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1115, i64 178) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1115, i64 178) #12, !srcloc !47
   br label %1317
 
 1118:                                             ; preds = %524
   %1119 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1119, i32 64, ptr nonnull elementtype(i8) %1119) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1119, i32 64, ptr nonnull elementtype(i8) %1119) #12, !srcloc !55
   %.val272 = load ptr, ptr %7, align 8
   %1120 = getelementptr inbounds nuw i8, ptr %.val272, i64 144
   %1121 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5896,7 +5896,7 @@ switch.lookup:                                    ; preds = %240
   store i16 176, ptr %1126, align 2
   store i32 767, ptr %5, align 4
   store ptr %1124, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1124, i64 176) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1124, i64 176) #12, !srcloc !47
   br label %1317
 
 1127:                                             ; preds = %524
@@ -5908,7 +5908,7 @@ switch.lookup:                                    ; preds = %240
   store i16 223, ptr %1130, align 2
   store i32 767, ptr %5, align 4
   store ptr %1128, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1128, i64 223) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1128, i64 223) #12, !srcloc !47
   br label %1317
 
 1131:                                             ; preds = %524
@@ -5920,7 +5920,7 @@ switch.lookup:                                    ; preds = %240
   store i16 110, ptr %1134, align 2
   store i32 767, ptr %5, align 4
   store ptr %1132, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1132, i64 110) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1132, i64 110) #12, !srcloc !47
   br label %1317
 
 1135:                                             ; preds = %524
@@ -5932,7 +5932,7 @@ switch.lookup:                                    ; preds = %240
   store i16 111, ptr %1138, align 2
   store i32 767, ptr %5, align 4
   store ptr %1136, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1136, i64 111) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1136, i64 111) #12, !srcloc !47
   br label %1317
 
 1139:                                             ; preds = %524
@@ -5944,7 +5944,7 @@ switch.lookup:                                    ; preds = %240
   store i16 182, ptr %1142, align 2
   store i32 767, ptr %5, align 4
   store ptr %1140, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1140, i64 182) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1140, i64 182) #12, !srcloc !47
   br label %1317
 
 1143:                                             ; preds = %524
@@ -5956,7 +5956,7 @@ switch.lookup:                                    ; preds = %240
   store i16 232, ptr %1146, align 2
   store i32 767, ptr %5, align 4
   store ptr %1144, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1144, i64 232) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1144, i64 232) #12, !srcloc !47
   br label %1317
 
 1147:                                             ; preds = %524
@@ -5968,7 +5968,7 @@ switch.lookup:                                    ; preds = %240
   store i16 233, ptr %1150, align 2
   store i32 767, ptr %5, align 4
   store ptr %1148, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1148, i64 233) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1148, i64 233) #12, !srcloc !47
   br label %1317
 
 1151:                                             ; preds = %524
@@ -5980,7 +5980,7 @@ switch.lookup:                                    ; preds = %240
   store i16 231, ptr %1154, align 2
   store i32 767, ptr %5, align 4
   store ptr %1152, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1152, i64 231) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1152, i64 231) #12, !srcloc !47
   br label %1317
 
 1155:                                             ; preds = %524
@@ -5992,7 +5992,7 @@ switch.lookup:                                    ; preds = %240
   store i16 584, ptr %1158, align 2
   store i32 767, ptr %5, align 4
   store ptr %1156, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1156, i64 584) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1156, i64 584) #12, !srcloc !47
   br label %1317
 
 1159:                                             ; preds = %524
@@ -6004,7 +6004,7 @@ switch.lookup:                                    ; preds = %240
   store i16 204, ptr %1162, align 2
   store i32 767, ptr %5, align 4
   store ptr %1160, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1160, i64 204) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1160, i64 204) #12, !srcloc !47
   br label %1317
 
 1163:                                             ; preds = %524
@@ -6016,7 +6016,7 @@ switch.lookup:                                    ; preds = %240
   store i16 608, ptr %1166, align 2
   store i32 767, ptr %5, align 4
   store ptr %1164, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1164, i64 608) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1164, i64 608) #12, !srcloc !47
   br label %1317
 
 1167:                                             ; preds = %524
@@ -6028,7 +6028,7 @@ switch.lookup:                                    ; preds = %240
   store i16 609, ptr %1170, align 2
   store i32 767, ptr %5, align 4
   store ptr %1168, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1168, i64 609) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1168, i64 609) #12, !srcloc !47
   br label %1317
 
 1171:                                             ; preds = %524
@@ -6040,7 +6040,7 @@ switch.lookup:                                    ; preds = %240
   store i16 610, ptr %1174, align 2
   store i32 767, ptr %5, align 4
   store ptr %1172, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1172, i64 610) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1172, i64 610) #12, !srcloc !47
   br label %1317
 
 1175:                                             ; preds = %524
@@ -6052,7 +6052,7 @@ switch.lookup:                                    ; preds = %240
   store i16 611, ptr %1178, align 2
   store i32 767, ptr %5, align 4
   store ptr %1176, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1176, i64 611) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1176, i64 611) #12, !srcloc !47
   br label %1317
 
 1179:                                             ; preds = %524
@@ -6064,7 +6064,7 @@ switch.lookup:                                    ; preds = %240
   store i16 612, ptr %1182, align 2
   store i32 767, ptr %5, align 4
   store ptr %1180, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1180, i64 612) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1180, i64 612) #12, !srcloc !47
   br label %1317
 
 1183:                                             ; preds = %524
@@ -6076,7 +6076,7 @@ switch.lookup:                                    ; preds = %240
   store i16 613, ptr %1186, align 2
   store i32 767, ptr %5, align 4
   store ptr %1184, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1184, i64 613) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1184, i64 613) #12, !srcloc !47
   br label %1317
 
 1187:                                             ; preds = %524
@@ -6088,7 +6088,7 @@ switch.lookup:                                    ; preds = %240
   store i16 120, ptr %1190, align 2
   store i32 767, ptr %5, align 4
   store ptr %1188, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1188, i64 120) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1188, i64 120) #12, !srcloc !47
   br label %1317
 
 1191:                                             ; preds = %524
@@ -6100,7 +6100,7 @@ switch.lookup:                                    ; preds = %240
   store i16 240, ptr %1194, align 2
   store i32 767, ptr %5, align 4
   store ptr %1192, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1192, i64 240) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1192, i64 240) #12, !srcloc !47
   br label %1317
 
 1195:                                             ; preds = %61
@@ -6144,7 +6144,7 @@ switch.lookup:                                    ; preds = %240
   store i16 528, ptr %1209, align 2
   store i32 767, ptr %5, align 4
   store ptr %1207, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1207, i64 528) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1207, i64 528) #12, !srcloc !47
   br label %1317
 
 1210:                                             ; preds = %1204
@@ -6156,12 +6156,12 @@ switch.lookup:                                    ; preds = %240
   store i16 212, ptr %1213, align 2
   store i32 767, ptr %5, align 4
   store ptr %1211, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1211, i64 212) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1211, i64 212) #12, !srcloc !47
   br label %1317
 
 1214:                                             ; preds = %61
   %1215 = getelementptr i8, ptr %8, i64 42
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1215, i32 16, ptr elementtype(i8) %1215) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1215, i32 16, ptr elementtype(i8) %1215) #12, !srcloc !55
   %1216 = load i32, ptr %2, align 4
   %1217 = trunc i32 %1216 to i16
   switch i16 %1217, label %.loopexit287.thread [
@@ -6188,7 +6188,7 @@ switch.lookup:                                    ; preds = %240
   store i16 210, ptr %1221, align 2
   store i32 767, ptr %5, align 4
   store ptr %1219, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1219, i64 210) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1219, i64 210) #12, !srcloc !47
   br label %1317
 
 1222:                                             ; preds = %1214
@@ -6200,7 +6200,7 @@ switch.lookup:                                    ; preds = %240
   store i16 211, ptr %1225, align 2
   store i32 767, ptr %5, align 4
   store ptr %1223, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1223, i64 211) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1223, i64 211) #12, !srcloc !47
   br label %1317
 
 1226:                                             ; preds = %1214
@@ -6212,7 +6212,7 @@ switch.lookup:                                    ; preds = %240
   store i16 212, ptr %1229, align 2
   store i32 767, ptr %5, align 4
   store ptr %1227, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1227, i64 212) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1227, i64 212) #12, !srcloc !47
   br label %1317
 
 1230:                                             ; preds = %1214
@@ -6224,7 +6224,7 @@ switch.lookup:                                    ; preds = %240
   store i16 213, ptr %1233, align 2
   store i32 767, ptr %5, align 4
   store ptr %1231, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1231, i64 213) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1231, i64 213) #12, !srcloc !47
   br label %1317
 
 1234:                                             ; preds = %1214
@@ -6236,7 +6236,7 @@ switch.lookup:                                    ; preds = %240
   store i16 214, ptr %1237, align 2
   store i32 767, ptr %5, align 4
   store ptr %1235, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1235, i64 214) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1235, i64 214) #12, !srcloc !47
   br label %1317
 
 1238:                                             ; preds = %1214
@@ -6248,7 +6248,7 @@ switch.lookup:                                    ; preds = %240
   store i16 215, ptr %1241, align 2
   store i32 767, ptr %5, align 4
   store ptr %1239, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1239, i64 215) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1239, i64 215) #12, !srcloc !47
   br label %1317
 
 1242:                                             ; preds = %1214
@@ -6260,7 +6260,7 @@ switch.lookup:                                    ; preds = %240
   store i16 216, ptr %1245, align 2
   store i32 767, ptr %5, align 4
   store ptr %1243, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1243, i64 216) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1243, i64 216) #12, !srcloc !47
   br label %1317
 
 1246:                                             ; preds = %1214
@@ -6272,7 +6272,7 @@ switch.lookup:                                    ; preds = %240
   store i16 217, ptr %1249, align 2
   store i32 767, ptr %5, align 4
   store ptr %1247, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1247, i64 217) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1247, i64 217) #12, !srcloc !47
   br label %1317
 
 1250:                                             ; preds = %1214
@@ -6284,7 +6284,7 @@ switch.lookup:                                    ; preds = %240
   store i16 218, ptr %1253, align 2
   store i32 767, ptr %5, align 4
   store ptr %1251, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1251, i64 218) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1251, i64 218) #12, !srcloc !47
   br label %1317
 
 1254:                                             ; preds = %1214
@@ -6296,7 +6296,7 @@ switch.lookup:                                    ; preds = %240
   store i16 219, ptr %1257, align 2
   store i32 767, ptr %5, align 4
   store ptr %1255, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1255, i64 219) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1255, i64 219) #12, !srcloc !47
   br label %1317
 
 1258:                                             ; preds = %1214
@@ -6308,7 +6308,7 @@ switch.lookup:                                    ; preds = %240
   store i16 220, ptr %1261, align 2
   store i32 767, ptr %5, align 4
   store ptr %1259, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1259, i64 220) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1259, i64 220) #12, !srcloc !47
   br label %1317
 
 1262:                                             ; preds = %1214
@@ -6320,12 +6320,12 @@ switch.lookup:                                    ; preds = %240
   store i16 221, ptr %1265, align 2
   store i32 767, ptr %5, align 4
   store ptr %1263, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1263, i64 221) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1263, i64 221) #12, !srcloc !47
   br label %1317
 
 1266:                                             ; preds = %61
   %1267 = getelementptr i8, ptr %8, i64 42
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1267, i32 16, ptr elementtype(i8) %1267) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1267, i32 16, ptr elementtype(i8) %1267) #12, !srcloc !55
   %1268 = load i32, ptr %2, align 4
   %1269 = trunc i32 %1268 to i16
   switch i16 %1269, label %.loopexit287.thread [
@@ -6343,7 +6343,7 @@ switch.lookup:                                    ; preds = %240
   store i16 248, ptr %1273, align 2
   store i32 767, ptr %5, align 4
   store ptr %1271, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1271, i64 248) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1271, i64 248) #12, !srcloc !47
   br label %1317
 
 1274:                                             ; preds = %1266
@@ -6355,7 +6355,7 @@ switch.lookup:                                    ; preds = %240
   store i16 224, ptr %1277, align 2
   store i32 767, ptr %5, align 4
   store ptr %1275, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1275, i64 224) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1275, i64 224) #12, !srcloc !47
   br label %1317
 
 1278:                                             ; preds = %1266
@@ -6367,12 +6367,12 @@ switch.lookup:                                    ; preds = %240
   store i16 225, ptr %1281, align 2
   store i32 767, ptr %5, align 4
   store ptr %1279, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1279, i64 225) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1279, i64 225) #12, !srcloc !47
   br label %1317
 
 1282:                                             ; preds = %61
   %1283 = getelementptr i8, ptr %8, i64 42
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1283, i32 16, ptr elementtype(i8) %1283) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1283, i32 16, ptr elementtype(i8) %1283) #12, !srcloc !55
   br label %.loopexit287.thread
 
 1284:                                             ; preds = %61
@@ -6389,7 +6389,7 @@ switch.lookup:                                    ; preds = %240
   store i16 303, ptr %1290, align 2
   store i32 767, ptr %5, align 4
   store ptr %1288, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1288, i64 303) #11, !srcloc !47
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1288, i64 303) #12, !srcloc !47
   br label %1317
 
 default.unreachable314:                           ; preds = %158
@@ -6465,7 +6465,7 @@ default.unreachable314:                           ; preds = %158
   br i1 %1322, label %1326, label %1323
 
 1323:                                             ; preds = %.thread277
-  %1324 = call i32 %1321(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  %1324 = call i32 %1321(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #12
   %1325 = icmp slt i32 %1324, 0
   br i1 %1325, label %thread-pre-split285.thread, label %1326
 
@@ -6474,7 +6474,7 @@ default.unreachable314:                           ; preds = %158
   %1328 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %1329 = load i8, ptr %1327, align 4
   %1330 = zext i8 %1329 to i64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1328, i64 %1330) #11, !srcloc !48
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1328, i64 %1330) #12, !srcloc !48
   %1331 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %1332 = load i16, ptr %1331, align 2
   %1333 = zext i16 %1332 to i32
@@ -6490,7 +6490,7 @@ default.unreachable314:                           ; preds = %158
   %1339 = phi i16 [ %1332, %1336 ], [ %1357, %1349 ]
   %1340 = zext i16 %1339 to i64
   %1341 = load ptr, ptr %6, align 8
-  %1342 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1341, i64 %1340, ptr elementtype(i64) %1341) #11, !srcloc !57
+  %1342 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1341, i64 %1340, ptr elementtype(i64) %1341) #12, !srcloc !57
   %1343 = icmp ult i8 %1342, 2
   call void @llvm.assume(i1 %1343)
   %1344 = icmp eq i8 %1342, 0
@@ -6514,7 +6514,7 @@ default.unreachable314:                           ; preds = %158
   %1353 = add i32 %1352, 1
   %1354 = sext i32 %1353 to i64
   %1355 = load ptr, ptr %6, align 8
-  %1356 = call i64 @_find_next_zero_bit(ptr noundef %1355, i64 noundef %1354, i64 noundef %1351) #11
+  %1356 = call i64 @_find_next_zero_bit(ptr noundef %1355, i64 noundef %1354, i64 noundef %1351) #12
   %1357 = trunc i64 %1356 to i16
   store i16 %1357, ptr %1331, align 2
   %1358 = trunc i64 %1356 to i32
@@ -6576,17 +6576,17 @@ default.unreachable314:                           ; preds = %158
   %1390 = sub i32 %1384, %1383
   %1391 = ashr i32 %1390, 8
   %1392 = ashr i32 %1390, 4
-  call void @input_set_abs_params(ptr noundef %8, i32 noundef %.pre-phi302, i32 noundef %1383, i32 noundef %1384, i32 noundef %1391, i32 noundef %1392) #11
+  call void @input_set_abs_params(ptr noundef %8, i32 noundef %.pre-phi302, i32 noundef %1383, i32 noundef %1384, i32 noundef %1391, i32 noundef %1392) #12
   br label %1394
 
 1393:                                             ; preds = %1382
-  call void @input_set_abs_params(ptr noundef %8, i32 noundef %.pre-phi302, i32 noundef %1383, i32 noundef %1384, i32 noundef 0, i32 noundef 0) #11
+  call void @input_set_abs_params(ptr noundef %8, i32 noundef %.pre-phi302, i32 noundef %1383, i32 noundef %1384, i32 noundef 0, i32 noundef 0) #12
   br label %1394
 
 1394:                                             ; preds = %1393, %1389
   %1395 = load i16, ptr %1331, align 2
   %1396 = call i32 @hidinput_calc_abs_res(ptr noundef %1, i16 noundef zeroext %1395)
-  call void @input_alloc_absinfo(ptr noundef %8) #11
+  call void @input_alloc_absinfo(ptr noundef %8) #12
   %1397 = getelementptr inbounds nuw i8, ptr %8, i64 328
   %1398 = load ptr, ptr %1397, align 8
   %1399 = icmp eq ptr %1398, null
@@ -6648,8 +6648,8 @@ default.unreachable314:                           ; preds = %158
 1430:                                             ; preds = %1430, %1427
   %1431 = phi i64 [ %1429, %1427 ], [ %1433, %1430 ]
   %1432 = trunc nuw nsw i64 %1431 to i32
-  call void @input_set_abs_params(ptr noundef %8, i32 noundef %1432, i32 noundef -1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #11
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1428, i64 %1431) #11, !srcloc !48
+  call void @input_set_abs_params(ptr noundef %8, i32 noundef %1432, i32 noundef -1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1428, i64 %1431) #12, !srcloc !48
   %1433 = add nuw nsw i64 %1431, 1
   %1434 = load i16, ptr %1331, align 2
   %1435 = zext i16 %1434 to i64
@@ -6696,8 +6696,8 @@ default.unreachable314:                           ; preds = %158
 
 1460:                                             ; preds = %1457
   %1461 = getelementptr i8, ptr %8, i64 62
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1461, i32 8, ptr elementtype(i8) %1461) #11, !srcloc !55
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1461, i32 4, ptr elementtype(i8) %1461) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1461, i32 8, ptr elementtype(i8) %1461) #12, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1461, i32 4, ptr elementtype(i8) %1461) #12, !srcloc !55
   %.pr286.pre = load i8, ptr %1327, align 4
   br label %thread-pre-split285
 
@@ -6707,9 +6707,9 @@ thread-pre-split285:                              ; preds = %1460, %1411, %1367,
   br i1 %1463, label %1464, label %thread-pre-split285.thread
 
 1464:                                             ; preds = %thread-pre-split285
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1328, i32 16, ptr nonnull elementtype(i8) %1328) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1328, i32 16, ptr nonnull elementtype(i8) %1328) #12, !srcloc !55
   %1465 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1465, i32 16, ptr nonnull elementtype(i8) %1465) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1465, i32 16, ptr nonnull elementtype(i8) %1465) #12, !srcloc !55
   br label %thread-pre-split285.thread
 
 .loopexit287.thread:                              ; preds = %20, %1326, %55, %.loopexit287, %1362, %1284, %1282, %1266, %1214, %1204, %524, %454, %364, %310, %246, %234, %227, %220, %133, %69, %61, %61, %61, %61, %61, %16, %4
@@ -6754,13 +6754,13 @@ default.unreachable2:                             ; preds = %5
   br i1 %12, label %13, label %19, !prof !60
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @___ratelimit(ptr noundef nonnull @hid_map_usage._rs, ptr noundef nonnull @__func__.hid_map_usage) #11
+  %14 = tail call i32 @___ratelimit(ptr noundef nonnull @hid_map_usage._rs, ptr noundef nonnull @__func__.hid_map_usage) #12
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %.24.val, align 8
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef %17, i32 noundef %6, i32 noundef %7) #13
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef %17, i32 noundef %6, i32 noundef %7) #14
   br label %.thread
 
 .thread:                                          ; preds = %16, %13
@@ -6777,7 +6777,7 @@ default.unreachable2:                             ; preds = %5
   store ptr %20, ptr %1, align 8
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %24) #11, !srcloc !47
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %24) #12, !srcloc !47
   br label %25
 
 25:                                               ; preds = %.thread, %19
@@ -6814,13 +6814,13 @@ define internal fastcc void @hid_map_usage(ptr %.24.val, ptr noundef writeonly c
   br i1 %13, label %.thread, label %19, !prof !61
 
 .thread:                                          ; preds = %5, %11
-  %14 = tail call i32 @___ratelimit(ptr noundef nonnull @hid_map_usage._rs, ptr noundef nonnull @__func__.hid_map_usage) #11
+  %14 = tail call i32 @___ratelimit(ptr noundef nonnull @hid_map_usage._rs, ptr noundef nonnull @__func__.hid_map_usage) #12
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %.thread
   %17 = load ptr, ptr %.24.val, align 8
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef %17, i32 noundef %4, i32 noundef %6) #13
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef %17, i32 noundef %4, i32 noundef %6) #14
   br label %24
 
 19:                                               ; preds = %11
@@ -6863,17 +6863,17 @@ declare dso_local void @hid_setup_resolution_multiplier(ptr noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @hid_hw_request(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -6884,11 +6884,12 @@ attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(2) }
-attributes #13 = { cold nounwind }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(2) }
+attributes #14 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

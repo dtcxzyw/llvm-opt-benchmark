@@ -45,7 +45,7 @@ define ptr @FSEv07_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
-  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #26
+  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #27
   ret ptr %5
 }
 
@@ -62,7 +62,7 @@ define ptr @HUFv07_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
-  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #26
+  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #27
   ret ptr %5
 }
 
@@ -661,7 +661,7 @@ define noalias noundef ptr @FSEv07_createDTable(i32 noundef %0) local_unnamed_ad
   %2 = shl nuw nsw i32 4, %spec.store.select
   %3 = add nuw nsw i32 %2, 4
   %4 = zext nneg i32 %3 to i64
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #27
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #28
   ret ptr %5
 }
 
@@ -670,7 +670,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @FSEv07_freeDTable(ptr noundef captures(none) %0) local_unnamed_addr #6 {
-  tail call void @free(ptr noundef %0) #26
+  tail call void @free(ptr noundef %0) #27
   ret void
 }
 
@@ -4934,7 +4934,7 @@ define i64 @HUFv07_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %36 = zext i1 %35 to i64
   %37 = getelementptr inbounds nuw ptr, ptr @HUFv07_decompress.decompress, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !61
-  %39 = tail call i64 %38(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #26
+  %39 = tail call i64 %38(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #27
   br label %40
 
 40:                                               ; preds = %6, %4, %15, %13, %10
@@ -5192,7 +5192,7 @@ define ptr @ZSTDv07_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
-  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #26
+  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #27
   ret ptr %5
 }
 
@@ -5209,7 +5209,7 @@ define ptr @ZBUFFv07_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
-  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #26
+  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #27
   ret ptr %5
 }
 
@@ -5269,7 +5269,7 @@ define ptr @ZSTDv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custom
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !74
-  %16 = tail call ptr %10(ptr noundef %15, i64 noundef 152864) #26
+  %16 = tail call ptr %10(ptr noundef %15, i64 noundef 152864) #27
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %27, label %17
 
@@ -5301,7 +5301,7 @@ define ptr @ZSTDv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custom
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @ZSTDv07_createDCtx() local_unnamed_addr #13 {
-  %1 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #27
+  %1 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #28
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %ZSTDv07_createDCtx_advanced.exit, label %2
 
@@ -5344,7 +5344,7 @@ define noundef i64 @ZSTDv07_freeDCtx(ptr noundef %0) local_unnamed_addr #1 {
   %5 = load ptr, ptr %4, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21744
   %7 = load ptr, ptr %6, align 8, !tbaa !76
-  tail call void %5(ptr noundef %7, ptr noundef nonnull %0) #26
+  tail call void %5(ptr noundef %7, ptr noundef nonnull %0) #27
   br label %8
 
 8:                                                ; preds = %1, %3
@@ -7396,7 +7396,7 @@ define internal fastcc i64 @ZSTDv07_decompressFrame(ptr noundef %0, ptr noundef 
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 21616
-  %43 = tail call i32 @ZSTD_XXH64_reset(ptr noundef nonnull captures(none) %42, i64 noundef 0) #26
+  %43 = tail call i32 @ZSTD_XXH64_reset(ptr noundef nonnull captures(none) %42, i64 noundef 0) #27
   br label %ZSTDv07_decodeFrameHeader.exit
 
 ZSTDv07_decodeFrameHeader.exit:                   ; preds = %38, %41
@@ -7500,7 +7500,7 @@ ZSTDv07_decodeFrameHeader.exit:                   ; preds = %38, %41
   br i1 %.not81, label %90, label %88
 
 88:                                               ; preds = %.thread117
-  %89 = tail call i32 @ZSTD_XXH64_update(ptr noundef nonnull captures(none) %49, ptr noundef captures(none) %.071149, i64 noundef %.062.ph120) #26
+  %89 = tail call i32 @ZSTD_XXH64_update(ptr noundef nonnull captures(none) %49, ptr noundef captures(none) %.071149, i64 noundef %.062.ph120) #27
   br label %90
 
 90:                                               ; preds = %.thread117, %88
@@ -7562,7 +7562,7 @@ ZSTDv07_decompress_usingDict.exit:                ; preds = %5, %14
 
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTDv07_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
-  %5 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #27
+  %5 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #28
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %ZSTDv07_createDCtx.exit.thread, label %6
 
@@ -7604,7 +7604,7 @@ ZSTDv07_freeDCtx.exit:                            ; preds = %6, %16
   %19 = tail call fastcc i64 @ZSTDv07_decompressFrame(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3)
   %20 = load ptr, ptr %defaultCustomMem.sroa.6.0..sroa_idx.i, align 8, !tbaa !75
   %21 = load ptr, ptr %defaultCustomMem.sroa.7.0..sroa_idx.i, align 8, !tbaa !76
-  tail call void %20(ptr noundef %21, ptr noundef nonnull %5) #26
+  tail call void %20(ptr noundef %21, ptr noundef nonnull %5) #27
   br label %ZSTDv07_createDCtx.exit.thread
 
 ZSTDv07_createDCtx.exit.thread:                   ; preds = %4, %ZSTDv07_freeDCtx.exit
@@ -7894,7 +7894,7 @@ ZSTDv07_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv07_checkContin
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 21616
-  %70 = tail call i32 @ZSTD_XXH64_reset(ptr noundef nonnull captures(none) %69, i64 noundef 0) #26
+  %70 = tail call i32 @ZSTD_XXH64_reset(ptr noundef nonnull captures(none) %69, i64 noundef 0) #27
   br label %ZSTDv07_decodeFrameHeader.exit
 
 ZSTDv07_decodeFrameHeader.exit:                   ; preds = %65, %68
@@ -7939,7 +7939,7 @@ ZSTDv07_getcBlockSize.exit.thread:                ; preds = %73
 
 92:                                               ; preds = %ZSTDv07_getcBlockSize.exit.thread
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 21616
-  %94 = tail call i64 @ZSTD_XXH64_digest(ptr noundef nonnull captures(none) %93) #28
+  %94 = tail call i64 @ZSTD_XXH64_digest(ptr noundef nonnull captures(none) %93) #29
   %95 = lshr i64 %94, 11
   %96 = trunc i64 %95 to i32
   %97 = and i32 %96, 4194303
@@ -8020,7 +8020,7 @@ ZSTDv07_copyRawBlock.exit:                        ; preds = %113, %108
 
 120:                                              ; preds = %115
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 21616
-  %122 = tail call i32 @ZSTD_XXH64_update(ptr noundef nonnull captures(none) %121, ptr noundef captures(none) %1, i64 noundef %.0112) #26
+  %122 = tail call i32 @ZSTD_XXH64_update(ptr noundef nonnull captures(none) %121, ptr noundef captures(none) %1, i64 noundef %.0112) #27
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 123:                                              ; preds = %ZSTDv07_checkContinuity.exit
@@ -8050,9 +8050,9 @@ declare i32 @ZSTD_XXH64_update(ptr noundef captures(none), ptr noundef captures(
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ZSTDv07_createDDict(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
-  %4 = tail call noalias noundef ptr @malloc(i64 noundef %1) #27
-  %5 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #27
+  %3 = tail call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #28
+  %4 = tail call noalias noundef ptr @malloc(i64 noundef %1) #28
+  %5 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #28
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %ZSTDv07_createDCtx_advanced.exit.thread.i, label %ZSTDv07_createDCtx_advanced.exit.i
 
@@ -8085,9 +8085,9 @@ ZSTDv07_createDCtx_advanced.exit.i:               ; preds = %2
   br i1 %or.cond7.i, label %17, label %ZSTDv07_createDCtx_advanced.exit.thread.i
 
 ZSTDv07_createDCtx_advanced.exit.thread.i:        ; preds = %ZSTDv07_createDCtx_advanced.exit.i, %2
-  tail call void @free(ptr noundef %4) #26
-  tail call void @free(ptr noundef %3) #26
-  tail call void @free(ptr noundef %5) #26
+  tail call void @free(ptr noundef %4) #27
+  tail call void @free(ptr noundef %3) #27
+  tail call void @free(ptr noundef %5) #27
   br label %ZSTDv07_createDDict_advanced.exit
 
 17:                                               ; preds = %ZSTDv07_createDCtx_advanced.exit.i
@@ -8097,9 +8097,9 @@ ZSTDv07_createDCtx_advanced.exit.thread.i:        ; preds = %ZSTDv07_createDCtx_
   br i1 %19, label %.critedge.i, label %20
 
 20:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %4) #26
-  tail call void @free(ptr noundef nonnull %3) #26
-  tail call void @free(ptr noundef nonnull %5) #26
+  tail call void @free(ptr noundef nonnull %4) #27
+  tail call void @free(ptr noundef nonnull %3) #27
+  tail call void @free(ptr noundef nonnull %5) #27
   br label %ZSTDv07_createDDict_advanced.exit
 
 .critedge.i:                                      ; preds = %17
@@ -8124,10 +8124,10 @@ ZSTDv07_freeDCtx.exit:
   %4 = load ptr, ptr %3, align 8, !tbaa !75
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 21744
   %6 = load ptr, ptr %5, align 8, !tbaa !76
-  tail call void %4(ptr noundef %6, ptr noundef nonnull %2) #26
+  tail call void %4(ptr noundef %6, ptr noundef nonnull %2) #27
   %7 = load ptr, ptr %0, align 8, !tbaa !104
-  tail call void %4(ptr noundef %6, ptr noundef %7) #26
-  tail call void %4(ptr noundef %6, ptr noundef nonnull %0) #26
+  tail call void %4(ptr noundef %6, ptr noundef %7) #27
+  tail call void %4(ptr noundef %6, ptr noundef nonnull %0) #27
   ret i64 0
 }
 
@@ -8163,7 +8163,7 @@ ZSTDv07_decompress_usingPreparedDCtx.exit:        ; preds = %6, %11
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @ZBUFFv07_createDCtx() local_unnamed_addr #18 {
-  %1 = tail call noalias noundef dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #27
+  %1 = tail call noalias noundef dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #28
   %2 = icmp eq ptr %1, null
   br i1 %2, label %ZBUFFv07_createDCtx_advanced.exit, label %3
 
@@ -8175,12 +8175,12 @@ define noalias noundef ptr @ZBUFFv07_createDCtx() local_unnamed_addr #18 {
   store ptr @ZSTDv07_defaultFreeFunction, ptr %defaultCustomMem.sroa.6.0..sroa_idx, align 8
   %defaultCustomMem.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %defaultCustomMem.sroa.7.0..sroa_idx, align 8
-  %5 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #27
+  %5 = tail call noalias noundef dereferenceable_or_null(152864) ptr @malloc(i64 noundef 152864) #28
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %ZBUFFv07_freeDCtx.exit.i, label %6
 
 ZBUFFv07_freeDCtx.exit.i:                         ; preds = %3
-  tail call void @free(ptr noundef nonnull %1) #26
+  tail call void @free(ptr noundef nonnull %1) #27
   br label %ZBUFFv07_createDCtx_advanced.exit
 
 6:                                                ; preds = %3
@@ -8241,7 +8241,7 @@ define ptr @ZBUFFv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custo
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !74
-  %16 = tail call ptr %10(ptr noundef %15, i64 noundef 160) #26
+  %16 = tail call ptr %10(ptr noundef %15, i64 noundef 160) #27
   %17 = icmp eq ptr %16, null
   br i1 %17, label %51, label %18
 
@@ -8249,7 +8249,7 @@ define ptr @ZBUFFv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custo
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %16, i8 0, i64 136, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %20 = tail call ptr %10(ptr noundef %15, i64 noundef 152864) #26
+  %20 = tail call ptr %10(ptr noundef %15, i64 noundef 152864) #27
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %ZSTDv07_freeDCtx.exit.i, label %40
 
@@ -8265,7 +8265,7 @@ ZSTDv07_freeDCtx.exit.i:                          ; preds = %18
   %25 = load ptr, ptr %24, align 8, !tbaa !113
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %27 = load ptr, ptr %26, align 8, !tbaa !114
-  tail call void %25(ptr noundef %27, ptr noundef nonnull %22) #26
+  tail call void %25(ptr noundef %27, ptr noundef nonnull %22) #27
   br label %28
 
 28:                                               ; preds = %23, %ZSTDv07_freeDCtx.exit.i
@@ -8279,7 +8279,7 @@ ZSTDv07_freeDCtx.exit.i:                          ; preds = %18
   %33 = load ptr, ptr %32, align 8, !tbaa !113
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %35 = load ptr, ptr %34, align 8, !tbaa !114
-  tail call void %33(ptr noundef %35, ptr noundef nonnull %30) #26
+  tail call void %33(ptr noundef %35, ptr noundef nonnull %30) #27
   br label %ZBUFFv07_freeDCtx.exit
 
 ZBUFFv07_freeDCtx.exit:                           ; preds = %28, %31
@@ -8287,7 +8287,7 @@ ZBUFFv07_freeDCtx.exit:                           ; preds = %28, %31
   %37 = load ptr, ptr %36, align 8, !tbaa !113
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %39 = load ptr, ptr %38, align 8, !tbaa !114
-  tail call void %37(ptr noundef %39, ptr noundef nonnull %16) #26
+  tail call void %37(ptr noundef %39, ptr noundef nonnull %16) #27
   br label %51
 
 40:                                               ; preds = %18
@@ -8338,7 +8338,7 @@ define noundef i64 @ZBUFFv07_freeDCtx(ptr noundef %0) local_unnamed_addr #1 {
   %8 = load ptr, ptr %7, align 8, !tbaa !75
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 21744
   %10 = load ptr, ptr %9, align 8, !tbaa !76
-  tail call void %8(ptr noundef %10, ptr noundef nonnull %4) #26
+  tail call void %8(ptr noundef %10, ptr noundef nonnull %4) #27
   br label %ZSTDv07_freeDCtx.exit
 
 ZSTDv07_freeDCtx.exit:                            ; preds = %3, %6
@@ -8352,7 +8352,7 @@ ZSTDv07_freeDCtx.exit:                            ; preds = %3, %6
   %15 = load ptr, ptr %14, align 8, !tbaa !113
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8, !tbaa !114
-  tail call void %15(ptr noundef %17, ptr noundef nonnull %12) #26
+  tail call void %15(ptr noundef %17, ptr noundef nonnull %12) #27
   br label %18
 
 18:                                               ; preds = %13, %ZSTDv07_freeDCtx.exit
@@ -8366,7 +8366,7 @@ ZSTDv07_freeDCtx.exit:                            ; preds = %3, %6
   %23 = load ptr, ptr %22, align 8, !tbaa !113
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load ptr, ptr %24, align 8, !tbaa !114
-  tail call void %23(ptr noundef %25, ptr noundef nonnull %20) #26
+  tail call void %23(ptr noundef %25, ptr noundef nonnull %20) #27
   br label %26
 
 26:                                               ; preds = %21, %18
@@ -8374,7 +8374,7 @@ ZSTDv07_freeDCtx.exit:                            ; preds = %3, %6
   %28 = load ptr, ptr %27, align 8, !tbaa !113
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = load ptr, ptr %29, align 8, !tbaa !114
-  tail call void %28(ptr noundef %30, ptr noundef nonnull %0) #26
+  tail call void %28(ptr noundef %30, ptr noundef nonnull %0) #27
   br label %31
 
 31:                                               ; preds = %1, %26
@@ -8561,11 +8561,11 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
   %73 = load ptr, ptr %19, align 8, !tbaa !113
   %74 = load ptr, ptr %20, align 8, !tbaa !114
   %75 = load ptr, ptr %21, align 8, !tbaa !112
-  tail call void %73(ptr noundef %74, ptr noundef %75) #26
+  tail call void %73(ptr noundef %74, ptr noundef %75) #27
   store i64 %69, ptr %17, align 8, !tbaa !122
   %76 = load ptr, ptr %18, align 8, !tbaa !123
   %77 = load ptr, ptr %20, align 8, !tbaa !114
-  %78 = tail call ptr %76(ptr noundef %77, i64 noundef %69) #26
+  %78 = tail call ptr %76(ptr noundef %77, i64 noundef %69) #27
   store ptr %78, ptr %21, align 8, !tbaa !112
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.thread, label %._crit_edge
@@ -8587,11 +8587,11 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
   %88 = load ptr, ptr %19, align 8, !tbaa !113
   %89 = load ptr, ptr %20, align 8, !tbaa !114
   %90 = load ptr, ptr %23, align 8, !tbaa !115
-  tail call void %88(ptr noundef %89, ptr noundef %90) #26
+  tail call void %88(ptr noundef %89, ptr noundef %90) #27
   store i64 %84, ptr %22, align 8, !tbaa !124
   %91 = load ptr, ptr %18, align 8, !tbaa !123
   %92 = load ptr, ptr %20, align 8, !tbaa !114
-  %93 = tail call ptr %91(ptr noundef %92, i64 noundef %84) #26
+  %93 = tail call ptr %91(ptr noundef %92, i64 noundef %84) #27
   store ptr %93, ptr %23, align 8, !tbaa !115
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.thread, label %95
@@ -9561,13 +9561,13 @@ HUFv07_decodeLastSymbolX4.exit:                   ; preds = %.sink.split.i, %185
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define internal noalias noundef ptr @ZSTDv07_defaultAllocFunction(ptr readnone captures(none) %0, i64 noundef %1) #4 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %1) #27
+  %3 = tail call noalias ptr @malloc(i64 noundef %1) #28
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @ZSTDv07_defaultFreeFunction(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #6 {
-  tail call void @free(ptr noundef %1) #26
+  tail call void @free(ptr noundef %1) #27
   ret void
 }
 
@@ -9926,20 +9926,20 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #25
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #25
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #25
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #25
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #25
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #26
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9967,9 +9967,10 @@ attributes #22 = { inlinehint mustprogress nofree norecurse nosync nounwind will
 attributes #23 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nounwind }
-attributes #27 = { nounwind allocsize(0) }
-attributes #28 = { nounwind willreturn memory(read) }
+attributes #26 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nounwind }
+attributes #28 = { nounwind allocsize(0) }
+attributes #29 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

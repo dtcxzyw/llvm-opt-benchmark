@@ -1044,9 +1044,9 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   br i1 %or.cond, label %13, label %.critedge
 
 13:                                               ; preds = %4
-  %14 = tail call double @llvm.fabs.f64(double %0) #14
+  %14 = tail call double @llvm.fabs.f64(double %0) #15
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  %.pre = tail call double @llvm.fabs.f64(double %1) #14
+  %.pre = tail call double @llvm.fabs.f64(double %1) #15
   br i1 %15, label %._crit_edge, label %16
 
 16:                                               ; preds = %13
@@ -1073,9 +1073,9 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   %.059 = phi double [ %22, %._crit_edge ], [ %1, %16 ]
   %.056 = phi double [ %19, %._crit_edge ], [ %0, %16 ]
   %.not = phi i1 [ false, %._crit_edge ], [ true, %16 ]
-  %28 = tail call double @llvm.fabs.f64(double %.069) #14
+  %28 = tail call double @llvm.fabs.f64(double %.069) #15
   %29 = fcmp oeq double %28, 0x7FF0000000000000
-  %.pre87 = tail call double @llvm.fabs.f64(double %.064) #14
+  %.pre87 = tail call double @llvm.fabs.f64(double %.064) #15
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %27
@@ -1100,15 +1100,15 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   br i1 %.not, label %42, label %60
 
 42:                                               ; preds = %41
-  %43 = tail call double @llvm.fabs.f64(double %5) #14
+  %43 = tail call double @llvm.fabs.f64(double %5) #15
   %44 = fcmp oeq double %43, 0x7FF0000000000000
-  %45 = tail call double @llvm.fabs.f64(double %6) #14
+  %45 = tail call double @llvm.fabs.f64(double %6) #15
   %46 = fcmp oeq double %45, 0x7FF0000000000000
   %or.cond76 = or i1 %44, %46
-  %47 = tail call double @llvm.fabs.f64(double %7) #14
+  %47 = tail call double @llvm.fabs.f64(double %7) #15
   %48 = fcmp oeq double %47, 0x7FF0000000000000
   %or.cond78 = or i1 %48, %or.cond76
-  %49 = tail call double @llvm.fabs.f64(double %8) #14
+  %49 = tail call double @llvm.fabs.f64(double %8) #15
   %50 = fcmp oeq double %49, 0x7FF0000000000000
   %or.cond80 = or i1 %50, %or.cond78
   br i1 %or.cond80, label %51, label %.critedge
@@ -1150,13 +1150,13 @@ define dso_local { double, double } @_Py_c_prod(double %0, double %1, double %2,
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1184,7 +1184,7 @@ define dso_local { double, double } @_Py_c_quot(double %0, double %1, double %2,
   br i1 %13, label %.thread, label %15
 
 .thread:                                          ; preds = %12
-  %14 = tail call ptr @__errno_location() #15
+  %14 = tail call ptr @__errno_location() #16
   store i32 33, ptr %14, align 4, !tbaa !4
   br label %73
 
@@ -1293,7 +1293,7 @@ define dso_local { double, double } @_Py_cr_quot(double %0, double %1, double no
   br label %10
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__errno_location() #15
+  %9 = tail call ptr @__errno_location() #16
   store i32 33, ptr %9, align 4, !tbaa !4
   br label %10
 
@@ -1321,7 +1321,7 @@ define dso_local { double, double } @_Py_rc_quot(double noundef %0, double %1, d
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @__errno_location() #15
+  %14 = tail call ptr @__errno_location() #16
   store i32 33, ptr %14, align 4, !tbaa !4
   br label %31
 
@@ -1359,9 +1359,9 @@ define dso_local { double, double } @_Py_rc_quot(double noundef %0, double %1, d
   br i1 %or.cond43, label %51, label %36
 
 36:                                               ; preds = %31
-  %37 = tail call double @llvm.fabs.f64(double %1) #14
+  %37 = tail call double @llvm.fabs.f64(double %1) #15
   %38 = fcmp oeq double %37, 0x7FF0000000000000
-  %39 = tail call double @llvm.fabs.f64(double %2) #14
+  %39 = tail call double @llvm.fabs.f64(double %2) #15
   %40 = fcmp oeq double %39, 0x7FF0000000000000
   %or.cond45 = or i1 %38, %40
   br i1 %or.cond45, label %41, label %51
@@ -1406,14 +1406,14 @@ define dso_local { double, double } @_Py_c_pow(double %0, double %1, double %2, 
   br i1 %or.cond8, label %13, label %_Py_ADJUST_ERANGE2.exit
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @__errno_location() #15
+  %14 = tail call ptr @__errno_location() #16
   store i32 33, ptr %14, align 4, !tbaa !4
   br label %_Py_ADJUST_ERANGE2.exit
 
 15:                                               ; preds = %7
-  %16 = tail call double @hypot(double noundef %0, double noundef %1) #16, !tbaa !4
-  %17 = tail call double @pow(double noundef %16, double noundef %2) #16, !tbaa !4
-  %18 = tail call double @atan2(double noundef %1, double noundef %0) #16, !tbaa !4
+  %16 = tail call double @hypot(double noundef %0, double noundef %1) #17, !tbaa !4
+  %17 = tail call double @pow(double noundef %16, double noundef %2) #17, !tbaa !4
+  %18 = tail call double @atan2(double noundef %1, double noundef %0) #17, !tbaa !4
   %19 = fmul double %2, %18
   %20 = fcmp une double %3, 0.000000e+00
   br i1 %20, label %21, label %28
@@ -1421,25 +1421,25 @@ define dso_local { double, double } @_Py_c_pow(double %0, double %1, double %2, 
 21:                                               ; preds = %15
   %22 = fneg double %18
   %23 = fmul double %3, %22
-  %24 = tail call double @exp(double noundef %23) #16, !tbaa !4
+  %24 = tail call double @exp(double noundef %23) #17, !tbaa !4
   %25 = fmul double %17, %24
-  %26 = tail call double @log(double noundef %16) #16, !tbaa !4
+  %26 = tail call double @log(double noundef %16) #17, !tbaa !4
   %27 = tail call double @llvm.fmuladd.f64(double %3, double %26, double %19)
   br label %28
 
 28:                                               ; preds = %21, %15
   %.032 = phi double [ %25, %21 ], [ %17, %15 ]
   %.0 = phi double [ %27, %21 ], [ %19, %15 ]
-  %29 = tail call double @cos(double noundef %.0) #16, !tbaa !4
+  %29 = tail call double @cos(double noundef %.0) #17, !tbaa !4
   %30 = fmul double %.032, %29
-  %31 = tail call double @sin(double noundef %.0) #16, !tbaa !4
+  %31 = tail call double @sin(double noundef %.0) #17, !tbaa !4
   %32 = fmul double %.032, %31
   %33 = tail call double @llvm.fabs.f64(double %30)
   %or.cond.i = fcmp oeq double %33, 0x7FF0000000000000
   %34 = tail call double @llvm.fabs.f64(double %32)
   %35 = fcmp oeq double %34, 0x7FF0000000000000
   %or.cond5.i = or i1 %or.cond.i, %35
-  %36 = tail call ptr @__errno_location() #15
+  %36 = tail call ptr @__errno_location() #16
   %37 = load i32, ptr %36, align 4, !tbaa !4
   br i1 %or.cond5.i, label %38, label %40
 
@@ -1499,7 +1499,7 @@ define dso_local double @_Py_c_abs(double %0, double %1) local_unnamed_addr #7 {
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @__errno_location() #15
+  %10 = tail call ptr @__errno_location() #16
   store i32 0, ptr %10, align 4, !tbaa !4
   br label %22
 
@@ -1508,15 +1508,15 @@ define dso_local double @_Py_c_abs(double %0, double %1) local_unnamed_addr #7 {
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @__errno_location() #15
+  %14 = tail call ptr @__errno_location() #16
   store i32 0, ptr %14, align 4, !tbaa !4
   br label %22
 
 15:                                               ; preds = %2
-  %16 = tail call double @hypot(double noundef %0, double noundef %1) #16, !tbaa !4
+  %16 = tail call double @hypot(double noundef %0, double noundef %1) #17, !tbaa !4
   %17 = tail call double @llvm.fabs.f64(double %16)
   %18 = fcmp ueq double %17, 0x7FF0000000000000
-  %19 = tail call ptr @__errno_location() #15
+  %19 = tail call ptr @__errno_location() #16
   br i1 %18, label %20, label %21
 
 20:                                               ; preds = %15
@@ -1534,12 +1534,12 @@ define dso_local double @_Py_c_abs(double %0, double %1) local_unnamed_addr #7 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyComplex_FromCComplex(double %0, double %1) local_unnamed_addr #8 {
-  %3 = tail call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %3 = tail call ptr @PyObject_Malloc(i64 noundef 32) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_NoMemory() #16
+  %6 = tail call ptr @PyErr_NoMemory() #17
   br label %14
 
 7:                                                ; preds = %2
@@ -1555,7 +1555,7 @@ define dso_local ptr @PyComplex_FromCComplex(double %0, double %1) local_unnamed
   br label %_PyObject_Init.exit
 
 _PyObject_Init.exit:                              ; preds = %7, %11
-  tail call void @_Py_NewReference(ptr noundef nonnull %3) #16
+  tail call void @_Py_NewReference(ptr noundef nonnull %3) #17
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %0, ptr %13, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1573,12 +1573,12 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyComplex_FromDoubles(double noundef %0, double noundef %1) local_unnamed_addr #8 {
-  %3 = tail call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %3 = tail call ptr @PyObject_Malloc(i64 noundef 32) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_NoMemory() #16
+  %6 = tail call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
 7:                                                ; preds = %2
@@ -1594,7 +1594,7 @@ define dso_local ptr @PyComplex_FromDoubles(double noundef %0, double noundef %1
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %11, %7
-  tail call void @_Py_NewReference(ptr noundef nonnull %3) #16
+  tail call void @_Py_NewReference(ptr noundef nonnull %3) #17
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %0, ptr %13, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1614,7 +1614,7 @@ define dso_local double @PyComplex_RealAsDouble(ptr noundef %0) local_unnamed_ad
   br i1 %.not.i11, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %1
-  %3 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #16
+  %3 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
   %.not13 = icmp eq i32 %3, 0
   br i1 %.not13, label %6, label %PyObject_TypeCheck.exit.thread
 
@@ -1642,16 +1642,16 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   br i1 %14, label %15, label %Py_DECREF.exit
 
 15:                                               ; preds = %12
-  tail call void @_Py_Dealloc(ptr noundef nonnull %7) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %7) #17
   br label %Py_DECREF.exit
 
 16:                                               ; preds = %6
-  %17 = tail call ptr @PyErr_Occurred() #16
+  %17 = tail call ptr @PyErr_Occurred() #17
   %.not10 = icmp eq ptr %17, null
   br i1 %.not10, label %18, label %Py_DECREF.exit
 
 18:                                               ; preds = %16
-  %19 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #16
+  %19 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #17
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %15, %12, %8, %18, %16, %PyObject_TypeCheck.exit.thread
@@ -1661,7 +1661,7 @@ Py_DECREF.exit:                                   ; preds = %15, %12, %8, %18, %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @try_complex_special_method(ptr noundef %0) unnamed_addr #8 {
-  %2 = tail call ptr @_PyObject_LookupSpecial(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37952)) #16
+  %2 = tail call ptr @_PyObject_LookupSpecial(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37952)) #17
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_DECREF.exit21, label %3
 
@@ -1685,12 +1685,12 @@ _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %3
   br i1 %12, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %14
 
 _PyVectorcall_FunctionInline.exit.thread.i.i:     ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %3
-  %13 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %5, ptr noundef nonnull %2, ptr noundef null, i64 noundef 0, ptr noundef null) #16
+  %13 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %5, ptr noundef nonnull %2, ptr noundef null, i64 noundef 0, ptr noundef null) #17
   br label %_PyObject_CallNoArgs.exit
 
 14:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %15 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %2, ptr noundef null, i64 noundef 0, ptr noundef null) #16
-  %16 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %5, ptr noundef nonnull %2, ptr noundef %15, ptr noundef null) #16
+  %15 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %2, ptr noundef null, i64 noundef 0, ptr noundef null) #17
+  %16 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %5, ptr noundef nonnull %2, ptr noundef %15, ptr noundef null) #17
   br label %_PyObject_CallNoArgs.exit
 
 _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_FunctionInline.exit.thread.i.i, %14
@@ -1706,7 +1706,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br i1 %20, label %21, label %Py_DECREF.exit
 
 21:                                               ; preds = %18
-  tail call void @_Py_Dealloc(ptr noundef nonnull %2) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %2) #17
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %_PyObject_CallNoArgs.exit, %18, %21
@@ -1720,7 +1720,7 @@ Py_DECREF.exit:                                   ; preds = %_PyObject_CallNoArg
   br i1 %.not31, label %Py_DECREF.exit21, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %22
-  %24 = tail call i32 @PyType_IsSubtype(ptr noundef %.val27, ptr noundef nonnull @PyComplex_Type) #16
+  %24 = tail call i32 @PyType_IsSubtype(ptr noundef %.val27, ptr noundef nonnull @PyComplex_Type) #17
   %.not32 = icmp eq i32 %24, 0
   %.val = load ptr, ptr %23, align 8, !tbaa !8
   %25 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -1729,7 +1729,7 @@ PyObject_TypeCheck.exit:                          ; preds = %22
 
 27:                                               ; preds = %PyObject_TypeCheck.exit
   %28 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
-  %29 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %28, ptr noundef nonnull @.str.2, ptr noundef %26) #16
+  %29 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %28, ptr noundef nonnull @.str.2, ptr noundef %26) #17
   %30 = load i32, ptr %.0.i.i, align 8, !tbaa !12
   %.not.i20 = icmp sgt i32 %30, -1
   br i1 %.not.i20, label %31, label %Py_DECREF.exit21
@@ -1742,7 +1742,7 @@ PyObject_TypeCheck.exit:                          ; preds = %22
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.exit
   %34 = load ptr, ptr @PyExc_DeprecationWarning, align 8, !tbaa !32
-  %35 = tail call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %34, i64 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %26) #16
+  %35 = tail call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %34, i64 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %26) #17
   %.not19 = icmp eq i32 %35, 0
   br i1 %.not19, label %Py_DECREF.exit21, label %36
 
@@ -1758,7 +1758,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.
   br i1 %40, label %Py_DECREF.exit21.sink.split, label %Py_DECREF.exit21
 
 Py_DECREF.exit21.sink.split:                      ; preds = %38, %31
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i.i) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i.i) #17
   br label %Py_DECREF.exit21
 
 Py_DECREF.exit21:                                 ; preds = %Py_DECREF.exit21.sink.split, %38, %36, %31, %27, %1, %22, %Py_DECREF.exit, %PyObject_TypeCheck.exit.thread
@@ -1778,7 +1778,7 @@ define dso_local double @PyComplex_ImagAsDouble(ptr noundef %0) local_unnamed_ad
   br i1 %.not.i12, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %1
-  %3 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #16
+  %3 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
   %.not14 = icmp eq i32 %3, 0
   br i1 %.not14, label %6, label %PyObject_TypeCheck.exit.thread
 
@@ -1806,17 +1806,17 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   br i1 %14, label %15, label %Py_DECREF.exit
 
 15:                                               ; preds = %12
-  tail call void @_Py_Dealloc(ptr noundef nonnull %7) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %7) #17
   br label %Py_DECREF.exit
 
 16:                                               ; preds = %6
-  %17 = tail call ptr @PyErr_Occurred() #16
+  %17 = tail call ptr @PyErr_Occurred() #17
   %.not10 = icmp eq ptr %17, null
   br i1 %.not10, label %18, label %Py_DECREF.exit
 
 18:                                               ; preds = %16
-  %19 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #16
-  %20 = tail call ptr @PyErr_Occurred() #16
+  %19 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #17
+  %20 = tail call ptr @PyErr_Occurred() #17
   %.not11 = icmp eq ptr %20, null
   br i1 %.not11, label %21, label %Py_DECREF.exit
 
@@ -1836,7 +1836,7 @@ define dso_local { double, double } @PyComplex_AsCComplex(ptr noundef %0) local_
   br i1 %.not.i19, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %1
-  %3 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #16
+  %3 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
   %.not21 = icmp eq i32 %3, 0
   br i1 %.not21, label %5, label %PyObject_TypeCheck.exit.thread
 
@@ -1868,16 +1868,16 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   br i1 %12, label %13, label %Py_DECREF.exit
 
 13:                                               ; preds = %10
-  tail call void @_Py_Dealloc(ptr noundef nonnull %6) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %6) #17
   br label %Py_DECREF.exit
 
 14:                                               ; preds = %5
-  %15 = tail call ptr @PyErr_Occurred() #16
+  %15 = tail call ptr @PyErr_Occurred() #17
   %.not18 = icmp eq ptr %15, null
   br i1 %.not18, label %16, label %Py_DECREF.exit
 
 16:                                               ; preds = %14
-  %17 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #16
+  %17 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #17
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %13, %10, %7, %14, %16, %PyObject_TypeCheck.exit.thread
@@ -1901,32 +1901,32 @@ define internal ptr @complex_repr(ptr noundef readonly captures(none) %0) #8 {
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load double, ptr %8, align 8, !tbaa !33
-  %10 = tail call ptr @PyOS_double_to_string(double noundef %9, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #16
+  %10 = tail call ptr @PyOS_double_to_string(double noundef %9, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #17
   %.not36 = icmp eq ptr %10, null
   br i1 %.not36, label %11, label %23
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @PyErr_NoMemory() #16
+  %12 = tail call ptr @PyErr_NoMemory() #17
   br label %25
 
 13:                                               ; preds = %1
-  %14 = tail call ptr @PyOS_double_to_string(double noundef %3, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #16
+  %14 = tail call ptr @PyOS_double_to_string(double noundef %3, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #17
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @PyErr_NoMemory() #16
+  %16 = tail call ptr @PyErr_NoMemory() #17
   br label %25
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load double, ptr %18, align 8, !tbaa !33
-  %20 = tail call ptr @PyOS_double_to_string(double noundef %19, i8 noundef signext 114, i32 noundef 0, i32 noundef 1, ptr noundef null) #16
+  %20 = tail call ptr @PyOS_double_to_string(double noundef %19, i8 noundef signext 114, i32 noundef 0, i32 noundef 1, ptr noundef null) #17
   %.not35 = icmp eq ptr %20, null
   br i1 %.not35, label %21, label %23
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @PyErr_NoMemory() #16
+  %22 = tail call ptr @PyErr_NoMemory() #17
   br label %25
 
 23:                                               ; preds = %17, %7
@@ -1935,15 +1935,15 @@ define internal ptr @complex_repr(ptr noundef readonly captures(none) %0) #8 {
   %.023 = phi ptr [ @.str.4, %7 ], [ %14, %17 ]
   %.022 = phi ptr [ @.str.4, %7 ], [ @.str.5, %17 ]
   %.0 = phi ptr [ @.str.4, %7 ], [ @.str.6, %17 ]
-  %24 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.7, ptr noundef nonnull %.022, ptr noundef nonnull %.023, ptr noundef nonnull %.1, ptr noundef nonnull %.0) #16
+  %24 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.7, ptr noundef nonnull %.022, ptr noundef nonnull %.023, ptr noundef nonnull %.1, ptr noundef nonnull %.0) #17
   br label %25
 
 25:                                               ; preds = %23, %21, %15, %11
   %.027 = phi ptr [ %24, %23 ], [ null, %11 ], [ null, %21 ], [ null, %15 ]
   %.025 = phi ptr [ %.126, %23 ], [ null, %11 ], [ %14, %21 ], [ null, %15 ]
   %.024 = phi ptr [ %.1, %23 ], [ null, %11 ], [ null, %21 ], [ null, %15 ]
-  tail call void @PyMem_Free(ptr noundef %.024) #16
-  tail call void @PyMem_Free(ptr noundef %.025) #16
+  tail call void @PyMem_Free(ptr noundef %.024) #17
+  tail call void @PyMem_Free(ptr noundef %.025) #17
   ret ptr %.027
 }
 
@@ -1951,14 +1951,14 @@ define internal ptr @complex_repr(ptr noundef readonly captures(none) %0) #8 {
 define internal i64 @complex_hash(ptr noundef %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8, !tbaa !15
-  %4 = tail call i64 @_Py_HashDouble(ptr noundef %0, double noundef %3) #16
+  %4 = tail call i64 @_Py_HashDouble(ptr noundef %0, double noundef %3) #17
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load double, ptr %7, align 8, !tbaa !33
-  %9 = tail call i64 @_Py_HashDouble(ptr noundef nonnull %0, double noundef %8) #16
+  %9 = tail call i64 @_Py_HashDouble(ptr noundef nonnull %0, double noundef %8) #17
   %10 = icmp eq i64 %9, -1
   br i1 %10, label %14, label %11
 
@@ -1995,7 +1995,7 @@ define internal ptr @complex_richcompare(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not.i28, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %9
-  %11 = tail call i32 @PyType_IsSubtype(ptr noundef %.val27, ptr noundef nonnull @PyComplex_Type) #16
+  %11 = tail call i32 @PyType_IsSubtype(ptr noundef %.val27, ptr noundef nonnull @PyComplex_Type) #17
   %.not44 = icmp eq i32 %11, 0
   br i1 %.not44, label %13, label %PyObject_TypeCheck.exit.thread
 
@@ -2012,7 +2012,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %9, %PyObject_TypeCh
   br i1 %.not.i.i.i, label %PyObject_TypeCheck.exit.thread.i.i, label %PyObject_TypeCheck.exit.i.i
 
 PyObject_TypeCheck.exit.i.i:                      ; preds = %13
-  %15 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i.i, ptr noundef nonnull @PyFloat_Type) #16
+  %15 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i.i, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i.i = icmp eq i32 %15, 0
   br i1 %.not8.i.i, label %17, label %PyObject_TypeCheck.exit.thread.i.i
 
@@ -2023,7 +2023,7 @@ PyObject_TypeCheck.exit.thread.i.i:               ; preds = %PyObject_TypeCheck.
   br label %real_to_complex.exit
 
 17:                                               ; preds = %PyObject_TypeCheck.exit.i.i
-  %18 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #16
+  %18 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #17
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %real_to_complex.exit
 
@@ -2052,12 +2052,12 @@ real_to_complex.exit:                             ; preds = %17, %PyObject_TypeC
 
 29:                                               ; preds = %25
   %30 = load double, ptr %6, align 8, !tbaa !38
-  %31 = call ptr @PyFloat_FromDouble(double noundef %30) #16
+  %31 = call ptr @PyFloat_FromDouble(double noundef %30) #17
   %32 = icmp eq ptr %31, null
   br i1 %32, label %Py_DECREF.exit, label %33
 
 33:                                               ; preds = %29
-  %34 = call ptr @PyObject_RichCompare(ptr noundef nonnull %31, ptr noundef nonnull %1, i32 noundef %2) #16
+  %34 = call ptr @PyObject_RichCompare(ptr noundef nonnull %31, ptr noundef nonnull %1, i32 noundef %2) #17
   %35 = load i32, ptr %31, align 8, !tbaa !12
   %.not.i = icmp sgt i32 %35, -1
   br i1 %.not.i, label %36, label %Py_DECREF.exit
@@ -2069,7 +2069,7 @@ real_to_complex.exit:                             ; preds = %17, %PyObject_TypeC
   br i1 %38, label %39, label %Py_DECREF.exit
 
 39:                                               ; preds = %36
-  call void @_Py_Dealloc(ptr noundef nonnull %31) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %31) #17
   br label %Py_DECREF.exit
 
 40:                                               ; preds = %real_to_complex.exit
@@ -2077,13 +2077,13 @@ real_to_complex.exit:                             ; preds = %17, %PyObject_TypeC
   br i1 %.not.i29, label %PyObject_TypeCheck.exit30.thread, label %PyObject_TypeCheck.exit30
 
 PyObject_TypeCheck.exit30:                        ; preds = %40
-  %41 = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #16
+  %41 = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #17
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %49, label %PyObject_TypeCheck.exit30.thread
 
 PyObject_TypeCheck.exit30.thread:                 ; preds = %40, %PyObject_TypeCheck.exit30
   %42 = load double, ptr %6, align 8, !tbaa !38
-  %43 = call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %43 = call double @PyFloat_AsDouble(ptr noundef nonnull %1) #17
   %44 = fcmp oeq double %42, %43
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %46 = load double, ptr %45, align 8
@@ -2101,7 +2101,7 @@ PyObject_TypeCheck.exit32.thread.thread:          ; preds = %49
   br label %PyObject_TypeCheck.exit34.thread
 
 PyObject_TypeCheck.exit32:                        ; preds = %49
-  %50 = call i32 @PyType_IsSubtype(ptr noundef %.val25, ptr noundef nonnull @PyComplex_Type) #16
+  %50 = call i32 @PyType_IsSubtype(ptr noundef %.val25, ptr noundef nonnull @PyComplex_Type) #17
   %.not45 = icmp eq i32 %50, 0
   br i1 %.not45, label %Py_DECREF.exit, label %PyObject_TypeCheck.exit32.thread
 
@@ -2112,7 +2112,7 @@ PyObject_TypeCheck.exit32.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not.i33, label %PyObject_TypeCheck.exit34.thread, label %PyObject_TypeCheck.exit34
 
 PyObject_TypeCheck.exit34:                        ; preds = %PyObject_TypeCheck.exit32.thread
-  %51 = call i32 @PyType_IsSubtype(ptr noundef %.val24.pre, ptr noundef nonnull @PyComplex_Type) #16
+  %51 = call i32 @PyType_IsSubtype(ptr noundef %.val24.pre, ptr noundef nonnull @PyComplex_Type) #17
   %.not46 = icmp eq i32 %51, 0
   br i1 %.not46, label %53, label %PyObject_TypeCheck.exit34.thread
 
@@ -2211,7 +2211,7 @@ define internal ptr @actual_complex_new(ptr noundef %0, ptr noundef %1, ptr noun
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %15 = load ptr, ptr %14, align 8, !tbaa !44
-  %16 = tail call ptr %15(ptr noundef %0, i64 noundef 0) #16
+  %16 = tail call ptr %15(ptr noundef %0, i64 noundef 0) #17
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %complex_subtype_from_doubles.exit, label %17
 
@@ -2249,14 +2249,14 @@ define internal ptr @actual_complex_new(ptr noundef %0, ptr noundef %1, ptr noun
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = tail call ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef nonnull %21) #16
+  %34 = tail call ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef nonnull %21) #17
   %35 = icmp eq ptr %34, null
   br i1 %35, label %complex_subtype_from_string.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %34, ptr noundef nonnull %4) #16
+  %37 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %34, ptr noundef nonnull %4) #17
   %38 = load i64, ptr %4, align 8, !tbaa !45
-  %39 = call ptr @_Py_string_to_number_with_underscores(ptr noundef %37, i64 noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull %21, ptr noundef %0, ptr noundef nonnull @complex_from_string_inner) #16
+  %39 = call ptr @_Py_string_to_number_with_underscores(ptr noundef %37, i64 noundef %38, ptr noundef nonnull @.str, ptr noundef nonnull %21, ptr noundef %0, ptr noundef nonnull @complex_from_string_inner) #17
   %40 = load i32, ptr %34, align 8, !tbaa !12
   %.not.i.i60 = icmp sgt i32 %40, -1
   br i1 %.not.i.i60, label %41, label %complex_subtype_from_string.exit
@@ -2268,7 +2268,7 @@ define internal ptr @actual_complex_new(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %43, label %44, label %complex_subtype_from_string.exit
 
 44:                                               ; preds = %41
-  call void @_Py_Dealloc(ptr noundef nonnull %34) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %34) #17
   br label %complex_subtype_from_string.exit
 
 complex_subtype_from_string.exit:                 ; preds = %33, %36, %41, %44
@@ -2288,7 +2288,7 @@ complex_subtype_from_string.exit:                 ; preds = %33, %36, %41, %44
   %.sroa.44.0.copyload = load double, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %50 = load ptr, ptr %49, align 8, !tbaa !44
-  %51 = tail call ptr %50(ptr noundef %0, i64 noundef 0) #16
+  %51 = tail call ptr %50(ptr noundef %0, i64 noundef 0) #17
   %.not.i.i61 = icmp eq ptr %51, null
   br i1 %.not.i.i61, label %complex_subtype_from_doubles.exit63, label %52
 
@@ -2311,11 +2311,11 @@ complex_subtype_from_doubles.exit63:              ; preds = %47, %52
   br i1 %57, label %58, label %complex_subtype_from_doubles.exit
 
 58:                                               ; preds = %55
-  tail call void @_Py_Dealloc(ptr noundef nonnull %46) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %46) #17
   br label %complex_subtype_from_doubles.exit
 
 59:                                               ; preds = %45
-  %60 = tail call ptr @PyErr_Occurred() #16
+  %60 = tail call ptr @PyErr_Occurred() #17
   %.not46 = icmp eq ptr %60, null
   br i1 %.not46, label %61, label %complex_subtype_from_doubles.exit
 
@@ -2325,7 +2325,7 @@ complex_subtype_from_doubles.exit63:              ; preds = %47, %52
   br i1 %.not.i64, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %61
-  %62 = tail call i32 @PyType_IsSubtype(ptr noundef %.val58, ptr noundef nonnull @PyComplex_Type) #16
+  %62 = tail call i32 @PyType_IsSubtype(ptr noundef %.val58, ptr noundef nonnull @PyComplex_Type) #17
   %.not72 = icmp eq i32 %62, 0
   br i1 %.not72, label %69, label %PyObject_TypeCheck.exit.thread
 
@@ -2336,7 +2336,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %61, %PyObject_TypeC
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %65 = load ptr, ptr %64, align 8, !tbaa !44
-  %66 = tail call ptr %65(ptr noundef %0, i64 noundef 0) #16
+  %66 = tail call ptr %65(ptr noundef %0, i64 noundef 0) #17
   %.not.i.i65 = icmp eq ptr %66, null
   br i1 %.not.i.i65, label %complex_subtype_from_doubles.exit, label %67
 
@@ -2367,19 +2367,19 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %61, %PyObject_TypeC
   br i1 %.not50, label %89, label %78
 
 78:                                               ; preds = %75, %72
-  %79 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %21) #16
+  %79 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %21) #17
   %80 = fcmp une double %79, -1.000000e+00
   br i1 %80, label %83, label %81
 
 81:                                               ; preds = %78
-  %82 = tail call ptr @PyErr_Occurred() #16
+  %82 = tail call ptr @PyErr_Occurred() #17
   %.not51 = icmp eq ptr %82, null
   br i1 %.not51, label %83, label %complex_subtype_from_doubles.exit
 
 83:                                               ; preds = %81, %78
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %85 = load ptr, ptr %84, align 8, !tbaa !44
-  %86 = tail call ptr %85(ptr noundef %0, i64 noundef 0) #16
+  %86 = tail call ptr %85(ptr noundef %0, i64 noundef 0) #17
   %.not.i.i68 = icmp eq ptr %86, null
   br i1 %.not.i.i68, label %complex_subtype_from_doubles.exit, label %87
 
@@ -2392,7 +2392,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %61, %PyObject_TypeC
 
 89:                                               ; preds = %75, %69
   %90 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
-  %91 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %90, ptr noundef nonnull @.str.27, ptr noundef nonnull %21) #16
+  %91 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %90, ptr noundef nonnull @.str.27, ptr noundef nonnull %21) #17
   br label %complex_subtype_from_doubles.exit
 
 complex_subtype_from_doubles.exit:                ; preds = %87, %83, %67, %PyObject_TypeCheck.exit.thread, %58, %55, %complex_subtype_from_doubles.exit63, %28, %25, %17, %13, %complex_subtype_from_string.exit, %89, %81, %59, %.split, %.split38
@@ -2415,7 +2415,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 declare i32 @PyErr_WarnFormat(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
 
 declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #9
 
@@ -2436,7 +2436,7 @@ define internal ptr @complex_add(ptr noundef %0, ptr noundef %1) #8 {
   store ptr %0, ptr %3, align 8, !tbaa !32
   store ptr %1, ptr %4, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 0, ptr %7, align 4, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 8
   %.val15 = load ptr, ptr %8, align 8, !tbaa !8
@@ -2444,7 +2444,7 @@ define internal ptr @complex_add(ptr noundef %0, ptr noundef %1) #8 {
   br i1 %.not.i, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %2
-  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyComplex_Type) #16
+  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyComplex_Type) #17
   %.not40 = icmp eq i32 %9, 0
   br i1 %.not40, label %29, label %PyObject_TypeCheck.exit.thread
 
@@ -2459,7 +2459,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
   br i1 %.not.i16, label %PyObject_TypeCheck.exit17.thread, label %PyObject_TypeCheck.exit17
 
 PyObject_TypeCheck.exit17:                        ; preds = %PyObject_TypeCheck.exit.thread
-  %12 = tail call i32 @PyType_IsSubtype(ptr noundef %.val14, ptr noundef nonnull @PyComplex_Type) #16
+  %12 = tail call i32 @PyType_IsSubtype(ptr noundef %.val14, ptr noundef nonnull @PyComplex_Type) #17
   %.not41 = icmp eq i32 %12, 0
   br i1 %.not41, label %19, label %PyObject_TypeCheck.exit17.thread
 
@@ -2481,7 +2481,7 @@ PyObject_TypeCheck.exit17.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not.i.i, label %PyObject_TypeCheck.exit.thread.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %19
-  %20 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #16
+  %20 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i = icmp eq i32 %20, 0
   br i1 %.not8.i, label %22, label %PyObject_TypeCheck.exit.thread.i
 
@@ -2490,7 +2490,7 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br label %real_to_double.exit
 
 22:                                               ; preds = %PyObject_TypeCheck.exit.i
-  %23 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %3, ptr noundef nonnull %5) #16
+  %23 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %3, ptr noundef nonnull %5) #17
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %27, label %real_to_double.exit
 
@@ -2514,7 +2514,7 @@ real_to_double.exit:                              ; preds = %22, %PyObject_TypeC
   br i1 %.not.i18, label %PyObject_TypeCheck.exit19.thread, label %PyObject_TypeCheck.exit19
 
 PyObject_TypeCheck.exit19:                        ; preds = %29
-  %31 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #16
+  %31 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %PyComplex_FromCComplex.exit, label %PyObject_TypeCheck.exit19.thread
 
@@ -2527,7 +2527,7 @@ PyObject_TypeCheck.exit19.thread:                 ; preds = %29, %PyObject_TypeC
   br i1 %.not.i.i21, label %PyObject_TypeCheck.exit.thread.i24, label %PyObject_TypeCheck.exit.i22
 
 PyObject_TypeCheck.exit.i22:                      ; preds = %PyObject_TypeCheck.exit19.thread
-  %33 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i20, ptr noundef nonnull @PyFloat_Type) #16
+  %33 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i20, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i23 = icmp eq i32 %33, 0
   br i1 %.not8.i23, label %35, label %PyObject_TypeCheck.exit.thread.i24
 
@@ -2536,7 +2536,7 @@ PyObject_TypeCheck.exit.thread.i24:               ; preds = %PyObject_TypeCheck.
   br label %.thread38
 
 35:                                               ; preds = %PyObject_TypeCheck.exit.i22
-  %36 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #16
+  %36 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #17
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %41, label %.thread38
 
@@ -2562,18 +2562,18 @@ PyObject_TypeCheck.exit.thread.i24:               ; preds = %PyObject_TypeCheck.
 
 46:                                               ; preds = %.thread
   %47 = load ptr, ptr @PyExc_ZeroDivisionError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %47, ptr noundef nonnull @.str.8) #16
+  call void @PyErr_SetString(ptr noundef %47, ptr noundef nonnull @.str.8) #17
   br label %PyComplex_FromCComplex.exit
 
 48:                                               ; preds = %.thread
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %50 = load double, ptr %49, align 8
-  %51 = call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %51 = call ptr @PyObject_Malloc(i64 noundef 32) #17
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %48
-  %54 = call ptr @PyErr_NoMemory() #16
+  %54 = call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
 55:                                               ; preds = %48
@@ -2589,7 +2589,7 @@ PyObject_TypeCheck.exit.thread.i24:               ; preds = %PyObject_TypeCheck.
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %59, %55
-  call void @_Py_NewReference(ptr noundef nonnull %51) #16
+  call void @_Py_NewReference(ptr noundef nonnull %51) #17
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store double %43, ptr %61, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -2611,7 +2611,7 @@ define internal ptr @complex_sub(ptr noundef %0, ptr noundef %1) #8 {
   store ptr %0, ptr %3, align 8, !tbaa !32
   store ptr %1, ptr %4, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 0, ptr %7, align 4, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 8
   %.val15 = load ptr, ptr %8, align 8, !tbaa !8
@@ -2619,7 +2619,7 @@ define internal ptr @complex_sub(ptr noundef %0, ptr noundef %1) #8 {
   br i1 %.not.i, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %2
-  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyComplex_Type) #16
+  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyComplex_Type) #17
   %.not42 = icmp eq i32 %9, 0
   br i1 %.not42, label %30, label %PyObject_TypeCheck.exit.thread
 
@@ -2634,7 +2634,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
   br i1 %.not.i16, label %PyObject_TypeCheck.exit17.thread, label %PyObject_TypeCheck.exit17
 
 PyObject_TypeCheck.exit17:                        ; preds = %PyObject_TypeCheck.exit.thread
-  %12 = tail call i32 @PyType_IsSubtype(ptr noundef %.val14, ptr noundef nonnull @PyComplex_Type) #16
+  %12 = tail call i32 @PyType_IsSubtype(ptr noundef %.val14, ptr noundef nonnull @PyComplex_Type) #17
   %.not43 = icmp eq i32 %12, 0
   br i1 %.not43, label %19, label %PyObject_TypeCheck.exit17.thread
 
@@ -2656,7 +2656,7 @@ PyObject_TypeCheck.exit17.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not.i.i, label %PyObject_TypeCheck.exit.thread.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %19
-  %20 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #16
+  %20 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i = icmp eq i32 %20, 0
   br i1 %.not8.i, label %22, label %PyObject_TypeCheck.exit.thread.i
 
@@ -2665,7 +2665,7 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br label %real_to_double.exit
 
 22:                                               ; preds = %PyObject_TypeCheck.exit.i
-  %23 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %3, ptr noundef nonnull %5) #16
+  %23 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %3, ptr noundef nonnull %5) #17
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %28, label %real_to_double.exit
 
@@ -2690,7 +2690,7 @@ real_to_double.exit:                              ; preds = %22, %PyObject_TypeC
   br i1 %.not.i20, label %PyObject_TypeCheck.exit21.thread, label %PyObject_TypeCheck.exit21
 
 PyObject_TypeCheck.exit21:                        ; preds = %30
-  %32 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #16
+  %32 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %PyComplex_FromCComplex.exit, label %PyObject_TypeCheck.exit21.thread
 
@@ -2703,7 +2703,7 @@ PyObject_TypeCheck.exit21.thread:                 ; preds = %30, %PyObject_TypeC
   br i1 %.not.i.i23, label %PyObject_TypeCheck.exit.thread.i26, label %PyObject_TypeCheck.exit.i24
 
 PyObject_TypeCheck.exit.i24:                      ; preds = %PyObject_TypeCheck.exit21.thread
-  %34 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i22, ptr noundef nonnull @PyFloat_Type) #16
+  %34 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i22, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i25 = icmp eq i32 %34, 0
   br i1 %.not8.i25, label %36, label %PyObject_TypeCheck.exit.thread.i26
 
@@ -2712,7 +2712,7 @@ PyObject_TypeCheck.exit.thread.i26:               ; preds = %PyObject_TypeCheck.
   br label %.thread40
 
 36:                                               ; preds = %PyObject_TypeCheck.exit.i24
-  %37 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #16
+  %37 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #17
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %42, label %.thread40
 
@@ -2738,18 +2738,18 @@ PyObject_TypeCheck.exit.thread.i26:               ; preds = %PyObject_TypeCheck.
 
 47:                                               ; preds = %.thread
   %48 = load ptr, ptr @PyExc_ZeroDivisionError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %48, ptr noundef nonnull @.str.8) #16
+  call void @PyErr_SetString(ptr noundef %48, ptr noundef nonnull @.str.8) #17
   br label %PyComplex_FromCComplex.exit
 
 49:                                               ; preds = %.thread
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load double, ptr %50, align 8
-  %52 = call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %52 = call ptr @PyObject_Malloc(i64 noundef 32) #17
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %49
-  %55 = call ptr @PyErr_NoMemory() #16
+  %55 = call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
 56:                                               ; preds = %49
@@ -2765,7 +2765,7 @@ PyObject_TypeCheck.exit.thread.i26:               ; preds = %PyObject_TypeCheck.
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %60, %56
-  call void @_Py_NewReference(ptr noundef nonnull %52) #16
+  call void @_Py_NewReference(ptr noundef nonnull %52) #17
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store double %44, ptr %62, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -2787,7 +2787,7 @@ define internal ptr @complex_mul(ptr noundef %0, ptr noundef %1) #8 {
   store ptr %0, ptr %3, align 8, !tbaa !32
   store ptr %1, ptr %4, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 0, ptr %7, align 4, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 8
   %.val15 = load ptr, ptr %8, align 8, !tbaa !8
@@ -2795,7 +2795,7 @@ define internal ptr @complex_mul(ptr noundef %0, ptr noundef %1) #8 {
   br i1 %.not.i, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %2
-  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyComplex_Type) #16
+  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyComplex_Type) #17
   %.not38 = icmp eq i32 %9, 0
   br i1 %.not38, label %31, label %PyObject_TypeCheck.exit.thread
 
@@ -2810,7 +2810,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
   br i1 %.not.i16, label %PyObject_TypeCheck.exit17.thread, label %PyObject_TypeCheck.exit17
 
 PyObject_TypeCheck.exit17:                        ; preds = %PyObject_TypeCheck.exit.thread
-  %12 = tail call i32 @PyType_IsSubtype(ptr noundef %.val14, ptr noundef nonnull @PyComplex_Type) #16
+  %12 = tail call i32 @PyType_IsSubtype(ptr noundef %.val14, ptr noundef nonnull @PyComplex_Type) #17
   %.not39 = icmp eq i32 %12, 0
   br i1 %.not39, label %20, label %PyObject_TypeCheck.exit17.thread
 
@@ -2833,7 +2833,7 @@ PyObject_TypeCheck.exit17.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not.i.i, label %PyObject_TypeCheck.exit.thread.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %20
-  %21 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #16
+  %21 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i = icmp eq i32 %21, 0
   br i1 %.not8.i, label %23, label %PyObject_TypeCheck.exit.thread.i
 
@@ -2842,7 +2842,7 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br label %real_to_double.exit
 
 23:                                               ; preds = %PyObject_TypeCheck.exit.i
-  %24 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %3, ptr noundef nonnull %5) #16
+  %24 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %3, ptr noundef nonnull %5) #17
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %29, label %real_to_double.exit
 
@@ -2867,7 +2867,7 @@ real_to_double.exit:                              ; preds = %23, %PyObject_TypeC
   br i1 %.not.i18, label %PyObject_TypeCheck.exit19.thread, label %PyObject_TypeCheck.exit19
 
 PyObject_TypeCheck.exit19:                        ; preds = %31
-  %33 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #16
+  %33 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %PyComplex_FromCComplex.exit, label %PyObject_TypeCheck.exit19.thread
 
@@ -2880,7 +2880,7 @@ PyObject_TypeCheck.exit19.thread:                 ; preds = %31, %PyObject_TypeC
   br i1 %.not.i.i21, label %PyObject_TypeCheck.exit.thread.i24, label %PyObject_TypeCheck.exit.i22
 
 PyObject_TypeCheck.exit.i22:                      ; preds = %PyObject_TypeCheck.exit19.thread
-  %35 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i20, ptr noundef nonnull @PyFloat_Type) #16
+  %35 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i20, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i23 = icmp eq i32 %35, 0
   br i1 %.not8.i23, label %37, label %PyObject_TypeCheck.exit.thread.i24
 
@@ -2889,7 +2889,7 @@ PyObject_TypeCheck.exit.thread.i24:               ; preds = %PyObject_TypeCheck.
   br label %.thread36
 
 37:                                               ; preds = %PyObject_TypeCheck.exit.i22
-  %38 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #16
+  %38 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #17
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %46, label %.thread36
 
@@ -2920,16 +2920,16 @@ PyObject_TypeCheck.exit.thread.i24:               ; preds = %PyObject_TypeCheck.
 
 52:                                               ; preds = %.thread
   %53 = load ptr, ptr @PyExc_ZeroDivisionError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %53, ptr noundef nonnull @.str.8) #16
+  call void @PyErr_SetString(ptr noundef %53, ptr noundef nonnull @.str.8) #17
   br label %PyComplex_FromCComplex.exit
 
 54:                                               ; preds = %.thread
-  %55 = call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %55 = call ptr @PyObject_Malloc(i64 noundef 32) #17
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %54
-  %58 = call ptr @PyErr_NoMemory() #16
+  %58 = call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
 59:                                               ; preds = %54
@@ -2945,7 +2945,7 @@ PyObject_TypeCheck.exit.thread.i24:               ; preds = %PyObject_TypeCheck.
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %63, %59
-  call void @_Py_NewReference(ptr noundef nonnull %55) #16
+  call void @_Py_NewReference(ptr noundef nonnull %55) #17
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store double %49, ptr %65, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 24
@@ -2974,7 +2974,7 @@ define internal ptr @complex_pow(ptr noundef %0, ptr noundef %1, ptr noundef rea
   br i1 %.not.i, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %3
-  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val12, ptr noundef nonnull @PyComplex_Type) #16
+  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val12, ptr noundef nonnull @PyComplex_Type) #17
   %.not27 = icmp eq i32 %9, 0
   br i1 %.not27, label %11, label %PyObject_TypeCheck.exit.thread
 
@@ -2991,7 +2991,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %3, %PyObject_TypeCh
   br i1 %.not.i.i.i, label %PyObject_TypeCheck.exit.thread.i.i, label %PyObject_TypeCheck.exit.i.i
 
 PyObject_TypeCheck.exit.i.i:                      ; preds = %11
-  %13 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i.i, ptr noundef nonnull @PyFloat_Type) #16
+  %13 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i.i, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i.i = icmp eq i32 %13, 0
   br i1 %.not8.i.i, label %15, label %PyObject_TypeCheck.exit.thread.i.i
 
@@ -3002,7 +3002,7 @@ PyObject_TypeCheck.exit.thread.i.i:               ; preds = %PyObject_TypeCheck.
   br label %real_to_complex.exit
 
 15:                                               ; preds = %PyObject_TypeCheck.exit.i.i
-  %16 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #16
+  %16 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #17
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %.real_to_complex.exit_crit_edge
 
@@ -3022,7 +3022,7 @@ real_to_complex.exit:                             ; preds = %.real_to_complex.ex
   br i1 %.not.i13, label %PyObject_TypeCheck.exit14.thread, label %PyObject_TypeCheck.exit14
 
 PyObject_TypeCheck.exit14:                        ; preds = %real_to_complex.exit
-  %22 = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #16
+  %22 = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
   %.not = icmp eq i32 %22, 0
   %.pre28 = load ptr, ptr %5, align 8, !tbaa !32
   br i1 %.not, label %25, label %PyObject_TypeCheck.exit14.thread
@@ -3042,7 +3042,7 @@ PyObject_TypeCheck.exit14.thread:                 ; preds = %real_to_complex.exi
   br i1 %.not.i.i.i16, label %PyObject_TypeCheck.exit.thread.i.i19, label %PyObject_TypeCheck.exit.i.i17
 
 PyObject_TypeCheck.exit.i.i17:                    ; preds = %25
-  %28 = call i32 @PyType_IsSubtype(ptr noundef %.val.i.i15, ptr noundef nonnull @PyFloat_Type) #16
+  %28 = call i32 @PyType_IsSubtype(ptr noundef %.val.i.i15, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i.i18 = icmp eq i32 %28, 0
   br i1 %.not8.i.i18, label %30, label %PyObject_TypeCheck.exit.thread.i.i19
 
@@ -3053,7 +3053,7 @@ PyObject_TypeCheck.exit.thread.i.i19:             ; preds = %PyObject_TypeCheck.
   br label %real_to_complex.exit22
 
 30:                                               ; preds = %PyObject_TypeCheck.exit.i.i17
-  %31 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %5, ptr noundef nonnull %7) #16
+  %31 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %5, ptr noundef nonnull %7) #17
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %real_to_complex.exit22
 
@@ -3067,11 +3067,11 @@ real_to_complex.exit22:                           ; preds = %30, %PyObject_TypeC
 
 35:                                               ; preds = %real_to_complex.exit22
   %36 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.9) #16
+  call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.9) #17
   br label %PyComplex_FromCComplex.exit
 
 37:                                               ; preds = %real_to_complex.exit22
-  %38 = tail call ptr @__errno_location() #15
+  %38 = tail call ptr @__errno_location() #16
   store i32 0, ptr %38, align 4, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %40 = load double, ptr %39, align 8, !tbaa !35
@@ -3214,21 +3214,21 @@ _Py_ADJUST_ERANGE2.exit:                          ; preds = %.sink.split.i, %91,
 
 101:                                              ; preds = %_Py_ADJUST_ERANGE2.exit
   %102 = load ptr, ptr @PyExc_ZeroDivisionError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %102, ptr noundef nonnull @.str.10) #16
+  call void @PyErr_SetString(ptr noundef %102, ptr noundef nonnull @.str.10) #17
   br label %PyComplex_FromCComplex.exit
 
 103:                                              ; preds = %_Py_ADJUST_ERANGE2.exit
   %104 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %104, ptr noundef nonnull @.str.11) #16
+  call void @PyErr_SetString(ptr noundef %104, ptr noundef nonnull @.str.11) #17
   br label %PyComplex_FromCComplex.exit
 
 105:                                              ; preds = %_Py_ADJUST_ERANGE2.exit
-  %106 = call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %106 = call ptr @PyObject_Malloc(i64 noundef 32) #17
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %105
-  %109 = call ptr @PyErr_NoMemory() #16
+  %109 = call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
 110:                                              ; preds = %105
@@ -3244,7 +3244,7 @@ _Py_ADJUST_ERANGE2.exit:                          ; preds = %.sink.split.i, %91,
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %114, %110
-  call void @_Py_NewReference(ptr noundef nonnull %106) #16
+  call void @_Py_NewReference(ptr noundef nonnull %106) #17
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store double %.sroa.03.0, ptr %116, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 24
@@ -3266,12 +3266,12 @@ define internal ptr @complex_neg(ptr noundef readonly captures(none) %0) #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load double, ptr %5, align 8, !tbaa !33
   %7 = fneg double %6
-  %8 = tail call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %8 = tail call ptr @PyObject_Malloc(i64 noundef 32) #17
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
-  %11 = tail call ptr @PyErr_NoMemory() #16
+  %11 = tail call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
 12:                                               ; preds = %1
@@ -3287,7 +3287,7 @@ define internal ptr @complex_neg(ptr noundef readonly captures(none) %0) #8 {
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %16, %12
-  tail call void @_Py_NewReference(ptr noundef nonnull %8) #16
+  tail call void @_Py_NewReference(ptr noundef nonnull %8) #17
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double %4, ptr %18, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3321,12 +3321,12 @@ define internal ptr @complex_pos(ptr noundef captures(ret: address, provenance) 
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load double, ptr %11, align 8
-  %13 = tail call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %13 = tail call ptr @PyObject_Malloc(i64 noundef 32) #17
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @PyErr_NoMemory() #16
+  %16 = tail call ptr @PyErr_NoMemory() #17
   br label %_Py_NewRef.exit
 
 17:                                               ; preds = %8
@@ -3342,7 +3342,7 @@ define internal ptr @complex_pos(ptr noundef captures(ret: address, provenance) 
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %21, %17
-  tail call void @_Py_NewReference(ptr noundef nonnull %13) #16
+  tail call void @_Py_NewReference(ptr noundef nonnull %13) #17
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store double %10, ptr %23, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -3372,19 +3372,19 @@ define internal ptr @complex_abs(ptr noundef readonly captures(none) %0) #8 {
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @__errno_location() #15
+  %13 = tail call ptr @__errno_location() #16
   br label %_Py_c_abs.exit.thread.sink.split
 
 14:                                               ; preds = %10
   %15 = fcmp oeq double %8, 0x7FF0000000000000
-  %16 = tail call ptr @__errno_location() #15
+  %16 = tail call ptr @__errno_location() #16
   br i1 %15, label %_Py_c_abs.exit.thread.sink.split, label %_Py_c_abs.exit
 
 17:                                               ; preds = %1
-  %18 = tail call double @hypot(double noundef %3, double noundef %5) #16, !tbaa !4
+  %18 = tail call double @hypot(double noundef %3, double noundef %5) #17, !tbaa !4
   %19 = tail call double @llvm.fabs.f64(double %18)
   %20 = fcmp ueq double %19, 0x7FF0000000000000
-  %21 = tail call ptr @__errno_location() #15
+  %21 = tail call ptr @__errno_location() #16
   br i1 %20, label %_Py_c_abs.exit.thread7, label %_Py_c_abs.exit.thread.sink.split
 
 _Py_c_abs.exit.thread7:                           ; preds = %17
@@ -3398,7 +3398,7 @@ _Py_c_abs.exit:                                   ; preds = %14
 
 23:                                               ; preds = %_Py_c_abs.exit.thread7, %_Py_c_abs.exit
   %24 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !32
-  tail call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.12) #16
+  tail call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.12) #17
   br label %26
 
 _Py_c_abs.exit.thread.sink.split:                 ; preds = %17, %14, %12
@@ -3409,7 +3409,7 @@ _Py_c_abs.exit.thread.sink.split:                 ; preds = %17, %14, %12
 
 _Py_c_abs.exit.thread:                            ; preds = %_Py_c_abs.exit.thread.sink.split, %_Py_c_abs.exit
   %.0.i6 = phi double [ 0x7FF8000000000000, %_Py_c_abs.exit ], [ %.0.i6.ph, %_Py_c_abs.exit.thread.sink.split ]
-  %25 = tail call ptr @PyFloat_FromDouble(double noundef %.0.i6) #16
+  %25 = tail call ptr @PyFloat_FromDouble(double noundef %.0.i6) #17
   br label %26
 
 26:                                               ; preds = %_Py_c_abs.exit.thread, %23
@@ -3418,7 +3418,7 @@ _Py_c_abs.exit.thread:                            ; preds = %_Py_c_abs.exit.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @complex_bool(ptr noundef readonly captures(none) %0) #10 {
+define internal range(i32 0, 2) i32 @complex_bool(ptr noundef readonly captures(none) %0) #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8, !tbaa !15
   %4 = fcmp une double %3, 0.000000e+00
@@ -3445,7 +3445,7 @@ define internal ptr @complex_div(ptr noundef %0, ptr noundef %1) #8 {
   store ptr %0, ptr %3, align 8, !tbaa !32
   store ptr %1, ptr %4, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 0, ptr %7, align 4, !tbaa !4
   %8 = getelementptr i8, ptr %1, i64 8
   %.val15 = load ptr, ptr %8, align 8, !tbaa !8
@@ -3453,7 +3453,7 @@ define internal ptr @complex_div(ptr noundef %0, ptr noundef %1) #8 {
   br i1 %.not.i, label %PyObject_TypeCheck.exit.thread, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %2
-  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyComplex_Type) #16
+  %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val15, ptr noundef nonnull @PyComplex_Type) #17
   %.not40 = icmp eq i32 %9, 0
   br i1 %.not40, label %75, label %PyObject_TypeCheck.exit.thread
 
@@ -3468,7 +3468,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
   br i1 %.not.i16, label %PyObject_TypeCheck.exit17.thread, label %PyObject_TypeCheck.exit17
 
 PyObject_TypeCheck.exit17:                        ; preds = %PyObject_TypeCheck.exit.thread
-  %12 = tail call i32 @PyType_IsSubtype(ptr noundef %.val14, ptr noundef nonnull @PyComplex_Type) #16
+  %12 = tail call i32 @PyType_IsSubtype(ptr noundef %.val14, ptr noundef nonnull @PyComplex_Type) #17
   %.not41 = icmp eq i32 %12, 0
   br i1 %.not41, label %20, label %PyObject_TypeCheck.exit17.thread
 
@@ -3491,7 +3491,7 @@ PyObject_TypeCheck.exit17.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not.i.i, label %PyObject_TypeCheck.exit.thread.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %20
-  %21 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #16
+  %21 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i = icmp eq i32 %21, 0
   br i1 %.not8.i, label %23, label %PyObject_TypeCheck.exit.thread.i
 
@@ -3500,7 +3500,7 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br label %real_to_double.exit
 
 23:                                               ; preds = %PyObject_TypeCheck.exit.i
-  %24 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %3, ptr noundef nonnull %5) #16
+  %24 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %3, ptr noundef nonnull %5) #17
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %73, label %real_to_double.exit
 
@@ -3558,9 +3558,9 @@ real_to_double.exit:                              ; preds = %23, %PyObject_TypeC
   br i1 %or.cond43.i, label %_Py_rc_quot.exit, label %58
 
 58:                                               ; preds = %53
-  %59 = call double @llvm.fabs.f64(double %.sroa.07.0.copyload) #14
+  %59 = call double @llvm.fabs.f64(double %.sroa.07.0.copyload) #15
   %60 = fcmp oeq double %59, 0x7FF0000000000000
-  %61 = call double @llvm.fabs.f64(double %.sroa.5.0.copyload) #14
+  %61 = call double @llvm.fabs.f64(double %.sroa.5.0.copyload) #15
   %62 = fcmp oeq double %61, 0x7FF0000000000000
   %or.cond45.i = or i1 %60, %62
   br i1 %or.cond45.i, label %63, label %_Py_rc_quot.exit
@@ -3596,7 +3596,7 @@ _Py_rc_quot.exit:                                 ; preds = %53, %58, %63
   br i1 %.not.i18, label %PyObject_TypeCheck.exit19.thread, label %PyObject_TypeCheck.exit19
 
 PyObject_TypeCheck.exit19:                        ; preds = %75
-  %77 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #16
+  %77 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #17
   %.not = icmp eq i32 %77, 0
   br i1 %.not, label %PyComplex_FromCComplex.exit, label %PyObject_TypeCheck.exit19.thread
 
@@ -3609,7 +3609,7 @@ PyObject_TypeCheck.exit19.thread:                 ; preds = %75, %PyObject_TypeC
   br i1 %.not.i.i21, label %PyObject_TypeCheck.exit.thread.i24, label %PyObject_TypeCheck.exit.i22
 
 PyObject_TypeCheck.exit.i22:                      ; preds = %PyObject_TypeCheck.exit19.thread
-  %79 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i20, ptr noundef nonnull @PyFloat_Type) #16
+  %79 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i20, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i23 = icmp eq i32 %79, 0
   br i1 %.not8.i23, label %81, label %PyObject_TypeCheck.exit.thread.i24
 
@@ -3618,7 +3618,7 @@ PyObject_TypeCheck.exit.thread.i24:               ; preds = %PyObject_TypeCheck.
   br label %thread-pre-split
 
 81:                                               ; preds = %PyObject_TypeCheck.exit.i22
-  %82 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #16
+  %82 = call i32 @_Py_convert_int_to_double(ptr noundef nonnull %4, ptr noundef nonnull %6) #17
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %93, label %thread-pre-split
 
@@ -3662,16 +3662,16 @@ thread-pre-split:                                 ; preds = %81, %PyObject_TypeC
 
 99:                                               ; preds = %.thread
   %100 = load ptr, ptr @PyExc_ZeroDivisionError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %100, ptr noundef nonnull @.str.8) #16
+  call void @PyErr_SetString(ptr noundef %100, ptr noundef nonnull @.str.8) #17
   br label %PyComplex_FromCComplex.exit
 
 101:                                              ; preds = %.thread
-  %102 = call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %102 = call ptr @PyObject_Malloc(i64 noundef 32) #17
   %103 = icmp eq ptr %102, null
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %101
-  %105 = call ptr @PyErr_NoMemory() #16
+  %105 = call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
 106:                                              ; preds = %101
@@ -3687,7 +3687,7 @@ thread-pre-split:                                 ; preds = %81, %PyObject_TypeC
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %110, %106
-  call void @_Py_NewReference(ptr noundef nonnull %102) #16
+  call void @_Py_NewReference(ptr noundef nonnull %102) #17
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store double %96, ptr %112, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %102, i64 24
@@ -3715,7 +3715,7 @@ define internal fastcc range(i32 -1, 1) i32 @real_to_complex(ptr noundef nonnull
   br i1 %.not.i.i, label %PyObject_TypeCheck.exit.thread.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %2
-  %6 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #16
+  %6 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #17
   %.not8.i = icmp eq i32 %6, 0
   br i1 %.not8.i, label %8, label %PyObject_TypeCheck.exit.thread.i
 
@@ -3726,7 +3726,7 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br label %11
 
 8:                                                ; preds = %PyObject_TypeCheck.exit.i
-  %9 = tail call i32 @_Py_convert_int_to_double(ptr noundef nonnull %0, ptr noundef nonnull %1) #16
+  %9 = tail call i32 @_Py_convert_int_to_double(ptr noundef nonnull %0, ptr noundef nonnull %1) #17
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %real_to_double.exit, label %11
 
@@ -3738,7 +3738,7 @@ real_to_double.exit:                              ; preds = %8, %11
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #2
 
 declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #9
@@ -3774,17 +3774,17 @@ define internal ptr @complex_from_number(ptr noundef %0, ptr noundef %1) #8 {
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %11
-  %17 = tail call ptr @PyErr_Occurred() #16
+  %17 = tail call ptr @PyErr_Occurred() #17
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %Py_INCREF.exit
 
 18:                                               ; preds = %16, %11
-  %19 = tail call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %19 = tail call ptr @PyObject_Malloc(i64 noundef 32) #17
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = tail call ptr @PyErr_NoMemory() #16
+  %22 = tail call ptr @PyErr_NoMemory() #17
   br label %PyComplex_FromCComplex.exit
 
 23:                                               ; preds = %18
@@ -3800,7 +3800,7 @@ define internal ptr @complex_from_number(ptr noundef %0, ptr noundef %1) #8 {
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %27, %23
-  tail call void @_Py_NewReference(ptr noundef nonnull %19) #16
+  tail call void @_Py_NewReference(ptr noundef nonnull %19) #17
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double %13, ptr %29, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -3815,7 +3815,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %21, %_PyObject_Init
   br i1 %or.cond3, label %32, label %Py_INCREF.exit
 
 32:                                               ; preds = %PyComplex_FromCComplex.exit
-  %33 = tail call ptr @PyObject_CallOneArg(ptr noundef %0, ptr noundef nonnull %.0.i) #16
+  %33 = tail call ptr @PyObject_CallOneArg(ptr noundef %0, ptr noundef nonnull %.0.i) #17
   %34 = load i32, ptr %.0.i, align 8, !tbaa !12
   %.not.i = icmp sgt i32 %34, -1
   br i1 %.not.i, label %35, label %Py_INCREF.exit
@@ -3827,7 +3827,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %21, %_PyObject_Init
   br i1 %37, label %38, label %Py_INCREF.exit
 
 38:                                               ; preds = %35
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.0.i) #17
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %38, %35, %32, %9, %6, %16, %PyComplex_FromCComplex.exit
@@ -3842,12 +3842,12 @@ define internal ptr @complex_conjugate(ptr noundef readonly captures(none) %0, p
   %4 = getelementptr i8, ptr %0, i64 24
   %.val1 = load double, ptr %4, align 8, !tbaa !13
   %5 = fneg double %.val1
-  %6 = tail call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %6 = tail call ptr @PyObject_Malloc(i64 noundef 32) #17
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @PyErr_NoMemory() #16
+  %9 = tail call ptr @PyErr_NoMemory() #17
   br label %complex_conjugate_impl.exit
 
 10:                                               ; preds = %2
@@ -3863,7 +3863,7 @@ define internal ptr @complex_conjugate(ptr noundef readonly captures(none) %0, p
   br label %_PyObject_Init.exit.i.i
 
 _PyObject_Init.exit.i.i:                          ; preds = %14, %10
-  tail call void @_Py_NewReference(ptr noundef nonnull %6) #16
+  tail call void @_Py_NewReference(ptr noundef nonnull %6) #17
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %.val, ptr %16, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -3897,12 +3897,12 @@ define internal ptr @complex___complex__(ptr noundef captures(ret: address, prov
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load double, ptr %12, align 8
-  %14 = tail call ptr @PyObject_Malloc(i64 noundef 32) #16
+  %14 = tail call ptr @PyObject_Malloc(i64 noundef 32) #17
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %9
-  %17 = tail call ptr @PyErr_NoMemory() #16
+  %17 = tail call ptr @PyErr_NoMemory() #17
   br label %complex___complex___impl.exit
 
 18:                                               ; preds = %9
@@ -3918,7 +3918,7 @@ define internal ptr @complex___complex__(ptr noundef captures(ret: address, prov
   br label %_PyObject_Init.exit.i.i
 
 _PyObject_Init.exit.i.i:                          ; preds = %22, %18
-  tail call void @_Py_NewReference(ptr noundef nonnull %14) #16
+  tail call void @_Py_NewReference(ptr noundef nonnull %14) #17
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store double %11, ptr %24, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -3936,7 +3936,7 @@ define internal ptr @complex___getnewargs__(ptr noundef readonly captures(none) 
   %.val = load double, ptr %3, align 8, !tbaa !13
   %4 = getelementptr i8, ptr %0, i64 24
   %.val1 = load double, ptr %4, align 8, !tbaa !13
-  %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.19, double noundef %.val, double noundef %.val1) #16
+  %5 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.19, double noundef %.val, double noundef %.val1) #17
   ret ptr %5
 }
 
@@ -3952,24 +3952,24 @@ define internal ptr @complex___format__(ptr noundef %0, ptr noundef %1) #8 {
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %1) #16
+  tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %1) #17
   br label %15
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_PyUnicodeWriter_Init(ptr noundef nonnull %3) #16
+  call void @_PyUnicodeWriter_Init(ptr noundef nonnull %3) #17
   %9 = getelementptr i8, ptr %1, i64 16
   %.val.i = load i64, ptr %9, align 8, !tbaa !52
-  %10 = call i32 @_PyComplex_FormatAdvancedWriter(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %1, i64 noundef 0, i64 noundef %.val.i) #16
+  %10 = call i32 @_PyComplex_FormatAdvancedWriter(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %1, i64 noundef 0, i64 noundef %.val.i) #17
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  call void @_PyUnicodeWriter_Dealloc(ptr noundef nonnull %3) #16
+  call void @_PyUnicodeWriter_Dealloc(ptr noundef nonnull %3) #17
   br label %complex___format___impl.exit
 
 13:                                               ; preds = %8
-  %14 = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %3) #16
+  %14 = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %3) #17
   br label %complex___format___impl.exit
 
 complex___format___impl.exit:                     ; preds = %12, %13
@@ -4020,7 +4020,7 @@ define internal fastcc ptr @complex_new(ptr noundef %0, ptr noundef %1, ptr noun
 12:                                               ; preds = %9, %.thread
   %13 = phi ptr [ %8, %.thread ], [ %11, %9 ]
   %14 = phi i64 [ %7, %.thread ], [ %.val, %9 ]
-  %15 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %13, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @complex_new._parser, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #16
+  %15 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %13, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @complex_new._parser, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #17
   %.not34 = icmp eq ptr %15, null
   br i1 %.not34, label %complex_new_impl.exit, label %.thread40
 
@@ -4052,7 +4052,7 @@ define internal fastcc ptr @complex_new(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %26, label %28
 
 26:                                               ; preds = %23
-  %27 = call ptr @PyErr_Occurred() #16
+  %27 = call ptr @PyErr_Occurred() #17
   %.not65.i = icmp eq ptr %27, null
   br i1 %.not65.i, label %28, label %complex_new_impl.exit
 
@@ -4080,13 +4080,13 @@ define internal fastcc ptr @complex_new(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond110.i, label %PyObject_TypeCheck.exit.thread.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %37
-  %41 = call i32 @PyType_IsSubtype(ptr noundef %.1.val.i, ptr noundef nonnull @PyComplex_Type) #16
+  %41 = call i32 @PyType_IsSubtype(ptr noundef %.1.val.i, ptr noundef nonnull @PyComplex_Type) #17
   %.not112.i = icmp eq i32 %41, 0
   br i1 %.not112.i, label %42, label %PyObject_TypeCheck.exit.thread.i
 
 42:                                               ; preds = %PyObject_TypeCheck.exit.i, %28
   %43 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
-  %44 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.28, ptr noundef nonnull %.1.i) #16
+  %44 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.28, ptr noundef nonnull %.1.i) #17
   br i1 %.not.i, label %complex_new_impl.exit, label %45
 
 45:                                               ; preds = %42
@@ -4101,7 +4101,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %37
   br i1 %49, label %50, label %complex_new_impl.exit
 
 50:                                               ; preds = %47
-  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #17
   br label %complex_new_impl.exit
 
 PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.exit.i, %37, %33
@@ -4131,13 +4131,13 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br i1 %or.cond111.i, label %PyObject_TypeCheck.exit94.thread.i, label %PyObject_TypeCheck.exit94.i
 
 PyObject_TypeCheck.exit94.i:                      ; preds = %61
-  %65 = call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyComplex_Type) #16
+  %65 = call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyComplex_Type) #17
   %.not113.i = icmp eq i32 %65, 0
   br i1 %.not113.i, label %66, label %PyObject_TypeCheck.exit94.thread.i
 
 66:                                               ; preds = %PyObject_TypeCheck.exit94.i, %52
   %67 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !32
-  %68 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %67, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0) #16
+  %68 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %67, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0) #17
   br i1 %.not.i, label %complex_new_impl.exit, label %69
 
 69:                                               ; preds = %66
@@ -4152,7 +4152,7 @@ PyObject_TypeCheck.exit94.i:                      ; preds = %61
   br i1 %73, label %74, label %complex_new_impl.exit
 
 74:                                               ; preds = %71
-  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #17
   br label %complex_new_impl.exit
 
 PyObject_TypeCheck.exit94.thread.i:               ; preds = %PyObject_TypeCheck.exit94.i, %61, %57, %PyObject_TypeCheck.exit.thread.i
@@ -4161,7 +4161,7 @@ PyObject_TypeCheck.exit94.thread.i:               ; preds = %PyObject_TypeCheck.
   br i1 %.not.i95.i, label %PyObject_TypeCheck.exit96.thread.i, label %PyObject_TypeCheck.exit96.i
 
 PyObject_TypeCheck.exit96.i:                      ; preds = %PyObject_TypeCheck.exit94.thread.i
-  %75 = call i32 @PyType_IsSubtype(ptr noundef %.1.val89.i, ptr noundef nonnull @PyComplex_Type) #16
+  %75 = call i32 @PyType_IsSubtype(ptr noundef %.1.val89.i, ptr noundef nonnull @PyComplex_Type) #17
   %.not114.i = icmp eq i32 %75, 0
   br i1 %.not114.i, label %98, label %PyObject_TypeCheck.exit96.thread.i
 
@@ -4184,7 +4184,7 @@ PyObject_TypeCheck.exit96.thread.i:               ; preds = %PyObject_TypeCheck.
   br i1 %81, label %82, label %Py_DECREF.exit79.i
 
 82:                                               ; preds = %79
-  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #17
   br label %Py_DECREF.exit79.i
 
 Py_DECREF.exit79.i:                               ; preds = %82, %79, %77, %PyObject_TypeCheck.exit96.thread.i
@@ -4209,17 +4209,17 @@ Py_DECREF.exit79.i:                               ; preds = %82, %79, %77, %PyOb
 
 95:                                               ; preds = %91, %Py_DECREF.exit79.i
   %96 = load ptr, ptr @PyExc_DeprecationWarning, align 8, !tbaa !32
-  %97 = call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %96, i64 noundef 1, ptr noundef nonnull @.str.28, ptr noundef nonnull %spec.select.i) #16
+  %97 = call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %96, i64 noundef 1, ptr noundef nonnull @.str.28, ptr noundef nonnull %spec.select.i) #17
   %.not70.i = icmp eq i32 %97, 0
   br i1 %.not70.i, label %Py_DECREF.exit77.i, label %complex_new_impl.exit
 
 98:                                               ; preds = %PyObject_TypeCheck.exit96.i
-  %99 = call ptr @PyNumber_Float(ptr noundef nonnull %.1.i) #16
+  %99 = call ptr @PyNumber_Float(ptr noundef nonnull %.1.i) #17
   %100 = icmp eq ptr %99, null
   br i1 %100, label %complex_new_impl.exit, label %101
 
 101:                                              ; preds = %98
-  %102 = call double @PyFloat_AsDouble(ptr noundef nonnull %99) #16
+  %102 = call double @PyFloat_AsDouble(ptr noundef nonnull %99) #17
   %103 = load i32, ptr %99, align 8, !tbaa !12
   %.not.i76.i = icmp sgt i32 %103, -1
   br i1 %.not.i76.i, label %104, label %Py_DECREF.exit77.i
@@ -4231,7 +4231,7 @@ Py_DECREF.exit79.i:                               ; preds = %82, %79, %77, %PyOb
   br i1 %106, label %107, label %Py_DECREF.exit77.i
 
 107:                                              ; preds = %104
-  call void @_Py_Dealloc(ptr noundef nonnull %99) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %99) #17
   br label %Py_DECREF.exit77.i
 
 Py_DECREF.exit77.i:                               ; preds = %107, %104, %101, %95, %91, %87
@@ -4248,23 +4248,23 @@ Py_DECREF.exit77.i:                               ; preds = %107, %104, %101, %9
   br i1 %.not.i97.i, label %PyObject_TypeCheck.exit98.thread.i, label %PyObject_TypeCheck.exit98.i
 
 PyObject_TypeCheck.exit98.i:                      ; preds = %109
-  %111 = call i32 @PyType_IsSubtype(ptr noundef %.val88.i, ptr noundef nonnull @PyComplex_Type) #16
+  %111 = call i32 @PyType_IsSubtype(ptr noundef %.val88.i, ptr noundef nonnull @PyComplex_Type) #17
   %.not115.i = icmp eq i32 %111, 0
   br i1 %.not115.i, label %114, label %PyObject_TypeCheck.exit98.thread.i
 
 PyObject_TypeCheck.exit98.thread.i:               ; preds = %PyObject_TypeCheck.exit98.i, %109
   %112 = load ptr, ptr @PyExc_DeprecationWarning, align 8, !tbaa !32
-  %113 = call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %112, i64 noundef 1, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0) #16
+  %113 = call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %112, i64 noundef 1, ptr noundef nonnull @.str.29, ptr noundef nonnull %.0) #17
   %.not72.i = icmp eq i32 %113, 0
   br i1 %.not72.i, label %Py_DECREF.exit.i, label %complex_new_impl.exit
 
 114:                                              ; preds = %PyObject_TypeCheck.exit98.i
-  %115 = call ptr @PyNumber_Float(ptr noundef nonnull %.0) #16
+  %115 = call ptr @PyNumber_Float(ptr noundef nonnull %.0) #17
   %116 = icmp eq ptr %115, null
   br i1 %116, label %complex_new_impl.exit, label %117
 
 117:                                              ; preds = %114
-  %118 = call double @PyFloat_AsDouble(ptr noundef nonnull %115) #16
+  %118 = call double @PyFloat_AsDouble(ptr noundef nonnull %115) #17
   %119 = load i32, ptr %115, align 8, !tbaa !12
   %.not.i.i = icmp sgt i32 %119, -1
   br i1 %.not.i.i, label %120, label %126
@@ -4276,7 +4276,7 @@ PyObject_TypeCheck.exit98.thread.i:               ; preds = %PyObject_TypeCheck.
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %120
-  call void @_Py_Dealloc(ptr noundef nonnull %115) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %115) #17
   br label %126
 
 Py_DECREF.exit.i:                                 ; preds = %PyObject_TypeCheck.exit98.thread.i
@@ -4292,7 +4292,7 @@ Py_DECREF.exit.i:                                 ; preds = %PyObject_TypeCheck.
   %127 = phi double [ %125, %Py_DECREF.exit.i ], [ %.sroa.08.0.i, %123 ], [ %.sroa.08.0.i, %120 ], [ %.sroa.08.0.i, %117 ], [ %.sroa.08.0.i, %Py_DECREF.exit77.i ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %129 = load ptr, ptr %128, align 8, !tbaa !44
-  %130 = call ptr %129(ptr noundef %0, i64 noundef 0) #16
+  %130 = call ptr %129(ptr noundef %0, i64 noundef 0) #17
   %.not.i.i.i = icmp eq ptr %130, null
   br i1 %.not.i.i.i, label %complex_new_impl.exit, label %131
 
@@ -4356,23 +4356,23 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
 
 .loopexit72:                                      ; preds = %.preheader71, %12
   %.1 = phi ptr [ %.047, %12 ], [ %.2, %.preheader71 ]
-  %18 = call double @PyOS_string_to_double(ptr noundef nonnull %.1, ptr noundef nonnull %4, ptr noundef null) #16
+  %18 = call double @PyOS_string_to_double(ptr noundef nonnull %.1, ptr noundef nonnull %4, ptr noundef null) #17
   %19 = fcmp oeq double %18, -1.000000e+00
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %.loopexit72
-  %21 = call ptr @PyErr_Occurred() #16
+  %21 = call ptr @PyErr_Occurred() #17
   %.not59 = icmp eq ptr %21, null
   br i1 %.not59, label %26, label %22
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !32
-  %24 = call i32 @PyErr_ExceptionMatches(ptr noundef %23) #16
+  %24 = call i32 @PyErr_ExceptionMatches(ptr noundef %23) #17
   %.not60 = icmp eq i32 %24, 0
   br i1 %.not60, label %complex_subtype_from_doubles.exit, label %25
 
 25:                                               ; preds = %22
-  call void @PyErr_Clear() #16
+  call void @PyErr_Clear() #17
   br label %26
 
 26:                                               ; preds = %25, %20, %.loopexit72
@@ -4390,23 +4390,23 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   ]
 
 30:                                               ; preds = %28, %28
-  %31 = call double @PyOS_string_to_double(ptr noundef nonnull %27, ptr noundef nonnull %4, ptr noundef null) #16
+  %31 = call double @PyOS_string_to_double(ptr noundef nonnull %27, ptr noundef nonnull %4, ptr noundef null) #17
   %32 = fcmp oeq double %31, -1.000000e+00
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %30
-  %34 = call ptr @PyErr_Occurred() #16
+  %34 = call ptr @PyErr_Occurred() #17
   %.not62 = icmp eq ptr %34, null
   br i1 %.not62, label %39, label %35
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !32
-  %37 = call i32 @PyErr_ExceptionMatches(ptr noundef %36) #16
+  %37 = call i32 @PyErr_ExceptionMatches(ptr noundef %36) #17
   %.not63 = icmp eq i32 %37, 0
   br i1 %.not63, label %complex_subtype_from_doubles.exit, label %38
 
 38:                                               ; preds = %35
-  call void @PyErr_Clear() #16
+  call void @PyErr_Clear() #17
   br label %39
 
 39:                                               ; preds = %38, %33, %30
@@ -4511,7 +4511,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
 80:                                               ; preds = %.loopexit
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %82 = load ptr, ptr %81, align 8, !tbaa !44
-  %83 = call ptr %82(ptr noundef %2, i64 noundef 0) #16
+  %83 = call ptr %82(ptr noundef %2, i64 noundef 0) #17
   %.not.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i, label %complex_subtype_from_doubles.exit, label %84
 
@@ -4524,7 +4524,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
 
 86:                                               ; preds = %58, %46, %.loopexit, %71
   %87 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !32
-  call void @PyErr_SetString(ptr noundef %87, ptr noundef nonnull @.str.30) #16
+  call void @PyErr_SetString(ptr noundef %87, ptr noundef nonnull @.str.30) #17
   br label %complex_subtype_from_doubles.exit
 
 complex_subtype_from_doubles.exit:                ; preds = %84, %80, %35, %22, %86
@@ -4540,20 +4540,20 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #9
 declare void @PyErr_Clear() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4561,13 +4561,14 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errn
 attributes #7 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { memory(none) }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { memory(none) }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

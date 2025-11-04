@@ -22,11 +22,11 @@ define hidden zeroext i1 @SDL_BlendLine(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %2, ptr %12, align 4
   store i32 %3, ptr %13, align 4
   store i32 %4, ptr %14, align 4
-  %15 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #5
+  %15 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #6
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
+  %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   br label %42
 
 18:                                               ; preds = %10
@@ -66,13 +66,13 @@ define hidden zeroext i1 @SDL_BlendLine(ptr noundef %0, i32 noundef %1, i32 noun
   br label %select.unfold
 
 SDL_CalculateBlendLineFunc.exit:                  ; preds = %18
-  %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #5
+  %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #6
   br label %42
 
 select.unfold:                                    ; preds = %23, %32, %33
   %.0.i.ph = phi ptr [ %SDL_BlendLine_RGB4.SDL_BlendLine_RGBA4.i, %33 ], [ %SDL_BlendLine_XRGB8888.SDL_BlendLine_ARGB8888.i, %32 ], [ %spec.select, %23 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %36 = call zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef nonnull %35, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #5
+  %36 = call zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef nonnull %35, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #6
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %select.unfold
@@ -80,7 +80,7 @@ select.unfold:                                    ; preds = %23, %32, %33
   %39 = load i32, ptr %12, align 4
   %40 = load i32, ptr %13, align 4
   %41 = load i32, ptr %14, align 4
-  call void %.0.i.ph(ptr noundef nonnull %0, i32 noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, i8 noundef zeroext %9, i1 noundef zeroext true) #5
+  call void %.0.i.ph(ptr noundef nonnull %0, i32 noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, i8 noundef zeroext %9, i1 noundef zeroext true) #6
   br label %42
 
 42:                                               ; preds = %select.unfold, %37, %SDL_CalculateBlendLineFunc.exit, %16
@@ -104,11 +104,11 @@ define hidden zeroext i1 @SDL_BlendLines(ptr noundef %0, ptr noundef readonly ca
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %13 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #5
+  %13 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #6
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #5
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #6
   br label %70
 
 16:                                               ; preds = %8
@@ -158,7 +158,7 @@ SDL_CalculateBlendLineFunc.exit:                  ; preds = %21, %30, %31
   br label %36
 
 34:                                               ; preds = %16
-  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #5
+  %35 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #6
   br label %70
 
 36:                                               ; preds = %.lr.ph, %56
@@ -175,7 +175,7 @@ SDL_CalculateBlendLineFunc.exit:                  ; preds = %21, %30, %31
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %12, align 4
-  %45 = call zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef nonnull %33, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #5
+  %45 = call zeroext i1 @SDL_GetRectAndLineIntersection_REAL(ptr noundef nonnull %33, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %36
@@ -194,7 +194,7 @@ SDL_CalculateBlendLineFunc.exit:                  ; preds = %21, %30, %31
   %53 = phi i1 [ true, %46 ], [ %51, %49 ]
   %54 = load i32, ptr %9, align 4
   %55 = load i32, ptr %10, align 4
-  call void %.0.i(ptr noundef nonnull %0, i32 noundef %54, i32 noundef %55, i32 noundef %47, i32 noundef %.pre, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i1 noundef zeroext %53) #5
+  call void %.0.i(ptr noundef nonnull %0, i32 noundef %54, i32 noundef %55, i32 noundef %47, i32 noundef %.pre, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i1 noundef zeroext %53) #6
   br label %56
 
 56:                                               ; preds = %36, %52
@@ -226,7 +226,7 @@ SDL_CalculateBlendLineFunc.exit:                  ; preds = %21, %30, %31
 
 67:                                               ; preds = %._crit_edge._crit_edge, %62
   %68 = phi i32 [ %.pre53, %._crit_edge._crit_edge ], [ %66, %62 ]
-  %69 = call zeroext i1 @SDL_BlendPoint(ptr noundef nonnull %0, i32 noundef %61, i32 noundef %68, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7) #5
+  %69 = call zeroext i1 @SDL_BlendPoint(ptr noundef nonnull %0, i32 noundef %61, i32 noundef %68, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7) #6
   br label %70
 
 70:                                               ; preds = %62, %67, %34, %14
@@ -19436,27 +19436,28 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

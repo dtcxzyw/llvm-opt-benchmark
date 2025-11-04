@@ -505,7 +505,7 @@ _ZNK2cv11_InputArray6getMatEi.exit97:             ; preds = %41, %44
           to label %47 unwind label %93
 
 47:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit97
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %48 = icmp ne i32 %4, -1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -583,7 +583,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %63
           to label %76 unwind label %102
 
 76:                                               ; preds = %_ZN2cv4Mat_IfEC2Eii.exit
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.not74111 = icmp slt i32 %65, 0
   br i1 %.not74111, label %._crit_edge115, label %.lr.ph114
@@ -621,7 +621,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %63
 93:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit97
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #30
   br label %95
 
 95:                                               ; preds = %93, %91
@@ -650,7 +650,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %63
 102:                                              ; preds = %_ZN2cv4Mat_IfEC2Eii.exit
   %103 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #30
   br label %104
 
 104:                                              ; preds = %102, %100
@@ -668,7 +668,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %63
           to label %108 unwind label %125
 
 108:                                              ; preds = %105
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #30
   %109 = load ptr, ptr %20, align 8, !tbaa !44, !noalias !50
   %110 = load ptr, ptr %109, align 8, !tbaa !53
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -679,14 +679,14 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %63
 .body:                                            ; preds = %108
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #29
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %20) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #30
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %20) #30
   br label %127
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #29
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %78) #29
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %79) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %77) #30
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %78) #30
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %79) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %114 = load i32, ptr %73, align 8, !tbaa !36
@@ -696,7 +696,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
 115:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
   %116 = load ptr, ptr %80, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #30
   br label %130
 
 117:                                              ; preds = %._crit_edge
@@ -776,9 +776,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #30
   br label %152
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -794,11 +794,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge110:                                   ; preds = %.lr.ph109, %117
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
@@ -818,7 +818,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
 152:                                              ; preds = %143, %128
   %.pn80.pn.pn = phi { ptr, i32 } [ %144, %143 ], [ %129, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #30
   br label %153
 
 153:                                              ; preds = %152, %127
@@ -837,7 +837,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
           to label %158 unwind label %161
 
 158:                                              ; preds = %155
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store i32 %4, ptr %49, align 4, !tbaa !68
   br label %164
@@ -850,7 +850,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
 161:                                              ; preds = %155
   %162 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #30
   br label %163
 
 163:                                              ; preds = %161, %159
@@ -872,7 +872,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %108
 
 .lr.ph.i.i.i.i:                                   ; preds = %164, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %168, %.lr.ph.i.i.i.i ], [ %165, %164 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #30
   %168 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %168, %167
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !70
@@ -887,7 +887,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %170
 
 170:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %169) #30
+  call void @_ZdlPv(ptr noundef nonnull %169) #31
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %170
@@ -905,7 +905,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 172:                                              ; preds = %171, %96
   %.pn80.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn.pn.pn.pn, %171 ], [ %97, %96 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #29
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %185
 
@@ -921,7 +921,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
           to label %178 unwind label %181
 
 178:                                              ; preds = %175
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %184
 
@@ -933,7 +933,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 181:                                              ; preds = %175
   %182 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #30
   br label %183
 
 183:                                              ; preds = %181, %179
@@ -942,21 +942,21 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %185
 
 184:                                              ; preds = %178, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 185:                                              ; preds = %183, %172, %95
   %.pn80.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn.pn.pn.pn.pn, %172 ], [ %.pn65, %183 ], [ %.pn, %95 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   br label %186
 
 186:                                              ; preds = %185, %89
   %.pn80.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn80.pn.pn.pn.pn.pn.pn.pn, %185 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn80.pn.pn.pn.pn.pn.pn.pn.pn
 }
@@ -982,11 +982,11 @@ declare void @_ZN2cveqERKNS_3MatEd(ptr dead_on_unwind writable sret(%"class.cv::
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   ret void
 }
 
@@ -1009,7 +1009,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef 
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #30
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !70
@@ -1024,7 +1024,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit:  ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit, label %7
 
 7:                                                ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit, %7
@@ -1214,12 +1214,12 @@ _ZN2cv3Mat2atIiEERT_i.exit22:                     ; preds = %_ZN2cv3Mat2atIiEERT
   br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !74
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8ximgproc12segmentation46createSelectiveSearchSegmentationStrategyColorEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31, !noalias !75
+  %2 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32, !noalias !75
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !tbaa !80, !noalias !75
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1232,7 +1232,7 @@ define void @_ZN2cv8ximgproc12segmentation46createSelectiveSearchSegmentationStr
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30, !noalias !75
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31, !noalias !75
   resume { ptr, i32 } %6
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1
@@ -1263,11 +1263,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation
   %11 = load ptr, ptr %3, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -1290,7 +1290,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -1368,7 +1368,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationSt
   br i1 %37, label %38, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i
 
 38:                                               ; preds = %32
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
   unreachable
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i: ; preds = %32
@@ -1381,7 +1381,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i: ; preds = %32
   %.not.i.i.i = icmp ne i64 %43, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %44 = shl nuw nsw i64 %43, 2
-  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #31
+  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #32
   %46 = getelementptr inbounds i8, ptr %45, i64 %36
   store float %2, ptr %46, align 4, !tbaa !63
   %47 = icmp sgt i64 %36, 0
@@ -1397,7 +1397,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %48, %_ZNKS
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, label %50
 
 50:                                               ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %33) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #31
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %50, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
@@ -1445,11 +1445,11 @@ define hidden void @_ZN2cv8ximgproc12segmentation47SelectiveSearchSegmentationSt
   %15 = load ptr, ptr %7, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   %18 = load ptr, ptr %7, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i
 
 21:                                               ; preds = %8
@@ -1472,7 +1472,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
   br i1 %27, label %28, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i, !prof !90
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i: ; preds = %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %13, %.lr.ph.i.i.i.i.i
@@ -1619,7 +1619,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation47SelectiveSearchSegmentationSt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8ximgproc12segmentation49createSelectiveSearchSegmentationStrategyMultipleEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.21") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #31, !noalias !116
+  %2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #32, !noalias !116
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !tbaa !80, !noalias !116
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1632,7 +1632,7 @@ define void @_ZN2cv8ximgproc12segmentation49createSelectiveSearchSegmentationStr
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30, !noalias !116
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31, !noalias !116
   resume { ptr, i32 } %6
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1
@@ -1663,11 +1663,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation
   %11 = load ptr, ptr %3, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -1690,7 +1690,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -1700,7 +1700,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8ximgproc12segmentation49createSelectiveSearchSegmentationStrategyMultipleENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.21") align 8 %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr.7", align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #31, !noalias !124
+  %4 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #32, !noalias !124
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %5, align 8, !tbaa !80, !noalias !124
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -1717,7 +1717,7 @@ common.resume:                                    ; preds = %48, %_ZNSt15__alloc
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #30, !noalias !124
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #31, !noalias !124
   br label %common.resume
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2
@@ -1775,11 +1775,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %34 = load ptr, ptr %26, align 8, !tbaa !53
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #29
+  call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #30
   %37 = load ptr, ptr %26, align 8, !tbaa !53
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %26) #29
+  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %26) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 40:                                               ; preds = %27
@@ -1802,7 +1802,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i4: ; preds = %44, %42
   br i1 %46, label %47, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 47:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i4
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %25, %32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i4, %47
@@ -1811,8 +1811,8 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 48:                                               ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ERKS4_.exit
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #30
   br label %common.resume
 }
 
@@ -1837,11 +1837,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation
   %11 = load ptr, ptr %3, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -1864,7 +1864,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -1875,7 +1875,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 define void @_ZN2cv8ximgproc12segmentation49createSelectiveSearchSegmentationStrategyMultipleENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEES4_(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.21") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::Ptr.7", align 8
   %5 = alloca %"struct.cv::Ptr.7", align 8
-  %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #31, !noalias !129
+  %6 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #32, !noalias !129
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %7, align 8, !tbaa !80, !noalias !129
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -1892,7 +1892,7 @@ common.resume:                                    ; preds = %93, %_ZNSt15__alloc
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30, !noalias !129
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31, !noalias !129
   br label %common.resume
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %3
@@ -1950,11 +1950,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %36 = load ptr, ptr %28, align 8, !tbaa !53
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #30
   %39 = load ptr, ptr %28, align 8, !tbaa !53
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %28) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 42:                                               ; preds = %29
@@ -1977,7 +1977,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6: ; preds = %46, %44
   br i1 %48, label %49, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 49:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %27, %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6, %49
@@ -2033,11 +2033,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %75 = load ptr, ptr %67, align 8, !tbaa !53
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
+  call void %77(ptr noundef nonnull align 8 dereferenceable(16) %67) #30
   %78 = load ptr, ptr %67, align 8, !tbaa !53
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load ptr, ptr %79, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
+  call void %80(ptr noundef nonnull align 8 dereferenceable(16) %67) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
 81:                                               ; preds = %68
@@ -2060,7 +2060,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %85, %83
   br i1 %87, label %88, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, !prof !90
 
 88:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15: ; preds = %66, %73, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13, %88
@@ -2079,8 +2079,8 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 93:                                               ; preds = %91, %89
   %.sink = phi ptr [ %5, %91 ], [ %4, %89 ]
   %.pn = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #30
   br label %common.resume
 }
 
@@ -2089,7 +2089,7 @@ define void @_ZN2cv8ximgproc12segmentation49createSelectiveSearchSegmentationStr
   %5 = alloca %"struct.cv::Ptr.7", align 8
   %6 = alloca %"struct.cv::Ptr.7", align 8
   %7 = alloca %"struct.cv::Ptr.7", align 8
-  %8 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #31, !noalias !134
+  %8 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #32, !noalias !134
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %9, align 8, !tbaa !80, !noalias !134
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -2106,7 +2106,7 @@ common.resume:                                    ; preds = %136, %_ZNSt15__allo
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %4
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #30, !noalias !134
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #31, !noalias !134
   br label %common.resume
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %4
@@ -2164,11 +2164,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %38 = load ptr, ptr %30, align 8, !tbaa !53
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
+  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #30
   %41 = load ptr, ptr %30, align 8, !tbaa !53
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
+  call void %43(ptr noundef nonnull align 8 dereferenceable(16) %30) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 44:                                               ; preds = %31
@@ -2191,7 +2191,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6: ; preds = %48, %46
   br i1 %50, label %51, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 51:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %29, %36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6, %51
@@ -2247,11 +2247,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %77 = load ptr, ptr %69, align 8, !tbaa !53
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %69) #29
+  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %69) #30
   %80 = load ptr, ptr %69, align 8, !tbaa !53
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(16) %69) #29
+  call void %82(ptr noundef nonnull align 8 dereferenceable(16) %69) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
 83:                                               ; preds = %70
@@ -2274,7 +2274,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %87, %85
   br i1 %89, label %90, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, !prof !90
 
 90:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15: ; preds = %68, %75, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13, %90
@@ -2330,11 +2330,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %116 = load ptr, ptr %108, align 8, !tbaa !53
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %108) #29
+  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %108) #30
   %119 = load ptr, ptr %108, align 8, !tbaa !53
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef nonnull align 8 dereferenceable(16) %108) #29
+  call void %121(ptr noundef nonnull align 8 dereferenceable(16) %108) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23
 
 122:                                              ; preds = %109
@@ -2357,7 +2357,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21: ; preds = %126, %12
   br i1 %128, label %129, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23, !prof !90
 
 129:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %108) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23: ; preds = %107, %114, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21, %129
@@ -2381,8 +2381,8 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 136:                                              ; preds = %134, %132, %130
   %.sink = phi ptr [ %7, %134 ], [ %6, %132 ], [ %5, %130 ]
   %.pn = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ], [ %131, %130 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #30
   br label %common.resume
 }
 
@@ -2392,7 +2392,7 @@ define void @_ZN2cv8ximgproc12segmentation49createSelectiveSearchSegmentationStr
   %7 = alloca %"struct.cv::Ptr.7", align 8
   %8 = alloca %"struct.cv::Ptr.7", align 8
   %9 = alloca %"struct.cv::Ptr.7", align 8
-  %10 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #31, !noalias !139
+  %10 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #32, !noalias !139
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %11, align 8, !tbaa !80, !noalias !139
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -2409,7 +2409,7 @@ common.resume:                                    ; preds = %179, %_ZNSt15__allo
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %5
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %10) #30, !noalias !139
+  tail call void @_ZdlPv(ptr noundef nonnull %10) #31, !noalias !139
   br label %common.resume
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %5
@@ -2467,11 +2467,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %40 = load ptr, ptr %32, align 8, !tbaa !53
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
+  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #30
   %43 = load ptr, ptr %32, align 8, !tbaa !53
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
+  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %32) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 46:                                               ; preds = %33
@@ -2494,7 +2494,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6: ; preds = %50, %48
   br i1 %52, label %53, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 53:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %31, %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6, %53
@@ -2550,11 +2550,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %79 = load ptr, ptr %71, align 8, !tbaa !53
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %71) #29
+  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %71) #30
   %82 = load ptr, ptr %71, align 8, !tbaa !53
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(16) %71) #29
+  call void %84(ptr noundef nonnull align 8 dereferenceable(16) %71) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
 85:                                               ; preds = %72
@@ -2577,7 +2577,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13: ; preds = %89, %87
   br i1 %91, label %92, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15, !prof !90
 
 92:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit15: ; preds = %70, %77, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i13, %92
@@ -2633,11 +2633,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %118 = load ptr, ptr %110, align 8, !tbaa !53
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(16) %110) #29
+  call void %120(ptr noundef nonnull align 8 dereferenceable(16) %110) #30
   %121 = load ptr, ptr %110, align 8, !tbaa !53
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8
-  call void %123(ptr noundef nonnull align 8 dereferenceable(16) %110) #29
+  call void %123(ptr noundef nonnull align 8 dereferenceable(16) %110) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23
 
 124:                                              ; preds = %111
@@ -2660,7 +2660,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21: ; preds = %128, %12
   br i1 %130, label %131, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23, !prof !90
 
 131:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %110) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %110) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23: ; preds = %109, %116, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i21, %131
@@ -2716,11 +2716,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2ER
   %157 = load ptr, ptr %149, align 8, !tbaa !53
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load ptr, ptr %158, align 8
-  call void %159(ptr noundef nonnull align 8 dereferenceable(16) %149) #29
+  call void %159(ptr noundef nonnull align 8 dereferenceable(16) %149) #30
   %160 = load ptr, ptr %149, align 8, !tbaa !53
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull align 8 dereferenceable(16) %149) #29
+  call void %162(ptr noundef nonnull align 8 dereferenceable(16) %149) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit31
 
 163:                                              ; preds = %150
@@ -2743,7 +2743,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i29: ; preds = %167, %16
   br i1 %169, label %170, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit31, !prof !90
 
 170:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i29
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %149) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %149) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit31
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit31: ; preds = %148, %155, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i29, %170
@@ -2772,8 +2772,8 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 179:                                              ; preds = %177, %175, %173, %171
   %.sink = phi ptr [ %9, %177 ], [ %8, %175 ], [ %7, %173 ], [ %6, %171 ]
   %.pn = phi { ptr, i32 } [ %178, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #30
   br label %common.resume
 }
 
@@ -2828,9 +2828,9 @@ _ZNK2cv11_InputArray6getMatEi.exit8:              ; preds = %22, %25
           to label %28 unwind label %31
 
 28:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit8
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
@@ -2842,13 +2842,13 @@ _ZNK2cv11_InputArray6getMatEi.exit8:              ; preds = %22, %25
 31:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit8
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   br label %33
 
 33:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
@@ -2972,14 +2972,14 @@ define hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationSt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8ximgproc12segmentation45createSelectiveSearchSegmentationStrategySizeEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.29") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31, !noalias !154
+  %2 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32, !noalias !154
   invoke void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJEEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(160) %2)
           to label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !154
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30, !noalias !154
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31, !noalias !154
   resume { ptr, i32 } %3
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1
@@ -3011,11 +3011,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation
   %11 = load ptr, ptr %3, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -3038,7 +3038,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -3095,7 +3095,7 @@ _ZNK2cv11_InputArray6getMatEi.exit43:             ; preds = %22, %25
           to label %28 unwind label %78
 
 28:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit43
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -3158,7 +3158,7 @@ _ZNK2cv11_InputArray6getMatEi.exit43:             ; preds = %22, %25
   br i1 %55, label %56, label %_ZNKSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i
 
 56:                                               ; preds = %53
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #33
           to label %.noexc55 unwind label %85
 
 .noexc55:                                         ; preds = %56
@@ -3167,7 +3167,7 @@ _ZNK2cv11_InputArray6getMatEi.exit43:             ; preds = %22, %25
 _ZNKSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i: ; preds = %53
   %57 = call i64 @llvm.umin.i64(i64 %51, i64 384307168202282325)
   %58 = mul nuw nsw i64 %57, 24
-  %59 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #31
+  %59 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #32
           to label %.noexc56 unwind label %85
 
 .noexc56:                                         ; preds = %_ZNKSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i
@@ -3220,7 +3220,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = %47, %.
 78:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit43
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   br label %80
 
 80:                                               ; preds = %78, %76
@@ -3302,7 +3302,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = %47, %.
   br i1 %116, label %117, label %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 117:                                              ; preds = %111
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc50 unwind label %.loopexit.split-lp
 
 .noexc50:                                         ; preds = %117
@@ -3318,7 +3318,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   %.not.i.i.i.i = icmp ne i64 %122, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %123 = shl nuw nsw i64 %122, 3
-  %124 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %123) #31
+  %124 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %123) #32
           to label %.noexc51 unwind label %.loopexit
 
 .noexc51:                                         ; preds = %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -3347,7 +3347,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %130
 
 130:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %112) #30
+  call void @_ZdlPv(ptr noundef nonnull %112) #31
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %130, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
@@ -3385,7 +3385,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i, label %136
 
 136:                                              ; preds = %.lr.ph.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %135) #30
+  call void @_ZdlPv(ptr noundef nonnull %135) #31
   br label %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i: ; preds = %136, %.lr.ph.i.i.i.i
@@ -3398,16 +3398,16 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i: ; pre
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit, label %138
 
 138:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.pr.i) #30
+  call void @_ZdlPv(ptr noundef nonnull %.pr.i) #31
   br label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
@@ -3443,7 +3443,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destr
 
 149:                                              ; preds = %.loopexit, %.loopexit.split-lp, %147, %85
   %.pn36 = phi { ptr, i32 } [ %148, %147 ], [ %86, %85 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #29
+  call void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %150
 
@@ -3451,7 +3451,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destr
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %149 ], [ %84, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #30
   br label %151
 
 151:                                              ; preds = %150, %81
@@ -3461,7 +3461,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destr
 
 152:                                              ; preds = %151, %80
   %.pn36.pn.pn.pn = phi { ptr, i32 } [ %.pn36.pn.pn, %151 ], [ %.pn, %80 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn36.pn.pn.pn
 }
@@ -3505,7 +3505,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv5Rect_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ;
   br i1 %23, label %24, label %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 24:                                               ; preds = %22
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #33
   unreachable
 
 _ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %22
@@ -3513,7 +3513,7 @@ _ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %22
   %25 = add nuw nsw i64 %.sroa.speculated.i.i, %9
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 576460752303423487)
   %27 = shl nuw nsw i64 %26, 4
-  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #31
+  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #32
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %8
   %30 = shl nuw nsw i64 %12, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %30, i1 false)
@@ -3534,7 +3534,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds 
   br i1 %.not.i35.i, label %_ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i, label %33
 
 33:                                               ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #31
   br label %_ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i
 
 _ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; preds = %33, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
@@ -3579,7 +3579,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #31
   br label %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i: ; preds = %6, %.lr.ph.i.i.i
@@ -3597,7 +3597,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit: ; preds
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #31
   br label %_ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit, %9
@@ -3858,7 +3858,7 @@ _ZN2cvorIiEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %13, %14, %22
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8ximgproc12segmentation45createSelectiveSearchSegmentationStrategyFillEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.52") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31, !noalias !211
+  %2 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #32, !noalias !211
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !tbaa !80, !noalias !211
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -3871,7 +3871,7 @@ define void @_ZN2cv8ximgproc12segmentation45createSelectiveSearchSegmentationStr
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30, !noalias !211
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31, !noalias !211
   resume { ptr, i32 } %6
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1
@@ -3902,11 +3902,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation
   %11 = load ptr, ptr %3, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -3929,7 +3929,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -4086,7 +4086,7 @@ _ZNK2cv11_InputArray6getMatEi.exit273:            ; preds = %109, %112
           to label %115 unwind label %284
 
 115:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit273
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %116 = icmp ne i32 %4, -1
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -4157,7 +4157,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %131
           to label %143 unwind label %293
 
 143:                                              ; preds = %_ZN2cv4Mat_IfEC2Eii.exit
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
@@ -4315,7 +4315,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %131
 284:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit273
   %285 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #30
   br label %286
 
 286:                                              ; preds = %284, %282
@@ -4344,7 +4344,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %131
 293:                                              ; preds = %_ZN2cv4Mat_IfEC2Eii.exit
   %294 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #30
   br label %295
 
 295:                                              ; preds = %293, %291
@@ -4355,15 +4355,15 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %131
 296:                                              ; preds = %143, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330
   %indvars.iv = phi i64 [ 0, %143 ], [ %indvars.iv.next, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %297 = load ptr, ptr %19, align 8, !tbaa !58
   %298 = getelementptr inbounds nuw %"class.cv::Mat", ptr %297, i64 %indvars.iv
@@ -4422,7 +4422,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %131
   br i1 %.not.i.i, label %310, label %307
 
 307:                                              ; preds = %304
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %305, ptr noundef nonnull align 8 dereferenceable(96) %38) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %305, ptr noundef nonnull align 8 dereferenceable(96) %38) #30
   %308 = load ptr, ptr %159, align 8, !tbaa !69
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 96
   store ptr %309, ptr %159, align 8, !tbaa !69
@@ -4433,7 +4433,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %131
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit unwind label %496
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %307, %310
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %39, ptr noundef nonnull align 8 dereferenceable(96) %29)
@@ -4446,7 +4446,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %307, %310
   br i1 %.not.i.i276, label %317, label %314
 
 314:                                              ; preds = %311
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %312, ptr noundef nonnull align 8 dereferenceable(96) %39) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %312, ptr noundef nonnull align 8 dereferenceable(96) %39) #30
   %315 = load ptr, ptr %159, align 8, !tbaa !69
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 96
   store ptr %316, ptr %159, align 8, !tbaa !69
@@ -4457,7 +4457,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %307, %310
           to label %318 unwind label %501
 
 318:                                              ; preds = %314, %317
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %319 = load ptr, ptr %19, align 8, !tbaa !58
@@ -4517,7 +4517,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %307, %310
   br i1 %.not.i.i279, label %332, label %329
 
 329:                                              ; preds = %326
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %327, ptr noundef nonnull align 8 dereferenceable(96) %46) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %327, ptr noundef nonnull align 8 dereferenceable(96) %46) #30
   %330 = load ptr, ptr %159, align 8, !tbaa !69
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 96
   store ptr %331, ptr %159, align 8, !tbaa !69
@@ -4528,7 +4528,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %307, %310
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit281 unwind label %512
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit281: ; preds = %329, %332
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %47, ptr noundef nonnull align 8 dereferenceable(96) %29)
@@ -4541,7 +4541,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit281: ; preds = %329, %332
   br i1 %.not.i.i282, label %339, label %336
 
 336:                                              ; preds = %333
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %334, ptr noundef nonnull align 8 dereferenceable(96) %47) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %334, ptr noundef nonnull align 8 dereferenceable(96) %47) #30
   %337 = load ptr, ptr %159, align 8, !tbaa !69
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 96
   store ptr %338, ptr %159, align 8, !tbaa !69
@@ -4552,7 +4552,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit281: ; preds = %329, %332
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit284 unwind label %517
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit284: ; preds = %336, %339
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %47) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %47) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %340 = load i32, ptr %176, align 4, !tbaa !73
   %341 = sitofp i32 %340 to float
@@ -4593,13 +4593,13 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit284: ; preds = %336, %339
   %347 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !232
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !232
   br label %.body
 
 348:                                              ; preds = %.noexc286
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !232
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !232
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !232
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -4727,20 +4727,20 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit284: ; preds = %336, %339
   %391 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !242
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !242
   br label %.body291
 
 392:                                              ; preds = %.noexc290
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !242
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !242
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !242
   %393 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %56)
           to label %394 unwind label %530
 
 394:                                              ; preds = %392
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %56) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %56) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %395 = load ptr, ptr %214, align 8, !tbaa !236
@@ -4806,7 +4806,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %404
           to label %412 unwind label %538
 
 412:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %62) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %62) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
@@ -4850,7 +4850,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %404
   br i1 %.not.i.i302, label %423, label %420
 
 420:                                              ; preds = %417
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %418, ptr noundef nonnull align 8 dereferenceable(96) %68) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %418, ptr noundef nonnull align 8 dereferenceable(96) %68) #30
   %421 = load ptr, ptr %159, align 8, !tbaa !69
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 96
   store ptr %422, ptr %159, align 8, !tbaa !69
@@ -4861,7 +4861,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %404
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit304 unwind label %547
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit304: ; preds = %420, %423
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %68) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %68) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %69, ptr noundef nonnull align 8 dereferenceable(96) %29)
@@ -4874,7 +4874,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit304: ; preds = %420, %423
   br i1 %.not.i.i305, label %430, label %427
 
 427:                                              ; preds = %424
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %425, ptr noundef nonnull align 8 dereferenceable(96) %69) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %425, ptr noundef nonnull align 8 dereferenceable(96) %69) #30
   %428 = load ptr, ptr %159, align 8, !tbaa !69
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 96
   store ptr %429, ptr %159, align 8, !tbaa !69
@@ -4885,7 +4885,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit304: ; preds = %420, %423
           to label %431 unwind label %552
 
 431:                                              ; preds = %427, %430
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store i32 0, ptr %238, align 8, !tbaa !19
@@ -4945,20 +4945,20 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit304: ; preds = %420, %423
   %444 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !248
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !248
   br label %.body312
 
 445:                                              ; preds = %.noexc311
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !248
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !248
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !248
   %446 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %72)
           to label %447 unwind label %559
 
 447:                                              ; preds = %445
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %72) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %72) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %448 = load ptr, ptr %214, align 8, !tbaa !236
@@ -5024,7 +5024,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit324:            ; preds = %457
           to label %465 unwind label %567
 
 465:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit324
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %78) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %78) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
@@ -5068,7 +5068,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit324:            ; preds = %457
   br i1 %.not.i.i325, label %476, label %473
 
 473:                                              ; preds = %470
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %471, ptr noundef nonnull align 8 dereferenceable(96) %84) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %471, ptr noundef nonnull align 8 dereferenceable(96) %84) #30
   %474 = load ptr, ptr %159, align 8, !tbaa !69
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 96
   store ptr %475, ptr %159, align 8, !tbaa !69
@@ -5079,7 +5079,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit324:            ; preds = %457
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit327 unwind label %576
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit327: ; preds = %473, %476
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %84) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %84) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %85, ptr noundef nonnull align 8 dereferenceable(96) %29)
@@ -5092,7 +5092,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit327: ; preds = %473, %476
   br i1 %.not.i.i328, label %483, label %480
 
 480:                                              ; preds = %477
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %478, ptr noundef nonnull align 8 dereferenceable(96) %85) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %478, ptr noundef nonnull align 8 dereferenceable(96) %85) #30
   %481 = load ptr, ptr %159, align 8, !tbaa !69
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 96
   store ptr %482, ptr %159, align 8, !tbaa !69
@@ -5103,19 +5103,19 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit327: ; preds = %473, %476
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330 unwind label %581
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %85) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %85) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %484 = load i32, ptr %16, align 8, !tbaa !27
@@ -5154,7 +5154,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 496:                                              ; preds = %310
   %497 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #30
   br label %498
 
 498:                                              ; preds = %496, %494
@@ -5170,7 +5170,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 501:                                              ; preds = %317
   %502 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #30
   br label %503
 
 503:                                              ; preds = %501, %499
@@ -5207,7 +5207,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 512:                                              ; preds = %332
   %513 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %46) #30
   br label %514
 
 514:                                              ; preds = %512, %510
@@ -5223,7 +5223,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 517:                                              ; preds = %339
   %518 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %47) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %47) #30
   br label %519
 
 519:                                              ; preds = %517, %515
@@ -5266,7 +5266,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 530:                                              ; preds = %392
   %531 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %56) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %56) #30
   br label %.body291
 
 .body291:                                         ; preds = %528, %390, %530
@@ -5297,7 +5297,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 538:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
   %539 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %62) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %62) #30
   br label %540
 
 540:                                              ; preds = %538, %536
@@ -5328,7 +5328,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 547:                                              ; preds = %423
   %548 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %68) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %68) #30
   br label %549
 
 549:                                              ; preds = %547, %545
@@ -5344,7 +5344,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 552:                                              ; preds = %430
   %553 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #30
   br label %554
 
 554:                                              ; preds = %552, %550
@@ -5367,7 +5367,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 559:                                              ; preds = %445
   %560 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %72) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %72) #30
   br label %.body312
 
 .body312:                                         ; preds = %557, %443, %559
@@ -5398,7 +5398,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 567:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit324
   %568 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %78) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %78) #30
   br label %569
 
 569:                                              ; preds = %567, %565
@@ -5429,7 +5429,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 576:                                              ; preds = %476
   %577 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %84) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %84) #30
   br label %578
 
 578:                                              ; preds = %576, %574
@@ -5445,7 +5445,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 581:                                              ; preds = %483
   %582 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %85) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %85) #30
   br label %583
 
 583:                                              ; preds = %581, %579
@@ -5455,7 +5455,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 
 584:                                              ; preds = %532, %534, %583, %578, %572, %570, %569, %563, %561, %.body312, %555, %554, %549, %543, %541, %540, %.body291, %526, %524, %522
   %.pn253.pn.pn.pn = phi { ptr, i32 } [ %.pn214, %.body291 ], [ %527, %526 ], [ %525, %524 ], [ %523, %522 ], [ %535, %534 ], [ %533, %532 ], [ %.pn253, %583 ], [ %.pn251, %578 ], [ %573, %572 ], [ %571, %570 ], [ %.pn243, %569 ], [ %564, %563 ], [ %562, %561 ], [ %.pn236, %.body312 ], [ %556, %555 ], [ %.pn231, %554 ], [ %.pn229, %549 ], [ %544, %543 ], [ %542, %541 ], [ %.pn221, %540 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #30
   br label %.body
 
 .body:                                            ; preds = %520, %346, %584
@@ -5465,15 +5465,15 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 
 585:                                              ; preds = %.body, %519, %514, %508, %506, %504, %503, %498, %492, %490, %488
   %.pn253.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn253.pn.pn.pn.pn, %.body ], [ %.pn204, %519 ], [ %.pn202, %514 ], [ %509, %508 ], [ %507, %506 ], [ %505, %504 ], [ %.pn191, %503 ], [ %.pn189, %498 ], [ %493, %492 ], [ %491, %490 ], [ %489, %488 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit347
 
@@ -5487,7 +5487,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
   br i1 %589, label %590, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
 
 590:                                              ; preds = %588
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #33
           to label %.noexc348 unwind label %.thread
 
 .noexc348:                                        ; preds = %590
@@ -5495,7 +5495,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit330: ; preds = %480, %483
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %588
   %591 = shl nuw nsw i64 %587, 2
-  %592 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %591) #31
+  %592 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %591) #32
           to label %.noexc349 unwind label %.thread
 
 .noexc349:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
@@ -5531,7 +5531,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc349
 601:                                              ; preds = %600
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %89) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %89) #30
   %602 = load ptr, ptr %26, align 8, !tbaa !58
   %603 = getelementptr inbounds nuw %"class.cv::Mat", ptr %602, i64 %indvars.iv428
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
@@ -5555,7 +5555,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc349
           to label %614 unwind label %624
 
 614:                                              ; preds = %610
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %89) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %89) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
@@ -5586,7 +5586,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc349
 
 626:                                              ; preds = %624, %622
   %.pn177 = phi { ptr, i32 } [ %625, %624 ], [ %623, %622 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %89) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %89) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %627
 
@@ -5605,13 +5605,13 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %_ZN2cv4Mat_IiE5zerosEii.exit unwind label %678
 
 _ZN2cv4Mat_IiE5zerosEii.exit:                     ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #29
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #30
   %629 = load i32, ptr %91, align 8, !tbaa !27
   %630 = and i32 %629, -4096
   %631 = or disjoint i32 %630, 4
   store i32 %631, ptr %91, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   %632 = load ptr, ptr %92, align 8, !tbaa !44, !noalias !253
   %633 = load ptr, ptr %632, align 8, !tbaa !53
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 24
@@ -5635,21 +5635,21 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %_ZN2cv4Mat_IiE5zero
 
 .body.i:                                          ; preds = %639, %636
   %.pn.i = phi { ptr, i32 } [ %640, %639 ], [ %637, %636 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #29
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %92) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #30
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %92) #30
   br label %680
 
 641:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit.i
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %642 = getelementptr inbounds nuw i8, ptr %92, i64 208
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %642) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %642) #30
   %643 = getelementptr inbounds nuw i8, ptr %92, i64 112
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %643) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %643) #30
   %644 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %644) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %644) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %645 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %646 = load ptr, ptr %645, align 8, !tbaa !55
@@ -5809,7 +5809,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %_ZN2cv4Mat_IiE5zero
           to label %725 unwind label %728
 
 725:                                              ; preds = %722
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %93) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %93) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   store i32 %4, ptr %117, align 4, !tbaa !261
   br label %731
@@ -5822,7 +5822,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %_ZN2cv4Mat_IiE5zero
 728:                                              ; preds = %722
   %729 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %93) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %93) #30
   br label %730
 
 730:                                              ; preds = %728, %726
@@ -5831,13 +5831,13 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %_ZN2cv4Mat_IiE5zero
   br label %744
 
 731:                                              ; preds = %725, %._crit_edge425
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %.not.i.i.i = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %732
 
 732:                                              ; preds = %731
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %731, %732
@@ -5848,7 +5848,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %731, %732
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %735, %.lr.ph.i.i.i.i ], [ %733, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #30
   %735 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %735, %734
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !70
@@ -5863,7 +5863,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br i1 %.not.i.i.i336, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %737
 
 737:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %736) #30
+  call void @_ZdlPv(ptr noundef nonnull %736) #31
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %737
@@ -5878,7 +5878,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 .lr.ph.i.i.i.i338:                                ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %.lr.ph.i.i.i.i338
   %.05.i.i.i.i339 = phi ptr [ %741, %.lr.ph.i.i.i.i338 ], [ %738, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i339) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i339) #30
   %741 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i339, i64 96
   %.not.i.i.i.i340 = icmp eq ptr %741, %740
   br i1 %.not.i.i.i.i340, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i341, label %.lr.ph.i.i.i.i338, !llvm.loop !70
@@ -5893,7 +5893,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i343: ; preds = %_ZSt8_DestroyIP
   br i1 %.not.i.i.i344, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit345, label %743
 
 743:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i343
-  call void @_ZdlPv(ptr noundef nonnull %742) #30
+  call void @_ZdlPv(ptr noundef nonnull %742) #31
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit345
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit345:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i343, %743
@@ -5902,7 +5902,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit345:       ; preds = %_ZSt8_DestroyIPN2cv
 
 744:                                              ; preds = %730, %681
   %.pn168.pn = phi { ptr, i32 } [ %.pn168, %730 ], [ %682, %681 ]
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #30
   br label %745
 
 745:                                              ; preds = %680, %744
@@ -5912,12 +5912,12 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit345:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %.not.i.i.i346, label %_ZNSt6vectorIiSaIiEED2Ev.exit347, label %746
 
 746:                                              ; preds = %745
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit347
 
 _ZNSt6vectorIiSaIiEED2Ev.exit347:                 ; preds = %746, %745, %.thread, %627, %585
   %.pn253.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn253.pn.pn.pn.pn.pn, %585 ], [ %.pn177.pn, %627 ], [ %677, %.thread ], [ %.pn168.pn.pn, %745 ], [ %.pn168.pn.pn, %746 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #29
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %747
 
@@ -5929,7 +5929,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit347:                 ; preds = %746, %745, %.thread
 
 748:                                              ; preds = %747, %287
   %.pn253.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn253.pn.pn.pn.pn.pn.pn.pn.pn, %747 ], [ %288, %287 ]
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #29
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %761
 
@@ -5945,7 +5945,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit347:                 ; preds = %746, %745, %.thread
           to label %754 unwind label %757
 
 754:                                              ; preds = %751
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %94) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %94) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %760
 
@@ -5957,7 +5957,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit347:                 ; preds = %746, %745, %.thread
 757:                                              ; preds = %751
   %758 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %94) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %94) #30
   br label %759
 
 759:                                              ; preds = %757, %755
@@ -5966,21 +5966,21 @@ _ZNSt6vectorIiSaIiEED2Ev.exit347:                 ; preds = %746, %745, %.thread
   br label %761
 
 760:                                              ; preds = %754, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit345
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret void
 
 761:                                              ; preds = %759, %748, %286
   %.pn253.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn253.pn.pn.pn.pn.pn.pn.pn.pn.pn, %748 ], [ %.pn155, %759 ], [ %.pn, %286 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #30
   br label %762
 
 762:                                              ; preds = %761, %280
   %.pn253.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn253.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %761 ], [ %281, %280 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   resume { ptr, i32 } %.pn253.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
@@ -6184,7 +6184,7 @@ _ZN2cv3Mat2atIiEERT_i.exit22:                     ; preds = %_ZN2cv3Mat2atIiEERT
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8ximgproc12segmentation48createSelectiveSearchSegmentationStrategyTextureEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.68") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31, !noalias !264
+  %2 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32, !noalias !264
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !tbaa !80, !noalias !264
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -6197,7 +6197,7 @@ define void @_ZN2cv8ximgproc12segmentation48createSelectiveSearchSegmentationStr
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30, !noalias !264
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31, !noalias !264
   resume { ptr, i32 } %6
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1
@@ -6228,11 +6228,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation
   %11 = load ptr, ptr %3, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -6255,7 +6255,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -6286,14 +6286,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %6, %9
           to label %12 unwind label %13
 
 12:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 13:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %14
 }
@@ -6326,7 +6326,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %7, %10
   br i1 %.not.i.i, label %18, label %15
 
 15:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %16 = load ptr, ptr %11, align 8, !tbaa !69
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %17, ptr %11, align 8, !tbaa !69
@@ -6337,14 +6337,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %7, %10
           to label %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit unwind label %19
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %15, %18
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 19:                                               ; preds = %18
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %20
 }
@@ -6360,7 +6360,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i.i ], [ %3, %1 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i) #30
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !70
@@ -6454,11 +6454,11 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
   %15 = load ptr, ptr %7, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   %18 = load ptr, ptr %7, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i
 
 21:                                               ; preds = %8
@@ -6481,7 +6481,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
   br i1 %27, label %28, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i, !prof !90
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i: ; preds = %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %13, %.lr.ph.i.i.i.i.i
@@ -6578,11 +6578,11 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
   %15 = load ptr, ptr %7, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   %18 = load ptr, ptr %7, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i
 
 21:                                               ; preds = %8
@@ -6605,7 +6605,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
   br i1 %27, label %28, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i, !prof !90
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i: ; preds = %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %13, %.lr.ph.i.i.i.i.i
@@ -6648,7 +6648,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %3, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i ], [ %21, %3 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #30
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i.i = icmp eq ptr %24, %23
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !70
@@ -6686,11 +6686,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11clearImagesEv.ex
   %38 = load ptr, ptr %30, align 8, !tbaa !53
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #30
   %41 = load ptr, ptr %30, align 8, !tbaa !53
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %30) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
 
 44:                                               ; preds = %31
@@ -6713,7 +6713,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   br i1 %50, label %51, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i, !prof !90
 
 51:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %51, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %36, %.lr.ph.i.i.i.i.i.i29
@@ -6754,11 +6754,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmen
   %66 = load ptr, ptr %58, align 8, !tbaa !53
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef nonnull align 8 dereferenceable(16) %58) #29
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(16) %58) #30
   %69 = load ptr, ptr %58, align 8, !tbaa !53
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(16) %58) #29
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(16) %58) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
 
 72:                                               ; preds = %59
@@ -6781,7 +6781,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i37: ; pre
   br i1 %78, label %79, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i, !prof !90
 
 79:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i37
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i37, %64, %.lr.ph.i.i.i.i.i.i33
@@ -6795,7 +6795,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 
 81:                                               ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit, %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6940,11 +6940,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmenta
   %144 = load ptr, ptr %136, align 8, !tbaa !53
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load ptr, ptr %145, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(16) %136) #29
+  call void %146(ptr noundef nonnull align 8 dereferenceable(16) %136) #30
   %147 = load ptr, ptr %136, align 8, !tbaa !53
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load ptr, ptr %148, align 8
-  call void %149(ptr noundef nonnull align 8 dereferenceable(16) %136) #29
+  call void %149(ptr noundef nonnull align 8 dereferenceable(16) %136) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 150:                                              ; preds = %137
@@ -6967,13 +6967,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %154, %152
   br i1 %156, label %157, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 157:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %136) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %136) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmentationENS_3PtrINS1_17GraphSegmentationEEE.exit, %142, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %157
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
-  %158 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
+  %158 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32
           to label %.noexc43 unwind label %504
 
 .noexc43:                                         ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -6989,7 +6989,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc43
   %162 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %158) #30, !noalias !290
+  call void @_ZdlPv(ptr noundef nonnull %158) #31, !noalias !290
   br label %.body
 
 163:                                              ; preds = %.noexc43
@@ -6998,7 +6998,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %158, ptr %164, align 8, !tbaa !88, !alias.scope !287
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !295)
-  %165 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
+  %165 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #32
           to label %.noexc44 unwind label %506
 
 .noexc44:                                         ; preds = %163
@@ -7014,7 +7014,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc44
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %165) #30, !noalias !298
+  call void @_ZdlPv(ptr noundef nonnull %165) #31, !noalias !298
   br label %.body45
 
 170:                                              ; preds = %.noexc44
@@ -7023,7 +7023,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %165, ptr %171, align 8, !tbaa !88, !alias.scope !295
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !303)
-  %172 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
+  %172 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32
           to label %.noexc47 unwind label %508
 
 .noexc47:                                         ; preds = %170
@@ -7039,7 +7039,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc47
   %176 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %172) #30, !noalias !306
+  call void @_ZdlPv(ptr noundef nonnull %172) #31, !noalias !306
   br label %.body48
 
 177:                                              ; preds = %.noexc47
@@ -7048,7 +7048,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %172, ptr %178, align 8, !tbaa !88, !alias.scope !303
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
-  %179 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
+  %179 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
           to label %.noexc50 unwind label %510
 
 .noexc50:                                         ; preds = %177
@@ -7058,7 +7058,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc50
   %180 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %179) #30, !noalias !314
+  call void @_ZdlPv(ptr noundef nonnull %179) #31, !noalias !314
   br label %.body51
 
 181:                                              ; preds = %.noexc50
@@ -7182,11 +7182,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %230 = load ptr, ptr %222, align 8, !tbaa !53
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %232 = load ptr, ptr %231, align 8
-  call void %232(ptr noundef nonnull align 8 dereferenceable(16) %222) #29
+  call void %232(ptr noundef nonnull align 8 dereferenceable(16) %222) #30
   %233 = load ptr, ptr %222, align 8, !tbaa !53
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %235 = load ptr, ptr %234, align 8
-  call void %235(ptr noundef nonnull align 8 dereferenceable(16) %222) #29
+  call void %235(ptr noundef nonnull align 8 dereferenceable(16) %222) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 236:                                              ; preds = %223
@@ -7209,7 +7209,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i63: ; preds = %240, %23
   br i1 %242, label %243, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 243:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i63
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %222) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %222) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %221, %228, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i63, %243
@@ -7231,11 +7231,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %252 = load ptr, ptr %244, align 8, !tbaa !53
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %254 = load ptr, ptr %253, align 8
-  call void %254(ptr noundef nonnull align 8 dereferenceable(16) %244) #29
+  call void %254(ptr noundef nonnull align 8 dereferenceable(16) %244) #30
   %255 = load ptr, ptr %244, align 8, !tbaa !53
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %257 = load ptr, ptr %256, align 8
-  call void %257(ptr noundef nonnull align 8 dereferenceable(16) %244) #29
+  call void %257(ptr noundef nonnull align 8 dereferenceable(16) %244) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit69
 
 258:                                              ; preds = %245
@@ -7258,7 +7258,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i67: ; preds = %262, %26
   br i1 %264, label %265, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit69, !prof !90
 
 265:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i67
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %244) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %244) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit69
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit69: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %250, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i67, %265
@@ -7280,11 +7280,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %274 = load ptr, ptr %266, align 8, !tbaa !53
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %276 = load ptr, ptr %275, align 8
-  call void %276(ptr noundef nonnull align 8 dereferenceable(16) %266) #29
+  call void %276(ptr noundef nonnull align 8 dereferenceable(16) %266) #30
   %277 = load ptr, ptr %266, align 8, !tbaa !53
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %279 = load ptr, ptr %278, align 8
-  call void %279(ptr noundef nonnull align 8 dereferenceable(16) %266) #29
+  call void %279(ptr noundef nonnull align 8 dereferenceable(16) %266) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74
 
 280:                                              ; preds = %267
@@ -7307,7 +7307,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i72: ; preds = %284, %28
   br i1 %286, label %287, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74, !prof !90
 
 287:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i72
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %266) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %266) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit69, %272, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i72, %287
@@ -7329,11 +7329,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %296 = load ptr, ptr %288, align 8, !tbaa !53
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
   %298 = load ptr, ptr %297, align 8
-  call void %298(ptr noundef nonnull align 8 dereferenceable(16) %288) #29
+  call void %298(ptr noundef nonnull align 8 dereferenceable(16) %288) #30
   %299 = load ptr, ptr %288, align 8, !tbaa !53
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 24
   %301 = load ptr, ptr %300, align 8
-  call void %301(ptr noundef nonnull align 8 dereferenceable(16) %288) #29
+  call void %301(ptr noundef nonnull align 8 dereferenceable(16) %288) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit79
 
 302:                                              ; preds = %289
@@ -7356,7 +7356,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i77: ; preds = %306, %30
   br i1 %308, label %309, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit79, !prof !90
 
 309:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i77
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %288) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %288) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit79
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit79: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74, %294, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i77, %309
@@ -7447,11 +7447,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %348 = load ptr, ptr %340, align 8, !tbaa !53
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load ptr, ptr %349, align 8
-  call void %350(ptr noundef nonnull align 8 dereferenceable(16) %340) #29
+  call void %350(ptr noundef nonnull align 8 dereferenceable(16) %340) #30
   %351 = load ptr, ptr %340, align 8, !tbaa !53
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %353 = load ptr, ptr %352, align 8
-  call void %353(ptr noundef nonnull align 8 dereferenceable(16) %340) #29
+  call void %353(ptr noundef nonnull align 8 dereferenceable(16) %340) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit91
 
 354:                                              ; preds = %341
@@ -7474,7 +7474,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i89: ; preds = %358, %35
   br i1 %360, label %361, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit91, !prof !90
 
 361:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i89
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %340) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %340) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit91
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit91: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit, %346, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i89, %361
@@ -7496,11 +7496,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %370 = load ptr, ptr %362, align 8, !tbaa !53
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 16
   %372 = load ptr, ptr %371, align 8
-  call void %372(ptr noundef nonnull align 8 dereferenceable(16) %362) #29
+  call void %372(ptr noundef nonnull align 8 dereferenceable(16) %362) #30
   %373 = load ptr, ptr %362, align 8, !tbaa !53
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %375 = load ptr, ptr %374, align 8
-  call void %375(ptr noundef nonnull align 8 dereferenceable(16) %362) #29
+  call void %375(ptr noundef nonnull align 8 dereferenceable(16) %362) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 376:                                              ; preds = %363
@@ -7523,7 +7523,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i94: ; preds = %380, %37
   br i1 %382, label %383, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 383:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i94
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %362) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %362) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit91, %368, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i94, %383
@@ -7546,11 +7546,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStra
   %392 = load ptr, ptr %384, align 8, !tbaa !53
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %394 = load ptr, ptr %393, align 8
-  call void %394(ptr noundef nonnull align 8 dereferenceable(16) %384) #29
+  call void %394(ptr noundef nonnull align 8 dereferenceable(16) %384) #30
   %395 = load ptr, ptr %384, align 8, !tbaa !53
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %397 = load ptr, ptr %396, align 8
-  call void %397(ptr noundef nonnull align 8 dereferenceable(16) %384) #29
+  call void %397(ptr noundef nonnull align 8 dereferenceable(16) %384) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 398:                                              ; preds = %385
@@ -7573,7 +7573,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i98: ; preds = %402, %40
   br i1 %404, label %405, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 405:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i98
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %384) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %384) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %390, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i98, %405
@@ -7596,11 +7596,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %414 = load ptr, ptr %406, align 8, !tbaa !53
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 16
   %416 = load ptr, ptr %415, align 8
-  call void %416(ptr noundef nonnull align 8 dereferenceable(16) %406) #29
+  call void %416(ptr noundef nonnull align 8 dereferenceable(16) %406) #30
   %417 = load ptr, ptr %406, align 8, !tbaa !53
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 24
   %419 = load ptr, ptr %418, align 8
-  call void %419(ptr noundef nonnull align 8 dereferenceable(16) %406) #29
+  call void %419(ptr noundef nonnull align 8 dereferenceable(16) %406) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 420:                                              ; preds = %407
@@ -7623,7 +7623,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i102: ; preds = %424, %4
   br i1 %426, label %427, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 427:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i102
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %406) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %406) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %412, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i102, %427
@@ -7646,11 +7646,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStra
   %436 = load ptr, ptr %428, align 8, !tbaa !53
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
   %438 = load ptr, ptr %437, align 8
-  call void %438(ptr noundef nonnull align 8 dereferenceable(16) %428) #29
+  call void %438(ptr noundef nonnull align 8 dereferenceable(16) %428) #30
   %439 = load ptr, ptr %428, align 8, !tbaa !53
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %441 = load ptr, ptr %440, align 8
-  call void %441(ptr noundef nonnull align 8 dereferenceable(16) %428) #29
+  call void %441(ptr noundef nonnull align 8 dereferenceable(16) %428) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 442:                                              ; preds = %429
@@ -7673,7 +7673,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i106: ; preds = %446, %4
   br i1 %448, label %449, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 449:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i106
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %428) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %428) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %434, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i106, %449
@@ -7696,11 +7696,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %458 = load ptr, ptr %450, align 8, !tbaa !53
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 16
   %460 = load ptr, ptr %459, align 8
-  call void %460(ptr noundef nonnull align 8 dereferenceable(16) %450) #29
+  call void %460(ptr noundef nonnull align 8 dereferenceable(16) %450) #30
   %461 = load ptr, ptr %450, align 8, !tbaa !53
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 24
   %463 = load ptr, ptr %462, align 8
-  call void %463(ptr noundef nonnull align 8 dereferenceable(16) %450) #29
+  call void %463(ptr noundef nonnull align 8 dereferenceable(16) %450) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 464:                                              ; preds = %451
@@ -7723,7 +7723,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i110: ; preds = %468, %4
   br i1 %470, label %471, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 471:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i110
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %450) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %450) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %456, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i110, %471
@@ -7746,11 +7746,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStra
   %480 = load ptr, ptr %472, align 8, !tbaa !53
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 16
   %482 = load ptr, ptr %481, align 8
-  call void %482(ptr noundef nonnull align 8 dereferenceable(16) %472) #29
+  call void %482(ptr noundef nonnull align 8 dereferenceable(16) %472) #30
   %483 = load ptr, ptr %472, align 8, !tbaa !53
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 24
   %485 = load ptr, ptr %484, align 8
-  call void %485(ptr noundef nonnull align 8 dereferenceable(16) %472) #29
+  call void %485(ptr noundef nonnull align 8 dereferenceable(16) %472) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit116
 
 486:                                              ; preds = %473
@@ -7773,12 +7773,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i114: ; preds = %490, %4
   br i1 %492, label %493, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit116, !prof !90
 
 493:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i114
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %472) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %472) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit116
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit116: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %478, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i114, %493
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
@@ -7808,7 +7808,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 502:                                              ; preds = %135
   %503 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #30
   br label %517
 
 504:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -7834,41 +7834,41 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 512:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit
   %513 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #30
   br label %516
 
 514:                                              ; preds = %339
   %515 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #30
   br label %516
 
 516:                                              ; preds = %514, %512
   %.pn19 = phi { ptr, i32 } [ %515, %514 ], [ %513, %512 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #30
   br label %.body51
 
 .body51:                                          ; preds = %510, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %516
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %516 ], [ %511, %510 ], [ %180, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #30
   br label %.body48
 
 .body48:                                          ; preds = %508, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body51
   %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %.body51 ], [ %509, %508 ], [ %176, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
   br label %.body45
 
 .body45:                                          ; preds = %506, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body48
   %.pn19.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn, %.body48 ], [ %507, %506 ], [ %169, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #30
   br label %.body
 
 .body:                                            ; preds = %504, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body45
@@ -7878,7 +7878,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 
 517:                                              ; preds = %.body, %502, %500
   %.pn19.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn.pn.pn, %.body ], [ %503, %502 ], [ %501, %500 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #30
   br label %518
 
 518:                                              ; preds = %517, %498
@@ -7888,7 +7888,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 
 519:                                              ; preds = %518, %496, %494
   %.pn19.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn19.pn.pn.pn.pn.pn.pn, %518 ], [ %497, %496 ], [ %495, %494 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn19.pn.pn.pn.pn.pn.pn.pn
 }
@@ -7918,11 +7918,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation
   %11 = load ptr, ptr %3, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -7945,7 +7945,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #30
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -7991,7 +7991,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %4, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i ], [ %34, %4 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #30
   %37 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !70
@@ -8029,11 +8029,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11clearImagesEv.ex
   %51 = load ptr, ptr %43, align 8, !tbaa !53
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %43) #29
+  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %43) #30
   %54 = load ptr, ptr %43, align 8, !tbaa !53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(16) %43) #29
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(16) %43) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
 
 57:                                               ; preds = %44
@@ -8056,7 +8056,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   br i1 %63, label %64, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i, !prof !90
 
 64:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %64, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %49, %.lr.ph.i.i.i.i.i.i57
@@ -8097,11 +8097,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmen
   %79 = load ptr, ptr %71, align 8, !tbaa !53
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(16) %71) #29
+  tail call void %81(ptr noundef nonnull align 8 dereferenceable(16) %71) #30
   %82 = load ptr, ptr %71, align 8, !tbaa !53
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(16) %71) #29
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(16) %71) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
 
 85:                                               ; preds = %72
@@ -8124,7 +8124,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i65: ; pre
   br i1 %91, label %92, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i, !prof !90
 
 92:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i65
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %71) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %92, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i65, %77, %.lr.ph.i.i.i.i.i.i61
@@ -8138,7 +8138,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 
 94:                                               ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit, %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8174,7 +8174,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 105:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %106, align 8, !tbaa !19
@@ -8223,7 +8223,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit76, %115
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !319)
-  %122 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
+  %122 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32
           to label %.noexc unwind label %788
 
 .noexc:                                           ; preds = %._crit_edge
@@ -8239,7 +8239,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc
   %126 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %122) #30, !noalias !322
+  call void @_ZdlPv(ptr noundef nonnull %122) #31, !noalias !322
   br label %.body
 
 127:                                              ; preds = %94
@@ -8376,11 +8376,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmenta
   %183 = load ptr, ptr %175, align 8, !tbaa !53
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %175) #29
+  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %175) #30
   %186 = load ptr, ptr %175, align 8, !tbaa !53
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load ptr, ptr %187, align 8
-  call void %188(ptr noundef nonnull align 8 dereferenceable(16) %175) #29
+  call void %188(ptr noundef nonnull align 8 dereferenceable(16) %175) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 189:                                              ; preds = %176
@@ -8403,7 +8403,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %193, %191
   br i1 %195, label %196, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 196:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %175) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %175) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmentationENS_3PtrINS1_17GraphSegmentationEEE.exit, %181, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %196
@@ -8425,11 +8425,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
   %205 = load ptr, ptr %197, align 8, !tbaa !53
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %207 = load ptr, ptr %206, align 8
-  call void %207(ptr noundef nonnull align 8 dereferenceable(16) %197) #29
+  call void %207(ptr noundef nonnull align 8 dereferenceable(16) %197) #30
   %208 = load ptr, ptr %197, align 8, !tbaa !53
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %210 = load ptr, ptr %209, align 8
-  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %197) #29
+  call void %210(ptr noundef nonnull align 8 dereferenceable(16) %197) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit76
 
 211:                                              ; preds = %198
@@ -8452,7 +8452,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i74: ; preds = %215, %21
   br i1 %217, label %218, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit76, !prof !90
 
 218:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i74
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %197) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %197) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit76
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit76: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %203, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i74, %218
@@ -8474,12 +8474,12 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 224:                                              ; preds = %174
   %225 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #30
   br label %226
 
 226:                                              ; preds = %224, %222
   %.pn51 = phi { ptr, i32 } [ %225, %224 ], [ %223, %222 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #30
   br label %227
 
 227:                                              ; preds = %226, %220
@@ -8493,7 +8493,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
   store ptr %122, ptr %229, align 8, !tbaa !88, !alias.scope !319
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !328)
-  %230 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
+  %230 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #32
           to label %.noexc77 unwind label %790
 
 .noexc77:                                         ; preds = %228
@@ -8509,7 +8509,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc77
   %234 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %230) #30, !noalias !331
+  call void @_ZdlPv(ptr noundef nonnull %230) #31, !noalias !331
   br label %.body78
 
 235:                                              ; preds = %.noexc77
@@ -8518,7 +8518,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %230, ptr %236, align 8, !tbaa !88, !alias.scope !328
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !336)
-  %237 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
+  %237 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32
           to label %.noexc80 unwind label %792
 
 .noexc80:                                         ; preds = %235
@@ -8534,7 +8534,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc80
   %241 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %237) #30, !noalias !339
+  call void @_ZdlPv(ptr noundef nonnull %237) #31, !noalias !339
   br label %.body81
 
 242:                                              ; preds = %.noexc80
@@ -8543,7 +8543,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %237, ptr %243, align 8, !tbaa !88, !alias.scope !336
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.experimental.noalias.scope.decl(metadata !344)
-  %244 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
+  %244 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
           to label %.noexc83 unwind label %794
 
 .noexc83:                                         ; preds = %242
@@ -8553,7 +8553,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc83
   %245 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %244) #30, !noalias !347
+  call void @_ZdlPv(ptr noundef nonnull %244) #31, !noalias !347
   br label %.body84
 
 246:                                              ; preds = %.noexc83
@@ -8677,11 +8677,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %295 = load ptr, ptr %287, align 8, !tbaa !53
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %297 = load ptr, ptr %296, align 8
-  call void %297(ptr noundef nonnull align 8 dereferenceable(16) %287) #29
+  call void %297(ptr noundef nonnull align 8 dereferenceable(16) %287) #30
   %298 = load ptr, ptr %287, align 8, !tbaa !53
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %300 = load ptr, ptr %299, align 8
-  call void %300(ptr noundef nonnull align 8 dereferenceable(16) %287) #29
+  call void %300(ptr noundef nonnull align 8 dereferenceable(16) %287) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 301:                                              ; preds = %288
@@ -8704,7 +8704,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i96: ; preds = %305, %30
   br i1 %307, label %308, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 308:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i96
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %287) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %287) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %286, %293, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i96, %308
@@ -8726,11 +8726,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %317 = load ptr, ptr %309, align 8, !tbaa !53
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
   %319 = load ptr, ptr %318, align 8
-  call void %319(ptr noundef nonnull align 8 dereferenceable(16) %309) #29
+  call void %319(ptr noundef nonnull align 8 dereferenceable(16) %309) #30
   %320 = load ptr, ptr %309, align 8, !tbaa !53
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %322 = load ptr, ptr %321, align 8
-  call void %322(ptr noundef nonnull align 8 dereferenceable(16) %309) #29
+  call void %322(ptr noundef nonnull align 8 dereferenceable(16) %309) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit102
 
 323:                                              ; preds = %310
@@ -8753,7 +8753,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i100: ; preds = %327, %3
   br i1 %329, label %330, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit102, !prof !90
 
 330:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i100
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %309) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %309) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit102
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit102: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %315, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i100, %330
@@ -8775,11 +8775,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %339 = load ptr, ptr %331, align 8, !tbaa !53
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 16
   %341 = load ptr, ptr %340, align 8
-  call void %341(ptr noundef nonnull align 8 dereferenceable(16) %331) #29
+  call void %341(ptr noundef nonnull align 8 dereferenceable(16) %331) #30
   %342 = load ptr, ptr %331, align 8, !tbaa !53
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 24
   %344 = load ptr, ptr %343, align 8
-  call void %344(ptr noundef nonnull align 8 dereferenceable(16) %331) #29
+  call void %344(ptr noundef nonnull align 8 dereferenceable(16) %331) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit107
 
 345:                                              ; preds = %332
@@ -8802,7 +8802,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i105: ; preds = %349, %3
   br i1 %351, label %352, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit107, !prof !90
 
 352:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i105
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %331) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %331) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit107
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit107: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit102, %337, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i105, %352
@@ -8824,11 +8824,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %361 = load ptr, ptr %353, align 8, !tbaa !53
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 16
   %363 = load ptr, ptr %362, align 8
-  call void %363(ptr noundef nonnull align 8 dereferenceable(16) %353) #29
+  call void %363(ptr noundef nonnull align 8 dereferenceable(16) %353) #30
   %364 = load ptr, ptr %353, align 8, !tbaa !53
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 24
   %366 = load ptr, ptr %365, align 8
-  call void %366(ptr noundef nonnull align 8 dereferenceable(16) %353) #29
+  call void %366(ptr noundef nonnull align 8 dereferenceable(16) %353) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit112
 
 367:                                              ; preds = %354
@@ -8851,7 +8851,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i110: ; preds = %371, %3
   br i1 %373, label %374, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit112, !prof !90
 
 374:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i110
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %353) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %353) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit112
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit112: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit107, %359, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i110, %374
@@ -8942,11 +8942,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %413 = load ptr, ptr %405, align 8, !tbaa !53
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 16
   %415 = load ptr, ptr %414, align 8
-  call void %415(ptr noundef nonnull align 8 dereferenceable(16) %405) #29
+  call void %415(ptr noundef nonnull align 8 dereferenceable(16) %405) #30
   %416 = load ptr, ptr %405, align 8, !tbaa !53
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
   %418 = load ptr, ptr %417, align 8
-  call void %418(ptr noundef nonnull align 8 dereferenceable(16) %405) #29
+  call void %418(ptr noundef nonnull align 8 dereferenceable(16) %405) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124
 
 419:                                              ; preds = %406
@@ -8969,13 +8969,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122: ; preds = %423, %4
   br i1 %425, label %426, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124, !prof !90
 
 426:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %405) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %405) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit, %411, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122, %426
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  %427 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
+  %427 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #32
           to label %.noexc126 unwind label %800
 
 .noexc126:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124
@@ -8991,7 +8991,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i125: ; preds = %.noexc126
   %431 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %427) #30, !noalias !355
+  call void @_ZdlPv(ptr noundef nonnull %427) #31, !noalias !355
   br label %.body127
 
 432:                                              ; preds = %.noexc126
@@ -9000,7 +9000,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %427, ptr %433, align 8, !tbaa !88, !alias.scope !352
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.experimental.noalias.scope.decl(metadata !360)
-  %434 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
+  %434 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32
           to label %.noexc131 unwind label %802
 
 .noexc131:                                        ; preds = %432
@@ -9016,7 +9016,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i130: ; preds = %.noexc131
   %438 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %434) #30, !noalias !363
+  call void @_ZdlPv(ptr noundef nonnull %434) #31, !noalias !363
   br label %.body132
 
 439:                                              ; preds = %.noexc131
@@ -9025,7 +9025,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %434, ptr %440, align 8, !tbaa !88, !alias.scope !360
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !368)
-  %441 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
+  %441 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
           to label %.noexc136 unwind label %804
 
 .noexc136:                                        ; preds = %439
@@ -9035,7 +9035,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i135: ; preds = %.noexc136
   %442 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %441) #30, !noalias !371
+  call void @_ZdlPv(ptr noundef nonnull %441) #31, !noalias !371
   br label %.body137
 
 443:                                              ; preds = %.noexc136
@@ -9134,11 +9134,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %481 = load ptr, ptr %473, align 8, !tbaa !53
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 16
   %483 = load ptr, ptr %482, align 8
-  call void %483(ptr noundef nonnull align 8 dereferenceable(16) %473) #29
+  call void %483(ptr noundef nonnull align 8 dereferenceable(16) %473) #30
   %484 = load ptr, ptr %473, align 8, !tbaa !53
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 24
   %486 = load ptr, ptr %485, align 8
-  call void %486(ptr noundef nonnull align 8 dereferenceable(16) %473) #29
+  call void %486(ptr noundef nonnull align 8 dereferenceable(16) %473) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit153
 
 487:                                              ; preds = %474
@@ -9161,7 +9161,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i151: ; preds = %491, %4
   br i1 %493, label %494, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit153, !prof !90
 
 494:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i151
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %473) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %473) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit153
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit153: ; preds = %472, %479, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i151, %494
@@ -9183,11 +9183,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %503 = load ptr, ptr %495, align 8, !tbaa !53
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 16
   %505 = load ptr, ptr %504, align 8
-  call void %505(ptr noundef nonnull align 8 dereferenceable(16) %495) #29
+  call void %505(ptr noundef nonnull align 8 dereferenceable(16) %495) #30
   %506 = load ptr, ptr %495, align 8, !tbaa !53
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 24
   %508 = load ptr, ptr %507, align 8
-  call void %508(ptr noundef nonnull align 8 dereferenceable(16) %495) #29
+  call void %508(ptr noundef nonnull align 8 dereferenceable(16) %495) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit158
 
 509:                                              ; preds = %496
@@ -9210,7 +9210,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i156: ; preds = %513, %5
   br i1 %515, label %516, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit158, !prof !90
 
 516:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i156
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %495) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %495) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit158
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit158: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit153, %501, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i156, %516
@@ -9232,11 +9232,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %525 = load ptr, ptr %517, align 8, !tbaa !53
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 16
   %527 = load ptr, ptr %526, align 8
-  call void %527(ptr noundef nonnull align 8 dereferenceable(16) %517) #29
+  call void %527(ptr noundef nonnull align 8 dereferenceable(16) %517) #30
   %528 = load ptr, ptr %517, align 8, !tbaa !53
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 24
   %530 = load ptr, ptr %529, align 8
-  call void %530(ptr noundef nonnull align 8 dereferenceable(16) %517) #29
+  call void %530(ptr noundef nonnull align 8 dereferenceable(16) %517) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit163
 
 531:                                              ; preds = %518
@@ -9259,7 +9259,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i161: ; preds = %535, %5
   br i1 %537, label %538, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit163, !prof !90
 
 538:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i161
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %517) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %517) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit163
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit163: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit158, %523, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i161, %538
@@ -9349,11 +9349,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %576 = load ptr, ptr %568, align 8, !tbaa !53
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 16
   %578 = load ptr, ptr %577, align 8
-  call void %578(ptr noundef nonnull align 8 dereferenceable(16) %568) #29
+  call void %578(ptr noundef nonnull align 8 dereferenceable(16) %568) #30
   %579 = load ptr, ptr %568, align 8, !tbaa !53
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 24
   %581 = load ptr, ptr %580, align 8
-  call void %581(ptr noundef nonnull align 8 dereferenceable(16) %568) #29
+  call void %581(ptr noundef nonnull align 8 dereferenceable(16) %568) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit178
 
 582:                                              ; preds = %569
@@ -9376,7 +9376,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i176: ; preds = %586, %5
   br i1 %588, label %589, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit178, !prof !90
 
 589:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i176
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %568) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %568) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit178
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit178: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit173, %574, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i176, %589
@@ -9398,11 +9398,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %598 = load ptr, ptr %590, align 8, !tbaa !53
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 16
   %600 = load ptr, ptr %599, align 8
-  call void %600(ptr noundef nonnull align 8 dereferenceable(16) %590) #29
+  call void %600(ptr noundef nonnull align 8 dereferenceable(16) %590) #30
   %601 = load ptr, ptr %590, align 8, !tbaa !53
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 24
   %603 = load ptr, ptr %602, align 8
-  call void %603(ptr noundef nonnull align 8 dereferenceable(16) %590) #29
+  call void %603(ptr noundef nonnull align 8 dereferenceable(16) %590) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 604:                                              ; preds = %591
@@ -9425,7 +9425,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i181: ; preds = %608, %6
   br i1 %610, label %611, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 611:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i181
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %590) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %590) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit178, %596, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i181, %611
@@ -9448,11 +9448,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStra
   %620 = load ptr, ptr %612, align 8, !tbaa !53
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 16
   %622 = load ptr, ptr %621, align 8
-  call void %622(ptr noundef nonnull align 8 dereferenceable(16) %612) #29
+  call void %622(ptr noundef nonnull align 8 dereferenceable(16) %612) #30
   %623 = load ptr, ptr %612, align 8, !tbaa !53
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 24
   %625 = load ptr, ptr %624, align 8
-  call void %625(ptr noundef nonnull align 8 dereferenceable(16) %612) #29
+  call void %625(ptr noundef nonnull align 8 dereferenceable(16) %612) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 626:                                              ; preds = %613
@@ -9475,7 +9475,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i185: ; preds = %630, %6
   br i1 %632, label %633, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 633:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i185
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %612) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %612) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %618, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i185, %633
@@ -9498,11 +9498,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %642 = load ptr, ptr %634, align 8, !tbaa !53
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 16
   %644 = load ptr, ptr %643, align 8
-  call void %644(ptr noundef nonnull align 8 dereferenceable(16) %634) #29
+  call void %644(ptr noundef nonnull align 8 dereferenceable(16) %634) #30
   %645 = load ptr, ptr %634, align 8, !tbaa !53
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 24
   %647 = load ptr, ptr %646, align 8
-  call void %647(ptr noundef nonnull align 8 dereferenceable(16) %634) #29
+  call void %647(ptr noundef nonnull align 8 dereferenceable(16) %634) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 648:                                              ; preds = %635
@@ -9525,7 +9525,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i189: ; preds = %652, %6
   br i1 %654, label %655, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 655:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i189
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %634) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %634) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %640, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i189, %655
@@ -9548,11 +9548,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStra
   %664 = load ptr, ptr %656, align 8, !tbaa !53
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 16
   %666 = load ptr, ptr %665, align 8
-  call void %666(ptr noundef nonnull align 8 dereferenceable(16) %656) #29
+  call void %666(ptr noundef nonnull align 8 dereferenceable(16) %656) #30
   %667 = load ptr, ptr %656, align 8, !tbaa !53
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 24
   %669 = load ptr, ptr %668, align 8
-  call void %669(ptr noundef nonnull align 8 dereferenceable(16) %656) #29
+  call void %669(ptr noundef nonnull align 8 dereferenceable(16) %656) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 670:                                              ; preds = %657
@@ -9575,7 +9575,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i193: ; preds = %674, %6
   br i1 %676, label %677, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 677:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i193
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %656) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %656) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %662, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i193, %677
@@ -9598,11 +9598,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %686 = load ptr, ptr %678, align 8, !tbaa !53
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 16
   %688 = load ptr, ptr %687, align 8
-  call void %688(ptr noundef nonnull align 8 dereferenceable(16) %678) #29
+  call void %688(ptr noundef nonnull align 8 dereferenceable(16) %678) #30
   %689 = load ptr, ptr %678, align 8, !tbaa !53
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 24
   %691 = load ptr, ptr %690, align 8
-  call void %691(ptr noundef nonnull align 8 dereferenceable(16) %678) #29
+  call void %691(ptr noundef nonnull align 8 dereferenceable(16) %678) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199
 
 692:                                              ; preds = %679
@@ -9625,7 +9625,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i197: ; preds = %696, %6
   br i1 %698, label %699, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199, !prof !90
 
 699:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i197
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %678) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %678) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %684, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i197, %699
@@ -9648,11 +9648,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStra
   %708 = load ptr, ptr %700, align 8, !tbaa !53
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 16
   %710 = load ptr, ptr %709, align 8
-  call void %710(ptr noundef nonnull align 8 dereferenceable(16) %700) #29
+  call void %710(ptr noundef nonnull align 8 dereferenceable(16) %700) #30
   %711 = load ptr, ptr %700, align 8, !tbaa !53
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 24
   %713 = load ptr, ptr %712, align 8
-  call void %713(ptr noundef nonnull align 8 dereferenceable(16) %700) #29
+  call void %713(ptr noundef nonnull align 8 dereferenceable(16) %700) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit204
 
 714:                                              ; preds = %701
@@ -9675,7 +9675,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i202: ; preds = %718, %7
   br i1 %720, label %721, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit204, !prof !90
 
 721:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i202
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %700) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %700) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit204
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit204: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit199, %706, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i202, %721
@@ -9698,11 +9698,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %730 = load ptr, ptr %722, align 8, !tbaa !53
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 16
   %732 = load ptr, ptr %731, align 8
-  call void %732(ptr noundef nonnull align 8 dereferenceable(16) %722) #29
+  call void %732(ptr noundef nonnull align 8 dereferenceable(16) %722) #30
   %733 = load ptr, ptr %722, align 8, !tbaa !53
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 24
   %735 = load ptr, ptr %734, align 8
-  call void %735(ptr noundef nonnull align 8 dereferenceable(16) %722) #29
+  call void %735(ptr noundef nonnull align 8 dereferenceable(16) %722) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit209
 
 736:                                              ; preds = %723
@@ -9725,7 +9725,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i207: ; preds = %740, %7
   br i1 %742, label %743, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit209, !prof !90
 
 743:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i207
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %722) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %722) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit209
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit209: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit204, %728, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i207, %743
@@ -9748,11 +9748,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStra
   %752 = load ptr, ptr %744, align 8, !tbaa !53
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 16
   %754 = load ptr, ptr %753, align 8
-  call void %754(ptr noundef nonnull align 8 dereferenceable(16) %744) #29
+  call void %754(ptr noundef nonnull align 8 dereferenceable(16) %744) #30
   %755 = load ptr, ptr %744, align 8, !tbaa !53
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 24
   %757 = load ptr, ptr %756, align 8
-  call void %757(ptr noundef nonnull align 8 dereferenceable(16) %744) #29
+  call void %757(ptr noundef nonnull align 8 dereferenceable(16) %744) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit214
 
 758:                                              ; preds = %745
@@ -9775,7 +9775,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i212: ; preds = %762, %7
   br i1 %764, label %765, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit214, !prof !90
 
 765:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i212
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %744) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %744) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit214
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit214: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit209, %750, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i212, %765
@@ -9798,11 +9798,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %774 = load ptr, ptr %766, align 8, !tbaa !53
   %775 = getelementptr inbounds nuw i8, ptr %774, i64 16
   %776 = load ptr, ptr %775, align 8
-  call void %776(ptr noundef nonnull align 8 dereferenceable(16) %766) #29
+  call void %776(ptr noundef nonnull align 8 dereferenceable(16) %766) #30
   %777 = load ptr, ptr %766, align 8, !tbaa !53
   %778 = getelementptr inbounds nuw i8, ptr %777, i64 24
   %779 = load ptr, ptr %778, align 8
-  call void %779(ptr noundef nonnull align 8 dereferenceable(16) %766) #29
+  call void %779(ptr noundef nonnull align 8 dereferenceable(16) %766) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 780:                                              ; preds = %767
@@ -9825,14 +9825,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i217: ; preds = %784, %7
   br i1 %786, label %787, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 787:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i217
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %766) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %766) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit214, %772, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i217, %787
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
@@ -9859,16 +9859,16 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStra
 796:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit
   %797 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #30
   br label %812
 
 798:                                              ; preds = %404
   %799 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #30
   br label %811
 
 800:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit124
@@ -9889,34 +9889,34 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStra
 806:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit148
   %807 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #30
   br label %810
 
 808:                                              ; preds = %567
   %809 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #30
   br label %810
 
 810:                                              ; preds = %808, %806
   %.pn40 = phi { ptr, i32 } [ %809, %808 ], [ %807, %806 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #30
   br label %.body137
 
 .body137:                                         ; preds = %804, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i135, %810
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %810 ], [ %805, %804 ], [ %442, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #30
   br label %.body132
 
 .body132:                                         ; preds = %802, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i130, %.body137
   %.pn40.pn.pn = phi { ptr, i32 } [ %.pn40.pn, %.body137 ], [ %803, %802 ], [ %438, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #30
   br label %.body127
 
 .body127:                                         ; preds = %800, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i125, %.body132
@@ -9926,31 +9926,31 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStra
 
 811:                                              ; preds = %.body127, %798
   %.pn40.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn.pn, %.body127 ], [ %799, %798 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #30
   br label %812
 
 812:                                              ; preds = %811, %796
   %.pn40.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn.pn.pn, %811 ], [ %797, %796 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #30
   br label %.body84
 
 .body84:                                          ; preds = %794, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %812
   %.pn40.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn.pn.pn.pn, %812 ], [ %795, %794 ], [ %245, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #30
   br label %.body81
 
 .body81:                                          ; preds = %792, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body84
   %.pn40.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn.pn.pn.pn.pn, %.body84 ], [ %793, %792 ], [ %241, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #30
   br label %.body78
 
 .body78:                                          ; preds = %790, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body81
   %.pn40.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn.pn.pn.pn.pn.pn, %.body81 ], [ %791, %790 ], [ %234, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #30
   br label %.body
 
 .body:                                            ; preds = %788, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body78
@@ -9960,13 +9960,13 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStra
 
 813:                                              ; preds = %.body, %227, %133, %131
   %.pn51.pn.pn = phi { ptr, i32 } [ %.pn51.pn, %227 ], [ %.pn40.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %134, %133 ], [ %132, %131 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %814
 
 814:                                              ; preds = %813, %129, %127
   %.pn51.pn.pn.pn = phi { ptr, i32 } [ %.pn51.pn.pn, %813 ], [ %130, %129 ], [ %128, %127 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn51.pn.pn.pn
 }
@@ -10026,7 +10026,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %4, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i ], [ %50, %4 ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i) #30
   %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i.i = icmp eq ptr %53, %52
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !70
@@ -10064,11 +10064,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11clearImagesEv.ex
   %67 = load ptr, ptr %59, align 8, !tbaa !53
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull align 8 dereferenceable(16) %59) #29
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(16) %59) #30
   %70 = load ptr, ptr %59, align 8, !tbaa !53
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %59) #29
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %59) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
 
 73:                                               ; preds = %60
@@ -10091,7 +10091,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
   br i1 %79, label %80, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i, !prof !90
 
 80:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %65, %.lr.ph.i.i.i.i.i.i99
@@ -10132,11 +10132,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmen
   %95 = load ptr, ptr %87, align 8, !tbaa !53
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef nonnull align 8 dereferenceable(16) %87) #29
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(16) %87) #30
   %98 = load ptr, ptr %87, align 8, !tbaa !53
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
-  tail call void %100(ptr noundef nonnull align 8 dereferenceable(16) %87) #29
+  tail call void %100(ptr noundef nonnull align 8 dereferenceable(16) %87) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
 
 101:                                              ; preds = %88
@@ -10159,7 +10159,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i107: ; pr
   br i1 %107, label %108, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i, !prof !90
 
 108:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i107
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i107, %93, %.lr.ph.i.i.i.i.i.i103
@@ -10173,7 +10173,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 
 110:                                              ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl23clearGraphSegmentationsEv.exit, %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -10209,7 +10209,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 121:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %122, align 8, !tbaa !19
@@ -10244,7 +10244,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 131:                                              ; preds = %127
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %132 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %132, align 8, !tbaa !19
@@ -10284,7 +10284,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 142:                                              ; preds = %142, %141
   %.idx = phi i64 [ 0, %141 ], [ %.add, %142 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #30
   %.add = add nuw nsw i64 %.idx, 96
   %143 = icmp eq i64 %.add, 288
   br i1 %143, label %144, label %142
@@ -10337,7 +10337,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
 159:                                              ; preds = %157
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %20, i64 288
-  %161 = invoke noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #31
+  %161 = invoke noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #32
           to label %.noexc319 unwind label %.body320.thread
 
 .noexc319:                                        ; preds = %159
@@ -10364,19 +10364,19 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i
   %166 = landingpad { ptr, i32 }
           catch ptr null
   %167 = extractvalue { ptr, i32 } %166, 0
-  %168 = call ptr @__cxa_begin_catch(ptr %167) #29
+  %168 = call ptr @__cxa_begin_catch(ptr %167) #30
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %161, %.016.i.i.i.i.i
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %165, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi ptr [ %169, %.lr.ph.i.i.i.i.i.i.i ], [ %161, %165 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i.i) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i.i.i.i) #30
   %169 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 96
   %.not.i.i.i.i.i.i.i = icmp eq ptr %169, %.016.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !70
 
 _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.i, %165
-  invoke void @__cxa_rethrow() #32
+  invoke void @__cxa_rethrow() #33
           to label %175 unwind label %170
 
 170:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i
@@ -10389,7 +10389,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %173 = landingpad { ptr, i32 }
           catch ptr null
   %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #33
+  call void @__clang_call_terminate(ptr %174) #34
   unreachable
 
 175:                                              ; preds = %_ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i
@@ -10406,7 +10406,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not.i.i.i110, label %.body, label %177
 
 177:                                              ; preds = %.body320
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #30
+  call void @_ZdlPv(ptr noundef nonnull %.pr) #31
   br label %.body
 
 178:                                              ; preds = %_ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -10417,14 +10417,14 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
 180:                                              ; preds = %180, %178
   %181 = phi ptr [ %160, %178 ], [ %182, %180 ]
   %182 = getelementptr inbounds i8, ptr %181, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %182) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %182) #30
   %183 = icmp eq ptr %182, %20
   br i1 %183, label %184, label %180
 
 184:                                              ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %185 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %185, align 8, !tbaa !19
@@ -10473,7 +10473,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121, %194
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !377)
-  %201 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
+  %201 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32
           to label %.noexc unwind label %1048
 
 .noexc:                                           ; preds = %._crit_edge
@@ -10489,7 +10489,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc
   %205 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %201) #30, !noalias !380
+  call void @_ZdlPv(ptr noundef nonnull %201) #31, !noalias !380
   br label %.body111
 
 206:                                              ; preds = %110
@@ -10551,7 +10551,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 224:                                              ; preds = %222, %224
   %225 = phi ptr [ %.011, %222 ], [ %226, %224 ]
   %226 = getelementptr inbounds i8, ptr %225, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %226) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %226) #30
   %227 = icmp eq ptr %226, %20
   br i1 %227, label %.loopexit, label %224
 
@@ -10562,7 +10562,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 228:                                              ; preds = %228, %.body
   %229 = phi ptr [ %160, %.body ], [ %230, %228 ]
   %230 = getelementptr inbounds i8, ptr %229, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %230) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %230) #30
   %231 = icmp eq ptr %230, %20
   br i1 %231, label %.loopexit, label %228
 
@@ -10692,11 +10692,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmenta
   %284 = load ptr, ptr %276, align 8, !tbaa !53
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 16
   %286 = load ptr, ptr %285, align 8
-  call void %286(ptr noundef nonnull align 8 dereferenceable(16) %276) #29
+  call void %286(ptr noundef nonnull align 8 dereferenceable(16) %276) #30
   %287 = load ptr, ptr %276, align 8, !tbaa !53
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 24
   %289 = load ptr, ptr %288, align 8
-  call void %289(ptr noundef nonnull align 8 dereferenceable(16) %276) #29
+  call void %289(ptr noundef nonnull align 8 dereferenceable(16) %276) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 290:                                              ; preds = %277
@@ -10719,7 +10719,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %294, %292
   br i1 %296, label %297, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 297:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %276) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %276) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl20addGraphSegmentationENS_3PtrINS1_17GraphSegmentationEEE.exit, %282, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %297
@@ -10741,11 +10741,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
   %306 = load ptr, ptr %298, align 8, !tbaa !53
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %308 = load ptr, ptr %307, align 8
-  call void %308(ptr noundef nonnull align 8 dereferenceable(16) %298) #29
+  call void %308(ptr noundef nonnull align 8 dereferenceable(16) %298) #30
   %309 = load ptr, ptr %298, align 8, !tbaa !53
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %311 = load ptr, ptr %310, align 8
-  call void %311(ptr noundef nonnull align 8 dereferenceable(16) %298) #29
+  call void %311(ptr noundef nonnull align 8 dereferenceable(16) %298) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121
 
 312:                                              ; preds = %299
@@ -10768,7 +10768,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i119: ; preds = %316, %3
   br i1 %318, label %319, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121, !prof !90
 
 319:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i119
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %298) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %298) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %304, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i119, %319
@@ -10790,12 +10790,12 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 325:                                              ; preds = %275
   %326 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #30
   br label %327
 
 327:                                              ; preds = %325, %323
   %.pn89 = phi { ptr, i32 } [ %326, %325 ], [ %324, %323 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #30
   br label %328
 
 328:                                              ; preds = %327, %321
@@ -10809,7 +10809,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
   store ptr %201, ptr %330, align 8, !tbaa !88, !alias.scope !377
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !386)
-  %331 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
+  %331 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #32
           to label %.noexc122 unwind label %1050
 
 .noexc122:                                        ; preds = %329
@@ -10825,7 +10825,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation17GraphSegmentationELN9__gnu_cxx1
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc122
   %335 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %331) #30, !noalias !389
+  call void @_ZdlPv(ptr noundef nonnull %331) #31, !noalias !389
   br label %.body123
 
 336:                                              ; preds = %.noexc122
@@ -10834,7 +10834,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %331, ptr %337, align 8, !tbaa !88, !alias.scope !386
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.experimental.noalias.scope.decl(metadata !394)
-  %338 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
+  %338 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32
           to label %.noexc125 unwind label %1052
 
 .noexc125:                                        ; preds = %336
@@ -10850,7 +10850,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc125
   %342 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %338) #30, !noalias !397
+  call void @_ZdlPv(ptr noundef nonnull %338) #31, !noalias !397
   br label %.body126
 
 343:                                              ; preds = %.noexc125
@@ -10859,7 +10859,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %338, ptr %344, align 8, !tbaa !88, !alias.scope !394
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.experimental.noalias.scope.decl(metadata !402)
-  %345 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
+  %345 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
           to label %.noexc128 unwind label %1054
 
 .noexc128:                                        ; preds = %343
@@ -10869,7 +10869,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i: ; preds = %.noexc128
   %346 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %345) #30, !noalias !405
+  call void @_ZdlPv(ptr noundef nonnull %345) #31, !noalias !405
   br label %.body129
 
 347:                                              ; preds = %.noexc128
@@ -10993,11 +10993,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %396 = load ptr, ptr %388, align 8, !tbaa !53
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 16
   %398 = load ptr, ptr %397, align 8
-  call void %398(ptr noundef nonnull align 8 dereferenceable(16) %388) #29
+  call void %398(ptr noundef nonnull align 8 dereferenceable(16) %388) #30
   %399 = load ptr, ptr %388, align 8, !tbaa !53
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 24
   %401 = load ptr, ptr %400, align 8
-  call void %401(ptr noundef nonnull align 8 dereferenceable(16) %388) #29
+  call void %401(ptr noundef nonnull align 8 dereferenceable(16) %388) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 402:                                              ; preds = %389
@@ -11020,7 +11020,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141: ; preds = %406, %4
   br i1 %408, label %409, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 409:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %388) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %388) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %387, %394, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i141, %409
@@ -11042,11 +11042,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %418 = load ptr, ptr %410, align 8, !tbaa !53
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 16
   %420 = load ptr, ptr %419, align 8
-  call void %420(ptr noundef nonnull align 8 dereferenceable(16) %410) #29
+  call void %420(ptr noundef nonnull align 8 dereferenceable(16) %410) #30
   %421 = load ptr, ptr %410, align 8, !tbaa !53
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 24
   %423 = load ptr, ptr %422, align 8
-  call void %423(ptr noundef nonnull align 8 dereferenceable(16) %410) #29
+  call void %423(ptr noundef nonnull align 8 dereferenceable(16) %410) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147
 
 424:                                              ; preds = %411
@@ -11069,7 +11069,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145: ; preds = %428, %4
   br i1 %430, label %431, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147, !prof !90
 
 431:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %410) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %410) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %416, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i145, %431
@@ -11091,11 +11091,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %440 = load ptr, ptr %432, align 8, !tbaa !53
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 16
   %442 = load ptr, ptr %441, align 8
-  call void %442(ptr noundef nonnull align 8 dereferenceable(16) %432) #29
+  call void %442(ptr noundef nonnull align 8 dereferenceable(16) %432) #30
   %443 = load ptr, ptr %432, align 8, !tbaa !53
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %445 = load ptr, ptr %444, align 8
-  call void %445(ptr noundef nonnull align 8 dereferenceable(16) %432) #29
+  call void %445(ptr noundef nonnull align 8 dereferenceable(16) %432) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152
 
 446:                                              ; preds = %433
@@ -11118,7 +11118,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i150: ; preds = %450, %4
   br i1 %452, label %453, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152, !prof !90
 
 453:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i150
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %432) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %432) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit147, %438, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i150, %453
@@ -11140,11 +11140,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %462 = load ptr, ptr %454, align 8, !tbaa !53
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 16
   %464 = load ptr, ptr %463, align 8
-  call void %464(ptr noundef nonnull align 8 dereferenceable(16) %454) #29
+  call void %464(ptr noundef nonnull align 8 dereferenceable(16) %454) #30
   %465 = load ptr, ptr %454, align 8, !tbaa !53
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 24
   %467 = load ptr, ptr %466, align 8
-  call void %467(ptr noundef nonnull align 8 dereferenceable(16) %454) #29
+  call void %467(ptr noundef nonnull align 8 dereferenceable(16) %454) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157
 
 468:                                              ; preds = %455
@@ -11167,7 +11167,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i155: ; preds = %472, %4
   br i1 %474, label %475, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157, !prof !90
 
 475:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i155
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %454) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %454) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit157: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152, %460, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i155, %475
@@ -11258,11 +11258,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %514 = load ptr, ptr %506, align 8, !tbaa !53
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 16
   %516 = load ptr, ptr %515, align 8
-  call void %516(ptr noundef nonnull align 8 dereferenceable(16) %506) #29
+  call void %516(ptr noundef nonnull align 8 dereferenceable(16) %506) #30
   %517 = load ptr, ptr %506, align 8, !tbaa !53
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 24
   %519 = load ptr, ptr %518, align 8
-  call void %519(ptr noundef nonnull align 8 dereferenceable(16) %506) #29
+  call void %519(ptr noundef nonnull align 8 dereferenceable(16) %506) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169
 
 520:                                              ; preds = %507
@@ -11285,13 +11285,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i167: ; preds = %524, %5
   br i1 %526, label %527, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169, !prof !90
 
 527:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i167
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %506) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %506) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit, %512, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i167, %527
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.experimental.noalias.scope.decl(metadata !410)
-  %528 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
+  %528 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #32
           to label %.noexc171 unwind label %1060
 
 .noexc171:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169
@@ -11307,7 +11307,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i170: ; preds = %.noexc171
   %532 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %528) #30, !noalias !413
+  call void @_ZdlPv(ptr noundef nonnull %528) #31, !noalias !413
   br label %.body172
 
 533:                                              ; preds = %.noexc171
@@ -11316,7 +11316,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %528, ptr %534, align 8, !tbaa !88, !alias.scope !410
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.experimental.noalias.scope.decl(metadata !418)
-  %535 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #31
+  %535 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #32
           to label %.noexc176 unwind label %1062
 
 .noexc176:                                        ; preds = %533
@@ -11332,7 +11332,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i175: ; preds = %.noexc176
   %539 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %535) #30, !noalias !421
+  call void @_ZdlPv(ptr noundef nonnull %535) #31, !noalias !421
   br label %.body177
 
 540:                                              ; preds = %.noexc176
@@ -11341,7 +11341,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
   store ptr %535, ptr %541, align 8, !tbaa !88, !alias.scope !418
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.experimental.noalias.scope.decl(metadata !426)
-  %542 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
+  %542 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
           to label %.noexc181 unwind label %1064
 
 .noexc181:                                        ; preds = %540
@@ -11351,7 +11351,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentatio
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i180: ; preds = %.noexc181
   %543 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %542) #30, !noalias !429
+  call void @_ZdlPv(ptr noundef nonnull %542) #31, !noalias !429
   br label %.body182
 
 544:                                              ; preds = %.noexc181
@@ -11450,11 +11450,11 @@ _ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2IN
   %582 = load ptr, ptr %574, align 8, !tbaa !53
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 16
   %584 = load ptr, ptr %583, align 8
-  call void %584(ptr noundef nonnull align 8 dereferenceable(16) %574) #29
+  call void %584(ptr noundef nonnull align 8 dereferenceable(16) %574) #30
   %585 = load ptr, ptr %574, align 8, !tbaa !53
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 24
   %587 = load ptr, ptr %586, align 8
-  call void %587(ptr noundef nonnull align 8 dereferenceable(16) %574) #29
+  call void %587(ptr noundef nonnull align 8 dereferenceable(16) %574) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198
 
 588:                                              ; preds = %575
@@ -11477,7 +11477,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i196: ; preds = %592, %5
   br i1 %594, label %595, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198, !prof !90
 
 595:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i196
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %574) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %574) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198: ; preds = %573, %580, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i196, %595
@@ -11499,11 +11499,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %604 = load ptr, ptr %596, align 8, !tbaa !53
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 16
   %606 = load ptr, ptr %605, align 8
-  call void %606(ptr noundef nonnull align 8 dereferenceable(16) %596) #29
+  call void %606(ptr noundef nonnull align 8 dereferenceable(16) %596) #30
   %607 = load ptr, ptr %596, align 8, !tbaa !53
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 24
   %609 = load ptr, ptr %608, align 8
-  call void %609(ptr noundef nonnull align 8 dereferenceable(16) %596) #29
+  call void %609(ptr noundef nonnull align 8 dereferenceable(16) %596) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203
 
 610:                                              ; preds = %597
@@ -11526,7 +11526,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i201: ; preds = %614, %6
   br i1 %616, label %617, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203, !prof !90
 
 617:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i201
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %596) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %596) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit198, %602, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i201, %617
@@ -11548,11 +11548,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %626 = load ptr, ptr %618, align 8, !tbaa !53
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 16
   %628 = load ptr, ptr %627, align 8
-  call void %628(ptr noundef nonnull align 8 dereferenceable(16) %618) #29
+  call void %628(ptr noundef nonnull align 8 dereferenceable(16) %618) #30
   %629 = load ptr, ptr %618, align 8, !tbaa !53
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 24
   %631 = load ptr, ptr %630, align 8
-  call void %631(ptr noundef nonnull align 8 dereferenceable(16) %618) #29
+  call void %631(ptr noundef nonnull align 8 dereferenceable(16) %618) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208
 
 632:                                              ; preds = %619
@@ -11575,7 +11575,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i206: ; preds = %636, %6
   br i1 %638, label %639, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208, !prof !90
 
 639:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i206
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %618) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %618) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit208: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit203, %624, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i206, %639
@@ -11665,11 +11665,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %677 = load ptr, ptr %669, align 8, !tbaa !53
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 16
   %679 = load ptr, ptr %678, align 8
-  call void %679(ptr noundef nonnull align 8 dereferenceable(16) %669) #29
+  call void %679(ptr noundef nonnull align 8 dereferenceable(16) %669) #30
   %680 = load ptr, ptr %669, align 8, !tbaa !53
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 24
   %682 = load ptr, ptr %681, align 8
-  call void %682(ptr noundef nonnull align 8 dereferenceable(16) %669) #29
+  call void %682(ptr noundef nonnull align 8 dereferenceable(16) %669) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223
 
 683:                                              ; preds = %670
@@ -11692,13 +11692,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i221: ; preds = %687, %6
   br i1 %689, label %690, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223, !prof !90
 
 690:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i221
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %669) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %669) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit218, %675, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i221, %690
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.experimental.noalias.scope.decl(metadata !434)
-  %691 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
+  %691 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #32
           to label %.noexc225 unwind label %1070
 
 .noexc225:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223
@@ -11714,7 +11714,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i224: ; preds = %.noexc225
   %695 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %691) #30, !noalias !437
+  call void @_ZdlPv(ptr noundef nonnull %691) #31, !noalias !437
   br label %.body226
 
 696:                                              ; preds = %.noexc225
@@ -11799,11 +11799,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %730 = load ptr, ptr %722, align 8, !tbaa !53
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 16
   %732 = load ptr, ptr %731, align 8
-  call void %732(ptr noundef nonnull align 8 dereferenceable(16) %722) #29
+  call void %732(ptr noundef nonnull align 8 dereferenceable(16) %722) #30
   %733 = load ptr, ptr %722, align 8, !tbaa !53
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 24
   %735 = load ptr, ptr %734, align 8
-  call void %735(ptr noundef nonnull align 8 dereferenceable(16) %722) #29
+  call void %735(ptr noundef nonnull align 8 dereferenceable(16) %722) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243
 
 736:                                              ; preds = %723
@@ -11826,13 +11826,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i241: ; preds = %740, %7
   br i1 %742, label %743, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243, !prof !90
 
 743:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i241
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %722) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %722) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit238, %728, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i241, %743
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.experimental.noalias.scope.decl(metadata !442)
-  %744 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
+  %744 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
           to label %.noexc245 unwind label %1074
 
 .noexc245:                                        ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243
@@ -11842,7 +11842,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i244: ; preds = %.noexc245
   %745 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %744) #30, !noalias !445
+  call void @_ZdlPv(ptr noundef nonnull %744) #31, !noalias !445
   br label %.body246
 
 746:                                              ; preds = %.noexc245
@@ -11929,11 +11929,11 @@ _ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3
   %782 = load ptr, ptr %774, align 8, !tbaa !53
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 16
   %784 = load ptr, ptr %783, align 8
-  call void %784(ptr noundef nonnull align 8 dereferenceable(16) %774) #29
+  call void %784(ptr noundef nonnull align 8 dereferenceable(16) %774) #30
   %785 = load ptr, ptr %774, align 8, !tbaa !53
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 24
   %787 = load ptr, ptr %786, align 8
-  call void %787(ptr noundef nonnull align 8 dereferenceable(16) %774) #29
+  call void %787(ptr noundef nonnull align 8 dereferenceable(16) %774) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263
 
 788:                                              ; preds = %775
@@ -11956,7 +11956,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i261: ; preds = %792, %7
   br i1 %794, label %795, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263, !prof !90
 
 795:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i261
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %774) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %774) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263: ; preds = %_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl11addStrategyENS_3PtrINS1_35SelectiveSearchSegmentationStrategyEEE.exit258, %780, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i261, %795
@@ -11978,11 +11978,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStra
   %804 = load ptr, ptr %796, align 8, !tbaa !53
   %805 = getelementptr inbounds nuw i8, ptr %804, i64 16
   %806 = load ptr, ptr %805, align 8
-  call void %806(ptr noundef nonnull align 8 dereferenceable(16) %796) #29
+  call void %806(ptr noundef nonnull align 8 dereferenceable(16) %796) #30
   %807 = load ptr, ptr %796, align 8, !tbaa !53
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 24
   %809 = load ptr, ptr %808, align 8
-  call void %809(ptr noundef nonnull align 8 dereferenceable(16) %796) #29
+  call void %809(ptr noundef nonnull align 8 dereferenceable(16) %796) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 810:                                              ; preds = %797
@@ -12005,7 +12005,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i266: ; preds = %814, %8
   br i1 %816, label %817, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 817:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i266
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %796) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %796) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit263, %802, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i266, %817
@@ -12028,11 +12028,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %826 = load ptr, ptr %818, align 8, !tbaa !53
   %827 = getelementptr inbounds nuw i8, ptr %826, i64 16
   %828 = load ptr, ptr %827, align 8
-  call void %828(ptr noundef nonnull align 8 dereferenceable(16) %818) #29
+  call void %828(ptr noundef nonnull align 8 dereferenceable(16) %818) #30
   %829 = load ptr, ptr %818, align 8, !tbaa !53
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 24
   %831 = load ptr, ptr %830, align 8
-  call void %831(ptr noundef nonnull align 8 dereferenceable(16) %818) #29
+  call void %831(ptr noundef nonnull align 8 dereferenceable(16) %818) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 832:                                              ; preds = %819
@@ -12055,7 +12055,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i270: ; preds = %836, %8
   br i1 %838, label %839, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 839:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i270
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %818) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %818) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %824, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i270, %839
@@ -12078,11 +12078,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %848 = load ptr, ptr %840, align 8, !tbaa !53
   %849 = getelementptr inbounds nuw i8, ptr %848, i64 16
   %850 = load ptr, ptr %849, align 8
-  call void %850(ptr noundef nonnull align 8 dereferenceable(16) %840) #29
+  call void %850(ptr noundef nonnull align 8 dereferenceable(16) %840) #30
   %851 = load ptr, ptr %840, align 8, !tbaa !53
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 24
   %853 = load ptr, ptr %852, align 8
-  call void %853(ptr noundef nonnull align 8 dereferenceable(16) %840) #29
+  call void %853(ptr noundef nonnull align 8 dereferenceable(16) %840) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 854:                                              ; preds = %841
@@ -12105,7 +12105,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i274: ; preds = %858, %8
   br i1 %860, label %861, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 861:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i274
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %840) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %840) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %846, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i274, %861
@@ -12128,11 +12128,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStra
   %870 = load ptr, ptr %862, align 8, !tbaa !53
   %871 = getelementptr inbounds nuw i8, ptr %870, i64 16
   %872 = load ptr, ptr %871, align 8
-  call void %872(ptr noundef nonnull align 8 dereferenceable(16) %862) #29
+  call void %872(ptr noundef nonnull align 8 dereferenceable(16) %862) #30
   %873 = load ptr, ptr %862, align 8, !tbaa !53
   %874 = getelementptr inbounds nuw i8, ptr %873, i64 24
   %875 = load ptr, ptr %874, align 8
-  call void %875(ptr noundef nonnull align 8 dereferenceable(16) %862) #29
+  call void %875(ptr noundef nonnull align 8 dereferenceable(16) %862) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280
 
 876:                                              ; preds = %863
@@ -12155,7 +12155,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i278: ; preds = %880, %8
   br i1 %882, label %883, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280, !prof !90
 
 883:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i278
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %862) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %862) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %868, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i278, %883
@@ -12178,11 +12178,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %892 = load ptr, ptr %884, align 8, !tbaa !53
   %893 = getelementptr inbounds nuw i8, ptr %892, i64 16
   %894 = load ptr, ptr %893, align 8
-  call void %894(ptr noundef nonnull align 8 dereferenceable(16) %884) #29
+  call void %894(ptr noundef nonnull align 8 dereferenceable(16) %884) #30
   %895 = load ptr, ptr %884, align 8, !tbaa !53
   %896 = getelementptr inbounds nuw i8, ptr %895, i64 24
   %897 = load ptr, ptr %896, align 8
-  call void %897(ptr noundef nonnull align 8 dereferenceable(16) %884) #29
+  call void %897(ptr noundef nonnull align 8 dereferenceable(16) %884) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 898:                                              ; preds = %885
@@ -12205,7 +12205,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i283: ; preds = %902, %9
   br i1 %904, label %905, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 905:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i283
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %884) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %884) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit280, %890, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i283, %905
@@ -12228,11 +12228,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStra
   %914 = load ptr, ptr %906, align 8, !tbaa !53
   %915 = getelementptr inbounds nuw i8, ptr %914, i64 16
   %916 = load ptr, ptr %915, align 8
-  call void %916(ptr noundef nonnull align 8 dereferenceable(16) %906) #29
+  call void %916(ptr noundef nonnull align 8 dereferenceable(16) %906) #30
   %917 = load ptr, ptr %906, align 8, !tbaa !53
   %918 = getelementptr inbounds nuw i8, ptr %917, i64 24
   %919 = load ptr, ptr %918, align 8
-  call void %919(ptr noundef nonnull align 8 dereferenceable(16) %906) #29
+  call void %919(ptr noundef nonnull align 8 dereferenceable(16) %906) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289
 
 920:                                              ; preds = %907
@@ -12255,7 +12255,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i287: ; preds = %924, %9
   br i1 %926, label %927, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289, !prof !90
 
 927:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i287
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %906) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %906) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %912, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i287, %927
@@ -12278,11 +12278,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %936 = load ptr, ptr %928, align 8, !tbaa !53
   %937 = getelementptr inbounds nuw i8, ptr %936, i64 16
   %938 = load ptr, ptr %937, align 8
-  call void %938(ptr noundef nonnull align 8 dereferenceable(16) %928) #29
+  call void %938(ptr noundef nonnull align 8 dereferenceable(16) %928) #30
   %939 = load ptr, ptr %928, align 8, !tbaa !53
   %940 = getelementptr inbounds nuw i8, ptr %939, i64 24
   %941 = load ptr, ptr %940, align 8
-  call void %941(ptr noundef nonnull align 8 dereferenceable(16) %928) #29
+  call void %941(ptr noundef nonnull align 8 dereferenceable(16) %928) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294
 
 942:                                              ; preds = %929
@@ -12305,7 +12305,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i292: ; preds = %946, %9
   br i1 %948, label %949, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294, !prof !90
 
 949:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i292
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %928) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %928) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit289, %934, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i292, %949
@@ -12328,11 +12328,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStra
   %958 = load ptr, ptr %950, align 8, !tbaa !53
   %959 = getelementptr inbounds nuw i8, ptr %958, i64 16
   %960 = load ptr, ptr %959, align 8
-  call void %960(ptr noundef nonnull align 8 dereferenceable(16) %950) #29
+  call void %960(ptr noundef nonnull align 8 dereferenceable(16) %950) #30
   %961 = load ptr, ptr %950, align 8, !tbaa !53
   %962 = getelementptr inbounds nuw i8, ptr %961, i64 24
   %963 = load ptr, ptr %962, align 8
-  call void %963(ptr noundef nonnull align 8 dereferenceable(16) %950) #29
+  call void %963(ptr noundef nonnull align 8 dereferenceable(16) %950) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299
 
 964:                                              ; preds = %951
@@ -12355,7 +12355,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i297: ; preds = %968, %9
   br i1 %970, label %971, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299, !prof !90
 
 971:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i297
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %950) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %950) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit294, %956, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i297, %971
@@ -12378,11 +12378,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %980 = load ptr, ptr %972, align 8, !tbaa !53
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 16
   %982 = load ptr, ptr %981, align 8
-  call void %982(ptr noundef nonnull align 8 dereferenceable(16) %972) #29
+  call void %982(ptr noundef nonnull align 8 dereferenceable(16) %972) #30
   %983 = load ptr, ptr %972, align 8, !tbaa !53
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 24
   %985 = load ptr, ptr %984, align 8
-  call void %985(ptr noundef nonnull align 8 dereferenceable(16) %972) #29
+  call void %985(ptr noundef nonnull align 8 dereferenceable(16) %972) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304
 
 986:                                              ; preds = %973
@@ -12405,7 +12405,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i302: ; preds = %990, %9
   br i1 %992, label %993, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304, !prof !90
 
 993:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i302
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %972) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %972) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit299, %978, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i302, %993
@@ -12428,11 +12428,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStra
   %1002 = load ptr, ptr %994, align 8, !tbaa !53
   %1003 = getelementptr inbounds nuw i8, ptr %1002, i64 16
   %1004 = load ptr, ptr %1003, align 8
-  call void %1004(ptr noundef nonnull align 8 dereferenceable(16) %994) #29
+  call void %1004(ptr noundef nonnull align 8 dereferenceable(16) %994) #30
   %1005 = load ptr, ptr %994, align 8, !tbaa !53
   %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 24
   %1007 = load ptr, ptr %1006, align 8
-  call void %1007(ptr noundef nonnull align 8 dereferenceable(16) %994) #29
+  call void %1007(ptr noundef nonnull align 8 dereferenceable(16) %994) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309
 
 1008:                                             ; preds = %995
@@ -12455,7 +12455,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i307: ; preds = %1012, %
   br i1 %1014, label %1015, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309, !prof !90
 
 1015:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i307
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %994) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %994) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit304, %1000, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i307, %1015
@@ -12478,11 +12478,11 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStra
   %1024 = load ptr, ptr %1016, align 8, !tbaa !53
   %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 16
   %1026 = load ptr, ptr %1025, align 8
-  call void %1026(ptr noundef nonnull align 8 dereferenceable(16) %1016) #29
+  call void %1026(ptr noundef nonnull align 8 dereferenceable(16) %1016) #30
   %1027 = load ptr, ptr %1016, align 8, !tbaa !53
   %1028 = getelementptr inbounds nuw i8, ptr %1027, i64 24
   %1029 = load ptr, ptr %1028, align 8
-  call void %1029(ptr noundef nonnull align 8 dereferenceable(16) %1016) #29
+  call void %1029(ptr noundef nonnull align 8 dereferenceable(16) %1016) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 1030:                                             ; preds = %1017
@@ -12505,12 +12505,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i312: ; preds = %1034, %
   br i1 %1036, label %1037, label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !90
 
 1037:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i312
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1016) #29
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1016) #30
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit309, %1022, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i312, %1037
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %1038 = load ptr, ptr %19, align 8, !tbaa !58
   %1039 = load ptr, ptr %179, align 8, !tbaa !69
@@ -12519,7 +12519,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStra
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %1040, %.lr.ph.i.i.i.i ], [ %1038, %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #30
   %1040 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i314 = icmp eq ptr %1040, %1039
   br i1 %.not.i.i.i.i314, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !70
@@ -12534,7 +12534,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br i1 %.not.i.i.i315, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %1042
 
 1042:                                             ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %1041) #30
+  call void @_ZdlPv(ptr noundef nonnull %1041) #31
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %1042
@@ -12544,17 +12544,17 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1043:                                             ; preds = %1043, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
   %1044 = phi ptr [ %145, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %1045, %1043 ]
   %1045 = getelementptr inbounds i8, ptr %1044, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1045) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1045) #30
   %1046 = icmp eq ptr %1045, %17
   br i1 %1046, label %1047, label %1043
 
 1047:                                             ; preds = %1043
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
@@ -12581,16 +12581,16 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1056:                                             ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit
   %1057 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %34) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #30
   br label %1082
 
 1058:                                             ; preds = %505
   %1059 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #30
   br label %1081
 
 1060:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit169
@@ -12611,15 +12611,15 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1066:                                             ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEC2INS2_39SelectiveSearchSegmentationStrategySizeEEERKNS0_IT_EE.exit193
   %1067 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #30
   br label %1080
 
 1068:                                             ; preds = %668
   %1069 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #30
   br label %1079
 
 1070:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit223
@@ -12630,7 +12630,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1072:                                             ; preds = %721
   %1073 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #30
   br label %1078
 
 1074:                                             ; preds = %_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit243
@@ -12641,8 +12641,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1076:                                             ; preds = %773
   %1077 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #29
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation35SelectiveSearchSegmentationStrategyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #30
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #30
   br label %.body246
 
 .body246:                                         ; preds = %1074, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i244, %1076
@@ -12652,7 +12652,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 1078:                                             ; preds = %.body246, %1072
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %.body246 ], [ %1073, %1072 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #30
   br label %.body226
 
 .body226:                                         ; preds = %1070, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i224, %1078
@@ -12662,25 +12662,25 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 1079:                                             ; preds = %.body226, %1068
   %.pn74.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %.body226 ], [ %1069, %1068 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #30
   br label %1080
 
 1080:                                             ; preds = %1079, %1066
   %.pn74.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn, %1079 ], [ %1067, %1066 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #30
   br label %.body182
 
 .body182:                                         ; preds = %1064, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i180, %1080
   %.pn74.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn, %1080 ], [ %1065, %1064 ], [ %543, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i180 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #30
   br label %.body177
 
 .body177:                                         ; preds = %1062, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i175, %.body182
   %.pn74.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn, %.body182 ], [ %1063, %1062 ], [ %539, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #30
   br label %.body172
 
 .body172:                                         ; preds = %1060, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i170, %.body177
@@ -12690,31 +12690,31 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 1081:                                             ; preds = %.body172, %1058
   %.pn74.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn, %.body172 ], [ %1059, %1058 ]
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyMultipleELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #30
   br label %1082
 
 1082:                                             ; preds = %1081, %1056
   %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn, %1081 ], [ %1057, %1056 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategySizeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #30
   br label %.body129
 
 .body129:                                         ; preds = %1054, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %1082
   %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1082 ], [ %1055, %1054 ], [ %346, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation42SelectiveSearchSegmentationStrategyTextureELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #30
   br label %.body126
 
 .body126:                                         ; preds = %1052, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body129
   %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body129 ], [ %1053, %1052 ], [ %342, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation39SelectiveSearchSegmentationStrategyFillELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #30
   br label %.body123
 
 .body123:                                         ; preds = %1050, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body126
   %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body126 ], [ %1051, %1050 ], [ %335, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #29
+  call void @_ZNSt12__shared_ptrIN2cv8ximgproc12segmentation40SelectiveSearchSegmentationStrategyColorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #30
   br label %.body111
 
 .body111:                                         ; preds = %1048, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i.i, %.body123
@@ -12724,9 +12724,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 1083:                                             ; preds = %.body111, %328, %234, %232
   %.pn89.pn.pn = phi { ptr, i32 } [ %.pn89.pn, %328 ], [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body111 ], [ %235, %234 ], [ %233, %232 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #29
+  call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #30
   br label %1084
 
 1084:                                             ; preds = %1083, %.loopexit
@@ -12741,7 +12741,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 1086:                                             ; preds = %1086, %1085
   %1087 = phi ptr [ %145, %1085 ], [ %1088, %1086 ]
   %1088 = getelementptr inbounds i8, ptr %1087, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1088) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1088) #30
   %1089 = icmp eq ptr %1088, %17
   br i1 %1089, label %1090, label %1086
 
@@ -12751,19 +12751,19 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 1091:                                             ; preds = %1090, %216, %214
   %.pn89.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn.pn, %1090 ], [ %217, %216 ], [ %215, %214 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1092
 
 1092:                                             ; preds = %1091, %212, %210
   %.pn89.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn.pn.pn, %1091 ], [ %213, %212 ], [ %211, %210 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1093
 
 1093:                                             ; preds = %1092, %208, %206
   %.pn89.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn.pn.pn.pn.pn, %1092 ], [ %209, %208 ], [ %207, %206 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn89.pn.pn.pn.pn.pn.pn.pn
 }
@@ -12890,15 +12890,15 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
   %.sroa.16.1428 = phi ptr [ %.sroa.16.2.lcssa, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ %.sroa.16.0441, %.split ]
   %.sroa.0190.0427 = phi ptr [ %272, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ %66, %.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %70 = load i32, ptr %3, align 8, !tbaa !27
   %71 = and i32 %70, -4096
   %72 = or disjoint i32 %71, 1
   store i32 %72, ptr %3, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   %73 = load i32, ptr %4, align 8, !tbaa !27
   %74 = and i32 %73, -4096
   %75 = or disjoint i32 %74, 4
@@ -12954,7 +12954,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
   br i1 %89, label %90, label %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 90:                                               ; preds = %88
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.17) #33
           to label %.noexc95 unwind label %.loopexit.split-lp240
 
 .noexc95:                                         ; preds = %90
@@ -12963,7 +12963,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
 _ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %88
   %91 = call i64 @llvm.umin.i64(i64 %87, i64 576460752303423487)
   %92 = shl nuw nsw i64 %91, 4
-  %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #31
+  %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #32
           to label %.noexc96 unwind label %.loopexit239
 
 .noexc96:                                         ; preds = %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -12975,7 +12975,7 @@ _ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %88
   %96 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %93, i64 %91
   store ptr %96, ptr %32, align 8, !tbaa !202
   %97 = mul nuw nsw i64 %87, 24
-  %98 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %97) #31
+  %98 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %97) #32
           to label %.noexc98 unwind label %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i126.thread.loopexit
 
 .noexc98:                                         ; preds = %.noexc96
@@ -13000,9 +13000,9 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = %83, %.
           to label %_ZN2cv4Mat_IcEaSERKNS_7MatExprE.exit unwind label %121
 
 _ZN2cv4Mat_IcEaSERKNS_7MatExprE.exit:             ; preds = %101
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #29
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #29
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %35) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #30
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #30
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %35) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %13, i32 noundef %86, i32 noundef 1, i32 noundef 4)
@@ -13017,9 +13017,9 @@ _ZN2cv4Mat_IcEaSERKNS_7MatExprE.exit:             ; preds = %101
           to label %_ZN2cv4Mat_IiEaSERKNS_7MatExprE.exit unwind label %126
 
 _ZN2cv4Mat_IiEaSERKNS_7MatExprE.exit:             ; preds = %106
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #29
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #29
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #30
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #30
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %111 = load i32, ptr %39, align 8, !tbaa !147
   %112 = icmp sgt i32 %111, 0
@@ -13072,7 +13072,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i126.thr
 121:                                              ; preds = %101
   %122 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %12) #29
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %12) #30
   br label %123
 
 123:                                              ; preds = %121, %119
@@ -13088,7 +13088,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i126.thr
 126:                                              ; preds = %106
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %13) #29
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %13) #30
   br label %128
 
 128:                                              ; preds = %126, %124
@@ -13156,7 +13156,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i126.thr
   br i1 %159, label %160, label %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 160:                                              ; preds = %154
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc102 unwind label %.loopexit.split-lp235
 
 .noexc102:                                        ; preds = %160
@@ -13172,7 +13172,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   %.not.i.i.i.i = icmp ne i64 %165, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
   %166 = shl nuw nsw i64 %165, 3
-  %167 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %166) #31
+  %167 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %166) #32
           to label %.noexc103 unwind label %.loopexit234
 
 .noexc103:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -13201,7 +13201,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %173
 
 173:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %155) #30
+  call void @_ZdlPv(ptr noundef nonnull %155) #31
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %173, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
@@ -13366,7 +13366,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i, label %267
 
 267:                                              ; preds = %.lr.ph.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %266) #30
+  call void @_ZdlPv(ptr noundef nonnull %266) #31
   br label %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i: ; preds = %267, %.lr.ph.i.i.i.i
@@ -13379,7 +13379,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i: ; pre
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit, label %269
 
 269:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0180.3) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0180.3) #31
   br label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i, %269
@@ -13388,7 +13388,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destr
   br i1 %.not.i.i.i105, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %271
 
 271:                                              ; preds = %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %270) #30
+  call void @_ZdlPv(ptr noundef nonnull %270) #31
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit, %271
@@ -13396,11 +13396,11 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIS_IN2c
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.0190.0427, i64 16
   %273 = load ptr, ptr %22, align 8, !tbaa !451
@@ -13436,7 +13436,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIS_IN2c
   br i1 %.not.i.i.i106, label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit, label %278
 
 278:                                              ; preds = %._crit_edge412
-  call void @_ZdlPv(ptr noundef nonnull %277) #30
+  call void @_ZdlPv(ptr noundef nonnull %277) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit: ; preds = %._crit_edge412, %278
@@ -13473,7 +13473,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit: ; preds = %._
   br i1 %289, label %290, label %_ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 290:                                              ; preds = %285
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc114 unwind label %.loopexit.split-lp230
 
 .noexc114:                                        ; preds = %290
@@ -13489,7 +13489,7 @@ _ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exi
   %.not.i.i.i108 = icmp ne i64 %295, 0
   call void @llvm.assume(i1 %.not.i.i.i108)
   %296 = mul nuw nsw i64 %295, 40
-  %297 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %296) #31
+  %297 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %296) #32
           to label %.noexc115 unwind label %.loopexit229
 
 .noexc115:                                        ; preds = %_ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -13513,7 +13513,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE11_S_relocateEPS3_S6_S6_
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %301
 
 301:                                              ; preds = %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0198.7409) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0198.7409) #31
   %.pre516.pre = load ptr, ptr %52, align 8, !tbaa !463
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
@@ -13551,7 +13551,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE9push_backERKS3_.exit: ;
   br i1 %.not.i.i.i116, label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit117, label %307
 
 307:                                              ; preds = %305
-  call void @_ZdlPv(ptr noundef nonnull %306) #30
+  call void @_ZdlPv(ptr noundef nonnull %306) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit117
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit117: ; preds = %305, %307
@@ -13571,7 +13571,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit117: ; preds = 
   br i1 %.not.i.i.i.i.i.i.i.i121, label %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i122, label %310
 
 310:                                              ; preds = %.lr.ph.i.i.i.i119
-  call void @_ZdlPv(ptr noundef nonnull %309) #30
+  call void @_ZdlPv(ptr noundef nonnull %309) #31
   br label %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i122
 
 _ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i122: ; preds = %310, %.lr.ph.i.i.i.i119
@@ -13584,7 +13584,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i126: ; 
   br i1 %.not.i.i.i127, label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit128, label %312
 
 312:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i126
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0180.3) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0180.3) #31
   br label %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit128
 
 _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit128: ; preds = %.loopexit239, %.loopexit.split-lp240, %312, %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i126, %_ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i126.thread.loopexit
@@ -13595,7 +13595,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit128: ; preds = %.loopexi
   br i1 %.not.i.i.i129, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit130, label %314
 
 314:                                              ; preds = %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit128
-  call void @_ZdlPv(ptr noundef nonnull %313) #30
+  call void @_ZdlPv(ptr noundef nonnull %313) #31
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit130
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit130:  ; preds = %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit128, %314
@@ -13613,11 +13613,11 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit130:  ; preds = %_ZNSt6vectorIS_IN2c
 316:                                              ; preds = %315, %115
   %.sroa.0198.2 = phi ptr [ %.sroa.0198.3, %315 ], [ %.sroa.0198.1430, %115 ]
   %.pn87.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn87.pn.pn.pn, %315 ], [ %116, %115 ]
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %417
 
@@ -13666,7 +13666,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE5clearEv.exit: ; preds = %_ZSt4sortIN9__gnu_c
   %329 = landingpad { ptr, i32 }
           catch ptr null
   %330 = extractvalue { ptr, i32 } %329, 0
-  call void @__clang_call_terminate(ptr %330) #33
+  call void @__clang_call_terminate(ptr %330) #34
   unreachable
 
 _ZNSt3mapIN2cv5Rect_IiEEcNS0_8ximgproc12segmentation14rectComparatorESaISt4pairIKS2_cEEED2Ev.exit: ; preds = %._crit_edge453
@@ -13675,7 +13675,7 @@ _ZNSt3mapIN2cv5Rect_IiEEcNS0_8ximgproc12segmentation14rectComparatorESaISt4pairI
   br i1 %.not.i.i.i132, label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit133, label %331
 
 331:                                              ; preds = %_ZNSt3mapIN2cv5Rect_IiEEcNS0_8ximgproc12segmentation14rectComparatorESaISt4pairIKS2_cEEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0198.0.lcssa577) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0198.0.lcssa577) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit133
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit133: ; preds = %_ZNSt3mapIN2cv5Rect_IiEEcNS0_8ximgproc12segmentation14rectComparatorESaISt4pairIKS2_cEEED2Ev.exit, %331
@@ -13819,7 +13819,7 @@ _ZNSt3mapIN2cv5Rect_IiEEcNS0_8ximgproc12segmentation14rectComparatorESaISt4pairI
   br i1 %400, label %401, label %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i136
 
 401:                                              ; preds = %395
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc146 unwind label %.loopexit.split-lp
 
 .noexc146:                                        ; preds = %401
@@ -13835,7 +13835,7 @@ _ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i136: ; preds = %
   %.not.i.i.i138 = icmp ne i64 %406, 0
   call void @llvm.assume(i1 %.not.i.i.i138)
   %407 = shl nuw nsw i64 %406, 4
-  %408 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %407) #31
+  %408 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %407) #32
           to label %.noexc147 unwind label %.loopexit
 
 .noexc147:                                        ; preds = %_ZNKSt6vectorIN2cv5Rect_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i136
@@ -13860,7 +13860,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; pr
   br i1 %.not.i23.i.i145, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %413
 
 413:                                              ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %396) #30
+  call void @_ZdlPv(ptr noundef nonnull %396) #31
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %413, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
@@ -13882,7 +13882,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
 
 415:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt3mapIN2cv5Rect_IiEEcNS0_8ximgproc12segmentation14rectComparatorESaISt4pairIKS2_cEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #29
+  call void @_ZNSt3mapIN2cv5Rect_IiEEcNS0_8ximgproc12segmentation14rectComparatorESaISt4pairIKS2_cEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %417
 
@@ -13898,7 +13898,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %383, %377, 
   br i1 %.not.i.i.i148, label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit149, label %418
 
 418:                                              ; preds = %417
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0198.9) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0198.9) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit149
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EED2Ev.exit149: ; preds = %417, %418
@@ -13921,7 +13921,7 @@ define hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationIm
   tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !491
   call void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %11, ptr noundef nonnull align 8 dereferenceable(96) %5), !noalias !491
-  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
+  call void @_ZN2cv3MatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #30
   %17 = load i32, ptr %13, align 8, !tbaa !27, !alias.scope !491
   %18 = and i32 %17, -4096
   %19 = or disjoint i32 %18, 4
@@ -13936,16 +13936,16 @@ common.resume:                                    ; preds = %_ZNSt6vectorIN2cv8x
 .body.i:                                          ; preds = %10
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #29
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #30
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !491
   br label %common.resume
 
 _ZNK2cv4Mat_IiE5cloneEv.exit:                     ; preds = %10
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !491
-  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %13) #29
-  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #29
+  call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %13) #30
+  call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %22 = load ptr, ptr %8, align 8, !tbaa !465
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -14067,7 +14067,7 @@ _ZNK2cv4Mat_IiE5cloneEv.exit:                     ; preds = %10
   br i1 %67, label %68, label %_ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 68:                                               ; preds = %62
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc unwind label %.loopexit.split-lp271
 
 .noexc:                                           ; preds = %68
@@ -14083,7 +14083,7 @@ _ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exi
   %.not.i.i.i = icmp ne i64 %73, 0
   call void @llvm.assume(i1 %.not.i.i.i)
   %74 = mul nuw nsw i64 %73, 40
-  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #31
+  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #32
           to label %.noexc79 unwind label %.loopexit270
 
 .noexc79:                                         ; preds = %_ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -14117,7 +14117,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE11_S_relocateEPS3_S6_S6_
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %81
 
 81:                                               ; preds = %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %63) #30
+  call void @_ZdlPv(ptr noundef nonnull %63) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %81, %_ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
@@ -14204,7 +14204,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE9push_backERKS3_.exit: ;
   br i1 %110, label %111, label %_ZNKSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 111:                                              ; preds = %106
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc83 unwind label %.loopexit.split-lp266
 
 .noexc83:                                         ; preds = %111
@@ -14220,7 +14220,7 @@ _ZNKSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE12_M_check_lenEmPKc.
   %.not.i.i.i82 = icmp ne i64 %116, 0
   call void @llvm.assume(i1 %.not.i.i.i82)
   %117 = mul nuw nsw i64 %116, 12
-  %118 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %117) #31
+  %118 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %117) #32
           to label %.noexc84 unwind label %.loopexit265
 
 .noexc84:                                         ; preds = %_ZNKSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -14243,7 +14243,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE11_S_relocateEPS3_S6_
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %123
 
 123:                                              ; preds = %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0225.2324) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0225.2324) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %123, %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
@@ -14399,7 +14399,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE9push_backERKS3_.exit
   br i1 %169, label %170, label %_ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exit.i.i90
 
 170:                                              ; preds = %165
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc102 unwind label %.loopexit.split-lp261
 
 .noexc102:                                        ; preds = %170
@@ -14415,7 +14415,7 @@ _ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exi
   %.not.i.i.i92 = icmp ne i64 %175, 0
   call void @llvm.assume(i1 %.not.i.i.i92)
   %176 = mul nuw nsw i64 %175, 40
-  %177 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %176) #31
+  %177 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %176) #32
           to label %.noexc103 unwind label %.loopexit260
 
 .noexc103:                                        ; preds = %_ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exit.i.i90
@@ -14446,7 +14446,7 @@ _ZNKSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE12_M_check_lenEmPKc.exi
 _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i101: ; preds = %.lr.ph.i.i.i.i.i.i94, %.noexc103
   %.0.lcssa.i.i.i.i.i.i99 = phi ptr [ %177, %.noexc103 ], [ %180, %.lr.ph.i.i.i.i.i.i94 ]
   %181 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i99, i64 40
-  call void @_ZdlPv(ptr noundef nonnull %138) #30
+  call void @_ZdlPv(ptr noundef nonnull %138) #31
   store ptr %177, ptr %8, align 8, !tbaa !465
   store ptr %181, ptr %23, align 8, !tbaa !494
   %182 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Region", ptr %177, i64 %175
@@ -14571,7 +14571,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation6RegionESaIS3_EE9push_backERKS3_.exit104
   br i1 %231, label %232, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 232:                                              ; preds = %227
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc109 unwind label %.loopexit.split-lp255
 
 .noexc109:                                        ; preds = %232
@@ -14587,7 +14587,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %227
   %.not.i.i.i107 = icmp ne i64 %237, 0
   call void @llvm.assume(i1 %.not.i.i.i107)
   %238 = shl nuw nsw i64 %237, 2
-  %239 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %238) #31
+  %239 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %238) #32
           to label %.noexc110 unwind label %.loopexit254
 
 .noexc110:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -14606,7 +14606,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %242, %.noe
   br i1 %.not.i17.i.i108, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %244
 
 244:                                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0163.1345) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0163.1345) #31
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %244, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
@@ -14666,7 +14666,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc12segmentation9NeighbourE
   br i1 %.not.i.i.i112, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %258
 
 258:                                              ; preds = %._crit_edge362
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0163.3) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0163.3) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %199, %._crit_edge362, %258
@@ -14726,7 +14726,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %199, %._crit_edge36
   br i1 %288, label %289, label %_ZNKSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE12_M_check_lenEmPKc.exit.i.i114
 
 289:                                              ; preds = %284
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
           to label %.noexc120 unwind label %.loopexit.split-lp
 
 .noexc120:                                        ; preds = %289
@@ -14742,7 +14742,7 @@ _ZNKSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE12_M_check_lenEmPKc.
   %.not.i.i.i116 = icmp ne i64 %294, 0
   call void @llvm.assume(i1 %.not.i.i.i116)
   %295 = mul nuw nsw i64 %294, 12
-  %296 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %295) #31
+  %296 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %295) #32
           to label %.noexc121 unwind label %.loopexit
 
 .noexc121:                                        ; preds = %_ZNKSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE12_M_check_lenEmPKc.exit.i.i114
@@ -14764,7 +14764,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE11_S_relocateEPS3_S6_
   br i1 %.not.i17.i.i118, label %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i119, label %300
 
 300:                                              ; preds = %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i117
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0225.8360) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0225.8360) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i119
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i119: ; preds = %300, %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i117
@@ -14798,7 +14798,7 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE9push_backERKS3_.exit
   br i1 %.not.i.i.i123, label %_ZNSt6vectorIiSaIiEED2Ev.exit124, label %304
 
 304:                                              ; preds = %303
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0163.1281) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0163.1281) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit124
 
 ._crit_edge371:                                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %40, %.preheader259
@@ -14813,17 +14813,17 @@ _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EE9push_backERKS3_.exit
   br i1 %.not.i.i.i125, label %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EED2Ev.exit, label %307
 
 307:                                              ; preds = %._crit_edge377
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0225.5.lcssa) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0225.5.lcssa) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EED2Ev.exit: ; preds = %._crit_edge377, %307
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 .lr.ph376:                                        ; preds = %._crit_edge371, %.lr.ph376
   %.sroa.0128.0374 = phi ptr [ %316, %.lr.ph376 ], [ %305, %._crit_edge371 ]
-  %308 = call i32 @rand() #29
+  %308 = call i32 @rand() #30
   %309 = sitofp i32 %308 to double
   %310 = fdiv double %309, 0x41DFFFFFFFC00000
   %311 = getelementptr inbounds nuw i8, ptr %.sroa.0128.0374, i64 4
@@ -14844,12 +14844,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit124:                 ; preds = %303, %304, %.loopex
   br i1 %.not.i.i.i126, label %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EED2Ev.exit127, label %318
 
 318:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit124
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0225.1) #30
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0225.1) #31
   br label %_ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EED2Ev.exit127
 
 _ZNSt6vectorIN2cv8ximgproc12segmentation9NeighbourESaIS3_EED2Ev.exit127: ; preds = %.thread244, %_ZNSt6vectorIiSaIiEED2Ev.exit124, %318
   %.pn76.pn248 = phi { ptr, i32 } [ %52, %.thread244 ], [ %.pn76.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit124 ], [ %.pn76.pn, %318 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 }
@@ -14993,7 +14993,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN2cv5Rect_IiEEcNS0_8ximgproc12segment
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #33
+  tail call void @__clang_call_terminate(ptr %6) #34
   unreachable
 
 _ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10_Select1stIS5_ENS0_8ximgproc12segmentation14rectComparatorESaIS5_EED2Ev.exit: ; preds = %1
@@ -15008,7 +15008,7 @@ declare i32 @rand() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv8ximgproc12segmentation33createSelectiveSearchSegmentationEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.105") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #31, !noalias !519
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #32, !noalias !519
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !tbaa !80, !noalias !519
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -15021,7 +15021,7 @@ define void @_ZN2cv8ximgproc12segmentation33createSelectiveSearchSegmentationEv(
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i: ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #30, !noalias !519
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #31, !noalias !519
   resume { ptr, i32 } %6
 
 _ZNSt12__shared_ptrIN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1
@@ -15093,11 +15093,11 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv8ximgproc12s
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !529
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15105,22 +15105,22 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation44SelectiveSearchS
   br i1 %8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !529
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15128,12 +15128,12 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation44SelectiveSearchS
   br i1 %8, label %_ZN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplD2Ev.exit
 
 _ZN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplD2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -15169,7 +15169,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation47SelectiveSearchS
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -15201,11 +15201,11 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   %18 = load ptr, ptr %10, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #30
   %21 = load ptr, ptr %10, align 8, !tbaa !53
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %10) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i
 
 24:                                               ; preds = %11
@@ -15228,7 +15228,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   br i1 %30, label %31, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i, !prof !90
 
 31:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i: ; preds = %31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %16, %.lr.ph.i.i.i.i
@@ -15246,7 +15246,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit, label %34
 
 34:                                               ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %33) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #31
   br label %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i, %34
@@ -15257,25 +15257,25 @@ _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationSt
   br i1 %38, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %36) #30
+  tail call void @_ZdlPv(ptr noundef %36) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !529
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15283,18 +15283,18 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchS
   br i1 %6, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %4) #30
+  tail call void @_ZdlPv(ptr noundef %4) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !529
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15302,12 +15302,12 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchS
   br i1 %6, label %_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %4) #30
+  tail call void @_ZdlPv(ptr noundef %4) #31
   br label %_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplD2Ev.exit
 
 _ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplD2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -15319,12 +15319,12 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchS
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %1, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !529
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15332,11 +15332,11 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %1, %4
   br i1 %9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %7) #30
+  tail call void @_ZdlPv(ptr noundef %7) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   ret void
 }
 
@@ -15348,12 +15348,12 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchS
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i:   ; preds = %4, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !529
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15361,23 +15361,23 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i:   ; preds = %4, %1
   br i1 %9, label %_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef %7) #30
+  tail call void @_ZdlPv(ptr noundef %7) #31
   br label %_ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplD2Ev.exit
 
 _ZN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplD2Ev.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !529
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15385,22 +15385,22 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation46SelectiveSearchS
   br i1 %8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplD0Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !529
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15408,12 +15408,12 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation46SelectiveSearchS
   br i1 %8, label %_ZN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplD2Ev.exit
 
 _ZN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplD2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -15447,11 +15447,11 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchS
   %15 = load ptr, ptr %7, align 8, !tbaa !53
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   %18 = load ptr, ptr %7, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i
 
 21:                                               ; preds = %8
@@ -15474,7 +15474,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   br i1 %27, label %28, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i, !prof !90
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i.i: ; preds = %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %13, %.lr.ph.i.i.i.i
@@ -15492,7 +15492,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit, label %31
 
 31:                                               ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %30) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %30) #31
   br label %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit.i, %31
@@ -15524,11 +15524,11 @@ _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationSt
   %45 = load ptr, ptr %37, align 8, !tbaa !53
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #29
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #30
   %48 = load ptr, ptr %37, align 8, !tbaa !53
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %37) #29
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %37) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i
 
 51:                                               ; preds = %38
@@ -15551,7 +15551,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i6: ; preds = 
   br i1 %57, label %58, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i, !prof !90
 
 58:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i6
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i.i: ; preds = %58, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i6, %43, %.lr.ph.i.i.i.i2
@@ -15569,7 +15569,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev.exit, label %61
 
 61:                                               ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_S7_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %60) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %60) #31
   br label %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_S7_RSaIT0_E.exit.i, %61
@@ -15582,7 +15582,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED
 
 .lr.ph.i.i.i.i12:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev.exit, %.lr.ph.i.i.i.i12
   %.05.i.i.i.i13 = phi ptr [ %66, %.lr.ph.i.i.i.i12 ], [ %63, %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev.exit ]
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i13) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i13) #30
   %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i13, i64 96
   %.not.i.i.i.i14 = icmp eq ptr %66, %65
   br i1 %.not.i.i.i.i14, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i12, !llvm.loop !70
@@ -15597,12 +15597,12 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br i1 %.not.i.i.i16, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %68
 
 68:                                               ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %67) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %67) #31
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %68
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %69) #30
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !529
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15610,18 +15610,18 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %73, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %71) #30
+  tail call void @_ZdlPv(ptr noundef %71) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #29
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -15645,7 +15645,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc12segmentation31SelectiveSearch
   br i1 %10, label %_ZN2cvlsERNS_11FileStorageEPKc.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %8
-  call void @_ZdlPv(ptr noundef %9) #30
+  call void @_ZdlPv(ptr noundef %9) #31
   br label %_ZN2cvlsERNS_11FileStorageEPKc.exit
 
 11:                                               ; preds = %2
@@ -15656,7 +15656,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %14, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5.i: ; preds = %11
-  call void @_ZdlPv(ptr noundef %13) #30
+  call void @_ZdlPv(ptr noundef %13) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5.i
@@ -15716,7 +15716,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  call void @_ZdlPv(ptr noundef %18) #30
+  call void @_ZdlPv(ptr noundef %18) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -15728,7 +15728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl4readERKNS_8FileNodeE, ptr noundef nonnull @.str.12, i32 noundef 705) #32
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImpl4readERKNS_8FileNodeE, ptr noundef nonnull @.str.12, i32 noundef 705) #33
           to label %24 unwind label %25
 
 24:                                               ; preds = %23
@@ -15743,7 +15743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %25
-  call void @_ZdlPv(ptr noundef %27) #30
+  call void @_ZdlPv(ptr noundef %27) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
@@ -15761,8 +15761,8 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #29
-  tail call void @_ZSt9terminatev() #33
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #30
+  tail call void @_ZSt9terminatev() #34
   unreachable
 }
 
@@ -15776,7 +15776,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = load ptr, ptr %0, align 8, !tbaa !53
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !89
   %.not.i = icmp eq i8 %6, 0
@@ -15801,7 +15801,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #30
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -15828,7 +15828,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10
   tail call void @_ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10_Select1stIS5_ENS0_8ximgproc12segmentation14rectComparatorESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !533
-  tail call void @_ZdlPv(ptr noundef nonnull %.07) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #31
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !534
 
@@ -15868,11 +15868,11 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentati
   %14 = load ptr, ptr %6, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #30
   %17 = load ptr, ptr %6, align 8, !tbaa !53
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i
 
 20:                                               ; preds = %7
@@ -15895,7 +15895,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %24
   br i1 %26, label %27, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i, !prof !90
 
 27:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEEEvPT_.exit.i.i.i: ; preds = %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %12, %.lr.ph.i.i.i
@@ -15913,7 +15913,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentation
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit, label %30
 
 30:                                               ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %29) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #31
   br label %_ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEES5_EvT_S7_RSaIT0_E.exit, %30
@@ -15949,11 +15949,11 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentati
   %14 = load ptr, ptr %6, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #30
   %17 = load ptr, ptr %6, align 8, !tbaa !53
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i
 
 20:                                               ; preds = %7
@@ -15976,7 +15976,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %24
   br i1 %26, label %27, label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i, !prof !90
 
 27:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #29
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #30
   br label %_ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEEEvPT_.exit.i.i.i: ; preds = %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %12, %.lr.ph.i.i.i
@@ -15994,7 +15994,7 @@ _ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev.exit, label %30
 
 30:                                               ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_S7_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %29) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #31
   br label %_ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEES5_EvT_S7_RSaIT0_E.exit, %30
@@ -16024,18 +16024,18 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !529
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -16043,19 +16043,19 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12s
   br i1 %8, label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplEEEvRS0_PT_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplEEEvRS0_PT_.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %9) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %9) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation44SelectiveSearchSegmentationStrategyColorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -16077,7 +16077,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximg
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #29
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #30
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -16101,11 +16101,11 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation44SelectiveSearchS
   store i64 0, ptr %4, align 8, !tbaa !531
   store i8 0, ptr %3, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   %8 = load i64, ptr %4, align 8, !tbaa !531
   %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %8, ptr noundef nonnull @.str.13, i64 noundef 40)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %11
@@ -16118,19 +16118,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %1
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %13 = load ptr, ptr %2, align 8, !tbaa !529
   %14 = icmp eq ptr %13, %3
   br i1 %14, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
-  tail call void @_ZdlPv(ptr noundef %13) #30
+  tail call void @_ZdlPv(ptr noundef %13) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   resume { ptr, i32 } %12
 }
 
@@ -16153,7 +16153,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentati
   br i1 %10, label %11, label %_ZNKSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
   unreachable
 
 _ZNKSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -16168,7 +16168,7 @@ _ZNKSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationS
   %.not.i = icmp ne i64 %16, 0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = shl nuw nsw i64 %16, 4
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #32
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   %22 = load ptr, ptr %2, align 8, !tbaa !95
   store ptr %22, ptr %21, align 8, !tbaa !95
@@ -16247,7 +16247,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationSt
   br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %47
 
 47:                                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   br label %_ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %47
@@ -16267,21 +16267,21 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation47SelectiveSearchSegmentationStrategyMultipleImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -16303,7 +16303,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximg
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #29
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #30
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -16345,21 +16345,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %12
 
 12:                                               ; preds = %8
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #31
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %8, %12
-  tail call void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
+  tail call void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #30
   %13 = load ptr, ptr %2, align 8, !tbaa !529
   %14 = icmp eq ptr %13, %3
   br i1 %14, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %13) #30
+  tail call void @_ZdlPv(ptr noundef %13) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   resume { ptr, i32 } %9
 }
 
@@ -16381,7 +16381,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12s
   store i64 0, ptr %6, align 8, !tbaa !531
   store i8 0, ptr %5, align 8, !tbaa !89
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   %8 = load i64, ptr %6, align 8, !tbaa !531
   %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, i64 noundef %8, ptr noundef nonnull @.str.16, i64 noundef 39)
           to label %_ZNSt16allocator_traitsISaIvEE9constructIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplEJEEEvRS0_PT_DpOT0_.exit unwind label %10
@@ -16389,17 +16389,17 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12s
 10:                                               ; preds = %.noexc
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   %12 = load ptr, ptr %4, align 8, !tbaa !529
   %13 = icmp eq ptr %12, %5
   br i1 %13, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %10
-  tail call void @_ZdlPv(ptr noundef %12) #30
+  tail call void @_ZdlPv(ptr noundef %12) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #30
   resume { ptr, i32 } %11
 
 _ZNSt16allocator_traitsISaIvEE9constructIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplEJEEEvRS0_PT_DpOT0_.exit: ; preds = %.noexc
@@ -16408,14 +16408,14 @@ _ZNSt16allocator_traitsISaIvEE9constructIN2cv8ximgproc12segmentation43SelectiveS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !529
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -16423,19 +16423,19 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12s
   br i1 %6, label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplEEEvRS0_PT_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %4) #30
+  tail call void @_ZdlPv(ptr noundef %4) #31
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplEEEvRS0_PT_.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %7) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategySizeImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -16457,7 +16457,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximg
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #29
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #30
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -16479,7 +16479,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -16491,12 +16491,12 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12s
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i.i.i, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i.i.i: ; preds = %4, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !529
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -16504,19 +16504,19 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i.i.i: ; preds = %4, %1
   br i1 %9, label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplEEEvRS0_PT_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef %7) #30
+  tail call void @_ZdlPv(ptr noundef %7) #31
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplEEEvRS0_PT_.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %10) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %10) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation43SelectiveSearchSegmentationStrategyFillImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -16538,7 +16538,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximg
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #29
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #30
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -16562,7 +16562,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation43SelectiveSearchS
   store i64 0, ptr %4, align 8, !tbaa !531
   store i8 0, ptr %3, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = load i64, ptr %4, align 8, !tbaa !531
@@ -16580,21 +16580,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #31
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %9, %12
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %13 = load ptr, ptr %2, align 8, !tbaa !529
   %14 = icmp eq ptr %13, %3
   br i1 %14, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %13) #30
+  tail call void @_ZdlPv(ptr noundef %13) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   resume { ptr, i32 } %10
 }
 
@@ -16610,7 +16610,7 @@ define linkonce_odr void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_realloc_insertIJS1_
   br i1 %10, label %11, label %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
   unreachable
 
 _ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -16625,17 +16625,17 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %.not.i = icmp ne i64 %16, 0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = mul nuw nsw i64 %16, 96
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #32
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
-  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i ], [ %20, %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #29
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #29
+  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #30
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i) #30
   %22 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %22, %1
@@ -16650,8 +16650,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %26, %.lr.ph.i.i.i.i17 ], [ %24, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i.i19 = phi ptr [ %25, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i19) #29
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i19) #29
+  tail call void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i19) #30
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.0911.i.i.i.i19) #30
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 96
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 96
   %.not.i.i.i.i20 = icmp eq ptr %25, %5
@@ -16663,7 +16663,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.l
   br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit, label %27
 
 27:                                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   br label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %27
@@ -16717,14 +16717,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
           to label %23 unwind label %24
 
 23:                                               ; preds = %19
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 24:                                               ; preds = %19
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %25
 
@@ -16751,18 +16751,18 @@ declare void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !529
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -16770,19 +16770,19 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12s
   br i1 %8, label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplEEEvRS0_PT_.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %6) #30
+  tail call void @_ZdlPv(ptr noundef %6) #31
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplEEEvRS0_PT_.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %9) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %9) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation46SelectiveSearchSegmentationStrategyTextureImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -16804,7 +16804,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximg
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #29
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #30
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -16828,11 +16828,11 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation46SelectiveSearchS
   store i64 0, ptr %4, align 8, !tbaa !531
   store i8 0, ptr %3, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
   %8 = load i64, ptr %4, align 8, !tbaa !531
   %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %8, ptr noundef nonnull @.str.19, i64 noundef 42)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %11
@@ -16845,19 +16845,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %1
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #29
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #30
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #30
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %13 = load ptr, ptr %2, align 8, !tbaa !529
   %14 = icmp eq ptr %13, %3
   br i1 %14, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
-  tail call void @_ZdlPv(ptr noundef %13) #30
+  tail call void @_ZdlPv(ptr noundef %13) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   resume { ptr, i32 } %12
 }
 
@@ -16873,7 +16873,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentati
   br i1 %10, label %11, label %_ZNKSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #32
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #33
   unreachable
 
 _ZNKSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -16888,7 +16888,7 @@ _ZNKSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE
   %.not.i = icmp ne i64 %16, 0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = shl nuw nsw i64 %16, 4
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #31
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #32
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   %22 = load ptr, ptr %2, align 8, !tbaa !282
   store ptr %22, ptr %21, align 8, !tbaa !282
@@ -16967,7 +16967,7 @@ _ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE1
   br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %47
 
 47:                                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   br label %_ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %47
@@ -17551,11 +17551,11 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc12segmentation6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10_Select1stIS5_ENS0_8ximgproc12segmentation14rectComparatorESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESH_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
+  %6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #32
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %3, align 8, !tbaa !518
   %9 = inttoptr i64 %8 to ptr
@@ -17623,7 +17623,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10_
 
 .thread:                                          ; preds = %15, %18, %23, %25, %31, %33, %39, %41
   %47 = phi i1 [ true, %15 ], [ true, %18 ], [ false, %23 ], [ true, %25 ], [ false, %31 ], [ true, %33 ], [ false, %39 ], [ %46, %41 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %47, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %16) #29
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %47, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %16) #30
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i64, ptr %48, align 8, !tbaa !483
   %50 = add i64 %49, 1
@@ -17633,11 +17633,11 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10_
 _ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10_Select1stIS5_ENS0_8ximgproc12segmentation14rectComparatorESaIS5_EE10_Auto_nodeD2Ev.exit: ; preds = %5
   %51 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   resume { ptr, i32 } %51
 
 52:                                               ; preds = %12
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #31
   br label %_ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10_Select1stIS5_ENS0_8ximgproc12segmentation14rectComparatorESaIS5_EE10_Auto_nodeD2Ev.exit9
 
 _ZNSt8_Rb_treeIN2cv5Rect_IiEESt4pairIKS2_cESt10_Select1stIS5_ENS0_8ximgproc12segmentation14rectComparatorESaIS5_EE10_Auto_nodeD2Ev.exit9: ; preds = %.thread, %52
@@ -17758,7 +17758,7 @@ _ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit11.threa
   br i1 %72, label %_ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit.thread, label %73
 
 73:                                               ; preds = %_ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit11.thread
-  %74 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #34
+  %74 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #35
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %76 = load i32, ptr %75, align 4, !tbaa !245
   %77 = icmp slt i32 %76, %44
@@ -17853,7 +17853,7 @@ _ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit15.threa
   br i1 %130, label %_ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit.thread, label %131
 
 131:                                              ; preds = %_ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit15.thread
-  %132 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #34
+  %132 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #35
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %134 = load i32, ptr %133, align 4, !tbaa !245
   %135 = icmp slt i32 %44, %134
@@ -17994,7 +17994,7 @@ _ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit.thread:
   br i1 %36, label %_ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit6.thread, label %37
 
 37:                                               ; preds = %._crit_edge.thread
-  %38 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa52) #34
+  %38 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa52) #35
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge
@@ -18054,10 +18054,10 @@ _ZNK2cv8ximgproc12segmentation14rectComparatorclERKNS_5Rect_IiEES6_.exit6.thread
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #22
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #22
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -18756,21 +18756,21 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %2) #29
+  tail call void @_ZN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %2) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv8ximgproc12segmentation31SelectiveSearchSegmentationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -18792,7 +18792,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximg
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #29
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #30
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -18816,7 +18816,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc12segmentation31SelectiveSearchS
   store i64 0, ptr %4, align 8, !tbaa !531
   store i8 0, ptr %3, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   %7 = load i64, ptr %4, align 8, !tbaa !531
@@ -18831,20 +18831,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %1
           cleanup
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #29
-  tail call void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #29
-  tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #29
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #29
+  tail call void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation35SelectiveSearchSegmentationStrategyEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #30
+  tail call void @_ZNSt6vectorIN2cv3PtrINS0_8ximgproc12segmentation17GraphSegmentationEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #30
+  tail call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #30
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #30
   %13 = load ptr, ptr %2, align 8, !tbaa !529
   %14 = icmp eq ptr %13, %3
   br i1 %14, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %9
-  tail call void @_ZdlPv(ptr noundef %13) #30
+  tail call void @_ZdlPv(ptr noundef %13) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   resume { ptr, i32 } %10
 }
 
@@ -18852,38 +18852,38 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %9, %_
 declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_selectivesearchsegmentation.cpp() #23 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_selectivesearchsegmentation.cpp() #24 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #29
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #25
+declare void @llvm.assume(i1 noundef) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #27
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #27
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #27
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #28
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #27
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -18894,7 +18894,7 @@ attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -18907,19 +18907,20 @@ attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-prote
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #21 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #23 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #29 = { nounwind }
-attributes #30 = { builtin nounwind }
-attributes #31 = { builtin allocsize(0) }
-attributes #32 = { noreturn }
-attributes #33 = { noreturn nounwind }
-attributes #34 = { nounwind willreturn memory(read) }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #24 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #30 = { nounwind }
+attributes #31 = { builtin nounwind }
+attributes #32 = { builtin allocsize(0) }
+attributes #33 = { noreturn }
+attributes #34 = { noreturn nounwind }
+attributes #35 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

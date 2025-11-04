@@ -39,7 +39,7 @@ define void @ff_er_frame_start(ptr noundef captures(none) %0) local_unnamed_addr
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @ff_me_cmp_init(ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  call void @ff_me_cmp_init(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -114,7 +114,7 @@ define void @ff_er_add_slice(ptr noundef captures(none) %0, i32 noundef %1, i32 
   br i1 %or.cond, label %32, label %33
 
 32:                                               ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %26, i32 noundef 16, ptr noundef nonnull @.str) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %26, i32 noundef 16, ptr noundef nonnull @.str) #7
   br label %er_supported.exit.thread
 
 33:                                               ; preds = %29
@@ -441,7 +441,7 @@ er_supported.exit:                                ; preds = %22
   br i1 %79, label %._crit_edge.thread, label %80
 
 ._crit_edge.thread:                               ; preds = %77, %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %55, i32 noundef 48, ptr noundef nonnull @.str.1) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %55, i32 noundef 48, ptr noundef nonnull @.str.1) #7
   br label %er_supported.exit.thread
 
 80:                                               ; preds = %._crit_edge, %51, %46, %40
@@ -477,7 +477,7 @@ er_supported.exit:                                ; preds = %22
   br i1 %.not636, label %101, label %100
 
 100:                                              ; preds = %95, %90, %84
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %81, i32 noundef 24, ptr noundef nonnull @.str.2) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %81, i32 noundef 24, ptr noundef nonnull @.str.2) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %82, i8 0, i64 72, i1 false)
   br label %101
 
@@ -514,7 +514,7 @@ er_supported.exit:                                ; preds = %22
 
 120:                                              ; preds = %115, %110, %104
   %121 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %121, i32 noundef 24, ptr noundef nonnull @.str.3) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %121, i32 noundef 24, ptr noundef nonnull @.str.3) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %102, i8 0, i64 72, i1 false)
   br label %122
 
@@ -532,7 +532,7 @@ er_supported.exit:                                ; preds = %22
 
 128:                                              ; preds = %125, %122
   %129 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %129, i32 noundef 16, ptr noundef nonnull @.str.4) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %129, i32 noundef 16, ptr noundef nonnull @.str.4) #7
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %132 = add nsw i32 %8, 4
@@ -548,10 +548,10 @@ er_supported.exit:                                ; preds = %22
   %139 = load i32, ptr %5, align 8, !tbaa !40
   %140 = sext i32 %139 to i64
   %141 = mul nsw i64 %138, %140
-  %142 = tail call noalias ptr @av_calloc(i64 noundef %141, i64 noundef 4) #6
+  %142 = tail call noalias ptr @av_calloc(i64 noundef %141, i64 noundef 4) #7
   %143 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv893
   store ptr %142, ptr %143, align 8, !tbaa !70
-  %144 = tail call noalias ptr @av_calloc(i64 noundef %133, i64 noundef 4) #6
+  %144 = tail call noalias ptr @av_calloc(i64 noundef %133, i64 noundef 4) #7
   %145 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv893
   store ptr %144, ptr %145, align 8, !tbaa !69
   %146 = load ptr, ptr %143, align 8, !tbaa !70
@@ -602,7 +602,7 @@ er_supported.exit:                                ; preds = %22
   %166 = load i8, ptr %165, align 1, !tbaa !42
   %167 = zext i8 %166 to i32
   %168 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %168, i32 noundef 48, ptr noundef nonnull @.str.5, i32 noundef %167) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %168, i32 noundef 48, ptr noundef nonnull @.str.5, i32 noundef %167) #7
   %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 1
   %169 = load i32, ptr %29, align 4, !tbaa !44
   %170 = sext i32 %169 to i64
@@ -611,7 +611,7 @@ er_supported.exit:                                ; preds = %22
 
 ._crit_edge797:                                   ; preds = %.lr.ph796, %.preheader782
   %172 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %172, i32 noundef 48, ptr noundef nonnull @.str.6) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %172, i32 noundef 48, ptr noundef nonnull @.str.6) #7
   %indvars.iv.next900 = add nuw nsw i64 %indvars.iv899, 1
   %173 = load i32, ptr %5, align 8, !tbaa !40
   %174 = sext i32 %173 to i64
@@ -986,9 +986,9 @@ select.unfold:                                    ; preds = %238
   %352 = load ptr, ptr %23, align 8, !tbaa !51
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 120
   %354 = load i32, ptr %353, align 8, !tbaa !87
-  %355 = tail call signext i8 @av_get_picture_type_char(i32 noundef %354) #6
+  %355 = tail call signext i8 @av_get_picture_type_char(i32 noundef %354) #7
   %356 = sext i8 %355 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %351, i32 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %.0575.lcssa, i32 noundef %.0579.lcssa, i32 noundef %.0577.lcssa, i32 noundef %356) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %351, i32 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %.0575.lcssa, i32 noundef %.0579.lcssa, i32 noundef %.0577.lcssa, i32 noundef %356) #7
   %.not651 = icmp eq ptr %1, null
   br i1 %.not651, label %360, label %357
 
@@ -1138,7 +1138,7 @@ select.unfold:                                    ; preds = %238
 
 441:                                              ; preds = %424
   %442 = load ptr, ptr %395, align 8, !tbaa !90
-  tail call void @ff_thread_progress_await(ptr noundef %442, i32 noundef %.06991.i) #6
+  tail call void @ff_thread_progress_await(ptr noundef %442, i32 noundef %.06991.i) #7
   %.pre.i = load i32, ptr %425, align 4, !tbaa !46
   br label %443
 
@@ -1146,7 +1146,7 @@ select.unfold:                                    ; preds = %238
   %444 = phi i32 [ %429, %424 ], [ %.pre.i, %441 ]
   %445 = load ptr, ptr %396, align 8, !tbaa !37
   %446 = sext i32 %444 to i64
-  %447 = tail call i32 %445(ptr noundef null, ptr noundef %436, ptr noundef %432, i64 noundef %446, i32 noundef 16) #6
+  %447 = tail call i32 %445(ptr noundef null, ptr noundef %436, ptr noundef %432, i64 noundef %446, i32 noundef 16) #7
   %448 = add nsw i32 %447, %.186.i
   %449 = load ptr, ptr %396, align 8, !tbaa !37
   %450 = load i32, ptr %425, align 4, !tbaa !46
@@ -1154,7 +1154,7 @@ select.unfold:                                    ; preds = %238
   %452 = sext i32 %451 to i64
   %453 = getelementptr inbounds i8, ptr %436, i64 %452
   %454 = sext i32 %450 to i64
-  %455 = tail call i32 %449(ptr noundef null, ptr noundef %436, ptr noundef %453, i64 noundef %454, i32 noundef 16) #6
+  %455 = tail call i32 %449(ptr noundef null, ptr noundef %436, ptr noundef %453, i64 noundef %454, i32 noundef 16) #7
   %456 = sub i32 %448, %455
   %.pre101.i = load i32, ptr %29, align 4, !tbaa !44
   br label %466
@@ -1435,7 +1435,7 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   %.0610 = phi i32 [ 0, %591 ], [ 1, %574 ]
   %603 = load ptr, ptr %535, align 8, !tbaa !99
   %604 = load ptr, ptr %536, align 8, !tbaa !100
-  tail call void %603(ptr noundef %604, i32 noundef 0, i32 noundef %559, i32 noundef %.0610, ptr noundef nonnull %533, i32 noundef %547, i32 noundef %542, i32 noundef 0, i32 noundef 0) #6
+  tail call void %603(ptr noundef %604, i32 noundef 0, i32 noundef %559, i32 noundef %.0610, ptr noundef nonnull %533, i32 noundef %547, i32 noundef %542, i32 noundef 0, i32 noundef 0) #7
   %.pre986 = load i32, ptr %29, align 4, !tbaa !44
   br label %605
 
@@ -1563,8 +1563,8 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   br i1 %.not678, label %671, label %672
 
 671:                                              ; preds = %667
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 1205) #6
-  tail call void @abort() #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 1205) #7
+  tail call void @abort() #8
   unreachable
 
 672:                                              ; preds = %667
@@ -1572,7 +1572,7 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   %674 = zext i16 %673 to i32
   %675 = zext i16 %666 to i32
   %676 = load ptr, ptr %624, align 8, !tbaa !105
-  tail call void @ff_thread_progress_await(ptr noundef %676, i32 noundef %.2564857) #6
+  tail call void @ff_thread_progress_await(ptr noundef %676, i32 noundef %.2564857) #7
   %677 = load ptr, ptr %625, align 8, !tbaa !69
   %678 = sext i32 %reass.mul to i64
   %679 = getelementptr inbounds [2 x i16], ptr %677, i64 %678
@@ -1606,7 +1606,7 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   store i32 %storemerge, ptr %629, align 4, !tbaa !46
   %696 = load ptr, ptr %630, align 8, !tbaa !99
   %697 = load ptr, ptr %631, align 8, !tbaa !100
-  tail call void %696(ptr noundef %697, i32 noundef 0, i32 noundef %.1609, i32 noundef 0, ptr noundef nonnull %626, i32 noundef %.3559854, i32 noundef %.2564857, i32 noundef 0, i32 noundef 0) #6
+  tail call void %696(ptr noundef %697, i32 noundef 0, i32 noundef %.1609, i32 noundef 0, ptr noundef nonnull %626, i32 noundef %.3559854, i32 noundef %.2564857, i32 noundef 0, i32 noundef 0) #7
   %.pre989 = load i32, ptr %29, align 4, !tbaa !44
   br label %698
 
@@ -2294,14 +2294,14 @@ put_dc.exit:                                      ; preds = %1000, %985, %899, %
   %1090 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %1091 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %1092 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  tail call void @av_freep(ptr noundef nonnull %1090) #6
-  tail call void @av_freep(ptr noundef nonnull %1091) #6
+  tail call void @av_freep(ptr noundef nonnull %1090) #7
+  tail call void @av_freep(ptr noundef nonnull %1091) #7
   store ptr null, ptr %1092, align 8, !tbaa !70
   store ptr null, ptr %123, align 8, !tbaa !69
   %1093 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  tail call void @av_freep(ptr noundef nonnull %1093) #6
+  tail call void @av_freep(ptr noundef nonnull %1093) #7
   %1094 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  tail call void @av_freep(ptr noundef nonnull %1094) #6
+  tail call void @av_freep(ptr noundef nonnull %1094) #7
   %1095 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr null, ptr %1095, align 8, !tbaa !70
   %1096 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2390,8 +2390,8 @@ define internal fastcc void @guess_mv(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i679, label %43, label %44
 
 43:                                               ; preds = %40
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef 46) #6
-  tail call void @abort() #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef 46) #7
+  tail call void @abort() #8
   unreachable
 
 44:                                               ; preds = %40
@@ -2420,14 +2420,14 @@ set_mv_strides.exit:                              ; preds = %44, %47
 
 55:                                               ; preds = %52
   %56 = add nsw i32 %.1530, -1
-  tail call void @ff_thread_await_progress(ptr noundef nonnull %54, i32 noundef %56, i32 noundef 0) #6
+  tail call void @ff_thread_await_progress(ptr noundef nonnull %54, i32 noundef %56, i32 noundef 0) #7
   br label %61
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %59 = load ptr, ptr %58, align 8, !tbaa !90
   %60 = add nsw i32 %.1530, -1
-  tail call void @ff_thread_progress_await(ptr noundef %59, i32 noundef %60) #6
+  tail call void @ff_thread_progress_await(ptr noundef %59, i32 noundef %60) #7
   br label %61
 
 61:                                               ; preds = %55, %57, %set_mv_strides.exit
@@ -2736,7 +2736,7 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
   store i32 0, ptr %185, align 4, !tbaa !46
   %215 = load ptr, ptr %186, align 8, !tbaa !99
   %216 = load ptr, ptr %187, align 8, !tbaa !100
-  tail call void %215(ptr noundef %216, i32 noundef 0, i32 noundef %203, i32 noundef 0, ptr noundef nonnull %184, i32 noundef %.0539827, i32 noundef %.0543830, i32 noundef 0, i32 noundef 0) #6
+  tail call void %215(ptr noundef %216, i32 noundef 0, i32 noundef %203, i32 noundef 0, ptr noundef nonnull %184, i32 noundef %.0539827, i32 noundef %.0543830, i32 noundef 0, i32 noundef 0) #7
   %.pre907 = load i32, ptr %6, align 4, !tbaa !44
   br label %217
 
@@ -3148,7 +3148,7 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
   %459 = load ptr, ptr %233, align 8, !tbaa !100
   %460 = getelementptr inbounds i32, ptr %3, i64 %449
   %461 = load i32, ptr %460, align 4, !tbaa !46
-  tail call void %458(ptr noundef %459, i32 noundef %461, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %230, i32 noundef %239, i32 noundef %241, i32 noundef 0, i32 noundef 0) #6
+  tail call void %458(ptr noundef %459, i32 noundef %461, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %230, i32 noundef %239, i32 noundef %241, i32 noundef 0, i32 noundef 0) #7
   %462 = load i32, ptr %230, align 8, !tbaa !46
   %.not646.us = icmp eq i32 %462, %578
   br i1 %.not646.us, label %463, label %465
@@ -3220,7 +3220,7 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
 497:                                              ; preds = %476
   %498 = load ptr, ptr %232, align 8, !tbaa !99
   %499 = load ptr, ptr %233, align 8, !tbaa !100
-  tail call void %498(ptr noundef %499, i32 noundef %495, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %230, i32 noundef %239, i32 noundef %241, i32 noundef 0, i32 noundef 0) #6
+  tail call void %498(ptr noundef %499, i32 noundef %495, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %230, i32 noundef %239, i32 noundef %241, i32 noundef 0, i32 noundef 0) #7
   br i1 %250, label %500, label %.loopexit751.us
 
 500:                                              ; preds = %497
@@ -3564,8 +3564,8 @@ add_blocklist.exit678:                            ; preds = %658, %653, %add_blo
   br i1 %.not636, label %663, label %234
 
 663:                                              ; preds = %._crit_edge825
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 716) #6
-  tail call void @abort() #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 716) #7
+  tail call void @abort() #8
   unreachable
 
 .thread737:                                       ; preds = %234, %.critedge, %._crit_edge829, %.preheader.lr.ph, %180
@@ -3579,11 +3579,11 @@ define internal fastcc void @guess_dc(ptr noundef readonly captures(none) %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = sext i32 %3 to i64
   %10 = shl nsw i64 %9, 3
-  %11 = tail call ptr @av_malloc_array(i64 noundef %4, i64 noundef %10) #6
+  %11 = tail call ptr @av_malloc_array(i64 noundef %4, i64 noundef %10) #7
   store ptr %11, ptr %7, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = shl nsw i64 %9, 4
-  %13 = tail call ptr @av_malloc_array(i64 noundef %4, i64 noundef %12) #6
+  %13 = tail call ptr @av_malloc_array(i64 noundef %4, i64 noundef %12) #7
   store ptr %13, ptr %8, align 8, !tbaa !148
   %14 = icmp ne ptr %11, null
   %15 = icmp ne ptr %13, null
@@ -3715,7 +3715,7 @@ define internal fastcc void @guess_dc(ptr noundef readonly captures(none) %0, pt
 
 82:                                               ; preds = %6
   %83 = load ptr, ptr %0, align 8, !tbaa !4
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %83, i32 noundef 16, ptr noundef nonnull @.str.13) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %83, i32 noundef 16, ptr noundef nonnull @.str.13) #7
   br label %.loopexit
 
 .preheader205:                                    ; preds = %._crit_edge.us, %.preheader208
@@ -3950,8 +3950,8 @@ define internal fastcc void @guess_dc(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond267.not, label %.preheader202, label %.preheader204, !llvm.loop !157
 
 .loopexit:                                        ; preds = %._crit_edge245.us, %.preheader207.lr.ph, %.preheader201.lr.ph, %.preheader202, %82
-  call void @av_freep(ptr noundef nonnull %7) #6
-  call void @av_freep(ptr noundef nonnull %8) #6
+  call void @av_freep(ptr noundef nonnull %7) #7
+  call void @av_freep(ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -3972,8 +3972,8 @@ define internal fastcc void @h_block_filter(ptr noundef readonly captures(none) 
   br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %11
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef 46) #6
-  tail call void @abort() #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef 46) #7
+  tail call void @abort() #8
   unreachable
 
 15:                                               ; preds = %11
@@ -4245,8 +4245,8 @@ define internal fastcc void @v_block_filter(ptr noundef readonly captures(none) 
   br i1 %.not.i, label %14, label %15
 
 14:                                               ; preds = %11
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef 46) #6
-  tail call void @abort() #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef 46) #7
+  tail call void @abort() #8
   unreachable
 
 15:                                               ; preds = %11
@@ -4537,19 +4537,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #5
+declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4557,9 +4557,10 @@ attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

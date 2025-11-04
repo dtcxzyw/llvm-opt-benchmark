@@ -24,15 +24,15 @@ define internal void @lv_slider_constructor(ptr readnone captures(none) %0, ptr 
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -4
   store i8 %6, ptr %4, align 8
-  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 256) #5
-  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 16) #5
-  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1024) #5
-  %7 = tail call i32 @lv_display_get_dpi(ptr noundef null) #5
+  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 256) #6
+  tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 16) #6
+  tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1024) #6
+  %7 = tail call i32 @lv_display_get_dpi(ptr noundef null) #6
   %8 = icmp sgt i32 %7, 29
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @lv_display_get_dpi(ptr noundef null) #5
+  %10 = tail call i32 @lv_display_get_dpi(ptr noundef null) #6
   %11 = shl nsw i32 %10, 3
   %12 = add nsw i32 %11, 80
   %13 = sdiv i32 %12, 160
@@ -40,21 +40,21 @@ define internal void @lv_slider_constructor(ptr readnone captures(none) %0, ptr 
 
 14:                                               ; preds = %2, %9
   %15 = phi i32 [ %13, %9 ], [ 1, %2 ]
-  tail call void @lv_obj_set_ext_click_area(ptr noundef nonnull %1, i32 noundef %15) #5
+  tail call void @lv_obj_set_ext_click_area(ptr noundef nonnull %1, i32 noundef %15) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
-  %4 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_slider_class, ptr noundef %1) #5
+  %4 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_slider_class, ptr noundef %1) #6
   %.not = icmp eq i32 %4, 1
   br i1 %.not, label %5, label %.critedge
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @lv_event_get_code(ptr noundef %1) #5
-  %7 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #5
-  %8 = tail call i32 @lv_bar_get_mode(ptr noundef %7) #5
+  %6 = tail call i32 @lv_event_get_code(ptr noundef %1) #6
+  %7 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #6
+  %8 = tail call i32 @lv_bar_get_mode(ptr noundef %7) #6
   %switch.selectcmp.i = icmp ne i32 %8, 2
   switch i32 %6, label %50 [
     i32 22, label %9
@@ -63,7 +63,7 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
   ]
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @lv_event_get_param(ptr noundef %1) #5
+  %10 = tail call ptr @lv_event_get_param(ptr noundef %1) #6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !21
   %.not154 = icmp eq ptr %12, null
@@ -92,9 +92,9 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
   %27 = load i32, ptr %26, align 4, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %27, ptr %28, align 4, !tbaa !32
-  call void @lv_area_increase(ptr noundef nonnull %3, i32 noundef %17, i32 noundef %17) #5
+  call void @lv_area_increase(ptr noundef nonnull %3, i32 noundef %17, i32 noundef %17) #6
   %29 = load ptr, ptr %10, align 8, !tbaa !33
-  %30 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %3, ptr noundef %29, i32 noundef 0) #5
+  %30 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %3, ptr noundef %29, i32 noundef 0) #6
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %32 = zext i1 %30 to i8
   store i8 %32, ptr %31, align 8, !tbaa !35
@@ -114,9 +114,9 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 172
   %41 = load i32, ptr %40, align 4, !tbaa !32
   store i32 %41, ptr %28, align 4, !tbaa !32
-  call void @lv_area_increase(ptr noundef nonnull %3, i32 noundef %17, i32 noundef %17) #5
+  call void @lv_area_increase(ptr noundef nonnull %3, i32 noundef %17, i32 noundef %17) #6
   %42 = load ptr, ptr %10, align 8, !tbaa !33
-  %43 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %3, ptr noundef %42, i32 noundef 0) #5
+  %43 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %3, ptr noundef %42, i32 noundef 0) #6
   %44 = zext i1 %43 to i8
   store i8 %44, ptr %31, align 8, !tbaa !35
   br label %45
@@ -126,10 +126,10 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
   br label %.critedge
 
 46:                                               ; preds = %5
-  %47 = tail call ptr @lv_indev_active() #5
+  %47 = tail call ptr @lv_indev_active() #6
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  tail call void @lv_indev_get_point(ptr noundef %47, ptr noundef nonnull %48) #5
-  tail call void @lv_obj_transform_point(ptr noundef %7, ptr noundef nonnull %48, i32 noundef 3) #5
+  tail call void @lv_indev_get_point(ptr noundef %47, ptr noundef nonnull %48) #6
+  tail call void @lv_obj_transform_point(ptr noundef %7, ptr noundef nonnull %48, i32 noundef 3) #6
   br label %.critedge
 
 49:                                               ; preds = %5
@@ -149,11 +149,11 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
   store i8 %55, ptr %53, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store ptr null, ptr %56, align 8, !tbaa !3
-  tail call void @lv_obj_invalidate(ptr noundef %7) #5
-  %57 = tail call ptr @lv_obj_get_group(ptr noundef %7) #5
-  %58 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %57) #5
-  %59 = tail call ptr @lv_indev_active() #5
-  %60 = tail call i32 @lv_indev_get_type(ptr noundef %59) #5
+  tail call void @lv_obj_invalidate(ptr noundef %7) #6
+  %57 = tail call ptr @lv_obj_get_group(ptr noundef %7) #6
+  %58 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %57) #6
+  %59 = tail call ptr @lv_indev_active() #6
+  %60 = tail call i32 @lv_indev_get_type(ptr noundef %59) #6
   switch i32 %60, label %.critedge [
     i32 4, label %61
     i32 1, label %73
@@ -163,7 +163,7 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
   br i1 %58, label %62, label %.critedge
 
 62:                                               ; preds = %61
-  %63 = tail call i32 @lv_bar_get_mode(ptr noundef nonnull %7) #5
+  %63 = tail call i32 @lv_bar_get_mode(ptr noundef nonnull %7) #6
   %switch.selectcmp.i157 = icmp eq i32 %63, 2
   br i1 %switch.selectcmp.i157, label %64, label %72
 
@@ -181,11 +181,11 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
 70:                                               ; preds = %64
   %71 = and i8 %65, -3
   store i8 %71, ptr %53, align 8
-  tail call void @lv_group_set_editing(ptr noundef %57, i1 noundef zeroext false) #5
+  tail call void @lv_group_set_editing(ptr noundef %57, i1 noundef zeroext false) #6
   br label %.critedge
 
 72:                                               ; preds = %62
-  tail call void @lv_group_set_editing(ptr noundef %57, i1 noundef zeroext false) #5
+  tail call void @lv_group_set_editing(ptr noundef %57, i1 noundef zeroext false) #6
   br label %.critedge
 
 73:                                               ; preds = %52
@@ -199,17 +199,17 @@ define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr nounde
   ]
 
 is_slider_horizontal.exit:                        ; preds = %73
-  %78 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %7) #5
-  %79 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %7) #5
+  %78 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %7) #6
+  %79 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %7) #6
   %.not169 = icmp slt i32 %78, %79
   br i1 %.not169, label %is_slider_horizontal.exit.thread167, label %is_slider_horizontal.exit.thread
 
 is_slider_horizontal.exit.thread:                 ; preds = %73, %is_slider_horizontal.exit
-  tail call void @lv_obj_add_flag(ptr noundef nonnull %7, i32 noundef 512) #5
+  tail call void @lv_obj_add_flag(ptr noundef nonnull %7, i32 noundef 512) #6
   br label %.critedge
 
 is_slider_horizontal.exit.thread167:              ; preds = %73, %is_slider_horizontal.exit
-  tail call void @lv_obj_add_flag(ptr noundef nonnull %7, i32 noundef 256) #5
+  tail call void @lv_obj_add_flag(ptr noundef nonnull %7, i32 noundef 256) #6
   br label %.critedge
 
 80:                                               ; preds = %50
@@ -223,8 +223,8 @@ is_slider_horizontal.exit.thread167:              ; preds = %73, %is_slider_hori
   ]
 
 81:                                               ; preds = %80
-  %82 = tail call ptr @lv_indev_active() #5
-  %83 = tail call i32 @lv_indev_get_type(ptr noundef %82) #5
+  %82 = tail call ptr @lv_indev_active() #6
+  %83 = tail call i32 @lv_indev_get_type(ptr noundef %82) #6
   switch i32 %83, label %.critedge [
     i32 4, label %84
     i32 2, label %84
@@ -241,46 +241,46 @@ is_slider_horizontal.exit.thread167:              ; preds = %73, %is_slider_hori
   %89 = tail call fastcc zeroext i1 @is_slider_horizontal(ptr noundef %7)
   %.171 = select i1 %89, i32 512, i32 256
   %.172 = select i1 %89, i32 256, i32 512
-  tail call void @lv_obj_add_flag(ptr noundef %7, i32 noundef %.171) #5
-  tail call void @lv_obj_remove_flag(ptr noundef %7, i32 noundef %.172) #5
-  tail call void @lv_obj_refresh_ext_draw_size(ptr noundef %7) #5
+  tail call void @lv_obj_add_flag(ptr noundef %7, i32 noundef %.171) #6
+  tail call void @lv_obj_remove_flag(ptr noundef %7, i32 noundef %.172) #6
+  tail call void @lv_obj_refresh_ext_draw_size(ptr noundef %7) #6
   br label %.critedge
 
 90:                                               ; preds = %80
-  %91 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 18) #5
+  %91 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 18) #6
   %92 = ptrtoint ptr %91 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %92 to i32
-  %93 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 19) #5
+  %93 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 19) #6
   %94 = ptrtoint ptr %93 to i64
   %.sroa.0.0.extract.trunc.i161 = trunc i64 %94 to i32
-  %95 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 16) #5
+  %95 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 16) #6
   %96 = ptrtoint ptr %95 to i64
   %.sroa.0.0.extract.trunc.i162 = trunc i64 %96 to i32
-  %97 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 17) #5
+  %97 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 17) #6
   %98 = ptrtoint ptr %97 to i64
   %.sroa.0.0.extract.trunc.i163 = trunc i64 %98 to i32
-  %99 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 104) #5
+  %99 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 104) #6
   %100 = ptrtoint ptr %99 to i64
   %.sroa.0.0.extract.trunc.i164 = trunc i64 %100 to i32
-  %101 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 105) #5
+  %101 = tail call ptr @lv_obj_get_style_prop(ptr noundef %7, i32 noundef 196608, i8 noundef zeroext 105) #6
   %102 = ptrtoint ptr %101 to i64
   %.sroa.0.0.extract.trunc.i165 = trunc i64 %102 to i32
-  %103 = tail call i32 @lv_obj_get_width(ptr noundef %7) #5
+  %103 = tail call i32 @lv_obj_get_width(ptr noundef %7) #6
   %104 = shl nsw i32 %.sroa.0.0.extract.trunc.i164, 1
   %105 = add nsw i32 %104, %103
-  %106 = tail call i32 @lv_obj_get_height(ptr noundef %7) #5
+  %106 = tail call i32 @lv_obj_get_height(ptr noundef %7) #6
   %107 = shl nsw i32 %.sroa.0.0.extract.trunc.i165, 1
   %108 = add nsw i32 %107, %106
   %109 = icmp slt i32 %105, %108
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %90
-  %111 = tail call i32 @lv_obj_get_width(ptr noundef %7) #5
+  %111 = tail call i32 @lv_obj_get_width(ptr noundef %7) #6
   %112 = add nsw i32 %111, %104
   br label %116
 
 113:                                              ; preds = %90
-  %114 = tail call i32 @lv_obj_get_height(ptr noundef %7) #5
+  %114 = tail call i32 @lv_obj_get_height(ptr noundef %7) #6
   %115 = add nsw i32 %114, %107
   br label %116
 
@@ -290,18 +290,18 @@ is_slider_horizontal.exit.thread167:              ; preds = %73, %is_slider_hori
   %119 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i, i32 %.sroa.0.0.extract.trunc.i161)
   %120 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i163, i32 %.sroa.0.0.extract.trunc.i162)
   %. = tail call i32 @llvm.smax.i32(i32 %119, i32 %120)
-  %121 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %7, i32 noundef 196608) #5
+  %121 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %7, i32 noundef 196608) #6
   %122 = add i32 %., 2
   %123 = add i32 %122, %118
   %124 = add nsw i32 %123, %121
-  %125 = tail call ptr @lv_event_get_param(ptr noundef %1) #5
+  %125 = tail call ptr @lv_event_get_param(ptr noundef %1) #6
   %126 = load i32, ptr %125, align 4, !tbaa !36
   %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 %124)
   store i32 %127, ptr %125, align 4, !tbaa !36
   br label %.critedge
 
 128:                                              ; preds = %80
-  %129 = tail call i32 @lv_event_get_key(ptr noundef %1) #5
+  %129 = tail call i32 @lv_event_get_key(ptr noundef %1) #6
   %130 = and i32 %129, -3
   %or.cond8 = icmp eq i32 %130, 17
   br i1 %or.cond8, label %131, label %141
@@ -314,15 +314,15 @@ is_slider_horizontal.exit.thread167:              ; preds = %73, %is_slider_hori
   br i1 %.not152, label %135, label %138
 
 135:                                              ; preds = %131
-  %136 = tail call i32 @lv_bar_get_value(ptr noundef nonnull %7) #5
+  %136 = tail call i32 @lv_bar_get_value(ptr noundef nonnull %7) #6
   %137 = add nsw i32 %136, 1
-  tail call void @lv_bar_set_value(ptr noundef nonnull %7, i32 noundef %137, i1 noundef zeroext true) #5
+  tail call void @lv_bar_set_value(ptr noundef nonnull %7, i32 noundef %137, i1 noundef zeroext true) #6
   br label %152
 
 138:                                              ; preds = %131
-  %139 = tail call i32 @lv_bar_get_start_value(ptr noundef nonnull %7) #5
+  %139 = tail call i32 @lv_bar_get_start_value(ptr noundef nonnull %7) #6
   %140 = add nsw i32 %139, 1
-  tail call void @lv_bar_set_start_value(ptr noundef nonnull %7, i32 noundef %140, i1 noundef zeroext true) #5
+  tail call void @lv_bar_set_start_value(ptr noundef nonnull %7, i32 noundef %140, i1 noundef zeroext true) #6
   br label %152
 
 141:                                              ; preds = %128
@@ -339,23 +339,23 @@ is_slider_horizontal.exit.thread167:              ; preds = %73, %is_slider_hori
   br i1 %.not151, label %146, label %149
 
 146:                                              ; preds = %142
-  %147 = tail call i32 @lv_bar_get_value(ptr noundef nonnull %7) #5
+  %147 = tail call i32 @lv_bar_get_value(ptr noundef nonnull %7) #6
   %148 = add nsw i32 %147, -1
-  tail call void @lv_bar_set_value(ptr noundef nonnull %7, i32 noundef %148, i1 noundef zeroext true) #5
+  tail call void @lv_bar_set_value(ptr noundef nonnull %7, i32 noundef %148, i1 noundef zeroext true) #6
   br label %152
 
 149:                                              ; preds = %142
-  %150 = tail call i32 @lv_bar_get_start_value(ptr noundef nonnull %7) #5
+  %150 = tail call i32 @lv_bar_get_start_value(ptr noundef nonnull %7) #6
   %151 = add nsw i32 %150, -1
-  tail call void @lv_bar_set_start_value(ptr noundef nonnull %7, i32 noundef %151, i1 noundef zeroext true) #5
+  tail call void @lv_bar_set_start_value(ptr noundef nonnull %7, i32 noundef %151, i1 noundef zeroext true) #6
   br label %152
 
 152:                                              ; preds = %149, %146, %135, %138
-  %153 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 35, ptr noundef null) #5
+  %153 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 35, ptr noundef null) #6
   br label %.critedge
 
 154:                                              ; preds = %80
-  %155 = tail call i32 @lv_event_get_rotary_diff(ptr noundef %1) #5
+  %155 = tail call i32 @lv_event_get_rotary_diff(ptr noundef %1) #6
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %157 = load i8, ptr %156, align 8
   %158 = and i8 %157, 2
@@ -363,19 +363,19 @@ is_slider_horizontal.exit.thread167:              ; preds = %73, %is_slider_hori
   br i1 %.not149, label %159, label %162
 
 159:                                              ; preds = %154
-  %160 = tail call i32 @lv_bar_get_value(ptr noundef nonnull %7) #5
+  %160 = tail call i32 @lv_bar_get_value(ptr noundef nonnull %7) #6
   %161 = add nsw i32 %160, %155
-  tail call void @lv_bar_set_value(ptr noundef nonnull %7, i32 noundef %161, i1 noundef zeroext true) #5
+  tail call void @lv_bar_set_value(ptr noundef nonnull %7, i32 noundef %161, i1 noundef zeroext true) #6
   br label %165
 
 162:                                              ; preds = %154
-  %163 = tail call i32 @lv_bar_get_start_value(ptr noundef nonnull %7) #5
+  %163 = tail call i32 @lv_bar_get_start_value(ptr noundef nonnull %7) #6
   %164 = add nsw i32 %163, 1
-  tail call void @lv_bar_set_start_value(ptr noundef nonnull %7, i32 noundef %164, i1 noundef zeroext true) #5
+  tail call void @lv_bar_set_start_value(ptr noundef nonnull %7, i32 noundef %164, i1 noundef zeroext true) #6
   br label %165
 
 165:                                              ; preds = %162, %159
-  %166 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 35, ptr noundef null) #5
+  %166 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 35, ptr noundef null) #6
   br label %.critedge
 
 167:                                              ; preds = %80
@@ -388,8 +388,8 @@ is_slider_horizontal.exit.thread167:              ; preds = %73, %is_slider_hori
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_slider_create(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_slider_class, ptr noundef %0) #5
-  tail call void @lv_obj_class_init_obj(ptr noundef %2) #5
+  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_slider_class, ptr noundef %0) #6
+  tail call void @lv_obj_class_init_obj(ptr noundef %2) #6
   ret ptr %2
 }
 
@@ -415,7 +415,7 @@ define zeroext i1 @lv_slider_is_dragged(ptr noundef readonly captures(address_is
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  tail call void @lv_bar_set_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #5
+  tail call void @lv_bar_set_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #6
   ret void
 }
 
@@ -423,7 +423,7 @@ declare void @lv_bar_set_value(ptr noundef, i32 noundef, i1 noundef zeroext) loc
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_start_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  tail call void @lv_bar_set_start_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #5
+  tail call void @lv_bar_set_start_value(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #6
   ret void
 }
 
@@ -431,7 +431,7 @@ declare void @lv_bar_set_start_value(ptr noundef, i32 noundef, i1 noundef zeroex
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  tail call void @lv_bar_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) #5
+  tail call void @lv_bar_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
   ret void
 }
 
@@ -439,7 +439,7 @@ declare void @lv_bar_set_range(ptr noundef, i32 noundef, i32 noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @lv_bar_set_mode(ptr noundef %0, i32 noundef %1) #5
+  tail call void @lv_bar_set_mode(ptr noundef %0, i32 noundef %1) #6
   ret void
 }
 
@@ -447,7 +447,7 @@ declare void @lv_bar_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_slider_set_orientation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @lv_bar_set_orientation(ptr noundef %0, i32 noundef %1) #5
+  tail call void @lv_bar_set_orientation(ptr noundef %0, i32 noundef %1) #6
   ret void
 }
 
@@ -455,7 +455,7 @@ declare void @lv_bar_set_orientation(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_value(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @lv_bar_get_value(ptr noundef %0) #5
+  %2 = tail call i32 @lv_bar_get_value(ptr noundef %0) #6
   ret i32 %2
 }
 
@@ -463,7 +463,7 @@ declare i32 @lv_bar_get_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_left_value(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @lv_bar_get_start_value(ptr noundef %0) #5
+  %2 = tail call i32 @lv_bar_get_start_value(ptr noundef %0) #6
   ret i32 %2
 }
 
@@ -471,7 +471,7 @@ declare i32 @lv_bar_get_start_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_min_value(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @lv_bar_get_min_value(ptr noundef %0) #5
+  %2 = tail call i32 @lv_bar_get_min_value(ptr noundef %0) #6
   ret i32 %2
 }
 
@@ -479,7 +479,7 @@ declare i32 @lv_bar_get_min_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_slider_get_max_value(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @lv_bar_get_max_value(ptr noundef %0) #5
+  %2 = tail call i32 @lv_bar_get_max_value(ptr noundef %0) #6
   ret i32 %2
 }
 
@@ -487,7 +487,7 @@ declare i32 @lv_bar_get_max_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @lv_slider_get_mode(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @lv_bar_get_mode(ptr noundef %0) #5
+  %2 = tail call i32 @lv_bar_get_mode(ptr noundef %0) #6
   %switch.selectcmp = icmp eq i32 %2, 2
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
   %switch.selectcmp4 = icmp eq i32 %2, 1
@@ -499,7 +499,7 @@ declare i32 @lv_bar_get_mode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @lv_slider_get_orientation(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @lv_bar_get_orientation(ptr noundef %0) #5
+  %2 = tail call i32 @lv_bar_get_orientation(ptr noundef %0) #6
   %switch.selectcmp = icmp eq i32 %2, 2
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
   %switch.selectcmp4 = icmp eq i32 %2, 1
@@ -511,7 +511,7 @@ declare i32 @lv_bar_get_orientation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_slider_is_symmetrical(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @lv_bar_is_symmetrical(ptr noundef %0) #5
+  %2 = tail call zeroext i1 @lv_bar_is_symmetrical(ptr noundef %0) #6
   ret i1 %2
 }
 
@@ -547,20 +547,20 @@ declare void @lv_obj_transform_point(ptr noundef, ptr noundef, i32 noundef) loca
 define internal fastcc void @update_knob_pos(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.lv_point_t, align 4
   %4 = alloca %struct.lv_point_t, align 4
-  %5 = tail call ptr @lv_indev_active() #5
-  %6 = tail call i32 @lv_indev_get_type(ptr noundef %5) #5
+  %5 = tail call ptr @lv_indev_active() #6
+  %6 = tail call i32 @lv_indev_get_type(ptr noundef %5) #6
   %.not = icmp eq i32 %6, 1
   br i1 %.not, label %7, label %243
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @lv_indev_get_scroll_obj(ptr noundef %5) #5
+  %8 = tail call ptr @lv_indev_get_scroll_obj(ptr noundef %5) #6
   %.not97 = icmp eq ptr %8, null
   br i1 %.not97, label %9, label %243
 
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @lv_indev_get_point(ptr noundef %5, ptr noundef nonnull %4) #5
-  call void @lv_obj_transform_point(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 3) #5
+  call void @lv_indev_get_point(ptr noundef %5, ptr noundef nonnull %4) #6
+  call void @lv_obj_transform_point(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 3) #6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load i8, ptr %10, align 8
   %12 = lshr i8 %11, 3
@@ -571,8 +571,8 @@ define internal fastcc void @update_knob_pos(ptr noundef %0, i1 noundef zeroext 
   ]
 
 14:                                               ; preds = %9
-  %15 = call i32 @lv_obj_get_width(ptr noundef nonnull %0) #5
-  %16 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #5
+  %15 = call i32 @lv_obj_get_width(ptr noundef nonnull %0) #6
+  %16 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #6
   %17 = icmp sge i32 %15, %16
   br label %is_slider_horizontal.exit
 
@@ -624,7 +624,7 @@ is_slider_horizontal.exit:                        ; preds = %9, %14, %18
   br i1 %.not100, label %44, label %164
 
 44:                                               ; preds = %41
-  %45 = call i32 @lv_bar_get_mode(ptr noundef nonnull %0) #5
+  %45 = call i32 @lv_bar_get_mode(ptr noundef nonnull %0) #6
   %switch.selectcmp.i.not.i = icmp eq i32 %45, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -639,10 +639,10 @@ is_slider_horizontal.exit:                        ; preds = %9, %14, %18
   br label %drag_start.exit
 
 51:                                               ; preds = %44
-  %52 = call ptr @lv_indev_active() #5
-  call void @lv_indev_get_point(ptr noundef %52, ptr noundef nonnull %3) #5
-  call void @lv_obj_transform_point(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 3) #5
-  %53 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 39) #5
+  %52 = call ptr @lv_indev_active() #6
+  call void @lv_indev_get_point(ptr noundef %52, ptr noundef nonnull %3) #6
+  call void @lv_obj_transform_point(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 3) #6
+  %53 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 39) #6
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, 4294967295
   %56 = icmp eq i64 %55, 1
@@ -668,8 +668,8 @@ is_slider_horizontal.exit.thread111.i:            ; preds = %51
   br i1 %.not113.i, label %118, label %.critedge103.i
 
 is_slider_horizontal.exit.i:                      ; preds = %51
-  %65 = call i32 @lv_obj_get_width(ptr noundef nonnull %0) #5
-  %66 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #5
+  %65 = call i32 @lv_obj_get_width(ptr noundef nonnull %0) #6
+  %66 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #6
   %67 = icmp sge i32 %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load i8, ptr %68, align 8, !tbaa !47, !range !48, !noundef !49
@@ -866,7 +866,7 @@ drag_start.exit:                                  ; preds = %49, %82, %90, %109,
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %168 = load i32, ptr %167, align 4, !tbaa !59
   %169 = sub nsw i32 %166, %168
-  %170 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 39) #5
+  %170 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 39) #6
   %171 = ptrtoint ptr %170 to i64
   %172 = and i64 %171, 4294967295
   %173 = icmp eq i64 %172, 1
@@ -879,8 +879,8 @@ drag_start.exit:                                  ; preds = %49, %82, %90, %109,
   ]
 
 177:                                              ; preds = %164
-  %178 = call i32 @lv_obj_get_width(ptr noundef nonnull %0) #5
-  %179 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #5
+  %178 = call i32 @lv_obj_get_width(ptr noundef nonnull %0) #6
+  %179 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #6
   %180 = icmp sge i32 %178, %179
   br label %is_slider_horizontal.exit106
 
@@ -897,13 +897,13 @@ is_slider_horizontal.exit106:                     ; preds = %164, %177, %181
   br i1 %.0.i, label %186, label %207
 
 186:                                              ; preds = %is_slider_horizontal.exit106
-  %187 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #5
+  %187 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #6
   %188 = ptrtoint ptr %187 to i64
   %.sroa.0.0.extract.trunc.i107 = trunc i64 %188 to i32
-  %189 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 19) #5
+  %189 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 19) #6
   %190 = ptrtoint ptr %189 to i64
   %.sroa.0.0.extract.trunc.i108 = trunc i64 %190 to i32
-  %191 = call i32 @lv_obj_get_width(ptr noundef nonnull %0) #5
+  %191 = call i32 @lv_obj_get_width(ptr noundef nonnull %0) #6
   %192 = add i32 %.sroa.0.0.extract.trunc.i108, %.sroa.0.0.extract.trunc.i107
   %193 = sub i32 %191, %192
   br i1 %.not101, label %200, label %194
@@ -930,13 +930,13 @@ is_slider_horizontal.exit106:                     ; preds = %164, %177, %181
   br i1 %.not102, label %232, label %.sink.split
 
 207:                                              ; preds = %is_slider_horizontal.exit106
-  %208 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 16) #5
+  %208 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 16) #6
   %209 = ptrtoint ptr %208 to i64
   %.sroa.0.0.extract.trunc.i109 = trunc i64 %209 to i32
-  %210 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 17) #5
+  %210 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 17) #6
   %211 = ptrtoint ptr %210 to i64
   %.sroa.0.0.extract.trunc.i110 = trunc i64 %211 to i32
-  %212 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #5
+  %212 = call i32 @lv_obj_get_height(ptr noundef nonnull %0) #6
   %213 = add i32 %.sroa.0.0.extract.trunc.i109, %.sroa.0.0.extract.trunc.i110
   %214 = sub i32 %212, %213
   %215 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -987,9 +987,9 @@ is_slider_horizontal.exit106:                     ; preds = %164, %177, %181
 240:                                              ; preds = %232
   store i32 %238, ptr %233, align 4, !tbaa !36
   %. = select i1 %.0.i, i32 512, i32 256
-  call void @lv_obj_remove_flag(ptr noundef nonnull %0, i32 noundef %.) #5
-  call void @lv_obj_invalidate(ptr noundef nonnull %0) #5
-  %241 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 35, ptr noundef null) #5
+  call void @lv_obj_remove_flag(ptr noundef nonnull %0, i32 noundef %.) #6
+  call void @lv_obj_invalidate(ptr noundef nonnull %0) #6
+  %241 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 35, ptr noundef null) #6
   br label %242
 
 242:                                              ; preds = %240, %232, %35
@@ -1022,8 +1022,8 @@ define internal fastcc zeroext i1 @is_slider_horizontal(ptr noundef %0) unnamed_
   ]
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #5
-  %8 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %0) #5
+  %7 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #6
+  %8 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %0) #6
   %9 = icmp sge i32 %7, %8
   br label %11
 
@@ -1054,9 +1054,9 @@ define internal fastcc void @draw_knob(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.lv_area_t, align 4
   %3 = alloca %struct.lv_draw_rect_dsc_t, align 8
   %4 = alloca %struct.lv_draw_rect_dsc_t, align 8
-  %5 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #5
-  %6 = tail call ptr @lv_event_get_layer(ptr noundef %0) #5
-  %7 = tail call ptr @lv_obj_get_style_prop(ptr noundef %5, i32 noundef 0, i8 noundef zeroext 39) #5
+  %5 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #6
+  %6 = tail call ptr @lv_event_get_layer(ptr noundef %0) #6
+  %7 = tail call ptr @lv_obj_get_style_prop(ptr noundef %5, i32 noundef 0, i8 noundef zeroext 39) #6
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 4294967295
   %10 = icmp eq i64 %9, 1
@@ -1070,8 +1070,8 @@ define internal fastcc void @draw_knob(ptr noundef %0) unnamed_addr #0 {
   ]
 
 15:                                               ; preds = %1
-  %16 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %5) #5
-  %17 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %5) #5
+  %16 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %5) #6
+  %17 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %5) #6
   %18 = icmp sge i32 %16, %17
   br label %is_slider_horizontal.exit
 
@@ -1086,11 +1086,11 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   %23 = zext i1 %22 to i8
   %.not = icmp eq i8 %21, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %24 = tail call zeroext i1 @lv_bar_is_symmetrical(ptr noundef nonnull %5) #5
+  %24 = tail call zeroext i1 @lv_bar_is_symmetrical(ptr noundef nonnull %5) #6
   br i1 %.0.i, label %25, label %35
 
 25:                                               ; preds = %is_slider_horizontal.exit
-  %26 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %5) #5
+  %26 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %5) #6
   br i1 %24, label %27, label %33
 
 27:                                               ; preds = %25
@@ -1114,7 +1114,7 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   br label %47
 
 35:                                               ; preds = %is_slider_horizontal.exit
-  %36 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %5) #5
+  %36 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %5) #6
   br i1 %24, label %37, label %44
 
 37:                                               ; preds = %35
@@ -1142,10 +1142,10 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
 47:                                               ; preds = %41, %44, %31, %33
   %.0 = phi i32 [ %26, %31 ], [ %26, %33 ], [ %36, %41 ], [ %36, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @lv_draw_rect_dsc_init(ptr noundef nonnull %3) #5
+  call void @lv_draw_rect_dsc_init(ptr noundef nonnull %3) #6
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %6, ptr %48, align 8, !tbaa !65
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %5, i32 noundef 196608, ptr noundef nonnull %3) #5
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %5, i32 noundef 196608, ptr noundef nonnull %3) #6
   call fastcc void @position_knob(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %.0, i1 noundef zeroext %.0.i)
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %50 = load i32, ptr %2, align 4, !tbaa !29
@@ -1162,18 +1162,18 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   %58 = load i32, ptr %57, align 4, !tbaa !32
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 188
   store i32 %58, ptr %59, align 4, !tbaa !32
-  %60 = call i32 @lv_bar_get_mode(ptr noundef nonnull %5) #5
+  %60 = call i32 @lv_bar_get_mode(ptr noundef nonnull %5) #6
   %switch.selectcmp.i = icmp eq i32 %60, 2
   br i1 %switch.selectcmp.i, label %62, label %61
 
 61:                                               ; preds = %47
-  call void @lv_draw_rect(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %49) #5
+  call void @lv_draw_rect(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %49) #6
   br label %78
 
 62:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %63 = call ptr @lv_memcpy(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 144) #5
-  call void @lv_draw_rect(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %49) #5
+  %63 = call ptr @lv_memcpy(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef 144) #6
+  call void @lv_draw_rect(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %49) #6
   br i1 %.0.i, label %64, label %66
 
 64:                                               ; preds = %62
@@ -1204,8 +1204,8 @@ is_slider_horizontal.exit:                        ; preds = %1, %15, %19
   %75 = load i32, ptr %57, align 4, !tbaa !32
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 172
   store i32 %75, ptr %76, align 4, !tbaa !32
-  %77 = call ptr @lv_memcpy(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 144) #5
-  call void @lv_draw_rect(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %69) #5
+  %77 = call ptr @lv_memcpy(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 144) #6
+  call void @lv_draw_rect(ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %69) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
@@ -1266,22 +1266,22 @@ define internal fastcc void @position_knob(ptr noundef %0, ptr noundef nonnull c
   %.sink = phi i32 [ %16, %6 ], [ %22, %17 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.sink, ptr %29, align 4, !tbaa !32
-  %30 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 18) #5
+  %30 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 18) #6
   %31 = ptrtoint ptr %30 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %31 to i32
-  %32 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 19) #5
+  %32 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 19) #6
   %33 = ptrtoint ptr %32 to i64
   %.sroa.0.0.extract.trunc.i36 = trunc i64 %33 to i32
-  %34 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 16) #5
+  %34 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 16) #6
   %35 = ptrtoint ptr %34 to i64
   %.sroa.0.0.extract.trunc.i37 = trunc i64 %35 to i32
-  %36 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 17) #5
+  %36 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 17) #6
   %37 = ptrtoint ptr %36 to i64
   %.sroa.0.0.extract.trunc.i38 = trunc i64 %37 to i32
-  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 104) #5
+  %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 104) #6
   %39 = ptrtoint ptr %38 to i64
   %.sroa.0.0.extract.trunc.i39 = trunc i64 %39 to i32
-  %40 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 105) #5
+  %40 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 196608, i8 noundef zeroext 105) #6
   %41 = ptrtoint ptr %40 to i64
   %.sroa.0.0.extract.trunc.i40 = trunc i64 %41 to i32
   %42 = load i32, ptr %1, align 4, !tbaa !29
@@ -1315,21 +1315,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -16,12 +16,12 @@ define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef 
   br i1 %3, label %6, label %.preheader250
 
 .preheader250:                                    ; preds = %2
-  %4 = tail call ptr @__ctype_b_loc() #7
+  %4 = tail call ptr @__ctype_b_loc() #8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   br label %9
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #7
+  %7 = tail call ptr @__errno_location() #8
   store i32 14, ptr %7, align 4, !tbaa !9
   %.not232 = icmp eq ptr %1, null
   br i1 %.not232, label %179, label %8
@@ -54,7 +54,7 @@ define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef 
   br label %179
 
 20:                                               ; preds = %16
-  %21 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.0165, ptr noundef nonnull @.str) #8
+  %21 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.0165, ptr noundef nonnull @.str) #9
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20
@@ -390,7 +390,7 @@ thread-pre-split:                                 ; preds = %77
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %.outer245._crit_edge.thread
-  %121 = tail call ptr @__errno_location() #7
+  %121 = tail call ptr @__errno_location() #8
   store i32 22, ptr %121, align 4, !tbaa !9
   %.not223 = icmp eq ptr %1, null
   br i1 %.not223, label %179, label %122
@@ -516,7 +516,7 @@ thread-pre-split:                                 ; preds = %77
   br i1 %or.cond13, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = tail call ptr @__errno_location() #7
+  %162 = tail call ptr @__errno_location() #8
   store i32 34, ptr %162, align 4, !tbaa !9
   br label %179
 
@@ -546,7 +546,7 @@ thread-pre-split:                                 ; preds = %77
 
 175:                                              ; preds = %165
   %176 = sitofp i32 %.1173 to double
-  %177 = tail call double @pow(double noundef 1.000000e+01, double noundef %176) #8, !tbaa !9
+  %177 = tail call double @pow(double noundef 1.000000e+01, double noundef %176) #9, !tbaa !9
   %178 = fmul double %.3177, %177
   br label %179
 
@@ -561,14 +561,14 @@ declare ptr @__errno_location() local_unnamed_addr #1
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #4
+declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_Z9proj_atofPKc(ptr noundef %0) local_unnamed_addr #0 {
@@ -580,20 +580,21 @@ define hidden noundef double @_Z9proj_atofPKc(ptr noundef %0) local_unnamed_addr
 declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #5
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

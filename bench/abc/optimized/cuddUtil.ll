@@ -46,7 +46,7 @@ define range(i32 0, 2) i32 @Cudd_PrintMinterm(ptr noundef %0, ptr noundef %1) lo
   %11 = load i32, ptr %10, align 8, !tbaa !26
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #22
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #23
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %.preheader
 
@@ -73,7 +73,7 @@ define range(i32 0, 2) i32 @Cudd_PrintMinterm(ptr noundef %0, ptr noundef %1) lo
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call fastcc void @ddPrintMintermAux(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %14)
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %20
 
 20:                                               ; preds = %._crit_edge, %17
@@ -132,7 +132,7 @@ define internal fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef %1, p
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load double, ptr %25, align 8, !tbaa !34
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.18, double noundef %26) #23
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.18, double noundef %26) #24
   br label %common.ret47
 
 common.ret47:                                     ; preds = %9, %._crit_edge, %28
@@ -171,10 +171,10 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #23
+  %7 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #24
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #22
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #23
   %11 = icmp eq ptr %10, null
   br i1 %11, label %96, label %12
 
@@ -186,7 +186,7 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   %17 = load i32, ptr %16, align 4, !tbaa !35
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4, !tbaa !35
-  %19 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %0) #23
+  %19 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %0) #24
   %.not108 = icmp eq ptr %1, %19
   br i1 %.not108, label %._crit_edge112, label %.lr.ph111
 
@@ -199,7 +199,7 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
 23:                                               ; preds = %.lr.ph111, %._crit_edge
   %.074109 = phi ptr [ %1, %.lr.ph111 ], [ %44, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %24 = call ptr @Cudd_LargestCube(ptr noundef %0, ptr noundef %.074109, ptr noundef nonnull %6) #23
+  %24 = call ptr @Cudd_LargestCube(ptr noundef %0, ptr noundef %.074109, ptr noundef nonnull %6) #24
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.critedge, label %26
 
@@ -211,7 +211,7 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   %31 = load i32, ptr %30, align 4, !tbaa !35
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4, !tbaa !35
-  %33 = call ptr @Cudd_bddMakePrime(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %2) #23
+  %33 = call ptr @Cudd_bddMakePrime(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %2) #24
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.critedge.sink.split, label %35
 
@@ -223,10 +223,10 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   %40 = load i32, ptr %39, align 4, !tbaa !35
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !35
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %24) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %24) #24
   %42 = xor i64 %36, 1
   %43 = inttoptr i64 %42 to ptr
-  %44 = call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.074109, ptr noundef %43) #23
+  %44 = call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.074109, ptr noundef %43) #24
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.critedge.sink.split, label %46
 
@@ -238,10 +238,10 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   %51 = load i32, ptr %50, align 4, !tbaa !35
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 4, !tbaa !35
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.074109) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.074109) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %53 = call i32 @Cudd_ReadSize(ptr noundef %0) #23
+  %53 = call i32 @Cudd_ReadSize(ptr noundef %0) #24
   %54 = load ptr, ptr %20, align 8, !tbaa !25
   %55 = icmp sgt i32 %53, 0
   br i1 %55, label %.lr.ph.preheader.i, label %.preheader.i
@@ -269,7 +269,7 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
 .lr.ph30.i:                                       ; preds = %.preheader.i, %75
   %63 = phi i32 [ %79, %75 ], [ %60, %.preheader.i ]
   %.02129.i = phi ptr [ %.122.i, %75 ], [ %33, %.preheader.i ]
-  call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %4, ptr noundef nonnull %5) #23
+  call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
   %64 = load ptr, ptr %4, align 8, !tbaa !24
   %65 = icmp eq ptr %64, %59
   br i1 %65, label %66, label %69
@@ -344,9 +344,9 @@ switch.lookup:                                    ; preds = %.lr.ph
 ._crit_edge:                                      ; preds = %87, %.preheader
   %91 = load ptr, ptr %22, align 8, !tbaa !32
   %92 = call i64 @fwrite(ptr nonnull @.str.4, i64 3, i64 1, ptr %91)
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %33) #23
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %33) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %93 = call ptr @Cudd_ReadLogicZero(ptr noundef nonnull %0) #23
+  %93 = call ptr @Cudd_ReadLogicZero(ptr noundef nonnull %0) #24
   %.not = icmp eq ptr %44, %93
   br i1 %.not, label %._crit_edge112, label %23, !llvm.loop !39
 
@@ -355,20 +355,20 @@ switch.lookup:                                    ; preds = %.lr.ph
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %95 = load ptr, ptr %94, align 8, !tbaa !32
   %fputc = call i32 @fputc(i32 10, ptr %95)
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.074.lcssa) #23
-  call void @free(ptr noundef %10) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.074.lcssa) #24
+  call void @free(ptr noundef %10) #24
   br label %96
 
 .critedge.sink.split:                             ; preds = %Cudd_BddToCubeArray.exit, %35, %26, %Cudd_BddToCubeArray.exit.thread
   %.sink163 = phi ptr [ %44, %Cudd_BddToCubeArray.exit.thread ], [ %.074109, %26 ], [ %.074109, %35 ], [ %44, %Cudd_BddToCubeArray.exit ]
   %.sink162.ph = phi ptr [ %33, %Cudd_BddToCubeArray.exit.thread ], [ %24, %26 ], [ %33, %35 ], [ %33, %Cudd_BddToCubeArray.exit ]
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.sink163) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.sink163) #24
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %.critedge.sink.split
   %.sink162 = phi ptr [ %.sink162.ph, %.critedge.sink.split ], [ %.074109, %23 ]
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.sink162) #23
-  call void @free(ptr noundef %10) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.sink162) #24
+  call void @free(ptr noundef %10) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %96
 
@@ -395,7 +395,7 @@ define range(i32 0, 2) i32 @Cudd_BddToCubeArray(ptr noundef %0, ptr noundef %1, 
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #23
+  %6 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = icmp sgt i32 %6, 0
@@ -427,7 +427,7 @@ define range(i32 0, 2) i32 @Cudd_BddToCubeArray(ptr noundef %0, ptr noundef %1, 
 .lr.ph30:                                         ; preds = %.preheader, %32
   %20 = phi i32 [ %36, %32 ], [ %17, %.preheader ]
   %.02129 = phi ptr [ %.122, %32 ], [ %1, %.preheader ]
-  call void @cuddGetBranches(ptr noundef %.02129, ptr noundef nonnull %4, ptr noundef nonnull %5) #23
+  call void @cuddGetBranches(ptr noundef %.02129, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
   %21 = load ptr, ptr %4, align 8, !tbaa !24
   %22 = icmp eq ptr %21, %13
   br i1 %22, label %23, label %26
@@ -532,18 +532,18 @@ define range(i32 0, 2) i32 @Cudd_PrintDebug(ptr noundef %0, ptr noundef %1, i32 
   %narrow51 = select i1 %38, i1 %33, i1 false
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %40 = load ptr, ptr %39, align 8, !tbaa !32
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.8, i32 noundef %32, i32 noundef %34, double noundef %36) #23
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.8, i32 noundef %32, i32 noundef %34, double noundef %36) #24
   %42 = icmp samesign ugt i32 %3, 2
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %28
-  %44 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #23
+  %44 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #24
   %45 = icmp eq ptr %44, null
   br i1 %45, label %cuddP.exit.thread, label %cuddP.exit
 
 cuddP.exit:                                       ; preds = %43
   %46 = tail call fastcc i32 @dp2(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %44)
-  tail call void @st__free_table(ptr noundef nonnull %44) #23
+  tail call void @st__free_table(ptr noundef nonnull %44) #24
   %47 = load ptr, ptr %39, align 8, !tbaa !32
   %48 = tail call i32 @fputc(i32 noundef 10, ptr noundef %47)
   %.fr = freeze i32 %46
@@ -574,7 +574,7 @@ cuddP.exit.thread:                                ; preds = %43, %cuddP.exit
   %60 = load i32, ptr %59, align 8, !tbaa !26
   %61 = sext i32 %60 to i64
   %62 = shl nsw i64 %61, 2
-  %63 = tail call noalias ptr @malloc(i64 noundef %62) #22
+  %63 = tail call noalias ptr @malloc(i64 noundef %62) #23
   %64 = icmp eq ptr %63, null
   br i1 %64, label %67, label %.preheader.i
 
@@ -596,7 +596,7 @@ cuddP.exit.thread:                                ; preds = %43, %cuddP.exit
 
 Cudd_PrintMinterm.exit:                           ; preds = %.lr.ph.i, %.preheader.i
   tail call fastcc void @ddPrintMintermAux(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %63)
-  tail call void @free(ptr noundef nonnull %63) #23
+  tail call void @free(ptr noundef nonnull %63) #24
   br label %69
 
 67:                                               ; preds = %52
@@ -657,16 +657,16 @@ define double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %10 = inttoptr i64 %9 to ptr
   store ptr %10, ptr @zero, align 8, !tbaa !24
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %2)
-  %11 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #23
+  %11 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #24
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %3
-  %14 = tail call double @Cudd_ReadEpsilon(ptr noundef nonnull %0) #23
-  tail call void @Cudd_SetEpsilon(ptr noundef nonnull %0, double noundef 0.000000e+00) #23
+  %14 = tail call double @Cudd_ReadEpsilon(ptr noundef nonnull %0) #24
+  tail call void @Cudd_SetEpsilon(ptr noundef nonnull %0, double noundef 0.000000e+00) #24
   %15 = tail call fastcc double @ddCountMintermAux(ptr noundef %1, double noundef %ldexp, ptr noundef %11)
-  tail call void @cuddHashTableQuit(ptr noundef nonnull %11) #23
-  tail call void @Cudd_SetEpsilon(ptr noundef nonnull %0, double noundef %14) #23
+  tail call void @cuddHashTableQuit(ptr noundef nonnull %11) #24
+  tail call void @Cudd_SetEpsilon(ptr noundef nonnull %0, double noundef %14) #24
   br label %16
 
 16:                                               ; preds = %3, %13
@@ -676,13 +676,13 @@ define double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cuddP(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #23
+  %3 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #24
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = tail call fastcc i32 @dp2(ptr noundef %0, ptr noundef %1, ptr noundef %3)
-  tail call void @st__free_table(ptr noundef nonnull %3) #23
+  tail call void @st__free_table(ptr noundef nonnull %3) #24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = tail call i32 @fputc(i32 noundef 10, ptr noundef %8)
@@ -787,7 +787,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 define i32 @Cudd_EstimateCofactor(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #23
+  %6 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #24
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
 
@@ -797,7 +797,7 @@ define i32 @Cudd_EstimateCofactor(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %11 = inttoptr i64 %10 to ptr
   %12 = call fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %6, ptr noundef %11, i32 noundef %2, i32 noundef %3, ptr noundef %5)
   call fastcc void @ddClearFlag(ptr noundef %11)
-  call void @st__free_table(ptr noundef nonnull %6) #23
+  call void @st__free_table(ptr noundef nonnull %6) #24
   br label %13
 
 13:                                               ; preds = %4, %8
@@ -826,12 +826,12 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef non
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %6
-  %14 = tail call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %5) #23
+  %14 = tail call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %5) #24
   %.not91 = icmp eq i32 %14, 0
   br i1 %.not91, label %15, label %190
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
+  %16 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #24
   %17 = icmp eq i32 %16, -10000
   br i1 %17, label %190, label %18
 
@@ -849,7 +849,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef non
 
 24:                                               ; preds = %19
   store ptr %2, ptr %5, align 8, !tbaa !24
-  %25 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
+  %25 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #24
   %26 = icmp eq i32 %25, -10000
   %. = select i1 %26, i32 -1, i32 1
   br label %190
@@ -887,7 +887,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef non
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %5, align 8, !tbaa !24
-  %47 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %46) #23
+  %47 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %46) #24
   %48 = icmp eq i32 %47, -10000
   br i1 %48, label %190, label %49
 
@@ -923,7 +923,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef non
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %60
-  %74 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
+  %74 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #24
   %75 = icmp eq i32 %74, -10000
   br i1 %75, label %190, label %76
 
@@ -962,7 +962,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef non
   br i1 %101, label %102, label %189
 
 102:                                              ; preds = %98
-  %103 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %96) #23
+  %103 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %96) #24
   %104 = icmp eq i32 %103, -10000
   br i1 %104, label %190, label %189
 
@@ -1077,7 +1077,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef non
   br i1 %183, label %184, label %189
 
 184:                                              ; preds = %174
-  %185 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.131.i) #23
+  %185 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.131.i) #24
   %186 = icmp eq i32 %185, -10000
   br i1 %186, label %190, label %189
 
@@ -1242,7 +1242,7 @@ define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef 
   br i1 %.not, label %35, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @cuddHashTableLookup1(ptr noundef nonnull %2, ptr noundef %0) #23
+  %19 = tail call ptr @cuddHashTableLookup1(ptr noundef nonnull %2, ptr noundef %0) #24
   %.not52 = icmp eq ptr %19, null
   br i1 %.not52, label %35, label %20
 
@@ -1304,8 +1304,8 @@ define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef 
   %59 = add nsw i64 %58, -1
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %61 = load ptr, ptr %60, align 8, !tbaa !51
-  %62 = tail call ptr @cuddUniqueConst(ptr noundef %61, double noundef %55) #23
-  %63 = tail call i32 @cuddHashTableInsert1(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %62, i64 noundef %59) #23
+  %62 = tail call ptr @cuddUniqueConst(ptr noundef %61, double noundef %55) #24
+  %63 = tail call i32 @cuddHashTableInsert1(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %62, i64 noundef %59) #24
   %.not55.not = icmp eq i32 %63, 0
   br i1 %.not55.not, label %64, label %.critedge
 
@@ -1318,7 +1318,7 @@ define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef 
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4, !tbaa !35
   %71 = load ptr, ptr %60, align 8, !tbaa !51
-  tail call void @Cudd_RecursiveDeref(ptr noundef %71, ptr noundef %62) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %71, ptr noundef %62) #24
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %57, %64, %46, %35, %20, %26, %9, %14
@@ -1330,7 +1330,7 @@ declare void @cuddHashTableQuit(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define double @Cudd_CountPath(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #23
+  %2 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #24
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4
 
@@ -1339,8 +1339,8 @@ define double @Cudd_CountPath(ptr noundef %0) local_unnamed_addr #0 {
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call fastcc double @ddCountPathAux(ptr noundef %7, ptr noundef %2)
-  %9 = tail call i32 @st__foreach(ptr noundef nonnull %2, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #23
-  tail call void @st__free_table(ptr noundef nonnull %2) #23
+  %9 = tail call i32 @st__foreach(ptr noundef nonnull %2, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #24
+  tail call void @st__free_table(ptr noundef nonnull %2) #24
   br label %10
 
 10:                                               ; preds = %1, %4
@@ -1357,7 +1357,7 @@ define internal fastcc double @ddCountPathAux(ptr noundef %0, ptr noundef nonnul
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %3) #23
+  %7 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %3) #24
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
@@ -1384,19 +1384,19 @@ define internal fastcc double @ddCountPathAux(ptr noundef %0, ptr noundef nonnul
   br i1 %23, label %32, label %24
 
 24:                                               ; preds = %18
-  %25 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
+  %25 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   %26 = icmp eq ptr %25, null
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %24
   %28 = fadd double %16, %22
   store double %28, ptr %25, align 8, !tbaa !60
-  %29 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %25) #23
+  %29 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %25) #24
   %30 = icmp eq i32 %29, -10000
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %27
-  call void @free(ptr noundef nonnull %25) #23
+  call void @free(ptr noundef nonnull %25) #24
   br label %32
 
 32:                                               ; preds = %27, %24, %18, %11, %2, %31, %8
@@ -1413,7 +1413,7 @@ define noundef i32 @cuddStCountfree(ptr readnone captures(none) %0, ptr noundef 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %1) #23
+  tail call void @free(ptr noundef nonnull %1) #24
   br label %5
 
 5:                                                ; preds = %3, %4
@@ -1435,13 +1435,13 @@ define range(i32 -1, 1) i32 @Cudd_EpdCountMinterm(ptr noundef readonly captures(
   %12 = xor i64 %11, 1
   %13 = inttoptr i64 %12 to ptr
   store ptr %13, ptr @zero, align 8, !tbaa !24
-  call void @EpdPow2(i32 noundef %2, ptr noundef nonnull %5) #23
-  %14 = call ptr @st__init_table(ptr noundef nonnull @EpdCmp, ptr noundef nonnull @st__ptrhash) #23
+  call void @EpdPow2(i32 noundef %2, ptr noundef nonnull %5) #24
+  %14 = call ptr @st__init_table(ptr noundef nonnull @EpdCmp, ptr noundef nonnull @st__ptrhash) #24
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
-  call void @EpdMakeZero(ptr noundef %3, i32 noundef 0) #23
+  call void @EpdMakeZero(ptr noundef %3, i32 noundef 0) #24
   br label %28
 
 17:                                               ; preds = %4
@@ -1449,13 +1449,13 @@ define range(i32 -1, 1) i32 @Cudd_EpdCountMinterm(ptr noundef readonly captures(
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = call fastcc i32 @ddEpdCountMintermAux(ptr noundef %20, ptr noundef %5, ptr noundef %3, ptr noundef %14)
-  %22 = call i32 @st__foreach(ptr noundef nonnull %14, ptr noundef nonnull @ddEpdFree, ptr noundef null) #23
-  call void @st__free_table(ptr noundef nonnull %14) #23
+  %22 = call i32 @st__foreach(ptr noundef nonnull %14, ptr noundef nonnull @ddEpdFree, ptr noundef null) #24
+  call void @st__free_table(ptr noundef nonnull %14) #24
   %23 = icmp eq i32 %21, -1
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %17
-  call void @EpdMakeZero(ptr noundef %3, i32 noundef 0) #23
+  call void @EpdMakeZero(ptr noundef %3, i32 noundef 0) #24
   br label %28
 
 25:                                               ; preds = %17
@@ -1464,8 +1464,8 @@ define range(i32 -1, 1) i32 @Cudd_EpdCountMinterm(ptr noundef readonly captures(
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %25
-  call void @EpdSubtract3(ptr noundef nonnull %5, ptr noundef %3, ptr noundef nonnull %6) #23
-  call void @EpdCopy(ptr noundef nonnull %6, ptr noundef %3) #23
+  call void @EpdSubtract3(ptr noundef nonnull %5, ptr noundef %3, ptr noundef nonnull %6) #24
+  call void @EpdCopy(ptr noundef nonnull %6, ptr noundef %3) #24
   br label %28
 
 28:                                               ; preds = %25, %27, %24, %16
@@ -1502,11 +1502,11 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
   br i1 %or.cond, label %15, label %16
 
 15:                                               ; preds = %10
-  tail call void @EpdMakeZero(ptr noundef %2, i32 noundef 0) #23
+  tail call void @EpdMakeZero(ptr noundef %2, i32 noundef 0) #24
   br label %49
 
 16:                                               ; preds = %10
-  tail call void @EpdCopy(ptr noundef nonnull %1, ptr noundef %2) #23
+  tail call void @EpdCopy(ptr noundef nonnull %1, ptr noundef %2) #24
   br label %49
 
 17:                                               ; preds = %4
@@ -1516,13 +1516,13 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
   br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  %21 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %7) #24
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %24, label %22
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %7, align 8, !tbaa !61
-  call void @EpdCopy(ptr noundef %23, ptr noundef %2) #23
+  call void @EpdCopy(ptr noundef %23, ptr noundef %2) #24
   br label %49
 
 24:                                               ; preds = %20, %17
@@ -1535,7 +1535,7 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
   br i1 %30, label %49, label %31
 
 31:                                               ; preds = %24
-  call void @EpdMultiply(ptr noundef nonnull %5, double noundef 5.000000e-01) #23
+  call void @EpdMultiply(ptr noundef nonnull %5, double noundef 5.000000e-01) #24
   %32 = ptrtoint ptr %28 to i64
   %33 = and i64 %32, -2
   %34 = inttoptr i64 %33 to ptr
@@ -1549,30 +1549,30 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
   br i1 %.not36, label %40, label %39
 
 39:                                               ; preds = %37
-  call void @EpdSubtract3(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %2) #23
-  call void @EpdCopy(ptr noundef %2, ptr noundef nonnull %6) #23
+  call void @EpdSubtract3(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %2) #24
+  call void @EpdCopy(ptr noundef %2, ptr noundef nonnull %6) #24
   br label %40
 
 40:                                               ; preds = %39, %37
-  call void @EpdMultiply(ptr noundef nonnull %6, double noundef 5.000000e-01) #23
-  call void @EpdAdd3(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #23
+  call void @EpdMultiply(ptr noundef nonnull %6, double noundef 5.000000e-01) #24
+  call void @EpdAdd3(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #24
   %41 = load i32, ptr %18, align 4, !tbaa !35
   %42 = icmp ugt i32 %41, 1
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %40
-  %44 = call ptr @EpdAlloc() #23
+  %44 = call ptr @EpdAlloc() #24
   %.not37 = icmp eq ptr %44, null
   br i1 %.not37, label %49, label %45
 
 45:                                               ; preds = %43
-  call void @EpdCopy(ptr noundef %2, ptr noundef nonnull %44) #23
-  %46 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %44) #23
+  call void @EpdCopy(ptr noundef %2, ptr noundef nonnull %44) #24
+  %46 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %44) #24
   %47 = icmp eq i32 %46, -10000
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %45
-  call void @EpdFree(ptr noundef nonnull %44) #23
+  call void @EpdFree(ptr noundef nonnull %44) #24
   br label %49
 
 49:                                               ; preds = %40, %45, %43, %31, %24, %15, %16, %48, %22
@@ -1585,7 +1585,7 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ddEpdFree(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
-  tail call void @EpdFree(ptr noundef %1) #23
+  tail call void @EpdFree(ptr noundef %1) #24
   ret i32 0
 }
 
@@ -1595,14 +1595,14 @@ declare void @EpdCopy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define double @Cudd_CountPathsToNonZero(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #23
+  %2 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #24
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = tail call fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef %2)
-  %6 = tail call i32 @st__foreach(ptr noundef nonnull %2, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #23
-  tail call void @st__free_table(ptr noundef nonnull %2) #23
+  %6 = tail call i32 @st__foreach(ptr noundef nonnull %2, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #24
+  tail call void @st__free_table(ptr noundef nonnull %2) #24
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -1634,7 +1634,7 @@ define internal fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef
   br label %45
 
 16:                                               ; preds = %2
-  %17 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %3) #23
+  %17 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %3) #24
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %21, label %18
 
@@ -1667,19 +1667,19 @@ define internal fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef
   br i1 %36, label %45, label %37
 
 37:                                               ; preds = %31
-  %38 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
+  %38 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   %39 = icmp eq ptr %38, null
   br i1 %39, label %45, label %40
 
 40:                                               ; preds = %37
   %41 = fadd double %29, %35
   store double %41, ptr %38, align 8, !tbaa !60
-  %42 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %38) #23
+  %42 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %38) #24
   %43 = icmp eq i32 %42, -10000
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %40
-  call void @free(ptr noundef nonnull %38) #23
+  call void @free(ptr noundef nonnull %38) #24
   br label %45
 
 45:                                               ; preds = %40, %37, %31, %21, %9, %11, %44, %18
@@ -1697,7 +1697,7 @@ define ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %6)
   %7 = sext i32 %. to i64
   %8 = shl nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #22
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %.preheader
 
@@ -1772,7 +1772,7 @@ define ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %46 = ptrtoint ptr %45 to i64
   %47 = xor i64 %46, 1
   %48 = inttoptr i64 %47 to ptr
-  %49 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %39, ptr noundef %45, ptr noundef %48) #23
+  %49 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %39, ptr noundef %45, ptr noundef %48) #24
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
@@ -1780,7 +1780,7 @@ define ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %54 = load i32, ptr %53, align 4, !tbaa !35
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4, !tbaa !35
-  %56 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.05564.us, ptr noundef %49) #23
+  %56 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.05564.us, ptr noundef %49) #24
   %57 = icmp eq ptr %56, null
   br i1 %57, label %67, label %58
 
@@ -1792,8 +1792,8 @@ define ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %63 = load i32, ptr %62, align 4, !tbaa !35
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.05564.us) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %49) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.05564.us) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %49) #24
   br label %65
 
 65:                                               ; preds = %58, %38
@@ -1802,8 +1802,8 @@ define ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %66, label %30, label %..loopexit_crit_edge.us, !llvm.loop !66
 
 67:                                               ; preds = %44
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.05564.us) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %49) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.05564.us) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %49) #24
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %65, %67
@@ -1826,7 +1826,7 @@ define ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .split70.us:                                      ; preds = %..loopexit_crit_edge.us, %.loopexit
   %.us-phi = phi ptr [ %70, %.loopexit ], [ %.2.us, %..loopexit_crit_edge.us ]
-  tail call void @free(ptr noundef nonnull %9) #23
+  tail call void @free(ptr noundef nonnull %9) #24
   %.not = icmp eq ptr %.us-phi, null
   br i1 %.not, label %84, label %77
 
@@ -1896,7 +1896,7 @@ define noundef ptr @Cudd_SupportIndex(ptr noundef captures(none) %0, ptr noundef
   %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %6)
   %7 = sext i32 %. to i64
   %8 = shl nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #22
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %.preheader
 
@@ -1936,7 +1936,7 @@ define i32 @Cudd_SupportSize(ptr noundef captures(none) %0, ptr noundef %1) loca
   %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %6)
   %7 = sext i32 %. to i64
   %8 = shl nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #22
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %17, label %.preheader
 
@@ -1983,7 +1983,7 @@ define i32 @Cudd_SupportSize(ptr noundef captures(none) %0, ptr noundef %1) loca
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge36.critedge
   %.0.lcssa = phi i32 [ 0, %._crit_edge36.critedge ], [ %spec.select, %.lr.ph35 ]
-  tail call void @free(ptr noundef nonnull %9) #23
+  tail call void @free(ptr noundef nonnull %9) #24
   br label %26
 
 26:                                               ; preds = %._crit_edge36, %17
@@ -2000,7 +2000,7 @@ define ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef readonly captures(non
   %. = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %8 = sext i32 %. to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #22
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #23
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %.preheader71
 
@@ -2101,7 +2101,7 @@ define ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef readonly captures(non
   %54 = ptrtoint ptr %53 to i64
   %55 = xor i64 %54, 1
   %56 = inttoptr i64 %55 to ptr
-  %57 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %47, ptr noundef %53, ptr noundef %56) #23
+  %57 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %47, ptr noundef %53, ptr noundef %56) #24
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, -2
   %60 = inttoptr i64 %59 to ptr
@@ -2109,14 +2109,14 @@ define ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef readonly captures(non
   %62 = load i32, ptr %61, align 4, !tbaa !35
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4, !tbaa !35
-  %64 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.06279, ptr noundef %57) #23
+  %64 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.06279, ptr noundef %57) #24
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %52
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.06279) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %57) #23
-  tail call void @free(ptr noundef nonnull %10) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.06279) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %57) #24
+  tail call void @free(ptr noundef nonnull %10) #24
   br label %79
 
 67:                                               ; preds = %52
@@ -2127,8 +2127,8 @@ define ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef readonly captures(non
   %72 = load i32, ptr %71, align 4, !tbaa !35
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.06279) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %57) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.06279) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %57) #24
   br label %74
 
 74:                                               ; preds = %46, %67
@@ -2145,7 +2145,7 @@ define ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef readonly captures(non
 ._crit_edge84:                                    ; preds = %._crit_edge84.loopexit, %._crit_edge
   %.pre-phi99 = phi ptr [ %.pre98, %._crit_edge84.loopexit ], [ %32, %._crit_edge ]
   %.062.lcssa = phi ptr [ %.163, %._crit_edge84.loopexit ], [ %29, %._crit_edge ]
-  tail call void @free(ptr noundef nonnull %10) #23
+  tail call void @free(ptr noundef nonnull %10) #24
   %76 = getelementptr inbounds nuw i8, ptr %.pre-phi99, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !35
   %78 = add i32 %77, -1
@@ -2166,7 +2166,7 @@ define noundef ptr @Cudd_VectorSupportIndex(ptr noundef captures(none) %0, ptr n
   %. = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %8 = sext i32 %. to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #22
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #23
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %.preheader30
 
@@ -2234,7 +2234,7 @@ define i32 @Cudd_VectorSupportSize(ptr noundef captures(none) %0, ptr noundef re
   %. = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %8 = sext i32 %. to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #22
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #23
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %.preheader42
 
@@ -2310,7 +2310,7 @@ define i32 @Cudd_VectorSupportSize(ptr noundef captures(none) %0, ptr noundef re
 
 ._crit_edge:                                      ; preds = %.lr.ph50, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph50 ]
-  tail call void @free(ptr noundef nonnull %10) #23
+  tail call void @free(ptr noundef nonnull %10) #24
   br label %32
 
 32:                                               ; preds = %._crit_edge, %15
@@ -2327,7 +2327,7 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   %. = tail call i32 @llvm.smax.i32(i32 %8, i32 %10)
   %11 = sext i32 %. to i64
   %12 = shl nsw i64 %11, 2
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #22
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #23
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
@@ -2337,7 +2337,7 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   br label %151
 
 17:                                               ; preds = %6
-  %18 = tail call noalias ptr @malloc(i64 noundef %12) #22
+  %18 = tail call noalias ptr @malloc(i64 noundef %12) #23
   %19 = icmp eq ptr %18, null
   br i1 %19, label %23, label %.preheader
 
@@ -2355,7 +2355,7 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %24, align 8, !tbaa !27
-  tail call void @free(ptr noundef nonnull %13) #23
+  tail call void @free(ptr noundef nonnull %13) #24
   br label %151
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
@@ -2438,7 +2438,7 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   %75 = ptrtoint ptr %74 to i64
   %76 = xor i64 %75, 1
   %77 = inttoptr i64 %76 to ptr
-  %78 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %64, ptr noundef %74, ptr noundef %77) #23
+  %78 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %64, ptr noundef %74, ptr noundef %77) #24
   %79 = ptrtoint ptr %78 to i64
   %80 = and i64 %79, -2
   %81 = inttoptr i64 %80 to ptr
@@ -2453,20 +2453,20 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
 
 88:                                               ; preds = %73
   %89 = load ptr, ptr %4, align 8, !tbaa !24
-  %90 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %89, ptr noundef %78) #23
+  %90 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %89, ptr noundef %78) #24
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %3, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %93) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %93) #24
   %94 = load ptr, ptr %4, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %94) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %94) #24
   %95 = load ptr, ptr %5, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %95) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %78) #23
-  tail call void @free(ptr noundef nonnull %13) #23
-  tail call void @free(ptr noundef nonnull %18) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %95) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %78) #24
+  tail call void @free(ptr noundef nonnull %13) #24
+  tail call void @free(ptr noundef nonnull %18) #24
   br label %151
 
 96:                                               ; preds = %88
@@ -2478,7 +2478,7 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4, !tbaa !35
   %103 = load ptr, ptr %4, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %103) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %103) #24
   store ptr %90, ptr %4, align 8, !tbaa !24
   br label %139
 
@@ -2489,20 +2489,20 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %5, align 8, !tbaa !24
-  %109 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %108, ptr noundef %78) #23
+  %109 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %108, ptr noundef %78) #24
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %115
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %3, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %112) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %112) #24
   %113 = load ptr, ptr %4, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %113) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %113) #24
   %114 = load ptr, ptr %5, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %114) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %78) #23
-  tail call void @free(ptr noundef nonnull %13) #23
-  tail call void @free(ptr noundef nonnull %18) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %114) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %78) #24
+  tail call void @free(ptr noundef nonnull %13) #24
+  tail call void @free(ptr noundef nonnull %18) #24
   br label %151
 
 115:                                              ; preds = %107
@@ -2514,26 +2514,26 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   %121 = add i32 %120, 1
   store i32 %121, ptr %119, align 4, !tbaa !35
   %122 = load ptr, ptr %5, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %122) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %122) #24
   store ptr %109, ptr %5, align 8, !tbaa !24
   br label %139
 
 123:                                              ; preds = %104
   %124 = load ptr, ptr %3, align 8, !tbaa !24
-  %125 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %124, ptr noundef %78) #23
+  %125 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %124, ptr noundef %78) #24
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %131
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr %3, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %128) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %128) #24
   %129 = load ptr, ptr %4, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %129) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %129) #24
   %130 = load ptr, ptr %5, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %130) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %78) #23
-  tail call void @free(ptr noundef nonnull %13) #23
-  tail call void @free(ptr noundef nonnull %18) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %130) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %78) #24
+  tail call void @free(ptr noundef nonnull %13) #24
+  tail call void @free(ptr noundef nonnull %18) #24
   br label %151
 
 131:                                              ; preds = %123
@@ -2545,12 +2545,12 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   %137 = add i32 %136, 1
   store i32 %137, ptr %135, align 4, !tbaa !35
   %138 = load ptr, ptr %3, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %138) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %138) #24
   store ptr %125, ptr %3, align 8, !tbaa !24
   br label %139
 
 139:                                              ; preds = %115, %131, %96
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %78) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %78) #24
   br label %140
 
 140:                                              ; preds = %69, %139
@@ -2576,8 +2576,8 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   %.pre-phi166 = phi ptr [ %.pre165, %._crit_edge143.loopexit ], [ %49, %._crit_edge ]
   %.pre-phi160 = phi ptr [ %.pre159, %._crit_edge143.loopexit ], [ %42, %._crit_edge ]
   %.pre-phi154 = phi ptr [ %.pre153, %._crit_edge143.loopexit ], [ %35, %._crit_edge ]
-  tail call void @free(ptr noundef nonnull %13) #23
-  tail call void @free(ptr noundef nonnull %18) #23
+  tail call void @free(ptr noundef nonnull %13) #24
+  tail call void @free(ptr noundef nonnull %18) #24
   %142 = getelementptr inbounds nuw i8, ptr %.pre-phi154, i64 4
   %143 = load i32, ptr %142, align 4, !tbaa !35
   %144 = add i32 %143, -1
@@ -2888,7 +2888,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr noundef r
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8, !tbaa !26
   %7 = sext i32 %6 to i64
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #22
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #23
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
@@ -2900,7 +2900,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr noundef r
 12:                                               ; preds = %4
   %13 = sext i32 %3 to i64
   %14 = shl nsw i64 %13, 2
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #22
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #23
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %.preheader69
 
@@ -2915,7 +2915,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr noundef r
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %19, align 8, !tbaa !27
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %8) #24
   br label %113
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2946,8 +2946,8 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr noundef r
   br label %.lr.ph73
 
 28:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void @free(ptr noundef nonnull %8) #23
-  tail call void @free(ptr noundef nonnull %15) #23
+  tail call void @free(ptr noundef nonnull %8) #24
+  tail call void @free(ptr noundef nonnull %15) #24
   br label %113
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %76
@@ -3037,7 +3037,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   br i1 %exitcond88.not, label %._crit_edge74, label %.lr.ph73, !llvm.loop !82
 
 ._crit_edge74:                                    ; preds = %76, %._crit_edge.thread
-  %79 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
+  %79 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #24
   %80 = ptrtoint ptr %79 to i64
   %81 = and i64 %80, -2
   %82 = inttoptr i64 %81 to ptr
@@ -3067,14 +3067,14 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   %96 = zext i1 %95 to i64
   %97 = xor i64 %96, %89
   %98 = inttoptr i64 %97 to ptr
-  %99 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.06276, ptr noundef %98) #23
+  %99 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.06276, ptr noundef %98) #24
   %100 = icmp eq ptr %99, null
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %.lr.ph79
-  tail call void @free(ptr noundef nonnull %8) #23
-  tail call void @free(ptr noundef nonnull %15) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.06276) #23
+  tail call void @free(ptr noundef nonnull %8) #24
+  tail call void @free(ptr noundef nonnull %15) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.06276) #24
   br label %113
 
 102:                                              ; preds = %.lr.ph79
@@ -3085,7 +3085,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   %107 = load i32, ptr %106, align 4, !tbaa !35
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.06276) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.06276) #24
   %109 = icmp samesign ugt i64 %indvars.iv89, 1
   br i1 %109, label %.lr.ph79, label %._crit_edge80, !llvm.loop !83
 
@@ -3096,8 +3096,8 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   %111 = load i32, ptr %110, align 4, !tbaa !35
   %112 = add i32 %111, -1
   store i32 %112, ptr %110, align 4, !tbaa !35
-  tail call void @free(ptr noundef nonnull %8) #23
-  tail call void @free(ptr noundef nonnull %15) #23
+  tail call void @free(ptr noundef nonnull %8) #24
+  tail call void @free(ptr noundef nonnull %15) #24
   br label %113
 
 113:                                              ; preds = %._crit_edge80, %101, %28, %18, %10
@@ -3119,7 +3119,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   %11 = load i32, ptr %10, align 8, !tbaa !26
   %12 = sext i32 %4 to i64
   %13 = shl nsw i64 %12, 3
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #22
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #23
   %15 = icmp eq ptr %14, null
   br i1 %15, label %22, label %.preheader362
 
@@ -3143,7 +3143,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
 
 24:                                               ; preds = %.lr.ph370, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph370 ], [ %indvars.iv.next, %._crit_edge ]
-  %25 = tail call noalias ptr @malloc(i64 noundef %18) #22
+  %25 = tail call noalias ptr @malloc(i64 noundef %18) #23
   %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   store ptr %25, ptr %26, align 8, !tbaa !84
   %27 = icmp eq ptr %25, null
@@ -3166,7 +3166,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br label %29
 
 29:                                               ; preds = %._crit_edge443, %.preheader
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %30, align 8, !tbaa !27
   br label %268
@@ -3181,7 +3181,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
 ._crit_edge371:                                   ; preds = %._crit_edge, %.preheader362
   %32 = sext i32 %3 to i64
   %33 = shl nsw i64 %32, 2
-  %34 = tail call noalias ptr @malloc(i64 noundef %33) #22
+  %34 = tail call noalias ptr @malloc(i64 noundef %33) #23
   %35 = icmp eq ptr %34, null
   br i1 %35, label %37, label %.preheader360
 
@@ -3210,7 +3210,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %.not326, label %42, label %41
 
 41:                                               ; preds = %.lr.ph439
-  tail call void @free(ptr noundef nonnull %40) #23
+  tail call void @free(ptr noundef nonnull %40) #24
   store ptr null, ptr %39, align 8, !tbaa !84
   br label %42
 
@@ -3220,7 +3220,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %exitcond549.not, label %._crit_edge440, label %.lr.ph439, !llvm.loop !86
 
 ._crit_edge440:                                   ; preds = %42, %37
-  tail call void @free(ptr noundef nonnull %14) #23
+  tail call void @free(ptr noundef nonnull %14) #24
   br label %268
 
 .lr.ph373:                                        ; preds = %.lr.ph373.preheader, %.lr.ph373
@@ -3254,7 +3254,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %.not325, label %52, label %51
 
 51:                                               ; preds = %.lr.ph435
-  tail call void @free(ptr noundef nonnull %50) #23
+  tail call void @free(ptr noundef nonnull %50) #24
   store ptr null, ptr %49, align 8, !tbaa !84
   br label %52
 
@@ -3264,12 +3264,12 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %exitcond544.not, label %._crit_edge436, label %.lr.ph435, !llvm.loop !88
 
 ._crit_edge436:                                   ; preds = %52, %.preheader349
-  tail call void @free(ptr noundef nonnull %14) #23
-  tail call void @free(ptr noundef %34) #23
+  tail call void @free(ptr noundef nonnull %14) #24
+  tail call void @free(ptr noundef %34) #24
   br label %268
 
 53:                                               ; preds = %._crit_edge374
-  %54 = tail call noalias ptr @malloc(i64 noundef %13) #22
+  %54 = tail call noalias ptr @malloc(i64 noundef %13) #23
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %62
 
@@ -3290,7 +3290,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %.not324, label %61, label %60
 
 60:                                               ; preds = %.lr.ph432
-  tail call void @free(ptr noundef nonnull %59) #23
+  tail call void @free(ptr noundef nonnull %59) #24
   store ptr null, ptr %58, align 8, !tbaa !84
   br label %61
 
@@ -3300,14 +3300,14 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %exitcond539.not, label %._crit_edge433, label %.lr.ph432, !llvm.loop !89
 
 ._crit_edge433:                                   ; preds = %61, %56
-  tail call void @free(ptr noundef nonnull %14) #23
-  tail call void @free(ptr noundef %34) #23
+  tail call void @free(ptr noundef nonnull %14) #24
+  tail call void @free(ptr noundef %34) #24
   br label %268
 
 62:                                               ; preds = %53
   %63 = add nsw i32 %11, 1
   %64 = sext i32 %63 to i64
-  %65 = tail call noalias ptr @malloc(i64 noundef %64) #22
+  %65 = tail call noalias ptr @malloc(i64 noundef %64) #23
   %66 = icmp eq ptr %65, null
   br i1 %66, label %68, label %.preheader359
 
@@ -3315,7 +3315,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %16, label %.lr.ph410, label %._crit_edge411.thread
 
 ._crit_edge411.thread:                            ; preds = %.preheader359
-  tail call void @free(ptr noundef nonnull %65) #23
+  tail call void @free(ptr noundef nonnull %65) #24
   br label %._crit_edge415
 
 .lr.ph410:                                        ; preds = %.preheader359
@@ -3345,7 +3345,7 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %.not323, label %73, label %72
 
 72:                                               ; preds = %.lr.ph428
-  tail call void @free(ptr noundef nonnull %71) #23
+  tail call void @free(ptr noundef nonnull %71) #24
   store ptr null, ptr %70, align 8, !tbaa !84
   br label %73
 
@@ -3355,9 +3355,9 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   br i1 %exitcond534.not, label %._crit_edge429, label %.lr.ph428, !llvm.loop !90
 
 ._crit_edge429:                                   ; preds = %73, %68
-  tail call void @free(ptr noundef nonnull %14) #23
-  tail call void @free(ptr noundef %34) #23
-  tail call void @free(ptr noundef %54) #23
+  tail call void @free(ptr noundef nonnull %14) #24
+  tail call void @free(ptr noundef %34) #24
+  tail call void @free(ptr noundef %54) #24
   br label %268
 
 74:                                               ; preds = %.lr.ph410, %255
@@ -3380,13 +3380,13 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   %78 = load ptr, ptr %76, align 8, !tbaa !84
   %79 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next472
   %80 = load ptr, ptr %79, align 8, !tbaa !84
-  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %80) #24
+  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %80) #25
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %.loopexit356.sink.split, label %.preheader355, !llvm.loop !91
 
 83:                                               ; preds = %74
   %84 = load ptr, ptr %76, align 8, !tbaa !84
-  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %65) #24
+  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %65) #25
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %.loopexit356, label %.preheader357
 
@@ -3399,13 +3399,13 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
   %88 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next467
   %89 = load ptr, ptr %88, align 8, !tbaa !84
-  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %89) #24
+  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %89) #25
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %.loopexit356.sink.split, label %.preheader357, !llvm.loop !92
 
 .loopexit356.sink.split:                          ; preds = %87, %77
   %.sink = phi ptr [ %78, %77 ], [ %84, %87 ]
-  %92 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %.sink) #23
+  %92 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %.sink) #24
   br label %.loopexit356
 
 .loopexit356:                                     ; preds = %.preheader357, %.preheader355, %.loopexit356.sink.split, %83
@@ -3450,12 +3450,12 @@ define noalias noundef ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr no
   %indvars.iv481 = phi i64 [ %95, %.preheader351.us ], [ %indvars.iv.next482, %98 ]
   %100 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv481
   %101 = load ptr, ptr %100, align 8, !tbaa !84
-  %102 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %101) #24
+  %102 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %101) #25
   %.not445 = icmp eq i32 %102, 0
   br i1 %.not445, label %103, label %98
 
 103:                                              ; preds = %99
-  %104 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %65) #23
+  %104 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %65) #24
   br i1 %36, label %.lr.ph385.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %151, %103
@@ -3640,7 +3640,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br i1 %exitcond480.not, label %.preheader354, label %154, !llvm.loop !96
 
 ._crit_edge401:                                   ; preds = %98, %.preheader351.lr.ph, %.preheader354
-  %204 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
+  %204 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #24
   %205 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv464
   store ptr %204, ptr %205, align 8, !tbaa !24
   %206 = ptrtoint ptr %204 to i64
@@ -3672,12 +3672,12 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   %225 = xor i64 %224, 1
   %226 = inttoptr i64 %225 to ptr
   %.sink591 = select i1 %221, ptr %226, ptr %223
-  %227 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %215, ptr noundef %.sink591) #23
+  %227 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %215, ptr noundef %.sink591) #24
   %228 = icmp eq ptr %227, null
   br i1 %228, label %.lr.ph423.preheader, label %237
 
 .lr.ph423.preheader:                              ; preds = %214
-  tail call void @free(ptr noundef %65) #23
+  tail call void @free(ptr noundef %65) #24
   br label %.lr.ph423
 
 .lr.ph423:                                        ; preds = %.lr.ph423.preheader, %232
@@ -3688,7 +3688,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br i1 %.not318, label %232, label %231
 
 231:                                              ; preds = %.lr.ph423
-  tail call void @free(ptr noundef nonnull %230) #23
+  tail call void @free(ptr noundef nonnull %230) #24
   store ptr null, ptr %229, align 8, !tbaa !84
   br label %232
 
@@ -3698,8 +3698,8 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br i1 %exitcond522.not, label %._crit_edge424, label %.lr.ph423, !llvm.loop !97
 
 ._crit_edge424:                                   ; preds = %232
-  tail call void @free(ptr noundef nonnull %14) #23
-  tail call void @free(ptr noundef %34) #23
+  tail call void @free(ptr noundef nonnull %14) #24
+  tail call void @free(ptr noundef %34) #24
   %wide.trip.count528 = zext i32 %indvars.iv512 to i64
   br label %233
 
@@ -3707,13 +3707,13 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   %indvars.iv523 = phi i64 [ 0, %._crit_edge424 ], [ %indvars.iv.next524, %233 ]
   %234 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv523
   %235 = load ptr, ptr %234, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %235) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %235) #24
   %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
   %exitcond529.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count528
   br i1 %exitcond529.not, label %236, label %233, !llvm.loop !98
 
 236:                                              ; preds = %233
-  tail call void @free(ptr noundef nonnull %54) #23
+  tail call void @free(ptr noundef nonnull %54) #24
   br label %268
 
 237:                                              ; preds = %214
@@ -3725,7 +3725,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   %243 = add i32 %242, 1
   store i32 %243, ptr %241, align 4, !tbaa !35
   %244 = load ptr, ptr %205, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %244) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %244) #24
   store ptr %227, ptr %205, align 8, !tbaa !24
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count494
@@ -3733,12 +3733,12 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
 
 ._crit_edge405:                                   ; preds = %237, %._crit_edge401
   %245 = phi ptr [ %204, %._crit_edge401 ], [ %227, %237 ]
-  %246 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %245, ptr noundef %1) #23
+  %246 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %245, ptr noundef %1) #24
   %.not314 = icmp eq i32 %246, 0
   br i1 %.not314, label %.lr.ph418.preheader, label %255
 
 .lr.ph418.preheader:                              ; preds = %._crit_edge405
-  tail call void @free(ptr noundef %65) #23
+  tail call void @free(ptr noundef %65) #24
   br label %.lr.ph418
 
 .lr.ph418:                                        ; preds = %.lr.ph418.preheader, %250
@@ -3749,7 +3749,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br i1 %.not316, label %250, label %249
 
 249:                                              ; preds = %.lr.ph418
-  tail call void @free(ptr noundef nonnull %248) #23
+  tail call void @free(ptr noundef nonnull %248) #24
   store ptr null, ptr %247, align 8, !tbaa !84
   br label %250
 
@@ -3759,8 +3759,8 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br i1 %exitcond508.not, label %._crit_edge419, label %.lr.ph418, !llvm.loop !100
 
 ._crit_edge419:                                   ; preds = %250
-  tail call void @free(ptr noundef nonnull %14) #23
-  tail call void @free(ptr noundef %34) #23
+  tail call void @free(ptr noundef nonnull %14) #24
+  tail call void @free(ptr noundef %34) #24
   %wide.trip.count516 = zext i32 %indvars.iv512 to i64
   br label %251
 
@@ -3768,13 +3768,13 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   %indvars.iv509 = phi i64 [ 0, %._crit_edge419 ], [ %indvars.iv.next510, %251 ]
   %252 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv509
   %253 = load ptr, ptr %252, align 8, !tbaa !24
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %253) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %253) #24
   %indvars.iv.next510 = add nuw nsw i64 %indvars.iv509, 1
   %exitcond517.not = icmp eq i64 %indvars.iv.next510, %wide.trip.count516
   br i1 %exitcond517.not, label %254, label %251, !llvm.loop !101
 
 254:                                              ; preds = %251
-  tail call void @free(ptr noundef nonnull %54) #23
+  tail call void @free(ptr noundef nonnull %54) #24
   br label %268
 
 255:                                              ; preds = %._crit_edge405
@@ -3784,7 +3784,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br i1 %exitcond498.not, label %._crit_edge411, label %74, !llvm.loop !102
 
 ._crit_edge411:                                   ; preds = %255
-  tail call void @free(ptr noundef %65) #23
+  tail call void @free(ptr noundef %65) #24
   %wide.trip.count502 = zext nneg i32 %4 to i64
   br label %.lr.ph414
 
@@ -3805,7 +3805,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br i1 %.not, label %267, label %266
 
 266:                                              ; preds = %.lr.ph414
-  tail call void @free(ptr noundef nonnull %265) #23
+  tail call void @free(ptr noundef nonnull %265) #24
   store ptr null, ptr %264, align 8, !tbaa !84
   br label %267
 
@@ -3815,8 +3815,8 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %163
   br i1 %exitcond503.not, label %._crit_edge415, label %.lr.ph414, !llvm.loop !103
 
 ._crit_edge415:                                   ; preds = %267, %._crit_edge411.thread
-  tail call void @free(ptr noundef %14) #23
-  tail call void @free(ptr noundef %34) #23
+  tail call void @free(ptr noundef %14) #24
+  tail call void @free(ptr noundef %34) #24
   br label %268
 
 268:                                              ; preds = %5, %._crit_edge415, %254, %236, %._crit_edge429, %._crit_edge433, %._crit_edge436, %._crit_edge440, %29, %22
@@ -3959,12 +3959,12 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = load i32, ptr %11, align 4, !tbaa !35
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %7) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %7) #24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load i32, ptr %14, align 8, !tbaa !26
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 3
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #22
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #23
   %19 = icmp eq ptr %18, null
   br i1 %19, label %23, label %.preheader238
 
@@ -3995,7 +3995,7 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph243.preheader ], [ %indvars.iv.next, %.lr.ph243 ]
   %26 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !24
-  %28 = tail call ptr @Cudd_Cofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %27) #23
+  %28 = tail call ptr @Cudd_Cofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %27) #24
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
@@ -4005,12 +4005,12 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i32 %34, ptr %32, align 4, !tbaa !35
   %35 = tail call double @Cudd_CountMinterm(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %3)
   %36 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %28) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %28) #24
   %37 = load ptr, ptr %26, align 8, !tbaa !24
   %38 = ptrtoint ptr %37 to i64
   %39 = xor i64 %38, 1
   %40 = inttoptr i64 %39 to ptr
-  %41 = tail call ptr @Cudd_Cofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %40) #23
+  %41 = tail call ptr @Cudd_Cofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %40) #24
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
@@ -4021,7 +4021,7 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   %48 = tail call double @Cudd_CountMinterm(ptr noundef nonnull %0, ptr noundef %41, i32 noundef %3)
   %49 = fsub double %35, %48
   store double %49, ptr %36, align 8, !tbaa !60
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %41) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %41) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph243, !llvm.loop !106
@@ -4029,19 +4029,19 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
 ._crit_edge:                                      ; preds = %.lr.ph243, %.preheader237
   %50 = add nsw i32 %15, 1
   %51 = sext i32 %50 to i64
-  %52 = tail call noalias ptr @malloc(i64 noundef %51) #22
+  %52 = tail call noalias ptr @malloc(i64 noundef %51) #23
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %._crit_edge
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %55, align 8, !tbaa !27
-  tail call void @free(ptr noundef nonnull %18) #23
+  tail call void @free(ptr noundef nonnull %18) #24
   br label %225
 
 56:                                               ; preds = %._crit_edge
   %57 = shl nsw i64 %16, 2
-  %58 = tail call noalias ptr @malloc(i64 noundef %57) #22
+  %58 = tail call noalias ptr @malloc(i64 noundef %57) #23
   %59 = icmp eq ptr %58, null
   br i1 %59, label %62, label %.preheader236
 
@@ -4058,8 +4058,8 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %63, align 8, !tbaa !27
-  tail call void @free(ptr noundef nonnull %18) #23
-  tail call void @free(ptr noundef nonnull %52) #23
+  tail call void @free(ptr noundef nonnull %18) #24
+  tail call void @free(ptr noundef nonnull %52) #24
   br label %225
 
 ._crit_edge246:                                   ; preds = %.lr.ph245.preheader, %.preheader236
@@ -4067,7 +4067,7 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i8 0, ptr %64, align 1, !tbaa !34
   %65 = sext i32 %3 to i64
   %66 = shl nsw i64 %65, 2
-  %67 = tail call noalias ptr @malloc(i64 noundef %66) #22
+  %67 = tail call noalias ptr @malloc(i64 noundef %66) #23
   %68 = icmp eq ptr %67, null
   br i1 %68, label %70, label %.preheader235
 
@@ -4082,9 +4082,9 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
 70:                                               ; preds = %._crit_edge246
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %71, align 8, !tbaa !27
-  tail call void @free(ptr noundef nonnull %18) #23
-  tail call void @free(ptr noundef nonnull %52) #23
-  tail call void @free(ptr noundef nonnull %58) #23
+  tail call void @free(ptr noundef nonnull %18) #24
+  tail call void @free(ptr noundef nonnull %52) #24
+  tail call void @free(ptr noundef nonnull %58) #24
   br label %225
 
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
@@ -4168,14 +4168,14 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %117, label %ddPickRepresentativeCube.exit, label %.lr.ph.i
 
 118:                                              ; preds = %._crit_edge249, %77
-  tail call void @free(ptr noundef nonnull %18) #23
-  tail call void @free(ptr noundef nonnull %52) #23
-  tail call void @free(ptr noundef nonnull %58) #23
-  tail call void @free(ptr noundef nonnull %67) #23
+  tail call void @free(ptr noundef nonnull %18) #24
+  tail call void @free(ptr noundef nonnull %52) #24
+  tail call void @free(ptr noundef nonnull %58) #24
+  tail call void @free(ptr noundef nonnull %67) #24
   br label %225
 
 ddPickRepresentativeCube.exit:                    ; preds = %113, %84
-  %119 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
+  %119 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #24
   %120 = ptrtoint ptr %119 to i64
   %121 = and i64 %120, -2
   %122 = inttoptr i64 %121 to ptr
@@ -4183,7 +4183,7 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
   %124 = load i32, ptr %123, align 4, !tbaa !35
   %125 = add i32 %124, 1
   store i32 %125, ptr %123, align 4, !tbaa !35
-  %126 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
+  %126 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #24
   %127 = ptrtoint ptr %126 to i64
   %128 = xor i64 %127, 1
   %129 = inttoptr i64 %128 to ptr
@@ -4221,16 +4221,16 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
 
 144:                                              ; preds = %141, %135
   %.sink = phi ptr [ %143, %141 ], [ %140, %135 ]
-  %145 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %.0218251, ptr noundef %.sink, ptr noundef %129) #23
+  %145 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %.0218251, ptr noundef %.sink, ptr noundef %129) #24
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %144
-  tail call void @free(ptr noundef %18) #23
-  tail call void @free(ptr noundef nonnull %52) #23
-  tail call void @free(ptr noundef %58) #23
-  tail call void @free(ptr noundef nonnull %67) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0218251) #23
+  tail call void @free(ptr noundef %18) #24
+  tail call void @free(ptr noundef nonnull %52) #24
+  tail call void @free(ptr noundef %58) #24
+  tail call void @free(ptr noundef nonnull %67) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0218251) #24
   br label %225
 
 148:                                              ; preds = %144
@@ -4241,7 +4241,7 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
   %153 = load i32, ptr %152, align 4, !tbaa !35
   %154 = add i32 %153, 1
   store i32 %154, ptr %152, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0218251) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0218251) #24
   br label %155
 
 155:                                              ; preds = %.lr.ph252, %148
@@ -4252,7 +4252,7 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
 
 ._crit_edge253:                                   ; preds = %155, %ddPickRepresentativeCube.exit
   %.0218.lcssa = phi ptr [ %119, %ddPickRepresentativeCube.exit ], [ %.1219, %155 ]
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0218.lcssa) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0218.lcssa) #24
   br i1 %25, label %.lr.ph256.preheader, label %.preheader
 
 .lr.ph256.preheader:                              ; preds = %._crit_edge253
@@ -4312,7 +4312,7 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
   br i1 %exitcond292.not, label %._crit_edge259, label %.lr.ph258, !llvm.loop !110
 
 ._crit_edge259:                                   ; preds = %174, %.preheader
-  %175 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
+  %175 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #24
   %176 = ptrtoint ptr %175 to i64
   %177 = and i64 %176, -2
   %178 = inttoptr i64 %177 to ptr
@@ -4320,7 +4320,7 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
   %180 = load i32, ptr %179, align 4, !tbaa !35
   %181 = add i32 %180, 1
   store i32 %181, ptr %179, align 4, !tbaa !35
-  %182 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #23
+  %182 = tail call ptr @Cudd_ReadOne(ptr noundef %0) #24
   %183 = ptrtoint ptr %182 to i64
   %184 = xor i64 %183, 1
   %185 = inttoptr i64 %184 to ptr
@@ -4358,16 +4358,16 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
 
 200:                                              ; preds = %197, %191
   %.sink317 = phi ptr [ %199, %197 ], [ %196, %191 ]
-  %201 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %.2261, ptr noundef %.sink317, ptr noundef %185) #23
+  %201 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %.2261, ptr noundef %.sink317, ptr noundef %185) #24
   %202 = icmp eq ptr %201, null
   br i1 %202, label %203, label %204
 
 203:                                              ; preds = %200
-  tail call void @free(ptr noundef %18) #23
-  tail call void @free(ptr noundef nonnull %52) #23
-  tail call void @free(ptr noundef %58) #23
-  tail call void @free(ptr noundef nonnull %67) #23
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2261) #23
+  tail call void @free(ptr noundef %18) #24
+  tail call void @free(ptr noundef nonnull %52) #24
+  tail call void @free(ptr noundef %58) #24
+  tail call void @free(ptr noundef nonnull %67) #24
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2261) #24
   br label %225
 
 204:                                              ; preds = %200
@@ -4378,7 +4378,7 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
   %209 = load i32, ptr %208, align 4, !tbaa !35
   %210 = add i32 %209, 1
   store i32 %210, ptr %208, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2261) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2261) #24
   br label %211
 
 211:                                              ; preds = %.lr.ph263, %204
@@ -4389,7 +4389,7 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
 
 ._crit_edge264:                                   ; preds = %211, %._crit_edge259
   %.2.lcssa = phi ptr [ %175, %._crit_edge259 ], [ %.3, %211 ]
-  %212 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.2.lcssa) #23
+  %212 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.2.lcssa) #24
   %213 = ptrtoint ptr %212 to i64
   %214 = and i64 %213, -2
   %215 = inttoptr i64 %214 to ptr
@@ -4397,8 +4397,8 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
   %217 = load i32, ptr %216, align 4, !tbaa !35
   %218 = add i32 %217, 1
   store i32 %218, ptr %216, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2.lcssa) #23
-  %219 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %212, ptr noundef nonnull %1) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2.lcssa) #24
+  %219 = tail call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %212, ptr noundef nonnull %1) #24
   %.not = icmp eq i32 %219, 0
   br i1 %.not, label %223, label %220
 
@@ -4409,15 +4409,15 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
   br label %224
 
 223:                                              ; preds = %._crit_edge264
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %212) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %212) #24
   br label %224
 
 224:                                              ; preds = %220, %223
   %.0216 = phi ptr [ %212, %220 ], [ null, %223 ]
-  tail call void @free(ptr noundef %18) #23
-  tail call void @free(ptr noundef nonnull %52) #23
-  tail call void @free(ptr noundef %58) #23
-  tail call void @free(ptr noundef %67) #23
+  tail call void @free(ptr noundef %18) #24
+  tail call void @free(ptr noundef nonnull %52) #24
+  tail call void @free(ptr noundef %58) #24
+  tail call void @free(ptr noundef %67) #24
   br label %225
 
 225:                                              ; preds = %224, %203, %147, %118, %70, %62, %54, %23
@@ -4437,7 +4437,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond, label %97, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #22
+  %8 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #23
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
@@ -4460,7 +4460,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   %20 = load i32, ptr %19, align 8, !tbaa !26
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 2
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #22
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #23
   store ptr %23, ptr %15, align 8, !tbaa !34
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %.preheader110
@@ -4476,7 +4476,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
 26:                                               ; preds = %12
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %27, align 8, !tbaa !27
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %8) #24
   br label %97
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4491,7 +4491,7 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
   %29 = add i32 %20, 1
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
-  %32 = tail call noalias ptr @malloc(i64 noundef %31) #22
+  %32 = tail call noalias ptr @malloc(i64 noundef %31) #23
   store ptr %32, ptr %18, align 8, !tbaa !116
   %33 = icmp eq ptr %32, null
   br i1 %33, label %36, label %.preheader
@@ -4509,8 +4509,8 @@ define noalias noundef ptr @Cudd_FirstCube(ptr noundef %0, ptr noundef %1, ptr n
 36:                                               ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %37, align 8, !tbaa !27
-  tail call void @free(ptr noundef nonnull %23) #23
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %23) #24
+  tail call void @free(ptr noundef nonnull %8) #24
   br label %97
 
 ._crit_edge120:                                   ; preds = %.lr.ph119.preheader, %.preheader
@@ -4832,7 +4832,7 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond3, label %110, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #22
+  %12 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #23
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
@@ -4867,7 +4867,7 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
   %31 = load i32, ptr %30, align 8, !tbaa !26
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 2
-  %34 = tail call noalias ptr @malloc(i64 noundef %33) #22
+  %34 = tail call noalias ptr @malloc(i64 noundef %33) #23
   store ptr %34, ptr %19, align 8, !tbaa !34
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
@@ -4875,23 +4875,23 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
 36:                                               ; preds = %16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %37, align 8, !tbaa !27
-  tail call void @free(ptr noundef nonnull %12) #23
+  tail call void @free(ptr noundef nonnull %12) #24
   br label %110
 
 38:                                               ; preds = %16
-  %39 = tail call ptr @Cudd_ReadLogicZero(ptr noundef nonnull %0) #23
+  %39 = tail call ptr @Cudd_ReadLogicZero(ptr noundef nonnull %0) #24
   %40 = icmp eq ptr %1, %39
   br i1 %40, label %108, label %41
 
 41:                                               ; preds = %38
-  %42 = call ptr @Cudd_LargestCube(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7) #23
+  %42 = call ptr @Cudd_LargestCube(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7) #24
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %41
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
-  call void @free(ptr noundef nonnull %34) #23
-  call void @free(ptr noundef nonnull %12) #23
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %1) #24
+  call void @free(ptr noundef nonnull %34) #24
+  call void @free(ptr noundef nonnull %12) #24
   br label %110
 
 45:                                               ; preds = %41
@@ -4902,15 +4902,15 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
   %50 = load i32, ptr %49, align 4, !tbaa !35
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4, !tbaa !35
-  %52 = call ptr @Cudd_bddMakePrime(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull %2) #23
+  %52 = call ptr @Cudd_bddMakePrime(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull %2) #24
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %45
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %42) #23
-  call void @free(ptr noundef nonnull %34) #23
-  call void @free(ptr noundef nonnull %12) #23
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %1) #24
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %42) #24
+  call void @free(ptr noundef nonnull %34) #24
+  call void @free(ptr noundef nonnull %12) #24
   br label %110
 
 55:                                               ; preds = %45
@@ -4921,18 +4921,18 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
   %60 = load i32, ptr %59, align 4, !tbaa !35
   %61 = add i32 %60, 1
   store i32 %61, ptr %59, align 4, !tbaa !35
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %42) #23
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %42) #24
   %62 = xor i64 %56, 1
   %63 = inttoptr i64 %62 to ptr
-  %64 = call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %63) #23
+  %64 = call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %63) #24
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %55
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %52) #23
-  call void @free(ptr noundef nonnull %34) #23
-  call void @free(ptr noundef nonnull %12) #23
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %1) #24
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %52) #24
+  call void @free(ptr noundef nonnull %34) #24
+  call void @free(ptr noundef nonnull %12) #24
   br label %110
 
 67:                                               ; preds = %55
@@ -4943,11 +4943,11 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
   %72 = load i32, ptr %71, align 4, !tbaa !35
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4, !tbaa !35
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %1) #24
   store ptr %64, ptr %23, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %74 = call i32 @Cudd_ReadSize(ptr noundef nonnull %0) #23
+  %74 = call i32 @Cudd_ReadSize(ptr noundef nonnull %0) #24
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %76 = load ptr, ptr %75, align 8, !tbaa !25
   %77 = icmp sgt i32 %74, 0
@@ -4976,7 +4976,7 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph30.i:                                       ; preds = %.preheader.i, %97
   %85 = phi i32 [ %101, %97 ], [ %82, %.preheader.i ]
   %.02129.i = phi ptr [ %.122.i, %97 ], [ %52, %.preheader.i ]
-  call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #23
+  call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #24
   %86 = load ptr, ptr %5, align 8, !tbaa !24
   %87 = icmp eq ptr %86, %81
   br i1 %87, label %88, label %91
@@ -5022,22 +5022,22 @@ Cudd_BddToCubeArray.exit:                         ; preds = %97, %.preheader.i
 
 102:                                              ; preds = %Cudd_BddToCubeArray.exit.thread, %Cudd_BddToCubeArray.exit
   %103 = load ptr, ptr %23, align 8, !tbaa !121
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %103) #23
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %52) #23
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %103) #24
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %52) #24
   %104 = load ptr, ptr %19, align 8, !tbaa !34
   %.not = icmp eq ptr %104, null
   br i1 %.not, label %106, label %105
 
 105:                                              ; preds = %102
-  call void @free(ptr noundef nonnull %104) #23
+  call void @free(ptr noundef nonnull %104) #24
   br label %106
 
 106:                                              ; preds = %105, %102
-  call void @free(ptr noundef nonnull %12) #23
+  call void @free(ptr noundef nonnull %12) #24
   br label %110
 
 107:                                              ; preds = %Cudd_BddToCubeArray.exit
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %52) #23
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %52) #24
   %.pre = load ptr, ptr %19, align 8, !tbaa !34
   br label %108
 
@@ -5063,7 +5063,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !121
-  %9 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %6) #23
+  %9 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %6) #24
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %.thread, label %12
 
@@ -5074,7 +5074,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %7, align 8, !tbaa !121
-  %14 = call ptr @Cudd_LargestCube(ptr noundef %6, ptr noundef %13, ptr noundef nonnull %5) #23
+  %14 = call ptr @Cudd_LargestCube(ptr noundef %6, ptr noundef %13, ptr noundef nonnull %5) #24
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
@@ -5094,12 +5094,12 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !34
-  %28 = call ptr @Cudd_bddMakePrime(ptr noundef %6, ptr noundef nonnull %14, ptr noundef %27) #23
+  %28 = call ptr @Cudd_bddMakePrime(ptr noundef %6, ptr noundef nonnull %14, ptr noundef %27) #24
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %18
-  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %14) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %14) #24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %31, align 4, !tbaa !117
   br label %88
@@ -5112,16 +5112,16 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
   %37 = load i32, ptr %36, align 4, !tbaa !35
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 4, !tbaa !35
-  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %14) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %14) #24
   %39 = load ptr, ptr %7, align 8, !tbaa !121
   %40 = xor i64 %33, 1
   %41 = inttoptr i64 %40 to ptr
-  %42 = call ptr @Cudd_bddAnd(ptr noundef %6, ptr noundef %39, ptr noundef %41) #23
+  %42 = call ptr @Cudd_bddAnd(ptr noundef %6, ptr noundef %39, ptr noundef %41) #24
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %32
-  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #24
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %45, align 4, !tbaa !117
   br label %88
@@ -5135,12 +5135,12 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 4, !tbaa !35
   %53 = load ptr, ptr %7, align 8, !tbaa !121
-  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %53) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %53) #24
   store ptr %42, ptr %7, align 8, !tbaa !121
   %54 = load ptr, ptr %25, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %55 = call i32 @Cudd_ReadSize(ptr noundef %6) #23
+  %55 = call i32 @Cudd_ReadSize(ptr noundef %6) #24
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = icmp sgt i32 %55, 0
@@ -5169,7 +5169,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
 .lr.ph30.i:                                       ; preds = %.preheader.i, %78
   %66 = phi i32 [ %82, %78 ], [ %63, %.preheader.i ]
   %.02129.i = phi ptr [ %.122.i, %78 ], [ %28, %.preheader.i ]
-  call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #23
+  call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #24
   %67 = load ptr, ptr %3, align 8, !tbaa !24
   %68 = icmp eq ptr %67, %62
   br i1 %68, label %69, label %72
@@ -5219,13 +5219,13 @@ Cudd_BddToCubeArray.exit.thread56:                ; preds = %.preheader.i
   br i1 %.not58, label %83, label %.thread59
 
 83:                                               ; preds = %Cudd_BddToCubeArray.exit.thread56, %Cudd_BddToCubeArray.exit.thread, %Cudd_BddToCubeArray.exit
-  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #24
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %84, align 4, !tbaa !117
   br label %88
 
 .thread59:                                        ; preds = %Cudd_BddToCubeArray.exit, %Cudd_BddToCubeArray.exit.thread56
-  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #23
+  call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #24
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %85, align 4, !tbaa !117
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5264,7 +5264,7 @@ define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   %.02631.us = phi ptr [ %18, %20 ], [ %6, %.lr.ph ]
   %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv41
   %17 = load ptr, ptr %16, align 8, !tbaa !24
-  %18 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %17, ptr noundef %.02631.us) #23
+  %18 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %17, ptr noundef %.02631.us) #24
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.split.us, label %20
 
@@ -5276,7 +5276,7 @@ define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   %25 = load i32, ptr %24, align 4, !tbaa !35
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02631.us) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02631.us) #24
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, -1
   %27 = icmp sgt i64 %indvars.iv41, 0
   br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !122
@@ -5293,13 +5293,13 @@ define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   %33 = xor i64 %32, 1
   %34 = inttoptr i64 %33 to ptr
   %.sink = select i1 %.not, ptr %34, ptr %31
-  %35 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.sink, ptr noundef %.02631) #23
+  %35 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.sink, ptr noundef %.02631) #24
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.split.us, label %37
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.02631.us, %.lr.ph.split.us ], [ %.02631, %.lr.ph.split ]
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.us-phi) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.us-phi) #24
   br label %48
 
 37:                                               ; preds = %.lr.ph.split
@@ -5310,7 +5310,7 @@ define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   %42 = load i32, ptr %41, align 4, !tbaa !35
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02631) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02631) #24
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %44 = icmp sgt i64 %indvars.iv, 0
   br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !122
@@ -5356,7 +5356,7 @@ define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   %.03034.us = phi ptr [ %20, %22 ], [ %6, %.lr.ph ]
   %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv44
   %19 = load ptr, ptr %18, align 8, !tbaa !24
-  %20 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %19, ptr noundef %.03034.us, ptr noundef %14) #23
+  %20 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %19, ptr noundef %.03034.us, ptr noundef %14) #24
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.split.us, label %22
 
@@ -5368,7 +5368,7 @@ define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   %27 = load i32, ptr %26, align 4, !tbaa !35
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03034.us) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03034.us) #24
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
   %29 = icmp sgt i64 %indvars.iv44, 0
   br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !123
@@ -5384,11 +5384,11 @@ define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %.not, label %36, label %34
 
 34:                                               ; preds = %.lr.ph.split
-  %35 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %33, ptr noundef %.03034, ptr noundef %14) #23
+  %35 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %33, ptr noundef %.03034, ptr noundef %14) #24
   br label %38
 
 36:                                               ; preds = %.lr.ph.split
-  %37 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %33, ptr noundef %14, ptr noundef %.03034) #23
+  %37 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %33, ptr noundef %14, ptr noundef %.03034) #24
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -5398,7 +5398,7 @@ define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(no
 
 .split.us:                                        ; preds = %38, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.03034.us, %.lr.ph.split.us ], [ %.03034, %38 ]
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.us-phi) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.us-phi) #24
   br label %51
 
 40:                                               ; preds = %38
@@ -5409,7 +5409,7 @@ define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(no
   %45 = load i32, ptr %44, align 4, !tbaa !35
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03034) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03034) #24
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %47 = icmp sgt i64 %indvars.iv, 0
   br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !123
@@ -5432,7 +5432,7 @@ declare ptr @Cudd_addIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_CubeArrayToBdd(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #23
+  %3 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = ptrtoint ptr %5 to i64
@@ -5460,19 +5460,19 @@ define ptr @Cudd_CubeArrayToBdd(ptr noundef %0, ptr noundef readonly captures(no
 
 17:                                               ; preds = %.lr.ph
   %18 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %19 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %18) #23
+  %19 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %18) #24
   %20 = ptrtoint ptr %19 to i64
   %21 = load i32, ptr %14, align 4, !tbaa !28
   %22 = icmp eq i32 %21, 0
   %23 = zext i1 %22 to i64
   %24 = xor i64 %23, %20
   %25 = inttoptr i64 %24 to ptr
-  %26 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.02529, ptr noundef %25) #23
+  %26 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.02529, ptr noundef %25) #24
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %17
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02529) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02529) #24
   br label %41
 
 29:                                               ; preds = %17
@@ -5483,7 +5483,7 @@ define ptr @Cudd_CubeArrayToBdd(ptr noundef %0, ptr noundef readonly captures(no
   %34 = load i32, ptr %33, align 4, !tbaa !35
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02529) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02529) #24
   br label %36
 
 36:                                               ; preds = %.lr.ph, %29
@@ -5523,7 +5523,7 @@ define noalias noundef ptr @Cudd_FirstNode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond, label %33, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #22
+  %7 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #23
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
@@ -5548,13 +5548,13 @@ define noalias noundef ptr @Cudd_FirstNode(ptr noundef %0, ptr noundef %1, ptr n
   %19 = tail call fastcc i32 @ddDagInt(ptr noundef %18)
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 3
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #22
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #23
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %11
   tail call fastcc void @ddClearFlag(ptr noundef %18)
-  tail call void @free(ptr noundef nonnull %7) #23
+  tail call void @free(ptr noundef nonnull %7) #24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %25, align 8, !tbaa !27
   br label %33
@@ -5588,7 +5588,7 @@ define noundef ptr @cuddNodeArray(ptr noundef %0, ptr noundef writeonly captures
   %6 = tail call fastcc i32 @ddDagInt(ptr noundef %5)
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #22
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
@@ -5659,7 +5659,7 @@ define noundef i32 @Cudd_GenFree(ptr noundef captures(address_is_null) %0) local
   br i1 %.not23, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %8) #23
+  tail call void @free(ptr noundef nonnull %8) #24
   store ptr null, ptr %7, align 8, !tbaa !34
   br label %10
 
@@ -5670,7 +5670,7 @@ define noundef i32 @Cudd_GenFree(ptr noundef captures(address_is_null) %0) local
   br i1 %.not24, label %26, label %13
 
 13:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %12) #23
+  tail call void @free(ptr noundef nonnull %12) #24
   br label %26
 
 14:                                               ; preds = %3
@@ -5680,7 +5680,7 @@ define noundef i32 @Cudd_GenFree(ptr noundef captures(address_is_null) %0) local
   br i1 %.not22, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %16) #23
+  tail call void @free(ptr noundef nonnull %16) #24
   store ptr null, ptr %15, align 8, !tbaa !34
   br label %18
 
@@ -5688,7 +5688,7 @@ define noundef i32 @Cudd_GenFree(ptr noundef captures(address_is_null) %0) local
   %19 = load ptr, ptr %0, align 8, !tbaa !112
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !121
-  tail call void @Cudd_RecursiveDeref(ptr noundef %19, ptr noundef %21) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %19, ptr noundef %21) #24
   br label %26
 
 22:                                               ; preds = %3
@@ -5698,11 +5698,11 @@ define noundef i32 @Cudd_GenFree(ptr noundef captures(address_is_null) %0) local
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %24) #23
+  tail call void @free(ptr noundef nonnull %24) #24
   br label %26
 
 26:                                               ; preds = %18, %10, %13, %22, %25
-  tail call void @free(ptr noundef nonnull %0) #23
+  tail call void @free(ptr noundef nonnull %0) #24
   br label %27
 
 27:                                               ; preds = %3, %1, %26
@@ -5750,13 +5750,13 @@ define ptr @Cudd_IndicesToCube(ptr noundef %0, ptr noundef readonly captures(non
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 4, !tbaa !28
-  %16 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %15) #23
-  %17 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %16, ptr noundef %.02024) #23
+  %16 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %15) #24
+  %17 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %16, ptr noundef %.02024) #24
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %.lr.ph
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02024) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02024) #24
   br label %31
 
 20:                                               ; preds = %.lr.ph
@@ -5767,7 +5767,7 @@ define ptr @Cudd_IndicesToCube(ptr noundef %0, ptr noundef readonly captures(non
   %25 = load i32, ptr %24, align 4, !tbaa !35
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !35
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02024) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02024) #24
   %27 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
@@ -5787,7 +5787,7 @@ define ptr @Cudd_IndicesToCube(ptr noundef %0, ptr noundef readonly captures(non
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Cudd_PrintVersion(ptr noundef captures(none) %0) local_unnamed_addr #2 {
-  %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #23
+  %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #24
   ret void
 }
 
@@ -6034,7 +6034,7 @@ define void @Cudd_OutOfMem(i64 noundef %0) local_unnamed_addr #16 {
   %2 = load ptr, ptr @stdout, align 8, !tbaa !133
   %3 = tail call i32 @fflush(ptr noundef %2)
   %4 = load ptr, ptr @stderr, align 8, !tbaa !133
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.11, i64 noundef %0) #25
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.11, i64 noundef %0) #26
   ret void
 }
 
@@ -6060,16 +6060,16 @@ define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, 
   %16 = udiv i64 %6, 40
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load double, ptr %17, align 8, !tbaa !34
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.12, i32 noundef %15, i64 noundef %16, double noundef %18) #23
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.12, i32 noundef %15, i64 noundef %16, double noundef %18) #24
   br label %70
 
 20:                                               ; preds = %5
-  %21 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef null) #23
+  %21 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef null) #24
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %70, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @st__add_direct(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef null) #23
+  %24 = tail call i32 @st__add_direct(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef null) #24
   %25 = icmp eq i32 %24, -10000
   br i1 %25, label %70, label %26
 
@@ -6081,7 +6081,7 @@ define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, 
   %30 = select i1 %.not, i32 32, i32 33
   %31 = udiv i64 %6, 40
   %32 = load i32, ptr %8, align 8, !tbaa !31
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.13, i32 noundef %30, i64 noundef %31, i32 noundef %32) #23
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.13, i32 noundef %30, i64 noundef %31, i32 noundef %32) #24
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !34
   %36 = load i32, ptr %35, align 8, !tbaa !31
@@ -6092,13 +6092,13 @@ define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, 
 38:                                               ; preds = %26
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %40 = load double, ptr %39, align 8, !tbaa !34
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.14, double noundef %40) #23
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.14, double noundef %40) #24
   br label %46
 
 42:                                               ; preds = %26
   %43 = ptrtoint ptr %35 to i64
   %44 = udiv i64 %43, 40
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.15, i64 noundef %44) #23
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.15, i64 noundef %44) #24
   br label %46
 
 46:                                               ; preds = %42, %38
@@ -6118,12 +6118,12 @@ define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, 
 .thread:                                          ; preds = %46
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %57 = load double, ptr %56, align 8, !tbaa !34
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.16, i32 noundef %55, double noundef %57) #23
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.16, i32 noundef %55, double noundef %57) #24
   br label %64
 
 59:                                               ; preds = %46
   %60 = udiv i64 %49, 40
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.17, i32 noundef %55, i64 noundef %60) #23
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.17, i32 noundef %55, i64 noundef %60) #24
   %62 = tail call fastcc i32 @dp2(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef %2)
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %70, label %64
@@ -6150,7 +6150,7 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 
 ; Function Attrs: nounwind uwtable
 define i32 @cuddCollectNodes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @st__lookup(ptr noundef %1, ptr noundef %0, ptr noundef null) #23
+  %3 = tail call i32 @st__lookup(ptr noundef %1, ptr noundef %0, ptr noundef null) #24
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -6160,7 +6160,7 @@ define i32 @cuddCollectNodes(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = tail call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %.tr18, ptr noundef null) #23
+  %7 = tail call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %.tr18, ptr noundef null) #24
   %8 = icmp eq i32 %7, -10000
   br i1 %8, label %._crit_edge, label %9
 
@@ -6182,7 +6182,7 @@ tailrecurse:                                      ; preds = %12
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = tail call i32 @st__lookup(ptr noundef %1, ptr noundef %20, ptr noundef null) #23
+  %21 = tail call i32 @st__lookup(ptr noundef %1, ptr noundef %20, ptr noundef null) #24
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %._crit_edge, label %.lr.ph
 
@@ -6268,14 +6268,14 @@ declare double @ldexp(double, i32) local_unnamed_addr #19
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #20
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6298,11 +6298,12 @@ attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nounwind willreturn memory(errnomem: write) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { cold nounwind }
+attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind willreturn memory(read) }
+attributes #26 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -65,10 +65,10 @@ define internal range(i32 -2147483648, 1) i32 @dvvideo_encode_init(ptr noundef %
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %1
-  %12 = tail call ptr @av_chroma_location_name(i32 noundef %10) #8
+  %12 = tail call ptr @av_chroma_location_name(i32 noundef %10) #9
   %.not42 = icmp eq ptr %12, null
   %13 = select i1 %.not42, ptr @.str.8, ptr %12
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.7, ptr noundef nonnull %13) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.7, ptr noundef nonnull %13) #9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %15 = load i32, ptr %14, align 4, !tbaa !33
   %16 = icmp slt i32 %15, 1
@@ -83,7 +83,7 @@ define internal range(i32 -2147483648, 1) i32 @dvvideo_encode_init(ptr noundef %
   %23 = load i32, ptr %22, align 8, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %25 = load i64, ptr %24, align 4
-  %26 = tail call ptr @av_dv_codec_profile2(i32 noundef %19, i32 noundef %21, i32 noundef %23, i64 %25) #8
+  %26 = tail call ptr @av_dv_codec_profile2(i32 noundef %19, i32 noundef %21, i32 noundef %23, i64 %25) #9
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %26, ptr %27, align 8, !tbaa !37
   %.not43 = icmp eq ptr %26, null
@@ -93,14 +93,14 @@ define internal range(i32 -2147483648, 1) i32 @dvvideo_encode_init(ptr noundef %
   %29 = load i32, ptr %18, align 8, !tbaa !34
   %30 = load i32, ptr %20, align 4, !tbaa !35
   %31 = load i32, ptr %22, align 8, !tbaa !36
-  %32 = tail call ptr @av_get_pix_fmt_name(i32 noundef %31) #8
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %29, i32 noundef %30, ptr noundef %32) #8
-  tail call void @ff_dv_print_profiles(ptr noundef nonnull %0, i32 noundef 16) #8
+  %32 = tail call ptr @av_get_pix_fmt_name(i32 noundef %31) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %29, i32 noundef %30, ptr noundef %32) #9
+  tail call void @ff_dv_print_profiles(ptr noundef nonnull %0, i32 noundef 16) #9
   br label %57
 
 33:                                               ; preds = %17
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  tail call void @ff_dv_init_dynamic_tables(ptr noundef nonnull %34, ptr noundef nonnull %26) #8
+  tail call void @ff_dv_init_dynamic_tables(ptr noundef nonnull %34, ptr noundef nonnull %26) #9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load i32, ptr %35, align 8, !tbaa !38
   %37 = and i32 %36, 262144
@@ -110,10 +110,10 @@ define internal range(i32 -2147483648, 1) i32 @dvvideo_encode_init(ptr noundef %
 38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @ff_me_cmp_init(ptr noundef nonnull %4, ptr noundef nonnull %0) #8
+  call void @ff_me_cmp_init(ptr noundef nonnull %4, ptr noundef nonnull %0) #9
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %40 = load i32, ptr %39, align 8, !tbaa !39
-  %41 = call i32 @ff_set_cmp(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %40, i32 noundef 0) #8
+  %41 = call i32 @ff_set_cmp(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %40, i32 noundef 0) #9
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %.thread, label %43
 
@@ -139,8 +139,8 @@ define internal range(i32 -2147483648, 1) i32 @dvvideo_encode_init(ptr noundef %
 48:                                               ; preds = %46, %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @ff_fdctdsp_init(ptr noundef nonnull %2, ptr noundef nonnull %0) #8
-  call void @ff_pixblockdsp_init(ptr noundef nonnull %3, ptr noundef nonnull %0) #8
+  call void @ff_fdctdsp_init(ptr noundef nonnull %2, ptr noundef nonnull %0) #9
+  call void @ff_pixblockdsp_init(ptr noundef nonnull %3, ptr noundef nonnull %0) #9
   %49 = load ptr, ptr %3, align 8, !tbaa !42
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %49, ptr %50, align 8, !tbaa !44
@@ -151,7 +151,7 @@ define internal range(i32 -2147483648, 1) i32 @dvvideo_encode_init(ptr noundef %
   %54 = load ptr, ptr %53, align 8, !tbaa !47
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %54, ptr %55, align 8, !tbaa !40
-  %56 = call i32 @pthread_once(ptr noundef nonnull @dvvideo_encode_init.init_static_once, ptr noundef nonnull @dv_vlc_map_tableinit) #8
+  %56 = call i32 @pthread_once(ptr noundef nonnull @dvvideo_encode_init.init_static_once, ptr noundef nonnull @dv_vlc_map_tableinit) #9
   br label %57
 
 57:                                               ; preds = %.thread, %11, %48, %28
@@ -170,7 +170,7 @@ define internal range(i32 -2147483648, 1) i32 @dvvideo_encode_frame(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !48
   %11 = sext i32 %10 to i64
-  %12 = tail call i32 @ff_get_encode_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %11, i32 noundef 0) #8
+  %12 = tail call i32 @ff_get_encode_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %11, i32 noundef 0) #9
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %262, label %14
 
@@ -588,7 +588,7 @@ dv_format_frame.exit:                             ; preds = %._crit_edge.i, %38,
 
 dv_work_pool_size.exit:                           ; preds = %dv_format_frame.exit, %.sink.split.i
   %.1.i = phi i32 [ %254, %dv_format_frame.exit ], [ %spec.select.i, %.sink.split.i ]
-  %261 = tail call i32 %249(ptr noundef nonnull %0, ptr noundef nonnull @dv_encode_video_segment, ptr noundef nonnull %250, ptr noundef null, i32 noundef %.1.i, i32 noundef 12) #8
+  %261 = tail call i32 %249(ptr noundef nonnull %0, ptr noundef nonnull @dv_encode_video_segment, ptr noundef nonnull %250, ptr noundef null, i32 noundef %.1.i, i32 noundef 12) #9
   store i32 1, ptr %3, align 4, !tbaa !77
   br label %262
 
@@ -831,7 +831,7 @@ dv_calculate_mb_xy.exit:                          ; preds = %35, %46, %51
 
 76:                                               ; preds = %61
   %77 = load ptr, ptr %31, align 8, !tbaa !41
-  %78 = call i32 %77(ptr noundef null, ptr noundef %71, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %65, i32 noundef 8) #8
+  %78 = call i32 %77(ptr noundef null, ptr noundef %71, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %65, i32 noundef 8) #9
   %79 = icmp sgt i32 %78, 400
   br i1 %79, label %80, label %dv_guess_dct_mode.exit
 
@@ -839,10 +839,10 @@ dv_calculate_mb_xy.exit:                          ; preds = %35, %46, %51
   %81 = add nsw i32 %78, -400
   %82 = load ptr, ptr %31, align 8, !tbaa !41
   %83 = shl nsw i64 %65, 1
-  %84 = call i32 %82(ptr noundef null, ptr noundef %71, ptr noundef null, i64 noundef %83, i32 noundef 4) #8
+  %84 = call i32 %82(ptr noundef null, ptr noundef %71, ptr noundef null, i64 noundef %83, i32 noundef 4) #9
   %85 = load ptr, ptr %31, align 8, !tbaa !41
   %86 = getelementptr inbounds i8, ptr %71, i64 %65
-  %87 = call i32 %85(ptr noundef null, ptr noundef %86, ptr noundef null, i64 noundef %83, i32 noundef 4) #8
+  %87 = call i32 %85(ptr noundef null, ptr noundef %86, ptr noundef null, i64 noundef %83, i32 noundef 4) #9
   %88 = add nsw i32 %87, %84
   %89 = icmp sgt i32 %81, %88
   %90 = zext i1 %89 to i32
@@ -938,9 +938,9 @@ dv_guess_dct_mode.exit:                           ; preds = %dv_calculate_mb_xy.
   %136 = load ptr, ptr %32, align 8, !tbaa !44
   %137 = shl i32 %117, %.sink
   %138 = sext i32 %137 to i64
-  call void %136(ptr noundef nonnull %17, ptr noundef nonnull %124, i64 noundef %138) #8
+  call void %136(ptr noundef nonnull %17, ptr noundef nonnull %124, i64 noundef %138) #9
   %139 = load ptr, ptr %33, align 8, !tbaa !40
-  call void %139(ptr noundef nonnull %17) #8
+  call void %139(ptr noundef nonnull %17) #9
   br label %167
 
 140:                                              ; preds = %132
@@ -954,7 +954,7 @@ dv_guess_dct_mode.exit:                           ; preds = %dv_calculate_mb_xy.
 
 146:                                              ; preds = %140
   %147 = load ptr, ptr %31, align 8, !tbaa !41
-  %148 = call i32 %147(ptr noundef null, ptr noundef nonnull %124, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %141, i32 noundef 8) #8
+  %148 = call i32 %147(ptr noundef null, ptr noundef nonnull %124, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %141, i32 noundef 8) #9
   %149 = icmp sgt i32 %148, 400
   br i1 %149, label %150, label %dv_guess_dct_mode.exit.i
 
@@ -962,10 +962,10 @@ dv_guess_dct_mode.exit:                           ; preds = %dv_calculate_mb_xy.
   %151 = add nsw i32 %148, -400
   %152 = load ptr, ptr %31, align 8, !tbaa !41
   %153 = shl nsw i64 %141, 1
-  %154 = call i32 %152(ptr noundef null, ptr noundef nonnull %124, ptr noundef null, i64 noundef %153, i32 noundef 4) #8
+  %154 = call i32 %152(ptr noundef null, ptr noundef nonnull %124, ptr noundef null, i64 noundef %153, i32 noundef 4) #9
   %155 = load ptr, ptr %31, align 8, !tbaa !41
   %156 = getelementptr inbounds i8, ptr %124, i64 %141
-  %157 = call i32 %155(ptr noundef null, ptr noundef nonnull %156, ptr noundef null, i64 noundef %153, i32 noundef 4) #8
+  %157 = call i32 %155(ptr noundef null, ptr noundef nonnull %156, ptr noundef null, i64 noundef %153, i32 noundef 4) #9
   %158 = add nsw i32 %157, %154
   %159 = icmp sgt i32 %151, %158
   %160 = zext i1 %159 to i32
@@ -975,12 +975,12 @@ dv_guess_dct_mode.exit.i:                         ; preds = %146, %140, %150
   %.1.i.i = phi i32 [ %160, %150 ], [ 0, %140 ], [ 0, %146 ]
   store i32 %.1.i.i, ptr %96, align 4, !tbaa !89
   %161 = load ptr, ptr %32, align 8, !tbaa !44
-  call void %161(ptr noundef nonnull %17, ptr noundef nonnull %124, i64 noundef %141) #8
+  call void %161(ptr noundef nonnull %17, ptr noundef nonnull %124, i64 noundef %141) #9
   %162 = load i32, ptr %96, align 4, !tbaa !89
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds ptr, ptr %33, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !40
-  call void %165(ptr noundef nonnull %17) #8
+  call void %165(ptr noundef nonnull %17) #9
   br label %167
 
 166:                                              ; preds = %131
@@ -1597,7 +1597,7 @@ dv_init_enc_block.exit229:                        ; preds = %495, %461, %dv_set_
   %519 = load i32, ptr %518, align 4, !tbaa !89
   %520 = shl i32 %117, %519
   %521 = sext i32 %520 to i64
-  call void %517(ptr noundef nonnull %15, ptr noundef nonnull %508, i64 noundef %521) #8
+  call void %517(ptr noundef nonnull %15, ptr noundef nonnull %508, i64 noundef %521) #9
   br label %548
 
 522:                                              ; preds = %dv_init_enc_block.exit229
@@ -1611,7 +1611,7 @@ dv_init_enc_block.exit229:                        ; preds = %495, %461, %dv_set_
 
 528:                                              ; preds = %522
   %529 = load ptr, ptr %31, align 8, !tbaa !41
-  %530 = call i32 %529(ptr noundef null, ptr noundef nonnull %508, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %523, i32 noundef 8) #8
+  %530 = call i32 %529(ptr noundef null, ptr noundef nonnull %508, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %523, i32 noundef 8) #9
   %531 = icmp sgt i32 %530, 400
   br i1 %531, label %532, label %dv_guess_dct_mode.exit.i237
 
@@ -1619,10 +1619,10 @@ dv_init_enc_block.exit229:                        ; preds = %495, %461, %dv_set_
   %533 = add nsw i32 %530, -400
   %534 = load ptr, ptr %31, align 8, !tbaa !41
   %535 = shl nsw i64 %523, 1
-  %536 = call i32 %534(ptr noundef null, ptr noundef nonnull %508, ptr noundef null, i64 noundef %535, i32 noundef 4) #8
+  %536 = call i32 %534(ptr noundef null, ptr noundef nonnull %508, ptr noundef null, i64 noundef %535, i32 noundef 4) #9
   %537 = load ptr, ptr %31, align 8, !tbaa !41
   %538 = getelementptr inbounds i8, ptr %508, i64 %523
-  %539 = call i32 %537(ptr noundef null, ptr noundef nonnull %538, ptr noundef null, i64 noundef %535, i32 noundef 4) #8
+  %539 = call i32 %537(ptr noundef null, ptr noundef nonnull %538, ptr noundef null, i64 noundef %535, i32 noundef 4) #9
   %540 = add nsw i32 %539, %536
   %541 = icmp sgt i32 %533, %540
   %542 = zext i1 %541 to i32
@@ -1633,7 +1633,7 @@ dv_guess_dct_mode.exit.i237:                      ; preds = %528, %522, %532
   %543 = getelementptr inbounds nuw i8, ptr %.0203992, i64 980
   store i32 %.1.i.i238, ptr %543, align 4, !tbaa !89
   %544 = load ptr, ptr %32, align 8, !tbaa !44
-  call void %544(ptr noundef nonnull %15, ptr noundef nonnull %508, i64 noundef %523) #8
+  call void %544(ptr noundef nonnull %15, ptr noundef nonnull %508, i64 noundef %523) #9
   %545 = load i32, ptr %543, align 4, !tbaa !89
   %546 = sext i32 %545 to i64
   %547 = getelementptr inbounds ptr, ptr %33, i64 %546
@@ -1642,7 +1642,7 @@ dv_guess_dct_mode.exit.i237:                      ; preds = %528, %522, %532
 548:                                              ; preds = %dv_guess_dct_mode.exit.i237, %516
   %.sink1544.in = phi ptr [ %547, %dv_guess_dct_mode.exit.i237 ], [ %33, %516 ]
   %.sink1544 = load ptr, ptr %.sink1544.in, align 8, !tbaa !40
-  call void %.sink1544(ptr noundef nonnull %15) #8
+  call void %.sink1544(ptr noundef nonnull %15) #9
   %549 = load ptr, ptr %27, align 8, !tbaa !37
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 4
   %551 = load i32, ptr %550, align 4, !tbaa !65
@@ -2264,9 +2264,9 @@ dv_init_enc_block.exit243:                        ; preds = %877, %843, %dv_set_
   %909 = load ptr, ptr %32, align 8, !tbaa !44
   %910 = shl i32 %117, %.sink
   %911 = sext i32 %910 to i64
-  call void %909(ptr noundef nonnull %13, ptr noundef nonnull %124, i64 noundef %911) #8
+  call void %909(ptr noundef nonnull %13, ptr noundef nonnull %124, i64 noundef %911) #9
   %912 = load ptr, ptr %33, align 8, !tbaa !40
-  call void %912(ptr noundef nonnull %13) #8
+  call void %912(ptr noundef nonnull %13) #9
   br label %940
 
 913:                                              ; preds = %905
@@ -2280,7 +2280,7 @@ dv_init_enc_block.exit243:                        ; preds = %877, %843, %dv_set_
 
 919:                                              ; preds = %913
   %920 = load ptr, ptr %31, align 8, !tbaa !41
-  %921 = call i32 %920(ptr noundef null, ptr noundef nonnull %124, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %914, i32 noundef 8) #8
+  %921 = call i32 %920(ptr noundef null, ptr noundef nonnull %124, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %914, i32 noundef 8) #9
   %922 = icmp sgt i32 %921, 400
   br i1 %922, label %923, label %dv_guess_dct_mode.exit.i251
 
@@ -2288,10 +2288,10 @@ dv_init_enc_block.exit243:                        ; preds = %877, %843, %dv_set_
   %924 = add nsw i32 %921, -400
   %925 = load ptr, ptr %31, align 8, !tbaa !41
   %926 = shl nsw i64 %914, 1
-  %927 = call i32 %925(ptr noundef null, ptr noundef nonnull %124, ptr noundef null, i64 noundef %926, i32 noundef 4) #8
+  %927 = call i32 %925(ptr noundef null, ptr noundef nonnull %124, ptr noundef null, i64 noundef %926, i32 noundef 4) #9
   %928 = load ptr, ptr %31, align 8, !tbaa !41
   %929 = getelementptr inbounds i8, ptr %124, i64 %914
-  %930 = call i32 %928(ptr noundef null, ptr noundef nonnull %929, ptr noundef null, i64 noundef %926, i32 noundef 4) #8
+  %930 = call i32 %928(ptr noundef null, ptr noundef nonnull %929, ptr noundef null, i64 noundef %926, i32 noundef 4) #9
   %931 = add nsw i32 %930, %927
   %932 = icmp sgt i32 %924, %931
   %933 = zext i1 %932 to i32
@@ -2301,12 +2301,12 @@ dv_guess_dct_mode.exit.i251:                      ; preds = %919, %913, %923
   %.1.i.i252 = phi i32 [ %933, %923 ], [ 0, %913 ], [ 0, %919 ]
   store i32 %.1.i.i252, ptr %96, align 4, !tbaa !89
   %934 = load ptr, ptr %32, align 8, !tbaa !44
-  call void %934(ptr noundef nonnull %13, ptr noundef nonnull %124, i64 noundef %914) #8
+  call void %934(ptr noundef nonnull %13, ptr noundef nonnull %124, i64 noundef %914) #9
   %935 = load i32, ptr %96, align 4, !tbaa !89
   %936 = sext i32 %935 to i64
   %937 = getelementptr inbounds ptr, ptr %33, i64 %936
   %938 = load ptr, ptr %937, align 8, !tbaa !40
-  call void %938(ptr noundef nonnull %13) #8
+  call void %938(ptr noundef nonnull %13) #9
   br label %940
 
 939:                                              ; preds = %904
@@ -2627,7 +2627,7 @@ dv_init_enc_block.exit253:                        ; preds = %1098, %1064, %dv_se
   %1122 = load i32, ptr %1121, align 4, !tbaa !89
   %1123 = shl i32 %117, %1122
   %1124 = sext i32 %1123 to i64
-  call void %1120(ptr noundef nonnull %12, ptr noundef nonnull %1111, i64 noundef %1124) #8
+  call void %1120(ptr noundef nonnull %12, ptr noundef nonnull %1111, i64 noundef %1124) #9
   br label %1151
 
 1125:                                             ; preds = %dv_init_enc_block.exit253
@@ -2641,7 +2641,7 @@ dv_init_enc_block.exit253:                        ; preds = %1098, %1064, %dv_se
 
 1131:                                             ; preds = %1125
   %1132 = load ptr, ptr %31, align 8, !tbaa !41
-  %1133 = call i32 %1132(ptr noundef null, ptr noundef nonnull %1111, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %1126, i32 noundef 8) #8
+  %1133 = call i32 %1132(ptr noundef null, ptr noundef nonnull %1111, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %1126, i32 noundef 8) #9
   %1134 = icmp sgt i32 %1133, 400
   br i1 %1134, label %1135, label %dv_guess_dct_mode.exit.i261
 
@@ -2649,10 +2649,10 @@ dv_init_enc_block.exit253:                        ; preds = %1098, %1064, %dv_se
   %1136 = add nsw i32 %1133, -400
   %1137 = load ptr, ptr %31, align 8, !tbaa !41
   %1138 = shl nsw i64 %1126, 1
-  %1139 = call i32 %1137(ptr noundef null, ptr noundef nonnull %1111, ptr noundef null, i64 noundef %1138, i32 noundef 4) #8
+  %1139 = call i32 %1137(ptr noundef null, ptr noundef nonnull %1111, ptr noundef null, i64 noundef %1138, i32 noundef 4) #9
   %1140 = load ptr, ptr %31, align 8, !tbaa !41
   %1141 = getelementptr inbounds i8, ptr %1111, i64 %1126
-  %1142 = call i32 %1140(ptr noundef null, ptr noundef nonnull %1141, ptr noundef null, i64 noundef %1138, i32 noundef 4) #8
+  %1142 = call i32 %1140(ptr noundef null, ptr noundef nonnull %1141, ptr noundef null, i64 noundef %1138, i32 noundef 4) #9
   %1143 = add nsw i32 %1142, %1139
   %1144 = icmp sgt i32 %1136, %1143
   %1145 = zext i1 %1144 to i32
@@ -2663,7 +2663,7 @@ dv_guess_dct_mode.exit.i261:                      ; preds = %1131, %1125, %1135
   %1146 = getelementptr inbounds nuw i8, ptr %.0203992, i64 520
   store i32 %.1.i.i262, ptr %1146, align 4, !tbaa !89
   %1147 = load ptr, ptr %32, align 8, !tbaa !44
-  call void %1147(ptr noundef nonnull %12, ptr noundef nonnull %1111, i64 noundef %1126) #8
+  call void %1147(ptr noundef nonnull %12, ptr noundef nonnull %1111, i64 noundef %1126) #9
   %1148 = load i32, ptr %1146, align 4, !tbaa !89
   %1149 = sext i32 %1148 to i64
   %1150 = getelementptr inbounds ptr, ptr %33, i64 %1149
@@ -2672,7 +2672,7 @@ dv_guess_dct_mode.exit.i261:                      ; preds = %1131, %1125, %1135
 1151:                                             ; preds = %dv_guess_dct_mode.exit.i261, %1119
   %.sink1545.in = phi ptr [ %1150, %dv_guess_dct_mode.exit.i261 ], [ %33, %1119 ]
   %.sink1545 = load ptr, ptr %.sink1545.in, align 8, !tbaa !40
-  call void %.sink1545(ptr noundef nonnull %12) #8
+  call void %.sink1545(ptr noundef nonnull %12) #9
   %1152 = load ptr, ptr %27, align 8, !tbaa !37
   %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 4
   %1154 = load i32, ptr %1153, align 4, !tbaa !65
@@ -2989,9 +2989,9 @@ dv_init_enc_block.exit263:                        ; preds = %1310, %1276, %dv_se
   %1335 = load i32, ptr %1334, align 4, !tbaa !89
   %1336 = shl i32 %117, %1335
   %1337 = sext i32 %1336 to i64
-  call void %1333(ptr noundef nonnull %11, ptr noundef nonnull %1323, i64 noundef %1337) #8
+  call void %1333(ptr noundef nonnull %11, ptr noundef nonnull %1323, i64 noundef %1337) #9
   %1338 = load ptr, ptr %33, align 8, !tbaa !40
-  call void %1338(ptr noundef nonnull %11) #8
+  call void %1338(ptr noundef nonnull %11) #9
   br label %1368
 
 1339:                                             ; preds = %1327
@@ -3005,7 +3005,7 @@ dv_init_enc_block.exit263:                        ; preds = %1310, %1276, %dv_se
 
 1345:                                             ; preds = %1339
   %1346 = load ptr, ptr %31, align 8, !tbaa !41
-  %1347 = call i32 %1346(ptr noundef null, ptr noundef nonnull %1323, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %1340, i32 noundef 8) #8
+  %1347 = call i32 %1346(ptr noundef null, ptr noundef nonnull %1323, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %1340, i32 noundef 8) #9
   %1348 = icmp sgt i32 %1347, 400
   br i1 %1348, label %1349, label %dv_guess_dct_mode.exit.i271
 
@@ -3013,10 +3013,10 @@ dv_init_enc_block.exit263:                        ; preds = %1310, %1276, %dv_se
   %1350 = add nsw i32 %1347, -400
   %1351 = load ptr, ptr %31, align 8, !tbaa !41
   %1352 = shl nsw i64 %1340, 1
-  %1353 = call i32 %1351(ptr noundef null, ptr noundef nonnull %1323, ptr noundef null, i64 noundef %1352, i32 noundef 4) #8
+  %1353 = call i32 %1351(ptr noundef null, ptr noundef nonnull %1323, ptr noundef null, i64 noundef %1352, i32 noundef 4) #9
   %1354 = load ptr, ptr %31, align 8, !tbaa !41
   %1355 = getelementptr inbounds i8, ptr %1323, i64 %1340
-  %1356 = call i32 %1354(ptr noundef null, ptr noundef nonnull %1355, ptr noundef null, i64 noundef %1352, i32 noundef 4) #8
+  %1356 = call i32 %1354(ptr noundef null, ptr noundef nonnull %1355, ptr noundef null, i64 noundef %1352, i32 noundef 4) #9
   %1357 = add nsw i32 %1356, %1353
   %1358 = icmp sgt i32 %1350, %1357
   %1359 = zext i1 %1358 to i32
@@ -3027,12 +3027,12 @@ dv_guess_dct_mode.exit.i271:                      ; preds = %1345, %1339, %1349
   %1360 = getelementptr inbounds nuw i8, ptr %.0203992, i64 980
   store i32 %.1.i.i272, ptr %1360, align 4, !tbaa !89
   %1361 = load ptr, ptr %32, align 8, !tbaa !44
-  call void %1361(ptr noundef nonnull %11, ptr noundef nonnull %1323, i64 noundef %1340) #8
+  call void %1361(ptr noundef nonnull %11, ptr noundef nonnull %1323, i64 noundef %1340) #9
   %1362 = load i32, ptr %1360, align 4, !tbaa !89
   %1363 = sext i32 %1362 to i64
   %1364 = getelementptr inbounds ptr, ptr %33, i64 %1363
   %1365 = load ptr, ptr %1364, align 8, !tbaa !40
-  call void %1365(ptr noundef nonnull %11) #8
+  call void %1365(ptr noundef nonnull %11) #9
   br label %1368
 
 1366:                                             ; preds = %dv_init_enc_block.exit263
@@ -3355,7 +3355,7 @@ dv_init_enc_block.exit273:                        ; preds = %1527, %1493, %dv_se
   %1551 = load i32, ptr %1550, align 4, !tbaa !89
   %1552 = shl i32 %117, %1551
   %1553 = sext i32 %1552 to i64
-  call void %1549(ptr noundef nonnull %10, ptr noundef nonnull %1540, i64 noundef %1553) #8
+  call void %1549(ptr noundef nonnull %10, ptr noundef nonnull %1540, i64 noundef %1553) #9
   br label %1580
 
 1554:                                             ; preds = %dv_init_enc_block.exit273
@@ -3369,7 +3369,7 @@ dv_init_enc_block.exit273:                        ; preds = %1527, %1493, %dv_se
 
 1560:                                             ; preds = %1554
   %1561 = load ptr, ptr %31, align 8, !tbaa !41
-  %1562 = call i32 %1561(ptr noundef null, ptr noundef nonnull %1540, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %1555, i32 noundef 8) #8
+  %1562 = call i32 %1561(ptr noundef null, ptr noundef nonnull %1540, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %1555, i32 noundef 8) #9
   %1563 = icmp sgt i32 %1562, 400
   br i1 %1563, label %1564, label %dv_guess_dct_mode.exit.i281
 
@@ -3377,10 +3377,10 @@ dv_init_enc_block.exit273:                        ; preds = %1527, %1493, %dv_se
   %1565 = add nsw i32 %1562, -400
   %1566 = load ptr, ptr %31, align 8, !tbaa !41
   %1567 = shl nsw i64 %1555, 1
-  %1568 = call i32 %1566(ptr noundef null, ptr noundef nonnull %1540, ptr noundef null, i64 noundef %1567, i32 noundef 4) #8
+  %1568 = call i32 %1566(ptr noundef null, ptr noundef nonnull %1540, ptr noundef null, i64 noundef %1567, i32 noundef 4) #9
   %1569 = load ptr, ptr %31, align 8, !tbaa !41
   %1570 = getelementptr inbounds i8, ptr %1540, i64 %1555
-  %1571 = call i32 %1569(ptr noundef null, ptr noundef nonnull %1570, ptr noundef null, i64 noundef %1567, i32 noundef 4) #8
+  %1571 = call i32 %1569(ptr noundef null, ptr noundef nonnull %1570, ptr noundef null, i64 noundef %1567, i32 noundef 4) #9
   %1572 = add nsw i32 %1571, %1568
   %1573 = icmp sgt i32 %1565, %1572
   %1574 = zext i1 %1573 to i32
@@ -3391,7 +3391,7 @@ dv_guess_dct_mode.exit.i281:                      ; preds = %1560, %1554, %1564
   %1575 = getelementptr inbounds nuw i8, ptr %.0203992, i64 1440
   store i32 %.1.i.i282, ptr %1575, align 4, !tbaa !89
   %1576 = load ptr, ptr %32, align 8, !tbaa !44
-  call void %1576(ptr noundef nonnull %10, ptr noundef nonnull %1540, i64 noundef %1555) #8
+  call void %1576(ptr noundef nonnull %10, ptr noundef nonnull %1540, i64 noundef %1555) #9
   %1577 = load i32, ptr %1575, align 4, !tbaa !89
   %1578 = sext i32 %1577 to i64
   %1579 = getelementptr inbounds ptr, ptr %33, i64 %1578
@@ -3400,7 +3400,7 @@ dv_guess_dct_mode.exit.i281:                      ; preds = %1560, %1554, %1564
 1580:                                             ; preds = %dv_guess_dct_mode.exit.i281, %1548
   %.sink1546.in = phi ptr [ %1579, %dv_guess_dct_mode.exit.i281 ], [ %33, %1548 ]
   %.sink1546 = load ptr, ptr %.sink1546.in, align 8, !tbaa !40
-  call void %.sink1546(ptr noundef nonnull %10) #8
+  call void %.sink1546(ptr noundef nonnull %10) #9
   %1581 = load ptr, ptr %27, align 8, !tbaa !37
   %1582 = getelementptr inbounds nuw i8, ptr %1581, i64 4
   %1583 = load i32, ptr %1582, align 4, !tbaa !65
@@ -3837,9 +3837,9 @@ dv_init_enc_block.exit283:                        ; preds = %1739, %1705, %dv_se
   %1845 = load i32, ptr %1844, align 4, !tbaa !89
   %1846 = shl i32 %.0210, %1845
   %1847 = sext i32 %1846 to i64
-  call void %1843(ptr noundef nonnull %9, ptr noundef nonnull %.0196, i64 noundef %1847) #8
+  call void %1843(ptr noundef nonnull %9, ptr noundef nonnull %.0196, i64 noundef %1847) #9
   %1848 = load ptr, ptr %33, align 8, !tbaa !40
-  call void %1848(ptr noundef nonnull %9) #8
+  call void %1848(ptr noundef nonnull %9) #9
   br label %1878
 
 1849:                                             ; preds = %1838
@@ -3853,7 +3853,7 @@ dv_init_enc_block.exit283:                        ; preds = %1739, %1705, %dv_se
 
 1855:                                             ; preds = %1849
   %1856 = load ptr, ptr %31, align 8, !tbaa !41
-  %1857 = call i32 %1856(ptr noundef null, ptr noundef nonnull %.0196, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %1850, i32 noundef 8) #8
+  %1857 = call i32 %1856(ptr noundef null, ptr noundef nonnull %.0196, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %1850, i32 noundef 8) #9
   %1858 = icmp sgt i32 %1857, 400
   br i1 %1858, label %1859, label %dv_guess_dct_mode.exit.i291
 
@@ -3861,10 +3861,10 @@ dv_init_enc_block.exit283:                        ; preds = %1739, %1705, %dv_se
   %1860 = add nsw i32 %1857, -400
   %1861 = load ptr, ptr %31, align 8, !tbaa !41
   %1862 = shl nsw i64 %1850, 1
-  %1863 = call i32 %1861(ptr noundef null, ptr noundef nonnull %.0196, ptr noundef null, i64 noundef %1862, i32 noundef 4) #8
+  %1863 = call i32 %1861(ptr noundef null, ptr noundef nonnull %.0196, ptr noundef null, i64 noundef %1862, i32 noundef 4) #9
   %1864 = load ptr, ptr %31, align 8, !tbaa !41
   %1865 = getelementptr inbounds i8, ptr %.0196, i64 %1850
-  %1866 = call i32 %1864(ptr noundef null, ptr noundef nonnull %1865, ptr noundef null, i64 noundef %1862, i32 noundef 4) #8
+  %1866 = call i32 %1864(ptr noundef null, ptr noundef nonnull %1865, ptr noundef null, i64 noundef %1862, i32 noundef 4) #9
   %1867 = add nsw i32 %1866, %1863
   %1868 = icmp sgt i32 %1860, %1867
   %1869 = zext i1 %1868 to i32
@@ -3875,12 +3875,12 @@ dv_guess_dct_mode.exit.i291:                      ; preds = %1855, %1849, %1859
   %1870 = getelementptr inbounds nuw i8, ptr %.1204989, i64 60
   store i32 %.1.i.i292, ptr %1870, align 4, !tbaa !89
   %1871 = load ptr, ptr %32, align 8, !tbaa !44
-  call void %1871(ptr noundef nonnull %9, ptr noundef nonnull %.0196, i64 noundef %1850) #8
+  call void %1871(ptr noundef nonnull %9, ptr noundef nonnull %.0196, i64 noundef %1850) #9
   %1872 = load i32, ptr %1870, align 4, !tbaa !89
   %1873 = sext i32 %1872 to i64
   %1874 = getelementptr inbounds ptr, ptr %33, i64 %1873
   %1875 = load ptr, ptr %1874, align 8, !tbaa !40
-  call void %1875(ptr noundef nonnull %9) #8
+  call void %1875(ptr noundef nonnull %9) #9
   br label %1878
 
 1876:                                             ; preds = %.loopexit688
@@ -4218,9 +4218,9 @@ dv_init_enc_block.exit293:                        ; preds = %2038, %2003, %dv_se
   %2071 = load i32, ptr %2070, align 4, !tbaa !89
   %2072 = shl i32 %.0210, %2071
   %2073 = sext i32 %2072 to i64
-  call void %2069(ptr noundef nonnull %8, ptr noundef nonnull %2060, i64 noundef %2073) #8
+  call void %2069(ptr noundef nonnull %8, ptr noundef nonnull %2060, i64 noundef %2073) #9
   %2074 = load ptr, ptr %33, align 8, !tbaa !40
-  call void %2074(ptr noundef nonnull %8) #8
+  call void %2074(ptr noundef nonnull %8) #9
   br label %2104
 
 2075:                                             ; preds = %2064
@@ -4234,7 +4234,7 @@ dv_init_enc_block.exit293:                        ; preds = %2038, %2003, %dv_se
 
 2081:                                             ; preds = %2075
   %2082 = load ptr, ptr %31, align 8, !tbaa !41
-  %2083 = call i32 %2082(ptr noundef null, ptr noundef nonnull %2060, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %2076, i32 noundef 8) #8
+  %2083 = call i32 %2082(ptr noundef null, ptr noundef nonnull %2060, ptr noundef null, i64 noundef range(i64 -2147483648, 2147483648) %2076, i32 noundef 8) #9
   %2084 = icmp sgt i32 %2083, 400
   br i1 %2084, label %2085, label %dv_guess_dct_mode.exit.i301
 
@@ -4242,10 +4242,10 @@ dv_init_enc_block.exit293:                        ; preds = %2038, %2003, %dv_se
   %2086 = add nsw i32 %2083, -400
   %2087 = load ptr, ptr %31, align 8, !tbaa !41
   %2088 = shl nsw i64 %2076, 1
-  %2089 = call i32 %2087(ptr noundef null, ptr noundef nonnull %2060, ptr noundef null, i64 noundef %2088, i32 noundef 4) #8
+  %2089 = call i32 %2087(ptr noundef null, ptr noundef nonnull %2060, ptr noundef null, i64 noundef %2088, i32 noundef 4) #9
   %2090 = load ptr, ptr %31, align 8, !tbaa !41
   %2091 = getelementptr inbounds i8, ptr %2060, i64 %2076
-  %2092 = call i32 %2090(ptr noundef null, ptr noundef nonnull %2091, ptr noundef null, i64 noundef %2088, i32 noundef 4) #8
+  %2092 = call i32 %2090(ptr noundef null, ptr noundef nonnull %2091, ptr noundef null, i64 noundef %2088, i32 noundef 4) #9
   %2093 = add nsw i32 %2092, %2089
   %2094 = icmp sgt i32 %2086, %2093
   %2095 = zext i1 %2094 to i32
@@ -4256,12 +4256,12 @@ dv_guess_dct_mode.exit.i301:                      ; preds = %2081, %2075, %2085
   %2096 = getelementptr inbounds nuw i8, ptr %.1204989, i64 520
   store i32 %.1.i.i302, ptr %2096, align 4, !tbaa !89
   %2097 = load ptr, ptr %32, align 8, !tbaa !44
-  call void %2097(ptr noundef nonnull %8, ptr noundef nonnull %2060, i64 noundef %2076) #8
+  call void %2097(ptr noundef nonnull %8, ptr noundef nonnull %2060, i64 noundef %2076) #9
   %2098 = load i32, ptr %2096, align 4, !tbaa !89
   %2099 = sext i32 %2098 to i64
   %2100 = getelementptr inbounds ptr, ptr %33, i64 %2099
   %2101 = load ptr, ptr %2100, align 8, !tbaa !40
-  call void %2101(ptr noundef nonnull %8) #8
+  call void %2101(ptr noundef nonnull %8) #9
   br label %2104
 
 2102:                                             ; preds = %2058
@@ -5814,7 +5814,7 @@ put_bits.exit:                                    ; preds = %2917, %put_sbits.ex
   br label %2972
 
 2971:                                             ; preds = %2961
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
   br label %2972
 
 2972:                                             ; preds = %2971, %2963
@@ -5873,7 +5873,7 @@ put_bits.exit592:                                 ; preds = %2958, %2972
   br label %2997
 
 2996:                                             ; preds = %2986
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
   br label %2997
 
 2997:                                             ; preds = %2996, %2988
@@ -6025,7 +6025,7 @@ dv_encode_ac.exit:                                ; preds = %put_bits.exit596, %
   br label %3080
 
 3079:                                             ; preds = %3069
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
   br label %3080
 
 3080:                                             ; preds = %3079, %3071
@@ -6084,7 +6084,7 @@ put_bits.exit601:                                 ; preds = %3066, %3080
   br label %3105
 
 3104:                                             ; preds = %3094
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
   br label %3105
 
 3105:                                             ; preds = %3104, %3096
@@ -6230,7 +6230,7 @@ dv_encode_ac.exit315:                             ; preds = %put_bits.exit605, %
   br label %3186
 
 3185:                                             ; preds = %3175
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
   br label %3186
 
 3186:                                             ; preds = %3185, %3177
@@ -6289,7 +6289,7 @@ put_bits.exit610:                                 ; preds = %3172, %3186
   br label %3211
 
 3210:                                             ; preds = %3200
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.11) #9
   br label %3211
 
 3211:                                             ; preds = %3210, %3202
@@ -6349,7 +6349,7 @@ dv_encode_ac.exit324:                             ; preds = %dv_encode_ac.exit32
   br i1 %.not219, label %dv_encode_ac.exit324.thread, label %3239
 
 3239:                                             ; preds = %dv_encode_ac.exit324
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10) #9
   br label %dv_encode_ac.exit324.thread
 
 dv_encode_ac.exit324.thread:                      ; preds = %.lr.ph1017, %dv_encode_ac.exit324, %3239
@@ -6387,8 +6387,8 @@ dv_encode_ac.exit324.thread:                      ; preds = %.lr.ph1017, %dv_enc
   br i1 %3258, label %3260, label %3259
 
 3259:                                             ; preds = %3254
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 150) #8
-  call void @abort() #9
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 150) #9
+  call void @abort() #10
   unreachable
 
 3260:                                             ; preds = %3254
@@ -6513,14 +6513,14 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6530,8 +6530,9 @@ attributes #4 = { cold nofree norecurse nosync nounwind optsize memory(readwrite
 attributes #5 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -36,20 +36,20 @@ define range(i32 0, 2) i32 @ossl_rsa_key_op_get_protect(ptr noundef %0, i32 noun
 
 9:                                                ; preds = %8, %.split, %.split, %.split
   %.0 = phi i32 [ 1, %8 ], [ 0, %.split ], [ 0, %.split ], [ 0, %.split ]
-  %10 = tail call i32 @RSA_test_flags(ptr noundef %0, i32 noundef 61440) #4
+  %10 = tail call i32 @RSA_test_flags(ptr noundef %0, i32 noundef 61440) #5
   %11 = icmp eq i32 %10, 4096
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.ossl_rsa_key_op_get_protect) #4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 178, ptr noundef nonnull @.str.1, i32 noundef %1) #4
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.ossl_rsa_key_op_get_protect) #5
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 178, ptr noundef nonnull @.str.1, i32 noundef %1) #5
   br label %15
 
 13:                                               ; preds = %3, %.split
-  tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 53, ptr noundef nonnull @__func__.ossl_rsa_key_op_get_protect) #4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef nonnull @.str.2, i32 noundef %1) #4
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 53, ptr noundef nonnull @__func__.ossl_rsa_key_op_get_protect) #5
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef nonnull @.str.2, i32 noundef %1) #5
   br label %15
 
 14:                                               ; preds = %9, %.split, %.split, %7
@@ -72,7 +72,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_rsa_check_key_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @RSA_bits(ptr noundef %0) #4
+  %3 = tail call i32 @RSA_bits(ptr noundef %0) #5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %4
 
@@ -112,12 +112,12 @@ define range(i32 0, 2) i32 @ossl_mac_check_key_size(i64 noundef %0) local_unname
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ec_check_curve_allowed(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef %0) #4
+  %2 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef %0) #5
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @EC_curve_nid2nist(i32 noundef %2) #4
+  %5 = tail call ptr @EC_curve_nid2nist(i32 noundef %2) #5
   %6 = icmp ne ptr %5, null
   %. = zext i1 %6 to i32
   br label %7
@@ -133,7 +133,7 @@ declare ptr @EC_curve_nid2nist(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ec_check_security_strength(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @EC_GROUP_order_bits(ptr noundef %0) #4
+  %3 = tail call i32 @EC_GROUP_order_bits(ptr noundef %0) #5
   %4 = icmp sgt i32 %3, 159
   %5 = icmp eq i32 %1, 0
   %6 = icmp sgt i32 %3, 223
@@ -151,16 +151,16 @@ define range(i32 0, 2) i32 @ossl_dsa_check_key(ptr noundef %0, i32 noundef %1) l
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @DSA_get0_p(ptr noundef nonnull %0) #4
-  %6 = tail call ptr @DSA_get0_q(ptr noundef nonnull %0) #4
+  %5 = tail call ptr @DSA_get0_p(ptr noundef nonnull %0) #5
+  %6 = tail call ptr @DSA_get0_q(ptr noundef nonnull %0) #5
   %7 = icmp eq ptr %5, null
   %8 = icmp eq ptr %6, null
   %or.cond = select i1 %7, i1 true, i1 %8
   br i1 %or.cond, label %26, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @BN_num_bits(ptr noundef nonnull %5) #4
-  %11 = tail call i32 @BN_num_bits(ptr noundef nonnull %6) #4
+  %10 = tail call i32 @BN_num_bits(ptr noundef nonnull %5) #5
+  %11 = tail call i32 @BN_num_bits(ptr noundef nonnull %6) #5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %12, label %18
 
@@ -210,25 +210,25 @@ define range(i32 0, 2) i32 @ossl_dh_check_key(ptr noundef %0) local_unnamed_addr
   br i1 %2, label %20, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @DH_get0_p(ptr noundef nonnull %0) #4
-  %5 = tail call ptr @DH_get0_q(ptr noundef nonnull %0) #4
+  %4 = tail call ptr @DH_get0_p(ptr noundef nonnull %0) #5
+  %5 = tail call ptr @DH_get0_q(ptr noundef nonnull %0) #5
   %6 = icmp eq ptr %4, null
   %7 = icmp eq ptr %5, null
   %or.cond = select i1 %6, i1 true, i1 %7
   br i1 %or.cond, label %20, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @BN_num_bits(ptr noundef nonnull %4) #4
+  %9 = tail call i32 @BN_num_bits(ptr noundef nonnull %4) #5
   %10 = icmp ult i32 %9, 2048
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @DH_get_nid(ptr noundef nonnull %0) #4
+  %12 = tail call i32 @DH_get_nid(ptr noundef nonnull %0) #5
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %20
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @BN_num_bits(ptr noundef nonnull %5) #4
+  %14 = tail call i32 @BN_num_bits(ptr noundef nonnull %5) #5
   %15 = icmp eq i32 %9, 2048
   %16 = icmp eq i32 %14, 224
   %17 = icmp eq i32 %14, 256
@@ -248,17 +248,18 @@ declare ptr @DH_get0_q(ptr noundef) local_unnamed_addr #1
 
 declare i32 @DH_get_nid(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

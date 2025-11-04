@@ -131,7 +131,7 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef readonly captures(none) 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #1 {
-  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #11
+  %7 = tail call i32 @ff_filter_process_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #12
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %41, label %9
 
@@ -175,7 +175,7 @@ switch.lookup:                                    ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %28 = load i32, ptr %27, align 8, !tbaa !41
   %29 = sext i32 %28 to i64
-  %30 = tail call i64 @av_rescale(i64 noundef %25, i64 noundef %29, i64 noundef 1000000) #12
+  %30 = tail call i64 @av_rescale(i64 noundef %25, i64 noundef %29, i64 noundef 1000000) #13
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %30, ptr %31, align 8, !tbaa !20
   br label %32
@@ -191,7 +191,7 @@ switch.lookup:                                    ; preds = %9
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %37 = load i32, ptr %36, align 8, !tbaa !41
   %38 = sext i32 %37 to i64
-  %39 = tail call i64 @av_rescale(i64 noundef %34, i64 noundef %38, i64 noundef 1000000) #12
+  %39 = tail call i64 @av_rescale(i64 noundef %34, i64 noundef %38, i64 noundef 1000000) #13
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 %39, ptr %40, align 8, !tbaa !24
   br label %config_output.exit
@@ -224,7 +224,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %12 = tail call i32 @ff_outlink_get_status(ptr noundef %11) #11
+  %12 = tail call i32 @ff_outlink_get_status(ptr noundef %11) #12
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.critedge, label %.preheader
 
@@ -243,7 +243,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %17 = load ptr, ptr %15, align 8, !tbaa !46
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !26
-  tail call void @ff_inlink_set_status(ptr noundef %19, i32 noundef %12) #11
+  tail call void @ff_inlink_set_status(ptr noundef %19, i32 noundef %12) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %13, align 8, !tbaa !45
   %21 = zext i32 %20 to i64
@@ -267,7 +267,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %30 = load ptr, ptr %29, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !26
-  %33 = call i32 @ff_inlink_consume_frame(ptr noundef %32, ptr noundef nonnull %2) #11
+  %33 = call i32 @ff_inlink_consume_frame(ptr noundef %32, ptr noundef nonnull %2) #12
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %50
 
@@ -287,10 +287,10 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %.sroa.28.0.insert.shift = shl nuw i64 %.sroa.28.0.insert.ext, 32
   %.sroa.07.0.insert.insert = or disjoint i64 %.sroa.28.0.insert.shift, 1
   %46 = load i64, ptr %45, align 8
-  %47 = call i64 @av_rescale_q(i64 noundef %42, i64 %.sroa.07.0.insert.insert, i64 %46) #12
+  %47 = call i64 @av_rescale_q(i64 noundef %42, i64 %.sroa.07.0.insert.insert, i64 %46) #13
   %48 = add nsw i64 %47, %37
   store i64 %48, ptr %36, align 8, !tbaa !51
-  %49 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %38) #11
+  %49 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %38) #12
   br label %.loopexit
 
 50:                                               ; preds = %28
@@ -301,18 +301,18 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %53 = load ptr, ptr %29, align 8, !tbaa !46
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !26
-  %56 = call i32 @ff_inlink_acknowledge_status(ptr noundef %55, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %56 = call i32 @ff_inlink_acknowledge_status(ptr noundef %55, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %.not150 = icmp eq i32 %56, 0
   br i1 %.not150, label %60, label %57
 
 57:                                               ; preds = %52
   %58 = load i32, ptr %5, align 4, !tbaa !50
   %59 = load i64, ptr %6, align 8, !tbaa !58
-  call void @ff_avfilter_link_set_in_status(ptr noundef %11, i32 noundef %58, i64 noundef %59) #11
+  call void @ff_avfilter_link_set_in_status(ptr noundef %11, i32 noundef %58, i64 noundef %59) #12
   br label %.loopexit
 
 60:                                               ; preds = %52
-  %61 = call i32 @ff_outlink_frame_wanted(ptr noundef %11) #11
+  %61 = call i32 @ff_outlink_frame_wanted(ptr noundef %11) #12
   %.not151 = icmp eq i32 %61, 0
   br i1 %.not151, label %66, label %62
 
@@ -320,14 +320,14 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %63 = load ptr, ptr %29, align 8, !tbaa !46
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !26
-  call void @ff_inlink_request_frame(ptr noundef %65) #11
+  call void @ff_inlink_request_frame(ptr noundef %65) #12
   br label %.loopexit
 
 66:                                               ; preds = %60, %25, %.critedge
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8, !tbaa !46
   %69 = load ptr, ptr %68, align 8, !tbaa !26
-  %70 = call i32 @ff_inlink_queued_samples(ptr noundef %69) #11
+  %70 = call i32 @ff_inlink_queued_samples(ptr noundef %69) #12
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %73 = load i64, ptr %72, align 8, !tbaa !20
@@ -340,7 +340,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   store i32 1, ptr %23, align 4, !tbaa !49
   %78 = load ptr, ptr %67, align 8, !tbaa !46
   %79 = load ptr, ptr %78, align 8, !tbaa !26
-  %80 = call i32 @ff_inlink_consume_samples(ptr noundef %79, i32 noundef %77, i32 noundef %77, ptr noundef nonnull %2) #11
+  %80 = call i32 @ff_inlink_consume_samples(ptr noundef %79, i32 noundef %77, i32 noundef %77, ptr noundef nonnull %2) #12
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %.loopexit, label %82
 
@@ -360,10 +360,10 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %.sroa.26.0.insert.shift = shl nuw i64 %.sroa.26.0.insert.ext, 32
   %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.26.0.insert.shift, 1
   %93 = load i64, ptr %92, align 8
-  %94 = call i64 @av_rescale_q(i64 noundef %89, i64 %.sroa.05.0.insert.insert, i64 %93) #12
+  %94 = call i64 @av_rescale_q(i64 noundef %89, i64 %.sroa.05.0.insert.insert, i64 %93) #13
   %95 = add nsw i64 %94, %84
   store i64 %95, ptr %83, align 8, !tbaa !51
-  %96 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %85) #11
+  %96 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %85) #12
   br label %.loopexit
 
 97:                                               ; preds = %66
@@ -378,7 +378,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %101 = load ptr, ptr %67, align 8, !tbaa !46
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !26
-  %104 = call i32 @ff_inlink_queued_samples(ptr noundef %103) #11
+  %104 = call i32 @ff_inlink_queued_samples(ptr noundef %103) #12
   %105 = sext i32 %104 to i64
   %106 = load i64, ptr %72, align 8, !tbaa !20
   %.not154 = icmp sgt i64 %106, %105
@@ -389,7 +389,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %109 = load i32, ptr %108, align 8, !tbaa !59
   %.not161 = icmp eq i32 %109, 0
   %110 = trunc i64 %106 to i32
-  %111 = call ptr @ff_get_audio_buffer(ptr noundef %11, i32 noundef %110) #11
+  %111 = call ptr @ff_get_audio_buffer(ptr noundef %11, i32 noundef %110) #12
   store ptr %111, ptr %3, align 8, !tbaa !43
   %.not162 = icmp eq ptr %111, null
   br i1 %.not161, label %164, label %112
@@ -402,12 +402,12 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %115 = load ptr, ptr %114, align 8, !tbaa !26
   %116 = load i64, ptr %72, align 8, !tbaa !20
   %117 = trunc i64 %116 to i32
-  %118 = call i32 @ff_inlink_consume_samples(ptr noundef %115, i32 noundef %117, i32 noundef %117, ptr noundef nonnull %4) #11
+  %118 = call i32 @ff_inlink_consume_samples(ptr noundef %115, i32 noundef %117, i32 noundef %117, ptr noundef nonnull %4) #12
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %113
-  call void @av_frame_free(ptr noundef nonnull %3) #11
+  call void @av_frame_free(ptr noundef nonnull %3) #12
   br label %.loopexit
 
 121:                                              ; preds = %113
@@ -417,12 +417,12 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %125 = load i64, ptr %72, align 8, !tbaa !20
   %126 = trunc i64 %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %128 = call i32 @ff_inlink_consume_samples(ptr noundef %124, i32 noundef %126, i32 noundef %126, ptr noundef nonnull %127) #11
+  %128 = call i32 @ff_inlink_consume_samples(ptr noundef %124, i32 noundef %126, i32 noundef %126, ptr noundef nonnull %127) #12
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %121
-  call void @av_frame_free(ptr noundef nonnull %3) #11
+  call void @av_frame_free(ptr noundef nonnull %3) #12
   br label %.loopexit
 
 131:                                              ; preds = %121
@@ -445,7 +445,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %148 = load i32, ptr %147, align 4, !tbaa !63
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %150 = load i32, ptr %149, align 8, !tbaa !64
-  call void %133(ptr noundef %136, ptr noundef %139, ptr noundef %142, i32 noundef %144, i32 noundef %146, i32 noundef %148, i32 noundef %150) #11
+  call void %133(ptr noundef %136, ptr noundef %139, ptr noundef %142, i32 noundef %144, i32 noundef %146, i32 noundef %148, i32 noundef %150) #12
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %152 = load i64, ptr %151, align 8, !tbaa !51
   %153 = load ptr, ptr %3, align 8, !tbaa !43
@@ -459,14 +459,14 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %.sroa.24.0.insert.shift = shl nuw i64 %.sroa.24.0.insert.ext, 32
   %.sroa.03.0.insert.insert = or disjoint i64 %.sroa.24.0.insert.shift, 1
   %159 = load i64, ptr %158, align 8
-  %160 = call i64 @av_rescale_q(i64 noundef %155, i64 %.sroa.03.0.insert.insert, i64 %159) #12
+  %160 = call i64 @av_rescale_q(i64 noundef %155, i64 %.sroa.03.0.insert.insert, i64 %159) #13
   %161 = add nsw i64 %160, %152
   store i64 %161, ptr %151, align 8, !tbaa !51
   store i32 1, ptr %23, align 4, !tbaa !49
-  call void @av_frame_free(ptr noundef nonnull %4) #11
-  call void @av_frame_free(ptr noundef nonnull %127) #11
+  call void @av_frame_free(ptr noundef nonnull %4) #12
+  call void @av_frame_free(ptr noundef nonnull %127) #12
   %162 = load ptr, ptr %3, align 8, !tbaa !43
-  %163 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %162) #11
+  %163 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %162) #12
   br label %.loopexit
 
 164:                                              ; preds = %107
@@ -477,12 +477,12 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %167 = load ptr, ptr %166, align 8, !tbaa !26
   %168 = load i64, ptr %72, align 8, !tbaa !20
   %169 = trunc i64 %168 to i32
-  %170 = call i32 @ff_inlink_consume_samples(ptr noundef %167, i32 noundef %169, i32 noundef %169, ptr noundef nonnull %4) #11
+  %170 = call i32 @ff_inlink_consume_samples(ptr noundef %167, i32 noundef %169, i32 noundef %169, ptr noundef nonnull %4) #12
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %172, label %173
 
 172:                                              ; preds = %165
-  call void @av_frame_free(ptr noundef nonnull %3) #11
+  call void @av_frame_free(ptr noundef nonnull %3) #12
   br label %.loopexit
 
 173:                                              ; preds = %165
@@ -501,7 +501,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %186 = add nsw i64 %182, -1
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %188 = load i32, ptr %187, align 4, !tbaa !63
-  call void %175(ptr noundef %178, ptr noundef %181, i32 noundef %183, i32 noundef %185, i32 noundef -1, i64 noundef %186, i64 noundef %182, i32 noundef %188, double noundef 0.000000e+00, double noundef 1.000000e+00) #11
+  call void %175(ptr noundef %178, ptr noundef %181, i32 noundef %183, i32 noundef %185, i32 noundef -1, i64 noundef %186, i64 noundef %182, i32 noundef %188, double noundef 0.000000e+00, double noundef 1.000000e+00) #12
   %189 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %190 = load i64, ptr %189, align 8, !tbaa !51
   %191 = load ptr, ptr %3, align 8, !tbaa !43
@@ -515,19 +515,19 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %.sroa.22.0.insert.shift = shl nuw i64 %.sroa.22.0.insert.ext, 32
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.22.0.insert.shift, 1
   %197 = load i64, ptr %196, align 8
-  %198 = call i64 @av_rescale_q(i64 noundef %193, i64 %.sroa.01.0.insert.insert, i64 %197) #12
+  %198 = call i64 @av_rescale_q(i64 noundef %193, i64 %.sroa.01.0.insert.insert, i64 %197) #13
   %199 = add nsw i64 %198, %190
   store i64 %199, ptr %189, align 8, !tbaa !51
-  call void @av_frame_free(ptr noundef nonnull %4) #11
+  call void @av_frame_free(ptr noundef nonnull %4) #12
   %200 = load ptr, ptr %3, align 8, !tbaa !43
-  %201 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %200) #11
+  %201 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef %200) #12
   %202 = icmp slt i32 %201, 0
   br i1 %202, label %.loopexit, label %203
 
 203:                                              ; preds = %173
   %204 = load i64, ptr %72, align 8, !tbaa !20
   %205 = trunc i64 %204 to i32
-  %206 = call ptr @ff_get_audio_buffer(ptr noundef nonnull %11, i32 noundef %205) #11
+  %206 = call ptr @ff_get_audio_buffer(ptr noundef nonnull %11, i32 noundef %205) #12
   store ptr %206, ptr %3, align 8, !tbaa !43
   %.not163 = icmp eq ptr %206, null
   br i1 %.not163, label %.loopexit, label %207
@@ -539,12 +539,12 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %211 = load i64, ptr %72, align 8, !tbaa !20
   %212 = trunc i64 %211 to i32
   %213 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %214 = call i32 @ff_inlink_consume_samples(ptr noundef %210, i32 noundef %212, i32 noundef %212, ptr noundef nonnull %213) #11
+  %214 = call i32 @ff_inlink_consume_samples(ptr noundef %210, i32 noundef %212, i32 noundef %212, ptr noundef nonnull %213) #12
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %216, label %217
 
 216:                                              ; preds = %207
-  call void @av_frame_free(ptr noundef nonnull %3) #11
+  call void @av_frame_free(ptr noundef nonnull %3) #12
   br label %.loopexit
 
 217:                                              ; preds = %207
@@ -560,7 +560,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %227 = load i32, ptr %184, align 4, !tbaa !65
   %228 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %229 = load i32, ptr %228, align 8, !tbaa !64
-  call void %218(ptr noundef %221, ptr noundef %224, i32 noundef %226, i32 noundef %227, i32 noundef 1, i64 noundef 0, i64 noundef %225, i32 noundef %229, double noundef 0.000000e+00, double noundef 1.000000e+00) #11
+  call void %218(ptr noundef %221, ptr noundef %224, i32 noundef %226, i32 noundef %227, i32 noundef 1, i64 noundef 0, i64 noundef %225, i32 noundef %229, double noundef 0.000000e+00, double noundef 1.000000e+00) #12
   %230 = load i64, ptr %189, align 8, !tbaa !51
   %231 = load ptr, ptr %3, align 8, !tbaa !43
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 136
@@ -571,17 +571,17 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 1
   %235 = load i64, ptr %196, align 8
-  %236 = call i64 @av_rescale_q(i64 noundef %233, i64 %.sroa.0.0.insert.insert, i64 %235) #12
+  %236 = call i64 @av_rescale_q(i64 noundef %233, i64 %.sroa.0.0.insert.insert, i64 %235) #13
   %237 = add nsw i64 %236, %230
   store i64 %237, ptr %189, align 8, !tbaa !51
   store i32 1, ptr %23, align 4, !tbaa !49
-  call void @av_frame_free(ptr noundef nonnull %213) #11
+  call void @av_frame_free(ptr noundef nonnull %213) #12
   %238 = load ptr, ptr %3, align 8, !tbaa !43
-  %239 = call i32 @ff_filter_frame(ptr noundef nonnull %11, ptr noundef %238) #11
+  %239 = call i32 @ff_filter_frame(ptr noundef nonnull %11, ptr noundef %238) #12
   br label %.loopexit
 
 240:                                              ; preds = %100, %97
-  %241 = call i32 @ff_outlink_frame_wanted(ptr noundef %11) #11
+  %241 = call i32 @ff_outlink_frame_wanted(ptr noundef %11) #12
   %.not155 = icmp eq i32 %241, 0
   br i1 %.not155, label %.loopexit, label %242
 
@@ -593,9 +593,9 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 244:                                              ; preds = %242
   %245 = load ptr, ptr %67, align 8, !tbaa !46
   %246 = load ptr, ptr %245, align 8, !tbaa !26
-  %247 = call i32 @ff_inlink_queued_samples(ptr noundef %246) #11
+  %247 = call i32 @ff_inlink_queued_samples(ptr noundef %246) #12
   %248 = add nsw i32 %247, 1
-  %249 = call i32 @ff_inlink_check_available_samples(ptr noundef %246, i32 noundef %248) #11
+  %249 = call i32 @ff_inlink_check_available_samples(ptr noundef %246, i32 noundef %248) #12
   %.not165 = icmp eq i32 %249, 1
   br i1 %.not165, label %252, label %._crit_edge
 
@@ -615,16 +615,16 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %254 = load ptr, ptr %67, align 8, !tbaa !46
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8, !tbaa !26
-  %257 = call i32 @ff_inlink_queued_samples(ptr noundef %256) #11
+  %257 = call i32 @ff_inlink_queued_samples(ptr noundef %256) #12
   %258 = add nsw i32 %257, 1
-  %259 = call i32 @ff_inlink_check_available_samples(ptr noundef %256, i32 noundef %258) #11
+  %259 = call i32 @ff_inlink_check_available_samples(ptr noundef %256, i32 noundef %258) #12
   %.not166 = icmp eq i32 %259, 1
   br i1 %.not166, label %260, label %262
 
 260:                                              ; preds = %253
   %261 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i32 -541478725, ptr %261, align 4, !tbaa !50
-  call void @ff_avfilter_link_set_in_status(ptr noundef %11, i32 noundef -541478725, i64 noundef -9223372036854775808) #11
+  call void @ff_avfilter_link_set_in_status(ptr noundef %11, i32 noundef -541478725, i64 noundef -9223372036854775808) #12
   br label %.loopexit
 
 262:                                              ; preds = %253
@@ -635,13 +635,13 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 265:                                              ; preds = %262
   %266 = load ptr, ptr %264, align 8, !tbaa !26
-  call void @ff_inlink_request_frame(ptr noundef %266) #11
+  call void @ff_inlink_request_frame(ptr noundef %266) #12
   br label %.loopexit
 
 267:                                              ; preds = %262
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %269 = load ptr, ptr %268, align 8, !tbaa !26
-  call void @ff_inlink_request_frame(ptr noundef %269) #11
+  call void @ff_inlink_request_frame(ptr noundef %269) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.preheader, %240, %265, %267, %203, %173, %164, %112, %75, %50, %260, %217, %216, %172, %131, %130, %120, %82, %62, %57, %35
@@ -676,7 +676,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.sroa.2.0.insert.ext = zext i32 %17 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, 1
-  %19 = tail call i64 @av_rescale_q(i64 noundef %14, i64 %18, i64 %.sroa.0.0.insert.insert) #12
+  %19 = tail call i64 @av_rescale_q(i64 noundef %14, i64 %18, i64 %.sroa.0.0.insert.insert) #13
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %21 = load double, ptr %20, align 8, !tbaa !67
   %22 = fcmp nsz oeq double %21, 1.000000e+00
@@ -706,21 +706,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %33, %26
-  %40 = tail call i32 @ff_filter_frame(ptr noundef %10, ptr noundef nonnull %1) #11
+  %40 = tail call i32 @ff_filter_frame(ptr noundef %10, ptr noundef nonnull %1) #12
   br label %127
 
 .thread:                                          ; preds = %26, %33, %2
-  %41 = tail call i32 @av_frame_is_writable(ptr noundef nonnull %1) #11
+  %41 = tail call i32 @av_frame_is_writable(ptr noundef nonnull %1) #12
   %.not70 = icmp eq i32 %41, 0
   br i1 %.not70, label %42, label %46
 
 42:                                               ; preds = %.thread
-  %43 = tail call ptr @ff_get_audio_buffer(ptr noundef %10, i32 noundef %12) #11
+  %43 = tail call ptr @ff_get_audio_buffer(ptr noundef %10, i32 noundef %12) #12
   %.not71 = icmp eq ptr %43, null
   br i1 %.not71, label %127, label %44
 
 44:                                               ; preds = %42
-  %45 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %43, ptr noundef nonnull %1) #11
+  %45 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %43, ptr noundef nonnull %1) #12
   br label %46
 
 46:                                               ; preds = %.thread, %44
@@ -760,7 +760,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %70 = load i32, ptr %69, align 4, !tbaa !62
   %71 = getelementptr inbounds nuw i8, ptr %.066, i64 116
   %72 = load i32, ptr %71, align 4, !tbaa !70
-  %73 = tail call i32 @av_samples_set_silence(ptr noundef %68, i32 noundef 0, i32 noundef %12, i32 noundef %70, i32 noundef %72) #11
+  %73 = tail call i32 @av_samples_set_silence(ptr noundef %68, i32 noundef 0, i32 noundef %12, i32 noundef %70, i32 noundef %72) #12
   br label %123
 
 74:                                               ; preds = %62
@@ -772,7 +772,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %80 = load ptr, ptr %79, align 8, !tbaa !61
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 388
   %82 = load i32, ptr %81, align 4, !tbaa !62
-  tail call void %76(ptr noundef %78, ptr noundef %80, i32 noundef %12, i32 noundef %82, double noundef %64) #11
+  tail call void %76(ptr noundef %78, ptr noundef %80, i32 noundef %12, i32 noundef %82, double noundef %64) #12
   br label %123
 
 83:                                               ; preds = %55
@@ -798,7 +798,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 388
   %100 = load i32, ptr %99, align 4, !tbaa !62
   %101 = load double, ptr %20, align 8, !tbaa !67
-  tail call void %94(ptr noundef %96, ptr noundef %98, i32 noundef %12, i32 noundef %100, double noundef %101) #11
+  tail call void %94(ptr noundef %96, ptr noundef %98, i32 noundef %12, i32 noundef %100, double noundef %101) #12
   br label %123
 
 102:                                              ; preds = %87
@@ -827,7 +827,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %121 = load double, ptr %120, align 8, !tbaa !69
   %122 = load double, ptr %20, align 8, !tbaa !67
-  tail call void %111(ptr noundef %113, ptr noundef %115, i32 noundef %12, i32 noundef %117, i32 noundef %109, i64 noundef %.0, i64 noundef %108, i32 noundef %119, double noundef %121, double noundef %122) #11
+  tail call void %111(ptr noundef %113, ptr noundef %115, i32 noundef %12, i32 noundef %117, i32 noundef %109, i64 noundef %.0, i64 noundef %108, i32 noundef %119, double noundef %121, double noundef %122) #12
   br label %123
 
 123:                                              ; preds = %92, %107, %66, %74
@@ -835,11 +835,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not78, label %125, label %124
 
 124:                                              ; preds = %123
-  call void @av_frame_free(ptr noundef nonnull %3) #11
+  call void @av_frame_free(ptr noundef nonnull %3) #12
   br label %125
 
 125:                                              ; preds = %124, %123
-  %126 = call i32 @ff_filter_frame(ptr noundef %10, ptr noundef nonnull %.066) #11
+  %126 = call i32 @ff_filter_frame(ptr noundef %10, ptr noundef nonnull %.066) #12
   br label %127
 
 127:                                              ; preds = %42, %125, %39
@@ -900,7 +900,7 @@ switch.lookup:                                    ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i32, ptr %16, align 8, !tbaa !41
   %18 = sext i32 %17 to i64
-  %19 = tail call i64 @av_rescale(i64 noundef %14, i64 noundef %18, i64 noundef 1000000) #12
+  %19 = tail call i64 @av_rescale(i64 noundef %14, i64 noundef %18, i64 noundef 1000000) #13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %19, ptr %20, align 8, !tbaa !20
   br label %21
@@ -916,7 +916,7 @@ switch.lookup:                                    ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load i32, ptr %25, align 8, !tbaa !41
   %27 = sext i32 %26 to i64
-  %28 = tail call i64 @av_rescale(i64 noundef %23, i64 noundef %27, i64 noundef 1000000) #12
+  %28 = tail call i64 @av_rescale(i64 noundef %23, i64 noundef %27, i64 noundef 1000000) #13
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %28, ptr %29, align 8, !tbaa !24
   br label %30
@@ -1726,7 +1726,7 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
   br label %128
 
 60:                                               ; preds = %5
-  %61 = tail call nsz double @cbrt(double noundef %..i) #12
+  %61 = tail call nsz double @cbrt(double noundef %..i) #13
   br label %128
 
 62:                                               ; preds = %5
@@ -1735,14 +1735,14 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
 
 64:                                               ; preds = %62
   %65 = fmul nsz double %..i, 2.000000e+00
-  %66 = tail call nsz double @cbrt(double noundef %65) #12
+  %66 = tail call nsz double @cbrt(double noundef %65) #13
   %67 = fmul nsz double %66, 5.000000e-01
   br label %128
 
 68:                                               ; preds = %62
   %69 = fsub nsz double 1.000000e+00, %..i
   %70 = fmul nsz double %69, 2.000000e+00
-  %71 = tail call nsz double @cbrt(double noundef %70) #12
+  %71 = tail call nsz double @cbrt(double noundef %70) #13
   %72 = fmul nsz double %71, 5.000000e-01
   %73 = fsub nsz double 1.000000e+00, %72
   br label %128
@@ -1835,34 +1835,34 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
   ret double %130
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sin.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.asin.f64(double) #7
+declare double @llvm.asin.f64(double) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.acos.f64(double) #7
+declare double @llvm.acos.f64(double) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.exp.f64(double) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log10.f64(double) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @cbrt(double noundef) local_unnamed_addr #8
+declare double @cbrt(double noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.pow.f64(double, double) #7
 
 declare ptr @av_default_item_name(ptr noundef) #3
@@ -1881,11 +1881,11 @@ define internal ptr @get_audio_buffer(ptr noundef %0, i32 noundef %1) #1 {
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call ptr @ff_null_get_audio_buffer(ptr noundef nonnull %0, i32 noundef %1) #11
+  %10 = tail call ptr @ff_null_get_audio_buffer(ptr noundef nonnull %0, i32 noundef %1) #12
   br label %13
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @ff_default_get_audio_buffer(ptr noundef nonnull %0, i32 noundef %1) #11
+  %12 = tail call ptr @ff_default_get_audio_buffer(ptr noundef nonnull %0, i32 noundef %1) #12
   br label %13
 
 13:                                               ; preds = %11, %9
@@ -1953,7 +1953,7 @@ switch.lookup:                                    ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !41
   %30 = sext i32 %29 to i64
-  %31 = tail call i64 @av_rescale(i64 noundef %26, i64 noundef %30, i64 noundef 1000000) #12
+  %31 = tail call i64 @av_rescale(i64 noundef %26, i64 noundef %30, i64 noundef 1000000) #13
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %31, ptr %32, align 8, !tbaa !20
   br label %33
@@ -1969,7 +1969,7 @@ switch.lookup:                                    ; preds = %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load i32, ptr %37, align 8, !tbaa !41
   %39 = sext i32 %38 to i64
-  %40 = tail call i64 @av_rescale(i64 noundef %35, i64 noundef %39, i64 noundef 1000000) #12
+  %40 = tail call i64 @av_rescale(i64 noundef %35, i64 noundef %39, i64 noundef 1000000) #13
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 %40, ptr %41, align 8, !tbaa !24
   br label %config_output.exit
@@ -2414,7 +2414,7 @@ define internal void @crossfade_samples_s32p(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i32 @ff_outlink_get_status(ptr noundef) local_unnamed_addr #3
 
@@ -2437,10 +2437,10 @@ declare void @ff_avfilter_link_set_in_status(ptr noundef, i32 noundef, i64 nound
 declare i32 @ff_inlink_check_available_samples(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2449,12 +2449,13 @@ attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

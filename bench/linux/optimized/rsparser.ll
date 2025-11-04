@@ -67,19 +67,19 @@ define dso_local noundef range(i32 -1, 1) i32 @pnpacpi_parse_allocated_resource(
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.1) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.1) #12
   br label %9
 
 9:                                                ; preds = %8, %1
-  tail call void @pnp_init_resources(ptr noundef %0) #12
-  %10 = tail call i32 @acpi_walk_resources(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef nonnull @pnpacpi_allocated_resource, ptr noundef %0) #12
+  tail call void @pnp_init_resources(ptr noundef %0) #13
+  %10 = tail call i32 @acpi_walk_resources(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef nonnull @pnpacpi_allocated_resource, ptr noundef %0) #13
   switch i32 %10, label %11 [
     i32 0, label %12
     i32 5, label %13
   ]
 
 11:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %10) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %10) #12
   br label %13
 
 12:                                               ; preds = %9
@@ -104,21 +104,21 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noun
   %3 = alloca %struct.resource_win, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
-  %4 = call zeroext i1 @acpi_dev_resource_address_space(ptr noundef %0, ptr noundef nonnull %3) #12
+  %4 = call zeroext i1 @acpi_dev_resource_address_space(ptr noundef %0, ptr noundef nonnull %3) #13
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = call zeroext i1 @acpi_dev_resource_ext_address_space(ptr noundef %0, ptr noundef nonnull %3) #12
+  %6 = call zeroext i1 @acpi_dev_resource_ext_address_space(ptr noundef %0, ptr noundef nonnull %3) #13
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5, %2
-  %8 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #12
+  %8 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #13
   br label %90
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %10, align 8
-  %11 = call zeroext i1 @acpi_dev_resource_interrupt(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3) #12
+  %11 = call zeroext i1 @acpi_dev_resource_interrupt(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3) #13
   %12 = load i64, ptr %10, align 8
   %13 = and i64 %12, 268435456
   %14 = icmp eq i64 %13, 0
@@ -130,12 +130,12 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noun
 16:                                               ; preds = %15
   %17 = load i64, ptr %3, align 8
   %18 = trunc i64 %17 to i32
-  call void @pcibios_penalize_isa_irq(i32 noundef %18, i32 noundef 1) #12
+  call void @pcibios_penalize_isa_irq(i32 noundef %18, i32 noundef 1) #13
   br label %19
 
 19:                                               ; preds = %16, %15
-  %20 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #12
-  %21 = call zeroext i1 @acpi_dev_resource_interrupt(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3) #12
+  %20 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #13
+  %21 = call zeroext i1 @acpi_dev_resource_interrupt(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3) #13
   br i1 %21, label %.preheader, label %90
 
 .preheader:                                       ; preds = %19, %29
@@ -148,13 +148,13 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noun
 26:                                               ; preds = %.preheader
   %27 = load i64, ptr %3, align 8
   %28 = trunc i64 %27 to i32
-  call void @pcibios_penalize_isa_irq(i32 noundef %28, i32 noundef 1) #12
+  call void @pcibios_penalize_isa_irq(i32 noundef %28, i32 noundef 1) #13
   br label %29
 
 29:                                               ; preds = %26, %.preheader
-  %30 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #12
+  %30 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #13
   %31 = add i32 %22, 1
-  %32 = call zeroext i1 @acpi_dev_resource_interrupt(ptr noundef %0, i32 noundef %31, ptr noundef nonnull %3) #12
+  %32 = call zeroext i1 @acpi_dev_resource_interrupt(ptr noundef %0, i32 noundef %31, ptr noundef nonnull %3) #13
   br i1 %32, label %.preheader, label %33, !llvm.loop !5
 
 33:                                               ; preds = %29
@@ -177,7 +177,7 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noun
   br i1 %45, label %90, label %46
 
 46:                                               ; preds = %41
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1, ptr noundef nonnull @.str.10) #11
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1, ptr noundef nonnull @.str.10) #12
   %47 = load i32, ptr %42, align 4
   %48 = and i32 %47, -3
   store i32 %48, ptr %42, align 4
@@ -187,7 +187,7 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noun
   br i1 %14, label %52, label %50
 
 50:                                               ; preds = %49
-  %51 = call ptr @pnp_add_irq_resource(ptr noundef %1, i32 noundef 0, i32 noundef 268435456) #12
+  %51 = call ptr @pnp_add_irq_resource(ptr noundef %1, i32 noundef 0, i32 noundef 268435456) #13
   br label %90
 
 52:                                               ; preds = %49
@@ -208,19 +208,19 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noun
   ]
 
 54:                                               ; preds = %52, %52, %52
-  %55 = call zeroext i1 @acpi_dev_resource_memory(ptr noundef %0, ptr noundef nonnull %3) #12
+  %55 = call zeroext i1 @acpi_dev_resource_memory(ptr noundef %0, ptr noundef nonnull %3) #13
   br i1 %55, label %56, label %90
 
 56:                                               ; preds = %54
-  %57 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #12
+  %57 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #13
   br label %90
 
 58:                                               ; preds = %52, %52
-  %59 = call zeroext i1 @acpi_dev_resource_io(ptr noundef %0, ptr noundef nonnull %3) #12
+  %59 = call zeroext i1 @acpi_dev_resource_io(ptr noundef %0, ptr noundef nonnull %3) #13
   br i1 %59, label %60, label %90
 
 60:                                               ; preds = %58
-  %61 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #12
+  %61 = call ptr @pnp_add_resource(ptr noundef %1, ptr noundef nonnull %3) #13
   br label %90
 
 62:                                               ; preds = %52
@@ -253,7 +253,7 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noun
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
-  %86 = call ptr @pnp_add_dma_resource(ptr noundef %1, i32 noundef %85, i32 noundef %82) #12
+  %86 = call ptr @pnp_add_dma_resource(ptr noundef %1, i32 noundef %85, i32 noundef %82) #13
   br label %90
 
 87:                                               ; preds = %52
@@ -262,7 +262,7 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_allocated_resource(ptr noun
   br label %90
 
 89:                                               ; preds = %52
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %53) #11
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %53) #12
   br label %90
 
 90:                                               ; preds = %89, %87, %81, %60, %58, %56, %54, %52, %52, %52, %52, %52, %50, %46, %41, %35, %33, %19, %7
@@ -288,7 +288,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pnpacpi_parse_resource_option_dat
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %1
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.4) #12
   br label %11
 
 11:                                               ; preds = %10, %1
@@ -296,14 +296,14 @@ define dso_local noundef range(i32 -1, 1) i32 @pnpacpi_parse_resource_option_dat
   store ptr %0, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8
-  %13 = call i32 @acpi_walk_resources(ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull @pnpacpi_option_resource, ptr noundef nonnull %2) #12
+  %13 = call i32 @acpi_walk_resources(ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef nonnull @pnpacpi_option_resource, ptr noundef nonnull %2) #13
   switch i32 %13, label %14 [
     i32 0, label %15
     i32 5, label %16
   ]
 
 14:                                               ; preds = %11
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %13) #11
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %13) #12
   br label %16
 
 15:                                               ; preds = %11
@@ -346,12 +346,12 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_option_resource(ptr noundef
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @pnpacpi_parse_irq_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %8) #13
+  tail call fastcc void @pnpacpi_parse_irq_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %8) #14
   br label %45
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @pnpacpi_parse_dma_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %10) #13
+  tail call fastcc void @pnpacpi_parse_dma_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %10) #14
   br label %45
 
 11:                                               ; preds = %2
@@ -361,7 +361,7 @@ define internal noundef range(i32 0, 2) i32 @pnpacpi_option_resource(ptr noundef
   br i1 %14, label %switch.lookup, label %15
 
 15:                                               ; preds = %11
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.16, i32 noundef 4095, i32 noundef 4095) #11
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.16, i32 noundef 4095, i32 noundef 4095) #12
   br label %.thread
 
 switch.lookup:                                    ; preds = %11
@@ -387,7 +387,7 @@ switch.lookup:                                    ; preds = %11
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @pnpacpi_parse_port_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %25) #13
+  tail call fastcc void @pnpacpi_parse_port_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %25) #14
   br label %45
 
 26:                                               ; preds = %2
@@ -397,39 +397,39 @@ switch.lookup:                                    ; preds = %11
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = tail call i32 @pnp_register_port_resource(ptr noundef %3, i32 noundef %5, i64 noundef %29, i64 noundef %29, i64 noundef 0, i64 noundef %32, i8 noundef zeroext 2) #12
+  %33 = tail call i32 @pnp_register_port_resource(ptr noundef %3, i32 noundef %5, i64 noundef %29, i64 noundef %29, i64 noundef 0, i64 noundef %32, i8 noundef zeroext 2) #13
   br label %45
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @pnpacpi_parse_mem24_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %35) #13
+  tail call fastcc void @pnpacpi_parse_mem24_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %35) #14
   br label %45
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @pnpacpi_parse_mem32_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %37) #13
+  tail call fastcc void @pnpacpi_parse_mem32_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %37) #14
   br label %45
 
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @pnpacpi_parse_fixed_mem32_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %39) #13
+  tail call fastcc void @pnpacpi_parse_fixed_mem32_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %39) #14
   br label %45
 
 40:                                               ; preds = %2, %2, %2
-  tail call fastcc void @pnpacpi_parse_address_option(ptr noundef %3, i32 noundef %5, ptr noundef %0) #13
+  tail call fastcc void @pnpacpi_parse_address_option(ptr noundef %3, i32 noundef %5, ptr noundef %0) #14
   br label %45
 
 41:                                               ; preds = %2
-  tail call fastcc void @pnpacpi_parse_ext_address_option(ptr noundef %3, i32 noundef %5, ptr noundef %0) #13
+  tail call fastcc void @pnpacpi_parse_ext_address_option(ptr noundef %3, i32 noundef %5, ptr noundef %0) #14
   br label %45
 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %43) #13
+  tail call fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %3, i32 noundef %5, ptr noundef nonnull %43) #14
   br label %45
 
 44:                                               ; preds = %2
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.15, i32 noundef %6) #11
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.15, i32 noundef %6) #12
   br label %45
 
 45:                                               ; preds = %44, %42, %41, %40, %38, %36, %34, %26, %24, %23, %.thread, %9, %7, %2, %2, %2
@@ -448,12 +448,12 @@ define dso_local noundef range(i32 -22, 1) i32 @pnpacpi_build_resource_template(
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  %9 = call i32 @acpi_walk_resources(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull @pnpacpi_count_resources, ptr noundef nonnull %4) #12
+  %9 = call i32 @acpi_walk_resources(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull @pnpacpi_count_resources, ptr noundef nonnull %4) #13
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %2
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %9) #11
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %9) #12
   br label %32
 
 12:                                               ; preds = %2
@@ -467,7 +467,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pnpacpi_build_resource_template(
   %18 = mul nsw i64 %17, 68
   %19 = or disjoint i64 %18, 1
   store i64 %19, ptr %1, align 8
-  %20 = call noalias align 8 ptr @__kmalloc(i64 noundef %18, i32 noundef 3520) #14
+  %20 = call noalias align 8 ptr @__kmalloc(i64 noundef %18, i32 noundef 3520) #15
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
@@ -475,14 +475,14 @@ define dso_local noundef range(i32 -22, 1) i32 @pnpacpi_build_resource_template(
 
 23:                                               ; preds = %15
   store ptr %20, ptr %3, align 8
-  %24 = call i32 @acpi_walk_resources(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull @pnpacpi_type_resources, ptr noundef nonnull %3) #12
+  %24 = call i32 @acpi_walk_resources(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull @pnpacpi_type_resources, ptr noundef nonnull %3) #13
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %21, align 8
-  call void @kfree(ptr noundef %27) #12
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %24) #11
+  call void @kfree(ptr noundef %27) #13
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %24) #12
   br label %32
 
 28:                                               ; preds = %23
@@ -591,7 +591,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pnpacpi_encode_resources(ptr nou
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %7) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %7) #12
   br label %13
 
 13:                                               ; preds = %12, %2
@@ -618,7 +618,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pnpacpi_encode_resources(ptr nou
   ]
 
 22:                                               ; preds = %.preheader
-  %23 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 1024, i32 noundef %17) #12
+  %23 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 1024, i32 noundef %17) #13
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = icmp eq ptr %23, null
   br i1 %25, label %31, label %26
@@ -639,7 +639,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pnpacpi_encode_resources(ptr nou
 
 35:                                               ; preds = %31
   %36 = select i1 %25, ptr @.str.22, ptr @.str.21
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %36) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %36) #12
   br label %71
 
 37:                                               ; preds = %26
@@ -671,7 +671,7 @@ default.unreachable29:                            ; preds = %.split1, %.split
   unreachable
 
 46:                                               ; preds = %37
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %38) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %38) #12
   br label %47
 
 47:                                               ; preds = %46, %45, %44, %43, %.split
@@ -705,7 +705,7 @@ default.unreachable29:                            ; preds = %.split1, %.split
   %68 = select i1 %67, ptr @.str.29, ptr @.str.28
   %69 = load i8, ptr %24, align 1
   %70 = zext i8 %69 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %66, ptr noundef nonnull %48, ptr noundef nonnull %50, ptr noundef nonnull %68, i32 noundef %70) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %66, ptr noundef nonnull %48, ptr noundef nonnull %50, ptr noundef nonnull %68, i32 noundef %70) #12
   br label %71
 
 71:                                               ; preds = %64, %47, %35, %31
@@ -713,7 +713,7 @@ default.unreachable29:                            ; preds = %.split1, %.split
   br label %364
 
 73:                                               ; preds = %.preheader
-  %74 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 2048, i32 noundef %16) #12
+  %74 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 2048, i32 noundef %16) #13
   %75 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %76 = icmp eq ptr %74, null
   br i1 %76, label %82, label %77
@@ -734,7 +734,7 @@ default.unreachable29:                            ; preds = %.split1, %.split
 
 86:                                               ; preds = %82
   %87 = select i1 %76, ptr @.str.22, ptr @.str.21
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %87) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %87) #12
   br label %114
 
 switch.lookup:                                    ; preds = %77
@@ -775,7 +775,7 @@ switch.lookup:                                    ; preds = %77
   %111 = and i32 %switch.downshift, 3
   %112 = zext nneg i8 %95 to i32
   %113 = zext nneg i8 %100 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %110, i32 noundef %111, i32 noundef %112, i32 noundef %113) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %110, i32 noundef %111, i32 noundef %112, i32 noundef %113) #12
   br label %114
 
 114:                                              ; preds = %108, %switch.lookup, %86, %82
@@ -783,7 +783,7 @@ switch.lookup:                                    ; preds = %77
   br label %364
 
 116:                                              ; preds = %.preheader
-  %117 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef %18) #12
+  %117 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef %18) #13
   %118 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %119 = icmp eq ptr %117, null
   br i1 %119, label %125, label %120
@@ -839,7 +839,7 @@ switch.lookup:                                    ; preds = %77
   %154 = add nsw i32 %153, %146
   %155 = load i8, ptr %118, align 1
   %156 = zext i8 %155 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %146, i32 noundef %154, i32 noundef %156) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %146, i32 noundef %154, i32 noundef %156) #12
   br label %157
 
 157:                                              ; preds = %151, %145
@@ -847,7 +847,7 @@ switch.lookup:                                    ; preds = %77
   br label %364
 
 159:                                              ; preds = %.preheader
-  %160 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef %18) #12
+  %160 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef %18) #13
   %161 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %162 = icmp eq ptr %160, null
   br i1 %162, label %168, label %163
@@ -890,7 +890,7 @@ switch.lookup:                                    ; preds = %77
   %187 = zext i8 %182 to i32
   %188 = add nsw i32 %187, -1
   %189 = add nsw i32 %188, %181
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %181, i32 noundef %189) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %181, i32 noundef %189) #12
   br label %190
 
 190:                                              ; preds = %186, %180
@@ -898,7 +898,7 @@ switch.lookup:                                    ; preds = %77
   br label %364
 
 192:                                              ; preds = %.preheader
-  %193 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %15) #12
+  %193 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %15) #13
   %194 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %195 = icmp eq ptr %193, null
   br i1 %195, label %201, label %196
@@ -954,7 +954,7 @@ switch.lookup:                                    ; preds = %77
   %230 = add nsw i32 %229, %222
   %231 = load i8, ptr %194, align 1
   %232 = zext i8 %231 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %222, i32 noundef %230, i32 noundef %232) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %222, i32 noundef %230, i32 noundef %232) #12
   br label %233
 
 233:                                              ; preds = %227, %221
@@ -962,7 +962,7 @@ switch.lookup:                                    ; preds = %77
   br label %364
 
 235:                                              ; preds = %.preheader
-  %236 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %15) #12
+  %236 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %15) #13
   %237 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %238 = icmp eq ptr %236, null
   br i1 %238, label %244, label %239
@@ -1018,7 +1018,7 @@ switch.lookup:                                    ; preds = %77
   %273 = add i32 %272, %271
   %274 = load i8, ptr %237, align 1
   %275 = zext i8 %274 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.36, i32 noundef %263, i32 noundef %273, i32 noundef %275) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.36, i32 noundef %263, i32 noundef %273, i32 noundef %275) #12
   br label %276
 
 276:                                              ; preds = %269, %262
@@ -1026,7 +1026,7 @@ switch.lookup:                                    ; preds = %77
   br label %364
 
 278:                                              ; preds = %.preheader
-  %279 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %15) #12
+  %279 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %15) #13
   %280 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %281 = icmp eq ptr %279, null
   br i1 %281, label %287, label %282
@@ -1073,7 +1073,7 @@ switch.lookup:                                    ; preds = %77
   %309 = add i32 %308, %302
   %310 = load i8, ptr %280, align 1
   %311 = zext i8 %310 to i32
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %302, i32 noundef %309, i32 noundef %311) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %302, i32 noundef %309, i32 noundef %311) #12
   br label %312
 
 312:                                              ; preds = %307, %301
@@ -1081,7 +1081,7 @@ switch.lookup:                                    ; preds = %77
   br label %364
 
 314:                                              ; preds = %.preheader
-  %315 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 1024, i32 noundef %17) #12
+  %315 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 1024, i32 noundef %17) #13
   %316 = icmp eq ptr %315, null
   br i1 %316, label %322, label %317
 
@@ -1101,7 +1101,7 @@ switch.lookup:                                    ; preds = %77
 
 326:                                              ; preds = %322
   %327 = select i1 %316, ptr @.str.22, ptr @.str.21
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef nonnull %327) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef nonnull %327) #12
   br label %361
 
 328:                                              ; preds = %317
@@ -1131,7 +1131,7 @@ switch.lookup:                                    ; preds = %77
   br label %339
 
 338:                                              ; preds = %328
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %330) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %330) #12
   br label %339
 
 339:                                              ; preds = %338, %337, %336, %335, %.split1
@@ -1164,7 +1164,7 @@ switch.lookup:                                    ; preds = %77
   %358 = trunc i64 %357 to i32
   %359 = icmp eq i8 %346, 0
   %360 = select i1 %359, ptr @.str.29, ptr @.str.28
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %358, ptr noundef nonnull %340, ptr noundef nonnull %342, ptr noundef nonnull %360) #11
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %358, ptr noundef nonnull %340, ptr noundef nonnull %342, ptr noundef nonnull %360) #12
   br label %361
 
 361:                                              ; preds = %356, %339, %326, %322
@@ -1172,7 +1172,7 @@ switch.lookup:                                    ; preds = %77
   br label %364
 
 363:                                              ; preds = %.preheader
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %21) #11
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %21) #12
   br label %.loopexit
 
 364:                                              ; preds = %361, %312, %276, %233, %190, %157, %114, %71
@@ -1245,7 +1245,7 @@ define internal fastcc range(i32 0, 200) i32 @dma_flags(ptr noundef %0, i32 noun
   br label %14
 
 13:                                               ; preds = %4
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %1) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %1) #12
   br label %14
 
 14:                                               ; preds = %13, %11, %9, %7, %4
@@ -1267,7 +1267,7 @@ define internal fastcc range(i32 0, 200) i32 @dma_flags(ptr noundef %0, i32 noun
 
 20:                                               ; preds = %14
   %21 = or i32 %15, 1
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3) #12
   br label %22
 
 22:                                               ; preds = %20, %18, %16, %14
@@ -1300,7 +1300,7 @@ define internal fastcc void @pnpacpi_parse_allocated_vendor(ptr noundef %0, ptr 
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %14
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 16, i32 noundef %7) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 16, i32 noundef %7) #12
   br label %25
 
 17:                                               ; preds = %14
@@ -1310,7 +1310,7 @@ define internal fastcc void @pnpacpi_parse_allocated_vendor(ptr noundef %0, ptr 
   %21 = load i64, ptr %20, align 1
   %22 = add i64 %19, -1
   %23 = add i64 %22, %21
-  %24 = tail call ptr @pnp_add_mem_resource(ptr noundef %0, i64 noundef %19, i64 noundef %23, i32 noundef 0) #12
+  %24 = tail call ptr @pnp_add_mem_resource(ptr noundef %0, i64 noundef %19, i64 noundef %23, i32 noundef 0) #13
   br label %25
 
 25:                                               ; preds = %17, %16, %10, %2
@@ -1347,7 +1347,7 @@ define internal fastcc void @pnpacpi_parse_irq_option(ptr noundef %0, i32 nounde
 
 16:                                               ; preds = %10
   %17 = zext i8 %14 to i64
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %17) #12, !srcloc !10
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %17) #13, !srcloc !10
   %.pre = load i8, ptr %5, align 1
   br label %18
 
@@ -1367,9 +1367,9 @@ define internal fastcc void @pnpacpi_parse_irq_option(ptr noundef %0, i32 nounde
   %28 = load i8, ptr %27, align 1
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %30 = load i8, ptr %29, align 1
-  %31 = call i64 @acpi_dev_irq_flags(i8 noundef zeroext %24, i8 noundef zeroext %26, i8 noundef zeroext %28, i8 noundef zeroext %30) #12
+  %31 = call i64 @acpi_dev_irq_flags(i8 noundef zeroext %24, i8 noundef zeroext %26, i8 noundef zeroext %28, i8 noundef zeroext %30) #13
   %32 = trunc i64 %31 to i8
-  %33 = call i32 @pnp_register_irq_resource(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i8 noundef zeroext %32) #12
+  %33 = call i32 @pnp_register_irq_resource(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i8 noundef zeroext %32) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1411,7 +1411,7 @@ define internal fastcc void @pnpacpi_parse_dma_option(ptr noundef %0, i32 nounde
   %29 = zext i8 %28 to i32
   %30 = tail call fastcc i32 @dma_flags(ptr noundef %0, i32 noundef %23, i32 noundef %26, i32 noundef %29)
   %31 = trunc nuw i32 %30 to i8
-  %32 = tail call i32 @pnp_register_dma_resource(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %21, i8 noundef zeroext %31) #12
+  %32 = tail call i32 @pnp_register_dma_resource(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %21, i8 noundef zeroext %31) #13
   ret void
 }
 
@@ -1432,7 +1432,7 @@ define internal fastcc void @pnpacpi_parse_port_option(ptr noundef %0, i32 nound
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = tail call i32 @pnp_register_port_resource(ptr noundef %0, i32 noundef %1, i64 noundef %9, i64 noundef %12, i64 noundef %15, i64 noundef %18, i8 noundef zeroext %6) #12
+  %19 = tail call i32 @pnp_register_port_resource(ptr noundef %0, i32 noundef %1, i64 noundef %9, i64 noundef %12, i64 noundef %15, i64 noundef %18, i8 noundef zeroext %6) #13
   ret void
 }
 
@@ -1453,7 +1453,7 @@ define internal fastcc void @pnpacpi_parse_mem24_option(ptr noundef %0, i32 noun
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %17 = load i16, ptr %16, align 1
   %18 = zext i16 %17 to i64
-  %19 = tail call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %9, i64 noundef %12, i64 noundef %15, i64 noundef %18, i8 noundef zeroext %6) #12
+  %19 = tail call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %9, i64 noundef %12, i64 noundef %15, i64 noundef %18, i8 noundef zeroext %6) #13
   ret void
 }
 
@@ -1474,7 +1474,7 @@ define internal fastcc void @pnpacpi_parse_mem32_option(ptr noundef %0, i32 noun
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %17 = load i32, ptr %16, align 1
   %18 = zext i32 %17 to i64
-  %19 = tail call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %9, i64 noundef %12, i64 noundef %15, i64 noundef %18, i8 noundef zeroext %6) #12
+  %19 = tail call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %9, i64 noundef %12, i64 noundef %15, i64 noundef %18, i8 noundef zeroext %6) #13
   ret void
 }
 
@@ -1489,7 +1489,7 @@ define internal fastcc void @pnpacpi_parse_fixed_mem32_option(ptr noundef %0, i3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %11 = load i32, ptr %10, align 1
   %12 = zext i32 %11 to i64
-  %13 = tail call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %9, i64 noundef %9, i64 noundef 0, i64 noundef %12, i8 noundef zeroext %6) #12
+  %13 = tail call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %9, i64 noundef %9, i64 noundef 0, i64 noundef %12, i8 noundef zeroext %6) #13
   ret void
 }
 
@@ -1498,13 +1498,13 @@ define internal fastcc void @pnpacpi_parse_address_option(ptr noundef %0, i32 no
   %4 = alloca %struct.acpi_resource_address64, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %4, i8 0, i64 60, i1 false), !annotation !8
-  %5 = call i32 @acpi_resource_to_address64(ptr noundef %2, ptr noundef nonnull %4) #12
+  %5 = call i32 @acpi_resource_to_address64(ptr noundef %2, ptr noundef nonnull %4) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %2, align 1
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %8) #11
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %8) #12
   br label %27
 
 9:                                                ; preds = %3
@@ -1523,7 +1523,7 @@ define internal fastcc void @pnpacpi_parse_address_option(ptr noundef %0, i32 no
   %17 = load i64, ptr %16, align 1
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 41
   %19 = load i64, ptr %18, align 1
-  %20 = call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %17, i64 noundef %17, i64 noundef 0, i64 noundef %19, i8 noundef zeroext %15) #12
+  %20 = call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %17, i64 noundef %17, i64 noundef 0, i64 noundef %19, i8 noundef zeroext %15) #13
   br label %27
 
 21:                                               ; preds = %9
@@ -1531,7 +1531,7 @@ define internal fastcc void @pnpacpi_parse_address_option(ptr noundef %0, i32 no
   %23 = load i64, ptr %22, align 1
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 41
   %25 = load i64, ptr %24, align 1
-  %26 = call i32 @pnp_register_port_resource(ptr noundef %0, i32 noundef %1, i64 noundef %23, i64 noundef %23, i64 noundef 0, i64 noundef %25, i8 noundef zeroext 2) #12
+  %26 = call i32 @pnp_register_port_resource(ptr noundef %0, i32 noundef %1, i64 noundef %23, i64 noundef %23, i64 noundef 0, i64 noundef %25, i8 noundef zeroext 2) #13
   br label %27
 
 27:                                               ; preds = %21, %11, %9, %7
@@ -1557,7 +1557,7 @@ define internal fastcc void @pnpacpi_parse_ext_address_option(ptr noundef %0, i3
   %12 = load i64, ptr %11, align 1
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %14 = load i64, ptr %13, align 1
-  %15 = tail call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %12, i64 noundef %12, i64 noundef 0, i64 noundef %14, i8 noundef zeroext %10) #12
+  %15 = tail call i32 @pnp_register_mem_resource(ptr noundef %0, i32 noundef %1, i64 noundef %12, i64 noundef %12, i64 noundef 0, i64 noundef %14, i8 noundef zeroext %10) #13
   br label %22
 
 16:                                               ; preds = %3
@@ -1565,7 +1565,7 @@ define internal fastcc void @pnpacpi_parse_ext_address_option(ptr noundef %0, i3
   %18 = load i64, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %20 = load i64, ptr %19, align 1
-  %21 = tail call i32 @pnp_register_port_resource(ptr noundef %0, i32 noundef %1, i64 noundef %18, i64 noundef %18, i64 noundef 0, i64 noundef %20, i8 noundef zeroext 2) #12
+  %21 = tail call i32 @pnp_register_port_resource(ptr noundef %0, i32 noundef %1, i64 noundef %18, i64 noundef %18, i64 noundef 0, i64 noundef %20, i8 noundef zeroext 2) #13
   br label %22
 
 22:                                               ; preds = %16, %6, %3
@@ -1599,11 +1599,11 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %13 to i64
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %18) #12, !srcloc !10
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %18) #13, !srcloc !10
   br label %20
 
 19:                                               ; preds = %15
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %13, i32 noundef 256) #11
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %13, i32 noundef 256) #12
   br label %20
 
 20:                                               ; preds = %19, %17, %10
@@ -1622,9 +1622,9 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
   %30 = load i8, ptr %29, align 1
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %32 = load i8, ptr %31, align 1
-  %33 = call i64 @acpi_dev_irq_flags(i8 noundef zeroext %26, i8 noundef zeroext %28, i8 noundef zeroext %30, i8 noundef zeroext %32) #12
+  %33 = call i64 @acpi_dev_irq_flags(i8 noundef zeroext %26, i8 noundef zeroext %28, i8 noundef zeroext %30, i8 noundef zeroext %32) #13
   %34 = trunc i64 %33 to i8
-  %35 = call i32 @pnp_register_irq_resource(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i8 noundef zeroext %34) #12
+  %35 = call i32 @pnp_register_irq_resource(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i8 noundef zeroext %34) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1656,11 +1656,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -1672,11 +1672,12 @@ attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounw
 attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { cold nounwind }
-attributes #12 = { nounwind }
-attributes #13 = { cold }
-attributes #14 = { nounwind allocsize(0) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { cold }
+attributes #15 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

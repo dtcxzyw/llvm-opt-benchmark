@@ -149,7 +149,7 @@ define linkonce_odr noundef i32 @_ZNK4llvm12MCSchedModel19computeInstrLatencyINS
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZNK4llvm15MCSubtargetInfo23getInstrItineraryForCPUENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::InstrItineraryData") align 8 %7, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr %16, i64 %12) #9
+  call void @_ZNK4llvm15MCSubtargetInfo23getInstrItineraryForCPUENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::InstrItineraryData") align 8 %7, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr %16, i64 %12) #10
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !59
   %.not35 = icmp eq i32 %18, 0
@@ -218,7 +218,7 @@ _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit: ; preds = %40, %43
   %55 = load i16, ptr %54, align 2, !tbaa !74
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %9, i64 %56
-  %58 = tail call noundef ptr %4(i64 noundef %5, ptr noundef nonnull %57) #9
+  %58 = tail call noundef ptr %4(i64 noundef %5, ptr noundef nonnull %57) #10
   %.not22 = icmp eq ptr %58, null
   br i1 %.not22, label %_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE.exit, label %59
 
@@ -383,7 +383,7 @@ define dso_local noundef double @_ZNK4llvm12MCSchedModel23getReciprocalThroughpu
   %27 = load ptr, ptr %1, align 8, !tbaa !94
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(304) %1, i32 noundef %.01618, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %24) #9
+  %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(304) %1, i32 noundef %.01618, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %24) #10
   %31 = load ptr, ptr %12, align 8, !tbaa !41
   %32 = zext i32 %30 to i64
   %33 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %31, i64 %32
@@ -573,10 +573,10 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm12MCSchedModel24
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #4
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #5
 
-declare void @_ZNK4llvm15MCSubtargetInfo23getInstrItineraryForCPUENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::InstrItineraryData") align 8, ptr noundef nonnull align 8 dereferenceable(304), ptr, i64) local_unnamed_addr #5
+declare void @_ZNK4llvm15MCSubtargetInfo23getInstrItineraryForCPUENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::InstrItineraryData") align 8, ptr noundef nonnull align 8 dereferenceable(304), ptr, i64) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @"_ZN4llvm12function_refIFPKNS_16MCSchedClassDescES3_EE11callback_fnIZNKS_12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_11MCInstrInfoERKNS_6MCInstEE3$_0EES3_lS3_"(i64 noundef %0, ptr noundef readonly captures(none) %1) #2 align 2 {
@@ -608,7 +608,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPKNS_16MCSchedClassDescES3
   %19 = load ptr, ptr %16, align 8, !tbaa !94
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(304) %16, i32 noundef %.011.i, ptr noundef %17, ptr noundef %18, i32 noundef %9) #9
+  %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(304) %16, i32 noundef %.011.i, ptr noundef %17, ptr noundef %18, i32 noundef %9) #10
   %23 = load ptr, ptr %14, align 8, !tbaa !41
   %24 = zext i32 %22 to i64
   %25 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %23, i64 %24
@@ -628,30 +628,31 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPKNS_16MCSchedClassDescES3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

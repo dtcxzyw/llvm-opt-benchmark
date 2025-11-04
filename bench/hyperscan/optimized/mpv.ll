@@ -599,7 +599,7 @@ mmbit_iterate.exit19:                             ; preds = %130, %69
   %.039.i144269 = phi ptr [ %.039.i144.lcssa, %.lr.ph148._crit_edge ], [ %.039.i144.lcssa, %172 ], [ %.039.i144298, %.lr.ph299 ]
   %174 = phi i32 [ %.lcssa272, %.lr.ph148._crit_edge ], [ %.pre, %172 ], [ %165, %.lr.ph299 ]
   %.350.i = phi ptr [ %.148.i142.ph, %.lr.ph148._crit_edge ], [ %173, %172 ], [ %.148.i142.ph, %.lr.ph299 ]
-  %175 = tail call i32 %27(i64 noundef 0, i64 noundef %12, i32 noundef %174, ptr noundef %29) #14
+  %175 = tail call i32 %27(i64 noundef 0, i64 noundef %12, i32 noundef %174, ptr noundef %29) #15
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %processReports.exit, label %.thread
 
@@ -2444,7 +2444,7 @@ find_xverm_run.exit266:                           ; preds = %vermicelliExec.exit
   %.1110.i1866 = phi i64 [ %593, %592 ], [ %.0109.i, %.loopexit ]
   %586 = getelementptr inbounds nuw i8, ptr %9, i64 %.1110.i1866
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 1
-  %588 = tail call ptr @truffleExec(<2 x i64> noundef %579, <2 x i64> noundef %581, ptr noundef nonnull %586, ptr noundef nonnull %587) #14
+  %588 = tail call ptr @truffleExec(<2 x i64> noundef %579, <2 x i64> noundef %581, ptr noundef nonnull %586, ptr noundef nonnull %587) #15
   %589 = icmp eq ptr %588, %586
   br i1 %589, label %590, label %592
 
@@ -3217,7 +3217,7 @@ vermicelliExec.exit.i:                            ; preds = %903, %.lr.ph871, %.
   %956 = load <2 x i64>, ptr %955, align 16
   %957 = getelementptr inbounds nuw i8, ptr %260, i64 48
   %958 = load <2 x i64>, ptr %957, align 16
-  %959 = tail call ptr @shuftiExec(<2 x i64> noundef %956, <2 x i64> noundef %958, ptr noundef nonnull %90, ptr noundef nonnull %92) #14
+  %959 = tail call ptr @shuftiExec(<2 x i64> noundef %956, <2 x i64> noundef %958, ptr noundef nonnull %90, ptr noundef nonnull %92) #15
   %960 = ptrtoint ptr %959 to i64
   %961 = sub i64 %960, %93
   br label %limitByReach.exit.i
@@ -3227,7 +3227,7 @@ vermicelliExec.exit.i:                            ; preds = %903, %.lr.ph871, %.
   %964 = load <2 x i64>, ptr %963, align 16
   %965 = getelementptr inbounds nuw i8, ptr %260, i64 48
   %966 = load <2 x i64>, ptr %965, align 16
-  %967 = tail call ptr @truffleExec(<2 x i64> noundef %964, <2 x i64> noundef %966, ptr noundef nonnull %90, ptr noundef nonnull %92) #14
+  %967 = tail call ptr @truffleExec(<2 x i64> noundef %964, <2 x i64> noundef %966, ptr noundef nonnull %90, ptr noundef nonnull %92) #15
   %968 = ptrtoint ptr %967 to i64
   %969 = sub i64 %968, %93
   br label %limitByReach.exit.i
@@ -4109,7 +4109,7 @@ mmbit_iterate.exit42.i:                           ; preds = %1368, %1307
   %1408 = phi i32 [ %.lcssa1831, %.lr.ph927._crit_edge ], [ %.pre1238, %1405 ], [ %1398, %.lr.ph1884 ]
   %.350.i.i = phi ptr [ %.148.i.i921.ph, %.lr.ph927._crit_edge ], [ %1406, %1405 ], [ %.148.i.i921.ph, %.lr.ph1884 ]
   %.4.i.i = phi i32 [ %.245.i.i922.ph, %.lr.ph927._crit_edge ], [ %1407, %1405 ], [ %.245.i.i922.ph, %.lr.ph1884 ]
-  %1409 = tail call i32 %13(i64 noundef 0, i64 noundef %1268, i32 noundef %1408, ptr noundef %15) #14
+  %1409 = tail call i32 %13(i64 noundef 0, i64 noundef %1268, i32 noundef %1408, ptr noundef %15) #15
   %1410 = icmp eq i32 %1409, 0
   br i1 %1410, label %mmbit_unset.exit.i.thread502, label %.thread1460
 
@@ -4552,7 +4552,7 @@ mmbit_iterate.exit.i:                             ; preds = %1630, %1511, %.thre
   %indvars.iv1186 = phi i64 [ 0, %.preheader638 ], [ %indvars.iv.next1187, %1643 ]
   %1645 = getelementptr inbounds nuw i32, ptr %1266, i64 %indvars.iv1186
   %1646 = load i32, ptr %1645, align 4
-  %1647 = tail call i32 %13(i64 noundef 0, i64 noundef %1642, i32 noundef %1646, ptr noundef %15) #14
+  %1647 = tail call i32 %13(i64 noundef 0, i64 noundef %1642, i32 noundef %1646, ptr noundef %15) #15
   %1648 = icmp eq i32 %1647, 0
   br i1 %1648, label %mmbit_unset.exit.i.thread502, label %1643
 
@@ -6845,7 +6845,7 @@ find_xverm_run.exit322:                           ; preds = %vermicelliExec.exit
   %.1110.i1972 = phi i64 [ %601, %600 ], [ %.0109.i, %.loopexit ]
   %594 = getelementptr inbounds nuw i8, ptr %21, i64 %.1110.i1972
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 1
-  %596 = tail call ptr @truffleExec(<2 x i64> noundef %587, <2 x i64> noundef %589, ptr noundef nonnull %594, ptr noundef nonnull %595) #14
+  %596 = tail call ptr @truffleExec(<2 x i64> noundef %587, <2 x i64> noundef %589, ptr noundef nonnull %594, ptr noundef nonnull %595) #15
   %597 = icmp eq ptr %596, %594
   br i1 %597, label %598, label %600
 
@@ -7618,7 +7618,7 @@ vermicelliExec.exit.i:                            ; preds = %911, %.lr.ph956, %.
   %964 = load <2 x i64>, ptr %963, align 16
   %965 = getelementptr inbounds nuw i8, ptr %268, i64 48
   %966 = load <2 x i64>, ptr %965, align 16
-  %967 = tail call ptr @shuftiExec(<2 x i64> noundef %964, <2 x i64> noundef %966, ptr noundef nonnull %98, ptr noundef nonnull %100) #14
+  %967 = tail call ptr @shuftiExec(<2 x i64> noundef %964, <2 x i64> noundef %966, ptr noundef nonnull %98, ptr noundef nonnull %100) #15
   %968 = ptrtoint ptr %967 to i64
   %969 = sub i64 %968, %101
   br label %limitByReach.exit.i
@@ -7628,7 +7628,7 @@ vermicelliExec.exit.i:                            ; preds = %911, %.lr.ph956, %.
   %972 = load <2 x i64>, ptr %971, align 16
   %973 = getelementptr inbounds nuw i8, ptr %268, i64 48
   %974 = load <2 x i64>, ptr %973, align 16
-  %975 = tail call ptr @truffleExec(<2 x i64> noundef %972, <2 x i64> noundef %974, ptr noundef nonnull %98, ptr noundef nonnull %100) #14
+  %975 = tail call ptr @truffleExec(<2 x i64> noundef %972, <2 x i64> noundef %974, ptr noundef nonnull %98, ptr noundef nonnull %100) #15
   %976 = ptrtoint ptr %975 to i64
   %977 = sub i64 %976, %101
   br label %limitByReach.exit.i
@@ -8510,7 +8510,7 @@ mmbit_iterate.exit42.i:                           ; preds = %1376, %1315
   %1416 = phi i32 [ %.lcssa1937, %.lr.ph1012._crit_edge ], [ %.pre1329, %1413 ], [ %1406, %.lr.ph1990 ]
   %.350.i.i = phi ptr [ %.148.i.i1006.ph, %.lr.ph1012._crit_edge ], [ %1414, %1413 ], [ %.148.i.i1006.ph, %.lr.ph1990 ]
   %.4.i.i = phi i32 [ %.245.i.i1007.ph, %.lr.ph1012._crit_edge ], [ %1415, %1413 ], [ %.245.i.i1007.ph, %.lr.ph1990 ]
-  %1417 = tail call i32 %23(i64 noundef 0, i64 noundef %1276, i32 noundef %1416, ptr noundef %25) #14
+  %1417 = tail call i32 %23(i64 noundef 0, i64 noundef %1276, i32 noundef %1416, ptr noundef %25) #15
   %1418 = icmp eq i32 %1417, 0
   br i1 %1418, label %nfaExecMpv_Q_i.exit.thread, label %.thread1555
 
@@ -8953,7 +8953,7 @@ mmbit_iterate.exit.i:                             ; preds = %1638, %1519, %.thre
   %indvars.iv1276 = phi i64 [ 0, %.preheader723 ], [ %indvars.iv.next1277, %1651 ]
   %1653 = getelementptr inbounds nuw i32, ptr %1274, i64 %indvars.iv1276
   %1654 = load i32, ptr %1653, align 4
-  %1655 = tail call i32 %23(i64 noundef 0, i64 noundef %1650, i32 noundef %1654, ptr noundef %25) #14
+  %1655 = tail call i32 %23(i64 noundef 0, i64 noundef %1650, i32 noundef %1654, ptr noundef %25) #15
   %1656 = icmp eq i32 %1655, 0
   br i1 %1656, label %nfaExecMpv_Q_i.exit.thread, label %1651
 
@@ -10915,7 +10915,7 @@ vermicelliExec.exit190:                           ; preds = %.lr.ph456, %239, %2
   %292 = load <2 x i64>, ptr %291, align 16
   %293 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %294 = load <2 x i64>, ptr %293, align 16
-  %295 = tail call ptr @shuftiExec(<2 x i64> noundef %292, <2 x i64> noundef %294, ptr noundef %5, ptr noundef nonnull %122) #14
+  %295 = tail call ptr @shuftiExec(<2 x i64> noundef %292, <2 x i64> noundef %294, ptr noundef %5, ptr noundef nonnull %122) #15
   %296 = ptrtoint ptr %295 to i64
   %297 = sub i64 %296, %123
   br label %limitByReach.exit
@@ -10925,7 +10925,7 @@ vermicelliExec.exit190:                           ; preds = %.lr.ph456, %239, %2
   %300 = load <2 x i64>, ptr %299, align 16
   %301 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %302 = load <2 x i64>, ptr %301, align 16
-  %303 = tail call ptr @truffleExec(<2 x i64> noundef %300, <2 x i64> noundef %302, ptr noundef %5, ptr noundef nonnull %122) #14
+  %303 = tail call ptr @truffleExec(<2 x i64> noundef %300, <2 x i64> noundef %302, ptr noundef %5, ptr noundef nonnull %122) #15
   %304 = ptrtoint ptr %303 to i64
   %305 = sub i64 %304, %123
   br label %limitByReach.exit
@@ -11311,7 +11311,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph484, %453, %.
   %505 = load <2 x i64>, ptr %504, align 16
   %506 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %507 = load <2 x i64>, ptr %506, align 16
-  %508 = tail call ptr @shuftiExec(<2 x i64> noundef %505, <2 x i64> noundef %507, ptr noundef nonnull %136, ptr noundef nonnull %122) #14
+  %508 = tail call ptr @shuftiExec(<2 x i64> noundef %505, <2 x i64> noundef %507, ptr noundef nonnull %136, ptr noundef nonnull %122) #15
   %509 = ptrtoint ptr %508 to i64
   %510 = sub i64 %509, %138
   br label %limitByReach.exit170
@@ -11321,7 +11321,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph484, %453, %.
   %513 = load <2 x i64>, ptr %512, align 16
   %514 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %515 = load <2 x i64>, ptr %514, align 16
-  %516 = tail call ptr @truffleExec(<2 x i64> noundef %513, <2 x i64> noundef %515, ptr noundef nonnull %136, ptr noundef nonnull %122) #14
+  %516 = tail call ptr @truffleExec(<2 x i64> noundef %513, <2 x i64> noundef %515, ptr noundef nonnull %136, ptr noundef nonnull %122) #15
   %517 = ptrtoint ptr %516 to i64
   %518 = sub i64 %517, %138
   br label %limitByReach.exit170
@@ -12309,7 +12309,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph213, %106, %.
   %166 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %167 = load <2 x i64>, ptr %166, align 16
   %168 = getelementptr inbounds i8, ptr %6, i64 %7
-  %169 = tail call ptr @shuftiExec(<2 x i64> noundef %165, <2 x i64> noundef %167, ptr noundef %91, ptr noundef %168) #14
+  %169 = tail call ptr @shuftiExec(<2 x i64> noundef %165, <2 x i64> noundef %167, ptr noundef %91, ptr noundef %168) #15
   %170 = ptrtoint ptr %169 to i64
   %171 = ptrtoint ptr %91 to i64
   %172 = sub i64 %170, %171
@@ -12321,7 +12321,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph213, %106, %.
   %176 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %177 = load <2 x i64>, ptr %176, align 16
   %178 = getelementptr inbounds i8, ptr %6, i64 %7
-  %179 = tail call ptr @truffleExec(<2 x i64> noundef %175, <2 x i64> noundef %177, ptr noundef %91, ptr noundef %178) #14
+  %179 = tail call ptr @truffleExec(<2 x i64> noundef %175, <2 x i64> noundef %177, ptr noundef %91, ptr noundef %178) #15
   %180 = ptrtoint ptr %179 to i64
   %181 = ptrtoint ptr %91 to i64
   %182 = sub i64 %180, %181
@@ -12792,20 +12792,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #13
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #14
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
@@ -12820,8 +12820,9 @@ attributes #9 = { nofree noinline norecurse nosync nounwind memory(argmem: readw
 attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

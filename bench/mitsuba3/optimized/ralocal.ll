@@ -27,9 +27,9 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator4initEv(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
-  %3 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newPhysToWorkMapEv(ptr noundef nonnull align 8 dereferenceable(944) %2) #11
+  %3 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newPhysToWorkMapEv(ptr noundef nonnull align 8 dereferenceable(944) %2) #12
   %4 = load ptr, ptr %0, align 8, !tbaa !3
-  %5 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr noundef nonnull align 8 dereferenceable(944) %4) #11
+  %5 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr noundef nonnull align 8 dereferenceable(944) %4) #12
   %6 = icmp ne ptr %3, null
   %7 = icmp ne ptr %5, null
   %8 = and i1 %6, %7
@@ -90,11 +90,11 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %51 = getelementptr inbounds nuw i32, ptr %41, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %51, ptr %52, align 8, !tbaa !24
-  %53 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newPhysToWorkMapEv(ptr noundef nonnull align 8 dereferenceable(944) %11) #11
+  %53 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newPhysToWorkMapEv(ptr noundef nonnull align 8 dereferenceable(944) %11) #12
   %54 = load ptr, ptr %0, align 8, !tbaa !3
-  %55 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr noundef nonnull align 8 dereferenceable(944) %54) #11
+  %55 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr noundef nonnull align 8 dereferenceable(944) %54) #12
   %56 = load ptr, ptr %0, align 8, !tbaa !3
-  %57 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr noundef nonnull align 8 dereferenceable(944) %56) #11
+  %57 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr noundef nonnull align 8 dereferenceable(944) %56) #12
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %57, ptr %58, align 8, !tbaa !25
   %59 = icmp eq ptr %53, null
@@ -469,7 +469,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 12
   %235 = load i8, ptr %234, align 4, !tbaa !104
   %236 = zext i8 %235 to i32
-  %237 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %227, i32 noundef %229, i32 noundef %233, i32 noundef %236, i32 noundef 1) #11
+  %237 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %227, i32 noundef %229, i32 noundef %233, i32 noundef %236, i32 noundef 1) #12
   store ptr %237, ptr %220, align 8, !tbaa !100
   %238 = getelementptr inbounds nuw i8, ptr %155, i64 36
   %239 = load i32, ptr %238, align 4, !tbaa !101
@@ -886,7 +886,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %166 = load ptr, ptr %165, align 8, !tbaa !110
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 96
   %168 = load ptr, ptr %167, align 8
-  %169 = tail call noundef i32 %168(ptr noundef nonnull align 8 dereferenceable(944) %165, i32 noundef %134, i32 noundef %129) #11
+  %169 = tail call noundef i32 %168(ptr noundef nonnull align 8 dereferenceable(944) %165, i32 noundef %134, i32 noundef %129) #12
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %.loopexit
 
@@ -1032,7 +1032,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %270 = load ptr, ptr %269, align 8, !tbaa !110
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 80
   %272 = load ptr, ptr %271, align 8
-  %273 = tail call noundef i32 %272(ptr noundef nonnull align 8 dereferenceable(944) %269, i32 noundef %222, i32 noundef %215, i32 noundef %224, i32 noundef %237) #11
+  %273 = tail call noundef i32 %272(ptr noundef nonnull align 8 dereferenceable(944) %269, i32 noundef %222, i32 noundef %215, i32 noundef %224, i32 noundef %237) #12
   %274 = icmp eq i32 %273, 0
   br i1 %274, label %421, label %.loopexit, !prof !117
 
@@ -1120,7 +1120,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %337 = load ptr, ptr %336, align 8, !tbaa !110
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 72
   %339 = load ptr, ptr %338, align 8
-  %340 = tail call noundef i32 %339(ptr noundef nonnull align 8 dereferenceable(944) %336, i32 noundef %222, i32 noundef %313, i32 noundef %215) #11
+  %340 = tail call noundef i32 %339(ptr noundef nonnull align 8 dereferenceable(944) %336, i32 noundef %222, i32 noundef %313, i32 noundef %215) #12
   %341 = icmp eq i32 %340, 0
   br i1 %341, label %342, label %.loopexit
 
@@ -1145,7 +1145,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %354 = load ptr, ptr %297, align 8, !tbaa !110
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 96
   %356 = load ptr, ptr %355, align 8
-  %357 = tail call noundef i32 %356(ptr noundef nonnull align 8 dereferenceable(944) %297, i32 noundef %222, i32 noundef %215) #11
+  %357 = tail call noundef i32 %356(ptr noundef nonnull align 8 dereferenceable(944) %297, i32 noundef %222, i32 noundef %215) #12
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %359, label %.loopexit
 
@@ -1226,7 +1226,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %416 = load ptr, ptr %415, align 8, !tbaa !110
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 72
   %418 = load ptr, ptr %417, align 8
-  %419 = tail call noundef i32 %418(ptr noundef nonnull align 8 dereferenceable(944) %415, i32 noundef %224, i32 noundef %215, i32 noundef %379) #11
+  %419 = tail call noundef i32 %418(ptr noundef nonnull align 8 dereferenceable(944) %415, i32 noundef %224, i32 noundef %215, i32 noundef %379) #12
   %420 = icmp eq i32 %419, 0
   br i1 %420, label %421, label %.loopexit, !prof !118
 
@@ -1255,7 +1255,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %438 = load ptr, ptr %437, align 8, !tbaa !110
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 96
   %440 = load ptr, ptr %439, align 8
-  %441 = tail call noundef i32 %440(ptr noundef nonnull align 8 dereferenceable(944) %437, i32 noundef %224, i32 noundef %215) #11
+  %441 = tail call noundef i32 %440(ptr noundef nonnull align 8 dereferenceable(944) %437, i32 noundef %224, i32 noundef %215) #12
   %442 = icmp eq i32 %441, 0
   br i1 %442, label %447, label %.loopexit
 
@@ -1312,7 +1312,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %480 = load ptr, ptr %479, align 8, !tbaa !110
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 88
   %482 = load ptr, ptr %481, align 8
-  %483 = tail call noundef i32 %482(ptr noundef nonnull align 8 dereferenceable(944) %479, i32 noundef %468, i32 noundef %456) #11
+  %483 = tail call noundef i32 %482(ptr noundef nonnull align 8 dereferenceable(944) %479, i32 noundef %468, i32 noundef %456) #12
   %484 = icmp eq i32 %483, 0
   br i1 %484, label %485, label %.loopexit
 
@@ -1350,8 +1350,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -1404,7 +1404,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator29spillScratchG
   %33 = load ptr, ptr %32, align 8, !tbaa !110
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(944) %32, i32 noundef %24, i32 noundef %14) #11
+  %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(944) %32, i32 noundef %24, i32 noundef %14) #12
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %.loopexit
 
@@ -1973,7 +1973,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %388 = getelementptr inbounds nuw i8, ptr %372, i64 12
   %389 = load i8, ptr %388, align 4, !tbaa !104, !noalias !162
   %390 = zext i8 %389 to i32
-  %391 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %385, i32 noundef %387, i32 noundef %374, i32 noundef %390, i32 noundef 1) #11, !noalias !162
+  %391 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %385, i32 noundef %387, i32 noundef %374, i32 noundef %390, i32 noundef 1) #12, !noalias !162
   store ptr %391, ptr %381, align 8, !tbaa !100, !noalias !162
   %392 = getelementptr inbounds nuw i8, ptr %367, i64 36
   %393 = load i32, ptr %392, align 4, !tbaa !101, !noalias !162
@@ -2096,7 +2096,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %479 = load ptr, ptr %478, align 8, !tbaa !110
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 72
   %481 = load ptr, ptr %480, align 8
-  %482 = tail call noundef i32 %481(ptr noundef nonnull align 8 dereferenceable(944) %478, i32 noundef %345, i32 noundef %443, i32 noundef %350) #11
+  %482 = tail call noundef i32 %481(ptr noundef nonnull align 8 dereferenceable(944) %478, i32 noundef %345, i32 noundef %443, i32 noundef %350) #12
   %483 = icmp eq i32 %482, 0
   br i1 %483, label %484, label %.loopexit72
 
@@ -2146,7 +2146,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %512 = load ptr, ptr %511, align 8, !tbaa !110
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 88
   %514 = load ptr, ptr %513, align 8
-  %515 = tail call noundef i32 %514(ptr noundef nonnull align 8 dereferenceable(944) %511, i32 noundef %345, i32 noundef %443) #11
+  %515 = tail call noundef i32 %514(ptr noundef nonnull align 8 dereferenceable(944) %511, i32 noundef %345, i32 noundef %443) #12
   %516 = icmp eq i32 %515, 0
   br i1 %516, label %517, label %.loopexit72
 
@@ -2281,7 +2281,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %615 = load ptr, ptr %614, align 8, !tbaa !110
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 72
   %617 = load ptr, ptr %616, align 8
-  %618 = tail call noundef i32 %617(ptr noundef nonnull align 8 dereferenceable(944) %614, i32 noundef %576, i32 noundef %588, i32 noundef %563) #11
+  %618 = tail call noundef i32 %617(ptr noundef nonnull align 8 dereferenceable(944) %614, i32 noundef %576, i32 noundef %588, i32 noundef %563) #12
   %619 = icmp eq i32 %618, 0
   br i1 %619, label %649, label %.loopexit72
 
@@ -2301,7 +2301,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %630 = load ptr, ptr %629, align 8, !tbaa !110
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 96
   %632 = load ptr, ptr %631, align 8
-  %633 = tail call noundef i32 %632(ptr noundef nonnull align 8 dereferenceable(944) %629, i32 noundef %576, i32 noundef %563) #11
+  %633 = tail call noundef i32 %632(ptr noundef nonnull align 8 dereferenceable(944) %629, i32 noundef %576, i32 noundef %563) #12
   %634 = icmp eq i32 %633, 0
   br i1 %634, label %635, label %.loopexit72
 
@@ -2421,7 +2421,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %720 = load ptr, ptr %719, align 8, !tbaa !110
   %721 = getelementptr inbounds nuw i8, ptr %720, i64 80
   %722 = load ptr, ptr %721, align 8
-  %723 = tail call noundef i32 %722(ptr noundef nonnull align 8 dereferenceable(944) %719, i32 noundef %669, i32 noundef %674, i32 noundef %681, i32 noundef %677) #11
+  %723 = tail call noundef i32 %722(ptr noundef nonnull align 8 dereferenceable(944) %719, i32 noundef %669, i32 noundef %674, i32 noundef %681, i32 noundef %677) #12
   %724 = icmp eq i32 %723, 0
   br i1 %724, label %725, label %.loopexit72
 
@@ -2507,7 +2507,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %777 = load ptr, ptr %684, align 8, !tbaa !110
   %778 = getelementptr inbounds nuw i8, ptr %777, i64 96
   %779 = load ptr, ptr %778, align 8
-  %780 = tail call noundef i32 %779(ptr noundef nonnull align 8 dereferenceable(944) %684, i32 noundef %681, i32 noundef %677) #11
+  %780 = tail call noundef i32 %779(ptr noundef nonnull align 8 dereferenceable(944) %684, i32 noundef %681, i32 noundef %677) #12
   %781 = icmp eq i32 %780, 0
   br i1 %781, label %782, label %.loopexit72
 
@@ -2572,7 +2572,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %823 = load ptr, ptr %822, align 8, !tbaa !110
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 72
   %825 = load ptr, ptr %824, align 8
-  %826 = tail call noundef i32 %825(ptr noundef nonnull align 8 dereferenceable(944) %822, i32 noundef %669, i32 noundef %677, i32 noundef %674) #11
+  %826 = tail call noundef i32 %825(ptr noundef nonnull align 8 dereferenceable(944) %822, i32 noundef %669, i32 noundef %677, i32 noundef %674) #12
   %827 = icmp eq i32 %826, 0
   br i1 %827, label %828, label %.loopexit72
 
@@ -2605,7 +2605,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %846 = load ptr, ptr %845, align 8, !tbaa !110
   %847 = getelementptr inbounds nuw i8, ptr %846, i64 88
   %848 = load ptr, ptr %847, align 8
-  %849 = tail call noundef i32 %848(ptr noundef nonnull align 8 dereferenceable(944) %845, i32 noundef %669, i32 noundef %677) #11
+  %849 = tail call noundef i32 %848(ptr noundef nonnull align 8 dereferenceable(944) %845, i32 noundef %669, i32 noundef %677) #12
   %850 = icmp eq i32 %849, 0
   br i1 %850, label %851, label %.loopexit72
 
@@ -2752,7 +2752,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %950 = load ptr, ptr %949, align 8, !tbaa !110
   %951 = getelementptr inbounds nuw i8, ptr %950, i64 96
   %952 = load ptr, ptr %951, align 8
-  %953 = tail call noundef i32 %952(ptr noundef nonnull align 8 dereferenceable(944) %949, i32 noundef %936, i32 noundef %931) #11
+  %953 = tail call noundef i32 %952(ptr noundef nonnull align 8 dereferenceable(944) %949, i32 noundef %936, i32 noundef %931) #12
   %954 = icmp eq i32 %953, 0
   br i1 %954, label %955, label %.loopexit72
 
@@ -2815,7 +2815,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %993 = load ptr, ptr %992, align 8, !tbaa !110
   %994 = getelementptr inbounds nuw i8, ptr %993, i64 72
   %995 = load ptr, ptr %994, align 8
-  %996 = tail call noundef i32 %995(ptr noundef nonnull align 8 dereferenceable(944) %992, i32 noundef %979, i32 noundef %987, i32 noundef %982) #11
+  %996 = tail call noundef i32 %995(ptr noundef nonnull align 8 dereferenceable(944) %992, i32 noundef %979, i32 noundef %987, i32 noundef %982) #12
   br label %997
 
 997:                                              ; preds = %991, %.preheader
@@ -2887,7 +2887,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1046 = load ptr, ptr %1026, align 8, !tbaa !110
   %1047 = getelementptr inbounds nuw i8, ptr %1046, i64 96
   %1048 = load ptr, ptr %1047, align 8
-  %1049 = tail call noundef i32 %1048(ptr noundef nonnull align 8 dereferenceable(944) %1026, i32 noundef %1025, i32 noundef %1020) #11
+  %1049 = tail call noundef i32 %1048(ptr noundef nonnull align 8 dereferenceable(944) %1026, i32 noundef %1025, i32 noundef %1020) #12
   %1050 = icmp eq i32 %1049, 0
   br i1 %1050, label %1051, label %.loopexit72
 
@@ -3176,7 +3176,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1265 = load ptr, ptr %1264, align 8, !tbaa !110
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 96
   %1267 = load ptr, ptr %1266, align 8
-  %1268 = tail call noundef i32 %1267(ptr noundef nonnull align 8 dereferenceable(944) %1264, i32 noundef %1254, i32 noundef %1255) #11
+  %1268 = tail call noundef i32 %1267(ptr noundef nonnull align 8 dereferenceable(944) %1264, i32 noundef %1254, i32 noundef %1255) #12
   %1269 = icmp eq i32 %1268, 0
   br i1 %1269, label %1270, label %.loopexit72
 
@@ -3508,7 +3508,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator20spillAfterAll
   %57 = load ptr, ptr %24, align 8, !tbaa !110
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(944) %24, i32 noundef %23, i32 noundef %37) #11
+  %60 = tail call noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(944) %24, i32 noundef %23, i32 noundef %37) #12
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %.loopexit
 
@@ -3567,12 +3567,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %17 = load i32, ptr %16, align 4, !tbaa !191
   %18 = and i32 %17, 8
   %19 = icmp ne i32 %18, 0
-  %20 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssignmentEPNS0_12RAAssignment13PhysToWorkMapERKNS0_13ZoneBitVectorEbb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(16) %15, i1 noundef zeroext %19, i1 noundef zeroext true) #11
+  %20 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssignmentEPNS0_12RAAssignment13PhysToWorkMapERKNS0_13ZoneBitVectorEbb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(16) %15, i1 noundef zeroext %19, i1 noundef zeroext true) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %14, %4
-  %23 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0_8InstNodeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %1) #11
+  %23 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0_8InstNodeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %1) #12
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.loopexit
 
@@ -3636,7 +3636,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %69 = load ptr, ptr %68, align 8, !tbaa !110
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 96
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(944) %68, i32 noundef %60, i32 noundef %50) #11
+  %72 = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(944) %68, i32 noundef %60, i32 noundef %50) #12
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %.loopexit
 
@@ -3675,7 +3675,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %95 = load ptr, ptr %94, align 8, !tbaa !194
   %96 = load ptr, ptr %95, align 8, !tbaa !16
   %97 = load ptr, ptr %7, align 8, !tbaa !72
-  %98 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9setCursorEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %97, ptr noundef %96) #11
+  %98 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9setCursorEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %97, ptr noundef %96) #12
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !22
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3700,7 +3700,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %118 = load i32, ptr %117, align 4, !tbaa !191
   %119 = and i32 %118, 8
   %120 = icmp ne i32 %119, 0
-  %121 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssignmentEPNS0_12RAAssignment13PhysToWorkMapERKNS0_13ZoneBitVectorEbb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %115, ptr noundef nonnull align 8 dereferenceable(16) %116, i1 noundef zeroext %120, i1 noundef zeroext false) #11
+  %121 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssignmentEPNS0_12RAAssignment13PhysToWorkMapERKNS0_13ZoneBitVectorEbb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %115, ptr noundef nonnull align 8 dereferenceable(16) %116, i1 noundef zeroext %120, i1 noundef zeroext false) #12
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %.loopexit
 
@@ -3744,7 +3744,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %148 = load ptr, ptr %147, align 8, !tbaa !110
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 104
   %150 = load ptr, ptr %149, align 8
-  %151 = call noundef i32 %150(ptr noundef nonnull align 8 dereferenceable(944) %147, ptr noundef nonnull align 4 dereferenceable(16) %6) #11
+  %151 = call noundef i32 %150(ptr noundef nonnull align 8 dereferenceable(944) %147, ptr noundef nonnull align 4 dereferenceable(16) %6) #12
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %153, label %162
 
@@ -3789,7 +3789,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %174 = load ptr, ptr %173, align 8, !tbaa !196
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %176 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEPNS0_7RABlockEPKS2_RKNS0_12RAAssignmentE(ptr noundef nonnull align 8 dereferenceable(944) %92, ptr noundef nonnull %2, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(72) %175) #11
+  %176 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEPNS0_7RABlockEPKS2_RKNS0_12RAAssignmentE(ptr noundef nonnull align 8 dereferenceable(944) %92, ptr noundef nonnull %2, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(72) %175) #12
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %178, label %.loopexit
 
@@ -3804,7 +3804,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
-  call void @__clang_call_terminate(ptr %182) #12
+  call void @__clang_call_terminate(ptr %182) #13
   unreachable
 }
 
@@ -3840,7 +3840,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
   %21 = zext i32 %16 to i64
   %22 = load ptr, ptr %20, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %22, i64 %21
-  %24 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0_8InstNodeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %1) #11
+  %24 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0_8InstNodeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %1) #12
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %.loopexit
 
@@ -3852,7 +3852,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %32 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssignmentEPNS0_12RAAssignment13PhysToWorkMapERKNS0_13ZoneBitVectorEbb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(16) %31, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %32 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssignmentEPNS0_12RAAssignment13PhysToWorkMapERKNS0_13ZoneBitVectorEbb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(16) %31, i1 noundef zeroext true, i1 noundef zeroext false) #12
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.loopexit
 
@@ -3915,7 +3915,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
   %77 = load ptr, ptr %76, align 8, !tbaa !110
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 96
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(944) %76, i32 noundef %68, i32 noundef %58) #11
+  %80 = tail call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(944) %76, i32 noundef %68, i32 noundef %58) #12
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %.loopexit
 
@@ -3953,7 +3953,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %103 = load ptr, ptr %102, align 8, !tbaa !196
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %105 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEPNS0_7RABlockEPKS2_RKNS0_12RAAssignmentE(ptr noundef nonnull align 8 dereferenceable(944) %101, ptr noundef nonnull %14, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(72) %104) #11
+  %105 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEPNS0_7RABlockEPKS2_RKNS0_12RAAssignmentE(ptr noundef nonnull align 8 dereferenceable(944) %101, ptr noundef nonnull %14, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(72) %104) #12
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %.loopexit
 
@@ -3974,20 +3974,20 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -3999,9 +3999,10 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -195,7 +195,7 @@ define i32 @ff_h264_update_thread_context(ptr noundef readonly captures(address)
   %62 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
   %63 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !86
-  tail call void @av_refstruct_replace(ptr noundef nonnull %62, ptr noundef %64) #11
+  tail call void @av_refstruct_replace(ptr noundef nonnull %62, ptr noundef %64) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %.preheader, label %61, !llvm.loop !87
@@ -204,7 +204,7 @@ define i32 @ff_h264_update_thread_context(ptr noundef readonly captures(address)
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 734776
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 734776
   %68 = load ptr, ptr %67, align 8, !tbaa !89
-  tail call void @av_refstruct_replace(ptr noundef nonnull %66, ptr noundef %68) #11
+  tail call void @av_refstruct_replace(ptr noundef nonnull %66, ptr noundef %68) #12
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 734784
   %70 = load ptr, ptr %69, align 8, !tbaa !76
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 734784
@@ -217,7 +217,7 @@ define i32 @ff_h264_update_thread_context(ptr noundef readonly captures(address)
   %73 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv224
   %74 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv224
   %75 = load ptr, ptr %74, align 8, !tbaa !90
-  tail call void @av_refstruct_replace(ptr noundef nonnull %73, ptr noundef %75) #11
+  tail call void @av_refstruct_replace(ptr noundef nonnull %73, ptr noundef %75) #12
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next225, 256
   br i1 %exitcond227.not, label %65, label %72, !llvm.loop !91
@@ -273,7 +273,7 @@ define i32 @ff_h264_update_thread_context(ptr noundef readonly captures(address)
 108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %110 = load ptr, ptr %109, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %110, i32 noundef 16, ptr noundef nonnull @.str) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %110, i32 noundef 16, ptr noundef nonnull @.str) #12
   br label %.loopexit
 
 111:                                              ; preds = %105, %102
@@ -318,7 +318,7 @@ define i32 @ff_h264_update_thread_context(ptr noundef readonly captures(address)
   %indvars.iv228 = phi i64 [ 0, %112 ], [ %indvars.iv.next229, %133 ]
   %135 = getelementptr inbounds nuw %struct.H264Picture, ptr %131, i64 %indvars.iv228
   %136 = getelementptr inbounds nuw %struct.H264Picture, ptr %132, i64 %indvars.iv228
-  %137 = tail call i32 @ff_h264_replace_picture(ptr noundef nonnull %135, ptr noundef nonnull %136) #11
+  %137 = tail call i32 @ff_h264_replace_picture(ptr noundef nonnull %135, ptr noundef nonnull %136) #12
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %.loopexit, label %133
 
@@ -347,7 +347,7 @@ define i32 @ff_h264_update_thread_context(ptr noundef readonly captures(address)
   store ptr %150, ptr %151, align 8, !tbaa !104
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 729208
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 729208
-  %154 = tail call i32 @ff_h264_replace_picture(ptr noundef nonnull %152, ptr noundef nonnull %153) #11
+  %154 = tail call i32 @ff_h264_replace_picture(ptr noundef nonnull %152, ptr noundef nonnull %153) #12
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %.loopexit, label %156
 
@@ -511,7 +511,7 @@ copy_picture_range.exit218:                       ; preds = %238
   store i32 %242, ptr %243, align 8, !tbaa !119
   %244 = getelementptr inbounds nuw i8, ptr %4, i64 737128
   %245 = getelementptr inbounds nuw i8, ptr %6, i64 737128
-  %246 = tail call i32 @ff_h2645_sei_ctx_replace(ptr noundef nonnull %244, ptr noundef nonnull %245) #11
+  %246 = tail call i32 @ff_h2645_sei_ctx_replace(ptr noundef nonnull %244, ptr noundef nonnull %245) #12
   %247 = icmp slt i32 %246, 0
   br i1 %247, label %.loopexit, label %248
 
@@ -530,7 +530,7 @@ copy_picture_range.exit218:                       ; preds = %238
   br i1 %.not202, label %255, label %262
 
 255:                                              ; preds = %253
-  %256 = tail call i32 @ff_h264_execute_ref_pic_marking(ptr noundef nonnull %4) #11
+  %256 = tail call i32 @ff_h264_execute_ref_pic_marking(ptr noundef nonnull %4) #12
   %257 = getelementptr inbounds nuw i8, ptr %4, i64 734812
   %258 = load i32, ptr %257, align 4, !tbaa !121
   %259 = getelementptr inbounds nuw i8, ptr %4, i64 734832
@@ -582,13 +582,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h264_slice_header_init(ptr
   %6 = load ptr, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %8 = load i64, ptr %7, align 4
-  %9 = tail call i32 @ff_set_sar(ptr noundef %6, i64 %8) #11
+  %9 = tail call i32 @ff_set_sar(ptr noundef %6, i64 %8) #12
   %10 = load ptr, ptr %5, align 8, !tbaa !96
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load i32, ptr %11, align 8, !tbaa !131
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 730804
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 730808
-  %15 = tail call i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #11
+  %15 = tail call i32 @av_pix_fmt_get_chroma_sub_sample(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %17 = load i32, ptr %16, align 8, !tbaa !132
   %.not85 = icmp eq i32 %17, 0
@@ -610,11 +610,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h264_slice_header_init(ptr
   %30 = load i32, ptr %29, align 4, !tbaa !134
   %31 = shl i32 %30, 1
   %32 = zext i32 %31 to i64
-  %33 = tail call i32 @av_reduce(ptr noundef nonnull %28, ptr noundef nonnull %27, i64 noundef %32, i64 noundef %spec.select, i64 noundef 1073741824) #11
+  %33 = tail call i32 @av_reduce(ptr noundef nonnull %28, ptr noundef nonnull %27, i64 noundef %32, i64 noundef %spec.select, i64 noundef 1073741824) #12
   br label %34
 
 34:                                               ; preds = %18, %4
-  tail call void @ff_h264_free_tables(ptr noundef nonnull %0) #11
+  tail call void @ff_h264_free_tables(ptr noundef nonnull %0) #12
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 731776
   store i32 0, ptr %35, align 8, !tbaa !99
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 736532
@@ -713,13 +713,13 @@ init_scan_tables.exit:                            ; preds = %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %.field_scan.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %.field_scan8x8.i, i64 64, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull align 8 dereferenceable(64) %.field_scan8x8_cavlc.i, i64 64, i1 false)
-  %96 = tail call i32 @ff_h264_alloc_tables(ptr noundef nonnull %0) #11
+  %96 = tail call i32 @ff_h264_alloc_tables(ptr noundef nonnull %0) #12
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %init_scan_tables.exit
   %99 = load ptr, ptr %5, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %99, i32 noundef 16, ptr noundef nonnull @.str.12) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %99, i32 noundef 16, ptr noundef nonnull @.str.12) #12
   br label %163
 
 100:                                              ; preds = %init_scan_tables.exit
@@ -738,7 +738,7 @@ switch.early.test:                                ; preds = %100
 
 104:                                              ; preds = %switch.early.test, %switch.early.test, %100
   %105 = load ptr, ptr %5, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %105, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.fr) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %105, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.fr) #12
   br label %163
 
 106:                                              ; preds = %switch.early.test
@@ -760,21 +760,21 @@ switch.early.test:                                ; preds = %100
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 732464
   store i32 %.fr, ptr %117, align 8, !tbaa !145
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @ff_h264dsp_init(ptr noundef nonnull %118, i32 noundef %.fr, i32 noundef %111) #11
+  tail call void @ff_h264dsp_init(ptr noundef nonnull %118, i32 noundef %.fr, i32 noundef %111) #12
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 2008
   %121 = load i32, ptr %120, align 8, !tbaa !146
-  tail call void @ff_h264chroma_init(ptr noundef nonnull %119, i32 noundef %121) #11
+  tail call void @ff_h264chroma_init(ptr noundef nonnull %119, i32 noundef %121) #12
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %123 = load i32, ptr %101, align 4, !tbaa !81
-  tail call void @ff_h264qpel_init(ptr noundef nonnull %122, i32 noundef %123) #11
+  tail call void @ff_h264qpel_init(ptr noundef nonnull %122, i32 noundef %123) #12
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 730872
   %125 = load i32, ptr %101, align 4, !tbaa !81
   %126 = load i32, ptr %110, align 4, !tbaa !84
-  tail call void @ff_h264_pred_init(ptr noundef nonnull %124, i32 noundef 27, i32 noundef %125, i32 noundef %126) #11
+  tail call void @ff_h264_pred_init(ptr noundef nonnull %124, i32 noundef 27, i32 noundef %125, i32 noundef %126) #12
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %128 = load i32, ptr %101, align 4, !tbaa !81
-  tail call void @ff_videodsp_init(ptr noundef nonnull %127, i32 noundef %128) #11
+  tail call void @ff_videodsp_init(ptr noundef nonnull %127, i32 noundef %128) #12
   %129 = load ptr, ptr %5, align 8, !tbaa !96
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 664
   %131 = load i32, ptr %130, align 8, !tbaa !147
@@ -799,7 +799,7 @@ switch.early.test:                                ; preds = %100
 141:                                              ; preds = %106
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 730728
   %143 = load ptr, ptr %142, align 8, !tbaa !149
-  tail call void @ff_h264_slice_context_init(ptr noundef nonnull %0, ptr noundef %143) #11
+  tail call void @ff_h264_slice_context_init(ptr noundef nonnull %0, ptr noundef %143) #12
   br label %.loopexit
 
 144:                                              ; preds = %.lr.ph, %144
@@ -823,7 +823,7 @@ switch.early.test:                                ; preds = %100
   %158 = getelementptr inbounds [2 x i8], ptr %157, i64 %151
   %159 = getelementptr inbounds nuw i8, ptr %146, i64 33656
   store ptr %158, ptr %159, align 8, !tbaa !159
-  tail call void @ff_h264_slice_context_init(ptr noundef nonnull %0, ptr noundef nonnull %146) #11
+  tail call void @ff_h264_slice_context_init(ptr noundef nonnull %0, ptr noundef nonnull %146) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %160 = load i32, ptr %133, align 8, !tbaa !148
   %161 = sext i32 %160 to i64
@@ -832,7 +832,7 @@ switch.early.test:                                ; preds = %100
 
 163:                                              ; preds = %1, %104, %98
   %.080 = phi i32 [ %96, %98 ], [ -1094995529, %104 ], [ -1094995529, %1 ]
-  tail call void @ff_h264_free_tables(ptr noundef nonnull %0) #11
+  tail call void @ff_h264_free_tables(ptr noundef nonnull %0) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %144, %141, %.preheader, %163
@@ -913,8 +913,8 @@ define range(i32 -2147483648, 1) i32 @ff_h264_queue_decode_slice(ptr noundef %0,
   br i1 %.not233.i, label %.thread.i, label %30
 
 30:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.5, i32 noundef 1707) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.5, i32 noundef 1707) #12
+  tail call void @abort() #13
   unreachable
 
 .thread.i:                                        ; preds = %27, %24, %18
@@ -1039,7 +1039,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %77, %73, %.thread.i
 115:                                              ; preds = %get_ue_golomb_long.exit.i
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %117, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %113, i32 noundef %96) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %117, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %113, i32 noundef %96) #12
   br label %h264_slice_header_parse.exit.thread
 
 118:                                              ; preds = %get_ue_golomb_long.exit.i
@@ -1068,7 +1068,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %77, %73, %.thread.i
 132:                                              ; preds = %118
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %134, i32 noundef 16, ptr noundef nonnull @.str.16) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %134, i32 noundef 16, ptr noundef nonnull @.str.16) #12
   br label %h264_slice_header_parse.exit.thread
 
 135:                                              ; preds = %118
@@ -1139,7 +1139,7 @@ get_ue_golomb.exit.i:                             ; preds = %154
   %.0.i292.i = phi i32 [ -1094995529, %get_ue_golomb.exit.thread.i ], [ %169, %get_ue_golomb.exit.i ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %174, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %.0.i292.i) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %174, i32 noundef 16, ptr noundef nonnull @.str.17, i32 noundef %.0.i292.i) #12
   br label %h264_slice_header_parse.exit.thread
 
 175:                                              ; preds = %get_ue_golomb.exit.i, %get_ue_golomb.exit.thread293.i
@@ -1155,7 +1155,7 @@ get_ue_golomb.exit.i:                             ; preds = %154
 181:                                              ; preds = %175
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %183, i32 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %.0.i295.i) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %183, i32 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %.0.i295.i) #12
   br label %h264_slice_header_parse.exit.thread
 
 184:                                              ; preds = %175
@@ -1188,7 +1188,7 @@ get_ue_golomb.exit.i:                             ; preds = %154
 204:                                              ; preds = %201
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %206, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %203, i32 noundef %197) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %206, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %203, i32 noundef %197) #12
   br label %h264_slice_header_parse.exit.thread
 
 207:                                              ; preds = %201, %184
@@ -1210,7 +1210,7 @@ get_ue_golomb.exit.i:                             ; preds = %154
 216:                                              ; preds = %211
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %218, i32 noundef 16, ptr noundef nonnull @.str.20) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %218, i32 noundef 16, ptr noundef nonnull @.str.20) #12
   br label %h264_slice_header_parse.exit.thread
 
 219:                                              ; preds = %211
@@ -1376,7 +1376,7 @@ get_ue_golomb_long.exit276.i:                     ; preds = %303, %299
 get_ue_golomb_long.exit276.thread.i:              ; preds = %get_ue_golomb_long.exit276.i, %257
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %326 = load ptr, ptr %325, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %326, i32 noundef 24, ptr noundef nonnull @.str.21) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %326, i32 noundef 24, ptr noundef nonnull @.str.21) #12
   br label %327
 
 327:                                              ; preds = %get_ue_golomb_long.exit276.thread.i, %323, %252
@@ -1547,7 +1547,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
   %432 = getelementptr inbounds nuw i8, ptr %13, i64 22648
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %434 = load ptr, ptr %433, align 8, !tbaa !96
-  %435 = tail call i32 @ff_h264_parse_ref_count(ptr noundef nonnull %431, ptr noundef nonnull %432, ptr noundef nonnull %20, ptr noundef nonnull %180, i32 noundef %412, i32 noundef %.0212298.i, ptr noundef %434) #11
+  %435 = tail call i32 @ff_h264_parse_ref_count(ptr noundef nonnull %431, ptr noundef nonnull %432, ptr noundef nonnull %20, ptr noundef nonnull %180, i32 noundef %412, i32 noundef %.0212298.i, ptr noundef %434) #12
   %436 = icmp slt i32 %435, 0
   br i1 %436, label %h264_slice_header_parse.exit.thread, label %437
 
@@ -1558,7 +1558,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
 
 439:                                              ; preds = %437
   %440 = load ptr, ptr %433, align 8, !tbaa !96
-  %441 = tail call i32 @ff_h264_decode_ref_pic_list_reordering(ptr noundef nonnull %13, ptr noundef %440) #11
+  %441 = tail call i32 @ff_h264_decode_ref_pic_list_reordering(ptr noundef nonnull %13, ptr noundef %440) #12
   %442 = icmp slt i32 %441, 0
   br i1 %442, label %443, label %445
 
@@ -1597,7 +1597,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
 460:                                              ; preds = %457, %450
   %461 = phi i32 [ 3, %457 ], [ 2, %450 ]
   %462 = load ptr, ptr %433, align 8, !tbaa !96
-  %463 = tail call i32 @ff_h264_pred_weight_table(ptr noundef nonnull %20, ptr noundef nonnull %186, ptr noundef nonnull %432, i32 noundef %461, ptr noundef nonnull %446, i32 noundef %.0212298.i, ptr noundef %462) #11
+  %463 = tail call i32 @ff_h264_pred_weight_table(ptr noundef nonnull %20, ptr noundef nonnull %186, ptr noundef nonnull %432, i32 noundef %461, ptr noundef nonnull %446, i32 noundef %.0212298.i, ptr noundef %462) #12
   %464 = icmp slt i32 %463, 0
   br i1 %464, label %h264_slice_header_parse.exit.thread, label %465
 
@@ -1611,7 +1611,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
 
 469:                                              ; preds = %465
   %470 = load ptr, ptr %433, align 8, !tbaa !96
-  %471 = tail call i32 @ff_h264_decode_ref_pic_marking(ptr noundef nonnull %13, ptr noundef nonnull %20, ptr noundef nonnull %1, ptr noundef %470) #11
+  %471 = tail call i32 @ff_h264_decode_ref_pic_marking(ptr noundef nonnull %13, ptr noundef nonnull %20, ptr noundef nonnull %1, ptr noundef %470) #12
   %472 = icmp slt i32 %471, 0
   br i1 %472, label %473, label %478
 
@@ -1641,7 +1641,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
 
 486:                                              ; preds = %483
   %487 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %487, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %484) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %487, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %484) #12
   br label %h264_slice_header_parse.exit.thread
 
 488:                                              ; preds = %483
@@ -1665,7 +1665,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
 
 501:                                              ; preds = %490
   %502 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %502, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %495) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %502, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %495) #12
   br label %h264_slice_header_parse.exit.thread
 
 503:                                              ; preds = %490
@@ -1722,7 +1722,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
 
 532:                                              ; preds = %529
   %533 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %533, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %530) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %533, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %530) #12
   br label %h264_slice_header_parse.exit.thread
 
 534:                                              ; preds = %529
@@ -1752,7 +1752,7 @@ get_ue_golomb.exit288.i:                          ; preds = %396, %386
 
 544:                                              ; preds = %536
   %545 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %545, i32 noundef 16, ptr noundef nonnull @.str.25, i32 noundef %537, i32 noundef %538) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %545, i32 noundef 16, ptr noundef nonnull @.str.25, i32 noundef %537, i32 noundef %538) #12
   br label %h264_slice_header_parse.exit.thread
 
 h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534, %523
@@ -1791,7 +1791,7 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534,
 
 561:                                              ; preds = %.thread167, %556
   %562 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %562, i32 noundef 16, ptr noundef nonnull @.str.1) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %562, i32 noundef 16, ptr noundef nonnull @.str.1) #12
   br label %h264_slice_header_parse.exit.thread
 
 563:                                              ; preds = %556
@@ -1849,7 +1849,7 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534,
 
 588:                                              ; preds = %587
   %589 = load ptr, ptr %8, align 8, !tbaa !149
-  %590 = tail call i32 @ff_h264_field_end(ptr noundef nonnull %0, ptr noundef %589, i32 noundef 1) #11
+  %590 = tail call i32 @ff_h264_field_end(ptr noundef nonnull %0, ptr noundef %589, i32 noundef 1) #12
   %591 = icmp slt i32 %590, 0
   br i1 %591, label %h264_slice_header_parse.exit.thread, label %606
 
@@ -1864,15 +1864,15 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534,
 
 597:                                              ; preds = %593
   %598 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %598, i32 noundef 24, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %598, i32 noundef 24, ptr noundef nonnull @.str.2) #12
   %599 = load ptr, ptr %8, align 8, !tbaa !149
-  %600 = tail call i32 @ff_h264_field_end(ptr noundef nonnull %0, ptr noundef %599, i32 noundef 1) #11
+  %600 = tail call i32 @ff_h264_field_end(ptr noundef nonnull %0, ptr noundef %599, i32 noundef 1) #12
   %601 = load ptr, ptr %580, align 8, !tbaa !104
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 8
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %602, i32 noundef 2147483647, i32 noundef 0) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %602, i32 noundef 2147483647, i32 noundef 0) #12
   %603 = load ptr, ptr %580, align 8, !tbaa !104
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 8
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %604, i32 noundef 2147483647, i32 noundef 1) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %604, i32 noundef 2147483647, i32 noundef 1) #12
   store ptr null, ptr %580, align 8, !tbaa !104
   %605 = icmp slt i32 %600, 0
   br i1 %605, label %h264_slice_header_parse.exit.thread, label %606
@@ -1902,7 +1902,7 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534,
   %618 = load i32, ptr %617, align 4, !tbaa !100
   %619 = icmp eq i32 %618, 2
   %620 = zext i1 %619 to i32
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %616, i32 noundef 2147483647, i32 noundef %620) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %616, i32 noundef 2147483647, i32 noundef %620) #12
   br label %621
 
 621:                                              ; preds = %615, %612, %609
@@ -1922,8 +1922,8 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534,
   br i1 %626, label %628, label %627
 
 627:                                              ; preds = %624
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 2131) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 2131) #12
+  tail call void @abort() #13
   unreachable
 
 628:                                              ; preds = %624
@@ -2016,7 +2016,7 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534,
 
 676:                                              ; preds = %671, %659
   %677 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %677, i32 noundef 16, ptr noundef nonnull @.str.6) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %677, i32 noundef 16, ptr noundef nonnull @.str.6) #12
   br label %h264_slice_header_parse.exit.thread
 
 678:                                              ; preds = %671
@@ -2029,7 +2029,7 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534,
 
 683:                                              ; preds = %678
   %684 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %684, i32 noundef 16, ptr noundef nonnull @.str.7) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %684, i32 noundef 16, ptr noundef nonnull @.str.7) #12
   br label %h264_slice_header_parse.exit.thread
 
 685:                                              ; preds = %678
@@ -2042,7 +2042,7 @@ h264_slice_header_parse.exit:                     ; preds = %.thread304.i, %534,
   %.phi.trans.insert245 = getelementptr inbounds nuw ptr, ptr %177, i64 %.phi.trans.insert244
   %.pre246 = load ptr, ptr %.phi.trans.insert245, align 8, !tbaa !90
   %686 = getelementptr inbounds nuw i8, ptr %0, i64 734776
-  tail call void @av_refstruct_replace(ptr noundef nonnull %686, ptr noundef %.pre246) #11
+  tail call void @av_refstruct_replace(ptr noundef nonnull %686, ptr noundef %.pre246) #12
   %.phi.trans.insert247 = getelementptr inbounds nuw i8, ptr %0, i64 734784
   %.pre248 = load ptr, ptr %.phi.trans.insert247, align 8, !tbaa !76
   %.pre250 = load ptr, ptr %686, align 8, !tbaa !89
@@ -2267,7 +2267,7 @@ av_cmp_q.exit.thread.i.i:                         ; preds = %av_cmp_q.exit.threa
   br i1 %.not140.i.i, label %792, label %908
 
 792:                                              ; preds = %av_cmp_q.exit.thread.i.i
-  %793 = tail call i32 @ff_h264_get_profile(ptr noundef %725) #11
+  %793 = tail call i32 @ff_h264_get_profile(ptr noundef %725) #12
   %794 = load ptr, ptr %433, align 8, !tbaa !96
   %795 = getelementptr inbounds nuw i8, ptr %794, i64 688
   store i32 %793, ptr %795, align 8, !tbaa !222
@@ -2325,8 +2325,8 @@ av_cmp_q.exit.thread.i.i:                         ; preds = %av_cmp_q.exit.threa
   br i1 %836, label %838, label %837
 
 837:                                              ; preds = %792
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.5, i32 noundef 933) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.5, i32 noundef 933) #12
+  tail call void @abort() #13
   unreachable
 
 838:                                              ; preds = %792
@@ -2334,8 +2334,8 @@ av_cmp_q.exit.thread.i.i:                         ; preds = %av_cmp_q.exit.threa
   br i1 %839, label %841, label %840
 
 840:                                              ; preds = %838
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.5, i32 noundef 934) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.5, i32 noundef 934) #12
+  tail call void @abort() #13
   unreachable
 
 841:                                              ; preds = %838
@@ -2451,7 +2451,7 @@ init_dimensions.exit.i.i:                         ; preds = %866, %863
 899:                                              ; preds = %896
   %900 = getelementptr inbounds nuw i8, ptr %0, i64 737236
   %901 = load i32, ptr %900, align 4, !tbaa !248
-  %902 = tail call ptr @av_color_transfer_name(i32 noundef %901) #11
+  %902 = tail call ptr @av_color_transfer_name(i32 noundef %901) #12
   %.not145.i.i = icmp eq ptr %902, null
   br i1 %.not145.i.i, label %908, label %903
 
@@ -2497,14 +2497,14 @@ init_dimensions.exit.i.i:                         ; preds = %866, %863
   %927 = load i32, ptr %926, align 4, !tbaa !221
   %928 = load i32, ptr %622, align 8, !tbaa !162
   %929 = add nsw i32 %928, 1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %911, i32 noundef 16, ptr noundef nonnull @.str.31, i32 noundef %921, i32 noundef %923, i32 noundef %925, i32 noundef %927, i32 noundef %929) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %911, i32 noundef 16, ptr noundef nonnull @.str.31, i32 noundef %921, i32 noundef %923, i32 noundef %925, i32 noundef %927, i32 noundef %929) #12
   br label %h264_slice_header_parse.exit.thread
 
 930:                                              ; preds = %917
   br i1 %914, label %932, label %931
 
 931:                                              ; preds = %930
-  tail call void @ff_h264_flush_change(ptr noundef nonnull %0) #11
+  tail call void @ff_h264_flush_change(ptr noundef nonnull %0) #12
   br label %932
 
 932:                                              ; preds = %931, %930
@@ -2520,15 +2520,15 @@ init_dimensions.exit.i.i:                         ; preds = %866, %863
   %939 = load i32, ptr %938, align 4, !tbaa !77
   %940 = getelementptr inbounds nuw i8, ptr %0, i64 730800
   %941 = load i32, ptr %940, align 8, !tbaa !78
-  %942 = tail call ptr @av_get_pix_fmt_name(i32 noundef %933) #11
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %936, i32 noundef 40, ptr noundef nonnull @.str.32, i32 noundef %939, i32 noundef %941, ptr noundef %942) #11
+  %942 = tail call ptr @av_get_pix_fmt_name(i32 noundef %933) #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %936, i32 noundef 40, ptr noundef nonnull @.str.32, i32 noundef %939, i32 noundef %941, ptr noundef %942) #12
   %943 = tail call fastcc i32 @h264_slice_header_init(ptr noundef nonnull %0)
   %944 = icmp slt i32 %943, 0
   br i1 %944, label %945, label %h264_init_ps.exit.i
 
 945:                                              ; preds = %935
   %946 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %946, i32 noundef 16, ptr noundef nonnull @.str.33) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %946, i32 noundef 16, ptr noundef nonnull @.str.33) #12
   br label %h264_slice_header_parse.exit.thread
 
 h264_init_ps.exit.i:                              ; preds = %935, %908
@@ -2647,8 +2647,8 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
   br i1 %.not302.i, label %1018, label %1019
 
 1018:                                             ; preds = %1013
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.5, i32 noundef 1456) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.5, i32 noundef 1456) #12
+  tail call void @abort() #13
   unreachable
 
 1019:                                             ; preds = %1013
@@ -2659,8 +2659,8 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
   br i1 %.not303.i, label %1023, label %1024
 
 1023:                                             ; preds = %1019
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.5, i32 noundef 1457) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.5, i32 noundef 1457) #12
+  tail call void @abort() #13
   unreachable
 
 1024:                                             ; preds = %1019
@@ -2674,7 +2674,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
 
 1031:                                             ; preds = %1024
   %1032 = getelementptr inbounds nuw i8, ptr %1017, i64 8
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %1032, i32 noundef 2147483647, i32 noundef %1015) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %1032, i32 noundef 2147483647, i32 noundef %1015) #12
   %.pre.i = load i32, ptr %961, align 4, !tbaa !100
   br label %1033
 
@@ -2716,7 +2716,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
 
 1049:                                             ; preds = %1045
   %1050 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1050, i32 noundef 16, ptr noundef nonnull @.str.28, i32 noundef %962, i32 noundef %1034) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1050, i32 noundef 16, ptr noundef nonnull @.str.28, i32 noundef %962, i32 noundef %1034) #12
   store i32 %962, ptr %961, align 4, !tbaa !100
   store i32 %960, ptr %959, align 4, !tbaa !102
   br label %h264_slice_header_parse.exit.thread
@@ -2728,7 +2728,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
 
 1053:                                             ; preds = %1051
   %1054 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %1054, ptr noundef nonnull @.str.29) #11
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %1054, ptr noundef nonnull @.str.29) #12
   store i32 %962, ptr %961, align 4, !tbaa !100
   store i32 %960, ptr %959, align 4, !tbaa !102
   br label %h264_slice_header_parse.exit.thread
@@ -2738,7 +2738,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
   %1055 = getelementptr inbounds nuw i8, ptr %.sink530.i, i64 8
   %1056 = icmp eq i32 %962, 1
   %1057 = zext i1 %1056 to i32
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %1055, i32 noundef 2147483647, i32 noundef %1057) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %1055, i32 noundef 2147483647, i32 noundef %1057) #12
   br label %.thread.i150
 
 .thread.i150:                                     ; preds = %.thread.sink.split.i, %1051, %1044, %1036, %1010
@@ -2788,7 +2788,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
 1084:                                             ; preds = %1082, %1080
   %1085 = phi ptr [ %1083, %1082 ], [ null, %1080 ]
   %1086 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1086, i32 noundef 48, ptr noundef nonnull @.str.30, i32 noundef %1073, i32 noundef %1072) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1086, i32 noundef 48, ptr noundef nonnull @.str.30, i32 noundef %1073, i32 noundef %1072) #12
   %1087 = load i32, ptr %1063, align 4, !tbaa !260
   %.not313.i = icmp eq i32 %1087, 0
   br i1 %.not313.i, label %.preheader.i, label %.loopexit399.i
@@ -2826,12 +2826,12 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
   %1102 = getelementptr inbounds nuw i8, ptr %1098, i64 708
   store i32 %1101, ptr %1102, align 4, !tbaa !262
   %1103 = getelementptr inbounds nuw i8, ptr %1098, i64 8
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %1103, i32 noundef 2147483647, i32 noundef 0) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %1103, i32 noundef 2147483647, i32 noundef 0) #12
   %1104 = load ptr, ptr %1065, align 8, !tbaa !104
   %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 8
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %1105, i32 noundef 2147483647, i32 noundef 1) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %1105, i32 noundef 2147483647, i32 noundef 1) #12
   store i32 0, ptr %1066, align 4, !tbaa !114
-  %1106 = tail call i32 @ff_h264_execute_ref_pic_marking(ptr noundef nonnull %0) #11
+  %1106 = tail call i32 @ff_h264_execute_ref_pic_marking(ptr noundef nonnull %0) #12
   %1107 = icmp slt i32 %1106, 0
   br i1 %1107, label %1108, label %1113
 
@@ -2899,25 +2899,25 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
 
 1146:                                             ; preds = %1140
   %1147 = getelementptr inbounds nuw i8, ptr %1085, i64 8
-  tail call void @ff_thread_await_progress(ptr noundef nonnull %1147, i32 noundef 2147483647, i32 noundef 0) #11
+  tail call void @ff_thread_await_progress(ptr noundef nonnull %1147, i32 noundef 2147483647, i32 noundef 0) #12
   %1148 = getelementptr inbounds nuw i8, ptr %1085, i64 696
   %1149 = load i32, ptr %1148, align 8, !tbaa !269
   %.not320.i = icmp eq i32 %1149, 0
   br i1 %.not320.i, label %1151, label %1150
 
 1150:                                             ; preds = %1146
-  tail call void @ff_thread_await_progress(ptr noundef nonnull %1147, i32 noundef 2147483647, i32 noundef 1) #11
+  tail call void @ff_thread_await_progress(ptr noundef nonnull %1147, i32 noundef 2147483647, i32 noundef 1) #12
   br label %1151
 
 1151:                                             ; preds = %1150, %1146
   %1152 = load ptr, ptr %1062, align 8, !tbaa !117
   %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 8
-  tail call void @ff_thread_release_ext_buffer(ptr noundef nonnull %1153) #11
+  tail call void @ff_thread_release_ext_buffer(ptr noundef nonnull %1153) #12
   %1154 = load ptr, ptr %1062, align 8, !tbaa !117
   %1155 = load ptr, ptr %1154, align 8, !tbaa !256
   %1156 = getelementptr inbounds nuw i8, ptr %1154, i64 8
   store ptr %1155, ptr %1156, align 8, !tbaa !270
-  %1157 = tail call i32 @ff_thread_ref_frame(ptr noundef nonnull %1156, ptr noundef nonnull %1147) #11
+  %1157 = tail call i32 @ff_thread_ref_frame(ptr noundef nonnull %1156, ptr noundef nonnull %1147) #12
   %1158 = icmp slt i32 %1157, 0
   br i1 %1158, label %.thread392.i, label %1159
 
@@ -2937,7 +2937,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
   %1167 = getelementptr inbounds nuw i8, ptr %1163, i64 752
   store i32 %1166, ptr %1167, align 8, !tbaa !272
   %1168 = getelementptr inbounds nuw i8, ptr %1163, i64 8
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %1168, i32 noundef 2147483647, i32 noundef 0) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %1168, i32 noundef 2147483647, i32 noundef 0) #12
   %1169 = load ptr, ptr %1062, align 8, !tbaa !117
   %1170 = getelementptr inbounds nuw i8, ptr %1169, i64 696
   %1171 = load i32, ptr %1170, align 8, !tbaa !269
@@ -2946,7 +2946,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
 
 1172:                                             ; preds = %1159
   %1173 = getelementptr inbounds nuw i8, ptr %1169, i64 8
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %1173, i32 noundef 2147483647, i32 noundef 1) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %1173, i32 noundef 2147483647, i32 noundef 1) #12
   br label %1259
 
 1174:                                             ; preds = %1140, %1134, %1125, %1115
@@ -2966,7 +2966,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
   %1182 = load ptr, ptr %1181, align 8, !tbaa !256
   %1183 = getelementptr inbounds nuw i8, ptr %1182, i64 116
   %1184 = load i32, ptr %1183, align 4, !tbaa !268
-  %1185 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1184) #11
+  %1185 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %1184) #12
   %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 16
   %1187 = load i64, ptr %1186, align 8, !tbaa !274
   %1188 = and i64 %1187, 16
@@ -2989,8 +2989,8 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
   br label %1198
 
 1197:                                             ; preds = %1180
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 311) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 311) #12
+  tail call void @abort() #13
   unreachable
 
 1198:                                             ; preds = %.loopexit.i.i, %.lr.ph64.i.i
@@ -3047,7 +3047,7 @@ h264_init_ps.exit.i:                              ; preds = %935, %908
   store i16 %1233, ptr %1200, align 2, !tbaa !281
   %1234 = getelementptr inbounds nuw i8, ptr %1200, i64 2
   %1235 = add nsw i32 %1220, -2
-  tail call void @av_memcpy_backptr(ptr noundef nonnull %1234, i32 noundef 2, i32 noundef %1235) #11
+  tail call void @av_memcpy_backptr(ptr noundef nonnull %1234, i32 noundef 2, i32 noundef %1235) #12
   %1236 = getelementptr inbounds nuw i32, ptr %1196, i64 %indvars.iv.i.i
   %1237 = icmp sgt i32 %1221, 1
   br i1 %1237, label %.lr.ph62.i.i, label %.loopexit.i.i
@@ -3124,8 +3124,8 @@ color_frame.exit.i:                               ; preds = %.loopexit.i.i, %.pr
   br i1 %.not323.i, label %1268, label %1269
 
 1268:                                             ; preds = %.critedge.thread.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.5, i32 noundef 1576) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.5, i32 noundef 1576) #12
+  tail call void @abort() #13
   unreachable
 
 1269:                                             ; preds = %.critedge.thread.i
@@ -3136,8 +3136,8 @@ color_frame.exit.i:                               ; preds = %.loopexit.i.i, %.pr
   br i1 %.not324.i, label %1273, label %1274
 
 1273:                                             ; preds = %1269
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.5, i32 noundef 1577) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.5, i32 noundef 1577) #12
+  tail call void @abort() #13
   unreachable
 
 1274:                                             ; preds = %1269
@@ -3166,7 +3166,7 @@ thread-pre-split.i.thread:                        ; preds = %1281
   %1284 = getelementptr inbounds nuw i8, ptr %1267, i64 8
   %1285 = icmp eq i32 %1275, 2
   %1286 = zext i1 %1285 to i32
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %1284, i32 noundef 2147483647, i32 noundef %1286) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %1284, i32 noundef 2147483647, i32 noundef %1286) #12
   store i32 1, ptr %1011, align 8, !tbaa !99
   store ptr null, ptr %1266, align 8, !tbaa !104
   br label %1294
@@ -3229,7 +3229,7 @@ thread-pre-split.i:                               ; preds = %1292, %1278
   br i1 %.not13.us.i.i, label %1308, label %1307
 
 1307:                                             ; preds = %1305
-  tail call void @ff_h264_unref_picture(ptr noundef nonnull %1298) #11
+  tail call void @ff_h264_unref_picture(ptr noundef nonnull %1298) #12
   br label %1308
 
 1308:                                             ; preds = %1307, %1305, %1302, %.split.us.i.i
@@ -3304,7 +3304,7 @@ release_unused_pictures.exit.i:                   ; preds = %1308
   %1352 = load ptr, ptr %690, align 8, !tbaa !76
   %1353 = load i32, ptr %961, align 4, !tbaa !100
   %1354 = load i32, ptr %467, align 4, !tbaa !201
-  %1355 = tail call i32 @ff_h264_init_poc(ptr noundef nonnull %1350, ptr noundef nonnull %1351, ptr noundef %1352, ptr noundef nonnull %970, i32 noundef %1353, i32 noundef %1354) #11
+  %1355 = tail call i32 @ff_h264_init_poc(ptr noundef nonnull %1350, ptr noundef nonnull %1351, ptr noundef %1352, ptr noundef nonnull %970, i32 noundef %1353, i32 noundef %1354) #12
   %1356 = icmp slt i32 %1355, 0
   br i1 %1356, label %h264_slice_header_parse.exit.thread, label %1357
 
@@ -3462,13 +3462,13 @@ release_unused_pictures.exit.i:                   ; preds = %1308
 1444:                                             ; preds = %1437
   %1445 = getelementptr inbounds nuw i8, ptr %0, i64 737368
   %1446 = load ptr, ptr %433, align 8, !tbaa !96
-  %1447 = tail call i32 @ff_h264_sei_process_picture_timing(ptr noundef nonnull %1445, ptr noundef %1438, ptr noundef %1446) #11
+  %1447 = tail call i32 @ff_h264_sei_process_picture_timing(ptr noundef nonnull %1445, ptr noundef %1438, ptr noundef %1446) #12
   %1448 = icmp slt i32 %1447, 0
   br i1 %1448, label %1449, label %1456
 
 1449:                                             ; preds = %1444
   %1450 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1450, i32 noundef 16, ptr noundef nonnull @.str.40) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1450, i32 noundef 16, ptr noundef nonnull @.str.40) #12
   %1451 = load ptr, ptr %433, align 8, !tbaa !96
   %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 528
   %1453 = load i32, ptr %1452, align 8, !tbaa !202
@@ -3622,7 +3622,7 @@ release_unused_pictures.exit.i:                   ; preds = %1308
   %1523 = load i32, ptr %1522, align 4, !tbaa !111
   %1524 = shl i32 %1523, 5
   %1525 = add i32 %1524, %1521
-  %1526 = tail call i32 @ff_h2645_sei_to_frame(ptr noundef nonnull %1402, ptr noundef nonnull %1441, i32 noundef 27, ptr noundef %1514, ptr noundef nonnull %1515, i32 noundef %1517, i32 noundef %1519, i32 noundef %1525) #11
+  %1526 = tail call i32 @ff_h2645_sei_to_frame(ptr noundef nonnull %1402, ptr noundef nonnull %1441, i32 noundef 27, ptr noundef %1514, ptr noundef nonnull %1515, i32 noundef %1517, i32 noundef %1519, i32 noundef %1525) #12
   %1527 = icmp slt i32 %1526, 0
   br i1 %1527, label %h264_slice_header_parse.exit.thread, label %1528
 
@@ -3636,7 +3636,7 @@ release_unused_pictures.exit.i:                   ; preds = %1308
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1533 = load ptr, ptr %433, align 8, !tbaa !96
-  %1534 = call i32 @ff_frame_new_side_data(ptr noundef %1533, ptr noundef nonnull %1402, i32 noundef 16, i64 noundef 16, ptr noundef nonnull %5) #11
+  %1534 = call i32 @ff_frame_new_side_data(ptr noundef %1533, ptr noundef nonnull %1402, i32 noundef 16, i64 noundef 16, ptr noundef nonnull %5) #12
   %1535 = icmp sgt i32 %1534, -1
   br i1 %1535, label %1536, label %h264_export_frame_props.exit.thread390.i
 
@@ -3679,15 +3679,15 @@ h264_export_frame_props.exit.thread390.i:         ; preds = %1532
   %1556 = load ptr, ptr %433, align 8, !tbaa !96
   %1557 = getelementptr inbounds nuw i8, ptr %1556, i64 100
   %1558 = load i64, ptr %1557, align 4
-  %1559 = call i32 @av_timecode_get_smpte(i64 %1558, i32 noundef %1547, i32 noundef %1549, i32 noundef %1551, i32 noundef %1553, i32 noundef %1555) #11
+  %1559 = call i32 @av_timecode_get_smpte(i64 %1558, i32 noundef %1547, i32 noundef %1549, i32 noundef %1551, i32 noundef %1553, i32 noundef %1555) #12
   %indvars.iv.next.i349.i = add nuw nsw i64 %indvars.iv.i348.i, 1
   %1560 = getelementptr inbounds nuw i32, ptr %1540, i64 %indvars.iv.next.i349.i
   store i32 %1559, ptr %1560, align 4, !tbaa !164
   %1561 = load ptr, ptr %433, align 8, !tbaa !96
   %1562 = getelementptr inbounds nuw i8, ptr %1561, i64 100
   %1563 = load i64, ptr %1562, align 4
-  %1564 = call ptr @av_timecode_make_smpte_tc_string2(ptr noundef nonnull %4, i64 %1563, i32 noundef %1559, i32 noundef 0, i32 noundef 0) #11
-  %1565 = call i32 @av_dict_set(ptr noundef nonnull %1543, ptr noundef nonnull @.str.41, ptr noundef nonnull %4, i32 noundef 0) #11
+  %1564 = call ptr @av_timecode_make_smpte_tc_string2(ptr noundef nonnull %4, i64 %1563, i32 noundef %1559, i32 noundef 0, i32 noundef 0) #12
+  %1565 = call i32 @av_dict_set(ptr noundef nonnull %1543, ptr noundef nonnull @.str.41, ptr noundef nonnull %4, i32 noundef 0) #12
   %1566 = load i32, ptr %1540, align 4, !tbaa !164
   %1567 = zext i32 %1566 to i64
   %1568 = icmp samesign ult i64 %indvars.iv.next.i349.i, %1567
@@ -3809,7 +3809,7 @@ h264_export_frame_props.exit.thread388.i:         ; preds = %h264_export_frame_p
 1623:                                             ; preds = %1621
   %1624 = load i32, ptr %1586, align 8, !tbaa !271
   %1625 = load i32, ptr %1587, align 8, !tbaa !164
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1576, i32 noundef 40, ptr noundef nonnull @.str.42, i32 noundef %1624, i32 noundef %1625) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1576, i32 noundef 40, ptr noundef nonnull @.str.42, i32 noundef %1624, i32 noundef %1625) #12
   br label %1626
 
 1626:                                             ; preds = %1626, %1623
@@ -3842,7 +3842,7 @@ h264_export_frame_props.exit.thread388.i:         ; preds = %h264_export_frame_p
   %1638 = load i64, ptr %1637, align 8, !tbaa !318
   %1639 = icmp sgt i64 %1638, 1
   %1640 = select i1 %1639, i32 24, i32 40
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1576, i32 noundef %1640, ptr noundef nonnull @.str.43, i32 noundef %.0119.i.i) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1576, i32 noundef %1640, ptr noundef nonnull @.str.43, i32 noundef %.0119.i.i) #12
   %1641 = load ptr, ptr %433, align 8, !tbaa !96
   %1642 = getelementptr inbounds nuw i8, ptr %1641, i64 172
   store i32 %.0119.i.i, ptr %1642, align 4, !tbaa !252
@@ -3866,8 +3866,8 @@ h264_export_frame_props.exit.thread388.i:         ; preds = %h264_export_frame_p
   br i1 %1650, label %1652, label %1651
 
 1651:                                             ; preds = %1648
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.5, i32 noundef 1338) #11
-  call void @abort() #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.5, i32 noundef 1338) #12
+  call void @abort() #13
   unreachable
 
 1652:                                             ; preds = %1648
@@ -4057,7 +4057,7 @@ h264_export_frame_props.exit.thread388.i:         ; preds = %h264_export_frame_p
 
 .thread.i.i:                                      ; preds = %._crit_edge.i363.i, %1693
   %1744 = phi ptr [ %.str.46.mux.i.i, %._crit_edge.i363.i ], [ @.str.47, %1693 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1679, i32 noundef 48, ptr noundef nonnull @.str.45, ptr noundef nonnull %1744) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1679, i32 noundef 48, ptr noundef nonnull @.str.45, ptr noundef nonnull %1744) #12
   br label %h264_field_start.exit
 
 .thread183.thread:                                ; preds = %.thread178.thread, %685
@@ -4079,7 +4079,7 @@ h264_export_frame_props.exit.thread388.i:         ; preds = %h264_export_frame_p
 
 1755:                                             ; preds = %1749, %.thread183.thread
   %1756 = load ptr, ptr %433, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1756, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %1746, i32 noundef %1748) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1756, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %1746, i32 noundef %1748) #12
   br label %h264_slice_header_parse.exit.thread
 
 1757:                                             ; preds = %1749
@@ -4091,7 +4091,7 @@ h264_export_frame_props.exit.thread388.i:         ; preds = %h264_export_frame_p
 1760:                                             ; preds = %1757
   %1761 = load ptr, ptr %433, align 8, !tbaa !96
   %1762 = add nsw i32 %623, 1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1761, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %1762) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1761, i32 noundef 16, ptr noundef nonnull @.str.9, i32 noundef %1762) #12
   br label %h264_slice_header_parse.exit.thread
 
 h264_field_start.exit:                            ; preds = %.thread.i.i, %1739, %1738, %1723, %1433, %1757
@@ -4107,7 +4107,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
 
 1767:                                             ; preds = %1765
   %1768 = load ptr, ptr %433, align 8, !tbaa !96
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1768, i32 noundef 16, ptr noundef nonnull @.str.48) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1768, i32 noundef 16, ptr noundef nonnull @.str.48) #12
   br label %h264_slice_header_parse.exit.thread
 
 1769:                                             ; preds = %1765, %h264_field_start.exit
@@ -4137,7 +4137,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
 
 1784:                                             ; preds = %1779
   %1785 = load ptr, ptr %433, align 8, !tbaa !96
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1785, i32 noundef 16, ptr noundef nonnull @.str.49) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1785, i32 noundef 16, ptr noundef nonnull @.str.49) #12
   br label %h264_slice_header_parse.exit.thread
 
 ._crit_edge292.i:                                 ; preds = %1779
@@ -4169,7 +4169,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   br label %1802
 
 1802:                                             ; preds = %1800, %._crit_edge292.i
-  %1803 = call i32 @ff_h264_build_ref_list(ptr noundef nonnull %0, ptr noundef nonnull %.0110) #11
+  %1803 = call i32 @ff_h264_build_ref_list(ptr noundef nonnull %0, ptr noundef nonnull %.0110) #12
   %1804 = icmp slt i32 %1803, 0
   br i1 %1804, label %h264_slice_header_parse.exit.thread, label %1805
 
@@ -4211,7 +4211,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   br i1 %.not212.i, label %1825, label %1826
 
 1825:                                             ; preds = %1822
-  call void @ff_h264_direct_dist_scale_factor(ptr noundef nonnull %0, ptr noundef nonnull %.0110) #11
+  call void @ff_h264_direct_dist_scale_factor(ptr noundef nonnull %0, ptr noundef nonnull %.0110) #12
   br label %1826
 
 1826:                                             ; preds = %1825, %1822, %1818
@@ -4221,7 +4221,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   br i1 %.not213.i, label %1829, label %1830
 
 1829:                                             ; preds = %1826
-  call void @ff_h264_direct_ref_list_init(ptr noundef nonnull %0, ptr noundef nonnull %.0110) #11
+  call void @ff_h264_direct_ref_list_init(ptr noundef nonnull %0, ptr noundef nonnull %.0110) #12
   br label %1830
 
 1830:                                             ; preds = %1829, %1826
@@ -4358,7 +4358,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   br i1 %or.cond226.i, label %1905, label %1906
 
 1905:                                             ; preds = %1896
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1831, i32 noundef 24, ptr noundef nonnull @.str.50, i32 noundef %1888, i32 noundef 32) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1831, i32 noundef 24, ptr noundef nonnull @.str.50, i32 noundef %1888, i32 noundef 32) #12
   br label %1906
 
 1906:                                             ; preds = %1905, %1896
@@ -4628,7 +4628,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   %2036 = add nsw i32 %2034, %2035
   %2037 = getelementptr inbounds nuw i8, ptr %.0110, i64 52
   %2038 = load i32, ptr %2037, align 4, !tbaa !169
-  %2039 = call signext i8 @av_get_picture_type_char(i32 noundef %2038) #11
+  %2039 = call signext i8 @av_get_picture_type_char(i32 noundef %2038) #12
   %2040 = sext i8 %2039 to i32
   %2041 = getelementptr inbounds nuw i8, ptr %.0110, i64 60
   %2042 = load i32, ptr %2041, align 4, !tbaa !168
@@ -4680,7 +4680,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
 
 2078:                                             ; preds = %2074, %2070
   %2079 = phi ptr [ %2077, %2074 ], [ @.str.47, %2070 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2021, i32 noundef 48, ptr noundef nonnull @.str.51, i32 noundef %2026, i32 noundef %2031, i32 noundef %2036, i32 noundef %2040, ptr noundef nonnull %2043, ptr noundef nonnull %2046, i32 noundef %2048, i32 noundef %2052, i32 noundef %2054, i32 noundef %2055, i32 noundef %2057, i32 noundef %2059, i32 noundef %2060, i32 noundef %2061, i32 noundef %2062, i32 noundef %2064, ptr noundef nonnull %2071, ptr noundef nonnull %2079) #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2021, i32 noundef 48, ptr noundef nonnull @.str.51, i32 noundef %2026, i32 noundef %2031, i32 noundef %2036, i32 noundef %2040, ptr noundef nonnull %2043, ptr noundef nonnull %2046, i32 noundef %2048, i32 noundef %2052, i32 noundef %2054, i32 noundef %2055, i32 noundef %2057, i32 noundef %2059, i32 noundef %2060, i32 noundef %2061, i32 noundef %2062, i32 noundef %2064, ptr noundef nonnull %2071, ptr noundef nonnull %2079) #12
   br label %h264_slice_init.exit
 
 h264_slice_init.exit:                             ; preds = %2078, %2020
@@ -4727,8 +4727,8 @@ define range(i32 -2147483648, 1) i32 @ff_h264_execute_decode_slices(ptr noundef 
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %13
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5, i32 noundef 2783) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5, i32 noundef 2783) #12
+  tail call void @abort() #13
   unreachable
 
 23:                                               ; preds = %13
@@ -4794,7 +4794,7 @@ define range(i32 -2147483648, 1) i32 @ff_h264_execute_decode_slices(ptr noundef 
 ._crit_edge111:                                   ; preds = %._crit_edge.us
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 672
   %55 = load ptr, ptr %54, align 8, !tbaa !353
-  %56 = tail call i32 %55(ptr noundef %3, ptr noundef nonnull @decode_slice, ptr noundef nonnull %7, ptr noundef null, i32 noundef %5, i32 noundef 35568) #11
+  %56 = tail call i32 %55(ptr noundef %3, ptr noundef nonnull @decode_slice, ptr noundef nonnull %7, ptr noundef null, i32 noundef %5, i32 noundef 35568) #12
   %57 = load ptr, ptr %6, align 8, !tbaa !149
   %58 = getelementptr inbounds nuw %struct.H264SliceContext, ptr %57, i64 %15
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 21036
@@ -4944,12 +4944,12 @@ define internal range(i32 -2147483648, 1) i32 @decode_slice(ptr readnone capture
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 28608
   %24 = mul nuw nsw i32 %21, 96
   %25 = zext nneg i32 %24 to i64
-  tail call void @av_fast_malloc(ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef %25) #11
+  tail call void @av_fast_malloc(ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef %25) #12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 28584
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 28612
   %28 = mul nuw nsw i32 %21, 42
   %29 = zext nneg i32 %28 to i64
-  tail call void @av_fast_malloc(ptr noundef nonnull %26, ptr noundef nonnull %27, i64 noundef %29) #11
+  tail call void @av_fast_malloc(ptr noundef nonnull %26, ptr noundef nonnull %27, i64 noundef %29) #12
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 28592
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 28616
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 732432
@@ -4957,14 +4957,14 @@ define internal range(i32 -2147483648, 1) i32 @decode_slice(ptr readnone capture
   %34 = mul nsw i32 %33, 48
   %35 = sext i32 %34 to i64
   %36 = shl nsw i64 %35, 1
-  tail call void @av_fast_mallocz(ptr noundef nonnull %30, ptr noundef nonnull %31, i64 noundef %36) #11
+  tail call void @av_fast_mallocz(ptr noundef nonnull %30, ptr noundef nonnull %31, i64 noundef %36) #12
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 28600
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 28620
   %39 = load i32, ptr %32, align 8, !tbaa !79
   %40 = mul nsw i32 %39, 48
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 1
-  tail call void @av_fast_mallocz(ptr noundef nonnull %37, ptr noundef nonnull %38, i64 noundef %42) #11
+  tail call void @av_fast_mallocz(ptr noundef nonnull %37, ptr noundef nonnull %38, i64 noundef %42) #12
   %43 = load ptr, ptr %22, align 16, !tbaa !358
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %alloc_scratch_buffers.exit.thread, label %44
@@ -4985,10 +4985,10 @@ define internal range(i32 -2147483648, 1) i32 @decode_slice(ptr readnone capture
   br i1 %.not30.i, label %alloc_scratch_buffers.exit.thread, label %alloc_scratch_buffers.exit
 
 alloc_scratch_buffers.exit.thread:                ; preds = %2, %44, %46, %48
-  tail call void @av_freep(ptr noundef nonnull %22) #11
-  tail call void @av_freep(ptr noundef nonnull %26) #11
-  tail call void @av_freep(ptr noundef nonnull %30) #11
-  tail call void @av_freep(ptr noundef nonnull %37) #11
+  tail call void @av_freep(ptr noundef nonnull %22) #12
+  tail call void @av_freep(ptr noundef nonnull %26) #12
+  tail call void @av_freep(ptr noundef nonnull %30) #12
+  tail call void @av_freep(ptr noundef nonnull %37) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   br label %er_add_slice.exit.thread
 
@@ -5009,8 +5009,8 @@ alloc_scratch_buffers.exit:                       ; preds = %48
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %alloc_scratch_buffers.exit
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.5, i32 noundef 2575) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.5, i32 noundef 2575) #12
+  tail call void @abort() #13
   unreachable
 
 63:                                               ; preds = %alloc_scratch_buffers.exit
@@ -5160,12 +5160,12 @@ align_get_bits.exit:                              ; preds = %140, %145
   %reass.sub = sub i32 %.val278, %.val
   %156 = add i32 %reass.sub, 7
   %157 = sdiv i32 %156, 8
-  %158 = tail call i32 @ff_init_cabac_decoder(ptr noundef nonnull %151, ptr noundef %154, i32 noundef %157) #11
+  %158 = tail call i32 @ff_init_cabac_decoder(ptr noundef nonnull %151, ptr noundef %154, i32 noundef %157) #12
   %159 = icmp slt i32 %158, 0
   br i1 %159, label %er_add_slice.exit.thread, label %160
 
 160:                                              ; preds = %align_get_bits.exit
-  tail call void @ff_h264_init_cabac_states(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  tail call void @ff_h264_init_cabac_states(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 21036
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 21056
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 33668
@@ -5197,7 +5197,7 @@ er_add_slice.exit:                                ; preds = %338, %160
 
 182:                                              ; preds = %er_add_slice.exit
   %183 = load ptr, ptr %78, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %183, i32 noundef 16, ptr noundef nonnull @.str.58, i32 noundef %181) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %183, i32 noundef 16, ptr noundef nonnull @.str.58, i32 noundef %181) #12
   %184 = load ptr, ptr %1, align 16, !tbaa !150
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 736640
   %186 = load i32, ptr %185, align 8, !tbaa !105
@@ -5213,16 +5213,16 @@ er_add_slice.exit:                                ; preds = %338, %160
   %193 = load i32, ptr %192, align 4, !tbaa !325
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %195 = load ptr, ptr %194, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %195, i32 noundef %193, i32 noundef %191, i32 noundef %189, i32 noundef %188, i32 noundef 14) #11
+  tail call void @ff_er_add_slice(ptr noundef %195, i32 noundef %193, i32 noundef %191, i32 noundef %189, i32 noundef %188, i32 noundef 14) #12
   br label %er_add_slice.exit.thread
 
 196:                                              ; preds = %er_add_slice.exit
-  %197 = tail call i32 @ff_h264_decode_mb_cabac(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  %197 = tail call i32 @ff_h264_decode_mb_cabac(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   %198 = icmp sgt i32 %197, -1
   br i1 %198, label %199, label %.critedge
 
 199:                                              ; preds = %196
-  tail call void @ff_h264_hl_decode_mb(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  tail call void @ff_h264_hl_decode_mb(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   %200 = load i32, ptr %68, align 8, !tbaa !101
   %.not266 = icmp eq i32 %200, 0
   br i1 %.not266, label %.critedge, label %201
@@ -5231,12 +5231,12 @@ er_add_slice.exit:                                ; preds = %338, %160
   %202 = load i32, ptr %161, align 4, !tbaa !326
   %203 = add nsw i32 %202, 1
   store i32 %203, ptr %161, align 4, !tbaa !326
-  %204 = tail call i32 @ff_h264_decode_mb_cabac(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  %204 = tail call i32 @ff_h264_decode_mb_cabac(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   %205 = icmp sgt i32 %204, -1
   br i1 %205, label %206, label %207
 
 206:                                              ; preds = %201
-  tail call void @ff_h264_hl_decode_mb(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  tail call void @ff_h264_hl_decode_mb(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   br label %207
 
 207:                                              ; preds = %206, %201
@@ -5332,7 +5332,7 @@ get_cabac_terminate.exit:                         ; preds = %.get_cabac_terminat
   %261 = load i32, ptr %260, align 4, !tbaa !325
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %263 = load ptr, ptr %262, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %263, i32 noundef %261, i32 noundef %259, i32 noundef %257, i32 noundef %255, i32 noundef 112) #11
+  tail call void @ff_er_add_slice(ptr noundef %263, i32 noundef %261, i32 noundef %259, i32 noundef %257, i32 noundef %255, i32 noundef 112) #12
   br label %er_add_slice.exit292
 
 er_add_slice.exit292:                             ; preds = %250, %254
@@ -5355,7 +5355,7 @@ er_add_slice.exit292:                             ; preds = %250, %254
   %272 = ptrtoint ptr %.pre388 to i64
   %273 = ptrtoint ptr %.pre387 to i64
   %274 = sub i64 %272, %273
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %271, i32 noundef 48, ptr noundef nonnull @.str.59, i64 noundef %274) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %271, i32 noundef 48, ptr noundef nonnull @.str.59, i64 noundef %274) #12
   %.pre391.pre = load ptr, ptr %166, align 8, !tbaa !373
   %.pre392.pre = load ptr, ptr %164, align 16, !tbaa !369
   br label %275
@@ -5375,7 +5375,7 @@ er_add_slice.exit292:                             ; preds = %250, %254
   %282 = ptrtoint ptr %.pre391 to i64
   %283 = ptrtoint ptr %.pre392 to i64
   %284 = sub i64 %282, %283
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %279, i32 noundef 16, ptr noundef nonnull @.str.60, i32 noundef %280, i32 noundef %281, i64 noundef %284) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %279, i32 noundef 16, ptr noundef nonnull @.str.60, i32 noundef %280, i32 noundef %281, i64 noundef %284) #12
   %285 = load ptr, ptr %1, align 16, !tbaa !150
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 736640
   %287 = load i32, ptr %286, align 8, !tbaa !105
@@ -5391,7 +5391,7 @@ er_add_slice.exit292:                             ; preds = %250, %254
   %294 = load i32, ptr %293, align 4, !tbaa !325
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %296 = load ptr, ptr %295, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %296, i32 noundef %294, i32 noundef %292, i32 noundef %290, i32 noundef %289, i32 noundef 14) #11
+  tail call void @ff_er_add_slice(ptr noundef %296, i32 noundef %294, i32 noundef %292, i32 noundef %290, i32 noundef %289, i32 noundef 14) #12
   br label %er_add_slice.exit.thread
 
 297:                                              ; preds = %275
@@ -5496,7 +5496,7 @@ predict_field_decoding_flag.exit:                 ; preds = %325, %.sink.split.i
   %351 = load i32, ptr %350, align 4, !tbaa !325
   %352 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %353 = load ptr, ptr %352, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %353, i32 noundef %351, i32 noundef %349, i32 noundef %347, i32 noundef %346, i32 noundef 112) #11
+  tail call void @ff_er_add_slice(ptr noundef %353, i32 noundef %351, i32 noundef %349, i32 noundef %347, i32 noundef %346, i32 noundef 112) #12
   %.pre389 = load i32, ptr %4, align 8, !tbaa !324
   br label %er_add_slice.exit296
 
@@ -5516,7 +5516,7 @@ er_add_slice.exit296:                             ; preds = %341, %345
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %357 = phi ptr [ %79, %.preheader ], [ %.pre396, %._crit_edge.loopexit ]
   %.lcssa337 = phi i32 [ %129, %.preheader ], [ %512, %._crit_edge.loopexit ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %357, i32 noundef 16, ptr noundef nonnull @.str.58, i32 noundef %.lcssa337) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %357, i32 noundef 16, ptr noundef nonnull @.str.58, i32 noundef %.lcssa337) #12
   %358 = load ptr, ptr %1, align 16, !tbaa !150
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 736640
   %360 = load i32, ptr %359, align 8, !tbaa !105
@@ -5532,17 +5532,17 @@ er_add_slice.exit296:                             ; preds = %341, %345
   %367 = load i32, ptr %366, align 4, !tbaa !325
   %368 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %369 = load ptr, ptr %368, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %369, i32 noundef %367, i32 noundef %365, i32 noundef %363, i32 noundef %362, i32 noundef 14) #11
+  tail call void @ff_er_add_slice(ptr noundef %369, i32 noundef %367, i32 noundef %365, i32 noundef %363, i32 noundef %362, i32 noundef 14) #12
   br label %er_add_slice.exit.thread
 
 370:                                              ; preds = %.lr.ph, %er_add_slice.exit298
   %.3231367 = phi i32 [ %5, %.lr.ph ], [ %.5, %er_add_slice.exit298 ]
-  %371 = tail call i32 @ff_h264_decode_mb_cavlc(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  %371 = tail call i32 @ff_h264_decode_mb_cavlc(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   %372 = icmp sgt i32 %371, -1
   br i1 %372, label %373, label %.critedge276.thread.loopexit
 
 373:                                              ; preds = %370
-  tail call void @ff_h264_hl_decode_mb(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  tail call void @ff_h264_hl_decode_mb(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   %374 = load i32, ptr %68, align 8, !tbaa !101
   %.not258 = icmp eq i32 %374, 0
   br i1 %.not258, label %.critedge276.thread322, label %375
@@ -5551,7 +5551,7 @@ er_add_slice.exit296:                             ; preds = %341, %345
   %376 = load i32, ptr %122, align 4, !tbaa !326
   %377 = add nsw i32 %376, 1
   store i32 %377, ptr %122, align 4, !tbaa !326
-  %378 = tail call i32 @ff_h264_decode_mb_cavlc(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  %378 = tail call i32 @ff_h264_decode_mb_cavlc(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   %379 = icmp sgt i32 %378, -1
   br i1 %379, label %.critedge276, label %.critedge276.thread324
 
@@ -5562,7 +5562,7 @@ er_add_slice.exit296:                             ; preds = %341, %345
   br label %.critedge276.thread
 
 .critedge276:                                     ; preds = %375
-  tail call void @ff_h264_hl_decode_mb(ptr noundef nonnull %3, ptr noundef nonnull %1) #11
+  tail call void @ff_h264_hl_decode_mb(ptr noundef nonnull %3, ptr noundef nonnull %1) #12
   %382 = load i32, ptr %122, align 4, !tbaa !326
   %383 = add nsw i32 %382, -1
   store i32 %383, ptr %122, align 4, !tbaa !326
@@ -5577,7 +5577,7 @@ er_add_slice.exit296:                             ; preds = %341, %345
   %.0321 = phi i32 [ %378, %.critedge276.thread324 ], [ %371, %.critedge276.thread.loopexit ]
   %385 = load ptr, ptr %78, align 8, !tbaa !96
   %386 = load i32, ptr %4, align 8, !tbaa !324
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %385, i32 noundef 16, ptr noundef nonnull @.str.61, i32 noundef %386, i32 noundef %384) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %385, i32 noundef 16, ptr noundef nonnull @.str.61, i32 noundef %386, i32 noundef %384) #12
   %387 = load ptr, ptr %1, align 16, !tbaa !150
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 736640
   %389 = load i32, ptr %388, align 8, !tbaa !105
@@ -5593,7 +5593,7 @@ er_add_slice.exit296:                             ; preds = %341, %345
   %396 = load i32, ptr %395, align 4, !tbaa !325
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %398 = load ptr, ptr %397, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %398, i32 noundef %396, i32 noundef %394, i32 noundef %392, i32 noundef %391, i32 noundef 14) #11
+  tail call void @ff_er_add_slice(ptr noundef %398, i32 noundef %396, i32 noundef %394, i32 noundef %392, i32 noundef %391, i32 noundef 14) #12
   br label %er_add_slice.exit.thread
 
 .critedge276.thread322:                           ; preds = %373, %.critedge276
@@ -5711,7 +5711,7 @@ predict_field_decoding_flag.exit304:              ; preds = %426, %.sink.split.i
   %460 = load i32, ptr %459, align 4, !tbaa !325
   %461 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %462 = load ptr, ptr %461, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %462, i32 noundef %460, i32 noundef %458, i32 noundef %456, i32 noundef %439, i32 noundef 112) #11
+  tail call void @ff_er_add_slice(ptr noundef %462, i32 noundef %460, i32 noundef %458, i32 noundef %456, i32 noundef %439, i32 noundef 112) #12
   br label %er_add_slice.exit.thread317
 
 463:                                              ; preds = %445, %443
@@ -5729,7 +5729,7 @@ predict_field_decoding_flag.exit304:              ; preds = %426, %.sink.split.i
   %472 = load i32, ptr %471, align 4, !tbaa !325
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %474 = load ptr, ptr %473, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %474, i32 noundef %472, i32 noundef %470, i32 noundef %468, i32 noundef %439, i32 noundef 112) #11
+  tail call void @ff_er_add_slice(ptr noundef %474, i32 noundef %472, i32 noundef %470, i32 noundef %468, i32 noundef %439, i32 noundef 112) #12
   br label %er_add_slice.exit.thread
 
 475:                                              ; preds = %438, %.critedge276.thread322
@@ -5765,7 +5765,7 @@ predict_field_decoding_flag.exit304:              ; preds = %426, %.sink.split.i
   %491 = load i32, ptr %490, align 4, !tbaa !325
   %492 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %493 = load ptr, ptr %492, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %493, i32 noundef %491, i32 noundef %489, i32 noundef %487, i32 noundef %486, i32 noundef 112) #11
+  tail call void @ff_er_add_slice(ptr noundef %493, i32 noundef %491, i32 noundef %489, i32 noundef %487, i32 noundef %486, i32 noundef 112) #12
   %.pre394 = load i32, ptr %4, align 8, !tbaa !324
   br label %er_add_slice.exit310
 
@@ -5790,7 +5790,7 @@ er_add_slice.exit310:                             ; preds = %484, %485
   %504 = load i32, ptr %503, align 4, !tbaa !325
   %505 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %506 = load ptr, ptr %505, align 8, !tbaa !362
-  tail call void @ff_er_add_slice(ptr noundef %506, i32 noundef %504, i32 noundef %502, i32 noundef %500, i32 noundef %499, i32 noundef 14) #11
+  tail call void @ff_er_add_slice(ptr noundef %506, i32 noundef %504, i32 noundef %502, i32 noundef %500, i32 noundef %499, i32 noundef 14) #12
   br label %er_add_slice.exit.thread
 
 er_add_slice.exit298:                             ; preds = %475, %476
@@ -7274,11 +7274,11 @@ fill_filter_caches_inter.exit189.i:               ; preds = %801, %800, %fill_fi
   br i1 %.not128, label %964, label %963
 
 963:                                              ; preds = %946
-  tail call void @ff_h264_filter_mb(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %143, i32 noundef %149, ptr noundef %.0, ptr noundef %.0116, ptr noundef %.0117, i32 noundef %.0118, i32 noundef %.0119) #11
+  tail call void @ff_h264_filter_mb(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %143, i32 noundef %149, ptr noundef %.0, ptr noundef %.0116, ptr noundef %.0117, i32 noundef %.0118, i32 noundef %.0119) #12
   br label %fill_filter_caches.exit
 
 964:                                              ; preds = %946
-  tail call void @ff_h264_filter_mb_fast(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %143, i32 noundef %149, ptr noundef %.0, ptr noundef %.0116, ptr noundef %.0117, i32 noundef %.0118, i32 noundef %.0119) #11
+  tail call void @ff_h264_filter_mb_fast(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %143, i32 noundef %149, ptr noundef %.0, ptr noundef %.0116, ptr noundef %.0117, i32 noundef %.0118, i32 noundef %.0119) #12
   br label %fill_filter_caches.exit
 
 fill_filter_caches.exit:                          ; preds = %477, %474, %463, %963, %964
@@ -7465,13 +7465,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h264_frame_start(ptr nound
   %3 = load i32, ptr %2, align 8, !tbaa !143
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !96
-  %6 = tail call i32 @ff_thread_can_start_frame(ptr noundef %5) #11
+  %6 = tail call i32 @ff_thread_can_start_frame(ptr noundef %5) #12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %4, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %8, i32 noundef 16, ptr noundef nonnull @.str.36) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %8, i32 noundef 16, ptr noundef nonnull @.str.36) #12
   br label %alloc_picture.exit.thread
 
 9:                                                ; preds = %1
@@ -7494,7 +7494,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h264_frame_start(ptr nound
   br i1 %.not11.i, label %18, label %19
 
 18:                                               ; preds = %15
-  tail call void @ff_h264_unref_picture(ptr noundef nonnull %11) #11
+  tail call void @ff_h264_unref_picture(ptr noundef nonnull %11) #12
   br label %19
 
 19:                                               ; preds = %18, %15, %.split.i
@@ -7523,7 +7523,7 @@ release_unused_pictures.exit:                     ; preds = %19
 
 find_unused_picture.exit.thread:                  ; preds = %26
   %27 = load ptr, ptr %4, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.37) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %27, i32 noundef 16, ptr noundef nonnull @.str.37) #12
   br label %alloc_picture.exit.thread
 
 find_unused_picture.exit:                         ; preds = %21
@@ -7621,8 +7621,8 @@ find_unused_picture.exit:                         ; preds = %21
   br i1 %.not.i123, label %91, label %90
 
 90:                                               ; preds = %86
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.5, i32 noundef 192) #11
-  tail call void @abort() #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.5, i32 noundef 192) #12
+  tail call void @abort() #13
   unreachable
 
 91:                                               ; preds = %86
@@ -7633,7 +7633,7 @@ find_unused_picture.exit:                         ; preds = %21
   br i1 %.not89.i, label %97, label %94
 
 94:                                               ; preds = %91
-  %95 = tail call i32 @ff_frame_new_side_data_from_buf(ptr noundef %.pre144, ptr noundef nonnull %42, i32 noundef 28, ptr noundef nonnull %92) #11
+  %95 = tail call i32 @ff_frame_new_side_data_from_buf(ptr noundef %.pre144, ptr noundef nonnull %42, i32 noundef 28, ptr noundef nonnull %92) #12
   %96 = icmp sgt i32 %95, -1
   br i1 %96, label %._crit_edge.i, label %alloc_picture.exit.thread
 
@@ -7651,7 +7651,7 @@ find_unused_picture.exit:                         ; preds = %21
   store ptr %100, ptr %101, align 8, !tbaa !270
   %.not90.i = icmp ne i32 %98, 0
   %102 = zext i1 %.not90.i to i32
-  %103 = tail call i32 @ff_thread_get_ext_buffer(ptr noundef %99, ptr noundef nonnull %101, i32 noundef %102) #11
+  %103 = tail call i32 @ff_thread_get_ext_buffer(ptr noundef %99, ptr noundef nonnull %101, i32 noundef %102) #12
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %.thread.i, label %105
 
@@ -7677,14 +7677,14 @@ find_unused_picture.exit:                         ; preds = %21
   %119 = getelementptr inbounds nuw i8, ptr %112, i64 108
   store i32 %118, ptr %119, align 4, !tbaa !267
   %120 = load ptr, ptr %4, align 8, !tbaa !96
-  %121 = tail call i32 @ff_thread_get_buffer(ptr noundef %120, ptr noundef %112, i32 noundef 0) #11
+  %121 = tail call i32 @ff_thread_get_buffer(ptr noundef %120, ptr noundef %112, i32 noundef 0) #12
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %.thread.i, label %123
 
 123:                                              ; preds = %107, %105
   %124 = load ptr, ptr %4, align 8, !tbaa !96
   %125 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  %126 = tail call i32 @ff_hwaccel_frame_priv_alloc(ptr noundef %124, ptr noundef nonnull %125) #11
+  %126 = tail call i32 @ff_hwaccel_frame_priv_alloc(ptr noundef %124, ptr noundef nonnull %125) #12
   %127 = icmp slt i32 %126, 0
   br i1 %127, label %.thread.i, label %128
 
@@ -7695,7 +7695,7 @@ find_unused_picture.exit:                         ; preds = %21
   br i1 %.not92.i, label %135, label %131
 
 131:                                              ; preds = %128
-  %132 = tail call ptr @av_refstruct_pool_get(ptr noundef nonnull %130) #11
+  %132 = tail call ptr @av_refstruct_pool_get(ptr noundef nonnull %130) #12
   %133 = getelementptr inbounds nuw i8, ptr %29, i64 744
   store ptr %132, ptr %133, align 8, !tbaa !403
   %.not93.i = icmp eq ptr %132, null
@@ -7727,25 +7727,25 @@ find_unused_picture.exit:                         ; preds = %21
   %151 = mul i32 %150, %149
   %152 = add nsw i32 %145, %140
   %153 = sext i32 %152 to i64
-  %154 = tail call ptr @av_refstruct_pool_alloc(i64 noundef %153, i32 noundef 0) #11
+  %154 = tail call ptr @av_refstruct_pool_alloc(i64 noundef %153, i32 noundef 0) #12
   store ptr %154, ptr %136, align 8, !tbaa !404
   %155 = load i32, ptr %139, align 4, !tbaa !93
   %156 = add nsw i32 %155, %145
   %157 = sext i32 %156 to i64
   %158 = shl nsw i64 %157, 2
-  %159 = tail call ptr @av_refstruct_pool_alloc(i64 noundef %158, i32 noundef 0) #11
+  %159 = tail call ptr @av_refstruct_pool_alloc(i64 noundef %158, i32 noundef 0) #12
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 737672
   store ptr %159, ptr %160, align 8, !tbaa !405
   %161 = add i32 %151, 8
   %162 = sext i32 %161 to i64
   %163 = shl nsw i64 %162, 1
-  %164 = tail call ptr @av_refstruct_pool_alloc(i64 noundef %163, i32 noundef 0) #11
+  %164 = tail call ptr @av_refstruct_pool_alloc(i64 noundef %163, i32 noundef 0) #12
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 737680
   store ptr %164, ptr %165, align 8, !tbaa !406
   %166 = shl i32 %140, 2
   %167 = mul i32 %166, %142
   %168 = sext i32 %167 to i64
-  %169 = tail call ptr @av_refstruct_pool_alloc(i64 noundef %168, i32 noundef 0) #11
+  %169 = tail call ptr @av_refstruct_pool_alloc(i64 noundef %168, i32 noundef 0) #12
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 737688
   store ptr %169, ptr %170, align 8, !tbaa !407
   %171 = load ptr, ptr %136, align 8, !tbaa !404
@@ -7765,20 +7765,20 @@ find_unused_picture.exit:                         ; preds = %21
   br i1 %or.cond.i.i, label %init_table_pools.exit.thread.i, label %init_table_pools.exit.i
 
 init_table_pools.exit.thread.i:                   ; preds = %174, %172, %138
-  tail call void @av_refstruct_unref(ptr noundef nonnull %136) #11
-  tail call void @av_refstruct_unref(ptr noundef nonnull %160) #11
-  tail call void @av_refstruct_unref(ptr noundef nonnull %165) #11
-  tail call void @av_refstruct_unref(ptr noundef nonnull %170) #11
+  tail call void @av_refstruct_unref(ptr noundef nonnull %136) #12
+  tail call void @av_refstruct_unref(ptr noundef nonnull %160) #12
+  tail call void @av_refstruct_unref(ptr noundef nonnull %165) #12
+  tail call void @av_refstruct_unref(ptr noundef nonnull %170) #12
   br label %.thread.i
 
 init_table_pools.exit.i:                          ; preds = %174, %135
   %176 = phi ptr [ %171, %174 ], [ %137, %135 ]
-  %177 = tail call ptr @av_refstruct_pool_get(ptr noundef nonnull %176) #11
+  %177 = tail call ptr @av_refstruct_pool_get(ptr noundef nonnull %176) #12
   %178 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store ptr %177, ptr %178, align 8, !tbaa !408
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 737672
   %180 = load ptr, ptr %179, align 8, !tbaa !405
-  %181 = tail call ptr @av_refstruct_pool_get(ptr noundef %180) #11
+  %181 = tail call ptr @av_refstruct_pool_get(ptr noundef %180) #12
   %182 = getelementptr inbounds nuw i8, ptr %29, i64 96
   store ptr %181, ptr %182, align 8, !tbaa !409
   %183 = load ptr, ptr %178, align 8, !tbaa !408
@@ -7811,11 +7811,11 @@ init_table_pools.exit.i:                          ; preds = %174, %135
   %201 = phi i1 [ true, %184 ], [ false, %209 ]
   %indvars.iv.i124 = phi i64 [ 0, %184 ], [ 1, %209 ]
   %202 = load ptr, ptr %195, align 8, !tbaa !406
-  %203 = tail call ptr @av_refstruct_pool_get(ptr noundef %202) #11
+  %203 = tail call ptr @av_refstruct_pool_get(ptr noundef %202) #12
   %204 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv.i124
   store ptr %203, ptr %204, align 8, !tbaa !383
   %205 = load ptr, ptr %197, align 8, !tbaa !407
-  %206 = tail call ptr @av_refstruct_pool_get(ptr noundef %205) #11
+  %206 = tail call ptr @av_refstruct_pool_get(ptr noundef %205) #12
   %207 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv.i124
   store ptr %206, ptr %207, align 8, !tbaa !159
   %208 = load ptr, ptr %204, align 8, !tbaa !383
@@ -7832,21 +7832,21 @@ init_table_pools.exit.i:                          ; preds = %174, %135
 
 .thread.i:                                        ; preds = %init_table_pools.exit.thread.i, %123, %107, %97
   %.076.ph.i = phi i32 [ -12, %init_table_pools.exit.thread.i ], [ %126, %123 ], [ %121, %107 ], [ %103, %97 ]
-  tail call void @ff_h264_unref_picture(ptr noundef nonnull %29) #11
+  tail call void @ff_h264_unref_picture(ptr noundef nonnull %29) #12
   br label %alloc_picture.exit.thread
 
 .thread106.i:                                     ; preds = %init_table_pools.exit.i, %131
-  tail call void @ff_h264_unref_picture(ptr noundef nonnull %29) #11
+  tail call void @ff_h264_unref_picture(ptr noundef nonnull %29) #12
   br label %alloc_picture.exit.thread
 
 212:                                              ; preds = %200
-  tail call void @ff_h264_unref_picture(ptr noundef nonnull %29) #11
+  tail call void @ff_h264_unref_picture(ptr noundef nonnull %29) #12
   br label %alloc_picture.exit.thread
 
 213:                                              ; preds = %209
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 734776
   %215 = load ptr, ptr %214, align 8, !tbaa !89
-  %216 = tail call ptr @av_refstruct_ref_c(ptr noundef %215) #11
+  %216 = tail call ptr @av_refstruct_ref_c(ptr noundef %215) #12
   %217 = getelementptr inbounds nuw i8, ptr %29, i64 720
   store ptr %216, ptr %217, align 8, !tbaa !413
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 732432
@@ -7862,12 +7862,12 @@ init_table_pools.exit.i:                          ; preds = %174, %135
   store i32 %224, ptr %225, align 8, !tbaa !416
   store ptr %29, ptr %20, align 8, !tbaa !104
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 729208
-  tail call void @ff_h264_unref_picture(ptr noundef nonnull %226) #11
+  tail call void @ff_h264_unref_picture(ptr noundef nonnull %226) #12
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 736648
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 736840
-  tail call void @ff_h264_set_erpic(ptr noundef nonnull %228, ptr noundef null) #11
+  tail call void @ff_h264_set_erpic(ptr noundef nonnull %228, ptr noundef null) #12
   %229 = load ptr, ptr %20, align 8, !tbaa !104
-  %230 = tail call i32 @ff_h264_ref_picture(ptr noundef nonnull %226, ptr noundef %229) #11
+  %230 = tail call i32 @ff_h264_ref_picture(ptr noundef nonnull %226, ptr noundef %229) #12
   %231 = icmp slt i32 %230, 0
   br i1 %231, label %alloc_picture.exit.thread, label %.preheader128
 
@@ -7908,11 +7908,11 @@ init_table_pools.exit.i:                          ; preds = %174, %135
   br i1 %.not117, label %253, label %250
 
 250:                                              ; preds = %._crit_edge
-  tail call void @ff_er_frame_start(ptr noundef nonnull %227) #11
+  tail call void @ff_er_frame_start(ptr noundef nonnull %227) #12
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 736912
-  tail call void @ff_h264_set_erpic(ptr noundef nonnull %251, ptr noundef null) #11
+  tail call void @ff_h264_set_erpic(ptr noundef nonnull %251, ptr noundef null) #12
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 736984
-  tail call void @ff_h264_set_erpic(ptr noundef nonnull %252, ptr noundef null) #11
+  tail call void @ff_h264_set_erpic(ptr noundef nonnull %252, ptr noundef null) #12
   br label %253
 
 253:                                              ; preds = %250, %._crit_edge
@@ -8270,7 +8270,7 @@ define internal fastcc i32 @get_pixel_format(ptr noundef readonly captures(none)
 110:                                              ; preds = %2
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !96
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %112, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %7) #11
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %112, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %7) #12
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %20, %22, %18, %19, %36, %38, %34, %35, %53, %55, %51, %52, %69, %71, %67, %68, %99, %98, %109, %108, %82, %90, %89
@@ -8298,7 +8298,7 @@ define internal fastcc i32 @get_pixel_format(ptr noundef readonly captures(none)
   br i1 %.not69, label %.loopexit, label %118
 
 .critedge:                                        ; preds = %118, %.lr.ph
-  %122 = call i32 @ff_get_format(ptr noundef %115, ptr noundef nonnull %3) #11
+  %122 = call i32 @ff_get_format(ptr noundef %115, ptr noundef nonnull %3) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.critedge, %110
@@ -8667,7 +8667,7 @@ define internal fastcc void @decode_finish_row(ptr noundef %0, ptr noundef %1) u
   %31 = tail call i32 @llvm.smin.i32(i32 %.0, i32 0)
   %spec.select44 = add nsw i32 %30, %31
   %spec.select45 = tail call i32 @llvm.smax.i32(i32 %.0, i32 0)
-  tail call void @ff_h264_draw_horiz_band(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %spec.select45, i32 noundef %spec.select44) #11
+  tail call void @ff_h264_draw_horiz_band(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %spec.select45, i32 noundef %spec.select44) #12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 730812
   %33 = load i32, ptr %32, align 4, !tbaa !102
   %.not41 = icmp eq i32 %33, 0
@@ -8688,7 +8688,7 @@ define internal fastcc void @decode_finish_row(ptr noundef %0, ptr noundef %1) u
   %43 = load i32, ptr %5, align 4, !tbaa !100
   %44 = icmp eq i32 %43, 2
   %45 = zext i1 %44 to i32
-  tail call void @ff_thread_report_progress(ptr noundef nonnull %40, i32 noundef %42, i32 noundef %45) #11
+  tail call void @ff_thread_report_progress(ptr noundef nonnull %40, i32 noundef %42, i32 noundef %45) #12
   br label %46
 
 46:                                               ; preds = %28, %34, %25, %37
@@ -8717,20 +8717,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -8742,9 +8742,10 @@ attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind willr
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

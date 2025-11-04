@@ -68,7 +68,7 @@ entry:
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %destroyer, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
-  call void @_ZN6hermes17PostOrderAnalysisC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %PO, ptr noundef %F) #9
+  call void @_ZN6hermes17PostOrderAnalysisC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %PO, ptr noundef %F) #10
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %PO, i64 16
   %0 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !4
   %Order.i.i = getelementptr inbounds nuw i8, ptr %PO, i64 8
@@ -145,8 +145,8 @@ sw.bb.i:                                          ; preds = %for.body8
   %8 = load ptr, ptr %parent_.i.i.i.i, align 8
   store ptr %8, ptr %builder.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i, i8 0, i64 32, i1 false)
-  %call.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %instIter.sroa.0.0, i32 noundef 0) #9
-  %call.i33.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %instIter.sroa.0.0, i32 noundef 1) #9
+  %call.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %instIter.sroa.0.0, i32 noundef 0) #10
+  %call.i33.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(136) %instIter.sroa.0.0, i32 noundef 1) #10
   %op_.i.i.i = getelementptr inbounds nuw i8, ptr %instIter.sroa.0.0, i64 132
   %9 = load i32, ptr %op_.i.i.i, align 4
   %10 = load i8, ptr %call.i.i.i, align 8
@@ -159,7 +159,7 @@ sw.bb.i:                                          ; preds = %for.body8
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end11.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb.i
-  %call8.i.i = call noundef ptr @_ZN6hermes18evalBinaryOperatorENS_18BinaryOperatorInst6OpKindERNS_9IRBuilderEPNS_7LiteralES5_(i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call.i33.i.i) #9
+  %call8.i.i = call noundef ptr @_ZN6hermes18evalBinaryOperatorENS_18BinaryOperatorInst6OpKindERNS_9IRBuilderEPNS_7LiteralES5_(i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call.i33.i.i) #10
   %tobool9.not.i.i = icmp eq ptr %call8.i.i, null
   br i1 %tobool9.not.i.i, label %if.end11.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
@@ -226,7 +226,7 @@ sw.bb.i.i:                                        ; preds = %land.end25.i.i
   br i1 %23, label %if.then28.i.i, label %if.end30.i.i
 
 if.then28.i.i:                                    ; preds = %sw.bb.i.i
-  %call29.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext true) #9
+  %call29.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext true) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.end30.i.i:                                     ; preds = %sw.bb.i.i
@@ -238,8 +238,8 @@ if.end30.i.i:                                     ; preds = %sw.bb.i.i
   br i1 %or.cond114.i.i, label %if.then34.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then34.i.i:                                    ; preds = %if.end30.i.i
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #9
-  %call35.i.i = call noundef ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call.i33.i.i, i32 noundef 3) #9
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #10
+  %call35.i.i = call noundef ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call.i33.i.i, i32 noundef 3) #10
   %26 = icmp eq ptr %call35.i.i, null
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call35.i.i, i64 16
   %spec.select.i.i = select i1 %26, ptr null, ptr %add.ptr.i.i
@@ -249,7 +249,7 @@ sw.bb37.i.i:                                      ; preds = %land.end25.i.i
   br i1 %23, label %if.then39.i.i, label %if.end41.i.i
 
 if.then39.i.i:                                    ; preds = %sw.bb37.i.i
-  %call40.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #9
+  %call40.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.end41.i.i:                                     ; preds = %sw.bb37.i.i
@@ -261,8 +261,8 @@ if.end41.i.i:                                     ; preds = %sw.bb37.i.i
   br i1 %or.cond115.i.i, label %if.then46.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then46.i.i:                                    ; preds = %if.end41.i.i
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #9
-  %call47.i.i = call noundef ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call.i33.i.i, i32 noundef 4) #9
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #10
+  %call47.i.i = call noundef ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call.i33.i.i, i32 noundef 4) #10
   %28 = icmp eq ptr %call47.i.i, null
   %add.ptr49.i.i = getelementptr inbounds nuw i8, ptr %call47.i.i, i64 16
   %spec.select1.i.i = select i1 %28, ptr null, ptr %add.ptr49.i.i
@@ -272,7 +272,7 @@ sw.bb53.i.i:                                      ; preds = %land.end25.i.i
   br i1 %23, label %if.then55.i.i, label %if.end57.i.i
 
 if.then55.i.i:                                    ; preds = %sw.bb53.i.i
-  %call56.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext true) #9
+  %call56.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext true) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.end57.i.i:                                     ; preds = %sw.bb53.i.i
@@ -292,42 +292,42 @@ if.then61.i.i:                                    ; preds = %land.lhs.true59.i.i
   br i1 %cmp.i51.i.i, label %if.then66.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then66.i.i:                                    ; preds = %if.then61.i.i
-  %call67.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #9
+  %call67.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 sw.bb70.i.i:                                      ; preds = %land.end25.i.i
   br i1 %23, label %if.then72.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then72.i.i:                                    ; preds = %sw.bb70.i.i
-  %call73.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #9
+  %call73.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 sw.bb75.i.i:                                      ; preds = %land.end25.i.i
   br i1 %24, label %if.then77.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then77.i.i:                                    ; preds = %sw.bb75.i.i
-  %call78.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #9
+  %call78.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 sw.bb80.i.i:                                      ; preds = %land.end25.i.i
   br i1 %24, label %if.then82.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then82.i.i:                                    ; preds = %sw.bb80.i.i
-  %call83.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext true) #9
+  %call83.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext true) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 sw.bb85.i.i:                                      ; preds = %land.end25.i.i
   br i1 %24, label %if.then87.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then87.i.i:                                    ; preds = %sw.bb85.i.i
-  %call88.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #9
+  %call88.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext false) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 sw.bb90.i.i:                                      ; preds = %land.end25.i.i
   br i1 %24, label %if.then92.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then92.i.i:                                    ; preds = %sw.bb90.i.i
-  %call93.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext true) #9
+  %call93.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, i1 noundef zeroext true) #10
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 sw.bb95.i.i:                                      ; preds = %land.end25.i.i
@@ -344,8 +344,8 @@ land.rhs97.i.i:                                   ; preds = %sw.bb95.i.i
   br i1 %cmp.i.i.i9, label %if.then106.i.i, label %if.else.i.i
 
 if.then106.i.i:                                   ; preds = %land.rhs97.i.i
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #9
-  %call107.i.i = call noundef ptr @_ZN6hermes9IRBuilder24createAddEmptyStringInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i33.i.i) #9
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #10
+  %call107.i.i = call noundef ptr @_ZN6hermes9IRBuilder24createAddEmptyStringInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i33.i.i) #10
   %33 = icmp eq ptr %call107.i.i, null
   %add.ptr109.i.i = getelementptr inbounds nuw i8, ptr %call107.i.i, i64 16
   %spec.select2.i.i = select i1 %33, ptr null, ptr %add.ptr109.i.i
@@ -365,8 +365,8 @@ land.rhs113.i.i:                                  ; preds = %if.else.i.i
   br i1 %cmp.i177.i.i, label %if.then123.i.i, label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.then123.i.i:                                   ; preds = %land.rhs113.i.i
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #9
-  %call124.i.i = call noundef ptr @_ZN6hermes9IRBuilder24createAddEmptyStringInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i.i.i) #9
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #10
+  %call124.i.i = call noundef ptr @_ZN6hermes9IRBuilder24createAddEmptyStringInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %call.i.i.i) #10
   %35 = icmp eq ptr %call124.i.i, null
   %add.ptr126.i.i = getelementptr inbounds nuw i8, ptr %call124.i.i, i64 16
   %spec.select3.i.i = select i1 %35, ptr null, ptr %add.ptr126.i.i
@@ -396,8 +396,8 @@ land.lhs.true140.i.i:                             ; preds = %if.else138.i.i
 
 if.then148.i.i:                                   ; preds = %land.lhs.true140.i.i, %land.lhs.true133.i.i
   %nonzeroOp.0.i.i = phi ptr [ %call.i33.i.i, %land.lhs.true133.i.i ], [ %call.i.i.i, %land.lhs.true140.i.i ]
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #9
-  %call149.i.i = call noundef ptr @_ZN6hermes9IRBuilder17createAsInt32InstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %nonzeroOp.0.i.i) #9
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %instIter.sroa.0.0) #10
+  %call149.i.i = call noundef ptr @_ZN6hermes9IRBuilder17createAsInt32InstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i, ptr noundef nonnull %nonzeroOp.0.i.i) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i.i)
   %Parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %call149.i.i, i64 56
   %40 = load ptr, ptr %Parent.i.i.i.i, align 8
@@ -407,14 +407,14 @@ if.then148.i.i:                                   ; preds = %land.lhs.true140.i.
   %42 = load ptr, ptr %parent_.i.i.i.i.i, align 8
   store ptr %42, ptr %builder.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i.i, i8 0, i64 32, i1 false)
-  %call.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %call149.i.i, i32 noundef 0) #9
+  %call.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %call149.i.i, i32 noundef 0) #10
   %43 = load i8, ptr %call.i.i.i.i, align 8
   %44 = add i8 %43, -120
   %45 = icmp ult i8 %44, -11
   br i1 %45, label %if.end7.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then148.i.i
-  %call4.i.i.i = call noundef ptr @_ZN6hermes11evalToInt32ERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i, ptr noundef nonnull %call.i.i.i.i) #9
+  %call4.i.i.i = call noundef ptr @_ZN6hermes11evalToInt32ERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i, ptr noundef nonnull %call.i.i.i.i) #10
   %tobool5.not.i.i.i = icmp eq ptr %call4.i.i.i, null
   br i1 %tobool5.not.i.i.i, label %if.end7.i.i.i, label %_ZN12_GLOBAL__N_113reduceAsInt32EPN6hermes11AsInt32InstE.exit.i.i
 
@@ -444,7 +444,7 @@ sw.bb3.i:                                         ; preds = %for.body8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i15.i, i8 0, i64 32, i1 false)
   %op_.i.i16.i = getelementptr inbounds nuw i8, ptr %instIter.sroa.0.0, i64 132
   %49 = load i32, ptr %op_.i.i16.i, align 4
-  %call.i.i17.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i17.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %valueType.i.i18.i = getelementptr inbounds nuw i8, ptr %call.i.i17.i, i64 2
   %retval.sroa.0.0.copyload.i.i19.i = load i32, ptr %valueType.i.i18.i, align 2
   %t.sroa.0.0.extract.trunc.i.i = trunc i32 %retval.sroa.0.0.copyload.i.i19.i to i16
@@ -454,7 +454,7 @@ sw.bb3.i:                                         ; preds = %for.body8
   br i1 %52, label %if.end9.i.i, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %sw.bb3.i
-  %call6.i.i = call noundef ptr @_ZN6hermes17evalUnaryOperatorENS_17UnaryOperatorInst6OpKindERNS_9IRBuilderEPNS_7LiteralE(i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr noundef nonnull %call.i.i17.i) #9
+  %call6.i.i = call noundef ptr @_ZN6hermes17evalUnaryOperatorENS_17UnaryOperatorInst6OpKindERNS_9IRBuilderEPNS_7LiteralE(i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr noundef nonnull %call.i.i17.i) #10
   %tobool7.not.i.i = icmp eq ptr %call6.i.i, null
   br i1 %tobool7.not.i.i, label %if.end9.i.i, label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
@@ -483,31 +483,31 @@ sw.bb.split.i.i:                                  ; preds = %sw.bb.i23.i
   ]
 
 _ZN4llvh9StringRefC2EPKc.exit.i.i:                ; preds = %sw.bb.split.i.i
-  %call12.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.1, i64 6) #9
+  %call12.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.1, i64 6) #10
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 _ZN4llvh9StringRefC2EPKc.exit63.i.i:              ; preds = %sw.bb.split.i.i
-  %call17.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.2, i64 6) #9
+  %call17.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.2, i64 6) #10
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 _ZN4llvh9StringRefC2EPKc.exit73.i.i:              ; preds = %sw.bb.split.i.i
-  %call22.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.3, i64 9) #9
+  %call22.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.3, i64 9) #10
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 _ZN4llvh9StringRefC2EPKc.exit83.i.i:              ; preds = %sw.bb.split.i.i
-  %call27.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.4, i64 7) #9
+  %call27.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.4, i64 7) #10
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 _ZN4llvh9StringRefC2EPKc.exit93.i.i:              ; preds = %sw.bb.split.i.i
-  %call32.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.5, i64 6) #9
+  %call32.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.5, i64 6) #10
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 _ZN4llvh9StringRefC2EPKc.exit103.i.i:             ; preds = %sw.bb.split.i.i
-  %call37.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.1, i64 6) #9
+  %call37.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.1, i64 6) #10
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 _ZN4llvh9StringRefC2EPKc.exit113.i.i:             ; preds = %sw.bb.split.i.i
-  %call42.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.6, i64 8) #9
+  %call42.i.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr nonnull @.str.6, i64 8) #10
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 sw.bb44.i.i:                                      ; preds = %if.end9.i.i
@@ -517,12 +517,12 @@ sw.bb44.i.i:                                      ; preds = %if.end9.i.i
   br i1 %tobool.not.i.i22.i, label %if.then48.i.i, label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 if.then48.i.i:                                    ; preds = %sw.bb44.i.i
-  %call49.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, i1 noundef zeroext true) #9
+  %call49.i.i = call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, i1 noundef zeroext true) #10
   br label %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i
 
 sw.bb51.i.i:                                      ; preds = %if.end9.i.i
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr noundef nonnull %instIter.sroa.0.0) #9
-  %call52.i.i = call noundef ptr @_ZN6hermes9IRBuilder18createAsNumberInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr noundef nonnull %call.i.i17.i) #9
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr noundef nonnull %instIter.sroa.0.0) #10
+  %call52.i.i = call noundef ptr @_ZN6hermes9IRBuilder18createAsNumberInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i12.i, ptr noundef nonnull %call.i.i17.i) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %builder.i.i.i.i)
   %Parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call52.i.i, i64 56
   %56 = load ptr, ptr %Parent.i.i.i.i.i, align 8
@@ -532,14 +532,14 @@ sw.bb51.i.i:                                      ; preds = %if.end9.i.i
   %58 = load ptr, ptr %parent_.i.i.i.i.i.i, align 8
   store ptr %58, ptr %builder.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i.i.i, i8 0, i64 32, i1 false)
-  %call.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %call52.i.i, i32 noundef 0) #9
+  %call.i.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %call52.i.i, i32 noundef 0) #10
   %59 = load i8, ptr %call.i.i.i.i.i, align 8
   %60 = add i8 %59, -120
   %61 = icmp ult i8 %60, -11
   br i1 %61, label %if.end7.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb51.i.i
-  %call4.i.i.i.i = call noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i.i, ptr noundef nonnull %call.i.i.i.i.i) #9
+  %call4.i.i.i.i = call noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i.i, ptr noundef nonnull %call.i.i.i.i.i) #10
   %tobool5.not.i.i.i.i = icmp eq ptr %call4.i.i.i.i, null
   br i1 %tobool5.not.i.i.i.i, label %if.end7.i.i.i.i, label %_ZN12_GLOBAL__N_114reduceAsNumberEPN6hermes12AsNumberInstE.exit.i.i
 
@@ -572,14 +572,14 @@ sw.bb7.i:                                         ; preds = %for.body8
   %65 = load ptr, ptr %parent_.i.i.i.i.i28.i, align 8
   store ptr %65, ptr %builder.i.i.i25.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i.i29.i, i8 0, i64 32, i1 false)
-  %call.i.i.i.i30.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i.i.i30.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %66 = load i8, ptr %call.i.i.i.i30.i, align 8
   %67 = add i8 %66, -120
   %68 = icmp ult i8 %67, -11
   br i1 %68, label %if.end7.i.i.i38.i, label %if.then.i.i.i31.i
 
 if.then.i.i.i31.i:                                ; preds = %sw.bb7.i
-  %call4.i.i.i32.i = call noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i25.i, ptr noundef nonnull %call.i.i.i.i30.i) #9
+  %call4.i.i.i32.i = call noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i25.i, ptr noundef nonnull %call.i.i.i.i30.i) #10
   %tobool5.not.i.i.i33.i = icmp eq ptr %call4.i.i.i32.i, null
   br i1 %tobool5.not.i.i.i33.i, label %if.end7.i.i.i38.i, label %_ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i
 
@@ -598,7 +598,7 @@ _ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i: ; preds = %
   br i1 %cmp.i37.i, label %if.then, label %if.end
 
 sw.bb11.i:                                        ; preds = %for.body8
-  %call.i.i = call noundef zeroext i1 @_ZNK6hermes5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i) #9
+  %call.i.i = call noundef zeroext i1 @_ZNK6hermes5Value10hasOneUserEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i) #10
   br i1 %call.i.i, label %if.then.i63.i, label %if.then16.i.i
 
 if.then.i63.i:                                    ; preds = %sw.bb11.i
@@ -618,12 +618,12 @@ if.then.i.i64.i:                                  ; preds = %if.then.i63.i
   br i1 %switch.i.i.i, label %if.end11.i65.i, label %if.then16.i.i
 
 if.end11.i65.i:                                   ; preds = %if.then.i.i64.i
-  %call.i.i66.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i66.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %cmp.i67.i = icmp eq ptr %call.i.i66.i, %add.ptr.i
   br i1 %cmp.i67.i, label %if.then16.i.i, label %_ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i
 
 if.then16.i.i:                                    ; preds = %if.end11.i65.i, %if.then.i.i64.i, %if.then.i63.i, %sw.bb11.i
-  %call.i.i.i47.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i.i47.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %valueType.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i47.i, i64 2
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %valueType.i.i.i.i, align 2
   %74 = and i32 %retval.sroa.0.0.copyload.i.i.i.i, 65535
@@ -640,14 +640,14 @@ if.end.i12.i.i:                                   ; preds = %if.then16.i.i
   %77 = load ptr, ptr %parent_.i.i.i.i.i50.i, align 8
   store ptr %77, ptr %builder.i.i.i45.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i.i51.i, i8 0, i64 32, i1 false)
-  %call.i.i.i.i52.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i.i.i52.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %78 = load i8, ptr %call.i.i.i.i52.i, align 8
   %79 = add i8 %78, -120
   %80 = icmp ult i8 %79, -11
   br i1 %80, label %if.end7.i.i.i58.i, label %if.then.i.i.i53.i
 
 if.then.i.i.i53.i:                                ; preds = %if.end.i12.i.i
-  %call4.i.i.i54.i = call noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i45.i, ptr noundef nonnull %call.i.i.i.i52.i) #9
+  %call4.i.i.i54.i = call noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i45.i, ptr noundef nonnull %call.i.i.i.i52.i) #10
   %tobool5.not.i.i.i55.i = icmp eq ptr %call4.i.i.i54.i, null
   br i1 %tobool5.not.i.i.i55.i, label %if.end7.i.i.i58.i, label %_ZN12_GLOBAL__N_118reduceAsNumberLikeIN6hermes13AsNumericInstEEEPNS1_5ValueEPT_.exit.i.i.i
 
@@ -680,14 +680,14 @@ sw.bb15.i:                                        ; preds = %for.body8
   %84 = load ptr, ptr %parent_.i.i.i.i72.i, align 8
   store ptr %84, ptr %builder.i.i69.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i73.i, i8 0, i64 32, i1 false)
-  %call.i.i.i74.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i.i74.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %85 = load i8, ptr %call.i.i.i74.i, align 8
   %86 = add i8 %85, -120
   %87 = icmp ult i8 %86, -11
   br i1 %87, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread, label %if.then.i.i75.i
 
 if.then.i.i75.i:                                  ; preds = %sw.bb15.i
-  %call4.i.i76.i = call noundef ptr @_ZN6hermes11evalToInt32ERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i69.i, ptr noundef nonnull %call.i.i.i74.i) #9
+  %call4.i.i76.i = call noundef ptr @_ZN6hermes11evalToInt32ERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i69.i, ptr noundef nonnull %call.i.i.i74.i) #10
   %tobool5.not.i.i77.i = icmp eq ptr %call4.i.i76.i, null
   br i1 %tobool5.not.i.i77.i, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread, label %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i
 
@@ -710,14 +710,14 @@ sw.bb19.i:                                        ; preds = %for.body8
   %90 = load ptr, ptr %parent_.i.i.i87.i, align 8
   store ptr %90, ptr %builder.i85.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i88.i, i8 0, i64 32, i1 false)
-  %call.i.i89.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i89.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %91 = load i8, ptr %call.i.i89.i, align 8
   %92 = add i8 %91, -120
   %93 = icmp ult i8 %92, -11
   br i1 %93, label %if.end7.i.i, label %if.then.i90.i
 
 if.then.i90.i:                                    ; preds = %sw.bb19.i
-  %call4.i.i = call noundef ptr @_ZN6hermes12evalToStringERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i85.i, ptr noundef nonnull %call.i.i89.i) #9
+  %call4.i.i = call noundef ptr @_ZN6hermes12evalToStringERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i85.i, ptr noundef nonnull %call.i.i89.i) #10
   %tobool5.not.i.i = icmp eq ptr %call4.i.i, null
   br i1 %tobool5.not.i.i, label %if.end7.i.i, label %_ZN12_GLOBAL__N_122simplifyAddEmptyStringEPN6hermes18AddEmptyStringInstE.exit.i
 
@@ -735,14 +735,14 @@ _ZN12_GLOBAL__N_122simplifyAddEmptyStringEPN6hermes18AddEmptyStringInstE.exit.i:
   br label %if.then
 
 sw.bb23.i:                                        ; preds = %for.body8
-  %call.i96.i = call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0) #9
+  %call.i96.i = call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0) #10
   %cmp13.i.i = icmp sgt i32 %call.i96.i, 0
   br i1 %cmp13.i.i, label %for.body.i.i, label %if.then
 
 for.body.i.i:                                     ; preds = %sw.bb23.i, %for.inc.i.i
   %incoming.015.i.i = phi ptr [ %incoming.1.i.i, %for.inc.i.i ], [ null, %sw.bb23.i ]
   %i.014.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %sw.bb23.i ]
-  %call1.i.i = call { ptr, ptr } @_ZNK6hermes7PhiInst8getEntryEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef %i.014.i.i) #9
+  %call1.i.i = call { ptr, ptr } @_ZNK6hermes7PhiInst8getEntryEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef %i.014.i.i) #10
   %95 = extractvalue { ptr, ptr } %call1.i.i, 0
   %cmp2.i.i = icmp eq ptr %95, %add.ptr.i
   br i1 %cmp2.i.i, label %for.inc.i.i, label %if.end.i.i
@@ -766,19 +766,19 @@ for.end.i.i:                                      ; preds = %for.inc.i.i
   br i1 %tobool10.not.i.i, label %if.then, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %for.end.i.i
-  call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull %incoming.1.i.i) #9
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0) #9
+  call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull %incoming.1.i.i) #10
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0) #10
   br label %if.then
 
 sw.bb27.i:                                        ; preds = %for.body8
-  %call.i.i99.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i99.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %96 = load i8, ptr %call.i.i99.i, align 8
   %cmp.i.i.i.i.i.i.i.i.not.i.i = icmp eq i8 %96, 26
   %sub.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i99.i, i64 -16
   br i1 %cmp.i.i.i.i.i.i.i.i.not.i.i, label %if.then.i101.i, label %if.then
 
 if.then.i101.i:                                   ; preds = %sw.bb27.i
-  %call2.i.i = call noundef i32 @_ZN6hermes17UnaryOperatorInst13getSideEffectEv(ptr noundef nonnull align 8 dereferenceable(136) %sub.ptr.i.i.i.i.i) #9
+  %call2.i.i = call noundef i32 @_ZN6hermes17UnaryOperatorInst13getSideEffectEv(ptr noundef nonnull align 8 dereferenceable(136) %sub.ptr.i.i.i.i.i) #10
   %cmp.i102.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp.i102.i, label %land.lhs.true.i.i, label %if.then
 
@@ -789,19 +789,19 @@ land.lhs.true.i.i:                                ; preds = %if.then.i101.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.then
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
-  %call.i10.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i.i.i, i32 noundef 0) #9
-  call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, ptr noundef %call.i10.i.i, i32 noundef 0) #9
-  %call7.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 1) #9
-  %call8.i104.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 2) #9
-  call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, ptr noundef %call7.i.i, i32 noundef 2) #9
-  call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, ptr noundef %call8.i104.i, i32 noundef 1) #9
+  %call.i10.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i.i.i, i32 noundef 0) #10
+  call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, ptr noundef %call.i10.i.i, i32 noundef 0) #10
+  %call7.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 1) #10
+  %call8.i104.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 2) #10
+  call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, ptr noundef %call7.i.i, i32 noundef 2) #10
+  call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, ptr noundef %call8.i104.i, i32 noundef 1) #10
   br label %for.cond6.outer.backedge
 
 for.cond6.outer.backedge:                         ; preds = %if.then5.i.i, %if.then7.i.i, %if.end, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
   br label %for.cond6.outer, !llvm.loop !18
 
 sw.bb31.i:                                        ; preds = %for.body8
-  %call.i109.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i) #9
+  %call.i109.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i) #10
   br i1 %call.i109.i, label %lor.lhs.false.i.i, label %if.then
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb31.i
@@ -810,8 +810,8 @@ lor.lhs.false.i.i:                                ; preds = %sw.bb31.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then, label %if.end.i111.i
 
 if.end.i111.i:                                    ; preds = %lor.lhs.false.i.i
-  %call.i.i112.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0, i32 noundef 0) #9
-  %call3.i.i = call noundef ptr @_ZN6hermes9getCalleeEPNS_5ValueE(ptr noundef %call.i.i112.i) #9
+  %call.i.i112.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0, i32 noundef 0) #10
+  %call3.i.i = call noundef ptr @_ZN6hermes9getCalleeEPNS_5ValueE(ptr noundef %call.i.i112.i) #10
   %tobool.not.i113.i = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i113.i, label %if.then, label %if.then4.i.i
 
@@ -831,7 +831,7 @@ if.then4.i.i:                                     ; preds = %if.end.i111.i
 
 for.body.i.i.i:                                   ; preds = %if.then4.i.i, %for.inc.i.i.i
   %__begin1.sroa.0.025.i.i.i = phi ptr [ %__begin1.sroa.0.0.i.i.i, %for.inc.i.i.i ], [ %__begin1.sroa.0.023.i.i.i, %if.then4.i.i ]
-  %call6.i.i.i = call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %__begin1.sroa.0.025.i.i.i) #9
+  %call6.i.i.i = call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %__begin1.sroa.0.025.i.i.i) #10
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i.i, i64 16
   %100 = load i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ne i8 %100, 78
@@ -840,7 +840,7 @@ for.body.i.i.i:                                   ; preds = %if.then4.i.i, %for.
   br i1 %tobool.not.i.i116.i, label %for.inc.i.i.i, label %if.end.i.i117.i
 
 if.end.i.i117.i:                                  ; preds = %for.body.i.i.i
-  %call.i.i.i118.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %call6.i.i.i, i32 noundef 0) #9
+  %call.i.i.i118.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %call6.i.i.i, i32 noundef 0) #10
   %101 = load ptr, ptr %returnValues.i.i.i, align 8, !noalias !19
   %102 = load i32, ptr %NumBuckets.i.i.i.i.i.i.i.i.i, align 8, !noalias !19
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %102, 0
@@ -1067,7 +1067,7 @@ _ZN4llvh6detail12DenseSetImplIPN6hermes5ValueENS_8DenseMapIS4_NS0_13DenseSetEmpt
   br i1 %130, label %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread10.i.i, label %if.end19.i.i.i
 
 _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread10.i.i: ; preds = %_ZN4llvh6detail12DenseSetImplIPN6hermes5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E5beginEv.exit.i.i.i
-  call void @_ZdlPv(ptr noundef %.pre18.i.i) #9
+  call void @_ZdlPv(ptr noundef %.pre18.i.i) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i107.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %returnValues.i.i.i)
   br label %if.then7.i.i
@@ -1077,7 +1077,7 @@ if.end19.i.i.i:                                   ; preds = %_ZN4llvh6detail12De
   br i1 %cmp.i.i.i.i.i.i.i.not.i.i120.i, label %if.then22.i.i.i, label %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread.i.i
 
 if.then22.i.i.i:                                  ; preds = %if.end19.i.i.i
-  %call23.i.i.i = call noundef zeroext i1 @_ZNK6hermes9Parameter15isThisParameterEv(ptr noundef nonnull align 8 dereferenceable(56) %127) #9
+  %call23.i.i.i = call noundef zeroext i1 @_ZNK6hermes9Parameter15isThisParameterEv(ptr noundef nonnull align 8 dereferenceable(56) %127) #10
   br i1 %call23.i.i.i, label %if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread_crit_edge.i.i, label %if.end25.i.i.i
 
 if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread_crit_edge.i.i: ; preds = %if.then22.i.i.i
@@ -1085,24 +1085,24 @@ if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8Call
   br label %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread.i.i
 
 if.end25.i.i.i:                                   ; preds = %if.then22.i.i.i
-  %call26.i.i.i = call noundef i32 @_ZNK6hermes9Parameter19getIndexInParamListEv(ptr noundef nonnull align 8 dereferenceable(56) %127) #9
-  %call.i13.i.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0) #9
+  %call26.i.i.i = call noundef i32 @_ZNK6hermes9Parameter19getIndexInParamListEv(ptr noundef nonnull align 8 dereferenceable(56) %127) #10
+  %call.i13.i.i.i = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0) #10
   %sub.i.i.i = add i32 %call.i13.i.i.i, -3
   %cmp28.not.i.i.i = icmp ult i32 %call26.i.i.i, %sub.i.i.i
   br i1 %cmp28.not.i.i.i, label %if.end31.i.i.i, label %if.then29.i.i.i
 
 if.then29.i.i.i:                                  ; preds = %if.end25.i.i.i
-  %call30.i.i.i = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i107.i) #9
+  %call30.i.i.i = call noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i107.i) #10
   br label %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i.i
 
 if.end31.i.i.i:                                   ; preds = %if.end25.i.i.i
   %add.i.i.i.i = add i32 %call26.i.i.i, 3
-  %call.i14.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0, i32 noundef %add.i.i.i.i) #9
+  %call.i14.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(144) %instIter.sroa.0.0, i32 noundef %add.i.i.i.i) #10
   br label %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i.i
 
 _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread.i.i: ; preds = %if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread_crit_edge.i.i, %if.end19.i.i.i, %for.end.i.i.i, %if.then4.i.i
   %131 = phi ptr [ %.pre.i.i, %if.then22.i._ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread_crit_edge.i.i ], [ %.pre18.i.i, %for.end.i.i.i ], [ %.pre18.i.i, %if.end19.i.i.i ], [ null, %if.then4.i.i ]
-  call void @_ZdlPv(ptr noundef %131) #9
+  call void @_ZdlPv(ptr noundef %131) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i107.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %returnValues.i.i.i)
   br label %if.then
@@ -1110,7 +1110,7 @@ _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.t
 _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i.i: ; preds = %if.end31.i.i.i, %if.then29.i.i.i
   %retval.0.i.i121.i = phi ptr [ %call30.i.i.i, %if.then29.i.i.i ], [ %call.i14.i.i.i, %if.end31.i.i.i ]
   %132 = load ptr, ptr %returnValues.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %132) #9
+  call void @_ZdlPv(ptr noundef %132) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i107.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %returnValues.i.i.i)
   %tobool6.not.i.i = icmp eq ptr %retval.0.i.i121.i, null
@@ -1118,12 +1118,12 @@ _ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i
 
 if.then7.i.i:                                     ; preds = %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i.i, %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread10.i.i
   %retval.0.i13.i.i = phi ptr [ %127, %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread10.i.i ], [ %retval.0.i.i121.i, %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i.i ]
-  call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull %retval.0.i13.i.i) #9
+  call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull %retval.0.i13.i.i) #10
   br label %for.cond6.outer.backedge
 
 sw.bb35.i:                                        ; preds = %for.body8
   call void @llvm.lifetime.start.p0(ptr nonnull %builder.i123.i)
-  %call.i.i124.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i124.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %valueType.i.i125.i = getelementptr inbounds nuw i8, ptr %call.i.i124.i, i64 2
   %retval.sroa.0.0.copyload.i.i126.i = load i32, ptr %valueType.i.i125.i, align 2
   %and.i.i127.i = and i32 %retval.sroa.0.0.copyload.i.i126.i, 65529
@@ -1139,8 +1139,8 @@ if.then.i132.i:                                   ; preds = %sw.bb35.i
   %135 = load ptr, ptr %parent_.i.i.i134.i, align 8
   store ptr %135, ptr %builder.i123.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i135.i, i8 0, i64 32, i1 false)
-  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i123.i, ptr noundef nonnull %instIter.sroa.0.0) #9
-  %call5.i.i = call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %builder.i123.i) #9
+  call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i123.i, ptr noundef nonnull %instIter.sroa.0.0) #10
+  %call5.i.i = call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %builder.i123.i) #10
   br label %_ZN12_GLOBAL__N_120simplifyCoerceThisNSEPN6hermes16CoerceThisNSInstE.exit.i
 
 if.end.i129.i:                                    ; preds = %sw.bb35.i
@@ -1158,7 +1158,7 @@ _ZN12_GLOBAL__N_120simplifyCoerceThisNSEPN6hermes16CoerceThisNSInstE.exit.i: ; p
   br label %if.then
 
 sw.bb39.i:                                        ; preds = %for.body8
-  %call.i.i137.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i.i137.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   %valueType.i.i138.i = getelementptr inbounds nuw i8, ptr %call.i.i137.i, i64 2
   %retval.sroa.0.0.copyload.i.i139.i = load i32, ptr %valueType.i.i138.i, align 2
   %not.i.i.i.i140.i = and i32 %retval.sroa.0.0.copyload.i.i139.i, 1
@@ -1166,7 +1166,7 @@ sw.bb39.i:                                        ; preds = %for.body8
   br i1 %tobool.not.i.i.i.not.i141.i, label %if.then.i142.i, label %if.then
 
 if.then.i142.i:                                   ; preds = %sw.bb39.i
-  %call.i2.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #9
+  %call.i2.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %instIter.sroa.0.0, i32 noundef 0) #10
   br label %if.then
 
 if.then:                                          ; preds = %if.end5.i.i, %_ZN12_GLOBAL__N_117simplifyAsNumericEPN6hermes13AsNumericInstE.exit.i, %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i, %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i.thread, %_ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i, %if.then.i142.i, %sw.bb39.i, %_ZN12_GLOBAL__N_120simplifyCoerceThisNSEPN6hermes16CoerceThisNSInstE.exit.i, %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.i.i, %_ZN12_GLOBAL__N_119getKnownReturnValueEPN6hermes8FunctionEPNS0_8CallInstE.exit.thread.i.i, %if.end.i111.i, %lor.lhs.false.i.i, %sw.bb31.i, %land.lhs.true.i.i, %if.then.i101.i, %sw.bb27.i, %if.then11.i.i, %for.end.i.i, %sw.bb23.i, %_ZN12_GLOBAL__N_122simplifyAddEmptyStringEPN6hermes18AddEmptyStringInstE.exit.i, %_ZN12_GLOBAL__N_112simplifyUnOpEPN6hermes17UnaryOperatorInstE.exit.i, %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i, %for.body8
@@ -1180,14 +1180,14 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_115
   br i1 %cmp, label %for.cond6.outer.backedge, label %if.end20
 
 if.end20:                                         ; preds = %if.end
-  call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull %retval.sroa.0.0.i38) #9
+  call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull %retval.sroa.0.0.i38) #10
   %138 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %139 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %138, %139
   br i1 %cmp.not.i.i, label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.end20
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #9
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %destroyer, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
   %.pre.i.i11 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit
 
@@ -1214,7 +1214,7 @@ for.end22:                                        ; preds = %for.end22.loopexit,
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes17PostOrderAnalysisD2Ev.exit, label %if.then.i.i.i.i14
 
 if.then.i.i.i.i14:                                ; preds = %for.end22
-  call void @_ZdlPv(ptr noundef nonnull %144) #10
+  call void @_ZdlPv(ptr noundef nonnull %144) #11
   br label %_ZN6hermes17PostOrderAnalysisD2Ev.exit
 
 _ZN6hermes17PostOrderAnalysisD2Ev.exit:           ; preds = %for.end22, %if.then.i.i.i.i14
@@ -1229,7 +1229,7 @@ _ZN6hermes17PostOrderAnalysisD2Ev.exit:           ; preds = %for.end22, %if.then
 for.body.i:                                       ; preds = %_ZN6hermes17PostOrderAnalysisD2Ev.exit, %for.body.i
   %__begin2.05.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %145, %_ZN6hermes17PostOrderAnalysisD2Ev.exit ]
   %147 = load ptr, ptr %__begin2.05.i, align 8
-  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %147) #9
+  call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %147) #10
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.05.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i15
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i
@@ -1244,7 +1244,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp.i.i.i.i17, label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %for.end.i
-  call void @free(ptr noundef %148) #9
+  call void @free(ptr noundef %148) #10
   br label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
 
 _ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit: ; preds = %for.end.i, %if.then.i.i.i18
@@ -1258,7 +1258,7 @@ declare void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes18createInstSimplifyEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes12InstSimplifyESt14default_deleteIS1_EED2Ev.exit:
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11, !noalias !26
+  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !26
   %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %kind.i.i.i.i, align 8, !noalias !26
   %name2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
@@ -1279,7 +1279,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes12InstSimplifyD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -1363,7 +1363,7 @@ _ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8
   %conv.i = zext i32 %.sroa.speculated to i64
   %mul.i = shl nuw nsw i64 %conv.i, 3
-  %call.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #12
+  %call.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #13
   store ptr %call.i, ptr %this, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1481,7 +1481,7 @@ if.end.i6:                                        ; preds = %_ZN4llvh12DenseMapB
   br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %for.body.i5, !llvm.loop !30
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E18moveFromOldBucketsEPSA_SD_.exit: ; preds = %if.end.i6, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #9
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #10
   br label %return
 
 return:                                           ; preds = %for.body.i, %if.then, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E18moveFromOldBucketsEPSA_SD_.exit
@@ -1500,7 +1500,7 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1510,12 +1510,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #6
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1524,13 +1524,14 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { builtin nounwind }
-attributes #11 = { builtin nounwind allocsize(0) }
-attributes #12 = { nounwind allocsize(0) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
+attributes #12 = { builtin nounwind allocsize(0) }
+attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

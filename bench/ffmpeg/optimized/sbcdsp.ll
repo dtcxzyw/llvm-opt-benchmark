@@ -242,19 +242,19 @@ define internal void @sbc_analyze_4b_4s_simd(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load ptr, ptr %5, align 16, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void %6(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_odd) #7
+  tail call void %6(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_odd) #8
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds i32, ptr %2, i64 %8
   %10 = load ptr, ptr %5, align 16, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void %10(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_even) #7
+  tail call void %10(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_even) #8
   %12 = getelementptr inbounds i32, ptr %9, i64 %8
   %13 = load ptr, ptr %5, align 16, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void %13(ptr noundef nonnull %14, ptr noundef %12, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_odd) #7
+  tail call void %13(ptr noundef nonnull %14, ptr noundef %12, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_odd) #8
   %15 = getelementptr inbounds i32, ptr %12, i64 %8
   %16 = load ptr, ptr %5, align 16, !tbaa !4
-  tail call void %16(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_even) #7
+  tail call void %16(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @sbcdsp_analysis_consts_fixed4_simd_even) #8
   ret void
 }
 
@@ -262,7 +262,7 @@ define internal void @sbc_analyze_4b_4s_simd(ptr noundef readonly captures(none)
 define internal void @sbc_analyze_1b_8s_simd_odd(ptr noundef captures(none) initializes((1352, 1360)) %0, ptr noundef %1, ptr noundef %2, i32 %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8, !tbaa !10
-  tail call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #7
+  tail call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store ptr @sbc_analyze_1b_8s_simd_even, ptr %7, align 8, !tbaa !13
   ret void
@@ -273,19 +273,19 @@ define internal void @sbc_analyze_4b_8s_simd(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void %6(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #7
+  tail call void %6(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #8
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds i32, ptr %2, i64 %8
   %10 = load ptr, ptr %5, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void %10(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #7
+  tail call void %10(ptr noundef nonnull %11, ptr noundef %9, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #8
   %12 = getelementptr inbounds i32, ptr %9, i64 %8
   %13 = load ptr, ptr %5, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void %13(ptr noundef nonnull %14, ptr noundef %12, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #7
+  tail call void %13(ptr noundef nonnull %14, ptr noundef %12, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_odd) #8
   %15 = getelementptr inbounds i32, ptr %12, i64 %8
   %16 = load ptr, ptr %5, align 8, !tbaa !10
-  tail call void %16(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #7
+  tail call void %16(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #8
   ret void
 }
 
@@ -1061,7 +1061,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define internal void @sbc_analyze_1b_8s_simd_even(ptr noundef captures(none) initializes((1352, 1360)) %0, ptr noundef %1, ptr noundef %2, i32 %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %6 = load ptr, ptr %5, align 8, !tbaa !10
-  tail call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #7
+  tail call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @sbcdsp_analysis_consts_fixed8_simd_even) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store ptr @sbc_analyze_1b_8s_simd_odd, ptr %7, align 8, !tbaa !13
   ret void
@@ -1082,8 +1082,8 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #6
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1092,7 +1092,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

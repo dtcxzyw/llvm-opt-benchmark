@@ -42,7 +42,7 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr noundef captures(none) %0, pt
   %.0154.i = phi ptr [ null, %.lr.ph.i ], [ %10, %16 ]
   %8 = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %16 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 184) #13
+  %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 184) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %DupPluginCurvesList.exit, label %12
 
@@ -70,7 +70,7 @@ define hidden void @_cmsAllocCurvesPluginChunk(ptr noundef captures(none) %0, pt
   store ptr %.lcssa.i, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #13
+  %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %21, ptr %22, align 8
   br label %DupPluginCurvesList.exit
@@ -82,7 +82,7 @@ DupPluginCurvesList.exit:                         ; preds = %7, %._crit_edge.i
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @_cmsSubAllocDup(ptr noundef %25, ptr noundef nonnull @_cmsAllocCurvesPluginChunk.CurvesPluginChunk, i32 noundef 8) #13
+  %26 = tail call ptr @_cmsSubAllocDup(ptr noundef %25, ptr noundef nonnull @_cmsAllocCurvesPluginChunk.CurvesPluginChunk, i32 noundef 8) #14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %26, ptr %27, align 8
   br label %28
@@ -95,12 +95,12 @@ declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsRegisterParametricCurvesPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #13
+  %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #14
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef 184) #13
+  %6 = tail call ptr @_cmsPluginMalloc(ptr noundef %0, i32 noundef 184) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %22, label %8
 
@@ -169,7 +169,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.7) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.7) #14
   br label %134
 
 8:                                                ; preds = %5
@@ -180,11 +180,11 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   br i1 %or.cond, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.8) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.8) #14
   br label %134
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 56) #13
+  %14 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 56) #14
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %134, label %15
 
@@ -199,14 +199,14 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   br label %27
 
 19:                                               ; preds = %15
-  %20 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 112) #13
+  %20 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 112) #14
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %.lr.ph, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 8) #13
+  %24 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 8) #14
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
@@ -225,7 +225,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   br label %.loopexit153
 
 31:                                               ; preds = %27
-  %32 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef 2) #13
+  %32 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef 2) #14
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
@@ -260,7 +260,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   br i1 %or.cond5, label %45, label %.loopexit151
 
 45:                                               ; preds = %.loopexit153
-  %46 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 8) #13
+  %46 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %2, i32 noundef 8) #14
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %46, ptr %47, align 8
   %48 = icmp eq ptr %46, null
@@ -283,7 +283,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %58 = load i32, ptr %57, align 8
-  %59 = tail call ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef 1) #13
+  %59 = tail call ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef 1) #14
   %60 = load ptr, ptr %47, align 8
   %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv164
   store ptr %59, ptr %61, align 8
@@ -307,7 +307,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   %71 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %72 = load i32, ptr %71, align 8
   %73 = shl i32 %72, 2
-  %74 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef nonnull %69, i32 noundef %73) #13
+  %74 = tail call ptr @_cmsDupMem(ptr noundef %0, ptr noundef nonnull %69, i32 noundef %73) #14
   br label %75
 
 75:                                               ; preds = %62, %67, %70
@@ -317,7 +317,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 104
   store ptr %.sink, ptr %78, align 8
   %79 = load i32, ptr %53, align 8
-  %80 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #13
+  %80 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #14
   %.02047.i = load ptr, ptr %80, align 8
   %.not48.i = icmp eq ptr %.02047.i, null
   %.pre.i = tail call i32 @llvm.abs.i32(i32 %79, i1 true)
@@ -385,7 +385,7 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   %97 = load i32, ptr %42, align 8
   %98 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 1, ptr noundef %99, i32 noundef 0) #13
+  %100 = tail call ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 1, ptr noundef %99, i32 noundef 0) #14
   store ptr %100, ptr %14, align 8
   %.not134 = icmp eq ptr %100, null
   br i1 %.not134, label %101, label %134
@@ -413,7 +413,7 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   br i1 %.not142, label %111, label %110
 
 110:                                              ; preds = %106
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %109) #13
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %109) #14
   br label %111
 
 111:                                              ; preds = %110, %106, %104
@@ -428,7 +428,7 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   br i1 %.not144, label %117, label %116
 
 116:                                              ; preds = %113
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %115) #13
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %115) #14
   br label %117
 
 117:                                              ; preds = %111, %113, %116
@@ -443,7 +443,7 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   br i1 %.not137, label %121, label %120
 
 120:                                              ; preds = %._crit_edge
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %119) #13
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %119) #14
   br label %121
 
 121:                                              ; preds = %120, %._crit_edge
@@ -453,7 +453,7 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   br i1 %.not138, label %125, label %124
 
 124:                                              ; preds = %121
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %123) #13
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %123) #14
   br label %125
 
 125:                                              ; preds = %124, %121
@@ -463,7 +463,7 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   br i1 %.not139, label %129, label %128
 
 128:                                              ; preds = %125
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %127) #13
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %127) #14
   br label %129
 
 129:                                              ; preds = %128, %125
@@ -473,11 +473,11 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   br i1 %.not140, label %133, label %132
 
 132:                                              ; preds = %129
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %131) #13
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %131) #14
   br label %133
 
 133:                                              ; preds = %132, %129
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %14) #13
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %14) #14
   br label %134
 
 134:                                              ; preds = %.loopexit151, %13, %133, %12, %7
@@ -580,7 +580,7 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 208
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %62) #13
+  call void %64(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %62) #14
   %65 = load float, ptr %4, align 4
   %66 = fpext float %65 to double
   br label %73
@@ -590,12 +590,12 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.next.i
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %72 = call double %70(i32 noundef %47, ptr noundef nonnull %71, double noundef %30) #13
+  %72 = call double %70(i32 noundef %47, ptr noundef nonnull %71, double noundef %30) #14
   br label %73
 
 73:                                               ; preds = %67, %49
   %.0.i = phi double [ %66, %49 ], [ %72, %67 ]
-  %74 = call double @llvm.fabs.f64(double %.0.i) #14
+  %74 = call double @llvm.fabs.f64(double %.0.i) #15
   %75 = fcmp oeq double %74, 0x7FF0000000000000
   br i1 %75, label %.thread, label %EvalSegmentedFn.exit
 
@@ -710,7 +710,7 @@ define hidden ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cmsCurveSegment, align 8
-  %5 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #13
+  %5 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #14
   %.02047.i = load ptr, ptr %5, align 8
   %.not48.i = icmp eq ptr %.02047.i, null
   %.pre.i = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
@@ -761,7 +761,7 @@ IsInSet.exit.thread.i:                            ; preds = %12, %.lr.ph.i
   br i1 %exitcond.not.i36.i, label %IsInSet.exit38.thread.i, label %.lr.ph.i33.i, !llvm.loop !9
 
 IsInSet.exit38.thread.i:                          ; preds = %17
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str, i32 noundef %1) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str, i32 noundef %1) #14
   br label %29
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %.lr.ph.i33.i
@@ -812,14 +812,14 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  tail call void @_cmsFreeInterpParams(ptr noundef nonnull %4) #13
+  tail call void @_cmsFreeInterpParams(ptr noundef nonnull %4) #14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @_cmsFree(ptr noundef %5, ptr noundef nonnull %7) #13
+  tail call void @_cmsFree(ptr noundef %5, ptr noundef nonnull %7) #14
   br label %9
 
 9:                                                ; preds = %8, %3
@@ -848,7 +848,7 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not34, label %21, label %20
 
 20:                                               ; preds = %15
-  tail call void @_cmsFree(ptr noundef %5, ptr noundef nonnull %19) #13
+  tail call void @_cmsFree(ptr noundef %5, ptr noundef nonnull %19) #14
   br label %21
 
 21:                                               ; preds = %20, %15
@@ -859,7 +859,7 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not35, label %26, label %25
 
 25:                                               ; preds = %21
-  tail call void @_cmsFreeInterpParams(ptr noundef nonnull %24) #13
+  tail call void @_cmsFreeInterpParams(ptr noundef nonnull %24) #14
   br label %26
 
 26:                                               ; preds = %21, %25
@@ -875,10 +875,10 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %30 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %11, %.preheader ]
-  tail call void @_cmsFree(ptr noundef %5, ptr noundef %30) #13
+  tail call void @_cmsFree(ptr noundef %5, ptr noundef %30) #14
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
-  tail call void @_cmsFree(ptr noundef %5, ptr noundef %32) #13
+  tail call void @_cmsFree(ptr noundef %5, ptr noundef %32) #14
   br label %33
 
 33:                                               ; preds = %._crit_edge, %9
@@ -888,11 +888,11 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not33, label %37, label %36
 
 36:                                               ; preds = %33
-  tail call void @_cmsFree(ptr noundef %5, ptr noundef nonnull %35) #13
+  tail call void @_cmsFree(ptr noundef %5, ptr noundef nonnull %35) #14
   br label %37
 
 37:                                               ; preds = %36, %33
-  tail call void @_cmsFree(ptr noundef %5, ptr noundef nonnull %0) #13
+  tail call void @_cmsFree(ptr noundef %5, ptr noundef nonnull %0) #14
   br label %38
 
 38:                                               ; preds = %1, %37
@@ -970,7 +970,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   br i1 %7, label %.thread41, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %3, i32 noundef 4) #13
+  %9 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %3, i32 noundef 4) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %47, label %.preheader
 
@@ -1053,7 +1053,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
 .thread37:                                        ; preds = %._crit_edge.thread, %20
   %.0.i = phi ptr [ %46, %20 ], [ null, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %9) #13
+  call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %9) #14
   br label %47
 
 47:                                               ; preds = %8, %.thread37
@@ -1084,7 +1084,7 @@ define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr noundef readonly ca
 12:                                               ; preds = %6
   %13 = load ptr, ptr %1, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %14, i32 noundef 6) #13
+  %15 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %14, i32 noundef 6) #14
   %.02047.i = load ptr, ptr %15, align 8
   %.not48.i = icmp eq ptr %.02047.i, null
   br i1 %.not48.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i
@@ -1390,7 +1390,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 208
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23) #13
+  call void %25(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23) #14
   %26 = load i16, ptr %6, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1448,7 +1448,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %59) #13
+  call void %61(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %59) #14
   %62 = load float, ptr %3, align 4
   %63 = fpext float %62 to double
   br label %71
@@ -1459,12 +1459,12 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.next.i
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %70 = tail call double %68(i32 noundef %44, ptr noundef nonnull %69, double noundef %10) #13
+  %70 = tail call double %68(i32 noundef %44, ptr noundef nonnull %69, double noundef %10) #14
   br label %71
 
 71:                                               ; preds = %64, %46
   %.0.i7 = phi double [ %63, %46 ], [ %70, %64 ]
-  %72 = call double @llvm.fabs.f64(double %.0.i7) #14
+  %72 = call double @llvm.fabs.f64(double %.0.i7) #15
   %73 = fcmp oeq double %72, 0x7FF0000000000000
   br i1 %73, label %EvalSegmentedFn.exit, label %74
 
@@ -1503,7 +1503,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveDescending(ptr noundef readonly
   ret i32 %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nounwind uwtable
@@ -1546,7 +1546,7 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly captu
   %19 = zext i16 %18 to i32
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %21 = uitofp nneg i32 %20 to double
-  %22 = tail call zeroext i16 @_cmsQuantizeVal(double noundef %21, i32 noundef %15) #13
+  %22 = tail call zeroext i16 @_cmsQuantizeVal(double noundef %21, i32 noundef %15) #14
   %23 = zext i16 %22 to i32
   %24 = sub nsw i32 %19, %23
   %25 = tail call i32 @llvm.abs.i32(i32 %24, i1 true)
@@ -1560,9 +1560,9 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
 
 29:                                               ; preds = %cmsIsToneCurveLinear.exit
   %30 = add nuw nsw i32 %27, 1
-  %31 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef %30, i32 noundef 4) #13
-  %32 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef %30, i32 noundef 4) #13
-  %33 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef %30, i32 noundef 4) #13
+  %31 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef %30, i32 noundef 4) #14
+  %32 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef %30, i32 noundef 4) #14
+  %33 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef %30, i32 noundef 4) #14
   %34 = icmp ne ptr %31, null
   %35 = icmp ne ptr %32, null
   %or.cond = select i1 %34, i1 %35, i1 false
@@ -1602,9 +1602,9 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %47 = fneg double %1
   %.0 = select i1 %46, double %1, double %47
   %48 = fptrunc double %.0 to float
-  %49 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef 4097, i32 noundef 4) #13
-  %50 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef 4097, i32 noundef 4) #13
-  %51 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef 4097, i32 noundef 4) #13
+  %49 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef 4097, i32 noundef 4) #14
+  %50 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef 4097, i32 noundef 4) #14
+  %51 = tail call ptr @_cmsCalloc(ptr noundef %6, i32 noundef 4097, i32 noundef 4) #14
   %52 = icmp ne ptr %49, null
   %53 = icmp ne ptr %50, null
   %or.cond.i = select i1 %52, i1 %53, i1 false
@@ -1949,7 +1949,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
 
 .thread.i:                                        ; preds = %.lr.ph222.i, %286, %._crit_edge.i
   %287 = xor i1 %or.cond3.i, true
-  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %49) #13
+  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %49) #14
   br label %288
 
 288:                                              ; preds = %.thread.i, %286
@@ -1957,14 +1957,14 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   br i1 %53, label %289, label %290
 
 289:                                              ; preds = %288
-  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %50) #13
+  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %50) #14
   br label %290
 
 290:                                              ; preds = %289, %288
   br i1 %54, label %291, label %smooth2.exit
 
 291:                                              ; preds = %290
-  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %51) #13
+  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %51) #14
   br label %smooth2.exit
 
 smooth2.exit:                                     ; preds = %290, %291
@@ -2001,7 +2001,7 @@ smooth2.exit:                                     ; preds = %290, %291
   br i1 %304, label %305, label %294
 
 305:                                              ; preds = %.lr.ph145
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.1) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.1) #14
   br i1 %46, label %.critedge117.thread, label %.thread129
 
 .thread:                                          ; preds = %294
@@ -2015,11 +2015,11 @@ smooth2.exit:                                     ; preds = %290, %291
   br i1 %309, label %.thread134, label %.critedge
 
 .thread134:                                       ; preds = %.thread129
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.2) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.2) #14
   br label %.critedge
 
 310:                                              ; preds = %.thread
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.2) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.2) #14
   br i1 %46, label %.critedge117, label %.critedge
 
 .critedge:                                        ; preds = %.thread134, %.thread129, %.thread, %310
@@ -2028,7 +2028,7 @@ smooth2.exit:                                     ; preds = %290, %291
   br i1 %312, label %.critedge115, label %.critedge116
 
 .critedge115:                                     ; preds = %.critedge
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.3) #14
   %brmerge = or i1 %46, %.not149
   %not. = xor i1 %46, true
   %.mux = zext i1 %not. to i32
@@ -2072,11 +2072,11 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %318, %3
   br i1 %exitcond161.not, label %.critedge117.thread, label %.lr.ph148, !llvm.loop !25
 
 328:                                              ; preds = %smooth2.exit
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.4) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.4) #14
   br label %.critedge117.thread
 
 329:                                              ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.5) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.5) #14
   br label %.critedge117
 
 .critedge117:                                     ; preds = %.critedge115, %.critedge116, %310, %329
@@ -2085,7 +2085,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %318, %3
 
 .critedge117.thread:                              ; preds = %_cmsQuickSaturateWord.exit, %328, %305, %.critedge117
   %.3138 = phi i32 [ %.3, %.critedge117 ], [ 0, %305 ], [ 0, %328 ], [ 1, %_cmsQuickSaturateWord.exit ]
-  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %33) #13
+  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %33) #14
   br label %330
 
 330:                                              ; preds = %.critedge117.thread, %.critedge117
@@ -2093,18 +2093,18 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %318, %3
   br i1 %35, label %331, label %332
 
 331:                                              ; preds = %330
-  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %32) #13
+  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %32) #14
   br label %332
 
 332:                                              ; preds = %331, %330
   br i1 %34, label %333, label %cmsIsToneCurveLinear.exit.thread
 
 333:                                              ; preds = %332
-  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %31) #13
+  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %31) #14
   br label %cmsIsToneCurveLinear.exit.thread
 
 334:                                              ; preds = %cmsIsToneCurveLinear.exit
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.6) #13
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.6) #14
   br label %cmsIsToneCurveLinear.exit.thread
 
 cmsIsToneCurveLinear.exit.thread:                 ; preds = %11, %5, %2, %3, %332, %333, %334
@@ -2136,7 +2136,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr noundef readonly cap
   %14 = zext i16 %13 to i32
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = uitofp nneg i32 %15 to double
-  %17 = tail call zeroext i16 @_cmsQuantizeVal(double noundef %16, i32 noundef %10) #13
+  %17 = tail call zeroext i16 @_cmsQuantizeVal(double noundef %16, i32 noundef %10) #14
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %14, %18
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
@@ -2151,10 +2151,10 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr noundef readonly cap
 declare zeroext i16 @_cmsQuantizeVal(double noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, 2
@@ -2260,7 +2260,7 @@ define hidden zeroext i16 @cmsEvalToneCurve16(ptr noundef readonly captures(none
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %7 = load ptr, ptr %6, align 8
-  call void %7(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #13
+  call void %7(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #14
   %8 = load i16, ptr %4, align 2
   ret i16 %8
 }
@@ -2314,7 +2314,7 @@ define hidden double @cmsEstimateGamma(ptr noundef readonly captures(none) %0, d
   %27 = fadd double %.135, -1.000000e+00
   %28 = fmul double %.135, %27
   %29 = fdiv double %26, %28
-  %30 = tail call double @sqrt(double noundef %29) #13
+  %30 = tail call double @sqrt(double noundef %29) #14
   %31 = fcmp ogt double %30, %1
   br i1 %31, label %34, label %32
 
@@ -2328,10 +2328,10 @@ define hidden double @cmsEstimateGamma(ptr noundef readonly captures(none) %0, d
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log(double noundef) local_unnamed_addr #8
+declare double @log(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #8
+declare double @sqrt(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @cmsGetToneCurveSegment(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
@@ -2362,14 +2362,14 @@ declare ptr @_cmsComputeInterpParams(ptr noundef, i32 noundef, i32 noundef, i32 
 
 declare ptr @_cmsDupMem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
-define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef readonly %1, double noundef %2) #9 {
+define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef readonly %1, double noundef %2) #10 {
   switch i32 %0, label %.thread [
     i32 1, label %4
     i32 -1, label %13
@@ -2406,7 +2406,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 11:                                               ; preds = %4
-  %12 = tail call double @pow(double noundef %2, double noundef %6) #13
+  %12 = tail call double @pow(double noundef %2, double noundef %6) #14
   br label %.thread
 
 13:                                               ; preds = %3
@@ -2428,7 +2428,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 23:                                               ; preds = %20
   %24 = fdiv double 1.000000e+00, %15
-  %25 = tail call double @pow(double noundef %2, double noundef %24) #13
+  %25 = tail call double @pow(double noundef %2, double noundef %24) #14
   br label %.thread
 
 26:                                               ; preds = %3
@@ -2453,7 +2453,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 40:                                               ; preds = %37
   %41 = load double, ptr %1, align 8
-  %42 = tail call double @pow(double noundef %38, double noundef %41) #13
+  %42 = tail call double @pow(double noundef %38, double noundef %41) #14
   br label %.thread
 
 43:                                               ; preds = %3
@@ -2473,7 +2473,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 53:                                               ; preds = %47
   %54 = fdiv double 1.000000e+00, %44
-  %55 = tail call double @pow(double noundef %2, double noundef %54) #13
+  %55 = tail call double @pow(double noundef %2, double noundef %54) #14
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load double, ptr %56, align 8
   %58 = fsub double %55, %57
@@ -2508,7 +2508,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 77:                                               ; preds = %74
   %78 = load double, ptr %1, align 8
-  %79 = tail call double @pow(double noundef %75, double noundef %78) #13
+  %79 = tail call double @pow(double noundef %75, double noundef %78) #14
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = load double, ptr %80, align 8
   %82 = fadd double %79, %81
@@ -2545,7 +2545,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 102:                                              ; preds = %99
   %103 = fdiv double 1.000000e+00, %87
-  %104 = tail call double @pow(double noundef %100, double noundef %103) #13
+  %104 = tail call double @pow(double noundef %100, double noundef %103) #14
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %106 = load double, ptr %105, align 8
   %107 = fsub double %104, %106
@@ -2576,7 +2576,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 125:                                              ; preds = %118
   %126 = load double, ptr %1, align 8
-  %127 = tail call double @pow(double noundef %123, double noundef %126) #13
+  %127 = tail call double @pow(double noundef %123, double noundef %126) #14
   br label %.thread
 
 128:                                              ; preds = %114
@@ -2598,7 +2598,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 141:                                              ; preds = %132
   %142 = load double, ptr %1, align 8
-  %143 = tail call double @pow(double noundef %139, double noundef %142) #13
+  %143 = tail call double @pow(double noundef %139, double noundef %142) #14
   br label %144
 
 144:                                              ; preds = %132, %141
@@ -2617,7 +2617,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 152:                                              ; preds = %146
   %153 = fdiv double 1.000000e+00, %147
-  %154 = tail call double @pow(double noundef %2, double noundef %153) #13
+  %154 = tail call double @pow(double noundef %2, double noundef %153) #14
   %155 = fsub double %154, %138
   %156 = fdiv double %155, %134
   br label %.thread
@@ -2650,7 +2650,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 175:                                              ; preds = %168
   %176 = load double, ptr %1, align 8
-  %177 = tail call double @pow(double noundef %173, double noundef %176) #13
+  %177 = tail call double @pow(double noundef %173, double noundef %176) #14
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %179 = load double, ptr %178, align 8
   %180 = fadd double %177, %179
@@ -2702,7 +2702,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 213:                                              ; preds = %208
   %214 = fdiv double 1.000000e+00, %205
-  %215 = tail call double @pow(double noundef %202, double noundef %214) #13
+  %215 = tail call double @pow(double noundef %202, double noundef %214) #14
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %217 = load double, ptr %216, align 8
   %218 = fsub double %215, %217
@@ -2745,7 +2745,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   br label %.thread
 
 243:                                              ; preds = %238
-  %244 = tail call double @pow(double noundef %231, double noundef %232) #13
+  %244 = tail call double @pow(double noundef %231, double noundef %232) #14
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %246 = load double, ptr %245, align 8
   %247 = fadd double %244, %246
@@ -2773,7 +2773,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 262:                                              ; preds = %257
   %263 = fdiv double 1.000000e+00, %249
-  %264 = tail call double @pow(double noundef %260, double noundef %263) #13
+  %264 = tail call double @pow(double noundef %260, double noundef %263) #14
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %266 = load double, ptr %265, align 8
   %267 = fsub double %264, %266
@@ -2784,7 +2784,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   %270 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %271 = load double, ptr %270, align 8
   %272 = load double, ptr %1, align 8
-  %273 = tail call double @pow(double noundef %2, double noundef %272) #13
+  %273 = tail call double @pow(double noundef %2, double noundef %272) #14
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %275 = load double, ptr %274, align 8
   %276 = tail call double @llvm.fmuladd.f64(double %271, double %273, double %275)
@@ -2830,13 +2830,13 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   %304 = load double, ptr %303, align 8
   %305 = fsub double %2, %304
   %306 = fdiv double %305, %294
-  %307 = tail call double @pow(double noundef 1.000000e+01, double noundef %306) #13
+  %307 = tail call double @pow(double noundef 1.000000e+01, double noundef %306) #14
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %309 = load double, ptr %308, align 8
   %310 = fsub double %307, %309
   %311 = fdiv double %310, %299
   %312 = fdiv double 1.000000e+00, %289
-  %313 = tail call double @pow(double noundef %311, double noundef %312) #13
+  %313 = tail call double @pow(double noundef %311, double noundef %312) #14
   br label %.thread
 
 314:                                              ; preds = %3
@@ -2848,7 +2848,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   %320 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %321 = load double, ptr %320, align 8
   %322 = tail call double @llvm.fmuladd.f64(double %319, double %2, double %321)
-  %323 = tail call double @pow(double noundef %317, double noundef %322) #13
+  %323 = tail call double @pow(double noundef %317, double noundef %322) #14
   %324 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %325 = load double, ptr %324, align 8
   %326 = tail call double @llvm.fmuladd.f64(double %315, double %323, double %325)
@@ -2876,10 +2876,10 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 
 341:                                              ; preds = %336
   %342 = fdiv double %330, %333
-  %343 = tail call double @log(double noundef %342) #13
+  %343 = tail call double @log(double noundef %342) #14
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %345 = load double, ptr %344, align 8
-  %346 = tail call double @log(double noundef %345) #13
+  %346 = tail call double @log(double noundef %345) #14
   %347 = fdiv double %343, %346
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %349 = load double, ptr %348, align 8
@@ -2896,30 +2896,30 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 356:                                              ; preds = %352
   %357 = fsub double 1.000000e+00, %2
   %358 = fdiv double 1.000000e+00, %353
-  %359 = tail call double @pow(double noundef %357, double noundef %358) #13
+  %359 = tail call double @pow(double noundef %357, double noundef %358) #14
   %360 = fsub double 1.000000e+00, %359
-  %361 = tail call double @pow(double noundef %360, double noundef %358) #13
+  %361 = tail call double @pow(double noundef %360, double noundef %358) #14
   br label %.thread
 
 362:                                              ; preds = %3
   %363 = load double, ptr %1, align 8
-  %364 = tail call double @pow(double noundef %2, double noundef %363) #13
+  %364 = tail call double @pow(double noundef %2, double noundef %363) #14
   %365 = fsub double 1.000000e+00, %364
-  %366 = tail call double @pow(double noundef %365, double noundef %363) #13
+  %366 = tail call double @pow(double noundef %365, double noundef %363) #14
   %367 = fsub double 1.000000e+00, %366
   br label %.thread
 
 368:                                              ; preds = %3
   %369 = load double, ptr %1, align 8
   %370 = fneg double %369
-  %371 = tail call double @exp(double noundef %370) #13
+  %371 = tail call double @exp(double noundef %370) #14
   %372 = fadd double %371, 1.000000e+00
   %373 = fdiv double 1.000000e+00, %372
   %374 = fadd double %373, -5.000000e-01
   %375 = fdiv double 5.000000e-01, %374
   %376 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double -1.000000e+00)
   %377 = fmul double %376, %370
-  %378 = tail call double @exp(double noundef %377) #13
+  %378 = tail call double @exp(double noundef %377) #14
   %379 = fadd double %378, 1.000000e+00
   %380 = fdiv double 1.000000e+00, %379
   %381 = fadd double %380, -5.000000e-01
@@ -2929,7 +2929,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 383:                                              ; preds = %3
   %384 = load double, ptr %1, align 8
   %385 = fneg double %384
-  %386 = tail call double @exp(double noundef %385) #13
+  %386 = tail call double @exp(double noundef %385) #14
   %387 = fadd double %386, 1.000000e+00
   %388 = fdiv double 1.000000e+00, %387
   %389 = fadd double %388, -5.000000e-01
@@ -2939,7 +2939,7 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   %393 = fadd double %392, 5.000000e-01
   %394 = fdiv double 1.000000e+00, %393
   %395 = fadd double %394, -1.000000e+00
-  %396 = tail call double @log(double noundef %395) #13
+  %396 = tail call double @log(double noundef %395) #14
   %397 = fdiv double %396, %384
   %398 = fsub double 1.000000e+00, %397
   %399 = fmul double %398, 5.000000e-01
@@ -2951,31 +2951,31 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #8
+declare double @pow(double noundef, double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @exp(double noundef) local_unnamed_addr #8
+declare double @exp(double noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log.f64(double) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log.f64(double) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log10.f64(double) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.log10.f64(double) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2983,15 +2983,16 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { memory(none) }
+attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

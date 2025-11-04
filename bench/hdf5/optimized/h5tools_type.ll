@@ -44,9 +44,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i64 @h5tools_get_little_endian_type(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @H5Tget_class(i64 noundef %0) #3
-  %3 = tail call i64 @H5Tget_size(i64 noundef %0) #3
-  %4 = tail call i32 @H5Tget_sign(i64 noundef %0) #3
+  %2 = tail call i32 @H5Tget_class(i64 noundef %0) #4
+  %3 = tail call i64 @H5Tget_size(i64 noundef %0) #4
+  %4 = tail call i32 @H5Tget_sign(i64 noundef %0) #4
   switch i32 %2, label %32 [
     i32 0, label %5
     i32 1, label %19
@@ -136,7 +136,7 @@ switch.lookup:                                    ; preds = %.split
 .sink.split:                                      ; preds = %switch.lookup, %27, %19, %18, %17, %16, %14, %12, %10, %8, %5, %20, %21, %28, %29
   %H5T_COMPLEX_IEEE_F16LE_g.sink = phi ptr [ @H5T_COMPLEX_IEEE_F64LE_g, %29 ], [ @H5T_COMPLEX_IEEE_F32LE_g, %28 ], [ @H5T_IEEE_F64LE_g, %21 ], [ @H5T_IEEE_F32LE_g, %20 ], [ @H5T_STD_I8LE_g, %5 ], [ @H5T_STD_I16LE_g, %8 ], [ @H5T_STD_I32LE_g, %10 ], [ @H5T_STD_I64LE_g, %12 ], [ @H5T_STD_U8LE_g, %14 ], [ @H5T_STD_U16LE_g, %16 ], [ @H5T_STD_U32LE_g, %17 ], [ @H5T_STD_U64LE_g, %18 ], [ @H5T_IEEE_F16LE_g, %19 ], [ @H5T_COMPLEX_IEEE_F16LE_g, %27 ], [ %switch.load, %switch.lookup ]
   %30 = load i64, ptr %H5T_COMPLEX_IEEE_F16LE_g.sink, align 8, !tbaa !3
-  %31 = tail call i64 @H5Tcopy(i64 noundef %30) #3
+  %31 = tail call i64 @H5Tcopy(i64 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %.split, %.sink.split, %22, %27, %19, %1, %18
@@ -154,9 +154,9 @@ declare i64 @H5Tcopy(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @h5tools_get_big_endian_type(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @H5Tget_class(i64 noundef %0) #3
-  %3 = tail call i64 @H5Tget_size(i64 noundef %0) #3
-  %4 = tail call i32 @H5Tget_sign(i64 noundef %0) #3
+  %2 = tail call i32 @H5Tget_class(i64 noundef %0) #4
+  %3 = tail call i64 @H5Tget_size(i64 noundef %0) #4
+  %4 = tail call i32 @H5Tget_sign(i64 noundef %0) #4
   switch i32 %2, label %32 [
     i32 0, label %5
     i32 1, label %19
@@ -246,7 +246,7 @@ switch.lookup:                                    ; preds = %.split
 .sink.split:                                      ; preds = %switch.lookup, %27, %19, %18, %17, %16, %14, %12, %10, %8, %5, %20, %21, %28, %29
   %H5T_COMPLEX_IEEE_F16BE_g.sink = phi ptr [ @H5T_COMPLEX_IEEE_F64BE_g, %29 ], [ @H5T_COMPLEX_IEEE_F32BE_g, %28 ], [ @H5T_IEEE_F64BE_g, %21 ], [ @H5T_IEEE_F32BE_g, %20 ], [ @H5T_STD_I8BE_g, %5 ], [ @H5T_STD_I16BE_g, %8 ], [ @H5T_STD_I32BE_g, %10 ], [ @H5T_STD_I64BE_g, %12 ], [ @H5T_STD_U8BE_g, %14 ], [ @H5T_STD_U16BE_g, %16 ], [ @H5T_STD_U32BE_g, %17 ], [ @H5T_STD_U64BE_g, %18 ], [ @H5T_IEEE_F16BE_g, %19 ], [ @H5T_COMPLEX_IEEE_F16BE_g, %27 ], [ %switch.load, %switch.lookup ]
   %30 = load i64, ptr %H5T_COMPLEX_IEEE_F16BE_g.sink, align 8, !tbaa !3
-  %31 = tail call i64 @H5Tcopy(i64 noundef %30) #3
+  %31 = tail call i64 @H5Tcopy(i64 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %.split, %.sink.split, %22, %27, %19, %1, %18
@@ -254,16 +254,17 @@ switch.lookup:                                    ; preds = %.split
   ret i64 %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #2
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
+attributes #2 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

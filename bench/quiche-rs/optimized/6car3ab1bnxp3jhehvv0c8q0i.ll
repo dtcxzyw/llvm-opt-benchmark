@@ -38,7 +38,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit.i": ; preds = %16, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.09a04e7d5453d218e7c8d61a2c8e2b93.3, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.5) #15
+  call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.09a04e7d5453d218e7c8d61a2c8e2b93.3, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.5) #16
   unreachable
 
 "_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$15node_from_value17hea13f2d709e30eceE.exit": ; preds = %2
@@ -140,7 +140,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit.i": ; preds = %16, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.09a04e7d5453d218e7c8d61a2c8e2b93.3, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.5) #15
+  call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.09a04e7d5453d218e7c8d61a2c8e2b93.3, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.5) #16
   unreachable
 
 "_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$15node_from_value17h1cef6b8494c2a5d7E.exit": ; preds = %2
@@ -242,7 +242,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$17ha7e5aa2b038cbb01E.exit.i": ; preds = %16, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.09a04e7d5453d218e7c8d61a2c8e2b93.3, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.5) #15
+  call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.09a04e7d5453d218e7c8d61a2c8e2b93.3, i64 noundef 52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.5) #16
   unreachable
 
 "_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$15node_from_value17hc3f5a0fdf5f1a557E.exit": ; preds = %2
@@ -622,12 +622,12 @@ select.unfold:                                    ; preds = %select.unfold.loope
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 81
   %116 = load i8, ptr %115, align 1, !range !52, !noalias !74, !noundef !8
   %117 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !77
-  %118 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 104, i64 noundef 8) #16, !noalias !77
+  %118 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 104, i64 noundef 8) #17, !noalias !77
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit.i, !prof !73
 
 120:                                              ; preds = %107
-  call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 104) #15, !noalias !77
+  call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 104) #16, !noalias !77
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit.i: ; preds = %107
@@ -685,23 +685,23 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit.i: ; preds = %107
 133:                                              ; preds = %130
   %134 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$quiche..range_buf..RangeBuf$GT$$GT$17hfbf9de694bd86e82E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #17
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$quiche..range_buf..RangeBuf$GT$$GT$17hfbf9de694bd86e82E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #18
           to label %.body.i unwind label %135, !noalias !85
 
 135:                                              ; preds = %133
   %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18, !noalias !85
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !85
   unreachable
 
 .body.i:                                          ; preds = %133
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$quiche..stream..recv_buf..RecvBuf$GT$17h1667577200efbf56E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10) #17
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$quiche..stream..recv_buf..RecvBuf$GT$17h1667577200efbf56E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10) #18
           to label %124 unwind label %137, !noalias !74
 
 137:                                              ; preds = %.body.i, %127
   %138 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18, !noalias !74
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !74
   unreachable
 
 common.resume:                                    ; preds = %124, %127
@@ -1360,13 +1360,13 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$7collect17hc4cd827add4
   br label %"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54801b879f0d17a2E.exit"
 
 38:                                               ; preds = %14
-  call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.22) #15
+  call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.09a04e7d5453d218e7c8d61a2c8e2b93.22) #16
   unreachable
 
 39:                                               ; preds = %80, %.noexc36, %.loopexit.i29, %60, %.noexc19, %.loopexit.i12, %37, %.noexc, %.loopexit.i, %"_ZN6quiche6stream18StreamMap$LT$F$GT$16remove_flushable17hac87ab9e7aadc675E.exit"
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$quiche..stream..Stream$GT$17hae43e918bd526339E"(ptr noalias noundef nonnull align 8 dereferenceable(368) %8) #17
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$quiche..stream..Stream$GT$17hae43e918bd526339E"(ptr noalias noundef nonnull align 8 dereferenceable(368) %8) #18
           to label %87 unwind label %85
 
 "_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_readable17h54801b879f0d17a2E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$quiche..stream..StreamPriorityKey$GT$$GT$$GT$17h8d778ccea307cd3bE.exit.i", %16
@@ -1512,7 +1512,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$7collect17hc4cd827add4
 85:                                               ; preds = %39
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
 87:                                               ; preds = %39
@@ -1560,13 +1560,13 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$8readable17h3167c8cd32
 9:                                                ; preds = %"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$4iter17hc643303815e1088eE.exit"
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$smallvec..SmallVec$LT$$u5b$u64$u3b$$u20$8$u5d$$GT$$GT$17hd3dea46e3bee0358E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #17
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$smallvec..SmallVec$LT$$u5b$u64$u3b$$u20$8$u5d$$GT$$GT$17hd3dea46e3bee0358E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #18
           to label %13 unwind label %11, !noalias !211
 
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18, !noalias !211
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !211
   unreachable
 
 13:                                               ; preds = %9
@@ -1622,13 +1622,13 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$8writable17hc8c53cfc29
 9:                                                ; preds = %"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$4iter17h04d845e4c19e762cE.exit"
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$smallvec..SmallVec$LT$$u5b$u64$u3b$$u20$8$u5d$$GT$$GT$17hd3dea46e3bee0358E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #17
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$smallvec..SmallVec$LT$$u5b$u64$u3b$$u20$8$u5d$$GT$$GT$17hd3dea46e3bee0358E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #18
           to label %13 unwind label %11, !noalias !225
 
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #18, !noalias !225
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !225
   unreachable
 
 13:                                               ; preds = %9
@@ -1724,7 +1724,7 @@ declare void @llvm.trap() #9
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr43drop_in_place$LT$quiche..stream..Stream$GT$17hae43e918bd526339E"(ptr noalias noundef align 8 dereferenceable(368)) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #10
 
 ; Function Attrs: nonlazybind uwtable
@@ -1752,22 +1752,22 @@ declare hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent
 declare hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h00a3cc8c8b90726dE(ptr noalias noundef nonnull readonly align 1, ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #10
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1779,15 +1779,16 @@ attributes #6 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "pr
 attributes #7 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind }
-attributes #17 = { cold }
-attributes #18 = { cold noreturn nounwind }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { noreturn }
+attributes #17 = { nounwind }
+attributes #18 = { cold }
+attributes #19 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

@@ -129,7 +129,7 @@ define internal range(i32 -22, 1) i32 @mpa_encode_init(ptr noundef initializes((
   br label %.thread
 
 47:                                               ; preds = %40
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %11) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %11) #11
   br label %.loopexit
 
 .thread.loopexit:                                 ; preds = %34
@@ -160,7 +160,7 @@ define internal range(i32 -22, 1) i32 @mpa_encode_init(ptr noundef initializes((
   %64 = fptosi double %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %64, ptr %65, align 4, !tbaa !43
-  %66 = tail call i32 @ff_mpa_l2_select_table(i32 noundef %.0105.ph, i32 noundef %10, i32 noundef %5, i32 noundef %29) #10
+  %66 = tail call i32 @ff_mpa_l2_select_table(i32 noundef %.0105.ph, i32 noundef %10, i32 noundef %5, i32 noundef %29) #11
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i32, ptr @ff_mpa_sblimit_table, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !44
@@ -1326,8 +1326,8 @@ compute_scale_factors.exit:                       ; preds = %compute_scale_facto
   br i1 %.not79, label %555, label %compute_bit_allocation.exit
 
 555:                                              ; preds = %._crit_edge126.thread.i
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 599) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 599) #11
+  call void @abort() #12
   unreachable
 
 compute_bit_allocation.exit:                      ; preds = %._crit_edge126.thread.i
@@ -1335,7 +1335,7 @@ compute_bit_allocation.exit:                      ; preds = %._crit_edge126.thre
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %557 = zext nneg i32 %556 to i64
-  %558 = call i32 @ff_get_encode_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %557, i32 noundef 0) #10
+  %558 = call i32 @ff_get_encode_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %557, i32 noundef 0) #11
   %559 = icmp slt i32 %558, 0
   br i1 %559, label %1139, label %560
 
@@ -1373,7 +1373,7 @@ compute_bit_allocation.exit:                      ; preds = %._crit_edge126.thre
   br label %put_bits.exit146.i
 
 588:                                              ; preds = %560
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %put_bits.exit146.i
 
 put_bits.exit146.i:                               ; preds = %588, %565
@@ -1454,7 +1454,7 @@ put_bits.exit146.i:                               ; preds = %588, %565
   br label %627
 
 626:                                              ; preds = %615
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %627
 
 627:                                              ; preds = %626, %619
@@ -1562,7 +1562,7 @@ put_bits.exit150.i:                               ; preds = %627, %611
   br label %669
 
 668:                                              ; preds = %657
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %669
 
 669:                                              ; preds = %668, %661
@@ -1673,7 +1673,7 @@ put_bits.exit154.i:                               ; preds = %669, %653, %646
   br label %715
 
 714:                                              ; preds = %703
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %715
 
 715:                                              ; preds = %714, %707
@@ -1715,7 +1715,7 @@ put_bits.exit154.i:                               ; preds = %669, %653, %646
   br label %742
 
 741:                                              ; preds = %730
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %742
 
 742:                                              ; preds = %741, %734
@@ -1752,7 +1752,7 @@ put_bits.exit154.i:                               ; preds = %669, %653, %646
   br label %764
 
 763:                                              ; preds = %752
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %764
 
 764:                                              ; preds = %763, %756
@@ -2023,7 +2023,7 @@ put_bits.exit158.i:                               ; preds = %764, %748, %742, %7
   br label %889
 
 888:                                              ; preds = %877
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %889
 
 889:                                              ; preds = %888, %881
@@ -2058,7 +2058,7 @@ put_bits.exit158.i:                               ; preds = %764, %748, %742, %7
   br label %908
 
 907:                                              ; preds = %896
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %908
 
 908:                                              ; preds = %907, %900
@@ -2098,7 +2098,7 @@ put_bits.exit174.i:                               ; preds = %908, %893
   br label %927
 
 926:                                              ; preds = %915
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %927
 
 927:                                              ; preds = %926, %919
@@ -2138,7 +2138,7 @@ put_bits.exit178.i:                               ; preds = %927, %911
   br label %947
 
 946:                                              ; preds = %935
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %947
 
 947:                                              ; preds = %946, %939
@@ -2350,7 +2350,7 @@ put_bits.exit170.i:                               ; preds = %947, %931, %889, %8
   br label %1043
 
 1042:                                             ; preds = %1031
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %1043
 
 1043:                                             ; preds = %1042, %1035
@@ -2385,7 +2385,7 @@ put_bits.exit170.i:                               ; preds = %947, %931, %889, %8
   br label %1062
 
 1061:                                             ; preds = %1050
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %1062
 
 1062:                                             ; preds = %1061, %1054
@@ -2425,7 +2425,7 @@ put_bits.exit190.i:                               ; preds = %1062, %1047
   br label %1081
 
 1080:                                             ; preds = %1069
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %1081
 
 1081:                                             ; preds = %1080, %1073
@@ -2465,7 +2465,7 @@ put_bits.exit194.i:                               ; preds = %1081, %1065
   br label %1101
 
 1100:                                             ; preds = %1089
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.15) #11
   br label %1101
 
 1101:                                             ; preds = %1100, %1093
@@ -2511,8 +2511,8 @@ encode_subbands.exit.i:                           ; preds = %.split463.us.i, %.s
   br i1 %1110, label %1112, label %1111
 
 1111:                                             ; preds = %1109
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 150) #10
-  call void @abort() #11
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 150) #11
+  call void @abort() #12
   unreachable
 
 1112:                                             ; preds = %1109
@@ -2557,7 +2557,7 @@ encode_frame.exit:                                ; preds = %flush_put_bits.exit
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
   %1133 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %1134 = load i64, ptr %1133, align 4
-  %1135 = call i64 @av_rescale_q(i64 noundef range(i64 -2147483648, 2147483648) %1130, i64 %.sroa.0.0.insert.insert.i, i64 %1134) #12
+  %1135 = call i64 @av_rescale_q(i64 noundef range(i64 -2147483648, 2147483648) %1130, i64 %.sroa.0.0.insert.insert.i, i64 %1134) #13
   %1136 = sub nsw i64 %1126, %1135
   %1137 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %1136, ptr %1137, align 8, !tbaa !105
@@ -2580,69 +2580,70 @@ define internal range(i32 -22, 1) i32 @mpa_fixed_encode_init(ptr noundef initial
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 1, ptr %4, align 4, !tbaa !48
-  %5 = tail call i32 @mpa_encode_init(ptr noundef %0) #13
+  %5 = tail call i32 @mpa_encode_init(ptr noundef %0) #14
   ret i32 %5
 }
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #3
 
 declare i32 @ff_mpa_l2_select_table(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.exp2.f64(double) #3
 
 declare i32 @ff_get_encode_buffer(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #7
+declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { cold }
+attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

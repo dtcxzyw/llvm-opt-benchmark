@@ -63,7 +63,7 @@ define ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, p
 38:                                               ; preds = %33
   %39 = load ptr, ptr %7, align 8, !tbaa !22
   %40 = load i32, ptr %14, align 4
-  %41 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %27, i32 noundef 14) #5
+  %41 = tail call i32 @lv_draw_buf_width_to_stride(i32 noundef %27, i32 noundef 14) #6
   %42 = load i16, ptr %34, align 2
   %43 = lshr i16 %42, 9
   %44 = and i16 %43, 15
@@ -472,7 +472,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %15, ptr %29, align 4, !tbaa !40
   %30 = zext nneg i32 %25 to i64
-  %31 = call ptr @lv_utils_bsearch(ptr noundef nonnull %5, ptr noundef %28, i64 noundef %30, i64 noundef 2, ptr noundef nonnull @kern_pair_8_compare) #5
+  %31 = call ptr @lv_utils_bsearch(ptr noundef nonnull %5, ptr noundef %28, i64 noundef %30, i64 noundef 2, ptr noundef nonnull @kern_pair_8_compare) #6
   %.not43.i = icmp eq ptr %31, null
   br i1 %.not43.i, label %41, label %32
 
@@ -504,7 +504,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   store i32 %15, ptr %46, align 4, !tbaa !40
   %47 = and i32 %25, 1073741823
   %48 = zext nneg i32 %47 to i64
-  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %6, ptr noundef %45, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @kern_pair_16_compare) #5
+  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %6, ptr noundef %45, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @kern_pair_16_compare) #6
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %59, label %50
 
@@ -714,7 +714,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %47 = load i16, ptr %46, align 8, !tbaa !66
   %48 = zext i16 %47 to i64
-  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %3, ptr noundef %45, i64 noundef %48, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #5
+  %49 = call ptr @lv_utils_bsearch(ptr noundef nonnull %3, ptr noundef %45, i64 noundef %48, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #6
   %.not78 = icmp eq ptr %49, null
   br i1 %.not78, label %64, label %50
 
@@ -748,7 +748,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %70 = load i16, ptr %69, align 8, !tbaa !66
   %71 = zext i16 %70 to i64
-  %72 = call ptr @lv_utils_bsearch(ptr noundef nonnull %4, ptr noundef %68, i64 noundef %71, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #5
+  %72 = call ptr @lv_utils_bsearch(ptr noundef nonnull %4, ptr noundef %68, i64 noundef %71, i64 noundef 2, ptr noundef nonnull @unicode_list_compare) #6
   %.not77 = icmp eq ptr %72, null
   br i1 %.not77, label %90, label %73
 
@@ -856,18 +856,19 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #4
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

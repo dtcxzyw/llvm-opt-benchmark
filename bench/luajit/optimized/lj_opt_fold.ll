@@ -59,7 +59,7 @@ define hidden i32 @lj_opt_fold(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %29, label %27
 
 27:                                               ; preds = %19
-  %28 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %28 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %lj_opt_cse.exit.thread
 
 29:                                               ; preds = %19, %17
@@ -78,7 +78,7 @@ define hidden i32 @lj_opt_fold(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %31
-  %40 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %40 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %lj_opt_cse.exit.thread
 
 41:                                               ; preds = %29, %31, %1
@@ -185,7 +185,7 @@ define hidden i32 @lj_opt_fold(ptr noundef %0) local_unnamed_addr #0 {
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw ptr, ptr @fold_func, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !32
-  %112 = tail call i32 %111(ptr noundef %0) #12
+  %112 = tail call i32 %111(ptr noundef %0) #13
   %113 = and i32 %112, 65535
   %.not90 = icmp eq i32 %113, 0
   br i1 %.not90, label %114, label %172
@@ -252,7 +252,7 @@ define hidden i32 @lj_opt_fold(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %lj_ir_nextins.exit.i, label %147, !prof !27
 
 147:                                              ; preds = %.loopexit.i
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #12
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #13
   br label %lj_ir_nextins.exit.i
 
 lj_ir_nextins.exit.i:                             ; preds = %147, %.loopexit.i
@@ -316,11 +316,11 @@ lj_opt_cse.exit:                                  ; preds = %114
 
 184:                                              ; preds = %183
   %185 = load i32, ptr %42, align 8, !tbaa !28
-  %186 = tail call i32 @lj_ir_kint(ptr noundef %0, i32 noundef %185) #12
+  %186 = tail call i32 @lj_ir_kint(ptr noundef %0, i32 noundef %185) #13
   br label %lj_opt_cse.exit.thread
 
 187:                                              ; preds = %183
-  tail call void @lj_trace_err(ptr noundef %0, i32 noundef 24) #13
+  tail call void @lj_trace_err(ptr noundef %0, i32 noundef 24) #14
   unreachable
 
 lj_opt_cse.exit.thread:                           ; preds = %183, %lj_ir_nextins.exit.i, %.thread.i, %184, %174, %39, %27, %15
@@ -392,7 +392,7 @@ define hidden i32 @lj_opt_cse(ptr noundef %0) #0 {
   br i1 %.not.i, label %lj_ir_nextins.exit, label %37, !prof !27
 
 37:                                               ; preds = %.loopexit
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #12
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #13
   br label %lj_ir_nextins.exit
 
 lj_ir_nextins.exit:                               ; preds = %.loopexit, %37
@@ -479,7 +479,7 @@ define hidden i32 @lj_opt_cselim(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %25, label %.loopexit, label %.lr.ph23, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %2
-  %26 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %26 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.lr.ph, %._crit_edge
@@ -497,9 +497,9 @@ define internal i32 @fold_kfold_numarith(ptr noundef %0) #0 {
   %7 = load i8, ptr %6, align 1, !tbaa !28
   %8 = zext i8 %7 to i32
   %9 = add nsw i32 %8, -41
-  %10 = tail call double @lj_vm_foldarith(double noundef %3, double noundef %5, i32 noundef %9) #12
+  %10 = tail call double @lj_vm_foldarith(double noundef %3, double noundef %5, i32 noundef %9) #13
   %11 = bitcast double %10 to i64
-  %12 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %11) #12
+  %12 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %11) #13
   ret i32 %12
 }
 
@@ -511,9 +511,9 @@ define internal i32 @fold_kfold_numabsneg(ptr noundef %0) #0 {
   %5 = load i8, ptr %4, align 1, !tbaa !28
   %6 = zext i8 %5 to i32
   %7 = add nsw i32 %6, -41
-  %8 = tail call double @lj_vm_foldarith(double noundef %3, double noundef %3, i32 noundef %7) #12
+  %8 = tail call double @lj_vm_foldarith(double noundef %3, double noundef %3, i32 noundef %7) #13
   %9 = bitcast double %8 to i64
-  %10 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %9) #12
+  %10 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %9) #13
   ret i32 %10
 }
 
@@ -529,9 +529,9 @@ define internal i32 @fold_kfold_fpmath(ptr noundef %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %5 = load i16, ptr %4, align 2, !tbaa !28
   %6 = zext i16 %5 to i32
-  %7 = tail call double @lj_vm_foldfpm(double noundef %3, i32 noundef %6) #12
+  %7 = tail call double @lj_vm_foldfpm(double noundef %3, i32 noundef %6) #13
   %8 = bitcast double %7 to i64
-  %9 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %8) #12
+  %9 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %8) #13
   ret i32 %9
 }
 
@@ -551,9 +551,9 @@ define internal i32 @fold_kfold_fpcall1(ptr noundef %0) #0 {
   %11 = load ptr, ptr %5, align 16, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = load double, ptr %12, align 8, !tbaa !28
-  %14 = tail call double %11(double noundef %13) #12
+  %14 = tail call double %11(double noundef %13) #13
   %15 = bitcast double %14 to i64
-  %16 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %15) #12
+  %16 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %15) #13
   br label %17
 
 17:                                               ; preds = %1, %10
@@ -590,9 +590,9 @@ define internal i32 @fold_kfold_fpcall2(ptr noundef %0) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load double, ptr %22, align 8, !tbaa !28
   %24 = load ptr, ptr %13, align 16, !tbaa !43
-  %25 = tail call double %24(double noundef %19, double noundef %23) #12
+  %25 = tail call double %24(double noundef %19, double noundef %23) #13
   %26 = bitcast double %25 to i64
-  %27 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %26) #12
+  %27 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %26) #13
   br label %28
 
 28:                                               ; preds = %1, %5, %9
@@ -606,9 +606,9 @@ define internal i32 @fold_kfold_numpow(ptr noundef %0) #0 {
   %3 = load double, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load double, ptr %4, align 8, !tbaa !28
-  %6 = tail call double @lj_vm_foldarith(double noundef %3, double noundef %5, i32 noundef 5) #12
+  %6 = tail call double @lj_vm_foldarith(double noundef %3, double noundef %5, i32 noundef 5) #13
   %7 = bitcast double %6 to i64
-  %8 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %7) #12
+  %8 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %7) #13
   ret i32 %8
 }
 
@@ -621,7 +621,7 @@ define internal i32 @fold_kfold_numcomp(ptr noundef readonly captures(none) %0) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 189
   %7 = load i8, ptr %6, align 1, !tbaa !28
   %8 = zext i8 %7 to i32
-  %9 = tail call i32 @lj_ir_numcmp(double noundef %3, double noundef %5, i32 noundef %8) #12
+  %9 = tail call i32 @lj_ir_numcmp(double noundef %3, double noundef %5, i32 noundef %8) #13
   %10 = add i32 %9, 3
   ret i32 %10
 }
@@ -665,7 +665,7 @@ define internal noundef i32 @fold_kfold_intarith(ptr noundef captures(none) init
   br label %kfold_intop.exit
 
 14:                                               ; preds = %1
-  %15 = tail call i32 @lj_vm_modi(i32 noundef %3, i32 noundef %5) #12
+  %15 = tail call i32 @lj_vm_modi(i32 noundef %3, i32 noundef %5) #13
   br label %kfold_intop.exit
 
 16:                                               ; preds = %1
@@ -734,7 +734,7 @@ define internal range(i32 2, 4) i32 @fold_kfold_intovarith(ptr noundef captures(
   %9 = load i8, ptr %8, align 1, !tbaa !28
   %10 = zext i8 %9 to i32
   %11 = add nsw i32 %10, -53
-  %12 = tail call double @lj_vm_foldarith(double noundef %4, double noundef %7, i32 noundef %11) #12
+  %12 = tail call double @lj_vm_foldarith(double noundef %4, double noundef %7, i32 noundef %11) #13
   %13 = fptosi double %12 to i32
   %14 = sitofp i32 %13 to double
   %15 = fcmp une double %12, %14
@@ -915,7 +915,7 @@ define internal i32 @fold_kfold_int64arith(ptr noundef %0) #0 {
 
 kfold_int64arith.exit:                            ; preds = %1, %8, %10, %12, %14, %16, %18, %20, %23, %26, %29, %31
   %.0.i = phi i64 [ %3, %1 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ], [ %30, %29 ], [ %32, %31 ]
-  %33 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0.i) #12
+  %33 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0.i) #13
   ret i32 %33
 }
 
@@ -940,15 +940,15 @@ define internal i32 @fold_kfold_int64arith2(ptr noundef %0) #0 {
   ]
 
 13:                                               ; preds = %12
-  %14 = tail call i64 @lj_carith_divi64(i64 noundef %3, i64 noundef %5) #12
+  %14 = tail call i64 @lj_carith_divi64(i64 noundef %3, i64 noundef %5) #13
   br label %26
 
 15:                                               ; preds = %12
-  %16 = tail call i64 @lj_carith_modi64(i64 noundef %3, i64 noundef %5) #12
+  %16 = tail call i64 @lj_carith_modi64(i64 noundef %3, i64 noundef %5) #13
   br label %26
 
 17:                                               ; preds = %12
-  %18 = tail call i64 @lj_carith_powi64(i64 noundef %3, i64 noundef %5) #12
+  %18 = tail call i64 @lj_carith_powi64(i64 noundef %3, i64 noundef %5) #13
   br label %26
 
 19:                                               ; preds = %1
@@ -958,20 +958,20 @@ define internal i32 @fold_kfold_int64arith2(ptr noundef %0) #0 {
   ]
 
 20:                                               ; preds = %19
-  %21 = tail call i64 @lj_carith_divu64(i64 noundef %3, i64 noundef %5) #12
+  %21 = tail call i64 @lj_carith_divu64(i64 noundef %3, i64 noundef %5) #13
   br label %26
 
 22:                                               ; preds = %19
-  %23 = tail call i64 @lj_carith_modu64(i64 noundef %3, i64 noundef %5) #12
+  %23 = tail call i64 @lj_carith_modu64(i64 noundef %3, i64 noundef %5) #13
   br label %26
 
 24:                                               ; preds = %19
-  %25 = tail call i64 @lj_carith_powu64(i64 noundef %3, i64 noundef %5) #12
+  %25 = tail call i64 @lj_carith_powu64(i64 noundef %3, i64 noundef %5) #13
   br label %26
 
 26:                                               ; preds = %20, %24, %22, %13, %17, %15
   %.0 = phi i64 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ]
-  %27 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0) #12
+  %27 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0) #13
   ret i32 %27
 }
 
@@ -986,8 +986,8 @@ define internal i32 @fold_kfold_int64shift(ptr noundef %0) #0 {
   %8 = load i8, ptr %7, align 1, !tbaa !28
   %9 = zext i8 %8 to i32
   %10 = add nsw i32 %9, -36
-  %11 = tail call i64 @lj_carith_shift64(i64 noundef %3, i32 noundef %6, i32 noundef %10) #12
-  %12 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %11) #12
+  %11 = tail call i64 @lj_carith_shift64(i64 noundef %3, i32 noundef %6, i32 noundef %10) #13
+  %12 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %11) #13
   ret i32 %12
 }
 
@@ -996,7 +996,7 @@ define internal i32 @fold_kfold_bnot64(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load i64, ptr %2, align 8, !tbaa !28
   %4 = xor i64 %3, -1
-  %5 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %4) #12
+  %5 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %4) #13
   ret i32 %5
 }
 
@@ -1005,7 +1005,7 @@ define internal i32 @fold_kfold_bswap64(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load i64, ptr %2, align 8, !tbaa !28
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %5 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %4) #12
+  %5 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %4) #13
   ret i32 %5
 }
 
@@ -1092,8 +1092,8 @@ define internal i32 @fold_kfold_snew_kptr(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @lj_str_new(ptr noundef %3, ptr noundef %6, i64 noundef %9) #12
-  %11 = tail call i32 @lj_ir_kgc(ptr noundef %0, ptr noundef %10, i32 noundef 4) #12
+  %10 = tail call ptr @lj_str_new(ptr noundef %3, ptr noundef %6, i64 noundef %9) #13
+  %11 = tail call i32 @lj_ir_kgc(ptr noundef %0, ptr noundef %10, i32 noundef 4) #13
   ret i32 %11
 }
 
@@ -1106,7 +1106,7 @@ define internal i32 @fold_kfold_snew_empty(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 -616
-  %7 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 4) #12
+  %7 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 4) #13
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -1124,7 +1124,7 @@ define internal i32 @fold_kfold_strref(ptr noundef %0) #0 {
   %7 = load i32, ptr %6, align 8, !tbaa !28
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
-  %10 = tail call i32 @lj_ir_kptr_(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %9) #12
+  %10 = tail call i32 @lj_ir_kptr_(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %9) #13
   ret i32 %10
 }
 
@@ -1219,7 +1219,7 @@ define internal range(i32 0, 3) i32 @fold_kfold_strcmp(ptr noundef captures(none
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !28
   %22 = inttoptr i64 %21 to ptr
-  %23 = tail call i32 @lj_str_cmp(ptr noundef %17, ptr noundef %22) #12
+  %23 = tail call i32 @lj_str_cmp(ptr noundef %17, ptr noundef %22) #13
   store i32 %23, ptr %2, align 8, !tbaa !28
   br label %24
 
@@ -1294,7 +1294,7 @@ define internal i32 @fold_bufhdr_merge(ptr noundef %0) #0 {
   br i1 %.not.i.i, label %lj_ir_nextins.exit.i, label %37, !prof !27
 
 37:                                               ; preds = %.loopexit.i
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #12
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #13
   br label %lj_ir_nextins.exit.i
 
 lj_ir_nextins.exit.i:                             ; preds = %37, %.loopexit.i
@@ -1330,7 +1330,7 @@ lj_ir_nextins.exit.i:                             ; preds = %37, %.loopexit.i
   br label %lj_opt_cse.exit
 
 60:                                               ; preds = %1
-  %61 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %61 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %lj_opt_cse.exit
 
 lj_opt_cse.exit:                                  ; preds = %lj_ir_nextins.exit.i, %.thread.i, %60
@@ -1470,7 +1470,7 @@ define internal i32 @fold_bufput_bufstr(ptr noundef %0) #0 {
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %89 = load i16, ptr %88, align 2, !tbaa !28
   %90 = zext i16 %89 to i32
-  %91 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef %72, i32 noundef %87, i32 noundef %90) #12
+  %91 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef %72, i32 noundef %87, i32 noundef %90) #13
   br label %103
 
 92:                                               ; preds = %80
@@ -1482,11 +1482,11 @@ define internal i32 @fold_bufput_bufstr(ptr noundef %0) #0 {
   %98 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %99 = load i16, ptr %98, align 2, !tbaa !28
   %100 = zext i16 %99 to i32
-  %101 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef 22, i32 noundef %94, i32 noundef %97, i32 noundef %100) #12
+  %101 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef 22, i32 noundef %94, i32 noundef %97, i32 noundef %100) #13
   br label %103
 
 .thread77:                                        ; preds = %84, %62, %69, %80, %50, %58, %1
-  %102 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %102 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %103
 
 103:                                              ; preds = %41, %92, %.thread70, %.thread77
@@ -1552,8 +1552,8 @@ define internal i32 @fold_bufput_kgc(ptr noundef %0) #0 {
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8, !tbaa !44
-  %42 = tail call ptr @lj_buf_cat2str(ptr noundef %41, ptr noundef %39, ptr noundef nonnull %13) #12
-  %43 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %42, i32 noundef 4) #12
+  %42 = tail call ptr @lj_buf_cat2str(ptr noundef %41, ptr noundef %39, ptr noundef nonnull %13) #13
+  %43 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %42, i32 noundef 4) #13
   %44 = trunc i32 %43 to i16
   %45 = load ptr, ptr %33, align 8, !tbaa !30
   %46 = load i16, ptr %6, align 8, !tbaa !28
@@ -1566,7 +1566,7 @@ define internal i32 @fold_bufput_kgc(ptr noundef %0) #0 {
   br label %53
 
 .thread:                                          ; preds = %28, %24, %20, %5, %1
-  %52 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %52 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %53
 
 53:                                               ; preds = %17, %32, %.thread
@@ -1600,7 +1600,7 @@ define internal i32 @fold_bufstr_kfold_cse(ptr noundef %0) #0 {
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 -616
-  %16 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 4) #12
+  %16 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 4) #13
   br label %lj_opt_cse.exit
 
 17:                                               ; preds = %10
@@ -1666,7 +1666,7 @@ define internal i32 @fold_bufstr_kfold_cse(ptr noundef %0) #0 {
   br i1 %.not.i.i, label %lj_ir_nextins.exit.i, label %51, !prof !27
 
 51:                                               ; preds = %.loopexit.i
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #12
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #13
   br label %lj_ir_nextins.exit.i
 
 lj_ir_nextins.exit.i:                             ; preds = %51, %.loopexit.i
@@ -1799,7 +1799,7 @@ lj_ir_nextins.exit.i:                             ; preds = %51, %.loopexit.i
   br i1 %.not53.not, label %.thread61, label %99, !llvm.loop !48
 
 .thread61:                                        ; preds = %._crit_edge, %92, %.thread
-  %127 = tail call i32 @lj_ir_emit(ptr noundef %0) #12
+  %127 = tail call i32 @lj_ir_emit(ptr noundef %0) #13
   br label %lj_opt_cse.exit
 
 lj_opt_cse.exit.loopexit:                         ; preds = %111
@@ -1846,19 +1846,19 @@ define internal i32 @fold_bufput_kfold_op(ptr noundef %0) #0 {
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !28
   %30 = inttoptr i64 %29 to ptr
-  %31 = tail call ptr %22(ptr noundef nonnull %17, ptr noundef %30) #12
+  %31 = tail call ptr %22(ptr noundef nonnull %17, ptr noundef %30) #13
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 189
   store i8 86, ptr %32, align 1, !tbaa !28
   %33 = load i16, ptr %6, align 8, !tbaa !28
   store i16 %33, ptr %7, align 8, !tbaa !28
-  %34 = tail call ptr @lj_buf_tostr(ptr noundef %31) #12
-  %35 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %34, i32 noundef 4) #12
+  %34 = tail call ptr @lj_buf_tostr(ptr noundef %31) #13
+  %35 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %34, i32 noundef 4) #13
   %36 = trunc i32 %35 to i16
   store i16 %36, ptr %8, align 2, !tbaa !28
   br label %39
 
 37:                                               ; preds = %1
-  %38 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %38 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %39
 
 39:                                               ; preds = %37, %5
@@ -1909,20 +1909,20 @@ define internal i32 @fold_bufput_kfold_rep(ptr noundef %0) #0 {
   %34 = zext i16 %33 to i64
   %35 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %34
   %36 = load i32, ptr %35, align 8, !tbaa !28
-  %37 = tail call ptr @lj_buf_putstr_rep(ptr noundef nonnull %22, ptr noundef %32, i32 noundef %36) #12
+  %37 = tail call ptr @lj_buf_putstr_rep(ptr noundef nonnull %22, ptr noundef %32, i32 noundef %36) #13
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 189
   store i8 86, ptr %38, align 1, !tbaa !28
   %39 = load i16, ptr %12, align 8, !tbaa !28
   store i16 %39, ptr %2, align 8, !tbaa !28
-  %40 = tail call ptr @lj_buf_tostr(ptr noundef %37) #12
-  %41 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %40, i32 noundef 4) #12
+  %40 = tail call ptr @lj_buf_tostr(ptr noundef %37) #13
+  %41 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %40, i32 noundef 4) #13
   %42 = trunc i32 %41 to i16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %42, ptr %43, align 2, !tbaa !28
   br label %45
 
 .thread:                                          ; preds = %6, %1
-  %44 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %44 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %45
 
 45:                                               ; preds = %16, %.thread
@@ -1975,19 +1975,19 @@ define internal i32 @fold_bufput_kfold_fmt(ptr noundef %0) #0 {
 32:                                               ; preds = %12
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !28
-  %35 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %25, i32 noundef %17, i64 noundef %34) #12
+  %35 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %25, i32 noundef %17, i64 noundef %34) #13
   br label %51
 
 36:                                               ; preds = %12
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !28
   %39 = inttoptr i64 %38 to ptr
-  %40 = tail call ptr @lj_strfmt_putfstr(ptr noundef nonnull %25, i32 noundef %17, ptr noundef %39) #12
+  %40 = tail call ptr @lj_strfmt_putfstr(ptr noundef nonnull %25, i32 noundef %17, ptr noundef %39) #13
   br label %51
 
 41:                                               ; preds = %12
   %42 = load i32, ptr %19, align 8, !tbaa !28
-  %43 = tail call ptr @lj_strfmt_putfchar(ptr noundef nonnull %25, i32 noundef %17, i32 noundef %42) #12
+  %43 = tail call ptr @lj_strfmt_putfchar(ptr noundef nonnull %25, i32 noundef %17, i32 noundef %42) #13
   br label %51
 
 44:                                               ; preds = %12
@@ -1996,7 +1996,7 @@ define internal i32 @fold_bufput_kfold_fmt(ptr noundef %0) #0 {
   %47 = load ptr, ptr %46, align 16, !tbaa !43
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %49 = load double, ptr %48, align 8, !tbaa !28
-  %50 = tail call ptr %47(ptr noundef nonnull %25, i32 noundef %17, double noundef %49) #12
+  %50 = tail call ptr %47(ptr noundef nonnull %25, i32 noundef %17, double noundef %49) #13
   br label %51
 
 51:                                               ; preds = %44, %41, %36, %32
@@ -2005,14 +2005,14 @@ define internal i32 @fold_bufput_kfold_fmt(ptr noundef %0) #0 {
   store i8 86, ptr %52, align 1, !tbaa !28
   %53 = load i16, ptr %8, align 8, !tbaa !28
   store i16 %53, ptr %4, align 8, !tbaa !28
-  %54 = tail call ptr @lj_buf_tostr(ptr noundef %.030) #12
-  %55 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %54, i32 noundef 4) #12
+  %54 = tail call ptr @lj_buf_tostr(ptr noundef %.030) #13
+  %55 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %54, i32 noundef 4) #13
   %56 = trunc i32 %55 to i16
   store i16 %56, ptr %30, align 2, !tbaa !28
   br label %59
 
 57:                                               ; preds = %1
-  %58 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %58 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %59
 
 59:                                               ; preds = %57, %51
@@ -2074,7 +2074,7 @@ ctype_raw.exit:                                   ; preds = %19
 32:                                               ; preds = %ctype_raw.exit, %.thread
   %.sink = phi i32 [ 25, %.thread ], [ 26, %ctype_raw.exit ]
   %33 = getelementptr inbounds i8, ptr %4, i64 %6
-  %34 = tail call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef %.sink, ptr noundef %33) #12
+  %34 = tail call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef %.sink, ptr noundef %33) #13
   ret i32 %34
 }
 
@@ -2089,7 +2089,7 @@ define internal i32 @fold_kfold_add_kptr(ptr noundef %0) #0 {
   %8 = load i8, ptr %7, align 1, !tbaa !28
   %9 = zext i8 %8 to i32
   %10 = getelementptr inbounds i8, ptr %4, i64 %6
-  %11 = tail call i32 @lj_ir_kptr_(ptr noundef %0, i32 noundef %9, ptr noundef %10) #12
+  %11 = tail call i32 @lj_ir_kptr_(ptr noundef %0, i32 noundef %9, ptr noundef %10) #13
   ret i32 %11
 }
 
@@ -2134,7 +2134,7 @@ define internal i32 @fold_kfold_conv_kint_num(ptr noundef %0) #0 {
   %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = sitofp i32 %3 to double
   %5 = bitcast double %4 to i64
-  %6 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %5) #12
+  %6 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %5) #13
   ret i32 %6
 }
 
@@ -2144,7 +2144,7 @@ define internal i32 @fold_kfold_conv_kintu32_num(ptr noundef %0) #0 {
   %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = uitofp i32 %3 to double
   %5 = bitcast double %4 to i64
-  %6 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %5) #12
+  %6 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %5) #13
   ret i32 %6
 }
 
@@ -2197,7 +2197,7 @@ define internal i32 @fold_kfold_conv_kint_i64(ptr noundef %0) #0 {
   %7 = zext i32 %6 to i64
   %8 = sext i32 %6 to i64
   %.sink = select i1 %.not, i64 %7, i64 %8
-  %9 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.sink) #12
+  %9 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.sink) #13
   ret i32 %9
 }
 
@@ -2207,7 +2207,7 @@ define internal i32 @fold_kfold_conv_kint64_num_i64(ptr noundef %0) #0 {
   %3 = load i64, ptr %2, align 8, !tbaa !28
   %4 = sitofp i64 %3 to double
   %5 = bitcast double %4 to i64
-  %6 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %5) #12
+  %6 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %5) #13
   ret i32 %6
 }
 
@@ -2217,7 +2217,7 @@ define internal i32 @fold_kfold_conv_kint64_num_u64(ptr noundef %0) #0 {
   %3 = load i64, ptr %2, align 8, !tbaa !28
   %4 = uitofp i64 %3 to double
   %5 = bitcast double %4 to i64
-  %6 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %5) #12
+  %6 = tail call i32 @lj_ir_knum_u64(ptr noundef %0, i64 noundef %5) #13
   ret i32 %6
 }
 
@@ -2269,7 +2269,7 @@ define internal i32 @fold_kfold_conv_knum_i64_num(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load double, ptr %2, align 8, !tbaa !28
   %4 = fptosi double %3 to i64
-  %5 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %4) #12
+  %5 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %4) #13
   ret i32 %5
 }
 
@@ -2282,7 +2282,7 @@ define internal i32 @fold_kfold_conv_knum_u64_num(ptr noundef %0) #0 {
   %6 = fadd double %3, 0xC3F0000000000000
   %7 = fptosi double %6 to i64
   %.0.i = select i1 %5, i64 %7, i64 %4
-  %8 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %.0.i) #12
+  %8 = tail call i32 @lj_ir_kint64(ptr noundef %0, i64 noundef %.0.i) #13
   ret i32 %8
 }
 
@@ -2291,8 +2291,8 @@ define internal i32 @fold_kfold_tostr_knum(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %5 = tail call ptr @lj_strfmt_num(ptr noundef %3, ptr noundef nonnull %4) #12
-  %6 = tail call i32 @lj_ir_kgc(ptr noundef %0, ptr noundef %5, i32 noundef 4) #12
+  %5 = tail call ptr @lj_strfmt_num(ptr noundef %3, ptr noundef nonnull %4) #13
+  %6 = tail call i32 @lj_ir_kgc(ptr noundef %0, ptr noundef %5, i32 noundef 4) #13
   ret i32 %6
 }
 
@@ -2308,16 +2308,16 @@ define internal i32 @fold_kfold_tostr_kint(ptr noundef %0) #0 {
   br i1 %4, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @lj_strfmt_int(ptr noundef %6, i32 noundef %8) #12
+  %10 = tail call ptr @lj_strfmt_int(ptr noundef %6, i32 noundef %8) #13
   br label %13
 
 11:                                               ; preds = %1
-  %12 = tail call ptr @lj_strfmt_char(ptr noundef %6, i32 noundef %8) #12
+  %12 = tail call ptr @lj_strfmt_char(ptr noundef %6, i32 noundef %8) #13
   br label %13
 
 13:                                               ; preds = %11, %9
   %14 = phi ptr [ %10, %9 ], [ %12, %11 ]
-  %15 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 4) #12
+  %15 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 4) #13
   ret i32 %15
 }
 
@@ -2328,13 +2328,13 @@ define internal i32 @fold_kfold_strto(ptr noundef %0) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i64, ptr %3, align 8, !tbaa !28
   %5 = inttoptr i64 %4 to ptr
-  %6 = call i32 @lj_strscan_num(ptr noundef %5, ptr noundef nonnull %2) #12
+  %6 = call i32 @lj_strscan_num(ptr noundef %5, ptr noundef nonnull %2) #13
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
   %8 = load i64, ptr %2, align 8, !tbaa !28
-  %9 = call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %8) #12
+  %9 = call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %8) #13
   br label %10
 
 10:                                               ; preds = %1, %7
@@ -2506,7 +2506,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_numsub_negk(ptr noundef %0) #
   %11 = load double, ptr %10, align 8, !tbaa !28
   %12 = fneg double %11
   %13 = bitcast double %12 to i64
-  %14 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %13) #12
+  %14 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %13) #13
   %15 = trunc i32 %14 to i16
   store i16 %15, ptr %7, align 8, !tbaa !28
   br label %16
@@ -2565,7 +2565,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_nummuldiv_k(ptr noundef %
   %18 = getelementptr inbounds i8, ptr %0, i64 -832
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %17, %19
-  %21 = tail call i32 @lj_ir_ggfload(ptr noundef nonnull %0, i32 noundef 14, i64 noundef %20) #12
+  %21 = tail call i32 @lj_ir_ggfload(ptr noundef nonnull %0, i32 noundef 14, i64 noundef %20) #13
   %22 = trunc i32 %21 to i16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %22, ptr %23, align 2, !tbaa !28
@@ -2611,7 +2611,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_nummuldiv_k(ptr noundef %
   %46 = shl nuw nsw i64 %45, 52
   %47 = or disjoint i64 %46, %43
   store i8 43, ptr %26, align 1, !tbaa !28
-  %48 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %47) #12
+  %48 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %47) #13
   %49 = trunc i32 %48 to i16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %49, ptr %50, align 2, !tbaa !28
@@ -2639,7 +2639,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negk(ptr noundef %0
   %10 = load double, ptr %9, align 8, !tbaa !28
   %11 = fneg double %10
   %12 = bitcast double %11 to i64
-  %13 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %12) #12
+  %13 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %12) #13
   %14 = trunc i32 %13 to i16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %14, ptr %15, align 2, !tbaa !28
@@ -2690,7 +2690,7 @@ define internal i32 @fold_simplify_numpow_k(ptr noundef %0) #0 {
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef 4607182418800017408) #12
+  %7 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef 4607182418800017408) #13
   br label %20
 
 8:                                                ; preds = %1
@@ -3082,7 +3082,7 @@ define internal i32 @fold_cse_conv(ptr noundef %0) #0 {
   br i1 %34, label %17, label %.thread29, !llvm.loop !77
 
 .thread29:                                        ; preds = %32, %5, %1
-  %35 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %35 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %36
 
 .loopexit:                                        ; preds = %28
@@ -3109,7 +3109,7 @@ define internal i32 @fold_narrow_convert(ptr noundef %0) #0 {
   br i1 %.not3, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @lj_opt_narrow_convert(ptr noundef nonnull %0) #12
+  %9 = tail call i32 @lj_opt_narrow_convert(ptr noundef nonnull %0) #13
   br label %10
 
 10:                                               ; preds = %5, %1, %8
@@ -3186,7 +3186,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_intsub_k(ptr noundef %0) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 189
   store i8 41, ptr %10, align 1, !tbaa !28
   %11 = sub i32 0, %3
-  %12 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %11) #12
+  %12 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %11) #13
   %13 = trunc i32 %12 to i16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %13, ptr %14, align 2, !tbaa !28
@@ -3265,7 +3265,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_intsub_k64(ptr noundef %0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 189
   store i8 41, ptr %10, align 1, !tbaa !28
   %11 = sub i64 0, %3
-  %12 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %11) #12
+  %12 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %11) #13
   %13 = trunc i32 %12 to i16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %13, ptr %14, align 2, !tbaa !28
@@ -3309,7 +3309,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k32(ptr noundef %0
   store i8 36, ptr %16, align 1, !tbaa !28
   %17 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, -2147483648) %3, i1 true)
   %18 = xor i32 %17, 31
-  %19 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %18) #12
+  %19 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %18) #13
   %20 = trunc i32 %19 to i16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %20, ptr %21, align 2, !tbaa !28
@@ -3359,7 +3359,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k64(ptr noundef %0
   store i8 36, ptr %17, align 1, !tbaa !28
   %18 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, -2147483648) %6, i1 true)
   %19 = xor i32 %18, 31
-  %20 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %19) #12
+  %20 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %19) #13
   %21 = trunc i32 %20 to i16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %21, ptr %22, align 2, !tbaa !28
@@ -3389,7 +3389,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intmod_k(ptr noundef %0) #0 {
   %8 = add nsw i32 %3, -1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 189
   store i8 33, ptr %9, align 1, !tbaa !28
-  %10 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %8) #12
+  %10 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %8) #13
   %11 = trunc i32 %10 to i16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %11, ptr %12, align 2, !tbaa !28
@@ -3441,7 +3441,7 @@ define internal i32 @fold_simplify_intsub(ptr noundef %0) #0 {
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef 0) #12
+  %17 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef 0) #13
   br label %19
 
 18:                                               ; preds = %12
@@ -3516,7 +3516,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubsub_leftcancel(ptr noun
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %11
-  %18 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 0) #12
+  %18 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 0) #13
   %19 = trunc i32 %18 to i16
   store i16 %19, ptr %2, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 194
@@ -3596,7 +3596,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intsubadd_rightcancel(ptr nou
   %.sink = phi i16 [ %17, %11 ], [ %14, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %.sink, ptr %20, align 2, !tbaa !28
-  %21 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 0) #12
+  %21 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 0) #13
   %22 = trunc i32 %21 to i16
   store i16 %22, ptr %2, align 8, !tbaa !28
   br label %23
@@ -3851,7 +3851,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_shift_ik(ptr noundef %0) 
   br i1 %.not22.not, label %24, label %28
 
 24:                                               ; preds = %23
-  %25 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %12) #12
+  %25 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %12) #13
   %26 = trunc i32 %25 to i16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %26, ptr %27, align 2, !tbaa !28
@@ -3867,7 +3867,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_shift_ik(ptr noundef %0) 
   store i8 39, ptr %29, align 1, !tbaa !28
   %33 = sub nsw i32 0, %12
   %34 = and i32 %9, %33
-  %35 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %34) #12
+  %35 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %34) #13
   %36 = trunc i32 %35 to i16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %36, ptr %37, align 2, !tbaa !28
@@ -4054,7 +4054,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_shiftk_andk(ptr noundef %0) #
   br label %kfold_intop.exit
 
 28:                                               ; preds = %16
-  %29 = tail call i32 @lj_vm_modi(i32 noundef %17, i32 noundef %19) #12
+  %29 = tail call i32 @lj_vm_modi(i32 noundef %17, i32 noundef %19) #13
   br label %kfold_intop.exit
 
 30:                                               ; preds = %16
@@ -4111,7 +4111,7 @@ kfold_intop.exit:                                 ; preds = %16, %22, %24, %26, 
   %56 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0)
   %57 = trunc i32 %56 to i16
   store i16 %57, ptr %4, align 8, !tbaa !28
-  %58 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #12
+  %58 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #13
   br label %.sink.split
 
 59:                                               ; preds = %13
@@ -4191,7 +4191,7 @@ kfold_int64arith.exit:                            ; preds = %59, %67, %69, %71, 
   %94 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0)
   %95 = trunc i32 %94 to i16
   store i16 %95, ptr %4, align 8, !tbaa !28
-  %96 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0.i31) #12
+  %96 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0.i31) #13
   br label %.sink.split
 
 .sink.split:                                      ; preds = %kfold_intop.exit, %kfold_int64arith.exit
@@ -4254,7 +4254,7 @@ define internal range(i32 0, 65536) i32 @fold_simplify_andk_shiftk(ptr noundef r
   br label %kfold_intop.exit
 
 22:                                               ; preds = %12
-  %23 = tail call i32 @lj_vm_modi(i32 noundef -1, i32 noundef %13) #12
+  %23 = tail call i32 @lj_vm_modi(i32 noundef -1, i32 noundef %13) #13
   br label %kfold_intop.exit
 
 24:                                               ; preds = %12
@@ -4361,7 +4361,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_andor_k(ptr noundef captures(
   br label %kfold_intop.exit
 
 29:                                               ; preds = %17
-  %30 = tail call i32 @lj_vm_modi(i32 noundef %18, i32 noundef %20) #12
+  %30 = tail call i32 @lj_vm_modi(i32 noundef %18, i32 noundef %20) #13
   %.pre = load i8, ptr %21, align 1, !tbaa !28
   br label %kfold_intop.exit
 
@@ -4589,7 +4589,7 @@ define internal range(i32 0, 65536) i32 @fold_reassoc_intarith_k(ptr noundef %0)
   br label %kfold_intop.exit
 
 25:                                               ; preds = %13
-  %26 = tail call i32 @lj_vm_modi(i32 noundef %14, i32 noundef %16) #12
+  %26 = tail call i32 @lj_vm_modi(i32 noundef %14, i32 noundef %16) #13
   %.pre = load i32, ptr %9, align 8, !tbaa !28
   br label %kfold_intop.exit
 
@@ -4661,7 +4661,7 @@ kfold_intop.exit.thread:                          ; preds = %13, %kfold_intop.ex
 60:                                               ; preds = %56
   %61 = load i16, ptr %5, align 8, !tbaa !28
   store i16 %61, ptr %4, align 8, !tbaa !28
-  %62 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #12
+  %62 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #13
   %63 = trunc i32 %62 to i16
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %63, ptr %64, align 2, !tbaa !28
@@ -4766,7 +4766,7 @@ kfold_int64arith.exit:                            ; preds = %13, %20, %22, %24, 
 48:                                               ; preds = %kfold_int64arith.exit
   %49 = load i16, ptr %5, align 8, !tbaa !28
   store i16 %49, ptr %4, align 8, !tbaa !28
-  %50 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0.i) #12
+  %50 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %.0.i) #13
   %51 = trunc i32 %50 to i16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %51, ptr %52, align 2, !tbaa !28
@@ -4909,7 +4909,7 @@ define internal i32 @fold_reassoc_shift(ptr noundef %0) #0 {
   br label %46
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef 0) #12
+  %38 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef 0) #13
   br label %46
 
 39:                                               ; preds = %32
@@ -4920,7 +4920,7 @@ define internal i32 @fold_reassoc_shift(ptr noundef %0) #0 {
   %.0 = phi i32 [ %40, %39 ], [ %30, %17 ], [ %24, %32 ]
   %42 = load i16, ptr %5, align 8, !tbaa !28
   store i16 %42, ptr %4, align 8, !tbaa !28
-  %43 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0) #12
+  %43 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0) #13
   %44 = trunc i32 %43 to i16
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %44, ptr %45, align 2, !tbaa !28
@@ -4983,7 +4983,7 @@ define internal range(i32 0, 65536) i32 @fold_reassoc_minmax_k(ptr noundef %0) #
   br label %kfold_intop.exit
 
 25:                                               ; preds = %13
-  %26 = tail call i32 @lj_vm_modi(i32 noundef %14, i32 noundef %16) #12
+  %26 = tail call i32 @lj_vm_modi(i32 noundef %14, i32 noundef %16) #13
   br label %kfold_intop.exit
 
 27:                                               ; preds = %13
@@ -5053,7 +5053,7 @@ kfold_intop.exit.thread:                          ; preds = %13, %kfold_intop.ex
 59:                                               ; preds = %55
   %60 = load i16, ptr %5, align 8, !tbaa !28
   store i16 %60, ptr %4, align 8, !tbaa !28
-  %61 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #12
+  %61 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #13
   %62 = trunc i32 %61 to i16
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %62, ptr %63, align 2, !tbaa !28
@@ -5207,7 +5207,7 @@ define internal i32 @fold_abc_k(ptr noundef %0) #0 {
   br i1 %38, label %16, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %36, %10
-  %39 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %39 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %._crit_edge, %25, %32, %1
@@ -5431,7 +5431,7 @@ define internal i32 @fold_comm_bxor(ptr noundef %0) #0 {
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %7
-  %15 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef 0) #12
+  %15 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef 0) #13
   br label %fold_comm_swap.exit
 
 16:                                               ; preds = %7
@@ -5490,7 +5490,7 @@ define internal range(i32 0, 5) i32 @fold_merge_eqne_snew_kgc(ptr noundef %0) #0
   br i1 %25, label %28, label %34
 
 28:                                               ; preds = %24
-  %29 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %7) #12
+  %29 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %7) #13
   %30 = trunc i32 %29 to i16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i16 2195, ptr %31, align 4, !tbaa !28
@@ -5548,7 +5548,7 @@ define internal range(i32 0, 5) i32 @fold_merge_eqne_snew_kgc(ptr noundef %0) #0
 
 56:                                               ; preds = %41
   %57 = load i64, ptr %53, align 8, !tbaa !80
-  %58 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %57) #12
+  %58 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %57) #13
   br label %kfold_xload.exit
 
 59:                                               ; preds = %41
@@ -5577,12 +5577,12 @@ define internal range(i32 0, 5) i32 @fold_merge_eqne_snew_kgc(ptr noundef %0) #0
 
 73:                                               ; preds = %41, %41
   %74 = load i64, ptr %53, align 8, !tbaa !80
-  %75 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %74) #12
+  %75 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %74) #13
   br label %kfold_xload.exit
 
 76:                                               ; preds = %71, %68, %65, %62, %59
   %.0.i = phi i32 [ %61, %59 ], [ %64, %62 ], [ %67, %65 ], [ %70, %68 ], [ %72, %71 ]
-  %77 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #12
+  %77 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #13
   br label %kfold_xload.exit
 
 kfold_xload.exit:                                 ; preds = %41, %56, %73, %76
@@ -5592,7 +5592,7 @@ kfold_xload.exit:                                 ; preds = %41, %56, %73, %76
 
 79:                                               ; preds = %kfold_xload.exit
   %80 = trunc i32 %49 to i16
-  %81 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 16777215) #12
+  %81 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 16777215) #13
   %82 = trunc i32 %81 to i16
   store i16 8467, ptr %47, align 4, !tbaa !28
   store i16 %80, ptr %2, align 8, !tbaa !28
@@ -5760,7 +5760,7 @@ define internal i32 @fold_cse_uref(ptr noundef %0) #0 {
   br i1 %.not26.i, label %81, label %79
 
 79:                                               ; preds = %76, %73, %70, %67, %64, %61, %58, %55, %52
-  %80 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %80 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %93
 
 81:                                               ; preds = %76, %48
@@ -5785,7 +5785,7 @@ define internal i32 @fold_cse_uref(ptr noundef %0) #0 {
   br i1 %.not29.not, label %.thread35, label %23, !llvm.loop !81
 
 .thread35:                                        ; preds = %90, %5, %1
-  %92 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %92 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %93
 
 93:                                               ; preds = %41, %45, %79, %81, %88, %.thread35
@@ -5897,7 +5897,7 @@ define internal i32 @fold_cse_urefo(ptr noundef %0) #0 {
   br i1 %.not26.i, label %57, label %55
 
 55:                                               ; preds = %52, %49, %46, %43, %40, %37, %34, %31, %28
-  %56 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %56 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %69
 
 57:                                               ; preds = %52, %24
@@ -5922,7 +5922,7 @@ merge_uref.exit:                                  ; preds = %13
   br i1 %67, label %13, label %.thread
 
 .thread:                                          ; preds = %merge_uref.exit, %5, %1
-  %68 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %68 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %69
 
 69:                                               ; preds = %17, %21, %55, %57, %64, %.thread
@@ -5934,13 +5934,13 @@ declare hidden i32 @lj_opt_fwd_hrefk(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fwd_href_tnew(ptr noundef %0) #0 {
-  %2 = tail call i32 @lj_opt_fwd_href_nokey(ptr noundef %0) #12
+  %2 = tail call i32 @lj_opt_fwd_href_nokey(ptr noundef %0) #13
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 -488
-  %5 = tail call i32 @lj_ir_kptr_(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %4) #12
+  %5 = tail call i32 @lj_ir_kptr_(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %4) #13
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -5955,7 +5955,7 @@ define internal i32 @fold_fwd_href_tdup(ptr noundef %0) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @lj_ir_kvalue(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %5) #12
+  call void @lj_ir_kvalue(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %5) #13
   %6 = load ptr, ptr %3, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !30
@@ -5966,18 +5966,18 @@ define internal i32 @fold_fwd_href_tdup(ptr noundef %0) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = inttoptr i64 %14 to ptr
-  %16 = call ptr @lj_tab_get(ptr noundef %6, ptr noundef %15, ptr noundef nonnull %2) #12
+  %16 = call ptr @lj_tab_get(ptr noundef %6, ptr noundef %15, ptr noundef nonnull %2) #13
   %17 = getelementptr inbounds i8, ptr %0, i64 -488
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %1
-  %20 = call i32 @lj_opt_fwd_href_nokey(ptr noundef nonnull %0) #12
+  %20 = call i32 @lj_opt_fwd_href_nokey(ptr noundef nonnull %0) #13
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull %17) #12
+  %22 = call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull %17) #13
   br label %23
 
 23:                                               ; preds = %1, %19, %21
@@ -5998,7 +5998,7 @@ define internal range(i32 0, 3) i32 @fold_fload_tab_tnew_asize(ptr noundef %0) #
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i16, ptr %6, align 8, !tbaa !28
   %8 = zext i16 %7 to i32
-  %9 = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %0, i32 noundef %8) #12
+  %9 = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %0, i32 noundef %8) #13
   %.not5 = icmp eq i32 %9, 0
   br i1 %.not5, label %14, label %10
 
@@ -6026,7 +6026,7 @@ define internal range(i32 0, 3) i32 @fold_fload_tab_tnew_hmask(ptr noundef %0) #
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i16, ptr %6, align 8, !tbaa !28
   %8 = zext i16 %7 to i32
-  %9 = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %0, i32 noundef %8) #12
+  %9 = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %0, i32 noundef %8) #13
   %.not5 = icmp eq i32 %9, 0
   br i1 %.not5, label %15, label %10
 
@@ -6056,7 +6056,7 @@ define internal range(i32 0, 3) i32 @fold_fload_tab_tdup_asize(ptr noundef %0) #
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i16, ptr %6, align 8, !tbaa !28
   %8 = zext i16 %7 to i32
-  %9 = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %0, i32 noundef %8) #12
+  %9 = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %0, i32 noundef %8) #13
   %.not6 = icmp eq i32 %9, 0
   br i1 %.not6, label %22, label %10
 
@@ -6092,7 +6092,7 @@ define internal range(i32 0, 3) i32 @fold_fload_tab_tdup_hmask(ptr noundef %0) #
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i16, ptr %6, align 8, !tbaa !28
   %8 = zext i16 %7 to i32
-  %9 = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %0, i32 noundef %8) #12
+  %9 = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %0, i32 noundef %8) #13
   %.not6 = icmp eq i32 %9, 0
   br i1 %.not6, label %22, label %10
 
@@ -6180,7 +6180,7 @@ define internal i32 @fold_fload_tab_ah(ptr noundef %0) #0 {
   br i1 %.not.i.i, label %lj_ir_nextins.exit.i, label %37, !prof !27
 
 37:                                               ; preds = %.loopexit.i
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #12
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #13
   br label %lj_ir_nextins.exit.i
 
 lj_ir_nextins.exit.i:                             ; preds = %37, %.loopexit.i
@@ -6218,12 +6218,12 @@ lj_ir_nextins.exit.i:                             ; preds = %37, %.loopexit.i
 lj_opt_cse.exit:                                  ; preds = %.thread.i, %lj_ir_nextins.exit.i
   %.1.i = phi i32 [ %59, %lj_ir_nextins.exit.i ], [ %30, %.thread.i ]
   %60 = and i32 %.1.i, 65535
-  %61 = tail call i32 @lj_opt_fwd_tptr(ptr noundef %0, i32 noundef %60) #12
+  %61 = tail call i32 @lj_opt_fwd_tptr(ptr noundef %0, i32 noundef %60) #13
   %.not = icmp eq i32 %61, 0
   br i1 %.not, label %62, label %64
 
 62:                                               ; preds = %lj_opt_cse.exit
-  %63 = tail call i32 @lj_ir_emit(ptr noundef %0) #12
+  %63 = tail call i32 @lj_ir_emit(ptr noundef %0) #13
   br label %64
 
 64:                                               ; preds = %lj_opt_cse.exit, %62
@@ -6306,14 +6306,14 @@ define internal range(i32 0, 3) i32 @fold_fload_str_len_tostr(ptr noundef captur
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fload_sbuf(ptr noundef %0) #0 {
-  %2 = tail call i32 @lj_opt_fwd_fload(ptr noundef %0) #12
+  %2 = tail call i32 @lj_opt_fwd_fload(ptr noundef %0) #13
   %3 = and i32 %2, 65535
-  %4 = tail call i32 @lj_opt_fwd_sbuf(ptr noundef %0, i32 noundef %3) #12
+  %4 = tail call i32 @lj_opt_fwd_sbuf(ptr noundef %0, i32 noundef %3) #13
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @lj_ir_emit(ptr noundef %0) #12
+  %6 = tail call i32 @lj_ir_emit(ptr noundef %0) #13
   br label %7
 
 7:                                                ; preds = %1, %5
@@ -6393,7 +6393,7 @@ define internal i32 @fold_fload_cdata_int64_kgc(ptr noundef %0) #0 {
 
 16:                                               ; preds = %5
   %17 = load i64, ptr %9, align 8, !tbaa !80
-  %18 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %17) #12
+  %18 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %17) #13
   br label %22
 
 19:                                               ; preds = %5
@@ -6516,7 +6516,7 @@ define internal i32 @fold_fwd_sload(ptr noundef %0) #0 {
   br i1 %.not.i.i, label %lj_ir_nextins.exit.i, label %39, !prof !27
 
 39:                                               ; preds = %.loopexit.i
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #12
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #13
   br label %lj_ir_nextins.exit.i
 
 lj_ir_nextins.exit.i:                             ; preds = %39, %.loopexit.i
@@ -6561,7 +6561,7 @@ lj_opt_cse.exit:                                  ; preds = %.thread.i, %lj_ir_n
   br i1 %66, label %67, label %75
 
 67:                                               ; preds = %lj_opt_cse.exit
-  %68 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %68 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %75
 
 69:                                               ; preds = %1
@@ -6599,7 +6599,7 @@ define internal i32 @fold_xload_kptr(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = load i64, ptr %4, align 8, !tbaa !80
-  %9 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %8) #12
+  %9 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %0, i64 noundef %8) #13
   br label %kfold_xload.exit
 
 10:                                               ; preds = %1
@@ -6628,12 +6628,12 @@ define internal i32 @fold_xload_kptr(ptr noundef %0) #0 {
 
 24:                                               ; preds = %1, %1
   %25 = load i64, ptr %4, align 8, !tbaa !80
-  %26 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %25) #12
+  %26 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef %25) #13
   br label %kfold_xload.exit
 
 27:                                               ; preds = %22, %19, %16, %13, %10
   %.0.i = phi i32 [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %23, %22 ]
-  %28 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #12
+  %28 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.0.i) #13
   br label %kfold_xload.exit
 
 kfold_xload.exit:                                 ; preds = %1, %7, %24, %27
@@ -6678,7 +6678,7 @@ define internal i32 @fold_fold_base(ptr noundef %0) #0 {
   br i1 %21, label %lj_opt_cselim.exit.loopexit, label %14
 
 ._crit_edge.i:                                    ; preds = %14, %1
-  %22 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %22 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %lj_opt_cselim.exit
 
 lj_opt_cselim.exit.loopexit:                      ; preds = %17
@@ -6754,7 +6754,7 @@ define internal i32 @fold_barrier_tab(ptr noundef %0) #0 {
   br i1 %.not.i.i, label %lj_ir_nextins.exit.i, label %37, !prof !27
 
 37:                                               ; preds = %.loopexit.i
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #12
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #13
   br label %lj_ir_nextins.exit.i
 
 lj_ir_nextins.exit.i:                             ; preds = %37, %.loopexit.i
@@ -6853,7 +6853,7 @@ lj_opt_cse.exit:                                  ; preds = %.thread.i, %lj_ir_n
   br i1 %.not21, label %94, label %92
 
 92:                                               ; preds = %89, %86, %83, %80, %77, %74, %71, %68, %65
-  %93 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %93 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %94
 
 94:                                               ; preds = %lj_opt_cse.exit, %89, %92
@@ -6884,7 +6884,7 @@ define internal i32 @fold_prof(ptr noundef %0) #0 {
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %10 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %11
 
 11:                                               ; preds = %1, %9
@@ -6964,7 +6964,7 @@ define internal i32 @fold_cse_carg(ptr noundef %0) #0 {
   br i1 %.not.i.i, label %lj_ir_nextins.exit.i, label %37, !prof !27
 
 37:                                               ; preds = %.loopexit.i
-  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #12
+  tail call void @lj_ir_growtop(ptr noundef nonnull %0) #13
   br label %lj_ir_nextins.exit.i
 
 lj_ir_nextins.exit.i:                             ; preds = %37, %.loopexit.i
@@ -7009,7 +7009,7 @@ lj_opt_cse.exit:                                  ; preds = %.thread.i, %lj_ir_n
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %lj_opt_cse.exit
-  %66 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
+  %66 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #13
   br label %67
 
 67:                                               ; preds = %lj_opt_cse.exit, %65
@@ -7027,7 +7027,7 @@ declare hidden i32 @lj_ir_numcmp(double noundef, double noundef, i32 noundef) lo
 
 declare hidden i32 @lj_vm_modi(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #9
 
 declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -7046,7 +7046,7 @@ declare hidden i64 @lj_carith_powu64(i64 noundef, i64 noundef) local_unnamed_add
 
 declare hidden i64 @lj_carith_shift64(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #9
 
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -7084,7 +7084,7 @@ declare hidden i32 @lj_ir_ggfload(ptr noundef, i32 noundef, i64 noundef) local_u
 declare hidden i32 @lj_opt_narrow_convert(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 declare hidden i32 @lj_opt_fwd_href_nokey(ptr noundef) local_unnamed_addr #1
 
@@ -7099,34 +7099,34 @@ declare hidden i32 @lj_opt_fwd_sbuf(ptr noundef, i32 noundef) local_unnamed_addr
 declare hidden void @lj_ir_growtop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshr.i32(i32, i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshr.i32(i32, i32, i32) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshr.i64(i64, i64, i64) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umax.i16(i16, i16) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7137,11 +7137,12 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

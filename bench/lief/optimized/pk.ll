@@ -40,11 +40,11 @@ define hidden void @mbedtls_pk_free(ptr noundef %0) local_unnamed_addr #1 {
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !13
-  tail call void %7(ptr noundef %10) #8
+  tail call void %7(ptr noundef %10) #9
   br label %11
 
 11:                                               ; preds = %8, %5, %3
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 16) #8
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 16) #9
   br label %12
 
 12:                                               ; preds = %1, %11
@@ -87,7 +87,7 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup(ptr noundef captures(no
   br i1 %.not9, label %13, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr %8() #8
+  %10 = tail call ptr %8() #9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !13
   %12 = icmp eq ptr %10, null
@@ -110,7 +110,7 @@ define hidden range(i32 -16256, 1) i32 @mbedtls_pk_setup_rsa_alt(ptr noundef cap
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mbedtls_rsa_alt_info, i64 72), align 8, !tbaa !14
-  %9 = tail call ptr %8() #8
+  %9 = tail call ptr %8() #9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !13
   %11 = icmp eq ptr %9, null
@@ -145,7 +145,7 @@ define hidden i32 @mbedtls_pk_can_do(ptr noundef readonly captures(address_is_nu
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !20
-  %10 = tail call i32 %9(i32 noundef %1) #8
+  %10 = tail call i32 %9(i32 noundef %1) #9
   br label %11
 
 11:                                               ; preds = %2, %4, %7
@@ -233,7 +233,7 @@ mbedtls_pk_get_type.exit.i:                       ; preds = %switch.lookup
 
 mbedtls_pk_rsa.exit:                              ; preds = %switch.lookup, %mbedtls_pk_get_type.exit.i
   %28 = phi ptr [ null, %switch.lookup ], [ %spec.select.i, %mbedtls_pk_get_type.exit.i ]
-  %29 = tail call i32 @mbedtls_rsa_check_privkey(ptr noundef %28) #8
+  %29 = tail call i32 @mbedtls_rsa_check_privkey(ptr noundef %28) #9
   %30 = icmp eq i32 %29, 0
   %or.cond4 = select i1 %17, i1 true, i1 %30
   br i1 %or.cond4, label %31, label %.critedge
@@ -248,7 +248,7 @@ mbedtls_pk_rsa.exit:                              ; preds = %switch.lookup, %mbe
 mbedtls_pk_get_bitlen.exit:                       ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !26
-  %37 = tail call i64 %36(ptr noundef nonnull %0) #8
+  %37 = tail call i64 %36(ptr noundef nonnull %0) #9
   %.fr = freeze i64 %37
   %38 = icmp ugt i64 %.fr, 65528
   %39 = trunc nuw i64 %.fr to i16
@@ -259,7 +259,7 @@ mbedtls_pk_get_bitlen.exit.thread:                ; preds = %mbedtls_pk_get_bitl
   %40 = phi i16 [ 0, %31 ], [ %spec.select, %mbedtls_pk_get_bitlen.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %40, ptr %41, align 2, !tbaa !27
-  %42 = tail call i32 @mbedtls_rsa_get_padding_mode(ptr noundef %28) #8
+  %42 = tail call i32 @mbedtls_rsa_get_padding_mode(ptr noundef %28) #9
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %49
 
@@ -267,7 +267,7 @@ mbedtls_pk_get_bitlen.exit.thread:                ; preds = %mbedtls_pk_get_bitl
   br i1 %switch.masked, label %psa_algorithm_for_rsa.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = tail call i32 @mbedtls_rsa_get_md_alg(ptr noundef %28) #8
+  %46 = tail call i32 @mbedtls_rsa_get_md_alg(ptr noundef %28) #9
   %47 = and i32 %46, 255
   %48 = or disjoint i32 %47, 117441280
   br label %psa_algorithm_for_rsa.exit
@@ -293,7 +293,7 @@ mbedtls_pk_ec_ro.exit:                            ; preds = %switch.edge, %switc
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !37
   %56 = load i32, ptr %52, align 8, !tbaa !38
-  %57 = call zeroext i8 @mbedtls_ecc_group_to_psa(i32 noundef %56, ptr noundef nonnull %4) #8
+  %57 = call zeroext i8 @mbedtls_ecc_group_to_psa(i32 noundef %56, ptr noundef nonnull %4) #9
   %58 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %.split5, label %71
@@ -394,7 +394,7 @@ define hidden i64 @mbedtls_pk_get_bitlen(ptr noundef %0) local_unnamed_addr #1 {
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = tail call i64 %8(ptr noundef nonnull %0) #8
+  %9 = tail call i64 %8(ptr noundef nonnull %0) #9
   br label %10
 
 10:                                               ; preds = %1, %3, %6
@@ -481,7 +481,7 @@ mbedtls_pk_rsa.exit.i:                            ; preds = %27
   store ptr %28, ptr %10, align 8, !tbaa !42
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @mbedtls_rsa_write_pubkey(ptr noundef %30, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
+  %31 = call i32 @mbedtls_rsa_write_pubkey(ptr noundef %30, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
   %32 = icmp sgt i32 %31, -1
   br i1 %32, label %33, label %import_public_into_psa.exit
 
@@ -497,7 +497,7 @@ mbedtls_pk_ec_ro.exit.i:                          ; preds = %mbedtls_pk_get_type
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !37
   %37 = load i32, ptr %36, align 8, !tbaa !38
-  %38 = call zeroext i8 @mbedtls_ecc_group_to_psa(i32 noundef %37, ptr noundef nonnull %12) #8
+  %38 = call zeroext i8 @mbedtls_ecc_group_to_psa(i32 noundef %37, ptr noundef nonnull %12) #9
   %39 = zext i16 %.val18 to i32
   %40 = zext i8 %38 to i32
   %41 = or disjoint i32 %40, 16640
@@ -505,7 +505,7 @@ mbedtls_pk_ec_ro.exit.i:                          ; preds = %mbedtls_pk_get_type
   br i1 %.not.i, label %42, label %.thread.i
 
 42:                                               ; preds = %mbedtls_pk_ec_ro.exit.i
-  %43 = call i32 @mbedtls_ecp_write_public_key(ptr noundef nonnull %36, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull %9, i64 noundef 1024) #8
+  %43 = call i32 @mbedtls_ecp_write_public_key(ptr noundef nonnull %36, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull %9, i64 noundef 1024) #9
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %45, label %.thread.i
 
@@ -523,8 +523,8 @@ mbedtls_pk_ec_ro.exit.i:                          ; preds = %mbedtls_pk_get_type
 46:                                               ; preds = %45, %33
   %47 = phi i64 [ %.pre29.i, %45 ], [ %34, %33 ]
   %48 = phi ptr [ %9, %45 ], [ %.pre.i, %33 ]
-  %49 = call i32 @psa_import_key(ptr noundef nonnull %1, ptr noundef %48, i64 noundef %47, ptr noundef nonnull %2) #8
-  %50 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %49) #8
+  %49 = call i32 @psa_import_key(ptr noundef nonnull %1, ptr noundef %48, i64 noundef %47, ptr noundef nonnull %2) #9
+  %50 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %49) #9
   br label %import_public_into_psa.exit
 
 import_public_into_psa.exit:                      ; preds = %.thread39, %25, %mbedtls_pk_get_type.exit.i, %27, %mbedtls_pk_rsa.exit.i, %.thread.i, %46
@@ -554,7 +554,7 @@ mbedtls_pk_rsa.exit.i16:                          ; preds = %52
   store ptr %53, ptr %5, align 8, !tbaa !42
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 @mbedtls_rsa_write_key(ptr noundef %55, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  %56 = call i32 @mbedtls_rsa_write_key(ptr noundef %55, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %66, label %58
 
@@ -563,10 +563,10 @@ mbedtls_pk_rsa.exit.i16:                          ; preds = %52
   %60 = ptrtoint ptr %53 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
-  %63 = call i32 @psa_import_key(ptr noundef nonnull %1, ptr noundef %59, i64 noundef %62, ptr noundef nonnull %2) #8
-  %64 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %63) #8
+  %63 = call i32 @psa_import_key(ptr noundef nonnull %1, ptr noundef %59, i64 noundef %62, ptr noundef nonnull %2) #9
+  %64 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %63) #9
   %65 = load ptr, ptr %5, align 8, !tbaa !42
-  call void @mbedtls_platform_zeroize(ptr noundef %65, i64 noundef %62) #8
+  call void @mbedtls_platform_zeroize(ptr noundef %65, i64 noundef %62) #9
   br label %66
 
 66:                                               ; preds = %58, %mbedtls_pk_rsa.exit.i16
@@ -581,7 +581,7 @@ mbedtls_pk_ec_ro.exit.i12:                        ; preds = %mbedtls_pk_get_type
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !37
   %69 = load i32, ptr %68, align 8, !tbaa !38
-  %70 = call zeroext i8 @mbedtls_ecc_group_to_psa(i32 noundef %69, ptr noundef nonnull %6) #8
+  %70 = call zeroext i8 @mbedtls_ecc_group_to_psa(i32 noundef %69, ptr noundef nonnull %6) #9
   %71 = zext i16 %.val18 to i32
   %72 = zext i8 %70 to i32
   %73 = or disjoint i32 %72, 28928
@@ -598,16 +598,16 @@ mbedtls_pk_ec_ro.exit.i12:                        ; preds = %mbedtls_pk_get_type
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !37
-  %79 = call i32 @mbedtls_ecp_write_key_ext(ptr noundef nonnull %68, ptr noundef nonnull %8, ptr noundef nonnull %7, i64 noundef 66) #8
+  %79 = call i32 @mbedtls_ecp_write_key_ext(ptr noundef nonnull %68, ptr noundef nonnull %8, ptr noundef nonnull %7, i64 noundef 66) #9
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %86, label %81
 
 81:                                               ; preds = %78
   %82 = load i64, ptr %8, align 8, !tbaa !37
-  %83 = call i32 @psa_import_key(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef %82, ptr noundef nonnull %2) #8
-  %84 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %83) #8
+  %83 = call i32 @psa_import_key(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef %82, ptr noundef nonnull %2) #9
+  %84 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %83) #9
   %85 = load i64, ptr %8, align 8, !tbaa !37
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef %85) #8
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef %85) #9
   br label %86
 
 86:                                               ; preds = %81, %78
@@ -645,7 +645,7 @@ define internal fastcc i32 @copy_from_psa(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %7, label %90, label %8
 
 8:                                                ; preds = %3
-  %9 = call i32 @psa_get_key_attributes(i32 noundef %0, ptr noundef nonnull %4) #8
+  %9 = call i32 @psa_get_key_attributes(i32 noundef %0, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %90
 
@@ -654,11 +654,11 @@ define internal fastcc i32 @copy_from_psa(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %.not68, label %13, label %11
 
 11:                                               ; preds = %10
-  %12 = call i32 @psa_export_public_key(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 2363, ptr noundef nonnull %6) #8
+  %12 = call i32 @psa_export_public_key(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 2363, ptr noundef nonnull %6) #9
   br label %15
 
 13:                                               ; preds = %10
-  %14 = call i32 @psa_export_key(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 2363, ptr noundef nonnull %6) #8
+  %14 = call i32 @psa_export_key(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 2363, ptr noundef nonnull %6) #9
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -667,7 +667,7 @@ define internal fastcc i32 @copy_from_psa(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %.not69, label %18, label %16
 
 16:                                               ; preds = %15
-  %17 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %.055) #8
+  %17 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %.055) #9
   br label %mbedtls_pk_setup.exit.thread
 
 18:                                               ; preds = %15
@@ -695,7 +695,7 @@ define internal fastcc i32 @copy_from_psa(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %.not9.i, label %32, label %28
 
 28:                                               ; preds = %26
-  %29 = call ptr %27() #8
+  %29 = call ptr %27() #9
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !13
   %31 = icmp eq ptr %29, null
@@ -713,11 +713,11 @@ define internal fastcc i32 @copy_from_psa(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %23, label %mbedtls_pk_rsa.exit, label %mbedtls_pk_rsa.exit87
 
 mbedtls_pk_rsa.exit:                              ; preds = %32
-  %37 = call i32 @mbedtls_rsa_parse_key(ptr noundef %spec.select.i, ptr noundef nonnull %5, i64 noundef %36) #8
+  %37 = call i32 @mbedtls_rsa_parse_key(ptr noundef %spec.select.i, ptr noundef nonnull %5, i64 noundef %36) #9
   br label %39
 
 mbedtls_pk_rsa.exit87:                            ; preds = %32
-  %38 = call i32 @mbedtls_rsa_parse_pubkey(ptr noundef %spec.select.i, ptr noundef nonnull %5, i64 noundef %36) #8
+  %38 = call i32 @mbedtls_rsa_parse_pubkey(ptr noundef %spec.select.i, ptr noundef nonnull %5, i64 noundef %36) #9
   br label %39
 
 39:                                               ; preds = %mbedtls_pk_rsa.exit87, %mbedtls_pk_rsa.exit
@@ -754,7 +754,7 @@ mbedtls_pk_get_type.exit.i88:                     ; preds = %44
 
 mbedtls_pk_rsa.exit92:                            ; preds = %44, %mbedtls_pk_get_type.exit.i88
   %50 = phi ptr [ null, %44 ], [ %spec.select.i91, %mbedtls_pk_get_type.exit.i88 ]
-  %51 = call i32 @mbedtls_rsa_set_padding(ptr noundef %50, i32 noundef 1, i32 noundef %spec.select107) #8
+  %51 = call i32 @mbedtls_rsa_set_padding(ptr noundef %50, i32 noundef 1, i32 noundef %spec.select107) #9
   br label %mbedtls_pk_setup.exit.thread
 
 52:                                               ; preds = %40
@@ -779,7 +779,7 @@ mbedtls_pk_get_type.exit.i93:                     ; preds = %55
 
 mbedtls_pk_rsa.exit97:                            ; preds = %55, %mbedtls_pk_get_type.exit.i93
   %61 = phi ptr [ null, %55 ], [ %spec.select.i96, %mbedtls_pk_get_type.exit.i93 ]
-  %62 = call i32 @mbedtls_rsa_set_padding(ptr noundef %61, i32 noundef 0, i32 noundef %spec.select107) #8
+  %62 = call i32 @mbedtls_rsa_set_padding(ptr noundef %61, i32 noundef 0, i32 noundef %spec.select107) #9
   br label %mbedtls_pk_setup.exit.thread
 
 63:                                               ; preds = %18
@@ -802,7 +802,7 @@ mbedtls_pk_rsa.exit97:                            ; preds = %55, %mbedtls_pk_get
   br i1 %.not9.i101, label %74, label %70
 
 70:                                               ; preds = %68
-  %71 = call ptr %69() #8
+  %71 = call ptr %69() #9
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %71, ptr %72, align 8, !tbaa !13
   %73 = icmp eq ptr %71, null
@@ -814,8 +814,8 @@ mbedtls_pk_rsa.exit97:                            ; preds = %55, %mbedtls_pk_get
   %76 = icmp eq i32 %75, 16640
   %77 = trunc i16 %spec.select to i8
   %78 = select i1 %76, i8 %77, i8 0
-  %79 = call i32 @mbedtls_ecc_group_from_psa(i8 noundef zeroext %78, i64 noundef %21) #8
-  %80 = call i32 @mbedtls_pk_ecc_set_group(ptr noundef nonnull %1, i32 noundef %79) #8
+  %79 = call i32 @mbedtls_ecc_group_from_psa(i8 noundef zeroext %78, i64 noundef %21) #9
+  %80 = call i32 @mbedtls_pk_ecc_set_group(ptr noundef nonnull %1, i32 noundef %79) #9
   %.not71 = icmp eq i32 %80, 0
   br i1 %.not71, label %81, label %mbedtls_pk_setup.exit.thread
 
@@ -824,23 +824,23 @@ mbedtls_pk_rsa.exit97:                            ; preds = %55, %mbedtls_pk_get
   br i1 %65, label %83, label %88
 
 83:                                               ; preds = %81
-  %84 = call i32 @mbedtls_pk_ecc_set_key(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %82) #8
+  %84 = call i32 @mbedtls_pk_ecc_set_key(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %82) #9
   %.not72 = icmp eq i32 %84, 0
   br i1 %.not72, label %85, label %mbedtls_pk_setup.exit.thread
 
 85:                                               ; preds = %83
   %86 = load i64, ptr %6, align 8, !tbaa !37
-  %87 = call i32 @mbedtls_pk_ecc_set_pubkey_from_prv(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %86, ptr noundef nonnull @mbedtls_psa_get_random, ptr noundef null) #8
+  %87 = call i32 @mbedtls_pk_ecc_set_pubkey_from_prv(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %86, ptr noundef nonnull @mbedtls_psa_get_random, ptr noundef null) #9
   br label %mbedtls_pk_setup.exit.thread
 
 88:                                               ; preds = %81
-  %89 = call i32 @mbedtls_pk_ecc_set_pubkey(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %82) #8
+  %89 = call i32 @mbedtls_pk_ecc_set_pubkey(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %82) #9
   br label %mbedtls_pk_setup.exit.thread
 
 mbedtls_pk_setup.exit.thread:                     ; preds = %85, %88, %70, %66, %28, %24, %mbedtls_pk_rsa.exit92, %52, %mbedtls_pk_rsa.exit97, %74, %83, %39, %16
   %.057 = phi i32 [ %17, %16 ], [ %.158, %39 ], [ %80, %74 ], [ %84, %83 ], [ %51, %mbedtls_pk_rsa.exit92 ], [ %62, %mbedtls_pk_rsa.exit97 ], [ 0, %52 ], [ -16256, %28 ], [ -16000, %24 ], [ -16256, %70 ], [ -16000, %66 ], [ %87, %85 ], [ %89, %88 ]
-  call void @psa_reset_key_attributes(ptr noundef nonnull %4) #8
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 2363) #8
+  call void @psa_reset_key_attributes(ptr noundef nonnull %4) #9
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 2363) #9
   br label %90
 
 90:                                               ; preds = %63, %8, %3, %mbedtls_pk_setup.exit.thread
@@ -876,8 +876,8 @@ define hidden i32 @mbedtls_pk_verify_restartable(ptr noundef %0, i32 noundef %1,
   br i1 %.not.i, label %pk_hashlen_helper.exit, label %pk_hashlen_helper.exit.thread
 
 pk_hashlen_helper.exit:                           ; preds = %14
-  %15 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %1) #8
-  %16 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %15) #8
+  %15 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %1) #9
+  %16 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %15) #9
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %24, label %pk_hashlen_helper.exit.pk_hashlen_helper.exit.thread_crit_edge
 
@@ -895,7 +895,7 @@ pk_hashlen_helper.exit.thread:                    ; preds = %pk_hashlen_helper.e
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %pk_hashlen_helper.exit.thread
-  %23 = tail call i32 %20(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %.01620, ptr noundef %4, i64 noundef %5) #8
+  %23 = tail call i32 %20(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %.01620, ptr noundef %4, i64 noundef %5) #9
   br label %24
 
 24:                                               ; preds = %pk_hashlen_helper.exit.thread, %11, %pk_hashlen_helper.exit, %7, %22
@@ -922,8 +922,8 @@ define hidden i32 @mbedtls_pk_verify(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not.i.i, label %pk_hashlen_helper.exit.i, label %pk_hashlen_helper.exit.thread.i
 
 pk_hashlen_helper.exit.i:                         ; preds = %13
-  %14 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %1) #8
-  %15 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %14) #8
+  %14 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %1) #9
+  %15 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %14) #9
   %.not.i = icmp eq i8 %15, 0
   br i1 %.not.i, label %mbedtls_pk_verify_restartable.exit, label %pk_hashlen_helper.exit.pk_hashlen_helper.exit.thread_crit_edge.i
 
@@ -941,7 +941,7 @@ pk_hashlen_helper.exit.thread.i:                  ; preds = %pk_hashlen_helper.e
   br i1 %20, label %mbedtls_pk_verify_restartable.exit, label %21
 
 21:                                               ; preds = %pk_hashlen_helper.exit.thread.i
-  %22 = tail call i32 %19(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %.01620.i, ptr noundef %4, i64 noundef %5) #8
+  %22 = tail call i32 %19(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %.01620.i, ptr noundef %4, i64 noundef %5) #9
   br label %mbedtls_pk_verify_restartable.exit
 
 mbedtls_pk_verify_restartable.exit:               ; preds = %6, %10, %pk_hashlen_helper.exit.i, %pk_hashlen_helper.exit.thread.i, %21
@@ -966,7 +966,7 @@ define hidden i32 @mbedtls_pk_verify_ext(i32 noundef %0, ptr noundef readonly ca
 mbedtls_pk_can_do.exit:                           ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !20
-  %17 = tail call i32 %16(i32 noundef %0) #8
+  %17 = tail call i32 %16(i32 noundef %0) #9
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %mbedtls_pk_verify.exit, label %18
 
@@ -988,8 +988,8 @@ mbedtls_pk_can_do.exit:                           ; preds = %12
   br i1 %.not.i.i.i, label %pk_hashlen_helper.exit.i.i, label %pk_hashlen_helper.exit.thread.i.i
 
 pk_hashlen_helper.exit.i.i:                       ; preds = %23
-  %24 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %3) #8
-  %25 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %24) #8
+  %24 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %3) #9
+  %25 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %24) #9
   %.not.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i, label %mbedtls_pk_verify.exit, label %pk_hashlen_helper.exit.pk_hashlen_helper.exit.thread_crit_edge.i.i
 
@@ -1007,7 +1007,7 @@ pk_hashlen_helper.exit.thread.i.i:                ; preds = %pk_hashlen_helper.e
   br i1 %30, label %mbedtls_pk_verify.exit, label %31
 
 31:                                               ; preds = %pk_hashlen_helper.exit.thread.i.i
-  %32 = tail call i32 %29(ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, i64 noundef %.01620.i.i, ptr noundef %6, i64 noundef %7) #8
+  %32 = tail call i32 %29(ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, i64 noundef %.01620.i.i, ptr noundef %6, i64 noundef %7) #9
   br label %mbedtls_pk_verify.exit
 
 33:                                               ; preds = %18
@@ -1031,7 +1031,7 @@ mbedtls_pk_get_type.exit:                         ; preds = %33
 mbedtls_pk_get_len.exit:                          ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !26
-  %43 = tail call i64 %42(ptr noundef nonnull %2) #8
+  %43 = tail call i64 %42(ptr noundef nonnull %2) #9
   %44 = add i64 %43, 7
   %45 = lshr i64 %44, 3
   %46 = icmp ult i64 %7, %45
@@ -1057,7 +1057,7 @@ mbedtls_pk_rsa.exit:                              ; preds = %47, %mbedtls_pk_get
   %54 = load i32, ptr %1, align 4, !tbaa !44
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !46
-  %57 = tail call i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %52, i32 noundef %3, i32 noundef %53, ptr noundef %4, i32 noundef %54, i32 noundef %56, ptr noundef %6) #8
+  %57 = tail call i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %52, i32 noundef %3, i32 noundef %53, ptr noundef %4, i32 noundef %54, i32 noundef %56, ptr noundef %6) #9
   %.not42 = icmp eq i32 %57, 0
   br i1 %.not42, label %58, label %mbedtls_pk_verify.exit
 
@@ -1069,7 +1069,7 @@ mbedtls_pk_rsa.exit:                              ; preds = %47, %mbedtls_pk_get
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !26
-  %64 = tail call i64 %63(ptr noundef nonnull %2) #8
+  %64 = tail call i64 %63(ptr noundef nonnull %2) #9
   %65 = add i64 %64, 7
   %66 = lshr i64 %65, 3
   br label %mbedtls_pk_get_len.exit48
@@ -1106,8 +1106,8 @@ define hidden i32 @mbedtls_pk_sign_restartable(ptr noundef %0, i32 noundef %1, p
   br i1 %.not.i, label %pk_hashlen_helper.exit, label %pk_hashlen_helper.exit.thread
 
 pk_hashlen_helper.exit:                           ; preds = %17
-  %18 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %1) #8
-  %19 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %18) #8
+  %18 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %1) #9
+  %19 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %18) #9
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %27, label %pk_hashlen_helper.exit.pk_hashlen_helper.exit.thread_crit_edge
 
@@ -1125,7 +1125,7 @@ pk_hashlen_helper.exit.thread:                    ; preds = %pk_hashlen_helper.e
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %pk_hashlen_helper.exit.thread
-  %26 = tail call i32 %23(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %.01923, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #8
+  %26 = tail call i32 %23(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %.01923, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #9
   br label %27
 
 27:                                               ; preds = %pk_hashlen_helper.exit.thread, %14, %pk_hashlen_helper.exit, %10, %25
@@ -1152,8 +1152,8 @@ define hidden i32 @mbedtls_pk_sign(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not.i.i, label %pk_hashlen_helper.exit.i, label %pk_hashlen_helper.exit.thread.i
 
 pk_hashlen_helper.exit.i:                         ; preds = %16
-  %17 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %1) #8
-  %18 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %17) #8
+  %17 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %1) #9
+  %18 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %17) #9
   %.not.i = icmp eq i8 %18, 0
   br i1 %.not.i, label %mbedtls_pk_sign_restartable.exit, label %pk_hashlen_helper.exit.pk_hashlen_helper.exit.thread_crit_edge.i
 
@@ -1171,7 +1171,7 @@ pk_hashlen_helper.exit.thread.i:                  ; preds = %pk_hashlen_helper.e
   br i1 %23, label %mbedtls_pk_sign_restartable.exit, label %24
 
 24:                                               ; preds = %pk_hashlen_helper.exit.thread.i
-  %25 = tail call i32 %22(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %.01923.i, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #8
+  %25 = tail call i32 %22(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i64 noundef %.01923.i, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #9
   br label %mbedtls_pk_sign_restartable.exit
 
 mbedtls_pk_sign_restartable.exit:                 ; preds = %9, %13, %pk_hashlen_helper.exit.i, %pk_hashlen_helper.exit.thread.i, %24
@@ -1188,7 +1188,7 @@ define hidden i32 @mbedtls_pk_sign_ext(i32 noundef %0, ptr noundef %1, i32 nound
 mbedtls_pk_can_do.exit:                           ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !20
-  %15 = tail call i32 %14(i32 noundef %0) #8
+  %15 = tail call i32 %14(i32 noundef %0) #9
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %mbedtls_pk_sign.exit, label %16
 
@@ -1214,8 +1214,8 @@ mbedtls_pk_can_do.exit:                           ; preds = %10
   br i1 %.not.i.i.i, label %pk_hashlen_helper.exit.i.i, label %pk_hashlen_helper.exit.thread.i.i
 
 pk_hashlen_helper.exit.i.i:                       ; preds = %24
-  %25 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %2) #8
-  %26 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %25) #8
+  %25 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %2) #9
+  %26 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %25) #9
   %.not.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i, label %mbedtls_pk_sign.exit, label %pk_hashlen_helper.exit.pk_hashlen_helper.exit.thread_crit_edge.i.i
 
@@ -1233,7 +1233,7 @@ pk_hashlen_helper.exit.thread.i.i:                ; preds = %pk_hashlen_helper.e
   br i1 %31, label %mbedtls_pk_sign.exit, label %32
 
 32:                                               ; preds = %pk_hashlen_helper.exit.thread.i.i
-  %33 = tail call i32 %30(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i64 noundef %.01923.i.i, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #8
+  %33 = tail call i32 %30(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i64 noundef %.01923.i.i, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #9
   br label %mbedtls_pk_sign.exit
 
 34:                                               ; preds = %16
@@ -1244,7 +1244,7 @@ pk_hashlen_helper.exit.thread.i.i:                ; preds = %pk_hashlen_helper.e
 mbedtls_pk_get_len.exit:                          ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !26
-  %39 = tail call i64 %38(ptr noundef nonnull %1) #8
+  %39 = tail call i64 %38(ptr noundef nonnull %1) #9
   %40 = add i64 %39, 7
   %41 = lshr i64 %40, 3
   %42 = icmp ult i64 %6, %41
@@ -1255,8 +1255,8 @@ mbedtls_pk_get_len.exit.thread:                   ; preds = %34, %mbedtls_pk_get
   br i1 %.not.i, label %pk_hashlen_helper.exit, label %pk_hashlen_helper.exit.thread
 
 pk_hashlen_helper.exit:                           ; preds = %mbedtls_pk_get_len.exit.thread
-  %43 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %2) #8
-  %44 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %43) #8
+  %43 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %2) #9
+  %44 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %43) #9
   %45 = zext i8 %44 to i64
   %.not38 = icmp eq i8 %44, 0
   br i1 %.not38, label %mbedtls_pk_sign.exit, label %pk_hashlen_helper.exit.thread
@@ -1279,7 +1279,7 @@ mbedtls_pk_get_type.exit.i:                       ; preds = %pk_hashlen_helper.e
 mbedtls_pk_rsa.exit:                              ; preds = %pk_hashlen_helper.exit.thread, %mbedtls_pk_get_type.exit.i
   %51 = phi ptr [ null, %pk_hashlen_helper.exit.thread ], [ %spec.select.i, %mbedtls_pk_get_type.exit.i ]
   %52 = trunc i64 %.03237 to i32
-  %53 = tail call i32 @mbedtls_rsa_rsassa_pss_sign_no_mode_check(ptr noundef %51, ptr noundef %8, ptr noundef %9, i32 noundef %2, i32 noundef %52, ptr noundef %3, ptr noundef %5) #8
+  %53 = tail call i32 @mbedtls_rsa_rsassa_pss_sign_no_mode_check(ptr noundef %51, ptr noundef %8, ptr noundef %9, i32 noundef %2, i32 noundef %52, ptr noundef %3, ptr noundef %5) #9
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %mbedtls_pk_sign.exit
 
@@ -1309,7 +1309,7 @@ define hidden i32 @mbedtls_pk_decrypt(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #8
+  %16 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #9
   br label %17
 
 17:                                               ; preds = %11, %8, %15
@@ -1330,7 +1330,7 @@ define hidden i32 @mbedtls_pk_encrypt(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #8
+  %16 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #9
   br label %17
 
 17:                                               ; preds = %11, %8, %15
@@ -1374,7 +1374,7 @@ define hidden i32 @mbedtls_pk_check_pair(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not18, label %20, label %22
 
 20:                                               ; preds = %15, %19, %17
-  %21 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) #8
+  %21 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) #9
   br label %22
 
 22:                                               ; preds = %19, %17, %11, %4, %7, %20
@@ -1395,7 +1395,7 @@ define hidden range(i32 -16128, 1) i32 @mbedtls_pk_debug(ptr noundef %0, ptr nou
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5
-  tail call void %7(ptr noundef nonnull %0, ptr noundef %1) #8
+  tail call void %7(ptr noundef nonnull %0, ptr noundef %1) #9
   br label %10
 
 10:                                               ; preds = %5, %2, %9
@@ -1478,11 +1478,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1491,8 +1491,9 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

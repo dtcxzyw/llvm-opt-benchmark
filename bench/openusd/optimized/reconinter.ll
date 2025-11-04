@@ -325,13 +325,13 @@ define hidden void @av1_make_inter_predictor(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not31.i, label %26, label %25
 
 25:                                               ; preds = %17
-  tail call void @av1_highbd_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %16, i32 noundef %.sroa.7.0.copyload.i, i32 noundef %20, i32 noundef %.sroa.10.0.copyload.i, i32 noundef %22, i32 noundef 1, ptr noundef nonnull %15, i32 noundef %19) #18
+  tail call void @av1_highbd_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %16, i32 noundef %.sroa.7.0.copyload.i, i32 noundef %20, i32 noundef %.sroa.10.0.copyload.i, i32 noundef %22, i32 noundef 1, ptr noundef nonnull %15, i32 noundef %19) #19
   br label %highbd_inter_predictor.exit
 
 26:                                               ; preds = %17
   %27 = ashr i32 %.sroa.7.0.copyload.i, 6
   %28 = ashr i32 %.sroa.10.0.copyload.i, 6
-  tail call void @av1_highbd_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %16, i32 noundef %27, i32 noundef 16, i32 noundef %28, i32 noundef 16, i32 noundef 0, ptr noundef nonnull %15, i32 noundef %19) #18
+  tail call void @av1_highbd_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %16, i32 noundef %27, i32 noundef 16, i32 noundef %28, i32 noundef 16, i32 noundef 0, ptr noundef nonnull %15, i32 noundef %19) #19
   br label %highbd_inter_predictor.exit
 
 29:                                               ; preds = %8
@@ -348,13 +348,13 @@ define hidden void @av1_make_inter_predictor(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not29.i, label %36, label %35
 
 35:                                               ; preds = %29
-  tail call void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %16, i32 noundef %.sroa.7.0.copyload.i38, i32 noundef %30, i32 noundef %.sroa.10.0.copyload.i40, i32 noundef %32, i32 noundef 1, ptr noundef nonnull %15) #18
+  tail call void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %16, i32 noundef %.sroa.7.0.copyload.i38, i32 noundef %30, i32 noundef %.sroa.10.0.copyload.i40, i32 noundef %32, i32 noundef 1, ptr noundef nonnull %15) #19
   br label %highbd_inter_predictor.exit
 
 36:                                               ; preds = %29
   %37 = ashr i32 %.sroa.7.0.copyload.i38, 6
   %38 = ashr i32 %.sroa.10.0.copyload.i40, 6
-  tail call void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %16, i32 noundef %37, i32 noundef 16, i32 noundef %38, i32 noundef 16, i32 noundef 0, ptr noundef nonnull %15) #18
+  tail call void @av1_convolve_2d_facade(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %14, ptr noundef nonnull %16, i32 noundef %37, i32 noundef 16, i32 noundef %38, i32 noundef 16, i32 noundef 0, ptr noundef nonnull %15) #19
   br label %highbd_inter_predictor.exit
 
 39:                                               ; preds = %6
@@ -384,7 +384,7 @@ define hidden void @av1_make_inter_predictor(ptr noundef %0, i32 noundef %1, ptr
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 172
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  tail call void @av1_warp_plane(ptr noundef nonnull %40, i32 noundef %42, i32 noundef %44, ptr noundef %46, i32 noundef %48, i32 noundef %50, i32 noundef %52, ptr noundef %2, i32 noundef %54, i32 noundef %56, i32 noundef %58, i32 noundef %60, i32 noundef %3, i32 noundef %62, i32 noundef %64, ptr noundef nonnull %65) #18
+  tail call void @av1_warp_plane(ptr noundef nonnull %40, i32 noundef %42, i32 noundef %44, ptr noundef %46, i32 noundef %48, i32 noundef %50, i32 noundef %52, ptr noundef %2, i32 noundef %54, i32 noundef %56, i32 noundef %58, i32 noundef %60, i32 noundef %3, i32 noundef %62, i32 noundef %64, ptr noundef nonnull %65) #19
   br label %highbd_inter_predictor.exit
 
 highbd_inter_predictor.exit:                      ; preds = %36, %35, %26, %25, %6, %39
@@ -1079,7 +1079,7 @@ init_wedge_master_masks.exit:                     ; preds = %56
   %narrow.i.i = sub nsw i32 0, %86
   %100 = sext i32 %narrow.i.i to i64
   %101 = getelementptr inbounds i8, ptr %99, i64 %100
-  tail call void @aom_convolve_copy_c(ptr noundef nonnull %101, i64 noundef 64, ptr noundef %.239.i, i64 noundef %75, i32 noundef %65, i32 noundef %68) #18
+  tail call void @aom_convolve_copy_c(ptr noundef nonnull %101, i64 noundef 64, ptr noundef %.239.i, i64 noundef %75, i32 noundef %65, i32 noundef %68) #19
   %102 = load ptr, ptr %76, align 8
   %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i2
   store ptr %.239.i, ptr %103, align 8
@@ -1104,7 +1104,7 @@ init_wedge_master_masks.exit:                     ; preds = %56
   %narrow.i38.i = sub nsw i32 0, %108
   %122 = sext i32 %narrow.i38.i to i64
   %123 = getelementptr inbounds i8, ptr %121, i64 %122
-  tail call void @aom_convolve_copy_c(ptr noundef nonnull %123, i64 noundef 64, ptr noundef %104, i64 noundef %75, i32 noundef %65, i32 noundef %68) #18
+  tail call void @aom_convolve_copy_c(ptr noundef nonnull %123, i64 noundef 64, ptr noundef %104, i64 noundef %75, i32 noundef %65, i32 noundef %68) #19
   %124 = getelementptr inbounds nuw i8, ptr %102, i64 128
   %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.i2
   store ptr %104, ptr %125, align 8
@@ -1316,7 +1316,7 @@ define hidden void @av1_build_one_inter_predictor(ptr noundef %0, i32 noundef %1
   %12 = alloca %struct.SubpelParams, align 4
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
-  call void %9(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %14) #18
+  call void %9(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %14) #19
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %16 = load i32, ptr %15, align 4
   %switch = icmp ult i32 %16, 2
@@ -1419,11 +1419,11 @@ av1_get_compound_type_mask.exit.i.i:              ; preds = %62, %.av1_get_compo
 79:                                               ; preds = %av1_get_compound_type_mask.exit.i.i
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %81 = load i32, ptr %80, align 8
-  call void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef %1, ptr noundef %32, i32 noundef %34, ptr noundef nonnull %11, i32 noundef 128, ptr noundef %.0.i.i.i, i32 noundef %77, i32 noundef %55, i32 noundef %53, i32 noundef %59, i32 noundef %57, ptr noundef nonnull %30, i32 noundef %81) #18
+  call void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef %1, ptr noundef %32, i32 noundef %34, ptr noundef nonnull %11, i32 noundef 128, ptr noundef %.0.i.i.i, i32 noundef %77, i32 noundef %55, i32 noundef %53, i32 noundef %59, i32 noundef %57, ptr noundef nonnull %30, i32 noundef %81) #19
   br label %make_masked_inter_predictor.exit
 
 82:                                               ; preds = %av1_get_compound_type_mask.exit.i.i
-  call void @aom_lowbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef %1, ptr noundef %32, i32 noundef %34, ptr noundef nonnull %11, i32 noundef 128, ptr noundef %.0.i.i.i, i32 noundef %77, i32 noundef %55, i32 noundef %53, i32 noundef %59, i32 noundef %57, ptr noundef nonnull %30) #18
+  call void @aom_lowbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef %1, ptr noundef %32, i32 noundef %34, ptr noundef nonnull %11, i32 noundef 128, ptr noundef %.0.i.i.i, i32 noundef %77, i32 noundef %55, i32 noundef %53, i32 noundef %59, i32 noundef %57, ptr noundef nonnull %30) #19
   br label %make_masked_inter_predictor.exit
 
 make_masked_inter_predictor.exit:                 ; preds = %79, %82
@@ -2792,10 +2792,10 @@ setup_pred_plane.exit:                            ; preds = %172, %171
   %179 = shl nsw i32 %.0.i, 2
   %180 = ashr i32 %179, %165
   %181 = load ptr, ptr %19, align 8
-  %182 = tail call i32 %181(i32 noundef %178, ptr noundef nonnull %5) #18
+  %182 = tail call i32 %181(i32 noundef %178, ptr noundef nonnull %5) #19
   %183 = ashr i32 %182, 6
   %184 = load ptr, ptr %20, align 8
-  %185 = tail call i32 %184(i32 noundef %180, ptr noundef nonnull %5) #18
+  %185 = tail call i32 %184(i32 noundef %180, ptr noundef nonnull %5) #19
   %186 = ashr i32 %185, 6
   %187 = sext i32 %186 to i64
   %188 = sext i32 %161 to i64
@@ -3249,11 +3249,11 @@ av1_get_obmc_mask.exit.i:                         ; preds = %.split.i.i, %102
 
 122:                                              ; preds = %av1_get_obmc_mask.exit.i
   %123 = load i32, ptr %45, align 16
-  tail call void @aom_highbd_blend_a64_vmask_c(ptr noundef %109, i32 noundef %106, ptr noundef %109, i32 noundef %106, ptr noundef %114, i32 noundef %111, ptr noundef %.0.i49.i, i32 noundef %93, i32 noundef %96, i32 noundef %123) #18
+  tail call void @aom_highbd_blend_a64_vmask_c(ptr noundef %109, i32 noundef %106, ptr noundef %109, i32 noundef %106, ptr noundef %114, i32 noundef %111, ptr noundef %.0.i49.i, i32 noundef %93, i32 noundef %96, i32 noundef %123) #19
   br label %125
 
 124:                                              ; preds = %av1_get_obmc_mask.exit.i
-  tail call void @aom_blend_a64_vmask_c(ptr noundef %109, i32 noundef %106, ptr noundef %109, i32 noundef %106, ptr noundef %114, i32 noundef %111, ptr noundef %.0.i49.i, i32 noundef %93, i32 noundef %96) #18
+  tail call void @aom_blend_a64_vmask_c(ptr noundef %109, i32 noundef %106, ptr noundef %109, i32 noundef %106, ptr noundef %114, i32 noundef %111, ptr noundef %.0.i49.i, i32 noundef %93, i32 noundef %96) #19
   br label %125
 
 125:                                              ; preds = %124, %122, %89
@@ -3436,11 +3436,11 @@ av1_get_obmc_mask.exit.i27:                       ; preds = %.split.i.i32, %208
 
 237:                                              ; preds = %av1_get_obmc_mask.exit.i27
   %238 = load i32, ptr %163, align 16
-  tail call void @aom_highbd_blend_a64_hmask_c(ptr noundef %223, i32 noundef %219, ptr noundef %223, i32 noundef %219, ptr noundef %230, i32 noundef %225, ptr noundef %.0.i.i, i32 noundef %212, i32 noundef %215, i32 noundef %238) #18
+  tail call void @aom_highbd_blend_a64_hmask_c(ptr noundef %223, i32 noundef %219, ptr noundef %223, i32 noundef %219, ptr noundef %230, i32 noundef %225, ptr noundef %.0.i.i, i32 noundef %212, i32 noundef %215, i32 noundef %238) #19
   br label %240
 
 239:                                              ; preds = %av1_get_obmc_mask.exit.i27
-  tail call void @aom_blend_a64_hmask_c(ptr noundef %223, i32 noundef %219, ptr noundef %223, i32 noundef %219, ptr noundef %230, i32 noundef %225, ptr noundef %.0.i.i, i32 noundef %212, i32 noundef %215) #18
+  tail call void @aom_blend_a64_hmask_c(ptr noundef %223, i32 noundef %219, ptr noundef %223, i32 noundef %219, ptr noundef %230, i32 noundef %225, ptr noundef %.0.i.i, i32 noundef %212, i32 noundef %215) #19
   br label %240
 
 240:                                              ; preds = %239, %237
@@ -3710,7 +3710,7 @@ av1_is_valid_scale.exit:                          ; preds = %get_ref_scale_facto
 
 av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_factors_const.exit, %av1_is_valid_scale.exit
   %101 = load ptr, ptr %74, align 16
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef %101, i32 noundef 5, ptr noundef nonnull @.str) #18
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef %101, i32 noundef 5, ptr noundef nonnull @.str) #19
   br label %102
 
 102:                                              ; preds = %av1_is_valid_scale.exit.thread, %av1_is_valid_scale.exit
@@ -3918,7 +3918,7 @@ av1_is_valid_scale.exit:                          ; preds = %get_ref_scale_facto
 
 av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_factors_const.exit, %av1_is_valid_scale.exit
   %105 = load ptr, ptr %77, align 16
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef %105, i32 noundef 5, ptr noundef nonnull @.str) #18
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef %105, i32 noundef 5, ptr noundef nonnull @.str) #19
   br label %106
 
 106:                                              ; preds = %av1_is_valid_scale.exit.thread, %av1_is_valid_scale.exit
@@ -3986,7 +3986,7 @@ define hidden void @av1_build_intra_predictors_for_interintra(ptr noundef %0, pt
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %42 = getelementptr inbounds i32, ptr %41, i64 %9
   %43 = load i32, ptr %42, align 4
-  tail call void @av1_predict_intra_block(ptr noundef %0, ptr noundef %1, i32 noundef %32, i32 noundef %35, i8 noundef zeroext %38, i8 noundef zeroext %29, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 5, ptr noundef %40, i32 noundef %43, ptr noundef %5, i32 noundef %6, i32 noundef 0, i32 noundef 0, i32 noundef %3) #18
+  tail call void @av1_predict_intra_block(ptr noundef %0, ptr noundef %1, i32 noundef %32, i32 noundef %35, i8 noundef zeroext %38, i8 noundef zeroext %29, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 5, ptr noundef %40, i32 noundef %43, ptr noundef %5, i32 noundef %6, i32 noundef 0, i32 noundef 0, i32 noundef %3) #19
   ret void
 }
 
@@ -4073,7 +4073,7 @@ define hidden void @av1_combine_interintra(ptr noundef readonly captures(none) %
   %72 = getelementptr inbounds nuw i8, ptr @block_size_wide, i64 %16
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
-  tail call void @aom_highbd_blend_a64_mask_c(ptr noundef %37, i32 noundef %39, ptr noundef %5, i32 noundef %6, ptr noundef %3, i32 noundef %4, ptr noundef %59, i32 noundef %74, i32 noundef %45, i32 noundef %48, i32 noundef %71, i32 noundef %65, i32 noundef %41) #18
+  tail call void @aom_highbd_blend_a64_mask_c(ptr noundef %37, i32 noundef %39, ptr noundef %5, i32 noundef %6, ptr noundef %3, i32 noundef %4, ptr noundef %59, i32 noundef %74, i32 noundef %45, i32 noundef %48, i32 noundef %71, i32 noundef %65, i32 noundef %41) #19
   br label %combine_interintra_highbd.exit
 
 75:                                               ; preds = %29
@@ -4173,7 +4173,7 @@ define hidden void @av1_combine_interintra(ptr noundef readonly captures(none) %
   br i1 %exitcond93.not.i.i, label %build_smooth_interintra_mask.exit.i, label %101, !llvm.loop !22
 
 build_smooth_interintra_mask.exit.i:              ; preds = %._crit_edge.us.i.i, %._crit_edge.us66.i.i, %101, %.lr.ph71.i.i
-  call void @aom_highbd_blend_a64_mask_c(ptr noundef %37, i32 noundef %39, ptr noundef %5, i32 noundef %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef %45, i32 noundef %45, i32 noundef %48, i32 noundef 0, i32 noundef 0, i32 noundef %41) #18
+  call void @aom_highbd_blend_a64_mask_c(ptr noundef %37, i32 noundef %39, ptr noundef %5, i32 noundef %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef %45, i32 noundef %45, i32 noundef %48, i32 noundef 0, i32 noundef 0, i32 noundef %41) #19
   br label %combine_interintra_highbd.exit
 
 combine_interintra_highbd.exit:                   ; preds = %50, %53, %build_smooth_interintra_mask.exit.i
@@ -4228,7 +4228,7 @@ combine_interintra_highbd.exit:                   ; preds = %50, %53, %build_smo
   %145 = getelementptr inbounds nuw i8, ptr @block_size_wide, i64 %16
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
-  tail call void @aom_blend_a64_mask_c(ptr noundef %112, i32 noundef %114, ptr noundef %5, i32 noundef %6, ptr noundef %3, i32 noundef %4, ptr noundef %132, i32 noundef %147, i32 noundef %118, i32 noundef %121, i32 noundef %138, i32 noundef %144) #18
+  tail call void @aom_blend_a64_mask_c(ptr noundef %112, i32 noundef %114, ptr noundef %5, i32 noundef %6, ptr noundef %3, i32 noundef %4, ptr noundef %132, i32 noundef %147, i32 noundef %118, i32 noundef %121, i32 noundef %138, i32 noundef %144) #19
   br label %combine_interintra.exit
 
 148:                                              ; preds = %106
@@ -4237,7 +4237,7 @@ combine_interintra_highbd.exit:                   ; preds = %50, %53, %build_smo
   %151 = zext i8 %150 to i64
   %152 = getelementptr inbounds nuw [22 x [1024 x i8]], ptr @smooth_interintra_mask_buf, i64 %151
   %153 = getelementptr inbounds nuw [1024 x i8], ptr %152, i64 %115
-  tail call void @aom_blend_a64_mask_c(ptr noundef %112, i32 noundef %114, ptr noundef %5, i32 noundef %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %153, i32 noundef %118, i32 noundef %118, i32 noundef %121, i32 noundef 0, i32 noundef 0) #18
+  tail call void @aom_blend_a64_mask_c(ptr noundef %112, i32 noundef %114, ptr noundef %5, i32 noundef %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %153, i32 noundef %118, i32 noundef %118, i32 noundef %121, i32 noundef 0, i32 noundef 0) #19
   br label %combine_interintra.exit
 
 combine_interintra.exit:                          ; preds = %148, %126, %123, %combine_interintra_highbd.exit
@@ -4294,7 +4294,7 @@ define hidden void @av1_build_interintra_predictor(ptr noundef %0, ptr noundef %
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %50 = getelementptr inbounds i32, ptr %49, i64 %17
   %51 = load i32, ptr %50, align 4
-  call void @av1_predict_intra_block(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %40, i32 noundef %43, i8 noundef zeroext %46, i8 noundef zeroext %37, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 5, ptr noundef %48, i32 noundef %51, ptr noundef nonnull %.sink26, i32 noundef 128, i32 noundef 0, i32 noundef 0, i32 noundef %5) #18
+  call void @av1_predict_intra_block(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %40, i32 noundef %43, i8 noundef zeroext %46, i8 noundef zeroext %37, i32 noundef 0, i32 noundef 0, i8 noundef zeroext 5, ptr noundef %48, i32 noundef %51, ptr noundef nonnull %.sink26, i32 noundef 128, i32 noundef 0, i32 noundef 0, i32 noundef %5) #19
   call void @av1_combine_interintra(ptr noundef nonnull %1, i8 noundef zeroext %6, i32 noundef %5, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %.sink26, i32 noundef 128)
   ret void
 }
@@ -4324,40 +4324,40 @@ declare void @aom_highbd_blend_a64_mask_c(ptr noundef, i32 noundef, ptr noundef,
 
 declare void @aom_blend_a64_mask_c(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4375,10 +4375,11 @@ attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessib
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nounwind }
+attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

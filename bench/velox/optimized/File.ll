@@ -603,7 +603,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %terminate.lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %call12 = tail call ptr @__errno_location() #29
+  %call12 = tail call ptr @__errno_location() #30
   %1 = load i32, ptr %call12, align 4
   invoke void @_ZN5folly8errnoStrB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11, i32 noundef %1)
           to label %invoke.cont13 unwind label %terminate.lpad
@@ -626,7 +626,7 @@ terminate.lpad:                                   ; preds = %invoke.cont13, %inv
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #30
+  call void @__clang_call_terminate(ptr %3) #31
   unreachable
 }
 
@@ -635,7 +635,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #30
+  tail call void @_ZSt9terminatev() #31
   unreachable
 }
 
@@ -666,7 +666,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 define void @_ZN8facebook5velox13LocalReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN8facebook5velox13LocalReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
 
@@ -757,7 +757,7 @@ if.end.i:                                         ; preds = %init.end
   br i1 %cmp3.i.not, label %invoke.cont3, label %_ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
-  %call5.i.i.i.i11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #32
+  %call5.i.i.i.i11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #33
           to label %_ZNSt12_Vector_baseI5iovecSaIS0_EE13_M_deallocateEPS0_m.exit.i unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt12_Vector_baseI5iovecSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseI5iovecSaIS0_EE11_M_allocateEm.exit.i
@@ -860,7 +860,7 @@ lpad2:                                            ; preds = %lpad2.loopexit.spli
   br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad2
-  call void @_ZdlPv(ptr noundef nonnull %16) #31
+  call void @_ZdlPv(ptr noundef nonnull %16) #32
   br label %eh.resume
 
 if.end24:                                         ; preds = %invoke.cont20.if.end24_crit_edge, %while.body
@@ -897,7 +897,7 @@ _ZNKSt6vectorI5iovecSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i
   %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 4
-  %call5.i.i.i.i.i.i31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #32
+  %call5.i.i.i.i.i.i31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #33
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad2.loopexit
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorI5iovecSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -918,7 +918,7 @@ _ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i: ; preds = 
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %21) #31
+  call void @_ZdlPv(ptr noundef nonnull %21) #32
   br label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i
@@ -986,7 +986,7 @@ if.else.i.i46:                                    ; preds = %if.end37
 
 if.then.i.i.i.i68.invoke:                         ; preds = %if.else.i.i46, %if.else.i.i, %init.end
   %31 = phi ptr [ @.str.16, %init.end ], [ @.str.17, %if.else.i.i ], [ @.str.17, %if.else.i.i46 ]
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %31) #33
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %31) #34
           to label %if.then.i.i.i.i68.cont unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 if.then.i.i.i.i68.cont:                           ; preds = %if.then.i.i.i.i68.invoke
@@ -1002,7 +1002,7 @@ _ZNKSt6vectorI5iovecSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i51: ; preds = %if.else
   %cmp.not.i.i.i.i57 = icmp ne i64 %cond.i.i.i.i56, 0
   call void @llvm.assume(i1 %cmp.not.i.i.i.i57)
   %mul.i.i.i.i.i.i58 = shl nuw nsw i64 %cond.i.i.i.i56, 4
-  %call5.i.i.i.i.i.i71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i58) #32
+  %call5.i.i.i.i.i.i71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i58) #33
           to label %call5.i.i.i.i.i.i.noexc70 unwind label %lpad2.loopexit.split-lp.loopexit
 
 call5.i.i.i.i.i.i.noexc70:                        ; preds = %_ZNKSt6vectorI5iovecSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i51
@@ -1023,7 +1023,7 @@ _ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i61: ; preds 
   br i1 %tobool.not.i.i.i.i63, label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65, label %if.then.i18.i.i.i64
 
 if.then.i18.i.i.i64:                              ; preds = %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i61
-  call void @_ZdlPv(ptr noundef nonnull %30) #31
+  call void @_ZdlPv(ptr noundef nonnull %30) #32
   br label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65
 
 _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65: ; preds = %if.then.i18.i.i.i64, %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i61
@@ -1063,7 +1063,7 @@ cleanup:                                          ; preds = %invoke.cont32, %inv
   br i1 %tobool.not.i.i.i74, label %_ZNSt6vectorI5iovecSaIS0_EED2Ev.exit76, label %if.then.i.i.i75
 
 if.then.i.i.i75:                                  ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %36) #31
+  call void @_ZdlPv(ptr noundef nonnull %36) #32
   br label %_ZNSt6vectorI5iovecSaIS0_EED2Ev.exit76
 
 _ZNSt6vectorI5iovecSaIS0_EED2Ev.exit76:           ; preds = %cleanup, %if.then.i.i.i75
@@ -1085,7 +1085,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit
 
 if.then.i:                                        ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #33
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #34
   unreachable
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %entry
@@ -1100,7 +1100,7 @@ _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIcSaIcE
   br label %invoke.cont
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit
-  %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %__n) #32
+  %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %__n) #33
           to label %if.then.i.i.i.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
@@ -1141,7 +1141,7 @@ invoke.cont:
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #32
   br label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.then.i.i
@@ -1190,7 +1190,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %call8 = tail call ptr @__errno_location() #29
+  %call8 = tail call ptr @__errno_location() #30
   %9 = load i32, ptr %call8, align 4
   invoke void @_ZN5folly8errnoStrB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, i32 noundef %9)
           to label %invoke.cont9 unwind label %lpad
@@ -1328,7 +1328,7 @@ lpad5:                                            ; preds = %land.lhs.true, %if.
 if.end11:                                         ; preds = %invoke.cont6, %invoke.cont8, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %5 = load i64, ptr %path, align 8
   %add = add i64 %5, 1
-  %call14 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add) #32
+  %call14 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add) #33
           to label %invoke.cont13 unwind label %lpad5
 
 invoke.cont13:                                    ; preds = %if.end11
@@ -1359,7 +1359,7 @@ if.then37:                                        ; preds = %if.end32
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.end32
   %file_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call35, ptr %file_, align 8
-  call void @_ZdaPv(ptr noundef nonnull %call14) #31
+  call void @_ZdaPv(ptr noundef nonnull %call14) #32
   %_M_cmpts.i4 = getelementptr inbounds nuw i8, ptr %dir, i64 32
   %7 = load ptr, ptr %_M_cmpts.i4, align 8
   %cmp.not.i.i.i5 = icmp eq ptr %7, null
@@ -1539,7 +1539,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 define void @_ZN8facebook5velox14LocalWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN8facebook5velox14LocalWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
 
@@ -1731,7 +1731,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox8ReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #30
+  tail call void @llvm.trap() #31
   unreachable
 }
 
@@ -1747,7 +1747,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %call.i1.i.i2 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
+  %call.i1.i.i2 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #33
           to label %call.i1.i.i.noexc unwind label %lpad
 
 call.i1.i.i.noexc:                                ; preds = %invoke.cont
@@ -1758,7 +1758,7 @@ lpad.i.i.i:                                       ; preds = %call.i1.i.i.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i2) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i2) #32
   br label %lpad.body
 
 _ZN5folly10SemiFutureImEC2ImvEEOT_.exit:          ; preds = %call.i1.i.i.noexc
@@ -1809,7 +1809,7 @@ terminate.lpad:                                   ; preds = %lpad3
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #30
+  tail call void @__clang_call_terminate(ptr %11) #31
   unreachable
 }
 
@@ -1850,7 +1850,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox16InMemoryReadFileE, i64 16), ptr %this, align 8
   %ownedFile_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ownedFile_.i) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
 
@@ -1931,7 +1931,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox17InMemoryWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
 
@@ -2040,7 +2040,7 @@ entry:
   store i64 %1, ptr %0, align 8, !alias.scope !16
   store i64 0, ptr %agg.tmp1, align 8, !noalias !16
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %call.i.i1 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #32
+  %call.i.i1 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #33
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %entry
@@ -2050,7 +2050,7 @@ call.i.i.noexc:                                   ; preds = %entry
 lpad.i.i:                                         ; preds = %call.i.i.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call.i.i1) #31, !noalias !19
+  call void @_ZdlPv(ptr noundef nonnull %call.i.i1) #32, !noalias !19
   br label %lpad.body
 
 _ZN5folly3TryImED2Ev.exit:                        ; preds = %call.i.i.noexc
@@ -2144,7 +2144,7 @@ sw.bb12:                                          ; preds = %entry.split
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry, %entry.split
-  tail call void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.11) #34
+  tail call void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.11) #35
   unreachable
 
 sw.epilog:                                        ; preds = %if.then.i.i.i.i, %if.then4.i.i, %sw.bb11, %entry.split, %sw.bb12
@@ -2193,12 +2193,12 @@ sw.bb12.i:                                        ; preds = %entry.split.i
   br label %_ZN5folly7futures6detail4CoreImED2Ev.exit
 
 sw.default.i:                                     ; preds = %entry.split.i, %entry
-  tail call void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.11) #34
+  tail call void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.11) #35
   unreachable
 
 _ZN5folly7futures6detail4CoreImED2Ev.exit:        ; preds = %entry.split.i, %sw.bb11.i, %if.then4.i.i.i, %if.then.i.i.i.i.i, %sw.bb12.i
   tail call void @_ZN5folly7futures6detail8CoreBaseD2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #32
   ret void
 }
 
@@ -2232,7 +2232,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #30
+  call void @__clang_call_terminate(ptr %1) #31
   unreachable
 }
 
@@ -2241,7 +2241,7 @@ define linkonce_odr void @_ZN5folly15throw_exceptionISt11logic_errorEEvOT_(ptr n
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #12
   tail call void @_ZNSt11logic_errorC1EOS_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(16) %ex) #12
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #33
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #34
   unreachable
 }
 
@@ -2307,7 +2307,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #30
+  tail call void @__clang_call_terminate(ptr %2) #31
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -2363,7 +2363,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #30
+  tail call void @__clang_call_terminate(ptr %2) #31
   unreachable
 }
 
@@ -2407,29 +2407,29 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #24
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ctpop.i8(i8) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #25
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #28
+declare void @llvm.assume(i1 noundef) #29
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -2456,16 +2456,17 @@ attributes #21 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min
 attributes #22 = { cold noreturn }
 attributes #23 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #24 = { nofree nosync nounwind memory(none) }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #29 = { nounwind willreturn memory(none) }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { builtin nounwind }
-attributes #32 = { builtin allocsize(0) }
-attributes #33 = { noreturn }
-attributes #34 = { cold noreturn nounwind }
+attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #28 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #30 = { nounwind willreturn memory(none) }
+attributes #31 = { noreturn nounwind }
+attributes #32 = { builtin nounwind }
+attributes #33 = { builtin allocsize(0) }
+attributes #34 = { noreturn }
+attributes #35 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

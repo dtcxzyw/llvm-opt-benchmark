@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @gray_raster_new(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
+  %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #12
   %5 = load i32, ptr %3, align 4, !tbaa !3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %7
@@ -200,7 +200,7 @@ define internal noundef i32 @gray_raster_render(ptr noundef readnone captures(ad
 ; Function Attrs: nounwind uwtable
 define internal void @gray_raster_done(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !7
-  tail call void @ft_mem_free(ptr noundef %2, ptr noundef nonnull %0) #11
+  tail call void @ft_mem_free(ptr noundef %2, ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -224,7 +224,7 @@ define internal noundef i32 @ft_smooth_init(ptr noundef readonly captures(none) 
   %13 = load ptr, ptr %12, align 8, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !73
-  tail call void %13(ptr noundef %15, ptr noundef null, i64 noundef 0) #11
+  tail call void %13(ptr noundef %15, ptr noundef null, i64 noundef 0) #12
   ret i32 0
 }
 
@@ -265,7 +265,7 @@ define internal i32 @ft_smooth_render(ptr noundef readonly captures(none) %0, pt
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %24 = load ptr, ptr %23, align 8, !tbaa !37
-  tail call void @ft_mem_free(ptr noundef %10, ptr noundef %24) #11
+  tail call void @ft_mem_free(ptr noundef %10, ptr noundef %24) #12
   store ptr null, ptr %23, align 8, !tbaa !37
   %25 = load ptr, ptr %17, align 8, !tbaa !84
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -275,7 +275,7 @@ define internal i32 @ft_smooth_render(ptr noundef readonly captures(none) %0, pt
   br label %29
 
 29:                                               ; preds = %22, %16
-  %30 = tail call zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) #11
+  %30 = tail call zeroext i8 @ft_glyphslot_preset_bitmap(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) #12
   %.not87 = icmp eq i8 %30, 0
   br i1 %.not87, label %31, label %.thread.sink.split
 
@@ -293,7 +293,7 @@ define internal i32 @ft_smooth_render(ptr noundef readonly captures(none) %0, pt
 36:                                               ; preds = %33
   %37 = sext i32 %35 to i64
   %38 = zext i32 %32 to i64
-  %39 = call ptr @ft_mem_realloc(ptr noundef %10, i64 noundef %37, i64 noundef 0, i64 noundef %38, ptr noundef null, ptr noundef nonnull %5) #11
+  %39 = call ptr @ft_mem_realloc(ptr noundef %10, i64 noundef %37, i64 noundef 0, i64 noundef %38, ptr noundef null, ptr noundef nonnull %5) #12
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %39, ptr %40, align 8, !tbaa !37
   %41 = load i32, ptr %5, align 4, !tbaa !3
@@ -343,7 +343,7 @@ define internal i32 @ft_smooth_render(ptr noundef readonly captures(none) %0, pt
   br i1 %or.cond7, label %68, label %69
 
 68:                                               ; preds = %65
-  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.181, i64 noundef %.2) #11
+  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.181, i64 noundef %.2) #12
   br label %69
 
 69:                                               ; preds = %65, %68
@@ -373,7 +373,7 @@ define internal i32 @ft_smooth_render(ptr noundef readonly captures(none) %0, pt
   %80 = load ptr, ptr %79, align 8, !tbaa !93
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %82 = load ptr, ptr %81, align 8, !tbaa !73
-  %83 = call i32 %80(ptr noundef %82, ptr noundef nonnull %6) #11
+  %83 = call i32 %80(ptr noundef %82, ptr noundef nonnull %6) #12
   store i32 %83, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %thread-pre-split
@@ -428,7 +428,7 @@ thread-pre-split.thread:                          ; preds = %33, %31, %thread-pr
 95:                                               ; preds = %.thread
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %97 = load ptr, ptr %96, align 8, !tbaa !37
-  call void @ft_mem_free(ptr noundef %10, ptr noundef %97) #11
+  call void @ft_mem_free(ptr noundef %10, ptr noundef %97) #12
   store ptr null, ptr %96, align 8, !tbaa !37
   %98 = load ptr, ptr %90, align 8, !tbaa !84
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -448,7 +448,7 @@ thread-pre-split.thread:                          ; preds = %33, %31, %thread-pr
 105:                                              ; preds = %102
   %106 = sub nsw i64 0, %.08099
   %107 = sub nsw i64 0, %.0101
-  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %106, i64 noundef %107) #11
+  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %106, i64 noundef %107) #12
   br label %108
 
 108:                                              ; preds = %102, %105
@@ -472,7 +472,7 @@ define internal range(i32 0, 7) i32 @ft_smooth_transform(ptr noundef readonly ca
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  tail call void @FT_Outline_Transform(ptr noundef nonnull %11, ptr noundef nonnull %2) #11
+  tail call void @FT_Outline_Transform(ptr noundef nonnull %11, ptr noundef nonnull %2) #12
   br label %12
 
 12:                                               ; preds = %10, %9
@@ -484,7 +484,7 @@ define internal range(i32 0, 7) i32 @ft_smooth_transform(ptr noundef readonly ca
   %15 = load i64, ptr %3, align 8, !tbaa !63
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !65
-  tail call void @FT_Outline_Translate(ptr noundef nonnull %14, i64 noundef %15, i64 noundef %17) #11
+  tail call void @FT_Outline_Translate(ptr noundef nonnull %14, i64 noundef %15, i64 noundef %17) #12
   br label %18
 
 18:                                               ; preds = %4, %12, %13
@@ -504,7 +504,7 @@ define internal void @ft_smooth_get_cbox(ptr noundef readonly captures(none) %0,
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  tail call void @FT_Outline_Get_CBox(ptr noundef nonnull %10, ptr noundef nonnull %2) #11
+  tail call void @FT_Outline_Get_CBox(ptr noundef nonnull %10, ptr noundef nonnull %2) #12
   br label %11
 
 11:                                               ; preds = %9, %3
@@ -521,7 +521,7 @@ define internal i32 @ft_smooth_set_mode(ptr noundef readonly captures(none) %0, 
   %9 = load ptr, ptr %8, align 8, !tbaa !94
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8, !tbaa !73
-  %12 = tail call i32 %9(ptr noundef %11, i64 noundef %1, ptr noundef %2) #11
+  %12 = tail call i32 %9(ptr noundef %11, i64 noundef %1, ptr noundef %2) #12
   ret i32 %12
 }
 
@@ -726,7 +726,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
 103:                                              ; preds = %86
   %104 = load ptr, ptr %37, align 8, !tbaa !47
   %105 = load ptr, ptr %39, align 8, !tbaa !49
-  call void %104(i32 noundef %.085113.i, i32 noundef 16, ptr noundef nonnull %2, ptr noundef %105) #11
+  call void %104(i32 noundef %.085113.i, i32 noundef 16, ptr noundef nonnull %2, ptr noundef %105) #12
   %.pre118.pre.i = load i32, ptr %.078110.i, align 8, !tbaa !96
   br label %106
 
@@ -773,7 +773,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
 131:                                              ; preds = %116
   %132 = load ptr, ptr %37, align 8, !tbaa !47
   %133 = load ptr, ptr %39, align 8, !tbaa !49
-  call void %132(i32 noundef %.085113.i, i32 noundef 16, ptr noundef nonnull %2, ptr noundef %133) #11
+  call void %132(i32 noundef %.085113.i, i32 noundef 16, ptr noundef nonnull %2, ptr noundef %133) #12
   %.pre.i = load i32, ptr %.078110.i, align 8, !tbaa !96
   br label %134
 
@@ -823,7 +823,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
 157:                                              ; preds = %156
   %158 = load ptr, ptr %37, align 8, !tbaa !47
   %159 = load ptr, ptr %39, align 8, !tbaa !49
-  call void %158(i32 noundef %.085113.i, i32 noundef %.483.i, ptr noundef nonnull %2, ptr noundef %159) #11
+  call void %158(i32 noundef %.085113.i, i32 noundef %.483.i, ptr noundef nonnull %2, ptr noundef %159) #12
   br label %.thread.i
 
 .thread.i:                                        ; preds = %157, %156, %.lr.ph115.i
@@ -1172,7 +1172,7 @@ define internal fastcc i32 @gray_convert_glyph_inner(ptr noundef nonnull %0, i32
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %5 = call i32 @_setjmp(ptr noundef nonnull %4) #12
+  %5 = call i32 @_setjmp(ptr noundef nonnull %4) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %11
 
@@ -1181,11 +1181,11 @@ define internal fastcc i32 @gray_convert_glyph_inner(ptr noundef nonnull %0, i32
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %7
-  call void @FT_Trace_Disable() #11
+  call void @FT_Trace_Disable() #12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %10 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %9, ptr noundef nonnull @func_interface, ptr noundef nonnull %0) #11
+  %10 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %9, ptr noundef nonnull @func_interface, ptr noundef nonnull %0) #12
   store volatile i32 %10, ptr %3, align 4, !tbaa !3
-  call void @FT_Trace_Enable() #11
+  call void @FT_Trace_Enable() #12
   br label %14
 
 11:                                               ; preds = %2
@@ -1194,7 +1194,7 @@ define internal fastcc i32 @gray_convert_glyph_inner(ptr noundef nonnull %0, i32
 
 .critedge:                                        ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %13 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %12, ptr noundef nonnull @func_interface, ptr noundef nonnull %0) #11
+  %13 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %12, ptr noundef nonnull @func_interface, ptr noundef nonnull %0) #12
   store volatile i32 %13, ptr %3, align 4, !tbaa !3
   br label %14
 
@@ -1290,7 +1290,7 @@ define internal noundef i32 @gray_move_to(ptr noundef readonly captures(none) %0
 
 49:                                               ; preds = %._crit_edge.i
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  tail call void @longjmp(ptr noundef nonnull %50, i32 noundef 1) #13
+  tail call void @longjmp(ptr noundef nonnull %50, i32 noundef 1) #14
   unreachable
 
 51:                                               ; preds = %._crit_edge.i
@@ -1778,7 +1778,7 @@ define internal fastcc void @gray_render_line(ptr noundef %0, i64 noundef %1, i6
 
 72:                                               ; preds = %._crit_edge.i
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @longjmp(ptr noundef nonnull %73, i32 noundef 1) #13
+  tail call void @longjmp(ptr noundef nonnull %73, i32 noundef 1) #14
   unreachable
 
 74:                                               ; preds = %._crit_edge.i
@@ -1898,7 +1898,7 @@ gray_set_cell.exit:                               ; preds = %.lr.ph.i, %43, %74
 
 133:                                              ; preds = %._crit_edge.i202
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @longjmp(ptr noundef nonnull %134, i32 noundef 1) #13
+  tail call void @longjmp(ptr noundef nonnull %134, i32 noundef 1) #14
   unreachable
 
 135:                                              ; preds = %._crit_edge.i202
@@ -1992,7 +1992,7 @@ gray_set_cell.exit205:                            ; preds = %.lr.ph.i200, %109, 
 
 179:                                              ; preds = %._crit_edge.i212
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @longjmp(ptr noundef nonnull %180, i32 noundef 1) #13
+  tail call void @longjmp(ptr noundef nonnull %180, i32 noundef 1) #14
   unreachable
 
 181:                                              ; preds = %._crit_edge.i212
@@ -2215,7 +2215,7 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %155, 
 
 314:                                              ; preds = %._crit_edge.i222
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @longjmp(ptr noundef nonnull %315, i32 noundef 1) #13
+  tail call void @longjmp(ptr noundef nonnull %315, i32 noundef 1) #14
   unreachable
 
 316:                                              ; preds = %._crit_edge.i222
@@ -2357,7 +2357,7 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr noundef readonly captur
   %48 = load ptr, ptr %47, align 8, !tbaa !93
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %50 = load ptr, ptr %49, align 8, !tbaa !73
-  %51 = call i32 %48(ptr noundef %50, ptr noundef nonnull %4) #11
+  %51 = call i32 %48(ptr noundef %50, ptr noundef nonnull %4) #12
   br label %.loopexit
 
 .lr.ph37.preheader:                               ; preds = %.lr.ph
@@ -2365,7 +2365,7 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr noundef readonly captur
   %53 = load ptr, ptr %52, align 8, !tbaa !93
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %55 = load ptr, ptr %54, align 8, !tbaa !73
-  %56 = call i32 %53(ptr noundef %55, ptr noundef nonnull %4) #11
+  %56 = call i32 %53(ptr noundef %55, ptr noundef nonnull %4) #12
   br label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
@@ -2434,12 +2434,12 @@ define internal fastcc i32 @ft_smooth_raster_lcd(ptr noundef readonly captures(n
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 352
   %32 = load i64, ptr %31, align 8, !tbaa !65
   %33 = sub nsw i64 0, %32
-  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %30, i64 noundef %33) #11
+  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %30, i64 noundef %33) #12
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load ptr, ptr %34, align 8, !tbaa !93
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %37 = load ptr, ptr %36, align 8, !tbaa !73
-  %38 = call i32 %35(ptr noundef %37, ptr noundef nonnull %4) #11
+  %38 = call i32 %35(ptr noundef %37, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %39, label %67
 
@@ -2455,10 +2455,10 @@ define internal fastcc i32 @ft_smooth_raster_lcd(ptr noundef readonly captures(n
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 368
   %48 = load i64, ptr %47, align 8, !tbaa !65
   %49 = sub nsw i64 %46, %48
-  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %45, i64 noundef %49) #11
+  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %45, i64 noundef %49) #12
   %50 = load ptr, ptr %34, align 8, !tbaa !93
   %51 = load ptr, ptr %36, align 8, !tbaa !73
-  %52 = call i32 %50(ptr noundef %51, ptr noundef nonnull %4) #11
+  %52 = call i32 %50(ptr noundef %51, ptr noundef nonnull %4) #12
   %.not45 = icmp eq i32 %52, 0
   br i1 %.not45, label %53, label %67
 
@@ -2474,10 +2474,10 @@ define internal fastcc i32 @ft_smooth_raster_lcd(ptr noundef readonly captures(n
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 384
   %62 = load i64, ptr %61, align 8, !tbaa !65
   %63 = sub nsw i64 %60, %62
-  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %59, i64 noundef %63) #11
+  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %59, i64 noundef %63) #12
   %64 = load ptr, ptr %34, align 8, !tbaa !93
   %65 = load ptr, ptr %36, align 8, !tbaa !73
-  %66 = call i32 %64(ptr noundef %65, ptr noundef nonnull %4) #11
+  %66 = call i32 %64(ptr noundef %65, ptr noundef nonnull %4) #12
   br label %67
 
 67:                                               ; preds = %39, %3, %53
@@ -2486,7 +2486,7 @@ define internal fastcc i32 @ft_smooth_raster_lcd(ptr noundef readonly captures(n
   %.0.in = phi ptr [ %31, %3 ], [ %47, %39 ], [ %61, %53 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !65
   %.040 = load i64, ptr %.040.in, align 8, !tbaa !63
-  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %.040, i64 noundef %.0) #11
+  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %.040, i64 noundef %.0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.041
@@ -2515,12 +2515,12 @@ define internal fastcc i32 @ft_smooth_raster_lcdv(ptr noundef readonly captures(
   %16 = load i64, ptr %15, align 8, !tbaa !65
   %17 = sub nsw i64 0, %16
   %18 = load i64, ptr %9, align 8, !tbaa !63
-  tail call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %17, i64 noundef %18) #11
+  tail call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %17, i64 noundef %18) #12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = load ptr, ptr %19, align 8, !tbaa !93
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8, !tbaa !73
-  %23 = call i32 %20(ptr noundef %22, ptr noundef nonnull %4) #11
+  %23 = call i32 %20(ptr noundef %22, ptr noundef nonnull %4) #12
   %24 = load i64, ptr %15, align 8, !tbaa !65
   %25 = load i64, ptr %9, align 8, !tbaa !63
   %.not = icmp eq i32 %23, 0
@@ -2538,10 +2538,10 @@ define internal fastcc i32 @ft_smooth_raster_lcdv(ptr noundef readonly captures(
   %34 = sub nsw i64 %24, %33
   %35 = load i64, ptr %31, align 8, !tbaa !63
   %36 = sub nsw i64 %35, %25
-  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %34, i64 noundef %36) #11
+  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %34, i64 noundef %36) #12
   %37 = load ptr, ptr %19, align 8, !tbaa !93
   %38 = load ptr, ptr %21, align 8, !tbaa !73
-  %39 = call i32 %37(ptr noundef %38, ptr noundef nonnull %4) #11
+  %39 = call i32 %37(ptr noundef %38, ptr noundef nonnull %4) #12
   %40 = load i64, ptr %32, align 8, !tbaa !65
   %41 = load i64, ptr %31, align 8, !tbaa !63
   %42 = load ptr, ptr %27, align 8, !tbaa !37
@@ -2562,10 +2562,10 @@ define internal fastcc i32 @ft_smooth_raster_lcdv(ptr noundef readonly captures(
   %52 = sub nsw i64 %40, %51
   %53 = load i64, ptr %49, align 8, !tbaa !63
   %54 = sub nsw i64 %53, %41
-  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %52, i64 noundef %54) #11
+  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %52, i64 noundef %54) #12
   %55 = load ptr, ptr %19, align 8, !tbaa !93
   %56 = load ptr, ptr %21, align 8, !tbaa !73
-  %57 = call i32 %55(ptr noundef %56, ptr noundef nonnull %4) #11
+  %57 = call i32 %55(ptr noundef %56, ptr noundef nonnull %4) #12
   %58 = load i64, ptr %50, align 8, !tbaa !65
   %59 = load i64, ptr %49, align 8, !tbaa !63
   %60 = load ptr, ptr %27, align 8, !tbaa !37
@@ -2579,7 +2579,7 @@ define internal fastcc i32 @ft_smooth_raster_lcdv(ptr noundef readonly captures(
   %.046 = phi i64 [ %24, %3 ], [ %40, %26 ], [ %58, %45 ]
   %.pn = phi i64 [ %25, %3 ], [ %41, %26 ], [ %59, %45 ]
   %.0 = sub nsw i64 0, %.pn
-  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %.046, i64 noundef %.0) #11
+  call void @FT_Outline_Translate(ptr noundef %1, i64 noundef %.046, i64 noundef %.0) #12
   %64 = load i32, ptr %5, align 8, !tbaa !38
   %65 = sdiv i32 %64, 3
   store i32 %65, ptr %5, align 8, !tbaa !38
@@ -2708,11 +2708,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #10
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2725,9 +2725,10 @@ attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #8 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind returns_twice }
-attributes #13 = { noreturn nounwind }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind returns_twice }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

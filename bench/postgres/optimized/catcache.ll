@@ -192,7 +192,7 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
   %84 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv.i19.i
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
-  tail call void @pfree(ptr noundef %86) #13
+  tail call void @pfree(ptr noundef %86) #14
   br label %87
 
 87:                                               ; preds = %83, %.lr.ph.i18.i
@@ -201,7 +201,7 @@ define dso_local void @CatCacheInvalidate(ptr noundef captures(address) %0, i32 
   br i1 %exitcond.not.i21.i, label %CatCacheRemoveCTup.exit.i, label %.lr.ph.i18.i, !llvm.loop !6
 
 CatCacheRemoveCTup.exit.i:                        ; preds = %87, %66, %56
-  tail call void @pfree(ptr noundef %47) #13
+  tail call void @pfree(ptr noundef %47) #14
   %88 = load i32, ptr %10, align 4
   %89 = add i32 %88, -1
   store i32 %89, ptr %10, align 4
@@ -259,7 +259,7 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %87, %66, %56
   %118 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv.i.i
   %119 = load i64, ptr %118, align 8
   %120 = inttoptr i64 %119 to ptr
-  tail call void @pfree(ptr noundef %120) #13
+  tail call void @pfree(ptr noundef %120) #14
   br label %121
 
 121:                                              ; preds = %117, %.lr.ph.i.i
@@ -268,7 +268,7 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %87, %66, %56
   br i1 %exitcond.not.i.i, label %CatCacheRemoveCList.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 CatCacheRemoveCList.exit:                         ; preds = %121, %._crit_edge.i
-  tail call void @pfree(ptr noundef nonnull %38) #13
+  tail call void @pfree(ptr noundef nonnull %38) #14
   %122 = load i32, ptr %11, align 8
   %123 = add i32 %122, -1
   store i32 %123, ptr %11, align 8
@@ -375,7 +375,7 @@ CatCacheRemoveCList.exit:                         ; preds = %121, %._crit_edge.i
   %173 = getelementptr inbounds nuw i64, ptr %158, i64 %indvars.iv.i.i57
   %174 = load i64, ptr %173, align 8
   %175 = inttoptr i64 %174 to ptr
-  tail call void @pfree(ptr noundef %175) #13
+  tail call void @pfree(ptr noundef %175) #14
   br label %176
 
 176:                                              ; preds = %172, %.lr.ph.i.i56
@@ -384,7 +384,7 @@ CatCacheRemoveCList.exit:                         ; preds = %121, %._crit_edge.i
   br i1 %exitcond.not.i.i59, label %CatCacheFreeKeys.exit.i, label %.lr.ph.i.i56, !llvm.loop !6
 
 CatCacheFreeKeys.exit.i:                          ; preds = %176, %155, %148
-  tail call void @pfree(ptr noundef nonnull %129) #13
+  tail call void @pfree(ptr noundef nonnull %129) #14
   %177 = load i32, ptr %25, align 4
   %178 = add i32 %177, -1
   store i32 %178, ptr %25, align 4
@@ -511,7 +511,7 @@ define internal fastcc void @CatCacheRemoveCList(ptr noundef captures(none) %0, 
   %52 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i19
   %53 = load i64, ptr %52, align 8
   %54 = inttoptr i64 %53 to ptr
-  tail call void @pfree(ptr noundef %54) #13
+  tail call void @pfree(ptr noundef %54) #14
   br label %55
 
 55:                                               ; preds = %51, %.lr.ph.i18
@@ -520,7 +520,7 @@ define internal fastcc void @CatCacheRemoveCList(ptr noundef captures(none) %0, 
   br i1 %exitcond.not.i21, label %CatCacheRemoveCTup.exit, label %.lr.ph.i18, !llvm.loop !6
 
 CatCacheRemoveCTup.exit:                          ; preds = %55, %24, %34
-  tail call void @pfree(ptr noundef %15) #13
+  tail call void @pfree(ptr noundef %15) #14
   %56 = load i32, ptr %11, align 4
   %57 = add i32 %56, -1
   store i32 %57, ptr %11, align 4
@@ -578,7 +578,7 @@ CatCacheRemoveCTup.exit:                          ; preds = %55, %24, %34
   %90 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv.i
   %91 = load i64, ptr %90, align 8
   %92 = inttoptr i64 %91 to ptr
-  tail call void @pfree(ptr noundef %92) #13
+  tail call void @pfree(ptr noundef %92) #14
   br label %93
 
 93:                                               ; preds = %89, %.lr.ph.i
@@ -587,7 +587,7 @@ CatCacheRemoveCTup.exit:                          ; preds = %55, %24, %34
   br i1 %exitcond.not.i, label %CatCacheFreeKeys.exit, label %.lr.ph.i, !llvm.loop !6
 
 CatCacheFreeKeys.exit:                            ; preds = %93, %._crit_edge
-  tail call void @pfree(ptr noundef %1) #13
+  tail call void @pfree(ptr noundef %1) #14
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %95 = load i32, ptr %94, align 8
   %96 = add i32 %95, -1
@@ -603,7 +603,7 @@ define dso_local void @CreateCacheMemoryContext() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @TopMemoryContext, align 8
-  %4 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
+  %4 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #14
   store ptr %4, ptr @CacheMemoryContext, align 8
   br label %5
 
@@ -783,7 +783,7 @@ define internal fastcc void @ResetCatalogCache(ptr noundef nonnull captures(addr
   %79 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv.i19.i
   %80 = load i64, ptr %79, align 8
   %81 = inttoptr i64 %80 to ptr
-  tail call void @pfree(ptr noundef %81) #13
+  tail call void @pfree(ptr noundef %81) #14
   br label %82
 
 82:                                               ; preds = %78, %.lr.ph.i18.i
@@ -792,7 +792,7 @@ define internal fastcc void @ResetCatalogCache(ptr noundef nonnull captures(addr
   br i1 %exitcond.not.i21.i, label %CatCacheRemoveCTup.exit.i, label %.lr.ph.i18.i, !llvm.loop !6
 
 CatCacheRemoveCTup.exit.i:                        ; preds = %82, %61, %51
-  tail call void @pfree(ptr noundef %42) #13
+  tail call void @pfree(ptr noundef %42) #14
   %83 = load i32, ptr %10, align 4
   %84 = add i32 %83, -1
   store i32 %84, ptr %10, align 4
@@ -850,7 +850,7 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %82, %61, %51
   %113 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv.i.i
   %114 = load i64, ptr %113, align 8
   %115 = inttoptr i64 %114 to ptr
-  tail call void @pfree(ptr noundef %115) #13
+  tail call void @pfree(ptr noundef %115) #14
   br label %116
 
 116:                                              ; preds = %112, %.lr.ph.i.i
@@ -859,7 +859,7 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %82, %61, %51
   br i1 %exitcond.not.i.i, label %CatCacheRemoveCList.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
-  tail call void @pfree(ptr noundef nonnull %33) #13
+  tail call void @pfree(ptr noundef nonnull %33) #14
   %117 = load i32, ptr %11, align 8
   %118 = add i32 %117, -1
   store i32 %118, ptr %11, align 8
@@ -995,7 +995,7 @@ CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
   %189 = getelementptr inbounds nuw i64, ptr %174, i64 %indvars.iv.i19.i73
   %190 = load i64, ptr %189, align 8
   %191 = inttoptr i64 %190 to ptr
-  tail call void @pfree(ptr noundef %191) #13
+  tail call void @pfree(ptr noundef %191) #14
   br label %192
 
 192:                                              ; preds = %188, %.lr.ph.i18.i72
@@ -1004,7 +1004,7 @@ CatCacheRemoveCList.exit:                         ; preds = %116, %._crit_edge.i
   br i1 %exitcond.not.i21.i75, label %CatCacheRemoveCTup.exit.i69, label %.lr.ph.i18.i72, !llvm.loop !6
 
 CatCacheRemoveCTup.exit.i69:                      ; preds = %192, %171, %161
-  tail call void @pfree(ptr noundef %152) #13
+  tail call void @pfree(ptr noundef %152) #14
   %193 = load i32, ptr %19, align 4
   %194 = add i32 %193, -1
   store i32 %194, ptr %19, align 4
@@ -1060,7 +1060,7 @@ CatCacheRemoveCTup.exit.i69:                      ; preds = %192, %171, %161
   %225 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv.i.i63
   %226 = load i64, ptr %225, align 8
   %227 = inttoptr i64 %226 to ptr
-  tail call void @pfree(ptr noundef %227) #13
+  tail call void @pfree(ptr noundef %227) #14
   br label %228
 
 228:                                              ; preds = %224, %.lr.ph.i.i62
@@ -1069,7 +1069,7 @@ CatCacheRemoveCTup.exit.i69:                      ; preds = %192, %171, %161
   br i1 %exitcond.not.i.i65, label %CatCacheRemoveCList.exit76, label %.lr.ph.i.i62, !llvm.loop !6
 
 CatCacheRemoveCList.exit76:                       ; preds = %228, %._crit_edge.i58
-  tail call void @pfree(ptr noundef nonnull %135) #13
+  tail call void @pfree(ptr noundef nonnull %135) #14
   %229 = load i32, ptr %20, align 8
   %230 = add i32 %229, -1
   store i32 %230, ptr %20, align 8
@@ -1117,7 +1117,7 @@ CatCacheRemoveCList.exit76:                       ; preds = %228, %._crit_edge.i
   %256 = getelementptr inbounds nuw i64, ptr %241, i64 %indvars.iv.i.i55
   %257 = load i64, ptr %256, align 8
   %258 = inttoptr i64 %257 to ptr
-  tail call void @pfree(ptr noundef %258) #13
+  tail call void @pfree(ptr noundef %258) #14
   br label %259
 
 259:                                              ; preds = %255, %.lr.ph.i.i54
@@ -1126,7 +1126,7 @@ CatCacheRemoveCList.exit76:                       ; preds = %228, %._crit_edge.i
   br i1 %exitcond.not.i.i57, label %CatCacheFreeKeys.exit.i, label %.lr.ph.i.i54, !llvm.loop !6
 
 CatCacheFreeKeys.exit.i:                          ; preds = %259, %238, %231
-  tail call void @pfree(ptr noundef nonnull %129) #13
+  tail call void @pfree(ptr noundef nonnull %129) #14
   %260 = load i32, ptr %19, align 4
   %261 = add i32 %260, -1
   store i32 %261, ptr %19, align 4
@@ -1197,7 +1197,7 @@ define dso_local void @CatalogCacheFlushCatalog(i32 noundef %0) local_unnamed_ad
   %7 = getelementptr inbounds i8, ptr %.sroa.0.07, i64 -152
   tail call fastcc void @ResetCatalogCache(ptr noundef %7, i1 noundef zeroext false)
   %8 = load i32, ptr %7, align 8
-  tail call void @CallSyscacheCallbacks(i32 noundef %8, i32 noundef 0) #13
+  tail call void @CallSyscacheCallbacks(i32 noundef %8, i32 noundef 0) #14
   br label %9
 
 9:                                                ; preds = %6, %.lr.ph
@@ -1219,7 +1219,7 @@ define dso_local ptr @InitCatCache(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 CreateCacheMemoryContext.exit:                    ; preds = %6
   %8 = load ptr, ptr @TopMemoryContext, align 8
-  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
+  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #14
   store ptr %9, ptr @CacheMemoryContext, align 8
   br label %10
 
@@ -1232,7 +1232,7 @@ CreateCacheMemoryContext.exit:                    ; preds = %6
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @palloc(i64 noundef 16) #13
+  %16 = tail call ptr @palloc(i64 noundef 16) #14
   store ptr %16, ptr @CacheHdr, align 8
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1240,10 +1240,10 @@ CreateCacheMemoryContext.exit:                    ; preds = %6
   br label %18
 
 18:                                               ; preds = %15, %10
-  %19 = tail call ptr @palloc_aligned(i64 noundef 448, i64 noundef 128, i32 noundef 4) #13
+  %19 = tail call ptr @palloc_aligned(i64 noundef 448, i64 noundef 128, i32 noundef 4) #14
   %20 = sext i32 %5 to i64
   %21 = shl nsw i64 %20, 4
-  %22 = tail call ptr @palloc0(i64 noundef %21) #13
+  %22 = tail call ptr @palloc0(i64 noundef %21) #14
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 120
@@ -1326,13 +1326,13 @@ define dso_local void @InitCatCachePhase2(ptr noundef %0, i1 noundef zeroext %1)
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load i32, ptr %11, align 8
-  tail call void @LockRelationOid(i32 noundef %12, i32 noundef 1) #13
+  tail call void @LockRelationOid(i32 noundef %12, i32 noundef 1) #14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr @index_open(i32 noundef %14, i32 noundef 1) #13
-  tail call void @index_close(ptr noundef %15, i32 noundef 1) #13
+  %15 = tail call ptr @index_open(i32 noundef %14, i32 noundef 1) #14
+  tail call void @index_close(ptr noundef %15, i32 noundef 1) #14
   %16 = load i32, ptr %11, align 8
-  tail call void @UnlockRelationOid(i32 noundef %16, i32 noundef 1) #13
+  tail call void @UnlockRelationOid(i32 noundef %16, i32 noundef 1) #14
   br label %17
 
 17:                                               ; preds = %8, %10, %7
@@ -1343,17 +1343,17 @@ define dso_local void @InitCatCachePhase2(ptr noundef %0, i1 noundef zeroext %1)
 define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes((128, 136), (144, 145)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
-  %4 = tail call ptr @table_open(i32 noundef %3, i32 noundef 1) #13
+  %4 = tail call ptr @table_open(i32 noundef %3, i32 noundef 1) #14
   %5 = load ptr, ptr @CacheMemoryContext, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @CreateTupleDescCopyConstr(ptr noundef %8) #13
+  %9 = tail call ptr @CreateTupleDescCopyConstr(ptr noundef %8) #14
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = tail call ptr @pstrdup(ptr noundef nonnull %12) #13
+  %13 = tail call ptr @pstrdup(ptr noundef nonnull %12) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr %10, align 8
@@ -1362,7 +1362,7 @@ define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 %17, ptr %18, align 8
   store ptr %6, ptr @CurrentMemoryContext, align 8
-  tail call void @table_close(ptr noundef %4, i32 noundef 1) #13
+  tail call void @table_close(ptr noundef %4, i32 noundef 1) #14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
@@ -1387,9 +1387,9 @@ define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes
   br i1 %29, label %30, label %GetCCHashEqFuncs.exit
 
 30:                                               ; preds = %28
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1149, ptr noundef nonnull @__func__.CatalogCacheInitializeCache) #13
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1149, ptr noundef nonnull @__func__.CatalogCacheInitializeCache) #14
   unreachable
 
 33:                                               ; preds = %24
@@ -1445,9 +1445,9 @@ define internal fastcc void @CatalogCacheInitializeCache(ptr noundef initializes
   br label %GetCCHashEqFuncs.exit
 
 49:                                               ; preds = %33
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %41) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 330, ptr noundef nonnull @__func__.GetCCHashEqFuncs) #13
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %41) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 330, ptr noundef nonnull @__func__.GetCCHashEqFuncs) #14
   unreachable
 
 GetCCHashEqFuncs.exit:                            ; preds = %28, %33, %42, %43, %44, %45, %46, %47, %48
@@ -1461,7 +1461,7 @@ GetCCHashEqFuncs.exit:                            ; preds = %28, %33, %42, %43, 
   %54 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %23, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr @CacheMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %.sink.i, ptr noundef nonnull %55, ptr noundef %56) #13
+  tail call void @fmgr_info_cxt(i32 noundef %.sink.i, ptr noundef nonnull %55, ptr noundef %56) #14
   %57 = load i32, ptr %25, align 4
   %58 = trunc i32 %57 to i16
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 4
@@ -1531,7 +1531,7 @@ define internal fastcc ptr @SearchCatCacheInternal(ptr noundef %0, i32 noundef %
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(i64 noundef %5) #13
+  %19 = tail call i32 %18(i64 noundef %5) #14
   %20 = tail call noundef i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 24)
   br label %21
 
@@ -1539,7 +1539,7 @@ define internal fastcc ptr @SearchCatCacheInternal(ptr noundef %0, i32 noundef %
   %.0.i = phi i32 [ %20, %16 ], [ 0, %12 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(i64 noundef %4) #13
+  %24 = tail call i32 %23(i64 noundef %4) #14
   %25 = tail call noundef i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 16)
   %26 = xor i32 %25, %.0.i
   br label %27
@@ -1548,22 +1548,22 @@ define internal fastcc ptr @SearchCatCacheInternal(ptr noundef %0, i32 noundef %
   %.1.i = phi i32 [ %26, %21 ], [ 0, %12 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 %29(i64 noundef %3) #13
+  %30 = tail call i32 %29(i64 noundef %3) #14
   %31 = tail call noundef i32 @llvm.fshl.i32(i32 %30, i32 %30, i32 8)
   %32 = xor i32 %31, %.1.i
   br label %CatalogCacheComputeHashValue.exit
 
 33:                                               ; preds = %12
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
-  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @__func__.CatalogCacheComputeHashValue) #13
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @__func__.CatalogCacheComputeHashValue) #14
   unreachable
 
 CatalogCacheComputeHashValue.exit:                ; preds = %12, %27
   %.2.i = phi i32 [ %32, %27 ], [ 0, %12 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call i32 %37(i64 noundef %2) #13
+  %38 = tail call i32 %37(i64 noundef %2) #14
   %39 = xor i32 %38, %.2.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %41 = load i32, ptr %40, align 4
@@ -1615,7 +1615,7 @@ CatalogCacheComputeHashValue.exit:                ; preds = %12, %27
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
   %64 = load i64, ptr %63, align 8
-  %65 = tail call zeroext i1 %60(i64 noundef %62, i64 noundef %64) #13
+  %65 = tail call zeroext i1 %60(i64 noundef %62, i64 noundef %64) #14
   br i1 %65, label %58, label %CatalogCacheCompareTuple.exit
 
 .loopexit.loopexit:                               ; preds = %58
@@ -1655,7 +1655,7 @@ dlist_move_head.exit:                             ; preds = %.loopexit.loopexit,
 
 80:                                               ; preds = %dlist_move_head.exit
   %81 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %81) #13
+  tail call void @ResourceOwnerEnlarge(ptr noundef %81) #14
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.052, i64 16
   %83 = load i32, ptr %82, align 8
   %84 = add i32 %83, 1
@@ -1663,7 +1663,7 @@ dlist_move_head.exit:                             ; preds = %.loopexit.loopexit,
   %85 = load ptr, ptr @CurrentResourceOwner, align 8
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.052, i64 24
   %87 = ptrtoint ptr %86 to i64
-  tail call void @ResourceOwnerRemember(ptr noundef %85, i64 noundef %87, ptr noundef nonnull @catcache_resowner_desc) #13
+  tail call void @ResourceOwnerRemember(ptr noundef %85, i64 noundef %87, ptr noundef nonnull @catcache_resowner_desc) #14
   br label %91
 
 CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %54, %.lr.ph.split
@@ -1726,7 +1726,7 @@ define internal fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr nounde
 7:                                                ; preds = %2
   %8 = load ptr, ptr @CurrentResourceOwner, align 8
   %9 = ptrtoint ptr %0 to i64
-  tail call void @ResourceOwnerForget(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @catcache_resowner_desc) #13
+  tail call void @ResourceOwnerForget(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @catcache_resowner_desc) #14
   br label %10
 
 10:                                               ; preds = %7, %2
@@ -1809,7 +1809,7 @@ define internal fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr nounde
   %61 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv.i.i
   %62 = load i64, ptr %61, align 8
   %63 = inttoptr i64 %62 to ptr
-  tail call void @pfree(ptr noundef %63) #13
+  tail call void @pfree(ptr noundef %63) #14
   br label %64
 
 64:                                               ; preds = %60, %.lr.ph.i.i
@@ -1818,7 +1818,7 @@ define internal fastcc void @ReleaseCatCacheWithOwner(ptr noundef %0, ptr nounde
   br i1 %exitcond.not.i.i, label %CatCacheFreeKeys.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 CatCacheFreeKeys.exit.i:                          ; preds = %64, %40, %28
-  tail call void @pfree(ptr noundef nonnull %3) #13
+  tail call void @pfree(ptr noundef nonnull %3) #14
   %65 = getelementptr inbounds nuw i8, ptr %30, i64 108
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, -1
@@ -1858,7 +1858,7 @@ define dso_local i32 @GetCatCacheHashValue(ptr noundef %0, i64 noundef %1, i64 n
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(i64 noundef %4) #13
+  %16 = tail call i32 %15(i64 noundef %4) #14
   %17 = tail call noundef i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 24)
   br label %18
 
@@ -1866,7 +1866,7 @@ define dso_local i32 @GetCatCacheHashValue(ptr noundef %0, i64 noundef %1, i64 n
   %.0.i = phi i32 [ %17, %13 ], [ 0, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(i64 noundef %3) #13
+  %21 = tail call i32 %20(i64 noundef %3) #14
   %22 = tail call noundef i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 16)
   %23 = xor i32 %22, %.0.i
   br label %24
@@ -1875,22 +1875,22 @@ define dso_local i32 @GetCatCacheHashValue(ptr noundef %0, i64 noundef %1, i64 n
   %.1.i = phi i32 [ %23, %18 ], [ 0, %10 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(i64 noundef %2) #13
+  %27 = tail call i32 %26(i64 noundef %2) #14
   %28 = tail call noundef i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 8)
   %29 = xor i32 %28, %.1.i
   br label %CatalogCacheComputeHashValue.exit
 
 30:                                               ; preds = %10
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %12) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @__func__.CatalogCacheComputeHashValue) #13
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %12) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @__func__.CatalogCacheComputeHashValue) #14
   unreachable
 
 CatalogCacheComputeHashValue.exit:                ; preds = %10, %24
   %.2.i = phi i32 [ %29, %24 ], [ 0, %10 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 %34(i64 noundef %1) #13
+  %35 = tail call i32 %34(i64 noundef %1) #14
   %36 = xor i32 %35, %.2.i
   ret i32 %36
 }
@@ -1930,7 +1930,7 @@ define dso_local ptr @SearchCatCacheList(ptr noundef %0, i32 noundef %1, i64 nou
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr @CacheMemoryContext, align 8
-  %25 = call ptr @MemoryContextAllocZero(ptr noundef %24, i64 noundef 256) #13
+  %25 = call ptr @MemoryContextAllocZero(ptr noundef %24, i64 noundef 256) #14
   store ptr %25, ptr %20, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 16, ptr %26, align 4
@@ -1946,7 +1946,7 @@ define dso_local ptr @SearchCatCacheList(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %33, label %34, label %76
 
 34:                                               ; preds = %27
-  %35 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
+  %35 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %34
@@ -1955,8 +1955,8 @@ define dso_local ptr @SearchCatCacheList(ptr noundef %0, i32 noundef %1, i64 nou
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %28, align 8
   %41 = load i32, ptr %30, align 4
-  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %37, ptr noundef %39, i32 noundef %40, i32 noundef %41) #13
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1030, ptr noundef nonnull @__func__.RehashCatCacheLists) #13
+  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %37, ptr noundef %39, i32 noundef %40, i32 noundef %41) #14
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1030, ptr noundef nonnull @__func__.RehashCatCacheLists) #14
   br label %43
 
 43:                                               ; preds = %36, %34
@@ -1965,7 +1965,7 @@ define dso_local ptr @SearchCatCacheList(ptr noundef %0, i32 noundef %1, i64 nou
   %46 = load ptr, ptr @CacheMemoryContext, align 8
   %47 = sext i32 %45 to i64
   %48 = shl nsw i64 %47, 4
-  %49 = call ptr @MemoryContextAllocZero(ptr noundef %46, i64 noundef %48) #13
+  %49 = call ptr @MemoryContextAllocZero(ptr noundef %46, i64 noundef %48) #14
   %50 = load i32, ptr %30, align 4
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %.lr.ph33.i, label %RehashCatCacheLists.exit
@@ -2031,7 +2031,7 @@ dlist_push_head.exit.i:                           ; preds = %70, %.lr.ph.i
 
 RehashCatCacheLists.exit:                         ; preds = %._crit_edge.i, %43
   %75 = load ptr, ptr %20, align 8
-  call void @pfree(ptr noundef %75) #13
+  call void @pfree(ptr noundef %75) #14
   store i32 %45, ptr %30, align 4
   store ptr %49, ptr %20, align 8
   br label %76
@@ -2047,7 +2047,7 @@ RehashCatCacheLists.exit:                         ; preds = %._crit_edge.i, %43
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
-  %80 = call i32 %79(i64 noundef 0) #13
+  %80 = call i32 %79(i64 noundef 0) #14
   %81 = call noundef i32 @llvm.fshl.i32(i32 %80, i32 %80, i32 24)
   br label %82
 
@@ -2055,7 +2055,7 @@ RehashCatCacheLists.exit:                         ; preds = %._crit_edge.i, %43
   %.0.i = phi i32 [ %81, %77 ], [ 0, %76 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %84 = load ptr, ptr %83, align 8
-  %85 = call i32 %84(i64 noundef %4) #13
+  %85 = call i32 %84(i64 noundef %4) #14
   %86 = call noundef i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 16)
   %87 = xor i32 %86, %.0.i
   br label %88
@@ -2064,22 +2064,22 @@ RehashCatCacheLists.exit:                         ; preds = %._crit_edge.i, %43
   %.1.i = phi i32 [ %87, %82 ], [ 0, %76 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8
-  %91 = call i32 %90(i64 noundef %3) #13
+  %91 = call i32 %90(i64 noundef %3) #14
   %92 = call noundef i32 @llvm.fshl.i32(i32 %91, i32 %91, i32 8)
   %93 = xor i32 %92, %.1.i
   br label %CatalogCacheComputeHashValue.exit
 
 94:                                               ; preds = %76
-  %95 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
-  %96 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #13
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @__func__.CatalogCacheComputeHashValue) #13
+  %95 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  %96 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #14
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 373, ptr noundef nonnull @__func__.CatalogCacheComputeHashValue) #14
   unreachable
 
 CatalogCacheComputeHashValue.exit:                ; preds = %76, %88
   %.2.i = phi i32 [ %93, %88 ], [ 0, %76 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = load ptr, ptr %97, align 8
-  %99 = call i32 %98(i64 noundef %2) #13
+  %99 = call i32 %98(i64 noundef %2) #14
   %100 = xor i32 %99, %.2.i
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %102 = load i32, ptr %101, align 4
@@ -2137,7 +2137,7 @@ CatalogCacheComputeHashValue.exit:                ; preds = %76, %88
   %126 = load i64, ptr %125, align 8
   %127 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i203
   %128 = load i64, ptr %127, align 8
-  %129 = call zeroext i1 %124(i64 noundef %126, i64 noundef %128) #13
+  %129 = call zeroext i1 %124(i64 noundef %126, i64 noundef %128) #14
   br i1 %129, label %122, label %CatalogCacheCompareTuple.exit
 
 .loopexit223:                                     ; preds = %122
@@ -2172,7 +2172,7 @@ dlist_push_head.exit.i206:                        ; preds = %140, %132
 
 dlist_move_head.exit:                             ; preds = %.loopexit223, %dlist_push_head.exit.i206
   %142 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %142) #13
+  call void @ResourceOwnerEnlarge(ptr noundef %142) #14
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0233, i64 48
   %144 = load i32, ptr %143, align 8
   %145 = add i32 %144, 1
@@ -2201,7 +2201,7 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i202, %117, 
   %153 = load ptr, ptr @PG_exception_stack, align 8
   %154 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %155 = call i32 @__sigsetjmp(ptr noundef nonnull %10, i32 noundef 0) #15
+  %155 = call i32 @__sigsetjmp(ptr noundef nonnull %10, i32 noundef 0) #16
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %307
 
@@ -2210,7 +2210,7 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i202, %117, 
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %159 = load i32, ptr %158, align 8
-  %160 = call ptr @table_open(i32 noundef %159, i32 noundef 1) #13
+  %160 = call ptr @table_open(i32 noundef %159, i32 noundef 1) #14
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %163 = load i32, ptr %162, align 8
@@ -2287,10 +2287,10 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i202, %117, 
 
 IndexScanOK.exit:                                 ; preds = %.critedge, %.critedge, %188, %191, %194
   %.0.i207 = phi i1 [ true, %194 ], [ false, %188 ], [ false, %.critedge ], [ false, %.critedge ], [ false, %191 ]
-  %195 = call ptr @systable_beginscan(ptr noundef %160, i32 noundef %187, i1 noundef zeroext %.0.i207, ptr noundef null, i32 noundef %1, ptr noundef nonnull %11) #13
+  %195 = call ptr @systable_beginscan(ptr noundef %160, i32 noundef %187, i1 noundef zeroext %.0.i207, ptr noundef null, i32 noundef %1, ptr noundef nonnull %11) #14
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load ptr, ptr %196, align 8
-  %198 = call ptr @systable_getnext(ptr noundef %195) #13
+  %198 = call ptr @systable_getnext(ptr noundef %195) #14
   %199 = icmp eq ptr %198, null
   %200 = load i8, ptr %152, align 1, !range !4
   %201 = trunc nuw i8 %200 to i1
@@ -2339,7 +2339,7 @@ IndexScanOK.exit:                                 ; preds = %.critedge, %.crited
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds nuw i8, ptr %.sroa.0101.1247, i64 28
-  %227 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %226, ptr noundef nonnull %213) #13
+  %227 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %226, ptr noundef nonnull %213) #14
   br i1 %227, label %228, label %231
 
 228:                                              ; preds = %225
@@ -2370,13 +2370,13 @@ IndexScanOK.exit:                                 ; preds = %.critedge, %.crited
 237:                                              ; preds = %.loopexit, %._crit_edge250
   %.2 = phi ptr [ %234, %._crit_edge250 ], [ %236, %.loopexit ]
   %.0..0..0..0.52 = load volatile ptr, ptr %8, align 8
-  %238 = call ptr @lappend(ptr noundef %.0..0..0..0.52, ptr noundef nonnull %.2) #13
+  %238 = call ptr @lappend(ptr noundef %.0..0..0..0.52, ptr noundef nonnull %.2) #14
   store volatile ptr %238, ptr %8, align 8
   %239 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   %240 = load i32, ptr %239, align 8
   %241 = add i32 %240, 1
   store i32 %241, ptr %239, align 8
-  %242 = call ptr @systable_getnext(ptr noundef %195) #13
+  %242 = call ptr @systable_getnext(ptr noundef %195) #14
   %243 = icmp eq ptr %242, null
   %244 = load i8, ptr %152, align 1, !range !4
   %245 = trunc nuw i8 %244 to i1
@@ -2384,7 +2384,7 @@ IndexScanOK.exit:                                 ; preds = %.critedge, %.crited
   br i1 %.not188, label %.loopexit222, label %.lr.ph252
 
 .loopexit222:                                     ; preds = %237, %IndexScanOK.exit, %.thread219
-  call void @systable_endscan(ptr noundef %195) #13
+  call void @systable_endscan(ptr noundef %195) #14
   %246 = load i8, ptr %152, align 1, !range !4, !noundef !5
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %173, label %248, !llvm.loop !29
@@ -2392,9 +2392,9 @@ IndexScanOK.exit:                                 ; preds = %.critedge, %.crited
 248:                                              ; preds = %.loopexit222
   %249 = icmp ne ptr %197, null
   %250 = zext i1 %249 to i8
-  call void @table_close(ptr noundef %160, i32 noundef 1) #13
+  call void @table_close(ptr noundef %160, i32 noundef 1) #14
   %251 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %251) #13
+  call void @ResourceOwnerEnlarge(ptr noundef %251) #14
   %252 = load ptr, ptr @CacheMemoryContext, align 8
   %253 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %252, ptr @CurrentMemoryContext, align 8
@@ -2412,7 +2412,7 @@ list_length.exit:                                 ; preds = %248, %254
   %258 = sext i32 %257 to i64
   %259 = shl nsw i64 %258, 3
   %260 = add nsw i64 %259, 80
-  %261 = call ptr @palloc(i64 noundef %260) #13
+  %261 = call ptr @palloc(i64 noundef %260) #14
   %262 = load ptr, ptr %12, align 8
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 24
@@ -2446,7 +2446,7 @@ list_length.exit:                                 ; preds = %248, %254
 
 283:                                              ; preds = %267
   %284 = inttoptr i64 %279 to ptr
-  call void @namestrcpy(ptr noundef nonnull %6, ptr noundef %284) #13
+  call void @namestrcpy(ptr noundef nonnull %6, ptr noundef %284) #14
   br label %285
 
 285:                                              ; preds = %283, %267
@@ -2457,7 +2457,7 @@ list_length.exit:                                 ; preds = %248, %254
   %289 = getelementptr inbounds nuw i8, ptr %277, i64 72
   %290 = load i16, ptr %289, align 4
   %291 = sext i16 %290 to i32
-  %292 = call i64 @datumCopy(i64 noundef %.0.i213, i1 noundef zeroext %288, i32 noundef %291) #13
+  %292 = call i64 @datumCopy(i64 noundef %.0.i213, i1 noundef zeroext %288, i32 noundef %291) #14
   %293 = getelementptr inbounds nuw i64, ptr %264, i64 %indvars.iv.i212
   store i64 %292, ptr %293, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2535,7 +2535,7 @@ CatCacheCopyKeys.exit:                            ; preds = %285, %list_length.e
   br i1 %or.cond, label %325, label %CatCacheRemoveCTup.exit
 
 .critedge199:                                     ; preds = %CatCacheRemoveCTup.exit, %.lr.ph238, %307
-  call void @pg_re_throw() #16
+  call void @pg_re_throw() #17
   unreachable
 
 325:                                              ; preds = %.lr.ph
@@ -2600,7 +2600,7 @@ CatCacheCopyKeys.exit:                            ; preds = %285, %list_length.e
   %362 = getelementptr inbounds nuw i64, ptr %347, i64 %indvars.iv.i.i
   %363 = load i64, ptr %362, align 8
   %364 = inttoptr i64 %363 to ptr
-  call void @pfree(ptr noundef %364) #13
+  call void @pfree(ptr noundef %364) #14
   br label %365
 
 365:                                              ; preds = %361, %.lr.ph.i.i
@@ -2609,7 +2609,7 @@ CatCacheCopyKeys.exit:                            ; preds = %285, %list_length.e
   br i1 %exitcond.not.i.i, label %CatCacheFreeKeys.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 CatCacheFreeKeys.exit.i:                          ; preds = %365, %344, %334
-  call void @pfree(ptr noundef %317) #13
+  call void @pfree(ptr noundef %317) #14
   %366 = load i32, ptr %312, align 4
   %367 = add i32 %366, -1
   store i32 %367, ptr %312, align 4
@@ -2686,7 +2686,7 @@ dlist_push_head.exit:                             ; preds = %.critedge201, %389
   %.sink299 = phi ptr [ %261, %dlist_push_head.exit ], [ %130, %dlist_move_head.exit ]
   %403 = load ptr, ptr @CurrentResourceOwner, align 8
   %404 = ptrtoint ptr %.sink299 to i64
-  call void @ResourceOwnerRemember(ptr noundef %403, i64 noundef %404, ptr noundef nonnull @catlistref_resowner_desc) #13
+  call void @ResourceOwnerRemember(ptr noundef %403, i64 noundef %404, ptr noundef nonnull @catlistref_resowner_desc) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2760,7 +2760,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef readon
 31:                                               ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 %33(i64 noundef %.021) #13
+  %34 = tail call i32 %33(i64 noundef %.021) #14
   %35 = tail call noundef i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 24)
   br label %36
 
@@ -2768,7 +2768,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef readon
   %.0.i = phi i32 [ %35, %31 ], [ 0, %20 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 %38(i64 noundef %23) #13
+  %39 = tail call i32 %38(i64 noundef %23) #14
   %40 = tail call noundef i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 16)
   %41 = xor i32 %40, %.0.i
   br label %42
@@ -2779,7 +2779,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef readon
   %.1.i = phi i32 [ %41, %36 ], [ 0, %.thread27 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %46(i64 noundef %44) #13
+  %47 = tail call i32 %46(i64 noundef %44) #14
   %48 = tail call noundef i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 8)
   %49 = xor i32 %48, %.1.i
   br label %CatalogCacheComputeHashValue.exit
@@ -2789,15 +2789,15 @@ CatalogCacheComputeHashValue.exit:                ; preds = %.thread, %42
   %.2.i = phi i32 [ %49, %42 ], [ 0, %.thread ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 %52(i64 noundef %50) #13
+  %53 = tail call i32 %52(i64 noundef %50) #14
   %54 = xor i32 %53, %.2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %54
 
 55:                                               ; preds = %3
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 428, ptr noundef nonnull @__func__.CatalogCacheComputeTupleHashValue) #13
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 428, ptr noundef nonnull @__func__.CatalogCacheComputeTupleHashValue) #14
   unreachable
 }
 
@@ -2837,7 +2837,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   %20 = load ptr, ptr @PG_exception_stack, align 8
   %21 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %22 = call i32 @__sigsetjmp(ptr noundef nonnull %8, i32 noundef 0) #15
+  %22 = call i32 @__sigsetjmp(ptr noundef nonnull %8, i32 noundef 0) #16
   %.not75 = icmp eq i32 %22, 0
   br i1 %.not75, label %23, label %.critedge
 
@@ -2845,7 +2845,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   store ptr %8, ptr @PG_exception_stack, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = call ptr @toast_flatten_tuple(ptr noundef nonnull %1, ptr noundef %25) #13
+  %26 = call ptr @toast_flatten_tuple(ptr noundef nonnull %1, ptr noundef %25) #14
   store ptr %15, ptr @catcache_in_progress_stack, align 8
   store ptr %20, ptr @PG_exception_stack, align 8
   store ptr %21, ptr @error_context_stack, align 8
@@ -2858,11 +2858,11 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   store ptr %20, ptr @PG_exception_stack, align 8
   store ptr %21, ptr @error_context_stack, align 8
   store ptr %15, ptr @catcache_in_progress_stack, align 8
-  call void @pg_re_throw() #16
+  call void @pg_re_throw() #17
   unreachable
 
 29:                                               ; preds = %23
-  call void @heap_freetuple(ptr noundef %26) #13
+  call void @heap_freetuple(ptr noundef %26) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge80
 
@@ -2878,7 +2878,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   %33 = load i32, ptr %.174, align 8
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %34, 112
-  %36 = call ptr @palloc(i64 noundef %35) #13
+  %36 = call ptr @palloc(i64 noundef %35) #14
   %37 = load i32, ptr %.174, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store i32 %37, ptr %38, align 8
@@ -2906,7 +2906,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   br i1 %.not76, label %55, label %54
 
 54:                                               ; preds = %30
-  call void @heap_freetuple(ptr noundef nonnull %.174) #13
+  call void @heap_freetuple(ptr noundef nonnull %.174) #14
   br label %55
 
 55:                                               ; preds = %54, %30
@@ -2940,7 +2940,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %67
-  %75 = call i64 @getmissingattr(ptr noundef %65, i32 noundef %64, ptr noundef nonnull %9) #13
+  %75 = call i64 @getmissingattr(ptr noundef %65, i32 noundef %64, ptr noundef nonnull %9) #14
   br label %heap_getattr.exit
 
 76:                                               ; preds = %67
@@ -2948,7 +2948,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   br label %heap_getattr.exit
 
 78:                                               ; preds = %62
-  %79 = call i64 @heap_getsysattr(ptr noundef nonnull %38, i32 noundef %64, ptr noundef %65, ptr noundef nonnull %9) #13
+  %79 = call i64 @heap_getsysattr(ptr noundef nonnull %38, i32 noundef %64, ptr noundef %65, ptr noundef nonnull %9) #14
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %74, %76, %78
@@ -2966,7 +2966,7 @@ heap_getattr.exit:                                ; preds = %74, %76, %78
   %85 = load ptr, ptr @CacheMemoryContext, align 8
   %86 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %85, ptr @CurrentMemoryContext, align 8
-  %87 = call ptr @palloc(i64 noundef 104) #13
+  %87 = call ptr @palloc(i64 noundef 104) #14
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3003,7 +3003,7 @@ heap_getattr.exit:                                ; preds = %74, %76, %78
 
 112:                                              ; preds = %96
   %113 = inttoptr i64 %108 to ptr
-  call void @namestrcpy(ptr noundef nonnull %6, ptr noundef %113) #13
+  call void @namestrcpy(ptr noundef nonnull %6, ptr noundef %113) #14
   br label %114
 
 114:                                              ; preds = %112, %96
@@ -3014,7 +3014,7 @@ heap_getattr.exit:                                ; preds = %74, %76, %78
   %118 = getelementptr inbounds nuw i8, ptr %106, i64 72
   %119 = load i16, ptr %118, align 4
   %120 = sext i16 %119 to i32
-  %121 = call i64 @datumCopy(i64 noundef %.0.i81, i1 noundef zeroext %117, i32 noundef %120) #13
+  %121 = call i64 @datumCopy(i64 noundef %.0.i81, i1 noundef zeroext %117, i32 noundef %120) #14
   %122 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv.i
   store i64 %121, ptr %122, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3080,7 +3080,7 @@ dlist_push_head.exit:                             ; preds = %.loopexit, %138
   br i1 %152, label %153, label %.critedge80
 
 153:                                              ; preds = %dlist_push_head.exit
-  %154 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
+  %154 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %154, label %155, label %162
 
 155:                                              ; preds = %153
@@ -3089,8 +3089,8 @@ dlist_push_head.exit:                             ; preds = %.loopexit, %138
   %158 = load ptr, ptr %157, align 8
   %159 = load i32, ptr %141, align 4
   %160 = load i32, ptr %149, align 4
-  %161 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %156, ptr noundef %158, i32 noundef %159, i32 noundef %160) #13
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 992, ptr noundef nonnull @__func__.RehashCatCache) #13
+  %161 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %156, ptr noundef %158, i32 noundef %159, i32 noundef %160) #14
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 992, ptr noundef nonnull @__func__.RehashCatCache) #14
   br label %162
 
 162:                                              ; preds = %155, %153
@@ -3099,7 +3099,7 @@ dlist_push_head.exit:                             ; preds = %.loopexit, %138
   %165 = load ptr, ptr @CacheMemoryContext, align 8
   %166 = sext i32 %164 to i64
   %167 = shl nsw i64 %166, 4
-  %168 = call ptr @MemoryContextAllocZero(ptr noundef %165, i64 noundef %167) #13
+  %168 = call ptr @MemoryContextAllocZero(ptr noundef %165, i64 noundef %167) #14
   %169 = load i32, ptr %149, align 4
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %.lr.ph33.i, label %RehashCatCache.exit
@@ -3165,7 +3165,7 @@ dlist_push_head.exit.i:                           ; preds = %189, %.lr.ph.i83
 
 RehashCatCache.exit:                              ; preds = %._crit_edge.i, %162
   %194 = load ptr, ptr %130, align 8
-  call void @pfree(ptr noundef %194) #13
+  call void @pfree(ptr noundef %194) #14
   store i32 %164, ptr %149, align 4
   store ptr %168, ptr %130, align 8
   br label %.critedge80
@@ -3196,7 +3196,7 @@ define dso_local void @ReleaseCatCacheList(ptr noundef %0) local_unnamed_addr #0
 
 6:                                                ; preds = %1
   %7 = ptrtoint ptr %0 to i64
-  tail call void @ResourceOwnerForget(ptr noundef nonnull %2, i64 noundef %7, ptr noundef nonnull @catlistref_resowner_desc) #13
+  tail call void @ResourceOwnerForget(ptr noundef nonnull %2, i64 noundef %7, ptr noundef nonnull @catlistref_resowner_desc) #14
   br label %8
 
 8:                                                ; preds = %6, %1
@@ -3261,7 +3261,7 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr noundef readonly captur
   %24 = load i32, ptr @MyDatabaseId, align 4
   %25 = select i1 %23, i32 0, i32 %24
   %26 = load i32, ptr %9, align 8
-  tail call void %3(i32 noundef %26, i32 noundef %20, i32 noundef %25, ptr noundef %4) #13
+  tail call void %3(i32 noundef %26, i32 noundef %20, i32 noundef %25, ptr noundef %4) #14
   br label %27
 
 27:                                               ; preds = %17, %.lr.ph.split.us
@@ -3297,7 +3297,7 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr noundef readonly captur
   %43 = load i32, ptr @MyDatabaseId, align 4
   %44 = select i1 %42, i32 0, i32 %43
   %45 = load i32, ptr %28, align 8
-  tail call void %3(i32 noundef %45, i32 noundef %39, i32 noundef %44, ptr noundef %4) #13
+  tail call void %3(i32 noundef %45, i32 noundef %39, i32 noundef %44, ptr noundef %4) #14
   %46 = load i32, ptr %37, align 8
   %47 = tail call fastcc i32 @CatalogCacheComputeTupleHashValue(ptr noundef nonnull %28, i32 noundef %46, ptr noundef nonnull %2)
   %.not29 = icmp eq i32 %47, %39
@@ -3305,7 +3305,7 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr noundef readonly captur
 
 48:                                               ; preds = %36
   %49 = load i32, ptr %28, align 8
-  tail call void %3(i32 noundef %49, i32 noundef %47, i32 noundef %44, ptr noundef %4) #13
+  tail call void %3(i32 noundef %49, i32 noundef %47, i32 noundef %44, ptr noundef %4) #14
   br label %50
 
 50:                                               ; preds = %48, %36, %.lr.ph.split
@@ -3360,9 +3360,9 @@ define internal noundef zeroext i1 @chareqfast(i64 noundef %0, i64 noundef %1) #
 ; Function Attrs: nounwind uwtable
 define internal i32 @namehashfast(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @hash_bytes(ptr noundef nonnull %2, i32 noundef %4) #13
+  %5 = tail call i32 @hash_bytes(ptr noundef nonnull %2, i32 noundef %4) #14
   ret i32 %5
 }
 
@@ -3370,7 +3370,7 @@ define internal i32 @namehashfast(i64 noundef %0) #0 {
 define internal zeroext i1 @nameeqfast(i64 noundef %0, i64 noundef %1) #8 {
   %3 = inttoptr i64 %0 to ptr
   %4 = inttoptr i64 %1 to ptr
-  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64) #17
+  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64) #18
   %6 = icmp eq i32 %5, 0
   ret i1 %6
 }
@@ -3422,28 +3422,28 @@ define internal noundef zeroext i1 @int4eqfast(i64 noundef %0, i64 noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @texthashfast(i64 noundef %0) #0 {
-  %2 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @hashtext, i32 noundef 100, i64 noundef %0) #13
+  %2 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @hashtext, i32 noundef 100, i64 noundef %0) #14
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @texteqfast(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @texteq, i32 noundef 100, i64 noundef %0, i64 noundef %1) #13
+  %3 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @texteq, i32 noundef 100, i64 noundef %0, i64 noundef %1) #14
   %4 = icmp ne i64 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @oidvectorhashfast(i64 noundef %0) #0 {
-  %2 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @hashoidvector, i32 noundef 0, i64 noundef %0) #13
+  %2 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @hashoidvector, i32 noundef 0, i64 noundef %0) #14
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @oidvectoreqfast(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @oidvectoreq, i32 noundef 0, i64 noundef %0, i64 noundef %1) #13
+  %3 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @oidvectoreq, i32 noundef 0, i64 noundef %0, i64 noundef %1) #14
   %4 = icmp ne i64 %3, 0
   ret i1 %4
 }
@@ -3483,7 +3483,7 @@ define internal fastcc ptr @SearchCatCacheMiss(ptr noundef %0, i32 noundef %1, i
   store i64 %7, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load i32, ptr %14, align 8
-  %16 = tail call ptr @table_open(i32 noundef %15, i32 noundef 1) #13
+  %16 = tail call ptr @table_open(i32 noundef %15, i32 noundef 1) #14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = sext i32 %1 to i64
   %19 = mul nsw i64 %18, 72
@@ -3500,7 +3500,7 @@ define internal fastcc ptr @SearchCatCacheMiss(ptr noundef %0, i32 noundef %1, i
   br label %25
 
 .critedge:                                        ; preds = %36
-  call void @systable_endscan(ptr noundef %34) #13
+  call void @systable_endscan(ptr noundef %34) #14
   br label %25
 
 25:                                               ; preds = %.critedge, %8
@@ -3531,8 +3531,8 @@ define internal fastcc ptr @SearchCatCacheMiss(ptr noundef %0, i32 noundef %1, i
 
 IndexScanOK.exit:                                 ; preds = %25, %25, %27, %30, %33
   %.0.i = phi i1 [ true, %33 ], [ false, %27 ], [ false, %25 ], [ false, %25 ], [ false, %30 ]
-  %34 = call ptr @systable_beginscan(ptr noundef %16, i32 noundef %26, i1 noundef zeroext %.0.i, ptr noundef null, i32 noundef %1, ptr noundef nonnull %9) #13
-  %35 = call ptr @systable_getnext(ptr noundef %34) #13
+  %34 = call ptr @systable_beginscan(ptr noundef %16, i32 noundef %26, i1 noundef zeroext %.0.i, ptr noundef null, i32 noundef %1, ptr noundef nonnull %9) #14
+  %35 = call ptr @systable_getnext(ptr noundef %34) #14
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.loopexit, label %36
 
@@ -3543,7 +3543,7 @@ IndexScanOK.exit:                                 ; preds = %25, %25, %27, %30, 
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %40) #13
+  call void @ResourceOwnerEnlarge(ptr noundef %40) #14
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, 1
@@ -3551,13 +3551,13 @@ IndexScanOK.exit:                                 ; preds = %25, %25, %27, %30, 
   %44 = load ptr, ptr @CurrentResourceOwner, align 8
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %46 = ptrtoint ptr %45 to i64
-  call void @ResourceOwnerRemember(ptr noundef %44, i64 noundef %46, ptr noundef nonnull @catcache_resowner_desc) #13
+  call void @ResourceOwnerRemember(ptr noundef %44, i64 noundef %46, ptr noundef nonnull @catcache_resowner_desc) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %IndexScanOK.exit, %39
   %.031 = phi ptr [ %37, %39 ], [ null, %IndexScanOK.exit ]
-  call void @systable_endscan(ptr noundef %34) #13
-  call void @table_close(ptr noundef %16, i32 noundef 1) #13
+  call void @systable_endscan(ptr noundef %34) #14
+  call void @table_close(ptr noundef %16, i32 noundef 1) #14
   %47 = icmp eq ptr %.031, null
   br i1 %47, label %48, label %53
 
@@ -3611,7 +3611,7 @@ define internal ptr @ResOwnerPrintCatCache(i64 noundef %0) #0 {
   %15 = zext i16 %.val7 to i32
   %16 = getelementptr inbounds i8, ptr %2, i64 -8
   %17 = load i32, ptr %16, align 8
-  %18 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef %6, i32 noundef %7, i32 noundef %13, i32 noundef %15, i32 noundef %17) #13
+  %18 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef %6, i32 noundef %7, i32 noundef %13, i32 noundef %15, i32 noundef %17) #14
   ret ptr %18
 }
 
@@ -3653,7 +3653,7 @@ define internal ptr @ResOwnerPrintCatCacheList(i64 noundef %0) #0 {
   %7 = load i32, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = load i32, ptr %8, align 8
-  %10 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.11, ptr noundef %6, i32 noundef %7, ptr noundef %2, i32 noundef %9) #13
+  %10 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.11, ptr noundef %6, i32 noundef %7, ptr noundef %2, i32 noundef %9) #14
   ret ptr %10
 }
 
@@ -3726,9 +3726,9 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   br label %fetch_att.exit
 
 43:                                               ; preds = %.split.i, %28
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef range(i32 -32768, 32768) %27) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.13, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #13
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef range(i32 -32768, 32768) %27) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.13, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
 46:                                               ; preds = %15
@@ -3736,7 +3736,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   br label %fetch_att.exit
 
 48:                                               ; preds = %9
-  %49 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #13
+  %49 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #14
   br label %fetch_att.exit
 
 50:                                               ; preds = %4
@@ -3757,7 +3757,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   br label %fetch_att.exit
 
 61:                                               ; preds = %50
-  %62 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #13
+  %62 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #14
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %46, %41, %38, %35, %32, %48, %61, %60
@@ -3785,13 +3785,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3806,12 +3806,13 @@ attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read,
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind returns_twice }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind returns_twice }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -40,7 +40,7 @@ define hidden void @VP8TBufferClear(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.011 = phi ptr [ %4, %.lr.ph ], [ %3, %2 ]
   %4 = load ptr, ptr %.011, align 8, !tbaa !17
-  tail call void @WebPSafeFree(ptr noundef nonnull %.011) #5
+  tail call void @WebPSafeFree(ptr noundef nonnull %.011) #6
   %.not9 = icmp eq ptr %4, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
@@ -109,7 +109,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffTokens(i32 noundef %0, ptr noun
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 1
   %34 = add nsw i64 %33, 8
-  %35 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %34) #5
+  %35 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %34) #6
   %36 = icmp eq ptr %35, null
   br i1 %36, label %TBufferNewPage.exit.thread.i, label %TBufferNewPage.exit.i
 
@@ -197,7 +197,7 @@ AddToken.exit:                                    ; preds = %TBufferNewPage.exit
   %77 = sext i32 %76 to i64
   %78 = shl nsw i64 %77, 1
   %79 = add nsw i64 %78, 8
-  %80 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %79) #5
+  %80 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %79) #6
   %81 = icmp eq ptr %80, null
   br i1 %81, label %TBufferNewPage.exit.thread.i140, label %TBufferNewPage.exit.i142
 
@@ -273,7 +273,7 @@ AddToken.exit146:                                 ; preds = %TBufferNewPage.exit
   %120 = sext i32 %119 to i64
   %121 = shl nsw i64 %120, 1
   %122 = add nsw i64 %121, 8
-  %123 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %122) #5
+  %123 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %122) #6
   %124 = icmp eq ptr %123, null
   br i1 %124, label %TBufferNewPage.exit.thread.i148, label %TBufferNewPage.exit.i150
 
@@ -338,7 +338,7 @@ AddToken.exit154:                                 ; preds = %TBufferNewPage.exit
   %154 = sext i32 %153 to i64
   %155 = shl nsw i64 %154, 1
   %156 = add nsw i64 %155, 8
-  %157 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %156) #5
+  %157 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %156) #6
   %158 = icmp eq ptr %157, null
   br i1 %158, label %TBufferNewPage.exit.thread.i156, label %TBufferNewPage.exit.i158
 
@@ -403,7 +403,7 @@ AddToken.exit162:                                 ; preds = %TBufferNewPage.exit
   %187 = sext i32 %186 to i64
   %188 = shl nsw i64 %187, 1
   %189 = add nsw i64 %188, 8
-  %190 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %189) #5
+  %190 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %189) #6
   %191 = icmp eq ptr %190, null
   br i1 %191, label %TBufferNewPage.exit.thread.i164, label %TBufferNewPage.exit.i166
 
@@ -468,7 +468,7 @@ AddToken.exit170:                                 ; preds = %TBufferNewPage.exit
   %221 = sext i32 %220 to i64
   %222 = shl nsw i64 %221, 1
   %223 = add nsw i64 %222, 8
-  %224 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %223) #5
+  %224 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %223) #6
   %225 = icmp eq ptr %224, null
   br i1 %225, label %TBufferNewPage.exit.thread.i172, label %TBufferNewPage.exit.i174
 
@@ -531,7 +531,7 @@ AddToken.exit178:                                 ; preds = %TBufferNewPage.exit
   %253 = sext i32 %252 to i64
   %254 = shl nsw i64 %253, 1
   %255 = add nsw i64 %254, 8
-  %256 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %255) #5
+  %256 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %255) #6
   %257 = icmp eq ptr %256, null
   br i1 %257, label %TBufferNewPage.exit.thread.i180, label %TBufferNewPage.exit.i182
 
@@ -596,7 +596,7 @@ AddToken.exit186:                                 ; preds = %TBufferNewPage.exit
   %287 = sext i32 %286 to i64
   %288 = shl nsw i64 %287, 1
   %289 = add nsw i64 %288, 8
-  %290 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %289) #5
+  %290 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %289) #6
   %291 = icmp eq ptr %290, null
   br i1 %291, label %TBufferNewPage.exit.thread.i188, label %TBufferNewPage.exit.i190
 
@@ -659,7 +659,7 @@ AddToken.exit194:                                 ; preds = %TBufferNewPage.exit
   %319 = sext i32 %318 to i64
   %320 = shl nsw i64 %319, 1
   %321 = add nsw i64 %320, 8
-  %322 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %321) #5
+  %322 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %321) #6
   %323 = icmp eq ptr %322, null
   br i1 %323, label %TBufferNewPage.exit.thread.i196, label %TBufferNewPage.exit.i197
 
@@ -706,7 +706,7 @@ TBufferNewPage.exit.i197:                         ; preds = %317
   %340 = sext i32 %339 to i64
   %341 = shl nsw i64 %340, 1
   %342 = add nsw i64 %341, 8
-  %343 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %342) #5
+  %343 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %342) #6
   %344 = icmp eq ptr %343, null
   br i1 %344, label %.TBufferNewPage.exit.thread.i202_crit_edge, label %TBufferNewPage.exit.i203
 
@@ -759,7 +759,7 @@ AddConstantToken.exit207:                         ; preds = %TBufferNewPage.exit
   %361 = sext i32 %360 to i64
   %362 = shl nsw i64 %361, 1
   %363 = add nsw i64 %362, 8
-  %364 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %363) #5
+  %364 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %363) #6
   %365 = icmp eq ptr %364, null
   br i1 %365, label %TBufferNewPage.exit.thread.i209, label %TBufferNewPage.exit.i210
 
@@ -814,7 +814,7 @@ TBufferNewPage.exit.i210:                         ; preds = %359
   %388 = sext i32 %387 to i64
   %389 = shl nsw i64 %388, 1
   %390 = add nsw i64 %389, 8
-  %391 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %390) #5
+  %391 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %390) #6
   %392 = icmp eq ptr %391, null
   br i1 %392, label %TBufferNewPage.exit.thread.i216, label %TBufferNewPage.exit.i218
 
@@ -872,7 +872,7 @@ AddToken.exit222:                                 ; preds = %TBufferNewPage.exit
   %417 = sext i32 %416 to i64
   %418 = shl nsw i64 %417, 1
   %419 = add nsw i64 %418, 8
-  %420 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %419) #5
+  %420 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %419) #6
   %421 = icmp eq ptr %420, null
   br i1 %421, label %TBufferNewPage.exit.thread.i224, label %TBufferNewPage.exit.i226
 
@@ -937,7 +937,7 @@ AddToken.exit230:                                 ; preds = %TBufferNewPage.exit
   %449 = sext i32 %448 to i64
   %450 = shl nsw i64 %449, 1
   %451 = add nsw i64 %450, 8
-  %452 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %451) #5
+  %452 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %451) #6
   %453 = icmp eq ptr %452, null
   br i1 %453, label %TBufferNewPage.exit.thread.i232, label %TBufferNewPage.exit.i234
 
@@ -995,7 +995,7 @@ AddToken.exit238:                                 ; preds = %TBufferNewPage.exit
   %478 = sext i32 %477 to i64
   %479 = shl nsw i64 %478, 1
   %480 = add nsw i64 %479, 8
-  %481 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %480) #5
+  %481 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %480) #6
   %482 = icmp eq ptr %481, null
   br i1 %482, label %TBufferNewPage.exit.thread.i240, label %TBufferNewPage.exit.i242
 
@@ -1061,7 +1061,7 @@ AddToken.exit246:                                 ; preds = %TBufferNewPage.exit
   %511 = sext i32 %510 to i64
   %512 = shl nsw i64 %511, 1
   %513 = add nsw i64 %512, 8
-  %514 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %513) #5
+  %514 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %513) #6
   %515 = icmp eq ptr %514, null
   br i1 %515, label %TBufferNewPage.exit.thread.i248, label %TBufferNewPage.exit.i250
 
@@ -1120,7 +1120,7 @@ AddToken.exit254:                                 ; preds = %TBufferNewPage.exit
   %541 = sext i32 %540 to i64
   %542 = shl nsw i64 %541, 1
   %543 = add nsw i64 %542, 8
-  %544 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %543) #5
+  %544 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %543) #6
   %545 = icmp eq ptr %544, null
   br i1 %545, label %TBufferNewPage.exit.thread.i256, label %TBufferNewPage.exit.i258
 
@@ -1178,7 +1178,7 @@ AddToken.exit262:                                 ; preds = %TBufferNewPage.exit
   %568 = sext i32 %567 to i64
   %569 = shl nsw i64 %568, 1
   %570 = add nsw i64 %569, 8
-  %571 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %570) #5
+  %571 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %570) #6
   %572 = icmp eq ptr %571, null
   br i1 %572, label %TBufferNewPage.exit.thread.i264, label %TBufferNewPage.exit.i266
 
@@ -1237,7 +1237,7 @@ AddToken.exit270:                                 ; preds = %TBufferNewPage.exit
   %598 = sext i32 %597 to i64
   %599 = shl nsw i64 %598, 1
   %600 = add nsw i64 %599, 8
-  %601 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %600) #5
+  %601 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %600) #6
   %602 = icmp eq ptr %601, null
   br i1 %602, label %TBufferNewPage.exit.thread.i272, label %TBufferNewPage.exit.i274
 
@@ -1312,7 +1312,7 @@ AddToken.exit278:                                 ; preds = %TBufferNewPage.exit
   %634 = sext i32 %633 to i64
   %635 = shl nsw i64 %634, 1
   %636 = add nsw i64 %635, 8
-  %637 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %636) #5
+  %637 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %636) #6
   %638 = icmp eq ptr %637, null
   br i1 %638, label %TBufferNewPage.exit.thread.i280, label %TBufferNewPage.exit.i281
 
@@ -1378,7 +1378,7 @@ AddConstantToken.exit:                            ; preds = %AddConstantToken.ex
   %667 = sext i32 %666 to i64
   %668 = shl nsw i64 %667, 1
   %669 = add nsw i64 %668, 8
-  %670 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %669) #5
+  %670 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %669) #6
   %671 = icmp eq ptr %670, null
   br i1 %671, label %TBufferNewPage.exit.thread.i287, label %TBufferNewPage.exit.i288
 
@@ -1431,7 +1431,7 @@ AddConstantToken.exit292:                         ; preds = %TBufferNewPage.exit
   %691 = sext i32 %690 to i64
   %692 = shl nsw i64 %691, 1
   %693 = add nsw i64 %692, 8
-  %694 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %693) #5
+  %694 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %693) #6
   %695 = icmp eq ptr %694, null
   br i1 %695, label %TBufferNewPage.exit.thread.i294, label %TBufferNewPage.exit.i296
 
@@ -1547,7 +1547,7 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
 
 32:                                               ; preds = %26, %24
   %.sink = phi i32 [ %31, %26 ], [ %25, %24 ]
-  %33 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %22, i32 noundef %.sink) #5
+  %33 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %22, i32 noundef %.sink) #6
   %34 = icmp sgt i64 %indvars.iv.next37, %18
   br i1 %34, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !38
 
@@ -1598,12 +1598,12 @@ define hidden noundef i32 @VP8EmitTokens(ptr noundef captures(none) %0, ptr noun
 
 59:                                               ; preds = %53, %51
   %.sink46 = phi i32 [ %58, %53 ], [ %52, %51 ]
-  %60 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %49, i32 noundef %.sink46) #5
+  %60 = tail call i32 @VP8PutBit(ptr noundef %1, i32 noundef %49, i32 noundef %.sink46) #6
   %61 = icmp sgt i64 %indvars.iv.next, %45
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %59, %39
-  tail call void @WebPSafeFree(ptr noundef nonnull %.029) #5
+  tail call void @WebPSafeFree(ptr noundef nonnull %.029) #6
   br i1 %36, label %._crit_edge32, label %.lr.ph31.split, !llvm.loop !37
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %._crit_edge.us, %4
@@ -1704,18 +1704,19 @@ define hidden i64 @VP8EstimateTokenSize(ptr noundef readonly captures(none) %0, 
 
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.abs.i16(i16, i1 immarg) #4
+declare i16 @llvm.abs.i16(i16, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

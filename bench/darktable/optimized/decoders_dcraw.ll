@@ -955,7 +955,7 @@ _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %127, %78, %71, %135
 .loopexit.split-lp120:                            ; preds = %.loopexit.split-lp120.loopexit, %.loopexit.split-lp120.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp120.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp120.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp120.loopexit.split-lp.loopexit, %.loopexit119
   %lpad.phi123 = phi { ptr, i32 } [ %lpad.loopexit121, %.loopexit119 ], [ %lpad.loopexit124, %.loopexit.split-lp120.loopexit ], [ %lpad.loopexit128, %.loopexit.split-lp120.loopexit.split-lp.loopexit ], [ %lpad.loopexit131, %.loopexit.split-lp120.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit135, %.loopexit.split-lp120.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp136, %.loopexit.split-lp120.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %138 = extractvalue { ptr, i32 } %lpad.phi123, 0
-  %139 = call ptr @__cxa_begin_catch(ptr %138) #13
+  %139 = call ptr @__cxa_begin_catch(ptr %138) #14
   br label %140
 
 140:                                              ; preds = %.loopexit.split-lp120, %143
@@ -1268,7 +1268,7 @@ _ZN6LibRaw10getbithuffEiPt.exit112:               ; preds = %199, %151, %202
           to label %293 unwind label %297
 
 292:                                              ; preds = %143
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #15
           to label %300 unwind label %.loopexit.split-lp
 
 293:                                              ; preds = %291
@@ -1292,7 +1292,7 @@ _ZN6LibRaw10getbithuffEiPt.exit112:               ; preds = %199, %151, %202
   %298 = landingpad { ptr, i32 }
           catch ptr null
   %299 = extractvalue { ptr, i32 } %298, 0
-  call void @__clang_call_terminate(ptr %299) #15
+  call void @__clang_call_terminate(ptr %299) #16
   unreachable
 
 300:                                              ; preds = %292
@@ -1316,8 +1316,8 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -1326,7 +1326,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_ZN6LibRaw11ljpeg_startEP5jheadi(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef captures(none) initializes((0, 640)) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(65536) ptr @_Znwm(i64 noundef 65536) #16
+  %4 = tail call noalias noundef nonnull dereferenceable(65536) ptr @_Znwm(i64 noundef 65536) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65536) %4, i8 0, i64 65536, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %1, i8 0, i64 640, i1 false)
@@ -1385,7 +1385,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp: ; preds = %.l
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit ], [ %lpad.loopexit144, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp145, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 65536) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 65536) #18
   resume { ptr, i32 } %lpad.phi
 
 31:                                               ; preds = %.preheader143, %.critedge
@@ -1783,7 +1783,7 @@ _ZN6LibRaw16make_decoder_refEPPKh.exit:           ; preds = %._crit_edge40.i, %.
 
 _ZNSt6vectorIhSaIhEED2Ev.exit126:                 ; preds = %69, %47, %46, %38, %37, %188, %190, %180, %183, %186, %13, %14, %215
   %.0 = phi i32 [ 1, %215 ], [ 0, %14 ], [ 0, %13 ], [ %.mux, %188 ], [ 0, %186 ], [ 0, %183 ], [ 0, %180 ], [ 0, %190 ], [ 0, %37 ], [ 0, %38 ], [ 0, %46 ], [ 0, %47 ], [ 0, %69 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 65536) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 65536) #18
   ret i32 %.0
 }
 
@@ -1821,9 +1821,9 @@ define noundef range(i32 -2147483647, 33554432) i32 @_ZN6LibRaw10ljpeg_diffEPt(p
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %4 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %4, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 5:                                                ; preds = %2
@@ -2020,9 +2020,9 @@ define noundef ptr @_ZN6LibRaw9ljpeg_rowEiP5jhead(ptr noundef nonnull align 8 de
   br i1 %.not.i, label %88, label %90
 
 88:                                               ; preds = %83
-  %89 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %89 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %89, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %89, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %89, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 90:                                               ; preds = %83
@@ -2575,9 +2575,9 @@ define noundef ptr @_ZN6LibRaw18ljpeg_row_unrolledEiP5jhead(ptr noundef nonnull 
   br i1 %.not.i, label %72, label %74
 
 72:                                               ; preds = %67
-  %73 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %73 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %73, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 74:                                               ; preds = %67
@@ -2682,9 +2682,9 @@ _ZN6LibRaw10ljpeg_diffEPt.exit:                   ; preds = %80, %.split.i
   br i1 %.not.i92, label %123, label %125
 
 123:                                              ; preds = %118
-  %124 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %124 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %124, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 125:                                              ; preds = %118
@@ -3031,9 +3031,9 @@ _ZN6LibRaw10ljpeg_diffEPt.exit100:                ; preds = %191, %_ZN6LibRaw10g
   br i1 %.not.i101, label %301, label %303
 
 301:                                              ; preds = %.lr.ph306
-  %302 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %302 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %302, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %302, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %302, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 303:                                              ; preds = %.lr.ph306
@@ -3348,9 +3348,9 @@ _ZN6LibRaw10ljpeg_diffEPt.exit109:                ; preds = %369, %_ZN6LibRaw10g
   br i1 %.not.i110, label %458, label %460
 
 458:                                              ; preds = %453
-  %459 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %459 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %459, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %459, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %459, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 460:                                              ; preds = %453
@@ -3748,9 +3748,9 @@ define void @_ZN6LibRaw22lossless_jpeg_load_rawEv(ptr noundef nonnull align 8 de
   br i1 %or.cond8, label %17, label %19
 
 17:                                               ; preds = %4
-  %18 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %18 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %18, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 19:                                               ; preds = %4
@@ -3764,9 +3764,9 @@ define void @_ZN6LibRaw22lossless_jpeg_load_rawEv(ptr noundef nonnull align 8 de
   br i1 %or.cond75, label %24, label %.lr.ph92
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %25 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %25, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 .lr.ph92:                                         ; preds = %19
@@ -3951,18 +3951,18 @@ define void @_ZN6LibRaw22lossless_jpeg_load_rawEv(ptr noundef nonnull align 8 de
 .loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   %113 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %114 = tail call ptr @__cxa_begin_catch(ptr %113) #13
+  %114 = tail call ptr @__cxa_begin_catch(ptr %113) #14
   invoke void @_ZN6LibRaw9ljpeg_endEP5jhead(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %2)
           to label %115 unwind label %117
 
 115:                                              ; preds = %.loopexit
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #15
           to label %132 unwind label %117
 
 .split.us.invoke:                                 ; preds = %58, %86
-  %116 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %116 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %116, align 16, !tbaa !125
-  invoke void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  invoke void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
           to label %.split.us.cont unwind label %.loopexit.split-lp
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
@@ -4012,7 +4012,7 @@ _ZN6LibRaw9ljpeg_endEP5jhead.exit:                ; preds = %125
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  tail call void @__clang_call_terminate(ptr %131) #15
+  tail call void @__clang_call_terminate(ptr %131) #16
   unreachable
 
 132:                                              ; preds = %115
@@ -4039,9 +4039,9 @@ define void @_ZN6LibRaw19canon_sraw_load_rawEv(ptr noundef nonnull align 8 deref
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %1
-  %13 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %13 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %13, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 14:                                               ; preds = %1
@@ -4064,9 +4064,9 @@ define void @_ZN6LibRaw19canon_sraw_load_rawEv(ptr noundef nonnull align 8 deref
   br i1 %or.cond4, label %26, label %28
 
 26:                                               ; preds = %20
-  %27 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %27 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %27, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 28:                                               ; preds = %20
@@ -4406,12 +4406,12 @@ define void @_ZN6LibRaw19canon_sraw_load_rawEv(ptr noundef nonnull align 8 deref
 .loopexit.split-lp246:                            ; preds = %.loopexit.split-lp246.split, %.loopexit.split-lp246.split.us, %.loopexit245.split.us
   %lpad.phi249 = phi { ptr, i32 } [ %lpad.loopexit247.us, %.loopexit245.split.us ], [ %lpad.loopexit.split-lp248, %.loopexit.split-lp246.split ], [ %lpad.loopexit.split-lp248.us, %.loopexit.split-lp246.split.us ]
   %193 = extractvalue { ptr, i32 } %lpad.phi249, 0
-  %194 = tail call ptr @__cxa_begin_catch(ptr %193) #13
+  %194 = tail call ptr @__cxa_begin_catch(ptr %193) #14
   invoke void @_ZN6LibRaw9ljpeg_endEP5jhead(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %2)
           to label %195 unwind label %201
 
 195:                                              ; preds = %.loopexit.split-lp246
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #15
           to label %412 unwind label %201
 
 ._crit_edge287:                                   ; preds = %189, %._crit_edge278.us, %56
@@ -4486,7 +4486,7 @@ _ZN6LibRaw9ljpeg_endEP5jhead.exit:                ; preds = %212
 .critedge:                                        ; preds = %218
   %223 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %224 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %225 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0181, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %223, ptr noundef nonnull %224) #13
+  %225 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0181, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %223, ptr noundef nonnull %224) #14
   %226 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 381520
   %228 = load i64, ptr %227, align 8, !tbaa !158
@@ -4574,12 +4574,12 @@ _ZN6LibRaw9ljpeg_endEP5jhead.exit:                ; preds = %212
 267:                                              ; preds = %.loopexit.split-lp, %.loopexit237
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit237 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %268 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %269 = call ptr @__cxa_begin_catch(ptr %268) #13
+  %269 = call ptr @__cxa_begin_catch(ptr %268) #14
   invoke void @_ZN6LibRaw9ljpeg_endEP5jhead(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %2)
           to label %270 unwind label %396
 
 270:                                              ; preds = %267
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #15
           to label %412 unwind label %396
 
 271:                                              ; preds = %255
@@ -4846,7 +4846,7 @@ _ZN6LibRaw9ljpeg_endEP5jhead.exit233:             ; preds = %403
   %410 = landingpad { ptr, i32 }
           catch ptr null
   %411 = extractvalue { ptr, i32 } %410, 0
-  call void @__clang_call_terminate(ptr %411) #15
+  call void @__clang_call_terminate(ptr %411) #16
   unreachable
 
 412:                                              ; preds = %270, %195
@@ -4887,9 +4887,9 @@ define void @_ZN6LibRaw10ljpeg_idctEP5jhead(ptr noundef nonnull align 8 derefere
   br i1 %.not.i, label %16, label %18
 
 16:                                               ; preds = %.loopexit
-  %17 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %17 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %17, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 18:                                               ; preds = %.loopexit
@@ -5108,7 +5108,7 @@ _ZN6LibRaw10ljpeg_diffEPt.exit:                   ; preds = %24, %.split.i
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #7
 
 ; Function Attrs: mustprogress uwtable
@@ -6093,12 +6093,12 @@ _ZN6LibRaw12make_decoderEPKh.exit118:             ; preds = %._crit_edge40.i.i11
   %.1 = phi ptr [ %.2, %.loopexit ], [ %.2, %.loopexit.split-lp.loopexit ], [ %.2, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.063173, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit145, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit148, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %154 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %155 = call ptr @__cxa_begin_catch(ptr %154) #13
+  %155 = call ptr @__cxa_begin_catch(ptr %154) #14
   invoke void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %.1)
           to label %156 unwind label %340
 
 156:                                              ; preds = %.loopexit.split-lp
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #15
           to label %346 unwind label %340
 
 157:                                              ; preds = %_ZN6LibRaw12make_decoderEPKh.exit118, %121
@@ -6478,7 +6478,7 @@ _ZN6LibRaw10getbithuffEiPt.exit142:               ; preds = %285, %236, %234, %2
   %344 = landingpad { ptr, i32 }
           catch ptr null
   %345 = extractvalue { ptr, i32 } %344, 0
-  call void @__clang_call_terminate(ptr %345) #15
+  call void @__clang_call_terminate(ptr %345) #16
   unreachable
 
 346:                                              ; preds = %156
@@ -6496,9 +6496,9 @@ define void @_ZN6LibRaw18nikon_yuv_load_rawEv(ptr noundef nonnull align 8 derefe
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %8 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %8, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 9:                                                ; preds = %1
@@ -6686,9 +6686,9 @@ define void @_ZN6LibRaw15rollei_load_rawEv(ptr noundef nonnull align 8 dereferen
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8, %1
-  %13 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %13 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 8, ptr %13, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 14:                                               ; preds = %8
@@ -6826,7 +6826,7 @@ define void @_ZN6LibRaw14nokia_load_rawEv(ptr noundef nonnull align 8 dereferenc
   %15 = shl nuw nsw i32 %14, 1
   %16 = add nuw nsw i32 %15, 4
   %17 = zext nneg i32 %16 to i64
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #16
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %18, i8 0, i64 %17, i1 false)
   %19 = load i16, ptr %8, align 8, !tbaa !97
   %.not77 = icmp eq i16 %19, 0
@@ -6967,7 +6967,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.split:              ; preds = %78, %70, %.lr.ph71.
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.split.us, %_ZNSt6vectorIhSaIhEED2Ev.exit.split
   %.us-phi = phi { ptr, i32 } [ %79, %_ZNSt6vectorIhSaIhEED2Ev.exit.split ], [ %69, %_ZNSt6vectorIhSaIhEED2Ev.exit.split.us ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %17) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %17) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.us-phi
 
@@ -7153,7 +7153,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit55
 
 _ZNSt6vectorIhSaIhEED2Ev.exit55:                  ; preds = %113, %._crit_edge76, %176, %._crit_edge72
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %17) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %17) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -7183,9 +7183,9 @@ define noundef range(i32 0, 65536) i32 @_ZN6LibRaw9pana_dataEiPj(ptr noundef non
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %18 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 8, ptr %18, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 19:                                               ; preds = %12
@@ -7357,9 +7357,9 @@ define void @_ZN6LibRaw18panasonic_load_rawEv(ptr noundef nonnull align 8 derefe
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph149
-  %49 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %49 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 8, ptr %49, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 50:                                               ; preds = %.lr.ph149
@@ -7647,9 +7647,9 @@ _ZN6LibRaw9pana_dataEiPj.exit:                    ; preds = %82, %91
   br label %262
 
 260:                                              ; preds = %247
-  %261 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %261 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %261, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %261, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %261, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 262:                                              ; preds = %.lr.ph146, %._crit_edge
@@ -7687,9 +7687,9 @@ _ZN6LibRaw9pana_dataEiPj.exit:                    ; preds = %82, %91
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %269
-  %273 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %273 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 8, ptr %273, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %273, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %273, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 274:                                              ; preds = %269
@@ -7789,9 +7789,9 @@ _ZN6LibRaw9pana_dataEiPj.exit95:                  ; preds = %_ZN6LibRaw9pana_dat
   br i1 %329, label %331, label %333
 
 331:                                              ; preds = %330
-  %332 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %332 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 8, ptr %332, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %332, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %332, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 333:                                              ; preds = %330
@@ -7888,9 +7888,9 @@ _ZN6LibRaw9pana_dataEiPj.exit106:                 ; preds = %359
   br i1 %329, label %391, label %393
 
 391:                                              ; preds = %390
-  %392 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %392 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 8, ptr %392, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %392, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %392, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 393:                                              ; preds = %390
@@ -7985,9 +7985,9 @@ _ZN6LibRaw9pana_dataEiPj.exit117:                 ; preds = %_ZN6LibRaw9pana_dat
   br i1 %446, label %447, label %449
 
 447:                                              ; preds = %443
-  %448 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %448 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 8, ptr %448, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %448, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %448, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 449:                                              ; preds = %443
@@ -9002,7 +9002,7 @@ define void @_ZN6LibRaw22minolta_rd175_load_rawEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw22quicktake_100_load_rawEv(ptr noundef nonnull align 8 dereferenceable(767680) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(311696) ptr @_Znwm(i64 noundef 311696) #16
+  %2 = tail call noalias noundef nonnull dereferenceable(311696) ptr @_Znwm(i64 noundef 311696) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(311696) %2, i8 -128, i64 311696, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %4 = load i16, ptr %3, align 2, !tbaa !148
@@ -9016,9 +9016,9 @@ define void @_ZN6LibRaw22quicktake_100_load_rawEv(ptr noundef nonnull align 8 de
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6, %1
-  %11 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %11 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %11, align 16, !tbaa !125
-  invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
           to label %320 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.loopexit:           ; preds = %296
@@ -9068,7 +9068,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit ], [ %lpad.loopexit211, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit214, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit216, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit219, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit222, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit227, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp228, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 311696) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 311696) #18
   resume { ptr, i32 } %lpad.phi
 
 12:                                               ; preds = %6
@@ -9672,7 +9672,7 @@ _ZN6LibRaw10getbithuffEiPt.exit199:               ; preds = %227, %179, %233
 _ZNSt6vectorIhSaIhEED2Ev.exit201:                 ; preds = %._crit_edge263, %.preheader210, %.preheader209
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 1023, ptr %319, align 8, !tbaa !96
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 311696) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 311696) #18
   ret void
 
 320:                                              ; preds = %10
@@ -9824,7 +9824,7 @@ declare void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw17sony_arw_load_rawEv(ptr noundef nonnull align 8 dereferenceable(767680) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
-  %1 = tail call noalias noundef nonnull dereferenceable(65540) ptr @_Znwm(i64 noundef 65540) #16
+  %1 = tail call noalias noundef nonnull dereferenceable(65540) ptr @_Znwm(i64 noundef 65540) #17
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(65538) %2, i8 0, i64 65538, i1 false), !tbaa !86
   store i16 15, ptr %1, align 2, !tbaa !86
@@ -10184,7 +10184,7 @@ _ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit ], [ %lpad.loopexit82, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit85, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt6vectorItSaItEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 65540) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 65540) #18
   resume { ptr, i32 } %lpad.phi
 
 _ZN6LibRaw10ljpeg_diffEPt.exit:                   ; preds = %.noexc34, %97
@@ -10223,7 +10223,7 @@ _ZN6LibRaw10ljpeg_diffEPt.exit:                   ; preds = %.noexc34, %97
   br i1 %.not29, label %.loopexit, label %30, !llvm.loop !240
 
 _ZNSt6vectorItSaItEED2Ev.exit36:                  ; preds = %.loopexit, %11
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 65540) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 65540) #18
   ret void
 }
 
@@ -10326,12 +10326,12 @@ define void @_ZN6LibRaw18sony_arw2_load_rawEv(ptr noundef nonnull align 8 derefe
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit154
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit154 ], [ %lpad.loopexit157, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit164, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit167, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %41 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #13
+  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #14
   invoke void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %7)
           to label %43 unwind label %213
 
 43:                                               ; preds = %.loopexit.split-lp
-  invoke void @__cxa_rethrow() #14
+  invoke void @__cxa_rethrow() #15
           to label %225 unwind label %213
 
 .critedge:                                        ; preds = %39, %37
@@ -10704,7 +10704,7 @@ define void @_ZN6LibRaw18sony_arw2_load_rawEv(ptr noundef nonnull align 8 derefe
   %223 = landingpad { ptr, i32 }
           catch ptr null
   %224 = extractvalue { ptr, i32 } %223, 0
-  tail call void @__clang_call_terminate(ptr %224) #15
+  tail call void @__clang_call_terminate(ptr %224) #16
   unreachable
 
 225:                                              ; preds = %43
@@ -10734,9 +10734,9 @@ define void @_ZN6LibRaw16samsung_load_rawEv(ptr noundef nonnull align 8 derefere
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9, %1
-  %13 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %13 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 8, ptr %13, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %13, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 14:                                               ; preds = %9
@@ -11735,9 +11735,9 @@ define void @_ZN6LibRaw17samsung3_load_rawEv(ptr noundef nonnull align 8 derefer
   br i1 %or.cond, label %141, label %149
 
 139:                                              ; preds = %.loopexit
-  %140 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %140 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %140, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %140, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %140, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 141:                                              ; preds = %.split
@@ -11749,9 +11749,9 @@ define void @_ZN6LibRaw17samsung3_load_rawEv(ptr noundef nonnull align 8 derefer
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %141
-  %148 = tail call ptr @__cxa_allocate_exception(i64 4) #13
+  %148 = tail call ptr @__cxa_allocate_exception(i64 4) #14
   store i32 5, ptr %148, align 16, !tbaa !125
-  tail call void @__cxa_throw(ptr nonnull %148, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
+  tail call void @__cxa_throw(ptr nonnull %148, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #15
   unreachable
 
 149:                                              ; preds = %141, %.split
@@ -11873,35 +11873,35 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #11
+declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -11910,17 +11910,18 @@ attributes #3 = { noinline noreturn nounwind uwtable "approx-func-fp-math"="true
 attributes #4 = { cold nofree noreturn }
 attributes #5 = { cold noreturn }
 attributes #6 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nobuiltin allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #9 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin allocsize(0) }
-attributes #17 = { builtin nounwind }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { builtin allocsize(0) }
+attributes #18 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

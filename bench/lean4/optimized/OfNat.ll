@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Int_OfNat_Var_denote(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @l_Lean_RArray_getImpl___rarg(ptr noundef %0, ptr noundef %1) #4
+  %3 = tail call ptr @l_Lean_RArray_getImpl___rarg(ptr noundef %0, ptr noundef %1) #5
   ret ptr %3
 }
 
@@ -17,7 +17,7 @@ declare ptr @l_Lean_RArray_getImpl___rarg(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Int_OfNat_Var_denote___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @l_Lean_RArray_getImpl___rarg(ptr noundef %0, ptr noundef %1) #4
+  %3 = tail call ptr @l_Lean_RArray_getImpl___rarg(ptr noundef %0, ptr noundef %1) #5
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
@@ -38,7 +38,7 @@ define ptr @l_Int_OfNat_Var_denote___boxed(ptr noundef %0, ptr noundef %1) local
   br i1 %.not.i6, label %lean_dec.exit, label %12
 
 12:                                               ; preds = %11
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %12, %11, %9, %2
@@ -62,7 +62,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
   br i1 %.not.i, label %lean_dec.exit5, label %21
 
 21:                                               ; preds = %20
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %21, %20, %18, %lean_dec.exit
@@ -143,7 +143,7 @@ lean_obj_tag.exit97:                              ; preds = %14, %17
   br label %lean_nat_eq.exit
 
 .critedge.i:                                      ; preds = %21
-  %34 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %23, ptr noundef %25) #4
+  %34 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %23, ptr noundef %25) #5
   br label %lean_nat_eq.exit
 
 35:                                               ; preds = %lean_obj_tag.exit
@@ -184,7 +184,7 @@ lean_obj_tag.exit101:                             ; preds = %36, %39
   br label %lean_nat_eq.exit
 
 .critedge.i90:                                    ; preds = %43
-  %56 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %45, ptr noundef %47) #4
+  %56 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %45, ptr noundef %47) #5
   br label %lean_nat_eq.exit
 
 57:                                               ; preds = %lean_obj_tag.exit
@@ -349,7 +349,7 @@ define nonnull ptr @l_Int_OfNat_beqExpr____x40_Init_Data_Int_OfNat___hyg_114____
   br i1 %.not.i, label %lean_dec.exit5, label %12
 
 12:                                               ; preds = %11
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
@@ -373,7 +373,7 @@ lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   br i1 %.not.i6, label %lean_dec.exit, label %21
 
 21:                                               ; preds = %20
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %lean_dec.exit5
@@ -435,11 +435,11 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br i1 %.not.i78, label %lean_inc.exit, label %21
 
 21:                                               ; preds = %20
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #5
   br label %lean_inc.exit
 
 22:                                               ; preds = %lean_obj_tag.exit
-  %23 = tail call ptr @l_Lean_RArray_getImpl___rarg(ptr noundef %0, ptr noundef %12) #4
+  %23 = tail call ptr @l_Lean_RArray_getImpl___rarg(ptr noundef %0, ptr noundef %12) #5
   br label %lean_inc.exit
 
 24:                                               ; preds = %lean_obj_tag.exit
@@ -459,7 +459,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br i1 %31, label %lean_nat_add.exit.thread145, label %34, !prof !13
 
 lean_nat_add.exit.thread145:                      ; preds = %32
-  %33 = tail call ptr @lean_nat_big_add(ptr noundef %27, ptr noundef %28) #4
+  %33 = tail call ptr @lean_nat_big_add(ptr noundef %27, ptr noundef %28) #5
   br label %46
 
 34:                                               ; preds = %32
@@ -476,11 +476,11 @@ lean_nat_add.exit.thread145:                      ; preds = %32
   br label %lean_inc.exit
 
 43:                                               ; preds = %34
-  %44 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %37) #4
+  %44 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %37) #5
   br label %lean_inc.exit
 
 lean_nat_add.exit:                                ; preds = %24
-  %45 = tail call ptr @lean_nat_big_add(ptr noundef %27, ptr noundef %28) #4
+  %45 = tail call ptr @lean_nat_big_add(ptr noundef %27, ptr noundef %28) #5
   br i1 %31, label %46, label %lean_dec.exit60.thread
 
 46:                                               ; preds = %lean_nat_add.exit.thread145, %lean_nat_add.exit
@@ -499,7 +499,7 @@ lean_nat_add.exit:                                ; preds = %24
   br i1 %.not.i, label %lean_dec.exit60, label %53
 
 53:                                               ; preds = %52
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #5
   br label %lean_dec.exit60
 
 lean_dec.exit60:                                  ; preds = %53, %52, %50
@@ -521,7 +521,7 @@ lean_dec.exit60.thread:                           ; preds = %lean_nat_add.exit, 
   br i1 %.not.i61, label %lean_inc.exit, label %59
 
 59:                                               ; preds = %58
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %27) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %27) #5
   br label %lean_inc.exit
 
 60:                                               ; preds = %lean_obj_tag.exit
@@ -541,7 +541,7 @@ lean_dec.exit60.thread:                           ; preds = %lean_nat_add.exit, 
   br i1 %67, label %lean_nat_mul.exit.thread154, label %70, !prof !13
 
 lean_nat_mul.exit.thread154:                      ; preds = %68
-  %69 = tail call ptr @lean_nat_big_mul(ptr noundef %63, ptr noundef %64) #4
+  %69 = tail call ptr @lean_nat_big_mul(ptr noundef %63, ptr noundef %64) #5
   br label %84
 
 70:                                               ; preds = %68
@@ -567,11 +567,11 @@ lean_nat_mul.exit.thread154:                      ; preds = %68
   br label %lean_inc.exit
 
 81:                                               ; preds = %76, %73
-  %82 = tail call ptr @lean_nat_overflow_mul(i64 noundef %71, i64 noundef %74) #4
+  %82 = tail call ptr @lean_nat_overflow_mul(i64 noundef %71, i64 noundef %74) #5
   br label %lean_inc.exit
 
 lean_nat_mul.exit:                                ; preds = %60
-  %83 = tail call ptr @lean_nat_big_mul(ptr noundef %63, ptr noundef %64) #4
+  %83 = tail call ptr @lean_nat_big_mul(ptr noundef %63, ptr noundef %64) #5
   br i1 %67, label %84, label %lean_dec.exit58.thread
 
 84:                                               ; preds = %lean_nat_mul.exit.thread154, %lean_nat_mul.exit
@@ -590,7 +590,7 @@ lean_nat_mul.exit:                                ; preds = %60
   br i1 %.not.i63, label %lean_dec.exit58, label %91
 
 91:                                               ; preds = %90
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %64) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %64) #5
   br label %lean_dec.exit58
 
 lean_dec.exit58:                                  ; preds = %91, %90, %88
@@ -612,7 +612,7 @@ lean_dec.exit58.thread:                           ; preds = %lean_nat_mul.exit, 
   br i1 %.not.i65, label %lean_inc.exit, label %97
 
 97:                                               ; preds = %96
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %63) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %63) #5
   br label %lean_inc.exit
 
 98:                                               ; preds = %lean_obj_tag.exit
@@ -632,7 +632,7 @@ lean_dec.exit58.thread:                           ; preds = %lean_nat_mul.exit, 
   br i1 %105, label %lean_nat_div.exit.thread163, label %108, !prof !13
 
 lean_nat_div.exit.thread163:                      ; preds = %106
-  %107 = tail call ptr @lean_nat_big_div(ptr noundef %101, ptr noundef %102) #4
+  %107 = tail call ptr @lean_nat_big_div(ptr noundef %101, ptr noundef %102) #5
   br label %118
 
 108:                                              ; preds = %106
@@ -649,7 +649,7 @@ lean_nat_div.exit.thread163:                      ; preds = %106
   br label %lean_inc.exit
 
 lean_nat_div.exit:                                ; preds = %98
-  %117 = tail call ptr @lean_nat_big_div(ptr noundef %101, ptr noundef %102) #4
+  %117 = tail call ptr @lean_nat_big_div(ptr noundef %101, ptr noundef %102) #5
   br i1 %105, label %118, label %lean_dec.exit56.thread
 
 118:                                              ; preds = %lean_nat_div.exit.thread163, %lean_nat_div.exit
@@ -668,7 +668,7 @@ lean_nat_div.exit:                                ; preds = %98
   br i1 %.not.i67, label %lean_dec.exit56, label %125
 
 125:                                              ; preds = %124
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %102) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %102) #5
   br label %lean_dec.exit56
 
 lean_dec.exit56:                                  ; preds = %125, %124, %122
@@ -690,7 +690,7 @@ lean_dec.exit56.thread:                           ; preds = %lean_nat_div.exit, 
   br i1 %.not.i69, label %lean_inc.exit, label %131
 
 131:                                              ; preds = %130
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %101) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %101) #5
   br label %lean_inc.exit
 
 132:                                              ; preds = %lean_obj_tag.exit
@@ -710,7 +710,7 @@ lean_dec.exit56.thread:                           ; preds = %lean_nat_div.exit, 
   br i1 %139, label %lean_nat_mod.exit.thread172, label %142, !prof !13
 
 lean_nat_mod.exit.thread172:                      ; preds = %140
-  %141 = tail call ptr @lean_nat_big_mod(ptr noundef %135, ptr noundef %136) #4
+  %141 = tail call ptr @lean_nat_big_mod(ptr noundef %135, ptr noundef %136) #5
   br label %152
 
 142:                                              ; preds = %140
@@ -727,7 +727,7 @@ lean_nat_mod.exit.thread172:                      ; preds = %140
   br label %lean_inc.exit
 
 lean_nat_mod.exit:                                ; preds = %132
-  %151 = tail call ptr @lean_nat_big_mod(ptr noundef %135, ptr noundef %136) #4
+  %151 = tail call ptr @lean_nat_big_mod(ptr noundef %135, ptr noundef %136) #5
   br i1 %139, label %152, label %lean_dec.exit54.thread
 
 152:                                              ; preds = %lean_nat_mod.exit.thread172, %lean_nat_mod.exit
@@ -746,7 +746,7 @@ lean_nat_mod.exit:                                ; preds = %132
   br i1 %.not.i71, label %lean_dec.exit54, label %159
 
 159:                                              ; preds = %158
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %136) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %136) #5
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %159, %158, %156
@@ -768,7 +768,7 @@ lean_dec.exit54.thread:                           ; preds = %lean_nat_mod.exit, 
   br i1 %.not.i73, label %lean_inc.exit, label %165
 
 165:                                              ; preds = %164
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %135) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %135) #5
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %142, %144, %108, %110, %70, %77, %81, %43, %39, %lean_dec.exit54, %162, %164, %165, %lean_dec.exit56, %128, %130, %131, %lean_dec.exit58, %94, %96, %97, %lean_dec.exit60, %56, %58, %59, %13, %18, %20, %21, %22
@@ -799,7 +799,7 @@ define ptr @l_Int_OfNat_Expr_denote___boxed(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not.i, label %lean_dec.exit5, label %12
 
 12:                                               ; preds = %11
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
@@ -823,7 +823,7 @@ lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   br i1 %.not.i6, label %lean_dec.exit, label %21
 
 21:                                               ; preds = %20
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %lean_dec.exit5
@@ -881,7 +881,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   br i1 %.not.i124, label %lean_inc.exit93, label %21
 
 21:                                               ; preds = %20
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #5
   br label %lean_inc.exit93
 
 lean_inc.exit93:                                  ; preds = %21, %20, %18, %15
@@ -902,7 +902,7 @@ lean_inc.exit93:                                  ; preds = %21, %20, %18, %15
   br i1 %.not.i, label %lean_dec.exit84, label %28
 
 28:                                               ; preds = %27
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit84
 
 lean_dec.exit84:                                  ; preds = %28, %27, %25, %lean_inc.exit93
@@ -912,7 +912,7 @@ lean_dec.exit84:                                  ; preds = %28, %27, %25, %lean
 
 30:                                               ; preds = %lean_dec.exit84
   %31 = lshr i64 %13, 1
-  %32 = tail call ptr @lean_big_size_t_to_int(i64 noundef %31) #4
+  %32 = tail call ptr @lean_big_size_t_to_int(i64 noundef %31) #5
   br label %lean_nat_to_int.exit
 
 33:                                               ; preds = %lean_obj_tag.exit
@@ -933,7 +933,7 @@ lean_dec.exit84:                                  ; preds = %28, %27, %25, %lean
   br i1 %.not.i127, label %lean_inc.exit92, label %39
 
 39:                                               ; preds = %38
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #5
   br label %lean_inc.exit92
 
 lean_inc.exit92:                                  ; preds = %39, %38, %36, %33
@@ -954,11 +954,11 @@ lean_inc.exit92:                                  ; preds = %39, %38, %36, %33
   br i1 %.not.i94, label %lean_dec.exit83, label %46
 
 46:                                               ; preds = %45
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit83
 
 lean_dec.exit83:                                  ; preds = %46, %45, %43, %lean_inc.exit92
-  %47 = tail call ptr @l_Lean_RArray_getImpl___rarg(ptr noundef %0, ptr noundef %12) #4
+  %47 = tail call ptr @l_Lean_RArray_getImpl___rarg(ptr noundef %0, ptr noundef %12) #5
   br i1 %.not188, label %48, label %lean_dec.exit82
 
 48:                                               ; preds = %lean_dec.exit83
@@ -976,7 +976,7 @@ lean_dec.exit83:                                  ; preds = %46, %45, %43, %lean
   br i1 %.not.i96, label %lean_dec.exit82, label %54
 
 54:                                               ; preds = %53
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %12) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %12) #5
   br label %lean_dec.exit82
 
 lean_dec.exit82:                                  ; preds = %54, %53, %51, %lean_dec.exit83
@@ -989,7 +989,7 @@ lean_dec.exit82:                                  ; preds = %54, %53, %51, %lean
 
 58:                                               ; preds = %lean_dec.exit82
   %59 = lshr i64 %55, 1
-  %60 = tail call ptr @lean_big_size_t_to_int(i64 noundef %59) #4
+  %60 = tail call ptr @lean_big_size_t_to_int(i64 noundef %59) #5
   br label %lean_nat_to_int.exit
 
 61:                                               ; preds = %lean_obj_tag.exit
@@ -1010,7 +1010,7 @@ lean_dec.exit82:                                  ; preds = %54, %53, %51, %lean
   br i1 %.not.i134, label %lean_inc.exit91, label %67
 
 67:                                               ; preds = %66
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #5
   br label %lean_inc.exit91
 
 lean_inc.exit91:                                  ; preds = %67, %66, %64, %61
@@ -1036,7 +1036,7 @@ lean_inc.exit91:                                  ; preds = %67, %66, %64, %61
   br i1 %.not.i137, label %lean_inc.exit90, label %77
 
 77:                                               ; preds = %76
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %69) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %69) #5
   br label %lean_inc.exit90
 
 lean_inc.exit90:                                  ; preds = %77, %76, %74, %lean_inc.exit91
@@ -1057,7 +1057,7 @@ lean_inc.exit90:                                  ; preds = %77, %76, %74, %lean
   br i1 %.not.i98, label %lean_dec.exit81, label %84
 
 84:                                               ; preds = %83
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit81
 
 lean_dec.exit81:                                  ; preds = %84, %83, %81, %lean_inc.exit90
@@ -1075,7 +1075,7 @@ lean_dec.exit81:                                  ; preds = %84, %83, %81, %lean
   br i1 %89, label %lean_int_add.exit.thread256, label %92, !prof !13
 
 lean_int_add.exit.thread256:                      ; preds = %90
-  %91 = tail call ptr @lean_int_big_add(ptr noundef %85, ptr noundef %86) #4
+  %91 = tail call ptr @lean_int_big_add(ptr noundef %85, ptr noundef %86) #5
   br label %108
 
 92:                                               ; preds = %90
@@ -1096,11 +1096,11 @@ lean_int_add.exit.thread256:                      ; preds = %90
   br label %lean_nat_to_int.exit
 
 105:                                              ; preds = %92
-  %106 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %97) #4
+  %106 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %97) #5
   br label %lean_nat_to_int.exit
 
 lean_int_add.exit:                                ; preds = %lean_dec.exit81
-  %107 = tail call ptr @lean_int_big_add(ptr noundef %85, ptr noundef %86) #4
+  %107 = tail call ptr @lean_int_big_add(ptr noundef %85, ptr noundef %86) #5
   br i1 %89, label %108, label %lean_dec.exit80.thread
 
 108:                                              ; preds = %lean_int_add.exit.thread256, %lean_int_add.exit
@@ -1119,7 +1119,7 @@ lean_int_add.exit:                                ; preds = %lean_dec.exit81
   br i1 %.not.i100, label %lean_dec.exit80, label %115
 
 115:                                              ; preds = %114
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %86) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %86) #5
   br label %lean_dec.exit80
 
 lean_dec.exit80:                                  ; preds = %115, %114, %112
@@ -1141,7 +1141,7 @@ lean_dec.exit80.thread:                           ; preds = %lean_int_add.exit, 
   br i1 %.not.i102, label %lean_nat_to_int.exit, label %121
 
 121:                                              ; preds = %120
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %85) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %85) #5
   br label %lean_nat_to_int.exit
 
 122:                                              ; preds = %lean_obj_tag.exit
@@ -1162,7 +1162,7 @@ lean_dec.exit80.thread:                           ; preds = %lean_int_add.exit, 
   br i1 %.not.i142, label %lean_inc.exit89, label %128
 
 128:                                              ; preds = %127
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #5
   br label %lean_inc.exit89
 
 lean_inc.exit89:                                  ; preds = %128, %127, %125, %122
@@ -1188,7 +1188,7 @@ lean_inc.exit89:                                  ; preds = %128, %127, %125, %1
   br i1 %.not.i145, label %lean_inc.exit88, label %138
 
 138:                                              ; preds = %137
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %130) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %130) #5
   br label %lean_inc.exit88
 
 lean_inc.exit88:                                  ; preds = %138, %137, %135, %lean_inc.exit89
@@ -1209,7 +1209,7 @@ lean_inc.exit88:                                  ; preds = %138, %137, %135, %l
   br i1 %.not.i104, label %lean_dec.exit78, label %145
 
 145:                                              ; preds = %144
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit78
 
 lean_dec.exit78:                                  ; preds = %145, %144, %142, %lean_inc.exit88
@@ -1227,7 +1227,7 @@ lean_dec.exit78:                                  ; preds = %145, %144, %142, %l
   br i1 %150, label %lean_int_mul.exit.thread265, label %153, !prof !13
 
 lean_int_mul.exit.thread265:                      ; preds = %151
-  %152 = tail call ptr @lean_int_big_mul(ptr noundef %146, ptr noundef %147) #4
+  %152 = tail call ptr @lean_int_big_mul(ptr noundef %146, ptr noundef %147) #5
   br label %169
 
 153:                                              ; preds = %151
@@ -1248,11 +1248,11 @@ lean_int_mul.exit.thread265:                      ; preds = %151
   br label %lean_nat_to_int.exit
 
 166:                                              ; preds = %153
-  %167 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %158) #4
+  %167 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %158) #5
   br label %lean_nat_to_int.exit
 
 lean_int_mul.exit:                                ; preds = %lean_dec.exit78
-  %168 = tail call ptr @lean_int_big_mul(ptr noundef %146, ptr noundef %147) #4
+  %168 = tail call ptr @lean_int_big_mul(ptr noundef %146, ptr noundef %147) #5
   br i1 %150, label %169, label %lean_dec.exit77.thread
 
 169:                                              ; preds = %lean_int_mul.exit.thread265, %lean_int_mul.exit
@@ -1271,7 +1271,7 @@ lean_int_mul.exit:                                ; preds = %lean_dec.exit78
   br i1 %.not.i106, label %lean_dec.exit77, label %176
 
 176:                                              ; preds = %175
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %147) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %147) #5
   br label %lean_dec.exit77
 
 lean_dec.exit77:                                  ; preds = %176, %175, %173
@@ -1293,7 +1293,7 @@ lean_dec.exit77.thread:                           ; preds = %lean_int_mul.exit, 
   br i1 %.not.i108, label %lean_nat_to_int.exit, label %182
 
 182:                                              ; preds = %181
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %146) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %146) #5
   br label %lean_nat_to_int.exit
 
 183:                                              ; preds = %lean_obj_tag.exit
@@ -1314,7 +1314,7 @@ lean_dec.exit77.thread:                           ; preds = %lean_int_mul.exit, 
   br i1 %.not.i152, label %lean_inc.exit87, label %189
 
 189:                                              ; preds = %188
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #5
   br label %lean_inc.exit87
 
 lean_inc.exit87:                                  ; preds = %189, %188, %186, %183
@@ -1340,7 +1340,7 @@ lean_inc.exit87:                                  ; preds = %189, %188, %186, %1
   br i1 %.not.i155, label %lean_inc.exit86, label %199
 
 199:                                              ; preds = %198
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %191) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %191) #5
   br label %lean_inc.exit86
 
 lean_inc.exit86:                                  ; preds = %199, %198, %196, %lean_inc.exit87
@@ -1361,7 +1361,7 @@ lean_inc.exit86:                                  ; preds = %199, %198, %196, %l
   br i1 %.not.i110, label %lean_dec.exit75, label %206
 
 206:                                              ; preds = %205
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit75
 
 lean_dec.exit75:                                  ; preds = %206, %205, %203, %lean_inc.exit86
@@ -1379,7 +1379,7 @@ lean_dec.exit75:                                  ; preds = %206, %205, %203, %l
   br i1 %211, label %lean_int_ediv.exit.thread274, label %214, !prof !13
 
 lean_int_ediv.exit.thread274:                     ; preds = %212
-  %213 = tail call ptr @lean_int_big_ediv(ptr noundef %207, ptr noundef %208) #4
+  %213 = tail call ptr @lean_int_big_ediv(ptr noundef %207, ptr noundef %208) #5
   br label %237
 
 214:                                              ; preds = %212
@@ -1412,11 +1412,11 @@ lean_int_ediv.exit.thread274:                     ; preds = %212
   br label %lean_nat_to_int.exit
 
 234:                                              ; preds = %218
-  %235 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i) #4
+  %235 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i) #5
   br label %lean_nat_to_int.exit
 
 lean_int_ediv.exit:                               ; preds = %lean_dec.exit75
-  %236 = tail call ptr @lean_int_big_ediv(ptr noundef %207, ptr noundef %208) #4
+  %236 = tail call ptr @lean_int_big_ediv(ptr noundef %207, ptr noundef %208) #5
   br i1 %211, label %237, label %lean_dec.exit74.thread
 
 237:                                              ; preds = %lean_int_ediv.exit.thread274, %lean_int_ediv.exit
@@ -1435,7 +1435,7 @@ lean_int_ediv.exit:                               ; preds = %lean_dec.exit75
   br i1 %.not.i112, label %lean_dec.exit74, label %244
 
 244:                                              ; preds = %243
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %208) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %208) #5
   br label %lean_dec.exit74
 
 lean_dec.exit74:                                  ; preds = %244, %243, %241
@@ -1457,7 +1457,7 @@ lean_dec.exit74.thread:                           ; preds = %lean_int_ediv.exit,
   br i1 %.not.i114, label %lean_nat_to_int.exit, label %250
 
 250:                                              ; preds = %249
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %207) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %207) #5
   br label %lean_nat_to_int.exit
 
 251:                                              ; preds = %lean_obj_tag.exit
@@ -1478,7 +1478,7 @@ lean_dec.exit74.thread:                           ; preds = %lean_int_ediv.exit,
   br i1 %.not.i161, label %lean_inc.exit85, label %257
 
 257:                                              ; preds = %256
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %12) #5
   br label %lean_inc.exit85
 
 lean_inc.exit85:                                  ; preds = %257, %256, %254, %251
@@ -1504,7 +1504,7 @@ lean_inc.exit85:                                  ; preds = %257, %256, %254, %2
   br i1 %.not.i164, label %lean_inc.exit, label %267
 
 267:                                              ; preds = %266
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %259) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %259) #5
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %267, %266, %264, %lean_inc.exit85
@@ -1525,7 +1525,7 @@ lean_inc.exit:                                    ; preds = %267, %266, %264, %l
   br i1 %.not.i116, label %lean_dec.exit72, label %274
 
 274:                                              ; preds = %273
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit72
 
 lean_dec.exit72:                                  ; preds = %274, %273, %271, %lean_inc.exit
@@ -1543,7 +1543,7 @@ lean_dec.exit72:                                  ; preds = %274, %273, %271, %l
   br i1 %279, label %lean_int_emod.exit.thread283, label %282, !prof !13
 
 lean_int_emod.exit.thread283:                     ; preds = %280
-  %281 = tail call ptr @lean_int_big_emod(ptr noundef %275, ptr noundef %276) #4
+  %281 = tail call ptr @lean_int_big_emod(ptr noundef %275, ptr noundef %276) #5
   br label %302
 
 282:                                              ; preds = %280
@@ -1572,11 +1572,11 @@ lean_int_emod.exit.thread283:                     ; preds = %280
   br label %lean_nat_to_int.exit
 
 299:                                              ; preds = %285
-  %300 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i167) #4
+  %300 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i167) #5
   br label %lean_nat_to_int.exit
 
 lean_int_emod.exit:                               ; preds = %lean_dec.exit72
-  %301 = tail call ptr @lean_int_big_emod(ptr noundef %275, ptr noundef %276) #4
+  %301 = tail call ptr @lean_int_big_emod(ptr noundef %275, ptr noundef %276) #5
   br i1 %279, label %302, label %lean_dec.exit71.thread
 
 302:                                              ; preds = %lean_int_emod.exit.thread283, %lean_int_emod.exit
@@ -1595,7 +1595,7 @@ lean_int_emod.exit:                               ; preds = %lean_dec.exit72
   br i1 %.not.i118, label %lean_dec.exit71, label %309
 
 309:                                              ; preds = %308
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %276) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %276) #5
   br label %lean_dec.exit71
 
 lean_dec.exit71:                                  ; preds = %309, %308, %306
@@ -1617,7 +1617,7 @@ lean_dec.exit71.thread:                           ; preds = %lean_int_emod.exit,
   br i1 %.not.i120, label %lean_nat_to_int.exit, label %315
 
 315:                                              ; preds = %314
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %275) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %275) #5
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %282, %294, %299, %214, %229, %234, %161, %166, %100, %105, %lean_dec.exit71, %312, %314, %315, %lean_dec.exit74, %247, %249, %250, %lean_dec.exit77, %179, %181, %182, %lean_dec.exit80, %118, %120, %121, %58, %lean_dec.exit82, %30, %lean_dec.exit84
@@ -1648,7 +1648,7 @@ define ptr @l_Int_OfNat_Expr_denoteAsInt___boxed(ptr noundef %0, ptr noundef %1)
   br i1 %.not.i, label %lean_dec.exit, label %12
 
 12:                                               ; preds = %11
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %12, %11, %9, %2
@@ -1704,7 +1704,7 @@ lean_obj_tag.exit:                                ; preds = %10, %13
   br i1 %.not.i, label %lean_dec.exit114, label %25
 
 25:                                               ; preds = %24
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #5
   br label %lean_dec.exit114
 
 lean_dec.exit114:                                 ; preds = %25, %24, %22, %16
@@ -1728,7 +1728,7 @@ lean_dec.exit114:                                 ; preds = %25, %24, %22, %16
   br i1 %.not.i124, label %lean_dec.exit113, label %34
 
 34:                                               ; preds = %33
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #5
   br label %lean_dec.exit113
 
 lean_dec.exit113:                                 ; preds = %34, %33, %31, %lean_dec.exit114
@@ -1752,7 +1752,7 @@ lean_dec.exit113:                                 ; preds = %34, %33, %31, %lean
   br i1 %.not.i126, label %lean_dec.exit112, label %43
 
 43:                                               ; preds = %42
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #5
   br label %lean_dec.exit112
 
 lean_dec.exit112:                                 ; preds = %43, %42, %40, %lean_dec.exit113
@@ -1776,7 +1776,7 @@ lean_dec.exit112:                                 ; preds = %43, %42, %40, %lean
   br i1 %.not.i128, label %lean_dec.exit111, label %52
 
 52:                                               ; preds = %51
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #5
   br label %lean_dec.exit111
 
 lean_dec.exit111:                                 ; preds = %52, %51, %49, %lean_dec.exit112
@@ -1800,7 +1800,7 @@ lean_dec.exit111:                                 ; preds = %52, %51, %49, %lean
   br i1 %.not.i130, label %lean_dec.exit110, label %61
 
 61:                                               ; preds = %60
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #5
   br label %lean_dec.exit110
 
 lean_dec.exit110:                                 ; preds = %61, %60, %58, %lean_dec.exit111
@@ -1826,7 +1826,7 @@ lean_dec.exit110:                                 ; preds = %61, %60, %58, %lean
   br i1 %.not.i196, label %lean_inc.exit123, label %71
 
 71:                                               ; preds = %70
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %63) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %63) #5
   br label %lean_inc.exit123
 
 lean_inc.exit123:                                 ; preds = %71, %70, %68, %lean_dec.exit110
@@ -1847,11 +1847,11 @@ lean_inc.exit123:                                 ; preds = %71, %70, %68, %lean
   br i1 %.not.i132, label %lean_dec.exit109, label %78
 
 78:                                               ; preds = %77
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit109
 
 lean_dec.exit109:                                 ; preds = %78, %77, %75, %lean_inc.exit123
-  %79 = tail call ptr @lean_apply_1(ptr noundef %1, ptr noundef %63) #4
+  %79 = tail call ptr @lean_apply_1(ptr noundef %1, ptr noundef %63) #5
   br label %440
 
 80:                                               ; preds = %lean_obj_tag.exit
@@ -1875,7 +1875,7 @@ lean_dec.exit109:                                 ; preds = %78, %77, %75, %lean
   br i1 %.not.i134, label %lean_dec.exit108, label %89
 
 89:                                               ; preds = %88
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #5
   br label %lean_dec.exit108
 
 lean_dec.exit108:                                 ; preds = %89, %88, %86, %80
@@ -1899,7 +1899,7 @@ lean_dec.exit108:                                 ; preds = %89, %88, %86, %80
   br i1 %.not.i136, label %lean_dec.exit107, label %98
 
 98:                                               ; preds = %97
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #5
   br label %lean_dec.exit107
 
 lean_dec.exit107:                                 ; preds = %98, %97, %95, %lean_dec.exit108
@@ -1923,7 +1923,7 @@ lean_dec.exit107:                                 ; preds = %98, %97, %95, %lean
   br i1 %.not.i138, label %lean_dec.exit106, label %107
 
 107:                                              ; preds = %106
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #5
   br label %lean_dec.exit106
 
 lean_dec.exit106:                                 ; preds = %107, %106, %104, %lean_dec.exit107
@@ -1947,7 +1947,7 @@ lean_dec.exit106:                                 ; preds = %107, %106, %104, %l
   br i1 %.not.i140, label %lean_dec.exit105, label %116
 
 116:                                              ; preds = %115
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #5
   br label %lean_dec.exit105
 
 lean_dec.exit105:                                 ; preds = %116, %115, %113, %lean_dec.exit106
@@ -1971,7 +1971,7 @@ lean_dec.exit105:                                 ; preds = %116, %115, %113, %l
   br i1 %.not.i142, label %lean_dec.exit104, label %125
 
 125:                                              ; preds = %124
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit104
 
 lean_dec.exit104:                                 ; preds = %125, %124, %122, %lean_dec.exit105
@@ -1997,7 +1997,7 @@ lean_dec.exit104:                                 ; preds = %125, %124, %122, %l
   br i1 %.not.i198, label %lean_inc.exit122, label %135
 
 135:                                              ; preds = %134
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %127) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %127) #5
   br label %lean_inc.exit122
 
 lean_inc.exit122:                                 ; preds = %135, %134, %132, %lean_dec.exit104
@@ -2018,11 +2018,11 @@ lean_inc.exit122:                                 ; preds = %135, %134, %132, %l
   br i1 %.not.i144, label %lean_dec.exit103, label %142
 
 142:                                              ; preds = %141
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit103
 
 lean_dec.exit103:                                 ; preds = %142, %141, %139, %lean_inc.exit122
-  %143 = tail call ptr @lean_apply_1(ptr noundef %2, ptr noundef %127) #4
+  %143 = tail call ptr @lean_apply_1(ptr noundef %2, ptr noundef %127) #5
   br label %440
 
 144:                                              ; preds = %lean_obj_tag.exit
@@ -2046,7 +2046,7 @@ lean_dec.exit103:                                 ; preds = %142, %141, %139, %l
   br i1 %.not.i146, label %lean_dec.exit102, label %153
 
 153:                                              ; preds = %152
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #5
   br label %lean_dec.exit102
 
 lean_dec.exit102:                                 ; preds = %153, %152, %150, %144
@@ -2070,7 +2070,7 @@ lean_dec.exit102:                                 ; preds = %153, %152, %150, %1
   br i1 %.not.i148, label %lean_dec.exit101, label %162
 
 162:                                              ; preds = %161
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #5
   br label %lean_dec.exit101
 
 lean_dec.exit101:                                 ; preds = %162, %161, %159, %lean_dec.exit102
@@ -2094,7 +2094,7 @@ lean_dec.exit101:                                 ; preds = %162, %161, %159, %l
   br i1 %.not.i150, label %lean_dec.exit100, label %171
 
 171:                                              ; preds = %170
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #5
   br label %lean_dec.exit100
 
 lean_dec.exit100:                                 ; preds = %171, %170, %168, %lean_dec.exit101
@@ -2118,7 +2118,7 @@ lean_dec.exit100:                                 ; preds = %171, %170, %168, %l
   br i1 %.not.i152, label %lean_dec.exit99, label %180
 
 180:                                              ; preds = %179
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #5
   br label %lean_dec.exit99
 
 lean_dec.exit99:                                  ; preds = %180, %179, %177, %lean_dec.exit100
@@ -2142,7 +2142,7 @@ lean_dec.exit99:                                  ; preds = %180, %179, %177, %l
   br i1 %.not.i154, label %lean_dec.exit98, label %189
 
 189:                                              ; preds = %188
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit98
 
 lean_dec.exit98:                                  ; preds = %189, %188, %186, %lean_dec.exit99
@@ -2168,7 +2168,7 @@ lean_dec.exit98:                                  ; preds = %189, %188, %186, %l
   br i1 %.not.i201, label %lean_inc.exit121, label %199
 
 199:                                              ; preds = %198
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %191) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %191) #5
   br label %lean_inc.exit121
 
 lean_inc.exit121:                                 ; preds = %199, %198, %196, %lean_dec.exit98
@@ -2194,7 +2194,7 @@ lean_inc.exit121:                                 ; preds = %199, %198, %196, %l
   br i1 %.not.i204, label %lean_inc.exit120, label %209
 
 209:                                              ; preds = %208
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %201) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %201) #5
   br label %lean_inc.exit120
 
 lean_inc.exit120:                                 ; preds = %209, %208, %206, %lean_inc.exit121
@@ -2215,11 +2215,11 @@ lean_inc.exit120:                                 ; preds = %209, %208, %206, %l
   br i1 %.not.i156, label %lean_dec.exit97, label %216
 
 216:                                              ; preds = %215
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit97
 
 lean_dec.exit97:                                  ; preds = %216, %215, %213, %lean_inc.exit120
-  %217 = tail call ptr @lean_apply_2(ptr noundef %3, ptr noundef %191, ptr noundef %201) #4
+  %217 = tail call ptr @lean_apply_2(ptr noundef %3, ptr noundef %191, ptr noundef %201) #5
   br label %440
 
 218:                                              ; preds = %lean_obj_tag.exit
@@ -2243,7 +2243,7 @@ lean_dec.exit97:                                  ; preds = %216, %215, %213, %l
   br i1 %.not.i158, label %lean_dec.exit96, label %227
 
 227:                                              ; preds = %226
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #5
   br label %lean_dec.exit96
 
 lean_dec.exit96:                                  ; preds = %227, %226, %224, %218
@@ -2267,7 +2267,7 @@ lean_dec.exit96:                                  ; preds = %227, %226, %224, %2
   br i1 %.not.i160, label %lean_dec.exit95, label %236
 
 236:                                              ; preds = %235
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #5
   br label %lean_dec.exit95
 
 lean_dec.exit95:                                  ; preds = %236, %235, %233, %lean_dec.exit96
@@ -2291,7 +2291,7 @@ lean_dec.exit95:                                  ; preds = %236, %235, %233, %l
   br i1 %.not.i162, label %lean_dec.exit94, label %245
 
 245:                                              ; preds = %244
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #5
   br label %lean_dec.exit94
 
 lean_dec.exit94:                                  ; preds = %245, %244, %242, %lean_dec.exit95
@@ -2315,7 +2315,7 @@ lean_dec.exit94:                                  ; preds = %245, %244, %242, %l
   br i1 %.not.i164, label %lean_dec.exit93, label %254
 
 254:                                              ; preds = %253
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #5
   br label %lean_dec.exit93
 
 lean_dec.exit93:                                  ; preds = %254, %253, %251, %lean_dec.exit94
@@ -2339,7 +2339,7 @@ lean_dec.exit93:                                  ; preds = %254, %253, %251, %l
   br i1 %.not.i166, label %lean_dec.exit92, label %263
 
 263:                                              ; preds = %262
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit92
 
 lean_dec.exit92:                                  ; preds = %263, %262, %260, %lean_dec.exit93
@@ -2365,7 +2365,7 @@ lean_dec.exit92:                                  ; preds = %263, %262, %260, %l
   br i1 %.not.i207, label %lean_inc.exit119, label %273
 
 273:                                              ; preds = %272
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %265) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %265) #5
   br label %lean_inc.exit119
 
 lean_inc.exit119:                                 ; preds = %273, %272, %270, %lean_dec.exit92
@@ -2391,7 +2391,7 @@ lean_inc.exit119:                                 ; preds = %273, %272, %270, %l
   br i1 %.not.i210, label %lean_inc.exit118, label %283
 
 283:                                              ; preds = %282
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %275) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %275) #5
   br label %lean_inc.exit118
 
 lean_inc.exit118:                                 ; preds = %283, %282, %280, %lean_inc.exit119
@@ -2412,11 +2412,11 @@ lean_inc.exit118:                                 ; preds = %283, %282, %280, %l
   br i1 %.not.i168, label %lean_dec.exit91, label %290
 
 290:                                              ; preds = %289
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit91
 
 lean_dec.exit91:                                  ; preds = %290, %289, %287, %lean_inc.exit118
-  %291 = tail call ptr @lean_apply_2(ptr noundef %4, ptr noundef %265, ptr noundef %275) #4
+  %291 = tail call ptr @lean_apply_2(ptr noundef %4, ptr noundef %265, ptr noundef %275) #5
   br label %440
 
 292:                                              ; preds = %lean_obj_tag.exit
@@ -2440,7 +2440,7 @@ lean_dec.exit91:                                  ; preds = %290, %289, %287, %l
   br i1 %.not.i170, label %lean_dec.exit90, label %301
 
 301:                                              ; preds = %300
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %6) #5
   br label %lean_dec.exit90
 
 lean_dec.exit90:                                  ; preds = %301, %300, %298, %292
@@ -2464,7 +2464,7 @@ lean_dec.exit90:                                  ; preds = %301, %300, %298, %2
   br i1 %.not.i172, label %lean_dec.exit89, label %310
 
 310:                                              ; preds = %309
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #5
   br label %lean_dec.exit89
 
 lean_dec.exit89:                                  ; preds = %310, %309, %307, %lean_dec.exit90
@@ -2488,7 +2488,7 @@ lean_dec.exit89:                                  ; preds = %310, %309, %307, %l
   br i1 %.not.i174, label %lean_dec.exit88, label %319
 
 319:                                              ; preds = %318
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #5
   br label %lean_dec.exit88
 
 lean_dec.exit88:                                  ; preds = %319, %318, %316, %lean_dec.exit89
@@ -2512,7 +2512,7 @@ lean_dec.exit88:                                  ; preds = %319, %318, %316, %l
   br i1 %.not.i176, label %lean_dec.exit87, label %328
 
 328:                                              ; preds = %327
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #5
   br label %lean_dec.exit87
 
 lean_dec.exit87:                                  ; preds = %328, %327, %325, %lean_dec.exit88
@@ -2536,7 +2536,7 @@ lean_dec.exit87:                                  ; preds = %328, %327, %325, %l
   br i1 %.not.i178, label %lean_dec.exit86, label %337
 
 337:                                              ; preds = %336
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit86
 
 lean_dec.exit86:                                  ; preds = %337, %336, %334, %lean_dec.exit87
@@ -2562,7 +2562,7 @@ lean_dec.exit86:                                  ; preds = %337, %336, %334, %l
   br i1 %.not.i213, label %lean_inc.exit117, label %347
 
 347:                                              ; preds = %346
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %339) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %339) #5
   br label %lean_inc.exit117
 
 lean_inc.exit117:                                 ; preds = %347, %346, %344, %lean_dec.exit86
@@ -2588,7 +2588,7 @@ lean_inc.exit117:                                 ; preds = %347, %346, %344, %l
   br i1 %.not.i216, label %lean_inc.exit116, label %357
 
 357:                                              ; preds = %356
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %349) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %349) #5
   br label %lean_inc.exit116
 
 lean_inc.exit116:                                 ; preds = %357, %356, %354, %lean_inc.exit117
@@ -2609,11 +2609,11 @@ lean_inc.exit116:                                 ; preds = %357, %356, %354, %l
   br i1 %.not.i180, label %lean_dec.exit85, label %364
 
 364:                                              ; preds = %363
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit85
 
 lean_dec.exit85:                                  ; preds = %364, %363, %361, %lean_inc.exit116
-  %365 = tail call ptr @lean_apply_2(ptr noundef %5, ptr noundef %339, ptr noundef %349) #4
+  %365 = tail call ptr @lean_apply_2(ptr noundef %5, ptr noundef %339, ptr noundef %349) #5
   br label %440
 
 366:                                              ; preds = %lean_obj_tag.exit
@@ -2637,7 +2637,7 @@ lean_dec.exit85:                                  ; preds = %364, %363, %361, %l
   br i1 %.not.i182, label %lean_dec.exit84, label %375
 
 375:                                              ; preds = %374
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %5) #5
   br label %lean_dec.exit84
 
 lean_dec.exit84:                                  ; preds = %375, %374, %372, %366
@@ -2661,7 +2661,7 @@ lean_dec.exit84:                                  ; preds = %375, %374, %372, %3
   br i1 %.not.i184, label %lean_dec.exit83, label %384
 
 384:                                              ; preds = %383
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #5
   br label %lean_dec.exit83
 
 lean_dec.exit83:                                  ; preds = %384, %383, %381, %lean_dec.exit84
@@ -2685,7 +2685,7 @@ lean_dec.exit83:                                  ; preds = %384, %383, %381, %l
   br i1 %.not.i186, label %lean_dec.exit82, label %393
 
 393:                                              ; preds = %392
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #5
   br label %lean_dec.exit82
 
 lean_dec.exit82:                                  ; preds = %393, %392, %390, %lean_dec.exit83
@@ -2709,7 +2709,7 @@ lean_dec.exit82:                                  ; preds = %393, %392, %390, %l
   br i1 %.not.i188, label %lean_dec.exit81, label %402
 
 402:                                              ; preds = %401
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #5
   br label %lean_dec.exit81
 
 lean_dec.exit81:                                  ; preds = %402, %401, %399, %lean_dec.exit82
@@ -2733,7 +2733,7 @@ lean_dec.exit81:                                  ; preds = %402, %401, %399, %l
   br i1 %.not.i190, label %lean_dec.exit80, label %411
 
 411:                                              ; preds = %410
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit80
 
 lean_dec.exit80:                                  ; preds = %411, %410, %408, %lean_dec.exit81
@@ -2759,7 +2759,7 @@ lean_dec.exit80:                                  ; preds = %411, %410, %408, %l
   br i1 %.not.i219, label %lean_inc.exit115, label %421
 
 421:                                              ; preds = %420
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %413) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %413) #5
   br label %lean_inc.exit115
 
 lean_inc.exit115:                                 ; preds = %421, %420, %418, %lean_dec.exit80
@@ -2785,7 +2785,7 @@ lean_inc.exit115:                                 ; preds = %421, %420, %418, %l
   br i1 %.not.i222, label %lean_inc.exit, label %431
 
 431:                                              ; preds = %430
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %423) #4
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %423) #5
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %431, %430, %428, %lean_inc.exit115
@@ -2806,11 +2806,11 @@ lean_inc.exit:                                    ; preds = %431, %430, %428, %l
   br i1 %.not.i192, label %lean_dec.exit, label %438
 
 438:                                              ; preds = %437
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %438, %437, %435, %lean_inc.exit
-  %439 = tail call ptr @lean_apply_2(ptr noundef %6, ptr noundef %413, ptr noundef %423) #4
+  %439 = tail call ptr @lean_apply_2(ptr noundef %6, ptr noundef %413, ptr noundef %423) #5
   br label %440
 
 440:                                              ; preds = %lean_dec.exit, %lean_dec.exit85, %lean_dec.exit91, %lean_dec.exit97, %lean_dec.exit103, %lean_dec.exit109
@@ -2824,13 +2824,13 @@ declare ptr @lean_apply_2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l___private_Init_Data_Int_OfNat_0__Int_OfNat_Expr_denote_match__1_splitter(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  tail call void @lean_inc_heartbeat() #4
-  %2 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  tail call void @lean_inc_heartbeat() #5
+  %2 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %lean_alloc_closure.exit
 
 4:                                                ; preds = %1
-  tail call void @lean_internal_panic_out_of_memory() #5
+  tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 lean_alloc_closure.exit:                          ; preds = %1
@@ -2852,18 +2852,18 @@ define ptr @initialize_Init_Data_Int_OfNat(i8 noundef zeroext %0, ptr noundef re
   br i1 %.b, label %3, label %7
 
 3:                                                ; preds = %2
-  tail call void @lean_inc_heartbeat() #4
-  %4 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  tail call void @lean_inc_heartbeat() #5
+  %4 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.sink.split
 
 6:                                                ; preds = %3
-  tail call void @lean_internal_panic_out_of_memory() #5
+  tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 7:                                                ; preds = %2
   store i1 true, ptr @_G_initialized, align 1
-  %8 = tail call ptr @initialize_Init_Data_Int_Lemmas(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
+  %8 = tail call ptr @initialize_Init_Data_Int_Lemmas(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %9 = getelementptr i8, ptr %8, i64 4
   %.val = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val, -16777216
@@ -2885,11 +2885,11 @@ define ptr @initialize_Init_Data_Int_OfNat(i8 noundef zeroext %0, ptr noundef re
   br i1 %.not.i, label %lean_dec_ref.exit, label %17
 
 17:                                               ; preds = %16
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #5
   br label %lean_dec_ref.exit
 
 lean_dec_ref.exit:                                ; preds = %14, %16, %17
-  %18 = tail call ptr @initialize_Init_Data_Int_DivMod(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
+  %18 = tail call ptr @initialize_Init_Data_Int_DivMod(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %19 = getelementptr i8, ptr %18, i64 4
   %.val22 = load i32, ptr %19, align 4
   %.mask.i25 = and i32 %.val22, -16777216
@@ -2911,11 +2911,11 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   br i1 %.not.i16, label %lean_dec_ref.exit17, label %27
 
 27:                                               ; preds = %26
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %18) #5
   br label %lean_dec_ref.exit17
 
 lean_dec_ref.exit17:                              ; preds = %24, %26, %27
-  %28 = tail call ptr @initialize_Init_Data_Int_Linear(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
+  %28 = tail call ptr @initialize_Init_Data_Int_Linear(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %29 = getelementptr i8, ptr %28, i64 4
   %.val23 = load i32, ptr %29, align 4
   %.mask.i26 = and i32 %.val23, -16777216
@@ -2937,11 +2937,11 @@ lean_dec_ref.exit17:                              ; preds = %24, %26, %27
   br i1 %.not.i18, label %lean_dec_ref.exit19, label %37
 
 37:                                               ; preds = %36
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %28) #5
   br label %lean_dec_ref.exit19
 
 lean_dec_ref.exit19:                              ; preds = %34, %36, %37
-  %38 = tail call ptr @initialize_Init_Data_RArray(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
+  %38 = tail call ptr @initialize_Init_Data_RArray(i8 noundef zeroext %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   %39 = getelementptr i8, ptr %38, i64 4
   %.val24 = load i32, ptr %39, align 4
   %.mask.i27 = and i32 %.val24, -16777216
@@ -2963,17 +2963,17 @@ lean_dec_ref.exit19:                              ; preds = %34, %36, %37
   br i1 %.not.i20, label %lean_dec_ref.exit21, label %47
 
 47:                                               ; preds = %46
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %38) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %38) #5
   br label %lean_dec_ref.exit21
 
 lean_dec_ref.exit21:                              ; preds = %44, %46, %47
-  tail call void @lean_inc_heartbeat() #4
-  %48 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  tail call void @lean_inc_heartbeat() #5
+  %48 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %_init_l_Int_OfNat_instBEqExpr___closed__1.exit
 
 50:                                               ; preds = %lean_dec_ref.exit21
-  tail call void @lean_internal_panic_out_of_memory() #5
+  tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Int_OfNat_instBEqExpr___closed__1.exit:   ; preds = %lean_dec_ref.exit21
@@ -2987,17 +2987,17 @@ _init_l_Int_OfNat_instBEqExpr___closed__1.exit:   ; preds = %lean_dec_ref.exit21
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 18
   store i16 0, ptr %54, align 2, !tbaa !14
   store ptr %48, ptr @l_Int_OfNat_instBEqExpr___closed__1, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef nonnull %48) #4
+  tail call void @lean_mark_persistent(ptr noundef nonnull %48) #5
   %55 = load ptr, ptr @l_Int_OfNat_instBEqExpr___closed__1, align 8, !tbaa !10
   store ptr %55, ptr @l_Int_OfNat_instBEqExpr, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef %55) #4
-  tail call void @lean_inc_heartbeat() #4
-  %56 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  tail call void @lean_mark_persistent(ptr noundef %55) #5
+  tail call void @lean_inc_heartbeat() #5
+  %56 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %.sink.split
 
 58:                                               ; preds = %_init_l_Int_OfNat_instBEqExpr___closed__1.exit
-  tail call void @lean_internal_panic_out_of_memory() #5
+  tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Int_OfNat_instBEqExpr___closed__1.exit, %3
@@ -3063,18 +3063,19 @@ declare void @lean_internal_panic_out_of_memory() local_unnamed_addr #2
 
 declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #3
+declare i64 @llvm.abs.i64(i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

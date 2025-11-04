@@ -132,11 +132,11 @@ define linkonce_odr hidden void @_ZN6Assimp13FileLogStreamD0Ev(ptr noundef nonnu
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
   br label %_ZN6Assimp13FileLogStreamD2Ev.exit
 
 _ZN6Assimp13FileLogStreamD2Ev.exit:               ; preds = %1, %5
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #23
   ret void
 }
 
@@ -152,7 +152,7 @@ define linkonce_odr hidden void @_ZN6Assimp13FileLogStreamD2Ev(ptr noundef nonnu
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -164,7 +164,7 @@ declare void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef) local_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp19StdOStreamLogStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #23
   ret void
 }
 
@@ -264,7 +264,7 @@ define noundef ptr @_ZN6Assimp9LogStream19createDefaultStreamE18aiDefaultLogStre
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %33 = load i64, ptr %31, align 8
   %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %30, i64 noundef %34) #23
+  call void @_ZdlPvm(ptr noundef %30, i64 noundef %34) #24
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
@@ -287,7 +287,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %36 to i64
   %42 = sub i64 %40, %41
-  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #23
+  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #24
   br label %_ZN6Assimp8IOSystemD2Ev.exit.i
 
 _ZN6Assimp8IOSystemD2Ev.exit.i:                   ; preds = %37, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
@@ -297,7 +297,7 @@ _ZN6Assimp8IOSystemD2Ev.exit.i:                   ; preds = %37, %_ZSt8_DestroyI
 43:                                               ; preds = %23
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6Assimp8IOSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  call void @_ZN6Assimp8IOSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body
 
@@ -319,7 +319,7 @@ _ZN6Assimp8IOSystemD2Ev.exit.i:                   ; preds = %37, %_ZSt8_DestroyI
 
 .body:                                            ; preds = %43, %50
   %eh.lpad-body = phi { ptr, i32 } [ %51, %50 ], [ %44, %43 ]
-  call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %18) #22
+  call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %18) #23
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN6Assimp13FileLogStreamC2EPKcPNS_8IOSystemE.exit: ; preds = %.noexc, %_ZN6Assimp8IOSystemD2Ev.exit.i, %17, %3, %.split, %15, %14, %11, %8
@@ -343,7 +343,7 @@ define noundef ptr @_ZN6Assimp13DefaultLogger6createEPKcNS_6Logger11LogSeverityE
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %5) #22
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %5) #23
   br label %11
 
 11:                                               ; preds = %7, %4
@@ -367,7 +367,7 @@ define noundef ptr @_ZN6Assimp13DefaultLogger6createEPKcNS_6Logger11LogSeverityE
 20:                                               ; preds = %11
   %21 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %12) #22
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %12) #23
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %15, %13
@@ -439,7 +439,7 @@ define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv() local_unn
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = icmp ugt i64 %3, 1024
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -454,7 +454,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = icmp ugt i64 %3, 1024
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -466,7 +466,7 @@ define void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = icmp ugt i64 %3, 1024
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -478,7 +478,7 @@ define void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = icmp ugt i64 %3, 1024
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -490,7 +490,7 @@ define void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = icmp ugt i64 %3, 1024
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -528,7 +528,7 @@ define void @_ZN6Assimp13DefaultLogger4killEv() local_unnamed_addr #8 align 2 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %1) #22
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %1) #23
   br label %9
 
 9:                                                ; preds = %5, %3
@@ -549,7 +549,7 @@ define void @_ZN6Assimp13DefaultLogger7OnDebugEPKc(ptr noundef nonnull align 8 d
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef %1) #22
+  %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef %1) #23
   call void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSeverityE(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef nonnull %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %9
@@ -568,7 +568,7 @@ define noundef i32 @_ZN6Assimp13DefaultLogger11GetThreadIDEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSeverityE(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, -1
@@ -577,7 +577,7 @@ define void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSever
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %11 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef nonnull %10, i64 noundef %4) #24
+  %11 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef nonnull %10, i64 noundef %4) #25
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %17
 
@@ -652,7 +652,7 @@ define void @_ZN6Assimp13DefaultLogger14OnVerboseDebugEPKc(ptr noundef nonnull a
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef %1) #22
+  %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.3, i32 noundef 0, ptr noundef %1) #23
   call void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSeverityE(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef nonnull %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %9
@@ -665,7 +665,7 @@ define void @_ZN6Assimp13DefaultLogger14OnVerboseDebugEPKc(ptr noundef nonnull a
 define void @_ZN6Assimp13DefaultLogger6OnInfoEPKc(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca [1040 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef %1) #22
+  %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef %1) #23
   call void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSeverityE(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef nonnull %3, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -675,7 +675,7 @@ define void @_ZN6Assimp13DefaultLogger6OnInfoEPKc(ptr noundef nonnull align 8 de
 define void @_ZN6Assimp13DefaultLogger6OnWarnEPKc(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca [1040 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef %1) #22
+  %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef %1) #23
   call void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSeverityE(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef nonnull %3, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -685,7 +685,7 @@ define void @_ZN6Assimp13DefaultLogger6OnWarnEPKc(ptr noundef nonnull align 8 de
 define void @_ZN6Assimp13DefaultLogger7OnErrorEPKc(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca [1040 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef %1) #22
+  %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1040, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef %1) #23
   call void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSeverityE(ptr noundef nonnull align 8 dereferenceable(2104) %0, ptr noundef nonnull %3, i32 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -726,7 +726,7 @@ define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12attachStreamEPNS_9LogStrea
   br label %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE9push_backERKS2_.exit
 
 ._crit_edge:                                      ; preds = %11, %5
-  %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
+  %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
   store i32 %spec.store.select, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %1, ptr %21, align 8
@@ -750,7 +750,7 @@ define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12attachStreamEPNS_9LogStrea
   br i1 %31, label %32, label %_ZNKSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 32:                                               ; preds = %27
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #27
   unreachable
 
 _ZNKSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %27
@@ -763,7 +763,7 @@ _ZNKSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; p
   %.not.i.i.i = icmp ne i64 %37, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %38 = shl nuw nsw i64 %37, 3
-  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #25
+  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #26
   %40 = getelementptr inbounds i8, ptr %39, i64 %30
   store ptr %20, ptr %40, align 8
   %41 = icmp sgt i64 %30, 0
@@ -779,7 +779,7 @@ _ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %44
 
 44:                                               ; preds = %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %30) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %30) #24
   br label %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
@@ -849,11 +849,11 @@ define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12detachStreamEPNS_9LogStrea
   %32 = load ptr, ptr %29, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %29) #22
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %29) #23
   br label %_ZN6Assimp13LogStreamInfoD2Ev.exit
 
 _ZN6Assimp13LogStreamInfoD2Ev.exit:               ; preds = %27, %31
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 16) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 16) #24
   br label %35
 
 35:                                               ; preds = %_ZN6Assimp13LogStreamInfoD2Ev.exit, %23
@@ -928,7 +928,7 @@ define void @_ZN6Assimp13DefaultLoggerD2Ev(ptr noundef nonnull align 8 captures(
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %12) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %12) #24
   br label %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %7
@@ -951,11 +951,11 @@ _ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EED2Ev.exit: ; preds = %._crit_edge,
   %21 = load ptr, ptr %18, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %18) #22
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %18) #23
   br label %_ZN6Assimp13LogStreamInfoD2Ev.exit
 
 _ZN6Assimp13LogStreamInfoD2Ev.exit:               ; preds = %16, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 16) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 16) #24
   %.pre = load ptr, ptr %4, align 8
   br label %24
 
@@ -968,8 +968,8 @@ _ZN6Assimp13LogStreamInfoD2Ev.exit:               ; preds = %16, %20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6Assimp13DefaultLoggerD0Ev(ptr noundef nonnull align 8 dereferenceable(2104) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN6Assimp13DefaultLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(2104) %0) #22
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6Assimp13DefaultLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(2104) %0) #23
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #23
   ret void
 }
 
@@ -987,7 +987,7 @@ define linkonce_odr hidden void @_ZN6Assimp13FileLogStream5writeEPKc(ptr noundef
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -1022,7 +1022,7 @@ define linkonce_odr hidden void @_ZN6Assimp19StdOStreamLogStream5writeEPKc(ptr n
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 13:                                               ; preds = %2
-  %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %1, i64 noundef %14)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -1034,7 +1034,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %5, %13
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Assimp10NullLoggerD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #23
   ret void
 }
 
@@ -1095,7 +1095,7 @@ define linkonce_odr void @_ZN6Assimp8IOSystemD2Ev(ptr noundef nonnull align 8 de
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %9 = load i64, ptr %7, align 8
   %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %6, i64 noundef %10) #23
+  tail call void @_ZdlPvm(ptr noundef %6, i64 noundef %10) #24
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
@@ -1118,7 +1118,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #24
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %13
@@ -1140,7 +1140,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_DefaultLogger.cpp() #17 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Assimp13DefaultLogger13s_pNullLoggerE, i64 8), align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN6Assimp10NullLoggerE, i64 16), ptr @_ZN6Assimp13DefaultLogger13s_pNullLoggerE, align 8
   ret void
@@ -1152,22 +1152,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #19
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1189,14 +1189,15 @@ attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" 
 attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { nounwind }
-attributes #23 = { builtin nounwind }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { noreturn }
+attributes #19 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #23 = { nounwind }
+attributes #24 = { builtin nounwind }
+attributes #25 = { nounwind willreturn memory(read) }
+attributes #26 = { builtin allocsize(0) }
+attributes #27 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

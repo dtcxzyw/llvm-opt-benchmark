@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: cold nounwind optsize uwtable
 define range(i32 -12, 1) i32 @ff_celt_pvq_init(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias ptr @av_malloc(i64 noundef 2064) #10
+  %3 = tail call noalias ptr @av_malloc(i64 noundef 2064) #12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
@@ -60,7 +60,7 @@ define internal i32 @pvq_encode_band(ptr noundef %0, ptr noundef %1, ptr noundef
   %26 = load float, ptr %.0603.i288, align 4, !tbaa !19
   %27 = fcmp nsz olt float %26, 0.000000e+00
   %28 = zext i1 %27 to i32
-  tail call void @ff_opus_rc_put_raw(ptr noundef %2, i32 noundef %28, i32 noundef 1) #10
+  tail call void @ff_opus_rc_put_raw(ptr noundef %2, i32 noundef %28, i32 noundef 1) #12
   %29 = load i32, ptr %20, align 4, !tbaa !12
   %30 = add nsw i32 %29, -8
   store i32 %30, ptr %20, align 4, !tbaa !12
@@ -553,7 +553,7 @@ opus_rc_tell_frac.exit19:                         ; preds = %251
 
 .thread173:                                       ; preds = %262
   %267 = lshr i32 %237, 1
-  tail call void @ff_opus_rc_enc_uint_step(ptr noundef nonnull %2, i32 noundef %265, i32 noundef %267) #10
+  tail call void @ff_opus_rc_enc_uint_step(ptr noundef nonnull %2, i32 noundef %265, i32 noundef %267) #12
   %268 = and i32 %264, -16384
   %269 = sdiv i32 %268, %237
   br label %278
@@ -564,14 +564,14 @@ opus_rc_tell_frac.exit19:                         ; preds = %251
   br i1 %or.cond19.i, label %274, label %.thread174
 
 .thread174:                                       ; preds = %270
-  tail call void @ff_opus_rc_enc_uint_tri(ptr noundef nonnull %2, i32 noundef %265, i32 noundef %237) #10
+  tail call void @ff_opus_rc_enc_uint_tri(ptr noundef nonnull %2, i32 noundef %265, i32 noundef %237) #12
   %272 = and i32 %264, -16384
   %273 = sdiv i32 %272, %237
   br label %celt_stereo_is_decouple.exit
 
 274:                                              ; preds = %270
   %275 = add nuw nsw i32 %237, 1
-  tail call void @ff_opus_rc_enc_uint(ptr noundef nonnull %2, i32 noundef %265, i32 noundef %275) #10
+  tail call void @ff_opus_rc_enc_uint(ptr noundef nonnull %2, i32 noundef %265, i32 noundef %275) #12
   %276 = and i32 %264, -16384
   %277 = sdiv i32 %276, %237
   br i1 %17, label %278, label %celt_stereo_is_decouple.exit
@@ -713,7 +713,7 @@ celt_stereo_is_decouple.exit88:                   ; preds = %.lr.ph.i84, %.loope
   br i1 %347, label %348, label %celt_stereo_is_decouple.exit
 
 348:                                              ; preds = %344
-  tail call void @ff_opus_rc_enc_log(ptr noundef nonnull %2, i32 noundef %320, i32 noundef 2) #10
+  tail call void @ff_opus_rc_enc_log(ptr noundef nonnull %2, i32 noundef %320, i32 noundef 2) #12
   %349 = xor i1 %narrow.i, true
   br label %celt_stereo_is_decouple.exit
 
@@ -920,7 +920,7 @@ opus_rc_tell_frac.exit:                           ; preds = %362
   %491 = tail call nsz float @llvm.fmuladd.f32(float %483, float %485, float %490)
   %492 = fcmp nsz olt float %491, 0.000000e+00
   %493 = zext i1 %492 to i32
-  tail call void @ff_opus_rc_put_raw(ptr noundef nonnull %2, i32 noundef %493, i32 noundef 1) #10
+  tail call void @ff_opus_rc_put_raw(ptr noundef nonnull %2, i32 noundef %493, i32 noundef 1) #12
   %494 = select i1 %492, i32 2, i32 0
   br label %.thread185
 
@@ -930,7 +930,7 @@ opus_rc_tell_frac.exit:                           ; preds = %362
   %495 = sub nsw i32 1, %.0574.i
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %497 = load ptr, ptr %496, align 8, !tbaa !4
-  %498 = tail call i32 %497(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %480, ptr noundef null, i32 noundef 2, i32 noundef %475, i32 noundef %.2.i170414, ptr noundef %.0572.i, i32 noundef %.0575.i169416, ptr noundef %11, i32 noundef %12, float noundef %13, ptr noundef %14, i32 noundef %.3579.i168418) #10
+  %498 = tail call i32 %497(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %480, ptr noundef null, i32 noundef 2, i32 noundef %475, i32 noundef %.2.i170414, ptr noundef %.0572.i, i32 noundef %.0575.i169416, ptr noundef %11, i32 noundef %12, float noundef %13, ptr noundef %14, i32 noundef %.3579.i168418) #12
   %499 = sitofp i32 %.neg660.i to float
   %500 = getelementptr inbounds nuw i8, ptr %480, i64 4
   %501 = load float, ptr %500, align 4, !tbaa !19
@@ -1024,7 +1024,7 @@ opus_rc_tell_frac.exit:                           ; preds = %362
 554:                                              ; preds = %540
   %555 = fmul nsz float %13, %.0587.i
   %556 = select nsz i1 %17, float 1.000000e+00, float %555
-  %557 = tail call i32 %553(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %.0566.i171412, i32 noundef %.0.i22, i32 noundef %.2.i170414, ptr noundef %.0572.i, i32 noundef %.0575.i169416, ptr noundef %.0568.i, i32 noundef %.0567.i, float noundef %556, ptr noundef %14, i32 noundef %.5.i) #10
+  %557 = tail call i32 %553(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %.0566.i171412, i32 noundef %.0.i22, i32 noundef %.2.i170414, ptr noundef %.0572.i, i32 noundef %.0575.i169416, ptr noundef %.0568.i, i32 noundef %.0567.i, float noundef %556, ptr noundef %14, i32 noundef %.5.i) #12
   %558 = load i32, ptr %545, align 4, !tbaa !12
   %.neg658.i = sub i32 %558, %547
   %559 = add i32 %.neg658.i, %.0.i22
@@ -1037,7 +1037,7 @@ opus_rc_tell_frac.exit:                           ; preds = %362
   %564 = load ptr, ptr %552, align 8, !tbaa !4
   %565 = fmul nsz float %13, %.0588.i
   %566 = ashr i32 %.5.i, %.2.i170414
-  %567 = tail call i32 %564(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %.0563.i172410, ptr noundef null, i32 noundef %.0566.i171412, i32 noundef %.0591.i, i32 noundef %.2.i170414, ptr noundef %.0569.i, i32 noundef %.0575.i169416, ptr noundef null, i32 noundef %.0567.i, float noundef %565, ptr noundef null, i32 noundef %566) #10
+  %567 = tail call i32 %564(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %.0563.i172410, ptr noundef null, i32 noundef %.0566.i171412, i32 noundef %.0591.i, i32 noundef %.2.i170414, ptr noundef %.0569.i, i32 noundef %.0575.i169416, ptr noundef null, i32 noundef %.0567.i, float noundef %565, ptr noundef null, i32 noundef %566) #12
   %568 = ashr i32 %.0570.i, 1
   %569 = select i1 %17, i32 0, i32 %568
   %570 = shl i32 %567, %569
@@ -1047,7 +1047,7 @@ opus_rc_tell_frac.exit:                           ; preds = %362
 572:                                              ; preds = %540
   %573 = fmul nsz float %13, %.0588.i
   %574 = ashr i32 %.5.i, %.2.i170414
-  %575 = tail call i32 %553(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %.0563.i172410, ptr noundef null, i32 noundef %.0566.i171412, i32 noundef %544, i32 noundef %.2.i170414, ptr noundef %.0569.i, i32 noundef %.0575.i169416, ptr noundef null, i32 noundef %.0567.i, float noundef %573, ptr noundef null, i32 noundef %574) #10
+  %575 = tail call i32 %553(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %.0563.i172410, ptr noundef null, i32 noundef %.0566.i171412, i32 noundef %544, i32 noundef %.2.i170414, ptr noundef %.0569.i, i32 noundef %.0575.i169416, ptr noundef null, i32 noundef %.0567.i, float noundef %573, ptr noundef null, i32 noundef %574) #12
   %576 = ashr i32 %.0570.i, 1
   %577 = select i1 %17, i32 0, i32 %576
   %578 = shl i32 %575, %577
@@ -1063,7 +1063,7 @@ opus_rc_tell_frac.exit:                           ; preds = %362
   %585 = load ptr, ptr %552, align 8, !tbaa !4
   %586 = fmul nsz float %13, %.0587.i
   %587 = select nsz i1 %17, float 1.000000e+00, float %586
-  %588 = tail call i32 %585(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %.0566.i171412, i32 noundef %.0592.i, i32 noundef %.2.i170414, ptr noundef %.0572.i, i32 noundef %.0575.i169416, ptr noundef %.0568.i, i32 noundef %.0567.i, float noundef %587, ptr noundef %14, i32 noundef %.5.i) #10
+  %588 = tail call i32 %585(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %.0566.i171412, i32 noundef %.0592.i, i32 noundef %.2.i170414, ptr noundef %.0572.i, i32 noundef %.0575.i169416, ptr noundef %.0568.i, i32 noundef %.0567.i, float noundef %587, ptr noundef %14, i32 noundef %.5.i) #12
   %589 = or i32 %588, %578
   br label %celt_alg_quant.exit
 
@@ -1169,7 +1169,7 @@ celt_pulses2bits.exit92:                          ; preds = %.lr.ph243
   tail call fastcc void @celt_exp_rotation(ptr noundef %4, i32 noundef %6, i32 noundef %.0570.i, i32 noundef %645, i32 noundef %647, i32 noundef 1)
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   %649 = load ptr, ptr %648, align 16, !tbaa !9
-  %650 = tail call nsz float %649(ptr noundef %4, ptr noundef %0, i32 noundef %645, i32 noundef %6) #10
+  %650 = tail call nsz float %649(ptr noundef %4, ptr noundef %0, i32 noundef %645, i32 noundef %6) #12
   %651 = tail call nsz float @llvm.sqrt.f32(float %650)
   %652 = fdiv nsz float %13, %651
   %.076.i.i.i = add i32 %6, -1
@@ -1235,7 +1235,7 @@ celt_encode_pulses.exit.i:                        ; preds = %.lr.ph.i.i.i, %644
   %692 = getelementptr inbounds nuw i32, ptr %689, i64 %691
   %693 = load i32, ptr %692, align 4, !tbaa !22
   %694 = add i32 %693, %684
-  tail call void @ff_opus_rc_enc_uint(ptr noundef %2, i32 noundef %.063.lcssa.i.i.i, i32 noundef %694) #10
+  tail call void @ff_opus_rc_enc_uint(ptr noundef %2, i32 noundef %.063.lcssa.i.i.i, i32 noundef %694) #12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %695 = icmp sgt i32 %6, 0
@@ -1750,7 +1750,7 @@ define internal i32 @pvq_decode_band(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %21
-  %26 = tail call i32 @ff_opus_rc_get_raw(ptr noundef %2, i32 noundef 1) #10
+  %26 = tail call i32 @ff_opus_rc_get_raw(ptr noundef %2, i32 noundef 1) #12
   %27 = load i32, ptr %20, align 4, !tbaa !12
   %28 = add nsw i32 %27, -8
   store i32 %28, ptr %20, align 4, !tbaa !12
@@ -2201,7 +2201,7 @@ opus_rc_tell_frac.exit19:                         ; preds = %229
 
 242:                                              ; preds = %240
   %243 = lshr i32 %215, 1
-  %244 = tail call i32 @ff_opus_rc_dec_uint_step(ptr noundef nonnull %2, i32 noundef %243) #10
+  %244 = tail call i32 @ff_opus_rc_dec_uint_step(ptr noundef nonnull %2, i32 noundef %243) #12
   br label %252
 
 245:                                              ; preds = %240
@@ -2211,11 +2211,11 @@ opus_rc_tell_frac.exit19:                         ; preds = %229
 
 247:                                              ; preds = %245
   %248 = add nuw nsw i32 %215, 1
-  %249 = tail call i32 @ff_opus_rc_dec_uint(ptr noundef nonnull %2, i32 noundef %248) #10
+  %249 = tail call i32 @ff_opus_rc_dec_uint(ptr noundef nonnull %2, i32 noundef %248) #12
   br label %252
 
 250:                                              ; preds = %245
-  %251 = tail call i32 @ff_opus_rc_dec_uint_tri(ptr noundef nonnull %2, i32 noundef %215) #10
+  %251 = tail call i32 @ff_opus_rc_dec_uint_tri(ptr noundef nonnull %2, i32 noundef %215) #12
   br label %252
 
 252:                                              ; preds = %250, %247, %242
@@ -2238,7 +2238,7 @@ opus_rc_tell_frac.exit19:                         ; preds = %229
   br i1 %261, label %262, label %265
 
 262:                                              ; preds = %258
-  %263 = tail call i32 @ff_opus_rc_dec_log(ptr noundef nonnull %2, i32 noundef 2) #10
+  %263 = tail call i32 @ff_opus_rc_dec_log(ptr noundef nonnull %2, i32 noundef 2) #12
   %264 = icmp eq i32 %263, 0
   br label %265
 
@@ -2442,7 +2442,7 @@ opus_rc_tell_frac.exit:                           ; preds = %283
   br i1 %.not659.i, label %.thread158, label %403
 
 403:                                              ; preds = %394
-  %404 = tail call i32 @ff_opus_rc_get_raw(ptr noundef nonnull %2, i32 noundef 1) #10
+  %404 = tail call i32 @ff_opus_rc_get_raw(ptr noundef nonnull %2, i32 noundef 1) #12
   %405 = shl nsw i32 %404, 1
   br label %.thread158
 
@@ -2452,7 +2452,7 @@ opus_rc_tell_frac.exit:                           ; preds = %283
   %406 = sub nsw i32 1, %.0574.i
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %408 = load ptr, ptr %407, align 8, !tbaa !4
-  %409 = tail call i32 %408(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %401, ptr noundef null, i32 noundef 2, i32 noundef %396, i32 noundef %.2.i145, ptr noundef %.0572.i, i32 noundef %.0575.i144, ptr noundef %11, i32 noundef %12, float noundef %13, ptr noundef %14, i32 noundef %.3579.i143) #10
+  %409 = tail call i32 %408(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %401, ptr noundef null, i32 noundef 2, i32 noundef %396, i32 noundef %.2.i145, ptr noundef %.0572.i, i32 noundef %.0575.i144, ptr noundef %11, i32 noundef %12, float noundef %13, ptr noundef %14, i32 noundef %.3579.i143) #12
   %410 = sitofp i32 %.neg660.i to float
   %411 = getelementptr inbounds nuw i8, ptr %401, i64 4
   %412 = load float, ptr %411, align 4, !tbaa !19
@@ -2546,7 +2546,7 @@ opus_rc_tell_frac.exit:                           ; preds = %283
 465:                                              ; preds = %451
   %466 = fmul nsz float %13, %.0587.i
   %467 = select nsz i1 %17, float 1.000000e+00, float %466
-  %468 = tail call i32 %464(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %.0566.i146, i32 noundef %.0.i22, i32 noundef %.2.i145, ptr noundef %.0572.i, i32 noundef %.0575.i144, ptr noundef %.0568.i, i32 noundef %.0567.i, float noundef %467, ptr noundef %14, i32 noundef %.5.i) #10
+  %468 = tail call i32 %464(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %.0566.i146, i32 noundef %.0.i22, i32 noundef %.2.i145, ptr noundef %.0572.i, i32 noundef %.0575.i144, ptr noundef %.0568.i, i32 noundef %.0567.i, float noundef %467, ptr noundef %14, i32 noundef %.5.i) #12
   %469 = load i32, ptr %456, align 4, !tbaa !12
   %.neg658.i = sub i32 %469, %458
   %470 = add i32 %.neg658.i, %.0.i22
@@ -2559,7 +2559,7 @@ opus_rc_tell_frac.exit:                           ; preds = %283
   %475 = load ptr, ptr %463, align 8, !tbaa !4
   %476 = fmul nsz float %13, %.0588.i
   %477 = ashr i32 %.5.i, %.2.i145
-  %478 = tail call i32 %475(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %.0563.i147, ptr noundef null, i32 noundef %.0566.i146, i32 noundef %.0591.i, i32 noundef %.2.i145, ptr noundef %.0569.i, i32 noundef %.0575.i144, ptr noundef null, i32 noundef %.0567.i, float noundef %476, ptr noundef null, i32 noundef %477) #10
+  %478 = tail call i32 %475(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %.0563.i147, ptr noundef null, i32 noundef %.0566.i146, i32 noundef %.0591.i, i32 noundef %.2.i145, ptr noundef %.0569.i, i32 noundef %.0575.i144, ptr noundef null, i32 noundef %.0567.i, float noundef %476, ptr noundef null, i32 noundef %477) #12
   %479 = ashr i32 %.0570.i, 1
   %480 = select i1 %17, i32 0, i32 %479
   %481 = shl i32 %478, %480
@@ -2569,7 +2569,7 @@ opus_rc_tell_frac.exit:                           ; preds = %283
 483:                                              ; preds = %451
   %484 = fmul nsz float %13, %.0588.i
   %485 = ashr i32 %.5.i, %.2.i145
-  %486 = tail call i32 %464(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %.0563.i147, ptr noundef null, i32 noundef %.0566.i146, i32 noundef %455, i32 noundef %.2.i145, ptr noundef %.0569.i, i32 noundef %.0575.i144, ptr noundef null, i32 noundef %.0567.i, float noundef %484, ptr noundef null, i32 noundef %485) #10
+  %486 = tail call i32 %464(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %.0563.i147, ptr noundef null, i32 noundef %.0566.i146, i32 noundef %455, i32 noundef %.2.i145, ptr noundef %.0569.i, i32 noundef %.0575.i144, ptr noundef null, i32 noundef %.0567.i, float noundef %484, ptr noundef null, i32 noundef %485) #12
   %487 = ashr i32 %.0570.i, 1
   %488 = select i1 %17, i32 0, i32 %487
   %489 = shl i32 %486, %488
@@ -2585,7 +2585,7 @@ opus_rc_tell_frac.exit:                           ; preds = %283
   %496 = load ptr, ptr %463, align 8, !tbaa !4
   %497 = fmul nsz float %13, %.0587.i
   %498 = select nsz i1 %17, float 1.000000e+00, float %497
-  %499 = tail call i32 %496(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %.0566.i146, i32 noundef %.0592.i, i32 noundef %.2.i145, ptr noundef %.0572.i, i32 noundef %.0575.i144, ptr noundef %.0568.i, i32 noundef %.0567.i, float noundef %498, ptr noundef %14, i32 noundef %.5.i) #10
+  %499 = tail call i32 %496(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef null, i32 noundef %.0566.i146, i32 noundef %.0592.i, i32 noundef %.2.i145, ptr noundef %.0572.i, i32 noundef %.0575.i144, ptr noundef %.0568.i, i32 noundef %.0567.i, float noundef %498, ptr noundef %14, i32 noundef %.5.i) #12
   %500 = or i32 %499, %489
   br label %celt_alg_unquant.exit
 
@@ -2706,7 +2706,7 @@ celt_pulses2bits.exit68:                          ; preds = %.lr.ph215
   %574 = getelementptr inbounds nuw i32, ptr %571, i64 %573
   %575 = load i32, ptr %574, align 4, !tbaa !22
   %576 = add i32 %575, %566
-  %577 = tail call i32 @ff_opus_rc_dec_uint(ptr noundef %2, i32 noundef %576) #10
+  %577 = tail call i32 @ff_opus_rc_dec_uint(ptr noundef %2, i32 noundef %576) #12
   %578 = icmp ugt i32 %6, 2
   br i1 %578, label %.lr.ph.preheader.i.i.i, label %celt_decode_pulses.exit.i
 
@@ -3577,7 +3577,7 @@ define internal float @ppp_pvq_search_c(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: cold nounwind optsize uwtable
 define void @ff_celt_pvq_uninit(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @av_freep(ptr noundef %0) #10
+  tail call void @av_freep(ptr noundef %0) #12
   ret void
 }
 
@@ -3587,7 +3587,7 @@ declare void @ff_opus_rc_put_raw(ptr noundef, i32 noundef, i32 noundef) local_un
 
 declare i32 @ff_opus_rc_get_raw(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 declare void @ff_opus_rc_enc_uint_step(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -3609,20 +3609,20 @@ declare i32 @ff_opus_rc_dec_log(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.atan2.f32(float, float) #4
+declare float @llvm.atan2.f32(float, float) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.lrint.i64.f32(float) #4
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @celt_exp_rotation(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #7 {
+define internal fastcc void @celt_exp_rotation(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #8 {
   %7 = shl i32 %3, 1
   %8 = icmp uge i32 %7, %1
   %9 = icmp eq i32 %4, 0
@@ -4017,44 +4017,46 @@ celt_exp_rotation_impl.exit71:                    ; preds = %165, %._crit_edge.i
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.cos.f32(float) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sin.f32(float) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { nounwind }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -47,7 +47,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
   br i1 %8, label %15, label %10
 
 9:                                                ; preds = %5
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h5e9dd78f70220ca8E(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #13
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h5e9dd78f70220ca8E(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #14
   unreachable
 
 10:                                               ; preds = %7
@@ -58,7 +58,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
   ret { ptr, i64 } %14
 
 15:                                               ; preds = %7
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef %1, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #13
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef %1, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #14
   unreachable
 }
 
@@ -75,7 +75,7 @@ define hidden { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$
   ret { ptr, i64 } %10
 
 11:                                               ; preds = %4
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h559b8f6dc3428c29E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #13
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h559b8f6dc3428c29E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #14
   unreachable
 }
 
@@ -1733,7 +1733,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br label %12
 
 80:                                               ; preds = %10
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.ac126eff600bc81a71c3caf3aa4ad48d.4, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.6) #13
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.ac126eff600bc81a71c3caf3aa4ad48d.4, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.6) #14
   unreachable
 }
 
@@ -2015,7 +2015,7 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i: 
   br label %12
 
 135:                                              ; preds = %10
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.ac126eff600bc81a71c3caf3aa4ad48d.4, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.7) #13
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.ac126eff600bc81a71c3caf3aa4ad48d.4, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.7) #14
   unreachable
 }
 
@@ -2045,7 +2045,7 @@ define { i32, i32 } @_ZN9softposit5p32e24math5sleef7sin_cos17h26098b81853a2de8E(
   ret { i32, i32 } %15
 
 16:                                               ; preds = %11
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.ac126eff600bc81a71c3caf3aa4ad48d.4, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.8) #13
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.ac126eff600bc81a71c3caf3aa4ad48d.4, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.8) #14
   unreachable
 
 17:                                               ; preds = %11
@@ -2388,7 +2388,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br i1 %.0.i, label %75, label %88
 
 74:                                               ; preds = %7
-  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.ac126eff600bc81a71c3caf3aa4ad48d.4, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.9) #13
+  tail call void @_ZN4core9panicking5panic17h8ddd58dc57c2dc00E(ptr noalias noundef nonnull readonly align 1 @anon.ac126eff600bc81a71c3caf3aa4ad48d.4, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.9) #14
   unreachable
 
 75:                                               ; preds = %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$3$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h5d80efe7337d000fE.exit"
@@ -3650,7 +3650,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07
   ret i32 %13
 
 14:                                               ; preds = %5
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 1, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.14) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 1, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.14) #14
   unreachable
 }
 
@@ -3681,7 +3681,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720
   ret i32 %16
 
 17:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 2, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.16) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 2, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.16) #14
   unreachable
 }
 
@@ -3712,7 +3712,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a1965
   ret i32 %16
 
 17:                                               ; preds = %6
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 2, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.19) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 2, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.19) #14
   unreachable
 }
 
@@ -3746,7 +3746,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f
   ret i32 %19
 
 20:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #14
   unreachable
 }
 
@@ -3780,7 +3780,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced2
   ret i32 %19
 
 20:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.26) #13
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.26) #14
   unreachable
 }
 
@@ -3794,7 +3794,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8
   br i1 %11, label %12, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
 
 12:                                               ; preds = %6
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 2, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.30.llvm.10961338582784087609) #13, !noalias !235
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 2, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.30.llvm.10961338582784087609) #14, !noalias !235
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit": ; preds = %6
@@ -3820,7 +3820,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8
   br i1 %18, label %_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609.exit, label %19, !prof !222
 
 19:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 2, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.19) #13, !noalias !244
+  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 2, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.19) #14, !noalias !244
   unreachable
 
 _ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.10961338582784087609.exit: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
@@ -3852,7 +3852,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3
   br i1 %12, label %13, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
 
 13:                                               ; preds = %7
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 3, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.34.llvm.10961338582784087609) #13, !noalias !250
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 3, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.34.llvm.10961338582784087609) #14, !noalias !250
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit": ; preds = %7
@@ -3881,7 +3881,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3
   br i1 %21, label %_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit, label %22, !prof !222
 
 22:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #13, !noalias !259
+  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #14, !noalias !259
   unreachable
 
 _ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
@@ -3916,7 +3916,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly8k17hefd6015b8a1a
   br i1 %12, label %13, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
 
 13:                                               ; preds = %7
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.36.llvm.10961338582784087609) #13, !noalias !265
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9965f4285b8d5d41E(i64 noundef 4, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.36.llvm.10961338582784087609) #14, !noalias !265
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit": ; preds = %7
@@ -3948,7 +3948,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly8k17hefd6015b8a1a
   br i1 %23, label %_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit, label %24, !prof !222
 
 24:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
-  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #13, !noalias !274
+  call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef 3, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac126eff600bc81a71c3caf3aa4ad48d.22) #14, !noalias !274
   unreachable
 
 _ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.10961338582784087609.exit: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdf1e7444d11dea39E.llvm.10961338582784087609.exit"
@@ -4189,11 +4189,11 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -4208,7 +4208,8 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { noreturn }
+attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}
